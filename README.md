@@ -38,7 +38,7 @@ Without a shared runtime, every new AI project rebuilds the same infrastructure:
 
 ### Bring-your-own-key (BYOK) execution
 
-The platform is **stateless with respect to API keys**. Every LLM-calling route requires an `X-API-Key: <google_api_key>` header. `BYOKMiddleware` (pure ASGI, innermost in the chain) binds this value to a `ContextVar` for the duration of each request; `get_effective_api_key()` retrieves it anywhere in the call stack without argument threading. The key is never logged, stored, or echoed in responses. Routes that don't invoke an LLM (`/health`, `/projects`, `/auth/*`, `/metrics`, `/history`, `/session/*`, `/shared/*`) are exempt.
+The platform is **stateless with respect to API keys**. Every LLM-calling route requires an `X-API-Key: <google_api_key>` header. `BYOKMiddleware` (pure ASGI, innermost in the chain) binds this value to a `ContextVar` for the duration of each request; `get_effective_api_key()` retrieves it anywhere in the call stack without argument threading. The key is never logged, stored, or echoed in responses. Routes that don't invoke an LLM (`/health`, `/projects`, `/auth/*`, `/metrics`, `/history`, `/session/*`, `/shared/*`, `/leaderboard`) are exempt.
 
 ### Authentication
 
@@ -104,7 +104,7 @@ Every execution is written to SQLite (`.data/genai_systems_lab.db`) with: projec
 
 - Benchmark datasets are registered per project in `shared/eval/benchmarks.py` (15 of 20 projects; the 5 CrewAI projects have none).
 - `POST /eval/{project}` runs the benchmark suite and returns per-case pass/fail, accuracy, and latency percentiles (mean, p50, p95, p99). Requires `X-API-Key`.
-- `GET /leaderboard` runs all registered benchmarks live and ranks projects by $\text{score} = \text{accuracy} / \text{mean\_latency\_ms}$. Requires `X-API-Key`.
+- `GET /leaderboard` runs all registered benchmarks live and ranks projects by $\text{score} = \text{accuracy} / \text{mean\_latency\_ms}$. Public — no API key required.
 
 ### In-memory metrics
 
@@ -116,7 +116,7 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 
 | Layer | Technology | Version |
 |---|---|---|
-| LLM | Google Gemini via `google-genai` | 1.69.0 |
+| LLM | Google Gemini via `google-genai` | 1.68.0 |
 | LLM models | `gemini-3-flash-preview` (dev), `gemini-3.1-pro-preview` (prod) | — |
 | Backend | Python, FastAPI, Uvicorn | 3.13 |
 | ORM / DB | SQLAlchemy + SQLite | 2.0.48 |
@@ -132,6 +132,7 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 
 ### LLM wrapper internals (`shared/llm/gemini.py`)
 
+- **Client caching**: `genai.Client` instances are cached per API key in a thread-safe dict, preventing httpx connection-pool exhaustion across concurrent and sequential requests.
 - **Retry**: 3 attempts with exponential backoff (1 s → 2 s → 4 s). Retries on `ServerError`, HTTP 429, and generic `APIError`.
 - **Timeout**: 120 seconds per attempt.
 - **Model fallback**: `gemini-3.1-pro-preview` → `gemini-3-flash-preview` on generation or timeout failure.
@@ -488,7 +489,7 @@ curl -X POST http://localhost:8000/auth/login \
 
 #### Batch execution
 
-All execution routes require `Authorization: Bearer <jwt>` and `X-API-Key: <google_api_key>`:
+Execution routes require `X-API-Key: <google_api_key>`. Authentication is optional — guest users can run projects without signing in (history and session memory are skipped for guests):
 
 ```bash
 curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
@@ -619,9 +620,10 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull
 python -m pytest langgraph-data-analyst/tests -v
 python -m pytest crew-startup-simulator/tests/test_all.py -v
 python -m pytest lg-research-agent/tests/test_main.py -v
+python -m pytest tests/test_shared_api_app.py -v
 ```
 
-Only 3 of 20 projects are covered in CI.
+CI covers 3 project test suites plus the shared API platform tests (guest execution, streaming contracts, BYOK, session memory, metrics, public leaderboard, and sharing).
 
 ### Frontend build
 
@@ -640,11 +642,11 @@ npm run build
 | `GET` | `/projects` | — | List all auto-discovered projects |
 | `POST` | `/auth/signup` | — | Create account; returns JWT + user |
 | `POST` | `/auth/login` | — | Authenticate; returns JWT + user |
-| `POST` | `/{project}/run` | JWT + API key | Batch execution with full response |
-| `GET` | `/stream/{project}` | JWT + API key | SSE streaming execution |
+| `POST` | `/{project}/run` | API key (JWT optional) | Batch execution with full response |
+| `GET` | `/stream/{project}` | API key (JWT optional) | SSE streaming execution |
 | `GET` | `/metrics` | — | Live in-memory aggregate metrics |
 | `GET` | `/metrics/time` | — | Historical time-series (`?project=&range=hour\|day\|week`) |
-| `GET` | `/leaderboard` | API key† | Live benchmark ranking |
+| `GET` | `/leaderboard` | — | Live benchmark ranking |
 | `GET` | `/history` | JWT | Authenticated user's run history |
 | `GET` | `/session/{id}` | JWT | Session memory preview (last 5 entries) |
 | `POST` | `/session/{id}/clear` | JWT | Clear session memory |
@@ -654,7 +656,7 @@ npm run build
 | `GET` | `/shared/{token}` | — | View a public shared run |
 | `POST` | `/eval/{project}` | API key | Run benchmark suite for a project |
 
-† `/leaderboard` requires `X-API-Key` because benchmark execution still needs a bound BYOK credential.
+Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key`. Authentication via JWT is optional for `run` and `stream` — unauthenticated (guest) requests skip history and session memory.
 
 ---
 
@@ -670,7 +672,7 @@ npm run build
 | CrewAI benchmarks | No benchmark datasets registered for any of the 5 CrewAI projects |
 | Live leaderboard | Benchmark suites execute on every `/leaderboard` request; no cached results |
 | Persistence | SQLite — appropriate for local and demo use, not production-grade |
-| BYOK only | `GOOGLE_API_KEY` in `.env` is not used at runtime; all execution paths require the `X-API-Key` header |
+| BYOK only | `GOOGLE_API_KEY` in `.env` is not used at runtime; all LLM execution paths require the `X-API-Key` header. Leaderboard and metrics are public. |
 
 ### Planned improvements
 
