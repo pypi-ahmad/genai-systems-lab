@@ -90,8 +90,8 @@ $$\text{confidence} = 0.4 \times \text{evaluator} + 0.3 \times \text{execution} 
 |---|---|---|
 | Evaluator score | 0.4 | Extracted from output fields matching known score keys (`confidence`, `accuracy`, `score`, `quality_score`, etc.) or inferred from output structure |
 | Execution success | 0.3 | `1.0` if run succeeded, `0.0` otherwise |
-| Consistency score | 0.2 | $1 / (1 + \text{retries})$, inferred from `retry_count`/`retries` in output or timeline entries |
-| Latency score | 0.1 | $5000 / (5000 + \text{latency{\textunderscore}ms})$ |
+| Consistency score | 0.2 | `1 / (1 + retries)`, inferred from `retry_count`/`retries` in output or timeline entries |
+| Latency score | 0.1 | `5000 / (5000 + latency_ms)` |
 
 ### Session memory
 
@@ -113,7 +113,7 @@ Every execution is written to SQLite (`.data/genai_systems_lab.db`) with: projec
 
 - Benchmark datasets are registered per project in `shared/eval/benchmarks.py` (15 of 20 projects; the 5 CrewAI projects have none).
 - `POST /eval/{project}` runs the benchmark suite and returns per-case pass/fail, accuracy, and latency percentiles (mean, p50, p95, p99). Requires `X-API-Key`.
-- `GET /leaderboard` runs all registered benchmarks live and ranks projects by $\text{score} = \text{accuracy} \;/\; \text{mean{\textunderscore}latency{\textunderscore}ms}$. Public — no API key required.
+- `GET /leaderboard` runs all registered benchmarks live and ranks projects by `score = accuracy / mean_latency_ms`. Public — no API key required.
 
 ### In-memory metrics
 
