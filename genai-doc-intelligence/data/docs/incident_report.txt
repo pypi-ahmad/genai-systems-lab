@@ -1,0 +1,23 @@
+Incident Report: IR-2026-009
+Date Opened: March 22, 2026
+Severity: High
+System: Customer Insights API
+
+Summary:
+Between 09:14 and 10:02 UTC, the Customer Insights API returned intermittent 502 errors for dashboard requests routed through the primary gateway.
+
+Customer impact:
+- Approximately 18% of dashboard loads failed during the incident window.
+- Finance and merchandising teams were unable to refresh daily sales metrics.
+
+Root cause:
+- A configuration rollout introduced an incompatible timeout setting between the gateway and the downstream scoring service.
+
+Mitigation:
+- On-call engineering reverted the gateway configuration at 09:47 UTC.
+- A temporary alert was added for elevated 5xx rates.
+
+Follow-up actions:
+- Add pre-deployment config validation for timeout mismatches.
+- Update the service runbook with gateway rollback steps.
+- Review whether staging traffic should include long-running analytics requests.

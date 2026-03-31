@@ -1,0 +1,10 @@
+google-genai==1.69.0
+gradio==6.10.0
+pillow==12.1.1
+python-dotenv==1.2.2
+pydantic==2.12.5
+duckdb==1.5.1
+sqlalchemy==2.0.48
+pandas==3.0.1
+rich==14.3.3
+numpy==2.3.3

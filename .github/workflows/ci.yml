@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test-and-evaluate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r langgraph-data-analyst/requirements.txt
+          pip install pytest fastapi uvicorn httpx sqlalchemy
+
+      - name: Run tests
+        run: |
+          python -m pytest langgraph-data-analyst/tests -v
+          python -m pytest crew-startup-simulator/tests/test_all.py -v
+          python -m pytest lg-research-agent/tests/test_main.py -v
+          python -m pytest tests/test_shared_api_app.py -v
+
+      - name: Run evaluation
+        if: ${{ env.GOOGLE_API_KEY != '' }}
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          python - <<'PY'
+          import importlib.util, os
+          from pathlib import Path
+
+          path = Path("genai-research-system/eval.py")
+          spec = importlib.util.spec_from_file_location("genai_research_eval", path)
+          module = importlib.util.module_from_spec(spec)
+          assert spec.loader is not None
+          spec.loader.exec_module(module)
+          module.run_project_eval_with_api_key(os.environ["GOOGLE_API_KEY"])
+          PY
