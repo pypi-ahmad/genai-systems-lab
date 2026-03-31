@@ -1,0 +1,19 @@
+Invoice Number: INV-2026-0417
+Invoice Date: April 3, 2026
+Vendor: Orion Data Systems
+Bill To: Meridian Retail Group
+
+Line Items:
+1. Managed analytics platform support for March 2026 - $18,500.00
+2. After-hours incident response retainer - $2,750.00
+3. Cloud cost pass-through for production workloads - $6,420.35
+
+Subtotal: $27,670.35
+Tax: $0.00
+Total Due: $27,670.35
+Payment Terms: Net 30
+Due Date: May 3, 2026
+
+Notes:
+Please reference contract MSA-MRG-ODS-2026 in the remittance advice.
+Late balances accrue interest at 1.5% per month.

@@ -1,0 +1,13 @@
+Vendor evaluation notes for knowledge tooling shortlist.
+
+Northstar Search offers fast semantic retrieval and built-in reranking, but pricing rises sharply once document volume exceeds ten million tokens.
+
+Atlas Graph Studio is weaker on search UX but strong at entity linking, relationship traversal, and permission-aware metadata. It may fit compliance-heavy use cases better than general research workflows.
+
+In-house vector search remains cheapest and easiest to customize. The tradeoff is that we need our own observability, indexing jobs, freshness checks, and evaluation harness.
+
+Decision criteria for the next review:
+- citation quality under ambiguous questions
+- ingestion reliability for markdown, text, and policy documents
+- access control by team and project
+- cost per thousand queries under mixed workloads

@@ -1,0 +1,9 @@
+date,region,revenue,units,category
+2024-01-15,North,1200,10,Electronics
+2024-02-20,South,800,5,Clothing
+2024-03-10,North,1500,12,Electronics
+2024-04-05,East,,8,Furniture
+2024-05-18,South,950,6,Clothing
+2024-06-22,West,2100,15,Electronics
+2024-07-30,North,1100,9,Furniture
+2024-08-12,East,700,4,Clothing
