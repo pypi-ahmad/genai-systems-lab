@@ -7,6 +7,15 @@
 [![CI](https://github.com/pypi-ahmad/genai-systems-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/pypi-ahmad/genai-systems-lab/actions/workflows/ci.yml)
 [![Python 3.13](https://img.shields.io/badge/python-3.13-3776ab.svg)](https://www.python.org/downloads/)
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-000000.svg)](https://nextjs.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2.svg?logo=googlegemini&logoColor=white)](https://ai.google.dev/)
+[![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C.svg?logo=langchain&logoColor=white)](https://langchain-ai.github.io/langgraph/)
+[![CrewAI](https://img.shields.io/badge/CrewAI-FF5A50.svg)](https://www.crewai.com/)
+[![React 19](https://img.shields.io/badge/React-19-61dafb.svg?logo=react&logoColor=white)](https://react.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-06b6d4.svg?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-3178c6.svg?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-003B57.svg?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Docker](https://img.shields.io/badge/Docker-2496ed.svg?logo=docker&logoColor=white)](https://www.docker.com/)
 
 [Overview](#overview) · [Features](#core-features) · [Architecture](#architecture) · [Projects](#project-catalog) · [Setup](#setup-and-installation) · [Usage](#usage) · [API](#api-reference) · [Limitations](#limitations-and-future-improvements)
 
