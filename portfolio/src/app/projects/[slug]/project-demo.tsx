@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { fetchCurrentUser, getApiUrl, runProject } from "@/lib/api";
 import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
-import { getStoredAuthToken, storeAuthToken } from "@/lib/auth";
+import { getStoredAuthSession, storeAuthSession } from "@/lib/auth";
 
 interface ProjectDemoProps {
   apiEndpoint: string;
@@ -36,7 +36,7 @@ export default function ProjectDemo({
   const [status, setStatus] = useState<"idle" | "running" | "success" | "error">("idle");
   const [result, setResult] = useState<string>("");
   const [input, setInput] = useState(exampleInput);
-  const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthToken());
+  const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthSession());
   const [apiKey, setApiKey] = useState(() => getStoredApiKey());
   const projectName = projectApiName(apiEndpoint);
 
@@ -51,8 +51,8 @@ export default function ProjectDemo({
         if (cancelled || !user) {
           return;
         }
-        storeAuthToken("");
-        setAuthToken(getStoredAuthToken());
+        storeAuthSession();
+        setAuthToken(getStoredAuthSession());
       })
       .catch(() => undefined);
 

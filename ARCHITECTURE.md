@@ -1,6 +1,6 @@
 # System Architecture
 
-This repository is organized as a platform: a shared UI and API surface routes work into project modules, while common runtime services live in a reusable shared layer.
+This repository is organized as a platform: a portfolio frontend and shared API surface route work into project modules, while common runtime services live in a reusable shared layer.
 
 ## High-Level Flow
 

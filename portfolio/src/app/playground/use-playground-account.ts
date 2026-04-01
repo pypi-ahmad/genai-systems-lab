@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { clearRunSession, fetchCurrentUser, fetchHistory, fetchRunSession } from "@/lib/api";
 import type { HistoryRun } from "@/lib/api";
-import { clearAuthToken, getStoredAuthToken, storeAuthToken } from "@/lib/auth";
+import { clearAuthSession, getStoredAuthSession, storeAuthSession } from "@/lib/auth";
 import { clearStoredSessionId, getStoredSessionId, storeSessionId } from "@/lib/session";
 import { isRunMemoryEntry, isRunTimelineEntry } from "./playground-utils";
 
@@ -65,7 +65,7 @@ export function usePlaygroundAccount() {
       const message = error instanceof Error ? error.message : "Failed to load history.";
       setHistoryError(message);
       if (message.startsWith("401")) {
-        clearAuthToken();
+        clearAuthSession();
         setAuthToken(null);
         setHistoryRuns([]);
         clearLocalSession();
@@ -96,15 +96,15 @@ export function usePlaygroundAccount() {
     let cancelled = false;
 
     async function hydrateAuthState() {
-      let token = getStoredAuthToken();
+      let token = getStoredAuthSession();
 
       if (!token) {
         const currentUser = await fetchCurrentUser().catch(() => null);
         if (currentUser) {
-          storeAuthToken("");
-          token = getStoredAuthToken();
+          storeAuthSession();
+          token = getStoredAuthSession();
         } else {
-          clearAuthToken();
+          clearAuthSession();
         }
       }
 
