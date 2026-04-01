@@ -1,0 +1,7 @@
+[project]
+name = "genai-systems-lab"
+version = "1.0.0"
+requires-python = ">=3.13"
+
+[project.scripts]
+app = "shared.api.app:app"
