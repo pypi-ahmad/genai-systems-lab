@@ -11,6 +11,7 @@ from shared.project_catalog import (
     load_project_catalog,
     project_api_name,
 )
+from shared.api.runner import resolve_project_name
 
 
 def test_catalog_json_is_valid_and_non_empty():
@@ -64,3 +65,15 @@ def test_catalog_entries_have_consistent_api_endpoints():
         api = project_api_name(entry.apiEndpoint)
         assert api, f"{entry.slug} has empty apiEndpoint"
         assert "/" not in api, f"{entry.slug} apiEndpoint not fully stripped: {api}"
+
+
+def test_legacy_project_api_names_still_resolve():
+    assert resolve_project_name("clinical-decision-support") == "genai-clinical-assistant"
+    assert resolve_project_name("codebase-copilot") == "genai-code-copilot"
+    assert resolve_project_name("data-analysis-agent") == "lg-data-agent"
+    assert resolve_project_name("document-intelligence") == "genai-doc-intelligence"
+    assert resolve_project_name("financial-analyst-agent") == "genai-financial-analyst"
+    assert resolve_project_name("ai-interviewer") == "genai-interviewer"
+    assert resolve_project_name("generative-ui-builder") == "genai-ui-builder"
+    assert resolve_project_name("product-launch-crew") == "crew-product-launch"
+    assert resolve_project_name("research-graph") == "lg-research-agent"
