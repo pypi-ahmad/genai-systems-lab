@@ -7,6 +7,7 @@ import hashlib
 import hmac
 import json
 import os
+import logging
 import secrets
 import time
 from typing import Any
@@ -22,9 +23,10 @@ from .models import Run, User
 JWT_ALGORITHM = "HS256"
 AUTH_COOKIE_NAME = os.getenv("GENAI_SYSTEMS_LAB_AUTH_COOKIE_NAME", "genai_systems_lab_session")
 _DEFAULT_JWT_TTL_SECONDS = 60 * 60 * 24 * 7
-_INSECURE_DEV_JWT_SECRET = "dev-secret-change-me"
 _EPHEMERAL_DEV_JWT_SECRET = secrets.token_urlsafe(48)
 PBKDF2_ITERATIONS = 310_000
+
+_auth_logger = logging.getLogger(__name__)
 
 auth_scheme = HTTPBearer(auto_error=False)
 _VALID_MEMORY_TYPES = {"thought", "action", "observation"}
@@ -47,7 +49,11 @@ def _load_jwt_secret() -> str:
     configured_secret = os.getenv("GENAI_SYSTEMS_LAB_JWT_SECRET", "").strip()
     environment = os.getenv("APP_ENV", "dev").strip().lower()
 
-    if configured_secret and configured_secret != _INSECURE_DEV_JWT_SECRET:
+    if configured_secret:
+        if len(configured_secret) < 16:
+            raise RuntimeError(
+                "GENAI_SYSTEMS_LAB_JWT_SECRET is too short (minimum 16 characters)."
+            )
         return configured_secret
 
     if environment == "prod":
@@ -55,6 +61,11 @@ def _load_jwt_secret() -> str:
             "GENAI_SYSTEMS_LAB_JWT_SECRET must be set to a strong value when APP_ENV=prod."
         )
 
+    _auth_logger.warning(
+        "No GENAI_SYSTEMS_LAB_JWT_SECRET configured — using an ephemeral secret. "
+        "Auth tokens will not survive process restarts. "
+        "Set GENAI_SYSTEMS_LAB_JWT_SECRET in .env for persistent sessions."
+    )
     return _EPHEMERAL_DEV_JWT_SECRET
 
 
