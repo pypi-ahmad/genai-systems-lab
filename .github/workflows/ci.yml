@@ -31,8 +31,7 @@ jobs:
           python -m pytest langgraph-data-analyst/tests -v
           python -m pytest crew-startup-simulator/tests/test_all.py -v
           python -m pytest lg-research-agent/tests/test_main.py -v
-          python -m pytest tests/test_shared_api_app.py -v
-          python -m pytest tests/test_project_catalog.py -v
+          python -m pytest tests/ -v
 
       - name: Run evaluation
         if: ${{ env.GOOGLE_API_KEY != '' }}

@@ -11,7 +11,11 @@ from shared.project_catalog import (
     load_project_catalog,
     project_api_name,
 )
-from shared.api.runner import resolve_project_name
+from shared.api.runner import (
+    LEGACY_PROJECT_API_NAMES,
+    _project_aliases,
+    resolve_project_name,
+)
 
 
 def test_catalog_json_is_valid_and_non_empty():
@@ -77,3 +81,42 @@ def test_legacy_project_api_names_still_resolve():
     assert resolve_project_name("generative-ui-builder") == "genai-ui-builder"
     assert resolve_project_name("product-launch-crew") == "crew-product-launch"
     assert resolve_project_name("research-graph") == "lg-research-agent"
+
+
+def test_catalog_aliases_cover_every_api_endpoint():
+    """Every catalog entry's apiEndpoint must produce an alias in _project_aliases()."""
+    aliases = _project_aliases()
+    for entry in load_project_catalog():
+        api_name = project_api_name(entry.apiEndpoint)
+        assert api_name in aliases, f"Catalog entry {entry.slug} api name '{api_name}' missing from aliases"
+        assert aliases[api_name] == entry.slug
+
+
+def test_no_duplicate_alias_keys():
+    """Two catalog entries must not produce the same alias key."""
+    seen: dict[str, str] = {}
+    for entry in load_project_catalog():
+        api_name = project_api_name(entry.apiEndpoint)
+        assert api_name not in seen, (
+            f"Alias '{api_name}' maps to both '{seen[api_name]}' and '{entry.slug}'"
+        )
+        seen[api_name] = entry.slug
+
+
+def test_legacy_names_all_map_to_valid_current_api_names():
+    """Every LEGACY_PROJECT_API_NAMES value must exist as a catalog-derived alias."""
+    aliases = _project_aliases()
+    # Exclude legacy names themselves — just check the *target* api names exist.
+    catalog_api_names = {
+        project_api_name(entry.apiEndpoint)
+        for entry in load_project_catalog()
+    }
+    for legacy_name, current_api_name in LEGACY_PROJECT_API_NAMES.items():
+        assert current_api_name in catalog_api_names, (
+            f"Legacy alias '{legacy_name}' targets '{current_api_name}' "
+            f"which is not a current catalog API name"
+        )
+        # And the legacy name itself must resolve through the full alias chain.
+        assert legacy_name in aliases, (
+            f"Legacy name '{legacy_name}' not present in alias dict"
+        )

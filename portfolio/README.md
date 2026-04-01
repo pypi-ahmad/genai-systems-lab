@@ -135,10 +135,13 @@ portfolio/
 │   │   ├── globals.css             # Design system: 100+ CSS variables, surfaces, buttons
 │   │   ├── theme-provider.tsx      # next-themes wrapper
 │   │   ├── playground/
-│   │   │   ├── page.tsx            # Playground route (metadata)
+│   │   │   ├── page.tsx                   # Playground route (metadata)
 │   │   │   ├── playground-client.tsx      # Main playground orchestrator
 │   │   │   ├── playground-sidebar.tsx     # Input, account, and history sidebar
+│   │   │   ├── playground-widgets.tsx     # Extracted presentational components
 │   │   │   ├── playground-utils.ts        # Pure replay/status/memory helpers
+│   │   │   ├── playground-utils.test.ts   # Unit tests for playground utilities
+│   │   │   ├── use-playground-run.ts      # Run execution and SSE streaming hook
 │   │   │   └── use-playground-account.ts  # Auth, session, and history hook
 │   │   ├── projects/
 │   │   │   ├── page.tsx            # Project listing with category filter
@@ -290,14 +293,14 @@ Navigate to **Metrics** → select a project and time range → view latency, co
 
 - **No Next.js route middleware auth** — browser auth relies on the backend's HttpOnly session cookie and API keys live only in client memory; Next.js routes themselves do not independently enforce auth
 - **No SSR for dynamic pages** — the playground and metrics pages are fully client-rendered; initial paint shows loading states
-- **No test suite** — no unit or integration tests exist for the frontend
+- **Minimal test suite** — focused unit tests exist for pure playground utility logic (`npm run test`); no component or integration tests yet
 - **No mobile navigation** — the nav bar renders all links in a horizontal row without a responsive hamburger menu
 - **Build-time catalog sync** — the frontend ships a static project manifest for reliability; changes to project definitions still require updating `src/data/project-catalog.json`
 
 ### Planned
 
-- Environment-configurable API base URL
 - Responsive mobile navigation
+- Component-level tests for key interactive surfaces
 - Client-side route guards based on auth state
 - End-to-end tests with Playwright
 - Dynamic project discovery from the backend API

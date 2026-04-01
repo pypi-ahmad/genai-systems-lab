@@ -392,3 +392,38 @@ def test_cors_allows_local_frontend_origin_only(client: TestClient) -> None:
         },
     )
     assert blocked.headers.get("access-control-allow-origin") is None
+
+
+# ---------- Removed-surface guardrails ----------
+
+
+def _route_paths(client: TestClient) -> set[str]:
+    return {
+        path
+        for route in client.app.routes
+        if isinstance((path := getattr(route, "path", None)), str)
+    }
+
+
+def test_leaderboard_route_is_gone(client: TestClient) -> None:
+    """Leaderboard feature was removed entirely — no dedicated route should exist."""
+    assert "/leaderboard" not in _route_paths(client)
+
+
+def test_no_streamlit_routes(client: TestClient) -> None:
+    """Streamlit UI surface was removed — no route prefix should exist."""
+    route_paths = _route_paths(client)
+    assert all(not path.startswith("/streamlit") for path in route_paths)
+    assert all(not path.startswith("/_stcore") for path in route_paths)
+
+
+# ---------- Auth config contract ----------
+
+
+def test_auth_config_exposes_signup_flag(client: TestClient) -> None:
+    """The /auth/config endpoint must exist and return a public_signup boolean."""
+    response = client.get("/auth/config")
+    assert response.status_code == 200
+    payload = response.json()
+    assert "public_signup" in payload
+    assert isinstance(payload["public_signup"], bool)
