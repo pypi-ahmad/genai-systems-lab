@@ -35,7 +35,7 @@ The three paradigms:
 | **LangGraph** | Typed state machine with `graph.invoke()` and conditional edges | Iterative debugging, workflow planning, support routing |
 | **CrewAI** | Role-based agent team with `crew.kickoff()` and sequential handoff | Content pipelines, hiring evaluation, investment analysis |
 
-All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT authentication, request validation and sanitization, per-request API key binding via `ContextVar`, synchronous and SSE streaming execution, SQLite persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
+All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT plus HttpOnly-cookie authentication, request validation and sanitization, per-request API key binding via `ContextVar`, synchronous and SSE streaming execution, configurable persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
 
 ### Why this design
 
@@ -47,13 +47,25 @@ Without a shared runtime, every new AI project rebuilds the same infrastructure:
 
 ### Bring-your-own-key (BYOK) execution
 
-The platform is **stateless with respect to API keys**. Every LLM-calling route requires an `X-API-Key: <google_api_key>` header. `BYOKMiddleware` (pure ASGI, innermost in the chain) binds this value to a `ContextVar` for the duration of each request; `get_effective_api_key()` retrieves it anywhere in the call stack without argument threading. The key is never logged, stored, or echoed in responses. Routes that don't invoke an LLM (`/health`, `/projects`, `/auth/*`, `/metrics`, `/history`, `/session/*`, `/shared/*`, `/leaderboard`) are exempt.
+The platform is **stateless with respect to API keys**. Every LLM-calling route requires an `X-API-Key: <google_api_key>` header. `BYOKMiddleware` (pure ASGI) binds this value to a `ContextVar` for the duration of each request; `get_effective_api_key()` retrieves it anywhere in the call stack without argument threading. The key is never logged, stored, or echoed in responses. Routes that don't invoke an LLM (`/health`, `/projects`, `/auth/*`, `/metrics`, `/history`, `/session/*`, `/shared/*`) are exempt.
 
 ### Authentication
 
-- **JWT**: Custom HS256 implementation (no third-party JWT library). Tokens carry `{sub, email, iat, exp}` with a 7-day TTL.
+- **JWT**: Custom HS256 implementation (no third-party JWT library). Tokens carry `{sub, email, iat, exp}` with a 7-day TTL. `GENAI_SYSTEMS_LAB_JWT_SECRET` is required in production; local development falls back to an ephemeral per-process secret instead of a shared hard-coded value.
+- **Browser sessions**: `/auth/signup` and `/auth/login` also set an HttpOnly session cookie so the Next.js frontend no longer persists raw JWTs in browser storage.
 - **Password hashing**: PBKDF2-HMAC-SHA256 with 310,000 iterations and a 16-byte random salt. Verification uses `hmac.compare_digest()` to prevent timing attacks.
-- Execution, history, session, sharing, and explainability routes require `Authorization: Bearer <token>`.
+- **Signup posture**: Public signup remains enabled in local development and defaults off when `APP_ENV=prod` unless `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP=true` is set explicitly.
+- Execution, history, session, sharing, and explainability routes accept `Authorization: Bearer <token>` for API clients and the HttpOnly session cookie for browser clients.
+
+### Origin policy and abuse control
+
+- **CORS**: Defaults to explicit local frontend origins instead of `*`. Set `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` for deployed frontends.
+- **Rate limiting**: Lightweight in-memory throttling applies to signup/login and expensive endpoints such as `/leaderboard`, `/eval/*`, `/stream/*`, and `/explain/*`.
+
+### Observability and operational reporting
+
+- **Tracing**: OpenTelemetry is bootstrapped automatically at API startup when `OTEL_ENABLED=true`. If the optional packages are unavailable, startup logs a warning instead of failing silently.
+- **Durable metrics**: Project execution metrics are persisted to the `operational_metrics` table, so `/metrics` and `/metrics/time` survive process restarts and include guest as well as authenticated runs.
 
 ### Input validation and sanitization
 
@@ -78,7 +90,7 @@ Every discovered project is dynamically imported with `importlib`. The runner cl
 3. `event: done` — full response payload (latency, confidence, session metadata).
 4. `event: error` — error string on failure.
 
-The 10 GenAI projects call `emit_step()` natively (via a `ContextVar`-bound `StepEmitter`). For LangGraph and CrewAI projects, the backend synthesizes step events from a per-project `PIPELINE_NODES` map covering all 20 projects.
+The 10 GenAI projects call `emit_step()` natively (via a `ContextVar`-bound `StepEmitter`). For LangGraph and CrewAI projects, the backend synthesizes step events from the shared project catalog in `portfolio/src/data/project-catalog.json`, which it compiles into `PIPELINE_NODES` at startup.
 
 ### Confidence scoring
 
@@ -113,7 +125,7 @@ Every execution is written to SQLite (`.data/genai_systems_lab.db`) with: projec
 
 - Benchmark datasets are registered per project in `shared/eval/benchmarks.py` (15 of 20 projects; the 5 CrewAI projects have none).
 - `POST /eval/{project}` runs the benchmark suite and returns per-case pass/fail, accuracy, and latency percentiles (mean, p50, p95, p99). Requires `X-API-Key`.
-- `GET /leaderboard` runs all registered benchmarks live and ranks projects by `score = accuracy / mean_latency_ms`. Public — no API key required.
+- `GET /leaderboard` runs all registered benchmarks live and ranks projects by `score = accuracy / mean_latency_ms`. Because the evaluations are live, this route requires `X-API-Key`.
 
 ### In-memory metrics
 
@@ -135,7 +147,6 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 | Frontend | Next.js, React, TypeScript | 16.2.1, 19.2.4 |
 | UI styling | Tailwind CSS | v4 |
 | Charts | Recharts | 3.8.1 |
-| Operator UI | Streamlit | — |
 | Observability | `rich` structured logging, OpenTelemetry spans | 14.3.3 |
 | Infra | Docker, Docker Compose, GitHub Actions | — |
 
@@ -158,26 +169,27 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
 │  Clients                                                               │
-│  ┌───────────────┐  ┌──────────────┐  ┌──────┐  ┌─────────────────┐  │
-│  │ Next.js 16    │  │ Streamlit    │  │ Direct HTTP         │  │
-│  │ Portfolio     │  │ Operator UI  │  │      │  │ Consumers       │  │
-│  └──────┬────────┘  └──────┬───────┘  └──┬───┘  └────────┬────────┘  │
-└─────────┼──────────────────┼─────────────┼───────────────┼────────────┘
-          │ JWT + X-API-Key  │             │               │
-          ▼                  ▼             ▼               ▼
+│  ┌───────────────┐  ┌──────────────┐  ┌─────────────────┐            │
+│  │ Next.js 16    │  │ Direct HTTP  │  │ Consumers       │            │
+│  │ Portfolio     │  │ Clients      │  │                 │            │
+│  └──────┬────────┘  └──────┬───────┘  └────────┬────────┘            │
+└─────────┼──────────────────┼───────────────────┼──────────────────────┘
+          │ JWT + X-API-Key  │                   │
+          ▼                  ▼                   ▼
 ┌────────────────────────────────────────────────────────────────────────┐
 │  FastAPI  (shared/api/app.py)                                          │
 │                                                                        │
 │  Middleware (outermost → innermost):                                   │
 │    CORSMiddleware                                                       │
-│    ErrorHandlingMiddleware  — structured JSON on unhandled exceptions  │
-│    RequestTimingMiddleware  — X-Process-Time-Ms header + OTel span     │
-│    RequestLoggingMiddleware — request_id, project_name, status log     │
-│    InputValidationMiddleware — length, injection, sanitize             │
-│    BYOKMiddleware           — X-API-Key → ContextVar                  │
+│    RequestRateLimitMiddleware — in-memory abuse throttling             │
+│    BYOKMiddleware             — X-API-Key → ContextVar                 │
+│    InputValidationMiddleware  — length, injection, sanitize            │
+│    RequestLoggingMiddleware   — request_id, project_name, status log   │
+│    RequestTimingMiddleware    — X-Process-Time-Ms header + OTel span   │
+│    ErrorHandlingMiddleware    — structured JSON on unhandled exceptions│
 │                                                                        │
-│  17 routes: auth · run · stream · history · session · metrics         │
-│             leaderboard · eval · sharing · explain · health           │
+│  Routes: auth · run · stream · history · session · metrics            │
+│          leaderboard · eval · sharing · explain · health              │
 └───────────────────────────────┬────────────────────────────────────────┘
                                 │
                                 ▼
@@ -255,7 +267,7 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key: <key>)
   └─ Route handler:
       ├─ Launch project in background thread with StepEmitter callback
       ├─ Native projects: emit_step() pushes real {"step", "status"} events
-      ├─ Others: PIPELINE_NODES map provides synthetic step IDs
+      ├─ Others: catalog-derived PIPELINE_NODES provide synthetic step IDs
       └─ SSE generator yields:
           ├─ event: step  →  {"step": "planner", "status": "running"}
           ├─ event: step  →  {"step": "planner", "status": "done"}
@@ -317,7 +329,7 @@ genai-systems-lab/
 │   ├── cache/            In-memory TTL caches (prompt-keyed)
 │   ├── logging/          Structured logging + OpenTelemetry spans
 │   ├── schemas/          Pydantic request/response models
-│   ├── ui/               Streamlit operator console
+│   ├── ui/               Retired Streamlit entrypoint kept only as a deprecation notice
 │   └── config.py         BYOK ContextVar, Settings, model resolution
 │
 ├── genai-*/              10 Generative AI pipeline projects
@@ -334,12 +346,12 @@ genai-systems-lab/
 │       ├── lib/          API client, auth helpers, apikey storage, session
 │       ├── components/   AnimatedGraph, AgentGraph, MemoryPanel,
 │       │                 TimelineReplay, RunExplanation, ConfidenceIndicator
-│       └── data/         Project metadata (slug, pipeline nodes, graph edges)
+│       └── data/         Shared project catalog manifest + typed frontend facade
 │
-├── langgraph-data-analyst/  Standalone project (own requirements.txt;
-│                            not auto-discovered by the platform runner)
+├── langgraph-data-analyst/  Standalone reference project (own deps;
+│                            deliberately outside the platform runner)
 ├── ARCHITECTURE.md       Platform design principles
-├── docker-compose.yml    api (8000) + ui (8501) services
+├── docker-compose.yml    api (8000) service for the shared backend
 ├── Dockerfile            python:3.13-slim; installs deps; runs uvicorn
 ├── requirements.txt      Core Python deps (see note in Setup)
 └── .env.example          Model/config examples only; BYOK required at runtime
@@ -368,7 +380,7 @@ All emit native SSE step events via `emit_step()`.
 
 ### LangGraph state machines (5 projects)
 
-Use `graph.invoke()` with typed state objects. The platform generates synthetic step events from the `PIPELINE_NODES` map during streaming.
+Use `graph.invoke()` with typed state objects. During streaming, the platform generates synthetic step events from pipeline nodes derived from the shared catalog manifest.
 
 | Project folder | Pipeline nodes | Description |
 |---|---|---|
@@ -419,10 +431,9 @@ source .venv/bin/activate
 .venv\Scripts\Activate.ps1
 
 pip install -r requirements.txt
-pip install fastapi "uvicorn[standard]" streamlit
 ```
 
-> **Note:** `requirements.txt` covers core deps (`google-genai`, `pydantic`, `sqlalchemy`, `duckdb`, `pandas`, `numpy`, `rich`, `python-dotenv`, `pillow`, `gradio`). FastAPI, uvicorn, and Streamlit must be installed separately.
+> **Note:** the root requirements now include the shared API runtime dependencies and the framework packages imported by the in-scope projects. Browser binaries for Playwright may still need `playwright install` in environments that execute the browser agent.
 
 ### 3. Environment file
 
@@ -437,6 +448,15 @@ cp .env.example .env
 | Variable | Default | Purpose |
 |---|---|---|
 | `APP_ENV` | `dev` | Controls the default model (`dev` → flash, `prod` → pro) |
+| `GENAI_SYSTEMS_LAB_JWT_SECRET` | — | Required in production for JWT signing; local dev falls back to an ephemeral secret |
+| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000` | Explicit CORS allowlist for browser clients |
+| `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP` | `true` in dev, `false` in prod | Controls whether `/auth/signup` is exposed publicly |
+| `GENAI_SYSTEMS_LAB_DATABASE_URL` | local SQLite file | Override the default local SQLite database for deployed environments |
+| `GENAI_SYSTEMS_LAB_AUTH_COOKIE_SAMESITE` | `lax` | SameSite policy for the HttpOnly browser session cookie |
+| `OTEL_ENABLED` | `false` | Enable OpenTelemetry startup wiring for the API |
+| `OTEL_CONSOLE_EXPORT` | `false` | Mirror spans to the console exporter |
+| `OTEL_SERVICE_NAME` | `genai-systems-lab` | Service name reported to the tracing backend |
+| `OTEL_EXPORTER_OTLP_ENDPOINT` | `http://localhost:4317` | OTLP collector endpoint |
 | `MODEL_DEFAULT_DEV` | `gemini-3-flash-preview` | Default model in dev |
 | `MODEL_DEFAULT_PROD` | `gemini-3.1-pro-preview` | Default model in prod |
 | `PROJECT_MODELS_JSON` | `{}` | JSON object mapping project names to model overrides |
@@ -447,17 +467,13 @@ cp .env.example .env
 # Terminal 1: FastAPI backend (auto-reloads on code changes)
 uvicorn shared.api.app:app --reload
 
-# Terminal 2: Streamlit operator UI
-streamlit run shared/ui/app.py
-
-# Terminal 3: Next.js portfolio
+# Terminal 2: Next.js portfolio
 cd portfolio && npm install && npm run dev
 ```
 
 | Service | Default URL |
 |---|---|
 | FastAPI API | `http://localhost:8000` |
-| Streamlit UI | `http://localhost:8501` |
 | Next.js portfolio | `http://localhost:3000` |
 
 ### Docker
@@ -466,11 +482,11 @@ cd portfolio && npm install && npm run dev
 docker compose up --build
 ```
 
-Starts the API on port 8000 and Streamlit on port 8501. The Next.js portfolio is not included in the Docker composition and must be run separately.
+Starts the API on port 8000. The Next.js portfolio is the supported frontend and can be run separately with `npm run dev` inside `portfolio/`.
 
-### langgraph-data-analyst (standalone)
+### langgraph-data-analyst (standalone example)
 
-This project has its own dependency set and does not follow the `app/main.py` contract:
+`langgraph-data-analyst` is deliberately kept outside the shared platform runner. It serves as a reference implementation showing how a LangGraph application can be built independently — with its own dependency set, data directory, and test suite — while still benefiting from the same agent design patterns used in the platform projects. It is not auto-discovered by the runner and will not appear in `/projects`.
 
 ```bash
 pip install -r langgraph-data-analyst/requirements.txt
@@ -490,7 +506,7 @@ curl -X POST http://localhost:8000/auth/signup \
   -H "Content-Type: application/json" \
   -d '{"email":"user@example.com","password":"StrongPass123"}'
 
-# Login — returns a 7-day JWT
+# Login — returns a 7-day JWT for API clients and sets an HttpOnly cookie for browsers
 curl -X POST http://localhost:8000/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"user@example.com","password":"StrongPass123"}'
@@ -599,7 +615,7 @@ The Next.js frontend at `http://localhost:3000` provides:
 | `/playground` | Live execution: streaming pipeline graphs, real-time memory panel, timeline replay, session continuity, run history, public sharing, explainability |
 | `/projects/[slug]` | Per-project details: architecture, pipeline graph, example input/output, interactive demo |
 | `/metrics` | Time-series charts for latency, confidence, and success rate (hour/day/week) |
-| `/leaderboard` | Live benchmark ranking sorted by accuracy / mean latency |
+| `/leaderboard` | Live benchmark ranking sorted by accuracy / mean latency (requires BYOK) |
 | `/compare` | Side-by-side comparison of two project runs |
 | `/auth` | Sign up and sign in |
 | `/run/[id]` | Public shared run view |
@@ -617,7 +633,7 @@ The Next.js frontend at `http://localhost:3000` provides:
 3. Call `set_byok_api_key(api_key)` at entry and `reset_byok_api_key(token)` in a `finally` block.
 4. Optionally import `emit_step` from `shared.api.step_events` and call it at pipeline boundaries for native SSE.
 5. Add benchmark cases to `shared/eval/benchmarks.py` for evaluation coverage.
-6. Add a `PIPELINE_NODES` entry in `shared/api/app.py` for synthetic streaming step events.
+6. Add the project entry to `portfolio/src/data/project-catalog.json` — the backend derives `PIPELINE_NODES` from this manifest automatically.
 
 The runner discovers the project automatically on next startup — no registration required.
 
@@ -630,9 +646,10 @@ python -m pytest langgraph-data-analyst/tests -v
 python -m pytest crew-startup-simulator/tests/test_all.py -v
 python -m pytest lg-research-agent/tests/test_main.py -v
 python -m pytest tests/test_shared_api_app.py -v
+python -m pytest tests/test_project_catalog.py -v
 ```
 
-CI covers 3 project test suites plus the shared API platform tests (guest execution, streaming contracts, BYOK, session memory, metrics, public leaderboard, and sharing).
+CI covers 3 project test suites, the shared API platform tests (guest execution, streaming contracts, BYOK, session memory, metrics, leaderboard contract, and sharing), and catalog integrity tests.
 
 ### Frontend build
 
@@ -649,19 +666,22 @@ npm run build
 |---|---|---|---|
 | `GET` | `/health` | — | Health check |
 | `GET` | `/projects` | — | List all auto-discovered projects |
-| `POST` | `/auth/signup` | — | Create account; returns JWT + user |
-| `POST` | `/auth/login` | — | Authenticate; returns JWT + user |
+| `GET` | `/auth/config` | — | Expose frontend auth capabilities such as public signup availability |
+| `POST` | `/auth/signup` | — | Create account when public signup is enabled; returns JWT + user and sets browser session cookie |
+| `POST` | `/auth/login` | — | Authenticate; returns JWT + user and sets browser session cookie |
+| `POST` | `/auth/logout` | Session cookie optional | Clear the browser session cookie |
+| `GET` | `/auth/me` | JWT or session cookie | Return the current authenticated user |
 | `POST` | `/{project}/run` | API key (JWT optional) | Batch execution with full response |
 | `GET` | `/stream/{project}` | API key (JWT optional) | SSE streaming execution |
-| `GET` | `/metrics` | — | Live in-memory aggregate metrics |
-| `GET` | `/metrics/time` | — | Historical time-series (`?project=&range=hour\|day\|week`) |
-| `GET` | `/leaderboard` | — | Live benchmark ranking |
-| `GET` | `/history` | JWT | Authenticated user's run history |
-| `GET` | `/session/{id}` | JWT | Session memory preview (last 5 entries) |
-| `POST` | `/session/{id}/clear` | JWT | Clear session memory |
-| `POST` | `/explain/{run_id}` | JWT + API key | Generate structured run explanation |
-| `POST` | `/run/{run_id}/share` | JWT | Create public share token |
-| `DELETE` | `/run/{run_id}/share` | JWT | Revoke share token |
+| `GET` | `/metrics` | — | Durable aggregate execution metrics |
+| `GET` | `/metrics/time` | — | Durable time-series execution metrics (`?project=&range=hour\|day\|week`) |
+| `GET` | `/leaderboard` | API key | Live benchmark ranking |
+| `GET` | `/history` | JWT or session cookie | Authenticated user's run history |
+| `GET` | `/session/{id}` | JWT or session cookie | Session memory preview (last 5 entries) |
+| `POST` | `/session/{id}/clear` | JWT or session cookie | Clear session memory |
+| `POST` | `/explain/{run_id}` | JWT or session cookie + API key | Generate structured run explanation |
+| `POST` | `/run/{run_id}/share` | JWT or session cookie | Create public share token |
+| `DELETE` | `/run/{run_id}/share` | JWT or session cookie | Revoke share token |
 | `GET` | `/shared/{token}` | — | View a public shared run |
 | `POST` | `/eval/{project}` | API key | Run benchmark suite for a project |
 
@@ -675,23 +695,40 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key`. Authe
 
 | Area | Limitation |
 |---|---|
-| `requirements.txt` | Does not include `fastapi`, `uvicorn`, or `streamlit`; must be installed separately |
+| `requirements.txt` | Includes the shared API runtime plus the framework packages imported by the in-scope projects |
 | API base URL | Defaults to `http://localhost:8000`, but can now be overridden with `NEXT_PUBLIC_API_BASE_URL` |
+| Rate limiting | Abuse control is in-memory and process-local; use an upstream proxy or WAF for multi-instance enforcement |
 | CI coverage | CI still validates only a subset of runnable projects directly |
 | CrewAI benchmarks | No benchmark datasets registered for any of the 5 CrewAI projects |
 | Live leaderboard | Benchmark suites execute on every `/leaderboard` request; no cached results |
-| Persistence | SQLite — appropriate for local and demo use, not production-grade |
-| BYOK only | `GOOGLE_API_KEY` in `.env` is not used at runtime; all LLM execution paths require the `X-API-Key` header. Leaderboard and metrics are public. |
+| Persistence | SQLite remains the default for local and demo use; deployed environments should set `GENAI_SYSTEMS_LAB_DATABASE_URL`. Schema changes are applied via idempotent `ALTER TABLE` guards in `db.py`; adopt Alembic if the schema grows beyond single-column additions. |
+| BYOK only | `GOOGLE_API_KEY` in `.env` is not used at runtime; all LLM execution paths require the `X-API-Key` header, including the leaderboard. |
 
 ### Planned improvements
 
+- ~~Generate the public project catalog from a shared source.~~ Done — `portfolio/src/data/project-catalog.json` is the single source of truth, read by both the Python backend and the Next.js frontend.
 - Implement `lg-research-agent` and register benchmarks for it.
-- Consolidate `fastapi`, `uvicorn`, and `streamlit` into `requirements.txt`.
-- Externalize the portfolio API base URL to a `NEXT_PUBLIC_API_URL` build-time variable.
 - Expand CI to cover all project modules and shared platform paths.
 - Persist evaluation results to SQLite and serve leaderboard from stored data.
 - Add benchmark datasets for all 5 CrewAI projects.
-- Support configurable database backends for deployed environments.
+- Adopt Alembic for schema migrations if the data model expands beyond the current column-level additions.
+
+---
+
+## Design Philosophy
+
+GenAI Systems Lab is a **portfolio-optimized showcase** — it prioritizes demo reliability, clear architecture narratives, and end-to-end skill display over multi-tenant operability. Every design choice reflects this:
+
+| Concern | Approach |
+|---|---|
+| **Runtime** | Single shared FastAPI process discovers all 20 projects automatically; no per-project deployment overhead |
+| **Auth** | HS256 JWT + HttpOnly cookies — simple, auditable, sufficient for single-operator use |
+| **BYOK** | All LLM calls require a per-request API key; no server-side key storage |
+| **Persistence** | SQLite by default for zero-config local demos; `GENAI_SYSTEMS_LAB_DATABASE_URL` for deployed environments |
+| **Frontend** | One Next.js app with playground, metrics, leaderboard, compare, and per-project pages |
+| **Testing** | Contract-level API tests plus per-project smoke tests; catalog integrity tests guard the shared manifest |
+
+If this evolves toward a reusable platform, the next priorities would be: Alembic migrations, per-user quotas, external identity provider integration, structured observability (the OTel hooks are already wired), and container-per-project isolation.
 
 ---
 

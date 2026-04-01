@@ -1,6 +1,7 @@
 """Shared Pydantic schemas reusable across projects."""
 
 from .common import (
+    AuthConfigResponse,
     AuthRequest,
     AuthResponse,
     AuthUserResponse,
@@ -28,6 +29,7 @@ from .common import (
 )
 
 __all__ = [
+    "AuthConfigResponse",
     "AuthRequest",
     "AuthResponse",
     "AuthUserResponse",

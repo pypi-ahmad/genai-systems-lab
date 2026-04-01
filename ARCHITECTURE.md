@@ -67,3 +67,16 @@ The platform is designed so agent behavior can be measured, compared, and improv
 - Environment and model routing are centralized in shared configuration.
 - API middleware enforces a baseline operational contract for every project.
 - New projects can be added without changing the platform architecture as long as they implement the standard run interface.
+
+## Persistence Strategy
+
+The platform stores runs, metrics, sessions, and shared links in a relational database powered by SQLAlchemy.
+
+| Aspect | Current approach |
+|---|---|
+| **Default engine** | SQLite (``.data/genai_systems_lab.db``) for zero-config local use |
+| **Production override** | Set ``GENAI_SYSTEMS_LAB_DATABASE_URL`` to any SQLAlchemy-compatible URL |
+| **Schema evolution** | Idempotent ``ALTER TABLE`` guards in ``shared/api/db.py`` — each column addition checks ``PRAGMA table_info`` / ``sqlite_master`` before executing |
+| **When to graduate** | If the schema grows beyond single-column additions (e.g. new tables, foreign keys, data transforms), adopt Alembic with an ``alembic/`` directory at the repo root |
+
+Current managed columns added via migration guards: ``confidence``, ``success``, ``session_id``, ``memory``, ``timeline``, ``share_token``, ``is_public``, ``expires_at``.

@@ -19,9 +19,11 @@ from sqlalchemy.orm import Session
 from .db import get_db_session
 from .models import Run, User
 
-JWT_SECRET = os.getenv("GENAI_SYSTEMS_LAB_JWT_SECRET", "dev-secret-change-me")
 JWT_ALGORITHM = "HS256"
-JWT_TTL_SECONDS = 60 * 60 * 24 * 7
+AUTH_COOKIE_NAME = os.getenv("GENAI_SYSTEMS_LAB_AUTH_COOKIE_NAME", "genai_systems_lab_session")
+_DEFAULT_JWT_TTL_SECONDS = 60 * 60 * 24 * 7
+_INSECURE_DEV_JWT_SECRET = "dev-secret-change-me"
+_EPHEMERAL_DEV_JWT_SECRET = secrets.token_urlsafe(48)
 PBKDF2_ITERATIONS = 310_000
 
 auth_scheme = HTTPBearer(auto_error=False)
@@ -30,6 +32,34 @@ _VALID_MEMORY_TYPES = {"thought", "action", "observation"}
 
 class AuthError(Exception):
     """Raised when authentication fails."""
+
+
+def _load_jwt_ttl_seconds() -> int:
+    raw_value = os.getenv("GENAI_SYSTEMS_LAB_JWT_TTL_SECONDS", str(_DEFAULT_JWT_TTL_SECONDS)).strip()
+    try:
+        ttl_seconds = int(raw_value)
+    except ValueError:
+        return _DEFAULT_JWT_TTL_SECONDS
+    return max(300, ttl_seconds)
+
+
+def _load_jwt_secret() -> str:
+    configured_secret = os.getenv("GENAI_SYSTEMS_LAB_JWT_SECRET", "").strip()
+    environment = os.getenv("APP_ENV", "dev").strip().lower()
+
+    if configured_secret and configured_secret != _INSECURE_DEV_JWT_SECRET:
+        return configured_secret
+
+    if environment == "prod":
+        raise RuntimeError(
+            "GENAI_SYSTEMS_LAB_JWT_SECRET must be set to a strong value when APP_ENV=prod."
+        )
+
+    return _EPHEMERAL_DEV_JWT_SECRET
+
+
+JWT_SECRET = _load_jwt_secret()
+JWT_TTL_SECONDS = _load_jwt_ttl_seconds()
 
 
 def _b64url_encode(value: bytes) -> str:
@@ -302,6 +332,10 @@ def get_bearer_token(
     if credentials is not None:
         return credentials.credentials
 
+    cookie_token = request.cookies.get(AUTH_COOKIE_NAME)
+    if cookie_token:
+        return cookie_token
+
     query_token = request.query_params.get("token")
     if query_token:
         return query_token
@@ -319,6 +353,10 @@ def get_optional_bearer_token(
     """Resolve a bearer token when present, otherwise return ``None``."""
     if credentials is not None:
         return credentials.credentials
+
+    cookie_token = request.cookies.get(AUTH_COOKIE_NAME)
+    if cookie_token:
+        return cookie_token
 
     query_token = request.query_params.get("token")
     if query_token:

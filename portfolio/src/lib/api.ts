@@ -1,3 +1,5 @@
+import { COOKIE_AUTH_SESSION_MARKER } from "@/lib/auth";
+
 const DEFAULT_API_BASE = "http://localhost:8000";
 const LOCAL_FALLBACK_API_BASE = "http://127.0.0.1:8001";
 
@@ -28,7 +30,10 @@ async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
 
   for (const base of apiBaseCandidates()) {
     try {
-      const response = await fetch(buildApiUrl(base, path), init);
+      const response = await fetch(buildApiUrl(base, path), {
+        credentials: "include",
+        ...init,
+      });
       activeApiBase = base;
       return response;
     } catch (error) {
@@ -52,7 +57,7 @@ function authHeaders(token?: string, apiKey?: string): HeadersInit {
     "Content-Type": "application/json",
   };
 
-  if (token) {
+  if (token && token !== COOKIE_AUTH_SESSION_MARKER) {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
@@ -120,6 +125,10 @@ export interface MetricsResponse {
 export interface AuthUser {
   id: number;
   email: string;
+}
+
+export interface AuthConfigResponse {
+  public_signup: boolean;
 }
 
 export interface AuthResponse {
@@ -286,6 +295,47 @@ export async function login(email: string, password: string): Promise<AuthRespon
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, password }),
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+  }
+
+  return res.json();
+}
+
+export async function logout(): Promise<void> {
+  const res = await apiFetch("/auth/logout", {
+    method: "POST",
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+  }
+}
+
+export async function fetchCurrentUser(): Promise<AuthUser | null> {
+  const res = await apiFetch("/auth/me", {
+    cache: "no-store",
+  });
+
+  if (res.status === 401) {
+    return null;
+  }
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+  }
+
+  return res.json();
+}
+
+export async function fetchAuthConfig(): Promise<AuthConfigResponse> {
+  const res = await apiFetch("/auth/config", {
+    cache: "no-store",
   });
 
   if (!res.ok) {
@@ -563,7 +613,7 @@ export function streamProject(
       const headers: Record<string, string> = {
         Accept: "text/event-stream",
       };
-      if (token) {
+      if (token && token !== COOKIE_AUTH_SESSION_MARKER) {
         headers.Authorization = `Bearer ${token}`;
       }
       if (apiKey) {

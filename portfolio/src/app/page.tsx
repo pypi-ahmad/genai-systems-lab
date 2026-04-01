@@ -150,8 +150,7 @@ export default function Home() {
                 Explore the systems in more detail.
               </h2>
               <p className="copy-body max-w-2xl text-sm sm:text-base">
-                Browse the project archive for system architecture, capabilities,
-                and implementation details, or view the source on GitHub.
+                Browse the project archive for system architecture and implementation details, or review Ahmad&apos;s skills and working style.
               </p>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -161,14 +160,12 @@ export default function Home() {
               >
                 View Projects →
               </Link>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
+              <Link
+                href="/about"
                 className="button-base button-secondary button-lg button-pill"
               >
-                GitHub
-              </a>
+                View Skills
+              </Link>
             </div>
           </div>
         </Card>

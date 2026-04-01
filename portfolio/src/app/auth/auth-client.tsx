@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { login, signup } from "@/lib/api";
+import { fetchAuthConfig, fetchCurrentUser, login, logout, signup } from "@/lib/api";
 import { clearAuthToken, getStoredAuthToken, storeAuthToken } from "@/lib/auth";
 
 type Mode = "login" | "signup";
@@ -41,6 +41,44 @@ export default function AuthClient() {
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [tokenExists, setTokenExists] = useState(() => Boolean(getStoredAuthToken()));
+  const [publicSignupEnabled, setPublicSignupEnabled] = useState(true);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    void fetchAuthConfig()
+      .then((config) => {
+        if (cancelled) {
+          return;
+        }
+        setPublicSignupEnabled(config.public_signup);
+        if (!config.public_signup) {
+          setMode((previous) => (previous === "signup" ? "login" : previous));
+        }
+      })
+      .catch(() => undefined);
+
+    void fetchCurrentUser()
+      .then((user) => {
+        if (cancelled) {
+          return;
+        }
+
+        if (user) {
+          storeAuthToken("");
+          setTokenExists(true);
+          return;
+        }
+
+        clearAuthToken();
+        setTokenExists(false);
+      })
+      .catch(() => undefined);
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -61,7 +99,12 @@ export default function AuthClient() {
     }
   }
 
-  function handleLogout() {
+  async function handleLogout() {
+    try {
+      await logout();
+    } catch {
+      // Clear the local auth marker even if the backend session is already gone.
+    }
     clearAuthToken();
     setTokenExists(false);
   }
@@ -74,7 +117,7 @@ export default function AuthClient() {
           Save runs, keep history, and replay prior prompts.
         </h1>
         <p className="copy-lead max-w-2xl text-base sm:text-lg">
-          Authentication is intentionally lightweight: email, password, JWT, and a local SQLite-backed run history.
+          Authentication is intentionally lightweight: email, password, an HttpOnly browser session cookie, and a local SQLite-backed run history.
         </p>
 
         <div className="surface-card rounded-xl p-6 sm:p-8">
@@ -107,9 +150,17 @@ export default function AuthClient() {
           </div>
           <div className="surface-pill flex items-center gap-2 rounded-full p-1">
             <ModeButton active={mode === "login"} label="Login" onClick={() => setMode("login")} />
-            <ModeButton active={mode === "signup"} label="Sign up" onClick={() => setMode("signup")} />
+            {publicSignupEnabled ? (
+              <ModeButton active={mode === "signup"} label="Sign up" onClick={() => setMode("signup")} />
+            ) : null}
           </div>
         </div>
+
+        {!publicSignupEnabled ? (
+          <div className="surface-panel mt-6 rounded-[1.25rem] p-4 text-sm leading-7 text-[var(--muted)]">
+            Public sign-up is disabled on hardened deployments. Login is reserved for the portfolio owner.
+          </div>
+        ) : null}
 
         <form className="mt-6 space-y-6" onSubmit={handleSubmit}>
           <label className="block space-y-2 text-sm font-medium text-[var(--foreground)]">
@@ -155,7 +206,7 @@ export default function AuthClient() {
         <div className="surface-panel mt-6 rounded-[1.25rem] p-4 text-sm leading-7 text-[var(--muted)]">
           {tokenExists ? (
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <span>A JWT is already stored in this browser.</span>
+              <span>An authenticated session is already active in this browser.</span>
               <button
                 type="button"
                 onClick={handleLogout}
