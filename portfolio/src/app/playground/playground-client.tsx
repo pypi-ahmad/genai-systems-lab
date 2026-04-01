@@ -13,7 +13,7 @@ import { RunExplanationPanel } from "@/components/RunExplanation";
 import { MemoryPanel, type MemoryEntry } from "@/components/memory-panel";
 import type { NodeStatusMap } from "@/components/animated-graph";
 import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
-import { clearAuthToken } from "@/lib/auth";
+import { clearAuthSession } from "@/lib/auth";
 import { PlaygroundSidebar } from "./playground-sidebar";
 import {
   AnyObj,
@@ -858,7 +858,7 @@ export default function PlaygroundClient() {
     clearLocalSession();
     setUsedSessionContext(false);
     void logoutSession().catch(() => undefined);
-    clearAuthToken();
+    clearAuthSession();
     setAuthToken(null);
     setHistoryRuns([]);
     setHistoryError(null);

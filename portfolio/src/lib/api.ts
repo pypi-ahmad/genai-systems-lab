@@ -1,4 +1,4 @@
-import { COOKIE_AUTH_SESSION_MARKER } from "@/lib/auth";
+import { AUTH_SESSION_MARKER } from "@/lib/auth";
 
 const DEFAULT_API_BASE = "http://localhost:8000";
 const LOCAL_FALLBACK_API_BASE = "http://127.0.0.1:8001";
@@ -57,7 +57,7 @@ function authHeaders(token?: string, apiKey?: string): HeadersInit {
     "Content-Type": "application/json",
   };
 
-  if (token && token !== COOKIE_AUTH_SESSION_MARKER) {
+  if (token && token !== AUTH_SESSION_MARKER) {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
@@ -613,7 +613,7 @@ export function streamProject(
       const headers: Record<string, string> = {
         Accept: "text/event-stream",
       };
-      if (token && token !== COOKIE_AUTH_SESSION_MARKER) {
+      if (token && token !== AUTH_SESSION_MARKER) {
         headers.Authorization = `Bearer ${token}`;
       }
       if (apiKey) {

@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { fetchCurrentUser, runProject } from "@/lib/api";
 import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
-import { getStoredAuthToken, storeAuthToken } from "@/lib/auth";
+import { getStoredAuthSession, storeAuthSession } from "@/lib/auth";
 
 export default function DemoButton({
   projectName,
@@ -16,7 +16,7 @@ export default function DemoButton({
   const [output, setOutput] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthToken());
+  const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthSession());
   const [apiKey, setApiKey] = useState(() => getStoredApiKey());
 
   useEffect(() => {
@@ -30,8 +30,8 @@ export default function DemoButton({
         if (cancelled || !user) {
           return;
         }
-        storeAuthToken("");
-        setAuthToken(getStoredAuthToken());
+        storeAuthSession();
+        setAuthToken(getStoredAuthSession());
       })
       .catch(() => undefined);
 

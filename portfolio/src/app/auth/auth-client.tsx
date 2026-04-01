@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 import { fetchAuthConfig, fetchCurrentUser, login, logout, signup } from "@/lib/api";
-import { clearAuthToken, getStoredAuthToken, storeAuthToken } from "@/lib/auth";
+import { clearAuthSession, getStoredAuthSession, storeAuthSession } from "@/lib/auth";
 
 type Mode = "login" | "signup";
 
@@ -40,7 +40,7 @@ export default function AuthClient() {
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [tokenExists, setTokenExists] = useState(() => Boolean(getStoredAuthToken()));
+  const [sessionExists, setSessionExists] = useState(() => Boolean(getStoredAuthSession()));
   const [publicSignupEnabled, setPublicSignupEnabled] = useState(true);
 
   useEffect(() => {
@@ -65,13 +65,13 @@ export default function AuthClient() {
         }
 
         if (user) {
-          storeAuthToken("");
-          setTokenExists(true);
+          storeAuthSession();
+          setSessionExists(true);
           return;
         }
 
-        clearAuthToken();
-        setTokenExists(false);
+        clearAuthSession();
+        setSessionExists(false);
       })
       .catch(() => undefined);
 
@@ -87,9 +87,9 @@ export default function AuthClient() {
 
     try {
       const action = mode === "signup" ? signup : login;
-      const result = await action(email.trim(), password);
-      storeAuthToken(result.token);
-      setTokenExists(true);
+      await action(email.trim(), password);
+      storeAuthSession();
+      setSessionExists(true);
       router.push("/playground");
       router.refresh();
     } catch (err) {
@@ -105,8 +105,8 @@ export default function AuthClient() {
     } catch {
       // Clear the local auth marker even if the backend session is already gone.
     }
-    clearAuthToken();
-    setTokenExists(false);
+    clearAuthSession();
+    setSessionExists(false);
   }
 
   return (
@@ -204,7 +204,7 @@ export default function AuthClient() {
         </form>
 
         <div className="surface-panel mt-6 rounded-[1.25rem] p-4 text-sm leading-7 text-[var(--muted)]">
-          {tokenExists ? (
+          {sessionExists ? (
             <div className="flex flex-wrap items-center justify-between gap-3">
               <span>An authenticated session is already active in this browser.</span>
               <button
