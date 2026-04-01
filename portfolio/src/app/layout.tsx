@@ -29,6 +29,7 @@ function Nav() {
     { href: "/playground", label: "Playground" },
     { href: "/metrics", label: "Metrics" },
     { href: "/compare", label: "Comparison" },
+    { href: "/architecture", label: "Architecture" },
     { href: "/auth", label: "Auth" },
   ];
 

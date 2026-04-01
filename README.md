@@ -642,11 +642,19 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull
 python -m pytest langgraph-data-analyst/tests -v
 python -m pytest crew-startup-simulator/tests/test_all.py -v
 python -m pytest lg-research-agent/tests/test_main.py -v
-python -m pytest tests/test_shared_api_app.py -v
-python -m pytest tests/test_project_catalog.py -v
+python -m pytest tests/ -v
 ```
 
-CI covers 3 project test suites, the shared API platform tests (guest execution, streaming contracts, BYOK, session memory, metrics, and sharing), and catalog integrity tests.
+CI covers 3 project-level test suites plus the shared platform suite (`tests/`): API contracts (guest execution, streaming, BYOK, session memory, metrics, sharing), auth hardening (secret length/ephemeral fallback/prod enforcement), and catalog integrity (alias coverage, legacy compat, duplicate detection).
+
+### Frontend tests
+
+```bash
+cd portfolio
+npm run test
+```
+
+Runs focused unit tests for the extracted playground utility logic via `tsx` + `node:test`.
 
 ### Frontend build
 
