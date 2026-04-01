@@ -84,12 +84,13 @@ def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient, None, None]
     monkeypatch.setattr(lab_api, "build_run_explanation", fake_build_run_explanation)
     monkeypatch.setattr(lab_api, "metrics_store", lab_api._MetricsStore())
 
-    lab_api.app.dependency_overrides[get_db_session] = override_db_session
+    app = lab_api.create_app()
+    app.dependency_overrides[get_db_session] = override_db_session
 
-    with TestClient(lab_api.app) as test_client:
+    with TestClient(app) as test_client:
         yield test_client
 
-    lab_api.app.dependency_overrides.clear()
+    app.dependency_overrides.clear()
 
 
 def _signup_and_headers(client: TestClient, *, include_api_key: bool = True) -> dict[str, str]:
@@ -206,6 +207,36 @@ def test_guest_stream_allows_execution_without_session_state(client: TestClient)
     assert done_payload["used_session_context"] is False
 
 
+def test_auth_cookie_supports_browser_session_without_authorization_header(client: TestClient) -> None:
+    signup = client.post(
+        "/auth/signup",
+        json={"email": "cookie@example.com", "password": "password123"},
+    )
+    assert signup.status_code == 201
+    assert "genai_systems_lab_session=" in signup.headers.get("set-cookie", "")
+
+    me = client.get("/auth/me")
+    assert me.status_code == 200
+    assert me.json()["email"] == "cookie@example.com"
+
+    run = client.post(
+        "/nl2sql-agent/run",
+        headers={"X-API-Key": TEST_API_KEY},
+        json={"input": "cookie-backed auth"},
+    )
+    assert run.status_code == 200
+
+    history = client.get("/history")
+    assert history.status_code == 200
+    assert history.json()["count"] == 1
+
+    logout = client.post("/auth/logout")
+    assert logout.status_code == 200
+
+    history_after_logout = client.get("/history")
+    assert history_after_logout.status_code == 401
+
+
 def test_session_memory_is_deduped_capped_and_marks_context_usage(client: TestClient) -> None:
     headers = _signup_and_headers(client)
 
@@ -282,8 +313,94 @@ def test_metrics_use_canonical_project_names(client: TestClient) -> None:
     assert "nl2sql-agent" not in names
 
 
-def test_leaderboard_is_public_without_api_key(client: TestClient) -> None:
-    response = client.get("/leaderboard")
+def test_metrics_persist_across_app_restart_for_guest_runs(client: TestClient) -> None:
+    response = client.post(
+        "/nl2sql-agent/run",
+        headers={"X-API-Key": TEST_API_KEY},
+        json={"input": "persist guest metrics"},
+    )
+    assert response.status_code == 200
+
+    first_metrics = client.get("/metrics")
+    assert first_metrics.status_code == 200
+    assert first_metrics.json()["total_requests"] == 1
+
+    lab_api.metrics_store = lab_api._MetricsStore()
+    restarted_app = lab_api.create_app()
+    restarted_app.dependency_overrides[get_db_session] = client.app.dependency_overrides[get_db_session]
+
+    with TestClient(restarted_app) as restarted_client:
+        restarted_metrics = restarted_client.get("/metrics")
+        assert restarted_metrics.status_code == 200
+        restarted_payload = restarted_metrics.json()
+        assert restarted_payload["total_requests"] == 1
+        assert restarted_payload["projects"][0]["name"] == "genai-nl2sql-agent"
+
+        time_series = restarted_client.get(
+            "/metrics/time",
+            params={"project": "nl2sql-agent", "range": "day"},
+        )
+        assert time_series.status_code == 200
+        points = time_series.json()
+        assert len(points) == 1
+        assert points[0]["success"] is True
+        assert points[0]["confidence"] > 0
+
+
+def test_app_startup_bootstraps_otel_when_enabled(monkeypatch: pytest.MonkeyPatch) -> None:
+    called: dict[str, object] = {}
+
+    def fake_setup_otel(**kwargs: object) -> bool:
+        called["setup"] = kwargs
+        return True
+
+    def fake_shutdown_otel() -> None:
+        called["shutdown"] = True
+
+    monkeypatch.setenv("OTEL_ENABLED", "true")
+    monkeypatch.setattr(lab_api, "init_db", lambda: None)
+    monkeypatch.setattr(lab_api, "setup_otel", fake_setup_otel)
+    monkeypatch.setattr(lab_api, "shutdown_otel", fake_shutdown_otel)
+
+    app = lab_api.create_app()
+    with TestClient(app) as test_client:
+        response = test_client.get("/health")
+        assert response.status_code == 200
+
+    assert "setup" in called
+    assert called.get("shutdown") is True
+
+
+def test_cors_allows_local_frontend_origin_only(client: TestClient) -> None:
+    allowed = client.options(
+        "/auth/login",
+        headers={
+            "Origin": "http://localhost:3000",
+            "Access-Control-Request-Method": "POST",
+            "Access-Control-Request-Headers": "content-type",
+        },
+    )
+    assert allowed.status_code == 200
+    assert allowed.headers.get("access-control-allow-origin") == "http://localhost:3000"
+
+    blocked = client.options(
+        "/auth/login",
+        headers={
+            "Origin": "https://evil.example",
+            "Access-Control-Request-Method": "POST",
+            "Access-Control-Request-Headers": "content-type",
+        },
+    )
+    assert blocked.headers.get("access-control-allow-origin") is None
+
+
+def test_leaderboard_requires_byok(client: TestClient) -> None:
+    missing_key = client.get("/leaderboard")
+
+    assert missing_key.status_code == 400
+    assert missing_key.json()["detail"] == "Missing x-api-key header."
+
+    response = client.get("/leaderboard", headers={"X-API-Key": TEST_API_KEY})
 
     assert response.status_code == 200
     assert isinstance(response.json(), list)

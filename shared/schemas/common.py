@@ -112,6 +112,12 @@ class AuthUserResponse(BaseModel):
     email: str
 
 
+class AuthConfigResponse(BaseModel):
+    """Frontend auth capabilities exposed by the API."""
+
+    public_signup: bool = False
+
+
 class AuthResponse(BaseModel):
     """Authentication response payload."""
 

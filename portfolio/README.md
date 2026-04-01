@@ -33,13 +33,13 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 
 ### Project Catalog
 
-- 20 project detail pages generated from a typed data layer (`src/data/projects.ts`)
+- 20 project detail pages generated from a shared JSON manifest (`src/data/project-catalog.json`) with a typed TypeScript facade in `src/data/projects.ts`
 - Each page renders: architecture description, flow diagram, feature list, example I/O, tags, and a live demo panel
 - Category badges with per-paradigm accent theming (GenAI = emerald, LangGraph = blue, CrewAI = violet)
 
 ### Benchmark Leaderboard
 
-- Runs server-side LLM-backed evaluations against registered benchmark datasets
+- Runs server-side LLM-backed evaluations against registered benchmark datasets using the visitor's Gemini API key
 - Ranks projects by a composite score: `accuracy / latency`
 - Displays accuracy, mean latency, and composite score per project in a sortable table
 
@@ -47,7 +47,7 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 
 - Time-series charts (Recharts) for latency, confidence, and success rate
 - Three time ranges: last hour (5-min buckets), last day (hourly), last week (daily)
-- Per-project filtering with trend analysis and automated summary generation
+- Per-project filtering with trend analysis and automated summary generation backed by persisted execution metrics
 
 ### LangGraph vs CrewAI Comparison
 
@@ -56,7 +56,7 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 
 ### Authentication & Sessions
 
-- JWT-based signup/login with token stored client-side
+- JWT-based API auth with HttpOnly cookie-backed browser sessions
 - Persistent run sessions for multi-turn conversations — session context carries across runs
 - Run history with per-user filtering
 
@@ -91,15 +91,15 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 ┌─────────────────────────────────────────────────────────────────┐
 │                        Browser (Next.js)                        │
 │                                                                 │
-│   page.tsx / playground-client.tsx                               │
+│   page.tsx / playground-client.tsx / extracted sidebar + hooks   │
 │       ↓                                                         │
 │   src/lib/api.ts  ──→  fetch / SSE stream                      │
 │       │                    │                                    │
-│       │  X-API-Key header  │  Authorization: Bearer <jwt>       │
+│       │  X-API-Key header  │  Bearer JWT or HttpOnly cookie     │
 │       └────────────────────┘                                    │
 │                                                                 │
 │   src/lib/apikey.ts   (BYOK in tab memory only)                 │
-│   src/lib/auth.ts     (JWT in localStorage)                     │
+│   src/lib/auth.ts     (session marker only; no raw JWT storage) │
 │   src/lib/session.ts  (session ID in localStorage)              │
 └──────────────────────┬──────────────────────────────────────────┘
                        │  HTTP / SSE
@@ -110,7 +110,7 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 │  POST /{project}/run          — batch execution                  │
 │  GET  /stream/{project}       — SSE token streaming              │
 │  GET  /metrics, /metrics/time — aggregate + time-series metrics  │
-│  GET  /leaderboard            — benchmark ranking                │
+│  GET  /leaderboard            — benchmark ranking (BYOK)         │
 │  POST /auth/signup, /login    — authentication                   │
 │  GET  /history                — per-user run history             │
 │  POST /run/{id}/share         — shareable link generation        │
@@ -143,7 +143,10 @@ portfolio/
 │   │   ├── theme-provider.tsx      # next-themes wrapper
 │   │   ├── playground/
 │   │   │   ├── page.tsx            # Playground route (metadata)
-│   │   │   └── playground-client.tsx  # ~3000-line interactive playground
+│   │   │   ├── playground-client.tsx      # Main playground orchestrator
+│   │   │   ├── playground-sidebar.tsx     # Input, account, and history sidebar
+│   │   │   ├── playground-utils.ts        # Pure replay/status/memory helpers
+│   │   │   └── use-playground-account.ts  # Auth, session, and history hook
 │   │   ├── projects/
 │   │   │   ├── page.tsx            # Project listing with category filter
 │   │   │   └── [slug]/
@@ -168,11 +171,12 @@ portfolio/
 │   │   ├── card.tsx                # Reusable surface card
 │   │   └── theme-toggle.tsx        # Dark/light toggle
 │   ├── data/
-│   │   └── projects.ts            # Typed definitions for all 20 systems
+│   │   ├── project-catalog.json    # Shared project manifest consumed by frontend + backend
+│   │   └── projects.ts             # Typed frontend facade over the shared manifest
 │   └── lib/
 │       ├── api.ts                 # API client: fetch, stream, auth, sharing
 │       ├── apikey.ts              # BYOK key state for the active tab only
-│       ├── auth.ts                # JWT token persistence
+│       ├── auth.ts                # Browser auth-session marker only
 │       └── session.ts             # Session ID persistence
 ├── public/                        # Static assets (SVG icons)
 ├── package.json
@@ -223,7 +227,7 @@ npm run lint
 
 ### Environment
 
-No `.env` file is required. The BYOK API key is kept in memory for the active tab, JWT tokens remain in `localStorage`, and the backend URL defaults to `http://localhost:8000` unless `NEXT_PUBLIC_API_BASE_URL` is set.
+No `.env` file is required. The BYOK API key is kept in memory for the active tab, the browser auth marker lives in `sessionStorage`, the raw JWT stays server-managed via an HttpOnly cookie, and the backend URL defaults to `http://localhost:8000` unless `NEXT_PUBLIC_API_BASE_URL` is set.
 
 ---
 
@@ -296,11 +300,11 @@ Navigate to **Metrics** → select a project and time range → view latency, co
 
 ## Limitations & Future Work
 
-- **No server-side auth** — JWT tokens are managed in `localStorage` and API keys live only in client memory; there is no middleware-level auth guard on Next.js routes
+- **No Next.js route middleware auth** — browser auth relies on the backend's HttpOnly session cookie and API keys live only in client memory; Next.js routes themselves do not independently enforce auth
 - **No SSR for dynamic pages** — the playground, leaderboard, and metrics pages are fully client-rendered; initial paint shows loading states
 - **No test suite** — no unit or integration tests exist for the frontend
 - **No mobile navigation** — the nav bar renders all links in a horizontal row without a responsive hamburger menu
-- **Static project data** — project definitions are hardcoded in `projects.ts` rather than fetched from the backend
+- **Build-time catalog sync** — the frontend ships a static project manifest for reliability; changes to project definitions still require updating `src/data/project-catalog.json`
 
 ### Planned
 

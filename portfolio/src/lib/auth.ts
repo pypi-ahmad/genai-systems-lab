@@ -1,19 +1,22 @@
-const AUTH_TOKEN_KEY = "portfolio.jwt";
+const AUTH_SESSION_KEY = "portfolio.authenticated";
+export const COOKIE_AUTH_SESSION_MARKER = "cookie-session";
 
 export function getStoredAuthToken(): string | null {
   if (typeof window === "undefined") {
     return null;
   }
 
-  return window.localStorage.getItem(AUTH_TOKEN_KEY);
+  return window.sessionStorage.getItem(AUTH_SESSION_KEY) === "1"
+    ? COOKIE_AUTH_SESSION_MARKER
+    : null;
 }
 
-export function storeAuthToken(token: string): void {
+export function storeAuthToken(_token: string): void {
   if (typeof window === "undefined") {
     return;
   }
 
-  window.localStorage.setItem(AUTH_TOKEN_KEY, token);
+  window.sessionStorage.setItem(AUTH_SESSION_KEY, "1");
 }
 
 export function clearAuthToken(): void {
@@ -21,5 +24,5 @@ export function clearAuthToken(): void {
     return;
   }
 
-  window.localStorage.removeItem(AUTH_TOKEN_KEY);
+  window.sessionStorage.removeItem(AUTH_SESSION_KEY);
 }

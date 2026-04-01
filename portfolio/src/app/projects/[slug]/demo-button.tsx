@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { runProject } from "@/lib/api";
+import { useEffect, useState } from "react";
+import { fetchCurrentUser, runProject } from "@/lib/api";
 import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
-import { getStoredAuthToken } from "@/lib/auth";
+import { getStoredAuthToken, storeAuthToken } from "@/lib/auth";
 
 export default function DemoButton({
   projectName,
@@ -16,8 +16,29 @@ export default function DemoButton({
   const [output, setOutput] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [authToken] = useState<string | null>(() => getStoredAuthToken());
+  const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthToken());
   const [apiKey, setApiKey] = useState(() => getStoredApiKey());
+
+  useEffect(() => {
+    if (authToken) {
+      return;
+    }
+
+    let cancelled = false;
+    void fetchCurrentUser()
+      .then((user) => {
+        if (cancelled || !user) {
+          return;
+        }
+        storeAuthToken("");
+        setAuthToken(getStoredAuthToken());
+      })
+      .catch(() => undefined);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [authToken]);
 
   async function handleRun() {
     setLoading(true);

@@ -1,165 +1,54 @@
 "use client";
 
-import Link from "next/link";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { projectDetails } from "@/data/projects";
-import type { Category, GraphNode } from "@/data/projects";
-import { clearRunSession, explainRun, fetchHistory, fetchRunSession, runProject, shareRun, unshareRun, streamProject } from "@/lib/api";
-import type { HistoryRun, RunExplanation, RunMemoryEntry, RunTimelineEntry, StepEvent } from "@/lib/api";
+import type { GraphNode } from "@/data/projects";
+import { explainRun, logout as logoutSession, runProject, shareRun, unshareRun, streamProject } from "@/lib/api";
+import type { HistoryRun, RunExplanation, RunMemoryEntry, StepEvent } from "@/lib/api";
 import AnimatedGraph from "@/components/animated-graph";
 import AgentGraph from "@/components/agent-graph";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
 import { TimelineReplay, type TimelineReplayFrame } from "@/components/TimelineReplay";
 import { RunExplanationPanel } from "@/components/RunExplanation";
-import { MemoryPanel, type MemoryEntry, type MemoryEntryType } from "@/components/memory-panel";
-import { agentGraphSteps, type AgentGraphStep } from "@/components/agent-graph";
+import { MemoryPanel, type MemoryEntry } from "@/components/memory-panel";
 import type { NodeStatusMap } from "@/components/animated-graph";
 import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
-import { clearAuthToken, getStoredAuthToken } from "@/lib/auth";
-import { clearStoredSessionId, getStoredSessionId, storeSessionId } from "@/lib/session";
-
-/* ── Helpers ──────────────────────────────────────────── */
-
-function projectApiName(apiEndpoint: string): string {
-  return apiEndpoint.replace(/^\//, "").replace(/\/run$/, "");
-}
-
-function maskApiKey(value: string): string {
-  if (!value) {
-    return "";
-  }
-
-  if (value.length <= 7) {
-    return "\u2022".repeat(value.length);
-  }
-
-  const hiddenLength = Math.max(0, Math.min(value.length - 7, 20));
-  return `${value.slice(0, 4)}${"\u2022".repeat(hiddenLength)}${value.slice(-3)}`;
-}
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type AnyObj = Record<string, any>;
-
-/** Try to parse a JSON string, return null on failure. */
-function tryParse(raw: string): AnyObj | null {
-  try {
-    const v = JSON.parse(raw);
-    return typeof v === "object" && v !== null ? v : null;
-  } catch {
-    return null;
-  }
-}
-
-/** Extract step-like arrays from the response data. */
-function extractSteps(data: AnyObj): string[] | null {
-  // Look for common step-related keys
-  for (const key of [
-    "steps",
-    "checkpoints",
-    "plan",
-    "channels",
-    "risk_flags",
-    "risks",
-    "formats",
-    "sources",
-    "bias_flags",
-  ]) {
-    const val = data[key];
-    if (Array.isArray(val) && val.length > 0) {
-      return val.map((v) => (typeof v === "string" ? v : JSON.stringify(v)));
-    }
-  }
-  return null;
-}
-
-/** Build a "key metrics" summary from scalar fields. */
-function extractKeyMetrics(data: AnyObj): { label: string; value: string }[] {
-  const skip = new Set([
-    "output",
-    "report",
-    "summary",
-    "answer",
-    "response",
-    "draft",
-    "code",
-    "patch",
-    "memo",
-    "plan",
-    "assessment",
-    "thesis",
-    "interpretation",
-  ]);
-  const metrics: { label: string; value: string }[] = [];
-  for (const [key, val] of Object.entries(data)) {
-    if (skip.has(key)) continue;
-    if (Array.isArray(val)) continue;
-    if (typeof val === "object" && val !== null) {
-      // Flatten one level for nested score objects like { scores: { technical: 0.88 } }
-      for (const [subKey, subVal] of Object.entries(val as AnyObj)) {
-        if (typeof subVal === "number" || typeof subVal === "boolean" || typeof subVal === "string") {
-          metrics.push({ label: `${key}.${subKey}`, value: String(subVal) });
-        }
-      }
-      continue;
-    }
-    if (typeof val === "number" || typeof val === "boolean" || typeof val === "string") {
-      metrics.push({ label: key, value: String(val) });
-    }
-  }
-  return metrics;
-}
-
-/** Extract long-form text fields (report, summary, answer, etc). */
-function extractTextOutput(data: AnyObj): string | null {
-  for (const key of [
-    "report",
-    "summary",
-    "answer",
-    "response",
-    "draft",
-    "assessment",
-    "interpretation",
-    "memo",
-    "plan",
-    "thesis",
-    "output",
-    "code",
-    "patch",
-  ]) {
-    const val = data[key];
-    if (typeof val === "string" && val.length > 20) return val;
-  }
-  return null;
-}
-
-const categoryColor: Record<Category, string> = {
-  GenAI: "emerald",
-  LangGraph: "blue",
-  CrewAI: "violet",
-};
-
-const categoryBadgeTone: Record<Category, string> = {
-  GenAI: "bg-[var(--category-genai-bg)] text-[var(--category-genai-text)]",
-  LangGraph: "bg-[var(--category-langgraph-bg)] text-[var(--category-langgraph-text)]",
-  CrewAI: "bg-[var(--category-crewai-bg)] text-[var(--category-crewai-text)]",
-};
-
-function summarizeInputPayload(raw: string) {
-  const trimmed = raw.trim();
-  if (!trimmed) return "Empty request body.";
-
-  const parsed = tryParse(trimmed);
-  if (!parsed) {
-    return trimmed.length > 240 ? `${trimmed.slice(0, 237)}...` : trimmed;
-  }
-
-  if (typeof parsed.input === "string" && parsed.input.trim()) {
-    return parsed.input.length > 240 ? `${parsed.input.slice(0, 237)}...` : parsed.input;
-  }
-
-  const serialized = JSON.stringify(parsed);
-  return serialized.length > 240 ? `${serialized.slice(0, 237)}...` : serialized;
-}
+import { clearAuthToken } from "@/lib/auth";
+import { PlaygroundSidebar } from "./playground-sidebar";
+import {
+  AnyObj,
+  assistantCardTone,
+  assistantStateTitle,
+  buildReplayLogLines,
+  buildReplayNodeStatuses,
+  categoryBadgeTone,
+  categoryColor,
+  extractKeyMetrics,
+  extractSteps,
+  extractTextOutput,
+  formatLogTimestamp,
+  formatMemoryStepName,
+  formatRunTimestamp,
+  inferLifecycleStep,
+  inferMemoryEntryType,
+  isRunMemoryEntry,
+  lifecycleLabel,
+  lifecycleState,
+  mapRunMemoryEntries,
+  memoryContentForStep,
+  projectApiName,
+  realtimeLifecycleState,
+  replayRunStatus,
+  RunStatus,
+  statusLabel,
+  statusTone,
+  summarizeInputPayload,
+  tryParse,
+  type WorkspaceState,
+  workspaceStateLabel,
+  workspaceStateTone,
+} from "./playground-utils";
+import { usePlaygroundAccount } from "./use-playground-account";
 
 /* ── Spinner ──────────────────────────────────────────── */
 
@@ -203,13 +92,6 @@ function ThinkingStateList() {
       ))}
     </div>
   );
-}
-
-function formatLogTimestamp(date = new Date()) {
-  const hours = String(date.getHours()).padStart(2, "0");
-  const minutes = String(date.getMinutes()).padStart(2, "0");
-  const seconds = String(date.getSeconds()).padStart(2, "0");
-  return `${hours}:${minutes}:${seconds}`;
 }
 
 function DebugPanel({
@@ -344,409 +226,6 @@ function StatCard({
   );
 }
 
-function statusTone(status: "idle" | "running" | "done" | "error") {
-  if (status === "running") {
-    return "border-[var(--running-border)] bg-[var(--running-bg)] text-[var(--running-text)]";
-  }
-  if (status === "done") {
-    return "border-[var(--done-border)] bg-[var(--done-bg)] text-[var(--done-text)]";
-  }
-  if (status === "error") {
-    return "border-[var(--danger-border)] bg-[var(--danger-bg)] text-[var(--danger-text)]";
-  }
-  return "border-[var(--line)] bg-[var(--surface-soft)] text-[var(--muted)]";
-}
-
-function statusLabel(status: "idle" | "running" | "done" | "error") {
-  if (status === "running") return "Running";
-  if (status === "done") return "Done";
-  if (status === "error") return "Failed";
-  return "Queued";
-}
-
-function formatRunTimestamp(value: string | null) {
-  if (!value) return "Unknown time";
-  const parsed = new Date(value);
-  if (Number.isNaN(parsed.getTime())) return "Unknown time";
-  return parsed.toLocaleString();
-}
-
-function formatMemoryStepName(stepId: string, graphNodes: GraphNode[]) {
-  const matchedNode = graphNodes.find((node) => {
-    return normalizeStepKey(node.id) === normalizeStepKey(stepId)
-      || normalizeStepKey(node.label) === normalizeStepKey(stepId);
-  });
-
-  if (matchedNode) {
-    return matchedNode.label;
-  }
-
-  const cleaned = stepId.replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
-  return cleaned ? cleaned.replace(/\b\w/g, (character) => character.toUpperCase()) : "Agent Step";
-}
-
-function normalizeStepKey(value: string) {
-  return value.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
-}
-
-function matchesLifecycleKeyword(label: string, keywords: string[]) {
-  return keywords.some((keyword) => label.includes(keyword));
-}
-
-function inferLifecycleStep(stepId: string, graphNodes: GraphNode[]): AgentGraphStep | null {
-  const normalizedStep = normalizeStepKey(stepId);
-  const matchedNode = graphNodes.find((node) => {
-    return normalizeStepKey(node.id) === normalizedStep || normalizeStepKey(node.label) === normalizedStep;
-  });
-  const descriptor = normalizeStepKey(
-    [matchedNode?.id, matchedNode?.label, stepId].filter(Boolean).join(" "),
-  );
-
-  if (matchesLifecycleKeyword(descriptor, ["planner", "plan", "schema", "spec", "perception", "analyzer", "classifier", "screener"])) {
-    return "planner";
-  }
-
-  if (matchesLifecycleKeyword(descriptor, ["evaluator", "critic", "validator", "review", "reviewer", "auditor", "red team", "redteam", "adjuster", "checkpoint", "router"])) {
-    return "evaluator";
-  }
-
-  if (matchesLifecycleKeyword(descriptor, ["final", "formatter", "summarizer", "summary", "reporter", "report", "compiler", "coordinator", "responder", "insight", "seo"])) {
-    return "final";
-  }
-
-  if (matchedNode) {
-    const matchedIndex = graphNodes.findIndex((node) => node.id === matchedNode.id);
-
-    if (matchedIndex === 0) {
-      return "planner";
-    }
-
-    if (matchedIndex === graphNodes.length - 1) {
-      return "final";
-    }
-
-    if (matchedIndex === graphNodes.length - 2) {
-      return "evaluator";
-    }
-
-    return "executor";
-  }
-
-  if (matchesLifecycleKeyword(descriptor, ["executor"])) {
-    return "executor";
-  }
-
-  return null;
-}
-
-function lifecycleState(status: RunStatus): {
-  activeStep: AgentGraphStep | null;
-  completedSteps: AgentGraphStep[];
-} {
-  if (status === "connecting") {
-    return { activeStep: "planner", completedSteps: [] };
-  }
-
-  if (status === "running" || status === "streaming") {
-    return { activeStep: "executor", completedSteps: ["planner"] };
-  }
-
-  if (status === "error") {
-    return { activeStep: "evaluator", completedSteps: ["planner", "executor"] };
-  }
-
-  if (status === "success") {
-    return {
-      activeStep: "final",
-      completedSteps: ["planner", "executor", "evaluator"],
-    };
-  }
-
-  return { activeStep: null, completedSteps: [] };
-}
-
-function realtimeLifecycleState(
-  status: RunStatus,
-  graphNodes: GraphNode[],
-  stepStatuses: NodeStatusMap,
-): {
-  activeStep: AgentGraphStep | null;
-  completedSteps: AgentGraphStep[];
-} {
-  const lifecycleStatuses: Record<AgentGraphStep, "idle" | "running" | "done" | "error"> = {
-    planner: "idle",
-    executor: "idle",
-    evaluator: "idle",
-    final: "idle",
-  };
-
-  let mappedCount = 0;
-
-  for (const [stepId, stepStatus] of Object.entries(stepStatuses)) {
-    const lifecycleStep = inferLifecycleStep(stepId, graphNodes);
-
-    if (!lifecycleStep) {
-      continue;
-    }
-
-    mappedCount += 1;
-
-    if (stepStatus === "running") {
-      lifecycleStatuses[lifecycleStep] = "running";
-      continue;
-    }
-
-    if (stepStatus === "error") {
-      lifecycleStatuses[lifecycleStep] = "error";
-      continue;
-    }
-
-    if (lifecycleStatuses[lifecycleStep] !== "running" && lifecycleStatuses[lifecycleStep] !== "error") {
-      lifecycleStatuses[lifecycleStep] = "done";
-    }
-  }
-
-  if (mappedCount === 0) {
-    return lifecycleState(status);
-  }
-
-  const completedSteps = agentGraphSteps.filter((step) => lifecycleStatuses[step] === "done");
-  const failedStep = [...agentGraphSteps]
-    .reverse()
-    .find((step) => lifecycleStatuses[step] === "error") ?? null;
-  if (failedStep) {
-    return { activeStep: failedStep, completedSteps };
-  }
-
-  const activeStep = [...agentGraphSteps]
-    .reverse()
-    .find((step) => lifecycleStatuses[step] === "running") ?? null;
-
-  if (!activeStep && status === "success" && !completedSteps.includes("final")) {
-    return { activeStep: "final", completedSteps };
-  }
-
-  if (!activeStep && status === "error" && !completedSteps.includes("evaluator")) {
-    return { activeStep: "evaluator", completedSteps };
-  }
-
-  if (!activeStep && status === "connecting" && completedSteps.length === 0) {
-    return { activeStep: "planner", completedSteps };
-  }
-
-  return { activeStep, completedSteps };
-}
-
-function lifecycleLabel(step: AgentGraphStep | null) {
-  if (!step) {
-    return "Idle";
-  }
-
-  return `${step.charAt(0).toUpperCase()}${step.slice(1)}`;
-}
-
-type WorkspaceState = "idle" | "thinking" | "streaming" | "completed" | "error";
-
-function workspaceStateLabel(state: WorkspaceState) {
-  if (state === "thinking") return "Thinking";
-  if (state === "streaming") return "Streaming";
-  if (state === "completed") return "Completed";
-  if (state === "error") return "Error";
-  return "Idle";
-}
-
-function workspaceStateTone(state: WorkspaceState) {
-  if (state === "thinking") {
-    return "border-[var(--running-border)] bg-[var(--running-bg)] text-[var(--running-text)]";
-  }
-  if (state === "streaming") {
-    return "border-[var(--accent-border-soft)] bg-[var(--accent-soft-strong)] text-[color-mix(in_srgb,var(--accent-solid)_72%,var(--text)_28%)]";
-  }
-  if (state === "completed") {
-    return "border-[var(--done-border)] bg-[var(--done-bg)] text-[var(--done-text)]";
-  }
-  if (state === "error") {
-    return "border-[var(--danger-border)] bg-[var(--danger-bg)] text-[var(--danger-text)]";
-  }
-  return "border-[var(--line)] bg-[var(--surface-soft)] text-[var(--muted)]";
-}
-
-function assistantCardTone(state: WorkspaceState) {
-  if (state === "thinking") {
-    return "border-[var(--running-border)] bg-[color-mix(in_srgb,var(--card)_90%,var(--running-bg)_10%)]";
-  }
-  if (state === "streaming") {
-    return "border-[var(--accent-border-soft)] bg-[color-mix(in_srgb,var(--card)_92%,var(--accent-soft)_8%)]";
-  }
-  if (state === "completed") {
-    return "border-[var(--done-border)] bg-[color-mix(in_srgb,var(--card)_92%,var(--done-bg)_8%)]";
-  }
-  if (state === "error") {
-    return "border-[var(--danger-border)] bg-[var(--danger-bg)]";
-  }
-  return "border-[var(--line)] bg-[var(--card)]";
-}
-
-function assistantStateTitle(state: WorkspaceState) {
-  if (state === "thinking") return "Working through your request";
-  if (state === "streaming") return "Streaming response";
-  if (state === "completed") return "Response ready";
-  if (state === "error") return "Something went wrong";
-  return "Ready when you are";
-}
-
-function inferMemoryEntryType(
-  stepId: string,
-  graphNodes: GraphNode[],
-  status: StepEvent["status"],
-): MemoryEntryType {
-  if (status !== "running") {
-    return "observation";
-  }
-
-  const lifecycle = inferLifecycleStep(stepId, graphNodes);
-  if (lifecycle === "planner" || lifecycle === "evaluator") {
-    return "thought";
-  }
-
-  return "action";
-}
-
-function memoryContentForStep(
-  stepName: string,
-  lifecycle: AgentGraphStep | null,
-  status: StepEvent["status"],
-  error?: string,
-) {
-  if (status === "running") {
-    if (lifecycle === "planner") {
-      return `${stepName} is reasoning through the next plan.`;
-    }
-
-    if (lifecycle === "evaluator") {
-      return `${stepName} is reviewing the current state before the next handoff.`;
-    }
-
-    if (lifecycle === "final") {
-      return `${stepName} is shaping the final response.`;
-    }
-
-    return `${stepName} is executing its assigned action.`;
-  }
-
-  if (status === "done") {
-    return `${stepName} completed and handed control to the next stage.`;
-  }
-
-  return error ? `${stepName} failed: ${error}` : `${stepName} failed during execution.`;
-}
-
-function isRunMemoryEntry(value: unknown): value is RunMemoryEntry {
-  if (!value || typeof value !== "object") {
-    return false;
-  }
-
-  const candidate = value as Record<string, unknown>;
-  return typeof candidate.step === "string"
-    && typeof candidate.content === "string"
-    && (candidate.type === "thought" || candidate.type === "action" || candidate.type === "observation");
-}
-
-function mapRunMemoryEntries(entries: RunMemoryEntry[]): MemoryEntry[] {
-  return entries.map((entry, index) => ({
-    id: `memory-${index + 1}`,
-    stepName: entry.step,
-    type: entry.type,
-    content: entry.content,
-    initiallyExpanded: index === entries.length - 1,
-  }));
-}
-
-function isRunTimelineEntry(value: unknown): value is RunTimelineEntry {
-  if (!value || typeof value !== "object") {
-    return false;
-  }
-
-  const candidate = value as Record<string, unknown>;
-  return typeof candidate.timestamp === "number"
-    && typeof candidate.step === "string"
-    && typeof candidate.event === "string"
-    && typeof candidate.data === "string";
-}
-
-function formatTimelineTimestamp(timestamp: number) {
-  return `+${timestamp.toFixed(timestamp >= 10 ? 1 : 2)}s`;
-}
-
-function formatTimelineEventLabel(event: string) {
-  if (event === "running") return "Running";
-  if (event === "done") return "Completed";
-  if (event === "error") return "Failed";
-  if (event === "completed") return "Run complete";
-  if (event === "failed") return "Run failed";
-  return event.replace(/[_-]+/g, " ").replace(/\b\w/g, (character) => character.toUpperCase());
-}
-
-function timelineEventToNodeStatus(event: string): "running" | "done" | "error" | null {
-  if (event === "running") return "running";
-  if (event === "done" || event === "completed") return "done";
-  if (event === "error" || event === "failed") return "error";
-  return null;
-}
-
-function buildReplayNodeStatuses(entries: RunTimelineEntry[], graphNodes: GraphNode[]): NodeStatusMap {
-  const statuses: NodeStatusMap = {};
-
-  for (const entry of entries) {
-    const matchedNode = graphNodes.find((node) => {
-      return normalizeStepKey(node.id) === normalizeStepKey(entry.step)
-        || normalizeStepKey(node.label) === normalizeStepKey(entry.step);
-    });
-    if (!matchedNode) {
-      continue;
-    }
-
-    const nextStatus = timelineEventToNodeStatus(entry.event);
-    if (!nextStatus) {
-      continue;
-    }
-
-    if (nextStatus === "running") {
-      for (const [stepId, stepStatus] of Object.entries(statuses)) {
-        if (stepId !== matchedNode.id && stepStatus === "running") {
-          statuses[stepId] = "done";
-        }
-      }
-    }
-
-    statuses[matchedNode.id] = nextStatus;
-  }
-
-  return statuses;
-}
-
-function buildReplayLogLines(entries: RunTimelineEntry[], graphNodes: GraphNode[]): string[] {
-  return entries.map((entry) => {
-    return `[${formatTimelineTimestamp(entry.timestamp)}] ${formatMemoryStepName(entry.step, graphNodes)} → ${formatTimelineEventLabel(entry.event)}${entry.data ? ` · ${entry.data}` : ""}`;
-  });
-}
-
-function replayRunStatus(frame: TimelineReplayFrame | null, totalEvents: number): RunStatus {
-  if (!frame || frame.currentIndex < 0 || totalEvents === 0) {
-    return "idle";
-  }
-
-  if (frame.currentEntry?.event === "error" || frame.currentEntry?.event === "failed") {
-    return "error";
-  }
-
-  if (frame.currentIndex >= totalEvents - 1) {
-    return "success";
-  }
-
-  return "streaming";
-}
-
 function WorkspaceStateBadge({ state }: { state: WorkspaceState }) {
   if (state === "thinking") {
     return (
@@ -814,8 +293,6 @@ function ReplayStateBadge({
   );
 }
 
-type RunStatus = "idle" | "connecting" | "running" | "streaming" | "success" | "error";
-
 /* ── Main Component ───────────────────────────────────── */
 
 export default function PlaygroundClient() {
@@ -833,17 +310,26 @@ export default function PlaygroundClient() {
   const [stepStatuses, setStepStatuses] = useState<NodeStatusMap>({});
   const [logLines, setLogLines] = useState<string[]>([]);
   const [memoryEntries, setMemoryEntries] = useState<MemoryEntry[]>([]);
-  const [authToken, setAuthToken] = useState<string | null>(null);
-  const [activeSessionId, setActiveSessionId] = useState<number | null>(null);
-  const [sessionMemoryPreview, setSessionMemoryPreview] = useState<string[]>([]);
-  const [sessionLoading, setSessionLoading] = useState(false);
-  const [clearingSession, setClearingSession] = useState(false);
+  const {
+    activeSessionId,
+    applySessionState,
+    authToken,
+    clearLocalSession,
+    clearSession,
+    clearingSession,
+    historyError,
+    historyLoading,
+    historyRuns,
+    refreshHistory,
+    sessionLoading,
+    sessionMemoryPreview,
+    setAuthToken,
+    setHistoryError,
+    setHistoryRuns,
+  } = usePlaygroundAccount();
   const [usedSessionContext, setUsedSessionContext] = useState(false);
   const [apiKey, setApiKey] = useState(() => getStoredApiKey());
   const [keyFocused, setKeyFocused] = useState(false);
-  const [historyRuns, setHistoryRuns] = useState<HistoryRun[]>([]);
-  const [historyLoading, setHistoryLoading] = useState(false);
-  const [historyError, setHistoryError] = useState<string | null>(null);
   const [activeReplayRun, setActiveReplayRun] = useState<HistoryRun | null>(null);
   const [replayFrame, setReplayFrame] = useState<TimelineReplayFrame | null>(null);
   const [replayAutoplayKey, setReplayAutoplayKey] = useState(0);
@@ -896,78 +382,11 @@ export default function PlaygroundClient() {
     setExplanationError(null);
   }, []);
 
-  const clearLocalSession = useCallback(() => {
-    setActiveSessionId(null);
-    setSessionMemoryPreview([]);
-    setUsedSessionContext(false);
-    clearStoredSessionId();
-  }, []);
-
-  const applySessionState = useCallback((sessionId: number | null, memory: string[]) => {
-    if (sessionId === null) {
-      clearLocalSession();
-      return;
-    }
-
-    setActiveSessionId(sessionId);
-    setSessionMemoryPreview(memory.slice(-5));
-    storeSessionId(sessionId);
-  }, [clearLocalSession]);
-
-  const loadSession = useCallback(async (sessionId: number, token: string) => {
-    setSessionLoading(true);
-    try {
-      const response = await fetchRunSession(sessionId, token);
-      applySessionState(response.id, response.memory);
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Failed to load session.";
-      if (message.startsWith("401") || message.startsWith("404")) {
-        clearLocalSession();
-      }
-    } finally {
-      setSessionLoading(false);
-    }
-  }, [applySessionState, clearLocalSession]);
-
-  const loadHistory = useCallback(async (token: string) => {
-    setHistoryLoading(true);
-    setHistoryError(null);
-    try {
-      const response = await fetchHistory(token);
-      setHistoryRuns(
-        response.runs.map((run) => ({
-          ...run,
-          memory: Array.isArray(run.memory) ? run.memory.filter(isRunMemoryEntry) : [],
-          timeline: Array.isArray(run.timeline) ? run.timeline.filter(isRunTimelineEntry) : [],
-        })),
-      );
-    } catch (err) {
-      const message = err instanceof Error ? err.message : "Failed to load history.";
-      setHistoryError(message);
-      if (message.startsWith("401")) {
-        clearAuthToken();
-        setAuthToken(null);
-        setHistoryRuns([]);
-        clearLocalSession();
-      }
-    } finally {
-      setHistoryLoading(false);
-    }
-  }, [clearLocalSession]);
-
   useEffect(() => {
-    const token = getStoredAuthToken();
-    setAuthToken(token);
-    if (token) {
-      void loadHistory(token);
-      const storedSessionId = getStoredSessionId();
-      if (storedSessionId !== null) {
-        void loadSession(storedSessionId, token);
-      }
-    } else {
-      clearLocalSession();
+    if (activeSessionId === null) {
+      setUsedSessionContext(false);
     }
-  }, [clearLocalSession, loadHistory, loadSession]);
+  }, [activeSessionId]);
 
   useEffect(() => {
     setStoredApiKey(apiKey.trim());
@@ -1047,6 +466,7 @@ export default function PlaygroundClient() {
 
     if (!authToken) {
       clearLocalSession();
+      setUsedSessionContext(false);
     }
 
     // Validate JSON input
@@ -1167,7 +587,7 @@ export default function PlaygroundClient() {
             }
             setStatus("success");
             if (authToken) {
-              void loadHistory(authToken);
+              void refreshHistory(authToken);
             }
             // Also populate rawData/output for the tabs
             setStreamText((prev) => {
@@ -1262,14 +682,14 @@ export default function PlaygroundClient() {
             setRawData({ output: innerRaw });
             setOutput(innerRaw);
           } else {
-            setRawData(data);
+            setRawData(data as unknown as AnyObj);
             setOutput(JSON.stringify(data, null, 2));
           }
           if (!runSucceeded) {
             setErrorMsg(typeof data?.output === "string" ? data.output : "Execution failed.");
           }
           if (authToken) {
-            void loadHistory(authToken);
+            void refreshHistory(authToken);
           }
         } else {
           setStatus("error");
@@ -1422,20 +842,12 @@ export default function PlaygroundClient() {
   }
 
   async function handleClearSession() {
-    if (!authToken || activeSessionId === null) {
-      return;
-    }
-
-    setClearingSession(true);
-    try {
-      const response = await clearRunSession(activeSessionId, authToken);
-      applySessionState(response.id, response.memory);
+    const cleared = await clearSession();
+    if (cleared) {
       setUsedSessionContext(false);
       appendLog("Session memory cleared");
-    } catch {
+    } else {
       appendLog("Failed to clear session memory");
-    } finally {
-      setClearingSession(false);
     }
   }
 
@@ -1444,6 +856,8 @@ export default function PlaygroundClient() {
     clearReplay();
     clearExplanation();
     clearLocalSession();
+    setUsedSessionContext(false);
+    void logoutSession().catch(() => undefined);
     clearAuthToken();
     setAuthToken(null);
     setHistoryRuns([]);
@@ -1490,7 +904,6 @@ export default function PlaygroundClient() {
         : showAssistantInProgress
           ? "thinking"
           : "idle";
-  const recentRuns = historyRuns.slice(0, 6);
   const replaySourceLabel = activeReplayRun
     ? `${graphProject.name} · ${formatRunTimestamp(activeReplayRun.timestamp)}`
     : undefined;
@@ -1525,310 +938,44 @@ export default function PlaygroundClient() {
 
       {/* ── Two-column grid ── */}
       <div className="grid gap-10 xl:grid-cols-[420px_minmax(0,1fr)] xl:items-start">
-
-        {/* ════════════ LEFT: Input + Project Selector ════════════ */}
-        <aside className="flex flex-col gap-7 xl:sticky xl:top-24">
-
-          {/* ── Input Card ── */}
-          <section className="surface-card rounded-[1.75rem] p-6">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Input</p>
-                <p className="mt-1 text-base font-semibold text-[var(--foreground)]">Compose request</p>
-              </div>
-              <span className={`rounded-full px-3 py-1 text-xs font-medium ${categoryBadgeTone[selected.category]}`}>
-                {selected.category}
-              </span>
-            </div>
-
-            <textarea
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              rows={8}
-              disabled={isActive}
-              className="input-shell mt-4 w-full resize-y rounded-[1.25rem] px-4 py-3.5 font-mono text-[13px] leading-7 disabled:cursor-not-allowed disabled:opacity-60"
-              spellCheck={false}
-            />
-
-            <div className="mt-4 flex flex-wrap items-center gap-3">
-              <label className="flex cursor-pointer items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-3 py-2 text-xs text-[var(--muted)]">
-                <input
-                  type="checkbox"
-                  checked={streamMode}
-                  onChange={(e) => setStreamMode(e.target.checked)}
-                  disabled={isActive}
-                  className="accent-[var(--accent-solid)]"
-                />
-                Stream
-              </label>
-
-              {isActive ? (
-                <button type="button" onClick={handleStop} className="button-base button-secondary button-sm button-pill">
-                  Stop
-                </button>
-              ) : (
-                <button type="button" onClick={handleRun} disabled={!apiKey.trim()} className="button-base button-primary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50">
-                  Send request
-                </button>
-              )}
-            </div>
-          </section>
-
-          {/* ── API Key (BYOK) ── */}
-          <section className="surface-card rounded-[1.75rem] p-5">
-            <div className="flex items-center justify-between">
-              <label className="block text-xs font-semibold text-[var(--foreground)]">
-                Enter your Google API Key
-              </label>
-              <a
-                href="https://aistudio.google.com/apikey"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-[11px] font-medium text-[var(--accent)] hover:underline"
-              >
-                Get API key &rarr;
-              </a>
-            </div>
-            <div className="relative mt-2">
-              <input
-                type={keyFocused || !apiKey ? "password" : "text"}
-                value={keyFocused ? apiKey : maskApiKey(apiKey)}
-                onChange={(e) => setApiKey(e.target.value)}
-                onFocus={() => setKeyFocused(true)}
-                onBlur={() => setKeyFocused(false)}
-                placeholder="AIza..."
-                disabled={isActive}
-                className={`input-shell w-full rounded-[1rem] px-4 py-2.5 font-mono text-xs leading-6 disabled:cursor-not-allowed disabled:opacity-60${errorMsg && /api.key|Missing x-api-key/i.test(errorMsg) ? " ring-2 ring-red-500/60" : ""}`}
-                spellCheck={false}
-                autoComplete="off"
-              />
-              {apiKey && !keyFocused && (
-                <button
-                  type="button"
-                  onClick={() => setApiKey("")}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)] hover:text-[var(--foreground)] transition-colors"
-                  aria-label="Clear API key"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-3.5">
-                    <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
-                  </svg>
-                </button>
-              )}
-            </div>
-            {errorMsg && /api.key|Missing x-api-key/i.test(errorMsg) ? (
-              <p className="mt-1.5 text-[11px] font-medium leading-5 text-red-400">
-                Invalid or expired API key
-              </p>
-            ) : (
-              <p className="mt-1.5 text-[11px] leading-5 text-[var(--muted)]">
-                Your key is never stored.
-              </p>
-            )}
-          </section>
-
-          {/* ── Project Selector ── */}
-          <section className="surface-card rounded-[1.75rem] p-5">
-            <div className="flex items-center justify-between gap-3">
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Projects</p>
-                <p className="mt-1 text-base font-semibold text-[var(--foreground)]">Select a system</p>
-              </div>
-              <span className={`rounded-full px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] ${categoryBadgeTone[selected.category]}`}>
-                {selected.category}
-              </span>
-            </div>
-
-            <div className="mt-4 max-h-[420px] space-y-2.5 overflow-auto pr-1">
-              {projectDetails.map((project) => {
-                const isSelected = project.slug === selectedSlug;
-                return (
-                  <button
-                    key={project.slug}
-                    type="button"
-                    onClick={() => handleProjectChange(project.slug)}
-                    disabled={isActive}
-                    className={`w-full rounded-[1.25rem] border px-4 py-4 text-left transition-all duration-200 ease-in-out disabled:cursor-not-allowed disabled:opacity-60 ${
-                      isSelected
-                        ? "border-[var(--accent-border-soft)] bg-[var(--accent-soft)] shadow-sm"
-                        : "border-[var(--line)] bg-[var(--panel)] hover:-translate-y-1 hover:border-[var(--accent-border-soft)] hover:bg-[color-mix(in_srgb,var(--panel)_82%,var(--accent-soft)_18%)]"
-                    }`}
-                  >
-                    <div className="flex items-start justify-between gap-3">
-                      <p className="text-sm font-semibold text-[var(--foreground)]">{project.name}</p>
-                      <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] ${categoryBadgeTone[project.category]}`}>
-                        {project.category}
-                      </span>
-                    </div>
-                    <p className="mt-2 line-clamp-2 text-sm leading-6 text-[var(--muted)]">{project.description}</p>
-                  </button>
-                );
-              })}
-            </div>
-          </section>
-
-          {/* ── Account & History ── */}
-          <section className="surface-card rounded-[1.75rem] p-5">
-            <div className="flex flex-wrap items-center justify-between gap-3">
-              <div>
-                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Account</p>
-                <p className="mt-1 text-sm font-semibold text-[var(--foreground)]">
-                  {authToken ? "Authenticated" : "Sign in required"}
-                </p>
-              </div>
-              {authToken ? (
-                <button type="button" onClick={handleLogout} className="button-base button-secondary button-sm button-pill">Log out</button>
-              ) : (
-                <Link href="/auth" className="button-base button-primary button-sm button-pill">Login / Sign up</Link>
-              )}
-            </div>
-
-            {authToken && (
-              <>
-                <div className="mt-4 border-t border-[var(--line)] pt-4">
-                  <div className="flex flex-wrap items-start justify-between gap-3">
-                    <div>
-                      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Session</p>
-                      <p className="mt-1 text-sm font-semibold text-[var(--foreground)]">
-                        {activeSessionId !== null ? "Session active" : "Session idle"}
-                      </p>
-                      {hasSessionContext && (
-                        <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">Last few interactions are ready for reuse.</p>
-                      )}
-                    </div>
-                    {activeSessionId !== null && (
-                      <button
-                        type="button"
-                        onClick={() => void handleClearSession()}
-                        disabled={sessionLoading || clearingSession}
-                        className="button-base button-secondary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50"
-                      >
-                        {clearingSession ? "Clearing..." : "Clear session"}
-                      </button>
-                    )}
-                  </div>
-
-                  {sessionLoading && (
-                    <div className="mt-3 flex items-center gap-2 text-sm text-[var(--muted)]">
-                      <Spinner className="h-4 w-4" /> Loading session...
-                    </div>
-                  )}
-
-                  {!sessionLoading && activeSessionId === null && (
-                    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Start a run to begin a reusable session.</p>
-                  )}
-
-                  {!sessionLoading && activeSessionId !== null && sessionEntries.length === 0 && (
-                    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">This session is active, but no previous interactions are stored yet.</p>
-                  )}
-
-                  {sessionEntries.length > 0 && (
-                    <div className="mt-3 space-y-2">
-                      {sessionEntries.map((entry, index) => (
-                        <div key={`${activeSessionId ?? "session"}-${index}`} className="surface-panel rounded-[1rem] p-3">
-                          <p className="text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">Recent interaction</p>
-                          <p className="mt-2 line-clamp-3 text-sm leading-6 text-[var(--muted)]">{entry}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                </div>
-
-                <div className="mt-4 border-t border-[var(--line)] pt-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Saved Runs</p>
-                    <span className="surface-pill rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-                      {historyRuns.length} saved
-                    </span>
-                  </div>
-
-                  {historyLoading && (
-                    <div className="mt-3 flex items-center gap-2 text-sm text-[var(--muted)]">
-                      <Spinner className="h-4 w-4" /> Loading...
-                    </div>
-                  )}
-
-                  {historyError && (
-                    <div className="error-panel mt-3 rounded-[1rem] px-4 py-3 text-sm text-[var(--danger-text)]">{historyError}</div>
-                  )}
-
-                  {!historyLoading && !historyError && recentRuns.length === 0 && (
-                    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">No saved runs yet.</p>
-                  )}
-
-                  {recentRuns.length > 0 && (
-                    <div className="mt-3 space-y-2">
-                      {recentRuns.map((run) => {
-                        const proj = projectDetails.find((item) => item.slug === run.project);
-                        const replaySelected = activeReplayRun?.id === run.id;
-                        const explanationSelected = activeExplanationRun?.id === run.id;
-                        const canReplay = run.timeline.length > 0;
-                        const hasExplanation = Boolean(runExplanations[run.id]);
-                        const isExplaining = explainingRunId === run.id;
-                        return (
-                          <div
-                            key={run.id}
-                            className={`surface-panel rounded-[1rem] p-3 ${replaySelected || explanationSelected ? "border-[var(--accent-border-soft)] bg-[var(--accent-soft)]" : ""}`}
-                          >
-                            <div className="flex flex-wrap items-start justify-between gap-3">
-                              <div>
-                                <p className="text-sm font-semibold text-[var(--foreground)]">{proj?.name ?? run.project}</p>
-                                <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-[var(--muted)]">{formatRunTimestamp(run.timestamp)}</p>
-                              </div>
-                              <div className="flex flex-wrap items-center gap-2">
-                                <span className="surface-pill rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-                                  {run.timeline.length} events
-                                </span>
-                                <ConfidenceIndicator confidence={run.confidence} compact />
-                                <button
-                                  type="button"
-                                  onClick={() => handleHistoryReplay(run)}
-                                  disabled={!canReplay}
-                                  className="button-base button-secondary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50"
-                                >
-                                  Replay
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => void handleHistoryExplain(run)}
-                                  disabled={explainingRunId !== null && explainingRunId !== run.id}
-                                  className="button-base button-secondary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50"
-                                >
-                                  {isExplaining
-                                    ? "Explaining..."
-                                    : explanationSelected && hasExplanation
-                                      ? "Hide Explanation"
-                                      : hasExplanation
-                                        ? "Show Explanation"
-                                        : "Explain How It Worked"}
-                                </button>
-                                <button type="button" onClick={() => handleHistoryRerun(run)} className="button-base button-primary button-sm button-pill">
-                                  Re-run
-                                </button>
-                                <button
-                                  type="button"
-                                  onClick={() => void (run.is_public ? handleUnshare(run) : handleShare(run))}
-                                  disabled={sharingRunId !== null}
-                                  className={`button-base button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50 ${run.is_public ? "button-secondary border-[var(--success-text)] text-[var(--success-text)]" : "button-secondary"}`}
-                                >
-                                  {sharingRunId === run.id
-                                    ? "Sharing..."
-                                    : run.is_public
-                                      ? "Shared ✓"
-                                      : "Share"}
-                                </button>
-                              </div>
-                            </div>
-                            <p className="mt-2 line-clamp-2 font-mono text-xs leading-6 text-[var(--muted)]">{run.input}</p>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  )}
-                </div>
-              </>
-            )}
-          </section>
-        </aside>
+        <PlaygroundSidebar
+          activeExplanationRunId={activeExplanationRun?.id ?? null}
+          activeReplayRunId={activeReplayRun?.id ?? null}
+          activeSessionId={activeSessionId}
+          apiKey={apiKey}
+          authToken={authToken}
+          clearingSession={clearingSession}
+          errorMsg={errorMsg}
+          explainingRunId={explainingRunId}
+          hasSessionContext={hasSessionContext}
+          historyError={historyError}
+          historyLoading={historyLoading}
+          historyRuns={historyRuns}
+          input={input}
+          isActive={isActive}
+          keyFocused={keyFocused}
+          onApiKeyChange={setApiKey}
+          onClearSession={() => void handleClearSession()}
+          onHistoryExplain={(run) => void handleHistoryExplain(run)}
+          onHistoryReplay={handleHistoryReplay}
+          onHistoryRerun={handleHistoryRerun}
+          onInputChange={setInput}
+          onKeyFocusedChange={setKeyFocused}
+          onLogout={handleLogout}
+          onProjectChange={handleProjectChange}
+          onRun={handleRun}
+          onShare={(run) => void handleShare(run)}
+          onStop={handleStop}
+          onStreamModeChange={setStreamMode}
+          onUnshare={(run) => void handleUnshare(run)}
+          runExplanations={runExplanations}
+          selected={selected}
+          selectedSlug={selectedSlug}
+          sessionEntries={sessionEntries}
+          sessionLoading={sessionLoading}
+          sharingRunId={sharingRunId}
+          streamMode={streamMode}
+        />
 
         {/* ════════════ RIGHT: Output → Graph → Debug ════════════ */}
         <div className="flex flex-col gap-8">

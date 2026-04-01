@@ -360,7 +360,7 @@ function EmptyState({ message }: { message: string }) {
       <div className="surface-card rounded-[1.5rem] p-6 sm:p-8">
         <p className="eyebrow">Performance Over Time</p>
         <h2 className="heading-section mt-3 text-3xl text-[var(--foreground)]">
-          No saved runs match this filter yet
+          No persisted execution metrics match this filter yet
         </h2>
         <p className="copy-body mt-4 max-w-2xl text-sm">{message}</p>
       </div>
@@ -444,7 +444,7 @@ export default function MetricsPage() {
       : `${projectLabel(selectedProject)} in the selected time range`;
 
     return (
-      <EmptyState message={`No saved runs were found for ${projectDescription}. Execute a few runs and this view will populate automatically.`} />
+      <EmptyState message={`No persisted execution metrics were found for ${projectDescription}. Execute a few runs and this view will populate automatically.`} />
     );
   }
 
@@ -466,7 +466,7 @@ export default function MetricsPage() {
             Track whether the system is improving, holding, or slipping.
           </h1>
           <p className="copy-lead max-w-2xl text-base sm:text-lg">
-            Saved runs are grouped into {rangeMeta[range].bucketLabel} so latency, confidence, and success rate reveal actual direction over time.
+            Persisted execution metrics are grouped into {rangeMeta[range].bucketLabel} so latency, confidence, and success rate reveal actual direction over time.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <span className={`rounded-full px-3 py-1 text-xs font-medium ${trend.toneClass}`}>

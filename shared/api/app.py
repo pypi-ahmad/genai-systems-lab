@@ -3,16 +3,18 @@
 from __future__ import annotations
 
 import asyncio
-from datetime import datetime, timedelta
+from collections import deque
+from datetime import UTC, datetime, timedelta
 import html
 import json
+import os
 import re
 import threading
 import time
 import traceback
 from typing import Any, Literal
 
-from fastapi import Depends, FastAPI, HTTPException, Query, Request, status
+from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import ValidationError
 from fastapi.responses import JSONResponse
@@ -22,11 +24,11 @@ from sqlalchemy.orm import Session
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import StreamingResponse
 
-from .auth import authenticate_user, create_access_token, create_user, get_current_user, get_optional_current_user, save_run, serialize_run
+from .auth import AUTH_COOKIE_NAME, JWT_TTL_SECONDS, authenticate_user, create_access_token, create_user, get_current_user, get_optional_current_user, save_run, serialize_run
 from .confidence import compute_run_confidence
 from .db import get_db_session, init_db
 from .eval_runner import build_leaderboard, run_project_evaluation
-from .models import Run, RunSession, User
+from .models import OperationalMetric, Run, RunSession, User
 from .run_explainer import build_run_explanation
 from .runner import list_available, resolve_project_name, run_project
 from .session_memory import (
@@ -38,15 +40,24 @@ from .session_memory import (
 )
 from shared.config import get_effective_api_key, set_byok_api_key, reset_byok_api_key
 from shared.llm import GeminiGenerationError, GeminiTimeoutError
-from shared.logging import get_logger, new_request_id, reset_log_context, set_log_context
+from shared.logging import get_logger, new_request_id, reset_log_context, set_log_context, setup_otel, shutdown_otel
 from shared.logging.otel import span as otel_span
-from shared.schemas import AuthRequest, AuthResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, LeaderboardEntryResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, TimeSeriesMetricPointResponse
+from shared.project_catalog import build_pipeline_nodes_index, list_project_manifest_entries
+from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, LeaderboardEntryResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
 
 logger = get_logger(__name__)
 
 MAX_INPUT_LENGTH = 10_000  # characters
 MemoryEntryPayload = dict[str, str]
 TimelineEntryPayload = dict[str, str | float]
+_DEFAULT_ALLOWED_ORIGINS = (
+    "http://localhost:3000",
+    "http://127.0.0.1:3000",
+    "http://localhost:3001",
+    "http://127.0.0.1:3001",
+)
+_CORS_ALLOWED_METHODS = ["DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"]
+_CORS_ALLOWED_HEADERS = ["Authorization", "Content-Type", "X-API-Key", "X-Requested-With"]
 
 
 # -- In-memory metrics store ---------------------------------------------------
@@ -105,8 +116,74 @@ metrics_store = _MetricsStore()
 MetricsTimeRange = Literal["hour", "day", "week"]
 
 
+def _env_flag(name: str, default: bool) -> bool:
+    raw_value = os.getenv(name)
+    if raw_value is None:
+        return default
+    return raw_value.strip().lower() in {"1", "true", "yes", "on"}
+
+
+def _resolve_allowed_origins(explicit_origins: list[str] | None) -> list[str]:
+    if explicit_origins is not None:
+        candidates = explicit_origins
+    else:
+        configured = os.getenv("GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS", "").strip()
+        candidates = configured.split(",") if configured else list(_DEFAULT_ALLOWED_ORIGINS)
+
+    cleaned: list[str] = []
+    for candidate in candidates:
+        origin = candidate.strip().rstrip("/")
+        if origin and origin not in cleaned:
+            cleaned.append(origin)
+
+    return cleaned or list(_DEFAULT_ALLOWED_ORIGINS)
+
+
+def _public_signup_enabled() -> bool:
+    default_enabled = os.getenv("APP_ENV", "dev").strip().lower() != "prod"
+    return _env_flag("GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP", default_enabled)
+
+
+def _auth_cookie_samesite() -> Literal["lax", "strict", "none"]:
+    configured = os.getenv("GENAI_SYSTEMS_LAB_AUTH_COOKIE_SAMESITE", "lax").strip().lower()
+    if configured in {"lax", "strict", "none"}:
+        return configured
+    return "lax"
+
+
+def _auth_cookie_secure() -> bool:
+    default_secure = os.getenv("APP_ENV", "dev").strip().lower() == "prod"
+    return _env_flag("GENAI_SYSTEMS_LAB_AUTH_COOKIE_SECURE", default_secure)
+
+
+def _set_auth_cookie(response: Response, token: str) -> None:
+    same_site = _auth_cookie_samesite()
+    secure = _auth_cookie_secure() or same_site == "none"
+    response.set_cookie(
+        key=AUTH_COOKIE_NAME,
+        value=token,
+        httponly=True,
+        secure=secure,
+        samesite=same_site,
+        max_age=JWT_TTL_SECONDS,
+        path="/",
+    )
+
+
+def _clear_auth_cookie(response: Response) -> None:
+    same_site = _auth_cookie_samesite()
+    secure = _auth_cookie_secure() or same_site == "none"
+    response.delete_cookie(
+        key=AUTH_COOKIE_NAME,
+        httponly=True,
+        secure=secure,
+        samesite=same_site,
+        path="/",
+    )
+
+
 def _metrics_time_cutoff(time_range: MetricsTimeRange) -> datetime:
-    now = datetime.utcnow()
+    now = datetime.now(UTC)
     if time_range == "hour":
         return now - timedelta(hours=1)
     if time_range == "week":
@@ -123,31 +200,92 @@ def _serialize_metric_point(run: Run) -> TimeSeriesMetricPointResponse:
     )
 
 
-# -- Pipeline node IDs per project (mirrors frontend graph data) ---------------
-# Used by the streaming endpoint to emit step events as the pipeline executes.
+def _serialize_operational_metric_point(metric: OperationalMetric) -> TimeSeriesMetricPointResponse:
+    return TimeSeriesMetricPointResponse(
+        timestamp=metric.timestamp.isoformat() if metric.timestamp else "",
+        latency=round(metric.latency_ms, 2),
+        confidence=round(metric.confidence_score, 2),
+        success=metric.success,
+    )
 
-PIPELINE_NODES: dict[str, list[str]] = {
-    "multi-agent-research": ["planner", "researcher", "critic", "writer", "editor", "formatter"],
-    "nl2sql-agent": ["planner", "schema", "generator", "validator", "executor", "summarizer"],
-    "clinical-assistant": ["extractor", "retriever", "reasoner", "formatter"],
-    "browser-agent": ["perception", "planner", "executor", "memory"],
-    "financial-analyst": ["metrics", "trends", "forecaster", "writer"],
-    "code-copilot": ["indexer", "store", "retriever", "generator"],
-    "doc-intelligence": ["chunker", "embedder", "retriever", "qa", "extractor"],
-    "knowledge-os": ["ingest", "store", "retriever", "summarizer", "insights"],
-    "interviewer": ["generator", "evaluator", "adjuster", "compiler"],
-    "ui-builder": ["spec", "validator", "codegen", "repair"],
-    "data-agent": ["planner", "executor", "interpreter", "evaluator"],
-    "debugging-agent": ["analyzer", "fixer", "tester", "evaluator"],
-    "research-agent": ["planner", "retriever", "reporter"],
-    "support-agent": ["classifier", "retriever", "responder", "router"],
-    "workflow-agent": ["planner", "executor", "validator", "checkpoint"],
-    "content-pipeline": ["researcher", "writer", "editor", "seo"],
-    "hiring-crew": ["screener", "tech", "behavioral", "manager", "auditor"],
-    "investment-crew": ["market", "financial", "risk", "strategist", "redteam"],
-    "product-launch": ["researcher", "positioning", "messaging", "channel", "coordinator"],
-    "startup-simulator": ["ceo", "cto", "cmo", "cfo", "advisor"],
-}
+
+def _record_operational_metric(
+    session: Session,
+    *,
+    project: str,
+    latency_ms: float,
+    confidence_score: float,
+    success: bool,
+) -> None:
+    try:
+        session.add(
+            OperationalMetric(
+                project=project,
+                latency_ms=round(max(latency_ms, 0.0), 2),
+                confidence_score=round(max(confidence_score, 0.0), 2),
+                success=success,
+            )
+        )
+        session.commit()
+    except Exception as exc:
+        session.rollback()
+        logger.warning(
+            "failed to persist operational metric",
+            extra={"project_name": project, "error": str(exc)},
+        )
+
+
+def _snapshot_persisted_metrics(session: Session) -> MetricsResponse:
+    rows = session.execute(
+        select(
+            OperationalMetric.project,
+            OperationalMetric.latency_ms,
+            OperationalMetric.success,
+        ).order_by(OperationalMetric.project.asc(), OperationalMetric.id.asc())
+    ).all()
+
+    if not rows:
+        return MetricsResponse()
+
+    total_requests = 0
+    total_latency = 0.0
+    total_successes = 0
+    project_totals: dict[str, dict[str, float]] = {}
+
+    for project_name, latency_ms, success in rows:
+        total_requests += 1
+        total_latency += float(latency_ms)
+        total_successes += 1 if success else 0
+
+        project_entry = project_totals.setdefault(
+            project_name,
+            {"requests": 0.0, "latency_ms": 0.0, "successes": 0.0},
+        )
+        project_entry["requests"] += 1
+        project_entry["latency_ms"] += float(latency_ms)
+        if success:
+            project_entry["successes"] += 1
+
+    projects = [
+        {
+            "name": project_name,
+            "latency": round(values["latency_ms"] / values["requests"], 2),
+            "success_rate": round(values["successes"] / values["requests"], 4),
+        }
+        for project_name, values in project_totals.items()
+    ]
+
+    return MetricsResponse(
+        total_requests=total_requests,
+        avg_latency=round(total_latency / total_requests if total_requests else 0.0, 2),
+        success_rate=round(total_successes / total_requests if total_requests else 0.0, 4),
+        projects=projects,
+    )
+
+
+# -- Pipeline node IDs per project (derived from shared project catalog) -------
+
+PIPELINE_NODES = build_pipeline_nodes_index()
 
 
 def _get_pipeline_nodes(project_name: str) -> list[str]:
@@ -358,7 +496,18 @@ def _append_fallback_timeline_entries(
 
 def _discover_projects() -> list[dict[str, str]]:
     """Return a list of runnable projects (folders containing app/main.py)."""
-    return [{"name": name} for name in list_available()]
+    available = set(list_available())
+    items = list_project_manifest_entries(runnable_projects=available)
+    known_slugs = {
+        item["slug"]
+        for item in items
+        if isinstance(item, dict) and isinstance(item.get("slug"), str)
+    }
+
+    for project_name in sorted(available - known_slugs):
+        items.append({"name": project_name, "slug": project_name})
+
+    return items
 
 
 def _serialize_session_payload(run_session: RunSession) -> dict[str, Any]:
@@ -475,6 +624,68 @@ class ErrorHandlingMiddleware(BaseHTTPMiddleware):
             )
 
 
+class RequestRateLimitMiddleware(BaseHTTPMiddleware):
+    """Apply lightweight in-memory rate limiting to the shared API."""
+
+    _DEFAULT_LIMIT = (120, 60)
+    _RULES: tuple[tuple[str, str, int, int], ...] = (
+        ("/auth/signup", "signup", 5, 60),
+        ("/auth/login", "login", 10, 60),
+        ("/leaderboard", "leaderboard", 4, 300),
+        ("/eval/", "evaluation", 6, 300),
+        ("/stream/", "stream", 30, 60),
+        ("/explain/", "explain", 20, 60),
+    )
+
+    def __init__(self, app: Any) -> None:
+        super().__init__(app)
+        self._lock = threading.Lock()
+        self._timestamps: dict[tuple[str, str], deque[float]] = {}
+
+    @staticmethod
+    def _client_identifier(request: Request) -> str:
+        forwarded_for = request.headers.get("x-forwarded-for", "").strip()
+        if forwarded_for:
+            return forwarded_for.split(",", 1)[0].strip() or "unknown"
+        if request.client and request.client.host:
+            return request.client.host
+        return "unknown"
+
+    @classmethod
+    def _resolve_rule(cls, path: str) -> tuple[str, int, int]:
+        for prefix, bucket, limit, window_seconds in cls._RULES:
+            if path.startswith(prefix):
+                return bucket, limit, window_seconds
+        return "default", cls._DEFAULT_LIMIT[0], cls._DEFAULT_LIMIT[1]
+
+    async def dispatch(self, request: Request, call_next):  # noqa: ANN001
+        if request.method == "OPTIONS" or _env_flag("GENAI_SYSTEMS_LAB_DISABLE_RATE_LIMITS", False):
+            return await call_next(request)
+
+        bucket, limit, window_seconds = self._resolve_rule(request.url.path)
+        now = time.monotonic()
+        key = (bucket, self._client_identifier(request))
+
+        with self._lock:
+            timestamps = self._timestamps.setdefault(key, deque())
+            cutoff = now - window_seconds
+            while timestamps and timestamps[0] <= cutoff:
+                timestamps.popleft()
+
+            if len(timestamps) >= limit:
+                retry_after = max(1, int(window_seconds - (now - timestamps[0])))
+                response = JSONResponse(
+                    status_code=429,
+                    content={"detail": "Rate limit exceeded. Slow down and retry."},
+                )
+                response.headers["Retry-After"] = str(retry_after)
+                return response
+
+            timestamps.append(now)
+
+        return await call_next(request)
+
+
 # -- Regex for control chars (keep newlines/tabs) ----------------------------
 _CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 
@@ -514,6 +725,8 @@ _SUSPICIOUS_PATTERNS = re.compile(
 
 class InputValidationMiddleware(BaseHTTPMiddleware):
     """Validate and sanitize incoming JSON bodies on mutating methods.
+
+    This is a supplemental guardrail, not the primary security boundary.
 
     Rules:
     - Reject empty ``input`` field.
@@ -621,7 +834,6 @@ _BYOK_EXEMPT_PREFIXES = (
     "/projects",
     "/auth/",
     "/metrics",
-    "/leaderboard",
     "/history",
     "/session/",
     "/shared/",
@@ -727,28 +939,42 @@ def create_app(
     init_db()
     app = FastAPI(title=title, version=version, description=description)
 
-    # Middleware is applied in reverse registration order; register the
-    # error handler first so it wraps everything, then timing, then logging,
-    # then input validation (innermost – runs first on the request).
+    async def _startup() -> None:
+        if not _env_flag("OTEL_ENABLED", False):
+            return
+
+        console_export = _env_flag("OTEL_CONSOLE_EXPORT", False)
+        if setup_otel(console_export=console_export):
+            logger.info("OpenTelemetry tracing enabled for shared API.")
+        else:
+            logger.warning("OTEL_ENABLED is set, but OpenTelemetry packages are unavailable.")
+
+    async def _shutdown() -> None:
+        shutdown_otel()
+
+    app.add_event_handler("startup", _startup)
+    app.add_event_handler("shutdown", _shutdown)
+
+    # Middleware executes in reverse registration order.
     app.add_middleware(ErrorHandlingMiddleware)
     app.add_middleware(RequestTimingMiddleware)
     app.add_middleware(RequestLoggingMiddleware)
     app.add_middleware(InputValidationMiddleware)
+    app.add_middleware(BYOKMiddleware)
+    app.add_middleware(RequestRateLimitMiddleware)
 
-    origins = allowed_origins or ["*"]
+    origins = _resolve_allowed_origins(allowed_origins)
+    if os.getenv("APP_ENV", "dev").strip().lower() == "prod" and allowed_origins is None and not os.getenv("GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS", "").strip():
+        logger.warning("APP_ENV=prod without GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS; defaulting CORS to localhost-only origins.")
+
     app.add_middleware(
         CORSMiddleware,
         allow_origins=origins,
         allow_credentials=True,
-        allow_methods=["*"],
-        allow_headers=["*"],
-        expose_headers=["X-Process-Time-Ms"],
+        allow_methods=_CORS_ALLOWED_METHODS,
+        allow_headers=_CORS_ALLOWED_HEADERS,
+        expose_headers=["X-Process-Time-Ms", "X-Request-ID"],
     )
-
-    # BYOK middleware — registered last so it is innermost (closest to route
-    # handlers).  Sets the per-request API key ContextVar before any project
-    # code runs.
-    app.add_middleware(BYOKMiddleware)
 
     # -- Routes ----------------------------------------------------------------
 
@@ -761,8 +987,19 @@ def create_app(
         items = _discover_projects()
         return {"count": len(items), "projects": items}
 
+    @app.get("/auth/config", response_model=AuthConfigResponse)
+    async def auth_config() -> AuthConfigResponse:
+        return AuthConfigResponse(public_signup=_public_signup_enabled())
+
     @app.post("/auth/signup", response_model=AuthResponse, status_code=status.HTTP_201_CREATED)
-    async def signup(body: AuthRequest, session: Session = Depends(get_db_session)) -> AuthResponse:
+    async def signup(
+        body: AuthRequest,
+        response: Response,
+        session: Session = Depends(get_db_session),
+    ) -> AuthResponse:
+        if not _public_signup_enabled():
+            raise HTTPException(status_code=403, detail="Public signup is disabled.")
+
         email = body.email.strip().lower()
         password = body.password.strip()
         if not email or "@" not in email:
@@ -776,21 +1013,40 @@ def create_app(
             session.rollback()
             raise HTTPException(status_code=409, detail="An account with that email already exists.") from exc
 
+        token = create_access_token(user)
+        _set_auth_cookie(response, token)
+
         return AuthResponse(
-            token=create_access_token(user),
+            token=token,
             user={"id": user.id, "email": user.email},
         )
 
     @app.post("/auth/login", response_model=AuthResponse)
-    async def login(body: AuthRequest, session: Session = Depends(get_db_session)) -> AuthResponse:
+    async def login(
+        body: AuthRequest,
+        response: Response,
+        session: Session = Depends(get_db_session),
+    ) -> AuthResponse:
         user = authenticate_user(session, body.email, body.password)
         if user is None:
             raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid email or password.")
 
+        token = create_access_token(user)
+        _set_auth_cookie(response, token)
+
         return AuthResponse(
-            token=create_access_token(user),
+            token=token,
             user={"id": user.id, "email": user.email},
         )
+
+    @app.post("/auth/logout", response_model=StatusResponse)
+    async def logout(response: Response) -> StatusResponse:
+        _clear_auth_cookie(response)
+        return StatusResponse(status="ok")
+
+    @app.get("/auth/me", response_model=AuthUserResponse)
+    async def auth_me(current_user: User = Depends(get_current_user)) -> AuthUserResponse:
+        return AuthUserResponse(id=current_user.id, email=current_user.email)
 
     @app.post("/{project_name}/run", response_model=BaseResponse)
     async def run(
@@ -801,9 +1057,11 @@ def create_app(
     ) -> BaseResponse:
         start = time.perf_counter()
         success = False
+        confidence = 0.0
         metrics_project = project_name
         memory_entries: list[MemoryEntryPayload] = []
         timeline_entries: list[TimelineEntryPayload] = []
+        result = None
         run_session: RunSession | None = None
         existing_session_memory: list[dict[str, str]] = []
         prepared_input = body.input
@@ -826,35 +1084,42 @@ def create_app(
             result = run_project(project_name, prepared_input, api_key=api_key, step_emitter=step_memory_emitter)
             success = result.exit_code == 0
             metrics_project = result.project
+
+            _append_fallback_memory_entries(memory_entries, result.project)
+            _append_fallback_timeline_entries(timeline_entries, result.project)
+            _append_result_memory_entry(
+                memory_entries,
+                success=result.exit_code == 0,
+                latency_ms=result.elapsed_ms,
+                output_text=result.output,
+            )
+            _append_result_timeline_entry(
+                timeline_entries,
+                start_time=start,
+                success=result.exit_code == 0,
+                latency_ms=result.elapsed_ms,
+                output_text=result.output,
+            )
+
+            confidence, _ = compute_run_confidence(
+                output_text=result.output,
+                success=result.exit_code == 0,
+                latency_ms=result.elapsed_ms,
+                timeline_entries=timeline_entries,
+            )
         except ValueError as exc:
             logger.warning("project run rejected", extra={"project_name": project_name, "error": str(exc)})
             raise HTTPException(status_code=404, detail=str(exc)) from exc
         finally:
             elapsed_ms = (time.perf_counter() - start) * 1000
             metrics_store.record(metrics_project, elapsed_ms, success)
-
-        _append_fallback_memory_entries(memory_entries, result.project)
-        _append_fallback_timeline_entries(timeline_entries, result.project)
-        _append_result_memory_entry(
-            memory_entries,
-            success=result.exit_code == 0,
-            latency_ms=result.elapsed_ms,
-            output_text=result.output,
-        )
-        _append_result_timeline_entry(
-            timeline_entries,
-            start_time=start,
-            success=result.exit_code == 0,
-            latency_ms=result.elapsed_ms,
-            output_text=result.output,
-        )
-
-        confidence, _ = compute_run_confidence(
-            output_text=result.output,
-            success=result.exit_code == 0,
-            latency_ms=result.elapsed_ms,
-            timeline_entries=timeline_entries,
-        )
+            _record_operational_metric(
+                session,
+                project=metrics_project,
+                latency_ms=result.elapsed_ms if result is not None else elapsed_ms,
+                confidence_score=confidence,
+                success=success,
+            )
 
         session_payload = {"id": None, "memory": []}
         if current_user is not None and run_session is not None:
@@ -895,8 +1160,11 @@ def create_app(
         )
 
     @app.get("/metrics", response_model=MetricsResponse)
-    async def metrics() -> MetricsResponse:
-        return metrics_store.snapshot()
+    async def metrics(session: Session = Depends(get_db_session)) -> MetricsResponse:
+        persisted = _snapshot_persisted_metrics(session)
+        if persisted.total_requests > 0:
+            return persisted
+        return MetricsResponse(**metrics_store.snapshot())
 
     @app.get("/metrics/time", response_model=list[TimeSeriesMetricPointResponse])
     async def metrics_time(
@@ -904,7 +1172,7 @@ def create_app(
         time_range: MetricsTimeRange = Query(default="day", alias="range"),
         session: Session = Depends(get_db_session),
     ) -> list[TimeSeriesMetricPointResponse]:
-        query = select(Run).where(Run.timestamp >= _metrics_time_cutoff(time_range))
+        query = select(OperationalMetric).where(OperationalMetric.timestamp >= _metrics_time_cutoff(time_range))
 
         if project:
             project_value = project.strip()
@@ -913,12 +1181,16 @@ def create_app(
                     project_value = resolve_project_name(project_value)
                 except ValueError:
                     pass
-                query = query.where(Run.project == project_value)
+                query = query.where(OperationalMetric.project == project_value)
 
-        runs = session.scalars(
-            query.order_by(Run.timestamp.asc(), Run.id.asc())
+        metrics_rows = session.scalars(
+            query.order_by(OperationalMetric.timestamp.asc(), OperationalMetric.id.asc())
         ).all()
-        return [_serialize_metric_point(run) for run in runs if run.timestamp is not None]
+        return [
+            _serialize_operational_metric_point(metric)
+            for metric in metrics_rows
+            if metric.timestamp is not None
+        ]
 
     @app.get("/leaderboard", response_model=list[LeaderboardEntryResponse])
     async def leaderboard() -> list[LeaderboardEntryResponse]:
@@ -1054,9 +1326,11 @@ def create_app(
         async def event_stream():
             start = time.perf_counter()
             success = False
+            confidence = 0.0
             metrics_project = project_name
             memory_entries: list[MemoryEntryPayload] = []
             timeline_entries: list[TimelineEntryPayload] = []
+            result = None
             try:
                 loop = asyncio.get_running_loop()
                 step_queue: asyncio.Queue[dict[str, Any] | None] = asyncio.Queue()
@@ -1230,6 +1504,13 @@ def create_app(
             finally:
                 elapsed_ms = (time.perf_counter() - start) * 1000
                 metrics_store.record(metrics_project, elapsed_ms, success)
+                _record_operational_metric(
+                    session,
+                    project=metrics_project,
+                    latency_ms=result.elapsed_ms if result is not None else elapsed_ms,
+                    confidence_score=confidence,
+                    success=success,
+                )
 
         return StreamingResponse(
             event_stream(),

@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from collections.abc import Generator
+import os
 from pathlib import Path
+import warnings
 
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
@@ -11,7 +13,13 @@ from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 DATA_DIR = REPO_ROOT / ".data"
 DATA_DIR.mkdir(parents=True, exist_ok=True)
-DATABASE_URL = f"sqlite:///{(DATA_DIR / 'genai_systems_lab.db').as_posix()}"
+DEFAULT_SQLITE_DATABASE_URL = f"sqlite:///{(DATA_DIR / 'genai_systems_lab.db').as_posix()}"
+DATABASE_URL = (
+    os.getenv("GENAI_SYSTEMS_LAB_DATABASE_URL")
+    or os.getenv("DATABASE_URL")
+    or DEFAULT_SQLITE_DATABASE_URL
+).strip()
+IS_SQLITE = DATABASE_URL.startswith("sqlite")
 
 
 class Base(DeclarativeBase):
@@ -20,13 +28,23 @@ class Base(DeclarativeBase):
 
 engine = create_engine(
     DATABASE_URL,
-    connect_args={"check_same_thread": False},
+    connect_args={"check_same_thread": False} if IS_SQLITE else {},
 )
 SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, expire_on_commit=False)
+
+if os.getenv("APP_ENV", "dev").strip().lower() == "prod" and IS_SQLITE:
+    warnings.warn(
+        "APP_ENV=prod is using SQLite. Set GENAI_SYSTEMS_LAB_DATABASE_URL for a shared production database.",
+        RuntimeWarning,
+        stacklevel=2,
+    )
 
 
 def _ensure_run_json_column(column_name: str) -> None:
     """Add a JSON-backed text column to ``runs`` for existing SQLite databases."""
+    if not IS_SQLITE:
+        return
+
     with engine.begin() as connection:
         tables = {
             row[0]
@@ -51,6 +69,9 @@ def _ensure_run_json_column(column_name: str) -> None:
 
 def _ensure_run_column(column_name: str, column_def: str) -> None:
     """Add a column to ``runs`` if it does not already exist."""
+    if not IS_SQLITE:
+        return
+
     with engine.begin() as connection:
         tables = {
             row[0]

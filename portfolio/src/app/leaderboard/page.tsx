@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { fetchLeaderboard, getApiUrl, type LeaderboardEntry } from "@/lib/api";
+import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
 
 function formatProject(project: string) {
   return project.replace(/^(genai-|crew-|lg-)/, "").replace(/-/g, " ");
@@ -35,12 +36,23 @@ function EmptyState({ message }: { message: string }) {
 }
 
 export default function LeaderboardPage() {
+  const [apiKey, setApiKey] = useState(() => getStoredApiKey());
   const [entries, setEntries] = useState<LeaderboardEntry[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    fetchLeaderboard()
+    const normalizedApiKey = apiKey.trim();
+    if (!normalizedApiKey) {
+      setEntries([]);
+      setError(null);
+      setLoading(false);
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    fetchLeaderboard(normalizedApiKey)
       .then((response) => {
         setEntries(response);
       })
@@ -50,7 +62,49 @@ export default function LeaderboardPage() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [apiKey]);
+
+  function handleApiKeyChange(nextApiKey: string) {
+    setApiKey(nextApiKey);
+    setStoredApiKey(nextApiKey.trim());
+  }
+
+  if (!apiKey.trim()) {
+    return (
+      <section className="space-y-8 py-16">
+        <div className="title-stack">
+          <p className="eyebrow">Benchmark Leaderboard</p>
+          <h1 className="heading-display text-4xl sm:text-5xl">
+            Compare projects with your own Gemini API key.
+          </h1>
+          <p className="copy-lead max-w-2xl text-lg">
+            This ranking runs live benchmark suites. Enter your Google API key to generate a real leaderboard.
+          </p>
+        </div>
+
+        <div className="surface-card rounded-xl p-6 sm:p-8">
+          <label className="block">
+            <span className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+              Google API Key
+            </span>
+            <input
+              type="password"
+              value={apiKey}
+              onChange={(event) => handleApiKeyChange(event.target.value)}
+              autoComplete="off"
+              spellCheck={false}
+              placeholder="AIza..."
+              className="input-shell mt-3 w-full rounded-[1rem] px-4 py-3 font-mono text-xs leading-6"
+            />
+          </label>
+          <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+            The leaderboard now requires BYOK because benchmark runs execute live against the backend.
+          </p>
+          <p className="mt-4 font-mono text-sm text-[var(--muted)]">GET {getApiUrl("/leaderboard")}</p>
+        </div>
+      </section>
+    );
+  }
 
   if (loading) {
     return (
@@ -71,6 +125,9 @@ export default function LeaderboardPage() {
           <h1 className="heading-display text-4xl sm:text-5xl">
             Benchmark ranking across all projects.
           </h1>
+          <p className="copy-lead max-w-2xl text-lg">
+            Live benchmark runs require your Google API key.
+          </p>
         </div>
 
         <div className="surface-card error-panel rounded-xl p-6 sm:p-8">
@@ -99,11 +156,17 @@ export default function LeaderboardPage() {
             Rank projects by benchmark accuracy per millisecond.
           </h1>
           <p className="copy-lead max-w-2xl text-lg">
-            Each score uses the requested formula: accuracy divided by mean latency. Higher is better.
+            Each score uses the requested formula: accuracy divided by mean latency. Higher is better. Runs execute live with your BYOK Gemini key.
           </p>
         </div>
 
         <div className="space-y-4">
+          <div className="surface-panel rounded-xl px-4 py-4 text-sm leading-7 text-[var(--muted)]">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+              Active benchmark key
+            </p>
+            <p className="mt-2 font-mono text-xs text-[var(--foreground)]">{`${apiKey.slice(0, 4)}${"•".repeat(Math.max(0, Math.min(apiKey.length - 7, 20)))}${apiKey.slice(-3)}`}</p>
+          </div>
           <div className="surface-card rounded-xl border-[var(--accent-border-soft)] bg-[var(--accent-soft)] p-6 sm:p-8">
             <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
               Best Project

@@ -1,10 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
-import { getApiUrl, runProject } from "@/lib/api";
+import { useEffect, useState } from "react";
+import { fetchCurrentUser, getApiUrl, runProject } from "@/lib/api";
 import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
-import { getStoredAuthToken } from "@/lib/auth";
+import { getStoredAuthToken, storeAuthToken } from "@/lib/auth";
 
 interface ProjectDemoProps {
   apiEndpoint: string;
@@ -36,9 +36,30 @@ export default function ProjectDemo({
   const [status, setStatus] = useState<"idle" | "running" | "success" | "error">("idle");
   const [result, setResult] = useState<string>("");
   const [input, setInput] = useState(exampleInput);
-  const [authToken] = useState<string | null>(() => getStoredAuthToken());
+  const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthToken());
   const [apiKey, setApiKey] = useState(() => getStoredApiKey());
   const projectName = projectApiName(apiEndpoint);
+
+  useEffect(() => {
+    if (authToken) {
+      return;
+    }
+
+    let cancelled = false;
+    void fetchCurrentUser()
+      .then((user) => {
+        if (cancelled || !user) {
+          return;
+        }
+        storeAuthToken("");
+        setAuthToken(getStoredAuthToken());
+      })
+      .catch(() => undefined);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [authToken]);
 
   async function handleRun() {
     setStatus("running");

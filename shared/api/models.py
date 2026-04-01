@@ -66,3 +66,16 @@ class Run(Base):
 
     session: Mapped[RunSession | None] = relationship(back_populates="runs")
     user: Mapped[User] = relationship(back_populates="runs")
+
+
+class OperationalMetric(Base):
+    """Durable execution telemetry for project runs."""
+
+    __tablename__ = "operational_metrics"
+
+    id: Mapped[int] = mapped_column(Integer, primary_key=True)
+    project: Mapped[str] = mapped_column(String(120), index=True)
+    latency_ms: Mapped[float] = mapped_column(Float, default=0.0)
+    confidence_score: Mapped[float] = mapped_column("confidence", Float, default=0.0)
+    success: Mapped[bool] = mapped_column(Boolean, default=True, nullable=False)
+    timestamp: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), index=True)
