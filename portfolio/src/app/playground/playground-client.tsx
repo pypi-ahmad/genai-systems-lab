@@ -1,22 +1,19 @@
 "use client";
 
-import { useState, useRef, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { projectDetails } from "@/data/projects";
-import type { GraphNode } from "@/data/projects";
-import { explainRun, logout as logoutSession, runProject, shareRun, unshareRun, streamProject } from "@/lib/api";
-import type { HistoryRun, RunExplanation, RunMemoryEntry, StepEvent } from "@/lib/api";
+import { explainRun, logout as logoutSession, shareRun, unshareRun } from "@/lib/api";
+import type { HistoryRun, RunExplanation } from "@/lib/api";
 import AnimatedGraph from "@/components/animated-graph";
 import AgentGraph from "@/components/agent-graph";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
 import { TimelineReplay, type TimelineReplayFrame } from "@/components/TimelineReplay";
 import { RunExplanationPanel } from "@/components/RunExplanation";
-import { MemoryPanel, type MemoryEntry } from "@/components/memory-panel";
-import type { NodeStatusMap } from "@/components/animated-graph";
+import { MemoryPanel } from "@/components/memory-panel";
 import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
 import { clearAuthSession } from "@/lib/auth";
 import { PlaygroundSidebar } from "./playground-sidebar";
 import {
-  AnyObj,
   assistantCardTone,
   assistantStateTitle,
   buildReplayLogLines,
@@ -26,290 +23,24 @@ import {
   extractKeyMetrics,
   extractSteps,
   extractTextOutput,
-  formatLogTimestamp,
   formatMemoryStepName,
   formatRunTimestamp,
-  inferLifecycleStep,
-  inferMemoryEntryType,
-  isRunMemoryEntry,
   lifecycleLabel,
-  lifecycleState,
-  mapRunMemoryEntries,
-  memoryContentForStep,
-  projectApiName,
   realtimeLifecycleState,
   replayRunStatus,
-  RunStatus,
   statusLabel,
   statusTone,
   summarizeInputPayload,
-  tryParse,
   type WorkspaceState,
-  workspaceStateLabel,
-  workspaceStateTone,
 } from "./playground-utils";
 import { usePlaygroundAccount } from "./use-playground-account";
-
-/* ── Spinner ──────────────────────────────────────────── */
-
-function Spinner({ className = "h-4 w-4" }: { className?: string }) {
-  return (
-    <svg className={`animate-spin ${className}`} viewBox="0 0 24 24" fill="none">
-      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.37 0 0 5.37 0 12h4z" />
-    </svg>
-  );
-}
-
-function TypingDots() {
-  return (
-    <span className="inline-flex items-center gap-1 align-middle text-current">
-      {[0, 1, 2].map((i) => (
-        <span
-          key={i}
-          className="h-1.5 w-1.5 rounded-full bg-current"
-          style={{ animation: `blink 900ms ${i * 120}ms infinite` }}
-        />
-      ))}
-    </span>
-  );
-}
-
-const thinkingStates = ["Thinking", "Analyzing", "Planning steps"] as const;
-
-function ThinkingStateList() {
-  return (
-    <div className="mt-4 space-y-2.5">
-      {thinkingStates.map((state, index) => (
-        <div
-          key={state}
-          className="flex items-center gap-2 text-sm leading-7 text-[var(--muted)] transition-opacity duration-300 ease-in-out"
-          style={{ animation: `thinkPulse 1800ms ease-in-out ${index * 180}ms infinite` }}
-        >
-          <span>{state}</span>
-          <TypingDots />
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function DebugPanel({
-  logs,
-  title = "Debug Panel",
-  subtitle = "Live execution log",
-  onClear,
-}: {
-  logs: string[];
-  title?: string;
-  subtitle?: string;
-  onClear?: () => void;
-}) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  const [copyState, setCopyState] = useState<"idle" | "copied" | "error">("idle");
-
-  useEffect(() => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-    }
-  }, [logs]);
-
-  useEffect(() => {
-    if (copyState === "idle") {
-      return undefined;
-    }
-
-    const timeoutId = window.setTimeout(() => {
-      setCopyState("idle");
-    }, 1600);
-
-    return () => window.clearTimeout(timeoutId);
-  }, [copyState]);
-
-  const copyLogs = useCallback(async () => {
-    if (logs.length === 0) {
-      return;
-    }
-
-    try {
-      await navigator.clipboard.writeText(logs.join("\n"));
-      setCopyState("copied");
-    } catch {
-      setCopyState("error");
-    }
-  }, [logs]);
-
-  return (
-    <section className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-[#0B0F14] shadow-[0_22px_48px_-28px_rgba(2,6,23,0.72)]">
-      <div className="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 px-4 py-3 sm:px-5">
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-white/45">
-            {title}
-          </p>
-          <p className="mt-1 text-sm font-semibold text-white/82">
-            {subtitle}
-          </p>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white/45">
-            {logs.length} lines
-          </span>
-          {copyState === "copied" && (
-            <span className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-emerald-300">
-              Copied
-            </span>
-          )}
-          {copyState === "error" && (
-            <span className="rounded-full border border-rose-400/20 bg-rose-400/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-rose-300">
-              Copy failed
-            </span>
-          )}
-          <button
-            type="button"
-            onClick={() => void copyLogs()}
-            disabled={logs.length === 0}
-            className="button-base button-sm button-pill border border-white/10 bg-white/5 text-white/72 hover:bg-white/10 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
-          >
-            Copy
-          </button>
-          {onClear ? (
-            <button
-              type="button"
-              onClick={onClear}
-              disabled={logs.length === 0}
-              className="button-base button-sm button-pill border border-white/10 bg-transparent text-white/58 hover:bg-white/8 hover:text-white disabled:cursor-not-allowed disabled:opacity-35"
-            >
-              Clear logs
-            </button>
-          ) : null}
-        </div>
-      </div>
-
-      <div
-        ref={scrollRef}
-        className="max-h-[360px] overflow-y-auto px-5 py-5 font-mono text-[11px] leading-6 text-[#86EFAC] sm:px-6"
-      >
-        {logs.length > 0 ? (
-          <div className="space-y-0.5">
-            {logs.map((line, index) => (
-              <div key={`${index}-${line}`} className="whitespace-pre-wrap break-words">
-                {line}
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="whitespace-pre-wrap text-white/35">
-            Waiting for execution logs.
-          </div>
-        )}
-      </div>
-    </section>
-  );
-}
-
-function StatCard({
-  label,
-  value,
-}: {
-  label: string;
-  value: string;
-}) {
-  return (
-    <div className="surface-panel rounded-[1.25rem] px-5 py-4">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-        {label}
-      </p>
-      <p className="mt-2 text-base font-semibold text-[var(--foreground)]">
-        {value}
-      </p>
-    </div>
-  );
-}
-
-function WorkspaceStateBadge({ state }: { state: WorkspaceState }) {
-  if (state === "thinking") {
-    return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
-        <Spinner className="h-3 w-3" />
-        {workspaceStateLabel(state)}
-      </span>
-    );
-  }
-
-  if (state === "streaming") {
-    return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
-        <Spinner className="h-3 w-3" />
-        {workspaceStateLabel(state)}
-      </span>
-    );
-  }
-
-  if (state === "completed") {
-    return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
-        <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--success-dot)]" />
-        {workspaceStateLabel(state)}
-      </span>
-    );
-  }
-
-  if (state === "error") {
-    return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
-        <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--error-dot)]" />
-        {workspaceStateLabel(state)}
-      </span>
-    );
-  }
-
-  return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
-      {workspaceStateLabel(state)}
-    </span>
-  );
-}
-
-function ReplayStateBadge({
-  frame,
-  totalEvents,
-}: {
-  frame: TimelineReplayFrame | null;
-  totalEvents: number;
-}) {
-  const replayFinished = totalEvents > 0 && (frame?.currentIndex ?? -1) >= totalEvents - 1;
-  const isPlaying = Boolean(frame?.isPlaying) && !replayFinished;
-  const tone = replayFinished
-    ? "border-[var(--done-border)] bg-[var(--done-bg)] text-[var(--done-text)]"
-    : isPlaying
-      ? "border-[var(--accent-border-soft)] bg-[var(--accent-soft-strong)] text-[color-mix(in_srgb,var(--accent-solid)_72%,var(--text)_28%)]"
-      : "border-[var(--line)] bg-[var(--surface-soft)] text-[var(--muted)]";
-  const label = replayFinished ? "Replay complete" : isPlaying ? "Replay playing" : "Replay paused";
-
-  return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${tone}`}>
-      {label}
-    </span>
-  );
-}
+import { usePlaygroundRun } from "./use-playground-run";
+import { DebugPanel, StatCard, WorkspaceStateBadge, ReplayStateBadge, ThinkingStateList } from "./playground-widgets";
 
 /* ── Main Component ───────────────────────────────────── */
 
 export default function PlaygroundClient() {
-  const [selectedSlug, setSelectedSlug] = useState(projectDetails[0].slug);
-  const [input, setInput] = useState(projectDetails[0].exampleInput);
-  const [rawData, setRawData] = useState<AnyObj | null>(null);
-  const [output, setOutput] = useState<string | null>(null);
-  const [latency, setLatency] = useState<number | null>(null);
-  const [confidence, setConfidence] = useState<number | null>(null);
-  const [status, setStatus] = useState<RunStatus>("idle");
-  const [errorMsg, setErrorMsg] = useState<string | null>(null);
-  const [streamMode, setStreamMode] = useState(true);
-  const [streamText, setStreamText] = useState("");
-  const [streamChunks, setStreamChunks] = useState<number>(0);
-  const [stepStatuses, setStepStatuses] = useState<NodeStatusMap>({});
-  const [logLines, setLogLines] = useState<string[]>([]);
-  const [memoryEntries, setMemoryEntries] = useState<MemoryEntry[]>([]);
+  const account = usePlaygroundAccount();
   const {
     activeSessionId,
     applySessionState,
@@ -326,8 +57,57 @@ export default function PlaygroundClient() {
     setAuthToken,
     setHistoryError,
     setHistoryRuns,
-  } = usePlaygroundAccount();
-  const [usedSessionContext, setUsedSessionContext] = useState(false);
+  } = account;
+
+  const run = usePlaygroundRun({
+    authToken,
+    activeSessionId,
+    sessionMemoryPreview,
+    applySessionState,
+    clearLocalSession,
+    refreshHistory,
+  });
+  const {
+    selectedSlug,
+    input,
+    status,
+    output,
+    rawData,
+    streamText,
+    streamChunks,
+    stepStatuses,
+    errorMsg,
+    latency,
+    confidence,
+    usedSessionContext,
+    logLines,
+    memoryEntries,
+    selected,
+    outputRef,
+    streamPanelRef,
+    setSelectedSlug,
+    setInput,
+    setStatus,
+    setOutput,
+    setRawData,
+    setLatency,
+    setConfidence,
+    setUsedSessionContext,
+    setErrorMsg,
+    setStreamText,
+    setStepStatuses,
+    setStreamChunks,
+    setLogLines,
+    disconnect,
+    executeRun,
+    handleStop,
+    resetRunState,
+    appendLog,
+    resetMemoryEntries,
+    replaceMemoryEntries,
+  } = run;
+
+  const [streamMode, setStreamMode] = useState(true);
   const [apiKey, setApiKey] = useState(() => getStoredApiKey());
   const [keyFocused, setKeyFocused] = useState(false);
   const [activeReplayRun, setActiveReplayRun] = useState<HistoryRun | null>(null);
@@ -338,38 +118,10 @@ export default function PlaygroundClient() {
   const [explainingRunId, setExplainingRunId] = useState<number | null>(null);
   const [explanationError, setExplanationError] = useState<string | null>(null);
   const [sharingRunId, setSharingRunId] = useState<number | null>(null);
-  const memoryEntryIdRef = useRef(0);
-  const outputRef = useRef<HTMLDivElement>(null);
-  const streamPanelRef = useRef<HTMLDivElement>(null);
-  const abortRef = useRef<(() => void) | null>(null);
 
-  const selected = projectDetails.find((p) => p.slug === selectedSlug)!;
-
-  const appendLog = useCallback((message: string) => {
-    setLogLines((prev) => [...prev, `[${formatLogTimestamp()}] ${message}`]);
-  }, []);
-
-  const resetMemoryEntries = useCallback(() => {
-    memoryEntryIdRef.current = 0;
-    setMemoryEntries([]);
-  }, []);
-
-  const appendMemoryEntry = useCallback((entry: Omit<MemoryEntry, "id" | "timestamp"> & { timestamp?: string }) => {
-    memoryEntryIdRef.current += 1;
-    setMemoryEntries((prev) => [
-      ...prev,
-      {
-        id: `memory-${memoryEntryIdRef.current}`,
-        timestamp: entry.timestamp ?? formatLogTimestamp(),
-        ...entry,
-      },
-    ]);
-  }, []);
-
-  const replaceMemoryEntries = useCallback((entries: RunMemoryEntry[]) => {
-    memoryEntryIdRef.current = entries.length;
-    setMemoryEntries(mapRunMemoryEntries(entries));
-  }, []);
+  useEffect(() => {
+    setStoredApiKey(apiKey.trim());
+  }, [apiKey]);
 
   const clearReplay = useCallback(() => {
     setActiveReplayRun(null);
@@ -382,31 +134,6 @@ export default function PlaygroundClient() {
     setExplanationError(null);
   }, []);
 
-  useEffect(() => {
-    if (activeSessionId === null) {
-      setUsedSessionContext(false);
-    }
-  }, [activeSessionId]);
-
-  useEffect(() => {
-    setStoredApiKey(apiKey.trim());
-  }, [apiKey]);
-
-  // Auto-scroll the conversation viewport as live content or final output arrives.
-  useEffect(() => {
-    if (status !== "idle" && streamPanelRef.current) {
-      streamPanelRef.current.scrollTop = streamPanelRef.current.scrollHeight;
-    }
-  }, [streamText, output, errorMsg, status]);
-
-  // Cleanup the active streaming connection on unmount or project change.
-  const disconnect = useCallback(() => {
-    if (abortRef.current) {
-      abortRef.current();
-      abortRef.current = null;
-    }
-  }, []);
-
   function handleProjectChange(slug: string) {
     disconnect();
     clearReplay();
@@ -414,333 +141,29 @@ export default function PlaygroundClient() {
     setSelectedSlug(slug);
     const proj = projectDetails.find((p) => p.slug === slug)!;
     setInput(proj.exampleInput);
-    setOutput(null);
-    setRawData(null);
-    setLatency(null);
-    setConfidence(null);
-    setUsedSessionContext(false);
-    setStatus("idle");
-    setErrorMsg(null);
-    setStreamText("");
-    setStepStatuses({});
-    setStreamChunks(0);
-    setLogLines([]);
-    resetMemoryEntries();
-  }
-
-  function handleStop() {
-    disconnect();
-    appendLog("Stream disconnected by user");
-    appendMemoryEntry({
-      stepName: "Run control",
-      type: "observation",
-      content: "The run was stopped manually before the stream finished.",
-      initiallyExpanded: true,
-    });
-    setUsedSessionContext(false);
-    setConfidence(null);
-    setStatus(streamText ? "success" : "idle");
-  }
-
-  async function executeRun(runOverride?: { slug?: string; inputText?: string }) {
-    disconnect();
-    clearReplay();
-    clearExplanation();
-    const targetSlug = runOverride?.slug ?? selectedSlug;
-    const targetProject = projectDetails.find((project) => project.slug === targetSlug) ?? selected;
-    const targetInput = runOverride?.inputText ?? input;
-
-    setSelectedSlug(targetProject.slug);
-    setInput(targetInput);
-    setErrorMsg(null);
-    setOutput(null);
-    setRawData(null);
-    setLatency(null);
-    setConfidence(null);
-    setUsedSessionContext(false);
-    setStreamText("");
-    setStepStatuses({});
-    setStreamChunks(0);
-    setLogLines([]);
-    resetMemoryEntries();
-
-    if (!authToken) {
-      clearLocalSession();
-      setUsedSessionContext(false);
-    }
-
-    // Validate JSON input
-    let body: Record<string, unknown>;
-    try {
-      body = JSON.parse(targetInput);
-    } catch {
-      setStatus("error");
-      setErrorMsg("Invalid JSON — check your input syntax.");
-      appendMemoryEntry({
-        stepName: "Input validation",
-        type: "observation",
-        content: "The request body is not valid JSON. Fix the syntax and try again.",
-        initiallyExpanded: true,
-      });
-      return;
-    }
-
-    if (authToken && activeSessionId !== null) {
-      body.session_id = activeSessionId;
-    }
-
-    setUsedSessionContext(Boolean(authToken) && activeSessionId !== null && sessionMemoryPreview.length > 0);
-
-    const inputStr = typeof body.input === "string" ? body.input : JSON.stringify(body);
-    appendLog(`Request prepared for ${targetProject.name}`);
-    appendLog(`Endpoint ${streamMode ? `/stream/${projectApiName(targetProject.apiEndpoint)}` : targetProject.apiEndpoint}`);
-    appendMemoryEntry({
-      stepName: "Request",
-      type: "action",
-      content: `Prepared a ${streamMode ? "streaming" : "batch"} run for ${targetProject.name}.`,
-      initiallyExpanded: true,
-    });
-
-    if (streamMode) {
-      // ── Streaming path ───────────────────────────
-      setStatus("connecting");
-      appendLog("Opening streaming connection");
-      let hasLoggedFirstToken = false;
-
-      const abort = streamProject(
-        projectApiName(targetProject.apiEndpoint),
-        inputStr,
-        {
-          onOpen: () => {
-            appendLog("Streaming connection established");
-            appendMemoryEntry({
-              stepName: "Stream",
-              type: "observation",
-              content: "Streaming connection established. Waiting for the first model tokens.",
-              initiallyExpanded: false,
-            });
-            setStatus("streaming");
-          },
-          onToken: (token) => {
-            if (!hasLoggedFirstToken && token.trim()) {
-              hasLoggedFirstToken = true;
-              appendMemoryEntry({
-                stepName: "Output",
-                type: "observation",
-                content: "The first streamed tokens arrived from the model.",
-                initiallyExpanded: false,
-              });
-            }
-            setStreamText((prev) => prev + token);
-            setStreamChunks((prev) => prev + 1);
-          },
-          onStep: (event: StepEvent) => {
-            const stepLabel = event.status === "done"
-              ? "success"
-              : event.status === "error"
-                ? `error${event.error ? ` (${event.error})` : ""}`
-                : event.status;
-            const stepName = formatMemoryStepName(event.step, targetProject.graph.nodes);
-            const lifecycle = inferLifecycleStep(event.step, targetProject.graph.nodes);
-            appendLog(`${event.step} → ${stepLabel}`);
-            appendMemoryEntry({
-              stepName,
-              type: inferMemoryEntryType(event.step, targetProject.graph.nodes, event.status),
-              content: memoryContentForStep(stepName, lifecycle, event.status, event.error),
-              initiallyExpanded: event.status === "running",
-            });
-            setStepStatuses((prev) => {
-              const next = { ...prev };
-
-              if (event.status === "running") {
-                for (const [stepId, stepStatus] of Object.entries(next)) {
-                  if (stepId !== event.step && stepStatus === "running") {
-                    next[stepId] = "done";
-                  }
-                }
-              }
-
-              if (event.status === "done") {
-                next[event.step] = "done";
-              } else if (event.status === "error") {
-                next[event.step] = "error";
-              } else {
-                next[event.step] = "running";
-              }
-              return next;
-            });
-          },
-          onDone: (meta) => {
-            appendLog(`Execution completed in ${Math.round(meta.latency)} ms`);
-            appendMemoryEntry({
-              stepName: "Completion",
-              type: "observation",
-              content: `Execution completed in ${Math.round(meta.latency)} ms.`,
-              initiallyExpanded: true,
-            });
-            setLatency(Math.round(meta.latency));
-            setConfidence(typeof meta.confidence === "number" ? meta.confidence : null);
-            applySessionState(meta.sessionId, meta.sessionMemory);
-            setUsedSessionContext(meta.usedSessionContext);
-            if (meta.usedSessionContext) {
-              appendLog("Using previous context from this session");
-            }
-            setStatus("success");
-            if (authToken) {
-              void refreshHistory(authToken);
-            }
-            // Also populate rawData/output for the tabs
-            setStreamText((prev) => {
-              const final = prev;
-              const parsed = tryParse(final);
-              if (parsed) {
-                setRawData(parsed);
-                setOutput(JSON.stringify(parsed, null, 2));
-              } else {
-                setRawData({ output: final });
-                setOutput(final);
-              }
-              return final;
-            });
-          },
-          onError: (error) => {
-            appendLog(`Execution failed: ${error}`);
-            appendMemoryEntry({
-              stepName: "Failure",
-              type: "observation",
-              content: `Execution failed: ${error}`,
-              initiallyExpanded: true,
-            });
-            setUsedSessionContext(false);
-            setConfidence(null);
-            setStatus("error");
-            setErrorMsg(error);
-          },
-        },
-        authToken ?? undefined,
-        apiKey || undefined,
-        authToken ? activeSessionId : null,
-      );
-      abortRef.current = abort;
-    } else {
-      // ── Batch path (original) ────────────────────
-      setStatus("running");
-      appendLog("Batch execution started");
-      appendMemoryEntry({
-        stepName: "Batch request",
-        type: "action",
-        content: "Executing the run and waiting for a complete response payload.",
-        initiallyExpanded: true,
-      });
-
-      try {
-        const result = await runProject(projectApiName(targetProject.apiEndpoint), body, authToken ?? undefined, apiKey || undefined);
-
-        if (result.ok) {
-          const data = result.data;
-          const responseMemory = Array.isArray(data?.memory)
-            ? data.memory.filter(isRunMemoryEntry)
-            : [];
-          const runSucceeded = data?.success !== false;
-
-          setStatus(runSucceeded ? "success" : "error");
-          setLatency(typeof data?.latency === "number" ? Math.round(data.latency) : null);
-          setConfidence(typeof data?.confidence === "number" ? data.confidence : null);
-          applySessionState(
-            typeof data?.session_id === "number" ? data.session_id : null,
-            Array.isArray(data?.session_memory)
-              ? data.session_memory.filter((entry): entry is string => typeof entry === "string")
-              : [],
-          );
-          setUsedSessionContext(data?.used_session_context === true);
-          if (data?.used_session_context === true) {
-            appendLog("Using previous context from this session");
-          }
-          appendLog(
-            `${runSucceeded ? "Execution completed" : "Execution finished with an error"}${typeof data?.latency === "number" ? ` in ${Math.round(data.latency)} ms` : ""}`,
-          );
-          if (responseMemory.length > 0) {
-            replaceMemoryEntries(responseMemory);
-          } else {
-            appendMemoryEntry({
-              stepName: runSucceeded ? "Completion" : "Failure",
-              type: "observation",
-              content: typeof data?.latency === "number"
-                ? `${runSucceeded ? "Batch response returned" : "Batch run failed"} in ${Math.round(data.latency)} ms.`
-                : runSucceeded
-                  ? "Batch response returned successfully."
-                  : "Batch run failed.",
-              initiallyExpanded: true,
-            });
-          }
-          const innerRaw = typeof data?.output === "string" ? data.output : null;
-          const inner = innerRaw ? tryParse(innerRaw) : null;
-          if (inner) {
-            setRawData(inner);
-            setOutput(JSON.stringify(inner, null, 2));
-          } else if (innerRaw) {
-            setRawData({ output: innerRaw });
-            setOutput(innerRaw);
-          } else {
-            setRawData(data as unknown as AnyObj);
-            setOutput(JSON.stringify(data, null, 2));
-          }
-          if (!runSucceeded) {
-            setErrorMsg(typeof data?.output === "string" ? data.output : "Execution failed.");
-          }
-          if (authToken) {
-            void refreshHistory(authToken);
-          }
-        } else {
-          setStatus("error");
-          setUsedSessionContext(false);
-          setConfidence(null);
-          appendLog(`Execution failed: ${result.error}`);
-          appendMemoryEntry({
-            stepName: "Failure",
-            type: "observation",
-            content: `Execution failed: ${result.error}`,
-            initiallyExpanded: true,
-          });
-          setErrorMsg(result.error);
-        }
-      } catch (err) {
-        setStatus("error");
-        setUsedSessionContext(false);
-        setConfidence(null);
-        const message = err instanceof Error ? err.message : "Network error — is the API running?";
-        appendLog(`Execution failed: ${message}`);
-        appendMemoryEntry({
-          stepName: "Failure",
-          type: "observation",
-          content: `Execution failed: ${message}`,
-          initiallyExpanded: true,
-        });
-        setErrorMsg(message);
-      }
-    }
-
-    setTimeout(() => outputRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
+    resetRunState();
   }
 
   function handleRun() {
-    void executeRun();
+    clearReplay();
+    clearExplanation();
+    void executeRun(streamMode, apiKey);
   }
 
-  function handleHistoryReplay(run: HistoryRun) {
+  function handleHistoryReplay(historyRun: HistoryRun) {
     disconnect();
     clearReplay();
-    const replayProject = projectDetails.find((item) => item.slug === run.project);
+    const replayProject = projectDetails.find((item) => item.slug === historyRun.project);
 
     if (replayProject) {
       setSelectedSlug(replayProject.slug);
     }
 
-    setInput(run.input);
+    setInput(historyRun.input);
     setOutput(null);
     setRawData(null);
     setLatency(null);
-    setConfidence(run.confidence);
+    setConfidence(historyRun.confidence);
     setUsedSessionContext(false);
     setStatus("idle");
     setErrorMsg(null);
@@ -749,93 +172,95 @@ export default function PlaygroundClient() {
     setStreamChunks(0);
     setLogLines([]);
 
-    if (run.memory.length > 0) {
-      replaceMemoryEntries(run.memory);
+    if (historyRun.memory.length > 0) {
+      replaceMemoryEntries(historyRun.memory);
     } else {
       resetMemoryEntries();
     }
 
-    setActiveReplayRun(run);
+    setActiveReplayRun(historyRun);
     setReplayFrame(null);
     setReplayAutoplayKey((value) => value + 1);
     setTimeout(() => outputRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
   }
 
-  async function handleHistoryExplain(run: HistoryRun) {
+  async function handleHistoryExplain(historyRun: HistoryRun) {
     if (!authToken) {
       setExplanationError("Sign in is required to generate saved-run explanations.");
       return;
     }
 
-    if (activeExplanationRun?.id === run.id && Boolean(runExplanations[run.id])) {
+    if (activeExplanationRun?.id === historyRun.id && Boolean(runExplanations[historyRun.id])) {
       clearExplanation();
       return;
     }
 
-    setActiveExplanationRun(run);
+    setActiveExplanationRun(historyRun);
     setExplanationError(null);
 
-    if (runExplanations[run.id]) {
+    if (runExplanations[historyRun.id]) {
       return;
     }
 
-    setExplainingRunId(run.id);
+    setExplainingRunId(historyRun.id);
 
     try {
-      const explanation = await explainRun(run.id, authToken, apiKey || undefined);
+      const explanation = await explainRun(historyRun.id, authToken, apiKey || undefined);
       setRunExplanations((previous) => ({
         ...previous,
-        [run.id]: explanation,
+        [historyRun.id]: explanation,
       }));
     } catch (err) {
       const message = err instanceof Error ? err.message : "Failed to explain this saved run.";
       setExplanationError(message);
     } finally {
-      setExplainingRunId((value) => (value === run.id ? null : value));
+      setExplainingRunId((value) => (value === historyRun.id ? null : value));
     }
   }
 
-  function handleHistoryRerun(run: HistoryRun) {
-    void executeRun({ slug: run.project, inputText: run.input });
+  function handleHistoryRerun(historyRun: HistoryRun) {
+    clearReplay();
+    clearExplanation();
+    void executeRun(streamMode, apiKey, { slug: historyRun.project, inputText: historyRun.input });
   }
 
-  async function handleShare(run: HistoryRun) {
+  async function handleShare(historyRun: HistoryRun) {
     if (!authToken) return;
-    setSharingRunId(run.id);
+    setSharingRunId(historyRun.id);
     try {
-      const res = await shareRun(run.id, authToken);
+      const res = await shareRun(historyRun.id, authToken);
       setHistoryRuns((prev) =>
         prev.map((r) =>
-          r.id === run.id
+          r.id === historyRun.id
             ? { ...r, share_token: res.share_token, is_public: true, expires_at: res.expires_at }
             : r,
         ),
       );
       const shareUrl = `${window.location.origin}/run/${res.share_token}`;
       await navigator.clipboard.writeText(shareUrl);
-      appendLog(`Shared run #${run.id} – link copied to clipboard`);
+      appendLog(`Shared run #${historyRun.id} – link copied to clipboard`);
     } catch {
-      appendLog(`Failed to share run #${run.id}`);
+      appendLog(`Failed to share run #${historyRun.id}`);
     } finally {
       setSharingRunId(null);
     }
   }
 
-  async function handleUnshare(run: HistoryRun) {
+  async function handleUnshare(historyRun: HistoryRun) {
     if (!authToken) return;
-    setSharingRunId(run.id);
+    setSharingRunId(historyRun.id);
     try {
-      await unshareRun(run.id, authToken);
+      await unshareRun(historyRun.id, authToken);
       setHistoryRuns((prev) =>
         prev.map((r) =>
-          r.id === run.id
+          r.id === historyRun.id
             ? { ...r, share_token: null, is_public: false, expires_at: null }
             : r,
         ),
       );
-      appendLog(`Unshared run #${run.id}`);
+      appendLog(`Unshared run #${historyRun.id}`);
     } catch {
-      appendLog(`Failed to unshare run #${run.id}`);
+      appendLog(`Failed to unshare run #${historyRun.id}`);
     } finally {
       setSharingRunId(null);
     }
