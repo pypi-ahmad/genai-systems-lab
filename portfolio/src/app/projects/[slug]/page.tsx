@@ -16,7 +16,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = getProject(slug);
-  return { title: project ? `${project.name} — Portfolio` : "Not Found" };
+  return { title: project ? `${project.name} — GenAI Systems Lab` : "Not Found" };
 }
 
 const categoryAccent: Record<string, string> = {

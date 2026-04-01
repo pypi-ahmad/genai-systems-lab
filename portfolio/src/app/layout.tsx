@@ -17,8 +17,8 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "A clean portfolio built with Next.js, TypeScript, and Tailwind CSS.",
+  title: "GenAI Systems Lab",
+  description: "Ahmad's AI engineering portfolio — 20 end-to-end systems built with LangGraph, CrewAI, and custom agents.",
 };
 
 function Nav() {
@@ -39,8 +39,8 @@ function Nav() {
           href="/"
           className="flex items-center gap-2.5 text-sm font-semibold tracking-[0.24em] text-[var(--foreground)] transition-opacity duration-200 ease-in-out hover:opacity-70"
         >
-          <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--foreground)] text-[11px] font-bold text-[var(--bg)]">P</span>
-          PORTFOLIO
+          <span className="inline-flex h-7 w-7 items-center justify-center rounded-lg bg-[var(--foreground)] text-[11px] font-bold text-[var(--bg)]">A</span>
+          GENAI SYSTEMS LAB
         </Link>
         <div className="flex items-center gap-2 sm:gap-3">
           <details className="relative sm:hidden">
@@ -85,7 +85,7 @@ function Footer() {
   return (
     <footer className="border-t border-[var(--line)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-10 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
-        <p className="font-medium">&copy; {new Date().getFullYear()} Portfolio — GenAI Systems Lab</p>
+        <p className="font-medium">&copy; {new Date().getFullYear()} Ahmad — GenAI Systems Lab</p>
         <p className="text-xs tracking-wide">Next.js 16 · TypeScript · Tailwind CSS v4</p>
       </div>
     </footer>

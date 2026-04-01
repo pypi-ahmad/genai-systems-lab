@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Card } from "@/components/card";
 
 export const metadata: Metadata = {
-  title: "About — Portfolio",
+  title: "About — GenAI Systems Lab",
 };
 
 const skills = [
@@ -26,7 +26,7 @@ export default function AboutPage() {
           </h1>
           <div className="copy-stack copy-lead max-w-2xl text-lg">
             <p>
-              I&apos;m a GenAI Systems Engineer focused on building
+              I&apos;m Ahmad, a GenAI Systems Engineer focused on building
               production-grade AI applications. My work spans multi-agent
               orchestration, LLM-powered pipelines, and developer tooling for
               generative AI.

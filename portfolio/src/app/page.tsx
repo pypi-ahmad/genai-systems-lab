@@ -41,7 +41,7 @@ export default function Home() {
     <div className="space-y-0">
       <section className="section-accent grid gap-8 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
         <div className="title-stack">
-          <p className="eyebrow">AI Engineering Portfolio</p>
+          <p className="eyebrow">Ahmad&apos;s AI Engineering Lab</p>
           <h1 className="heading-display max-w-2xl text-4xl sm:text-5xl">
             Practical{" "}
             <span className="bg-[var(--accent)] bg-clip-text text-transparent">
@@ -50,7 +50,7 @@ export default function Home() {
             systems for production.
           </h1>
           <p className="copy-lead max-w-2xl text-base sm:text-lg">
-            A focused portfolio of shipped AI work spanning retrieval,
+            A focused collection of shipped AI work spanning retrieval,
             orchestration, evaluation, and usable interfaces.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">

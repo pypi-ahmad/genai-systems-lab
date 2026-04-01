@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import ArchitectureDiagram from "./diagram";
 
 export const metadata: Metadata = {
-  title: "Architecture — Portfolio",
+  title: "Architecture — GenAI Systems Lab",
   description: "Interactive system architecture diagram for GenAI Systems Lab.",
 };
 
@@ -16,7 +16,7 @@ export default function ArchitecturePage() {
             System Architecture
           </h1>
           <p className="copy-lead max-w-2xl text-lg">
-            A lightweight view of how requests move through the portfolio stack:
+            A lightweight view of how requests move through the system stack:
             from the UI into the shared API, into a project runtime, and down
             into the shared infrastructure used across systems.
           </p>

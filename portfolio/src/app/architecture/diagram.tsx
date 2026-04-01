@@ -13,9 +13,9 @@ const STEPS: DiagramStep[] = [
   {
     id: "ui",
     title: "UI",
-    subtitle: "Next.js portfolio",
+    subtitle: "Next.js frontend",
     description:
-      "The portfolio frontend renders project pages, demos, metrics, and navigation. It collects user input and sends requests to the backend over HTTP.",
+      "The frontend renders project pages, demos, metrics, and navigation. It collects user input and sends requests to the backend over HTTP.",
   },
   {
     id: "api",

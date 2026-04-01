@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PlaygroundClient from "./playground-client";
 
 export const metadata: Metadata = {
-  title: "Playground — Portfolio",
+  title: "Playground — GenAI Systems Lab",
   description: "Run any project interactively from the browser.",
 };
 
