@@ -51,7 +51,7 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 
 ### Authentication
 
-- **JWT**: Custom HS256 implementation (no third-party JWT library). Tokens carry `{sub, email, iat, exp}` with a 7-day TTL. `GENAI_SYSTEMS_LAB_JWT_SECRET` is required in production; local development falls back to an ephemeral per-process secret instead of a shared hard-coded value.
+- **JWT**: Custom HS256 implementation (no third-party JWT library). Tokens carry `{sub, email, iat, exp}` with a 7-day TTL. `GENAI_SYSTEMS_LAB_JWT_SECRET` is required in production (`APP_ENV=prod`) and must be at least 16 characters; local development falls back to an ephemeral per-process secret with a clear startup warning.
 - **Browser sessions**: `/auth/signup` and `/auth/login` also set an HttpOnly session cookie so the Next.js frontend no longer persists raw JWTs in browser storage.
 - **Password hashing**: PBKDF2-HMAC-SHA256 with 310,000 iterations and a 16-byte random salt. Verification uses `hmac.compare_digest()` to prevent timing attacks.
 - **Signup posture**: Public signup remains enabled in local development and defaults off when `APP_ENV=prod` unless `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP=true` is set explicitly.

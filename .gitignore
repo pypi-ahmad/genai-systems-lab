@@ -2,6 +2,7 @@
 .env
 .data/
 .playwright-mcp/
+stream-requests.txt
 __pycache__/
 *.py[cod]
 node_modules/
