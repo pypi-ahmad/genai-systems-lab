@@ -329,7 +329,6 @@ genai-systems-lab/
 │   ├── cache/            In-memory TTL caches (prompt-keyed)
 │   ├── logging/          Structured logging + OpenTelemetry spans
 │   ├── schemas/          Pydantic request/response models
-│   ├── ui/               Retired Streamlit entrypoint kept only as a deprecation notice
 │   └── config.py         BYOK ContextVar, Settings, model resolution
 │
 ├── genai-*/              10 Generative AI pipeline projects

@@ -7,14 +7,14 @@ This repository is organized as a platform: a shared UI and API surface routes w
 ```text
 +-------------+      +-------------+      +-------------------+      +-------------------+
 | UI          | ---> | API         | ---> | Project Modules   | ---> | Shared Layer      |
-| Streamlit   |      | FastAPI     |      | GenAI / LangGraph |      | LLM / Eval /      |
-| Operator UX |      | Routing     |      | / CrewAI systems  |      | Cache / Logging   |
+| Next.js     |      | FastAPI     |      | GenAI / LangGraph |      | LLM / Eval /      |
+| Portfolio   |      | Routing     |      | / CrewAI systems  |      | Cache / Logging   |
 +-------------+      +-------------+      +-------------------+      +-------------------+
 ```
 
 ## System Structure
 
-- UI: The browser-facing entrypoint is the shared Streamlit application, which provides an operator interface for selecting projects, submitting input, and inspecting results.
+- UI: The browser-facing entrypoint is the Next.js portfolio application, which provides an interactive playground for selecting projects, submitting input, and inspecting results.
 - API: The FastAPI layer exposes health, discovery, execution, and evaluation endpoints. Middleware handles input validation, structured request logging, timing, and error normalization.
 - Project Modules: Each runnable project exposes a standardized `run(input: str) -> dict` entrypoint. Projects implement domain logic independently while conforming to the same execution contract.
 - Shared Layer: Common infrastructure under `shared/` provides LLM access, evaluation helpers, caching, configuration, schemas, logging, and dynamic project loading.
