@@ -140,7 +140,7 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 | LLM models | `gemini-3-flash-preview` (dev), `gemini-3.1-pro-preview` (prod) | — |
 | Backend | Python, FastAPI, Uvicorn | 3.13 |
 | ORM / DB | SQLAlchemy + SQLite | 2.0.48 |
-| Validation | Pydantic | 2.12.5 |
+| Validation | Pydantic | 2.11.10 |
 | Agent frameworks | LangGraph, CrewAI | — |
 | Data | DuckDB, Pandas, NumPy | 1.5.1, 3.0.1, 2.3.3 |
 | Frontend | Next.js, React, TypeScript | 16.2.1, 19.2.4 |
@@ -640,17 +640,19 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull
 
 | Job | What it does |
 |---|---|
-| **backend** | `compileall` syntax check on all `.py` files, platform test suite (`tests/`), 3 project-level test suites, optional Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
+| **backend-platform** | installs the root Python environment, runs `compileall` on `shared/` + `tests/`, runs the platform suite (`tests/`), runs the `crew-startup-simulator` and `lg-research-agent` project suites, and optionally runs Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
+| **backend-standalone-analyst** | installs `langgraph-data-analyst/requirements.txt` in its own isolated environment and runs that standalone project suite separately to avoid dependency conflicts with the shared platform runtime |
 | **frontend** | `npm run lint`, `npm run test` (playground utility tests), `npm run build` (Next.js production build) |
-| **docker** | Builds the backend Docker image to verify the `Dockerfile` stays valid (runs after `backend` passes) |
+| **docker** | Builds the backend Docker image to verify the `Dockerfile` stays valid (runs after both backend jobs pass) |
 
 ```text
-push / PR → ┬─ backend  ─── compile → platform tests → project tests → eval
-             ├─ frontend ─── lint → test → build
-             └─ docker   ─── (waits for backend) → docker build
+push / PR → ┬─ backend-platform          ─── install root env → compile → tests → eval
+             ├─ backend-standalone-analyst ─ install analyst env → analyst tests
+             ├─ frontend                  ─── lint → test → build
+             └─ docker                    ─── (waits for backend jobs) → docker build
 ```
 
-Backend tests cover: API contracts (guest execution, streaming, BYOK, session memory, metrics, sharing), auth hardening (secret length/ephemeral fallback/prod enforcement), and catalog integrity (alias coverage, legacy compat, duplicate detection). Frontend tests cover the extracted playground utility logic via `tsx` + `node:test`.
+Backend platform tests cover: API contracts (guest execution, streaming, BYOK, session memory, metrics, sharing), auth hardening (secret length/ephemeral fallback/prod enforcement), and catalog integrity (alias coverage, legacy compat, duplicate detection). Frontend tests cover the extracted playground utility logic via `tsx` + `node:test`.
 
 ---
 
