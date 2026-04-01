@@ -17,6 +17,36 @@ const API_BASES = process.env.NEXT_PUBLIC_API_BASE_URL?.trim()
   : [DEFAULT_API_BASE, LOCAL_FALLBACK_API_BASE];
 let activeApiBase = API_BASES[0];
 
+function isLocalHostname(hostname: string): boolean {
+  return hostname === "localhost" || hostname === "127.0.0.1";
+}
+
+function formatApiReachabilityError(candidates: string[], lastError: unknown): Error {
+  const configuredBase = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
+  const browserOrigin = typeof window !== "undefined" ? window.location.origin : null;
+  const browserHostname = typeof window !== "undefined" ? window.location.hostname : null;
+  const triedBases = candidates.join(", ");
+  const lastMessage = lastError instanceof Error && lastError.message
+    ? ` Last error: ${lastError.message}`
+    : "";
+
+  if (!configuredBase && browserHostname && !isLocalHostname(browserHostname)) {
+    return new Error(
+      `Unable to reach the API. This frontend is using local fallback URLs (${triedBases}) because NEXT_PUBLIC_API_BASE_URL is not set. Configure NEXT_PUBLIC_API_BASE_URL to your deployed FastAPI backend.${lastMessage}`,
+    );
+  }
+
+  if (configuredBase && browserOrigin) {
+    return new Error(
+      `Unable to reach the API at ${triedBases}. If the backend is deployed on another origin, make sure GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS includes ${browserOrigin}.${lastMessage}`,
+    );
+  }
+
+  return new Error(
+    `Unable to reach the API at ${triedBases}. Start the FastAPI backend or set NEXT_PUBLIC_API_BASE_URL to the correct backend origin.${lastMessage}`,
+  );
+}
+
 function buildApiUrl(base: string, path: string): string {
   return `${base}${path.startsWith("/") ? path : `/${path}`}`;
 }
@@ -27,8 +57,9 @@ function apiBaseCandidates(): string[] {
 
 async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
   let lastError: unknown;
+  const candidates = apiBaseCandidates();
 
-  for (const base of apiBaseCandidates()) {
+  for (const base of candidates) {
     try {
       const response = await fetch(buildApiUrl(base, path), {
         credentials: "include",
@@ -41,7 +72,7 @@ async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
     }
   }
 
-  throw lastError instanceof Error ? lastError : new Error("Failed to reach API.");
+  throw formatApiReachabilityError(candidates, lastError);
 }
 
 export function getApiBaseUrl(): string {
