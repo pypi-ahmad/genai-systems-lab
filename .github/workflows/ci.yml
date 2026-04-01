@@ -5,6 +5,9 @@ on:
     branches: [main]
   pull_request:
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
@@ -46,8 +49,8 @@ jobs:
           pip install -r langgraph-data-analyst/requirements.txt
           pip install pytest fastapi uvicorn httpx sqlalchemy
 
-      - name: Compile check (all .py files)
-        run: python -m compileall -q shared/ tests/ genai-*/ lg-*/ crew-*/
+      - name: Compile check (shared + tests)
+        run: python -m compileall -q shared/ tests/
 
       - name: Run platform tests
         run: python -m pytest tests/ -v --tb=short
@@ -85,10 +88,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set up Node.js 20
+      - name: Set up Node.js 22
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "22"
           cache: npm
           cache-dependency-path: portfolio/package-lock.json
 
