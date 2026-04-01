@@ -18,14 +18,33 @@ from .step_events import StepEmitter, bind_step_emitter, reset_step_emitter
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 LOGGER = get_logger(__name__)
 
+LEGACY_PROJECT_API_NAMES = {
+    "ai-interviewer": "interviewer",
+    "clinical-decision-support": "clinical-assistant",
+    "codebase-copilot": "code-copilot",
+    "data-analysis-agent": "data-agent",
+    "document-intelligence": "doc-intelligence",
+    "financial-analyst-agent": "financial-analyst",
+    "generative-ui-builder": "ui-builder",
+    "product-launch-crew": "product-launch",
+    "research-graph": "research-agent",
+}
+
 
 @lru_cache(maxsize=1)
 def _project_aliases() -> dict[str, str]:
-    """Derive API-name → folder-slug mapping from the canonical project catalog."""
-    return {
+    """Derive API-name → folder-slug mapping from the catalog plus legacy route aliases."""
+    aliases = {
         project_api_name(entry.apiEndpoint): entry.slug
         for entry in load_project_catalog()
     }
+    aliases.update(
+        {
+            legacy_name: aliases[current_name]
+            for legacy_name, current_name in LEGACY_PROJECT_API_NAMES.items()
+        }
+    )
+    return aliases
 
 PREFIXES = ("crew-", "genai-", "lg-")
 
