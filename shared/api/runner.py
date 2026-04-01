@@ -8,36 +8,24 @@ import inspect
 import sys
 import time
 from dataclasses import dataclass
+from functools import lru_cache
 from pathlib import Path
 
 from shared.logging import get_logger, reset_log_context, set_log_context
+from shared.project_catalog import load_project_catalog, project_api_name
 from .step_events import StepEmitter, bind_step_emitter, reset_step_emitter
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 LOGGER = get_logger(__name__)
 
-PROJECT_ALIASES = {
-    "ai-interviewer": "genai-interviewer",
-    "browser-agent": "genai-browser-agent",
-    "clinical-decision-support": "genai-clinical-assistant",
-    "codebase-copilot": "genai-code-copilot",
-    "content-pipeline": "crew-content-pipeline",
-    "data-analysis-agent": "lg-data-agent",
-    "debugging-agent": "lg-debugging-agent",
-    "document-intelligence": "genai-doc-intelligence",
-    "financial-analyst-agent": "genai-financial-analyst",
-    "generative-ui-builder": "genai-ui-builder",
-    "hiring-crew": "crew-hiring-system",
-    "investment-crew": "crew-investment-analyst",
-    "knowledge-os": "genai-knowledge-os",
-    "multi-agent-research": "genai-research-system",
-    "nl2sql-agent": "genai-nl2sql-agent",
-    "product-launch-crew": "crew-product-launch",
-    "research-graph": "lg-research-agent",
-    "startup-simulator": "crew-startup-simulator",
-    "support-agent": "lg-support-agent",
-    "workflow-agent": "lg-workflow-agent",
-}
+
+@lru_cache(maxsize=1)
+def _project_aliases() -> dict[str, str]:
+    """Derive API-name → folder-slug mapping from the canonical project catalog."""
+    return {
+        project_api_name(entry.apiEndpoint): entry.slug
+        for entry in load_project_catalog()
+    }
 
 PREFIXES = ("crew-", "genai-", "lg-")
 
@@ -99,7 +87,7 @@ def resolve_project_name(project: str) -> str:
     if project in available:
         return project
 
-    alias = PROJECT_ALIASES.get(project)
+    alias = _project_aliases().get(project)
     if alias in available:
         return alias
 
