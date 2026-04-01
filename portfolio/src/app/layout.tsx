@@ -27,7 +27,6 @@ function Nav() {
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
     { href: "/playground", label: "Playground" },
-    { href: "/leaderboard", label: "Leaderboard" },
     { href: "/metrics", label: "Metrics" },
     { href: "/compare", label: "Comparison" },
     { href: "/auth", label: "Auth" },

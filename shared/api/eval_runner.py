@@ -105,24 +105,3 @@ def run_project_evaluation(project: str) -> dict[str, Any]:
         },
     )
     return report
-
-
-def build_leaderboard() -> list[dict[str, float | str]]:
-    """Run all registered benchmark suites and rank projects by accuracy/latency."""
-    entries: list[dict[str, float | str]] = []
-
-    for project_name in sorted(BENCHMARKS):
-        report = run_project_evaluation(project_name)
-        accuracy = float(report["metrics"]["accuracy"])
-        latency = float(report["metrics"]["latency_ms"]["mean"])
-        score = accuracy / latency if latency > 0 else 0.0
-        entries.append(
-            {
-                "project": str(report["project"]),
-                "accuracy": round(accuracy, 4),
-                "latency": round(latency, 2),
-                "score": round(score, 6),
-            }
-        )
-
-    return sorted(entries, key=lambda entry: float(entry["score"]), reverse=True)

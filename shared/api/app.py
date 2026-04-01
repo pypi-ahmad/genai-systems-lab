@@ -27,7 +27,7 @@ from starlette.responses import StreamingResponse
 from .auth import AUTH_COOKIE_NAME, JWT_TTL_SECONDS, authenticate_user, create_access_token, create_user, get_current_user, get_optional_current_user, save_run, serialize_run
 from .confidence import compute_run_confidence
 from .db import get_db_session, init_db
-from .eval_runner import build_leaderboard, run_project_evaluation
+from .eval_runner import run_project_evaluation
 from .models import OperationalMetric, Run, RunSession, User
 from .run_explainer import build_run_explanation
 from .runner import list_available, resolve_project_name, run_project
@@ -43,7 +43,7 @@ from shared.llm import GeminiGenerationError, GeminiTimeoutError
 from shared.logging import get_logger, new_request_id, reset_log_context, set_log_context, setup_otel, shutdown_otel
 from shared.logging.otel import span as otel_span
 from shared.project_catalog import build_pipeline_nodes_index, list_project_manifest_entries
-from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, LeaderboardEntryResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
+from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
 
 logger = get_logger(__name__)
 
@@ -631,7 +631,6 @@ class RequestRateLimitMiddleware(BaseHTTPMiddleware):
     _RULES: tuple[tuple[str, str, int, int], ...] = (
         ("/auth/signup", "signup", 5, 60),
         ("/auth/login", "login", 10, 60),
-        ("/leaderboard", "leaderboard", 4, 300),
         ("/eval/", "evaluation", 6, 300),
         ("/stream/", "stream", 30, 60),
         ("/explain/", "explain", 20, 60),
@@ -1191,10 +1190,6 @@ def create_app(
             for metric in metrics_rows
             if metric.timestamp is not None
         ]
-
-    @app.get("/leaderboard", response_model=list[LeaderboardEntryResponse])
-    async def leaderboard() -> list[LeaderboardEntryResponse]:
-        return [LeaderboardEntryResponse(**entry) for entry in build_leaderboard()]
 
     @app.get("/history", response_model=HistoryResponse)
     async def history(

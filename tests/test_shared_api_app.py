@@ -392,15 +392,3 @@ def test_cors_allows_local_frontend_origin_only(client: TestClient) -> None:
         },
     )
     assert blocked.headers.get("access-control-allow-origin") is None
-
-
-def test_leaderboard_requires_byok(client: TestClient) -> None:
-    missing_key = client.get("/leaderboard")
-
-    assert missing_key.status_code == 400
-    assert missing_key.json()["detail"] == "Missing x-api-key header."
-
-    response = client.get("/leaderboard", headers={"X-API-Key": TEST_API_KEY})
-
-    assert response.status_code == 200
-    assert isinstance(response.json(), list)

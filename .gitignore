@@ -1,6 +1,7 @@
 .venv/
 .env
 .data/
+.playwright-mcp/
 __pycache__/
 *.py[cod]
 node_modules/

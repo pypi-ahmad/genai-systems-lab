@@ -6,7 +6,7 @@ An interactive portfolio and live execution environment for 20 production-grade 
 
 ## Overview
 
-This is not a static project gallery. The portfolio is a full-featured frontend that connects to a shared FastAPI backend and lets users **run any of the 20 AI systems directly from the browser**. It streams execution output token-by-token via SSE, visualizes agent state as an animated directed graph, records memory traces and timeline events, and ranks all systems on a live benchmark leaderboard.
+This is not a static project gallery. The portfolio is a full-featured frontend that connects to a shared FastAPI backend and lets users **run any of the 20 AI systems directly from the browser**. It streams execution output token-by-token via SSE, visualizes agent state as an animated directed graph, records memory traces and timeline events, and displays performance metrics for every system.
 
 Every project belongs to one of three paradigms:
 
@@ -36,12 +36,6 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 - 20 project detail pages generated from a shared JSON manifest (`src/data/project-catalog.json`) with a typed TypeScript facade in `src/data/projects.ts`
 - Each page renders: architecture description, flow diagram, feature list, example I/O, tags, and a live demo panel
 - Category badges with per-paradigm accent theming (GenAI = emerald, LangGraph = blue, CrewAI = violet)
-
-### Benchmark Leaderboard
-
-- Runs server-side LLM-backed evaluations against registered benchmark datasets using the visitor's Gemini API key
-- Ranks projects by a composite score: `accuracy / latency`
-- Displays accuracy, mean latency, and composite score per project in a sortable table
 
 ### Performance Metrics
 
@@ -110,7 +104,6 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 │  POST /{project}/run          — batch execution                  │
 │  GET  /stream/{project}       — SSE token streaming              │
 │  GET  /metrics, /metrics/time — aggregate + time-series metrics  │
-│  GET  /leaderboard            — benchmark ranking (BYOK)         │
 │  POST /auth/signup, /login    — authentication                   │
 │  GET  /history                — per-user run history             │
 │  POST /run/{id}/share         — shareable link generation        │
@@ -153,7 +146,6 @@ portfolio/
 │   │   │       ├── page.tsx        # Project detail (SSG with generateStaticParams)
 │   │   │       ├── project-demo.tsx  # Inline live demo widget
 │   │   │       └── demo-button.tsx   # Standalone demo trigger
-│   │   ├── leaderboard/page.tsx    # Benchmark ranking table
 │   │   ├── metrics/page.tsx        # Time-series performance charts
 │   │   ├── compare/page.tsx        # LangGraph vs CrewAI comparison
 │   │   ├── architecture/           # Interactive architecture diagram
@@ -245,10 +237,6 @@ No `.env` file is required. The BYOK API key is kept in memory for the active ta
 
 Navigate to **Projects** → click any card → view architecture, flow diagram, features, example I/O, and run the live demo.
 
-### Benchmark Leaderboard
-
-Navigate to **Leaderboard** → enter your API key → the server runs evaluation benchmarks against all registered projects and returns a ranked table.
-
 ### Sharing a Run
 
 After a run completes in the playground, click **Share** → a public URL is generated at `/run/{shareToken}`. Optionally set an expiry (in hours).
@@ -301,7 +289,7 @@ Navigate to **Metrics** → select a project and time range → view latency, co
 ## Limitations & Future Work
 
 - **No Next.js route middleware auth** — browser auth relies on the backend's HttpOnly session cookie and API keys live only in client memory; Next.js routes themselves do not independently enforce auth
-- **No SSR for dynamic pages** — the playground, leaderboard, and metrics pages are fully client-rendered; initial paint shows loading states
+- **No SSR for dynamic pages** — the playground and metrics pages are fully client-rendered; initial paint shows loading states
 - **No test suite** — no unit or integration tests exist for the frontend
 - **No mobile navigation** — the nav bar renders all links in a horizontal row without a responsive hamburger menu
 - **Build-time catalog sync** — the frontend ships a static project manifest for reliability; changes to project definitions still require updating `src/data/project-catalog.json`
