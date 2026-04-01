@@ -20,6 +20,8 @@ jobs:
   backend:
     name: Backend tests
     runs-on: ubuntu-latest
+    env:
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
 
     steps:
       - name: Checkout repository
@@ -57,9 +59,7 @@ jobs:
           python -m pytest lg-research-agent/tests/test_main.py -v --tb=short
 
       - name: Run evaluation (requires API key)
-        if: ${{ secrets.GOOGLE_API_KEY != '' }}
-        env:
-          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        if: ${{ env.GOOGLE_API_KEY != '' }}
         run: |
           python - <<'PY'
           import importlib.util, os
