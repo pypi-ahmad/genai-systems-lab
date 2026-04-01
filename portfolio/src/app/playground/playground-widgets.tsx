@@ -29,6 +29,16 @@ export function TypingDots() {
   );
 }
 
+export function PlaygroundMotionStyles() {
+  return (
+    <style>{`@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+@keyframes thinkPulse {
+  0%, 100% { opacity: 0.42; transform: translateY(0); }
+  50% { opacity: 1; transform: translateY(-1px); }
+}`}</style>
+  );
+}
+
 const thinkingStates = ["Thinking", "Analyzing", "Planning steps"] as const;
 
 export function ThinkingStateList() {

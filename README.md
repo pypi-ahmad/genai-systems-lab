@@ -634,34 +634,23 @@ The Next.js frontend at `http://localhost:3000` provides:
 
 The runner discovers the project automatically on next startup — no registration required.
 
-### CI
+### CI/CD
 
-GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests:
+GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests. The pipeline uses three parallel jobs with dependency caching and concurrency grouping (in-flight runs for the same ref are cancelled automatically).
 
-```bash
-python -m pytest langgraph-data-analyst/tests -v
-python -m pytest crew-startup-simulator/tests/test_all.py -v
-python -m pytest lg-research-agent/tests/test_main.py -v
-python -m pytest tests/ -v
+| Job | What it does |
+|---|---|
+| **backend** | `compileall` syntax check on all `.py` files, platform test suite (`tests/`), 3 project-level test suites, optional Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
+| **frontend** | `npm run lint`, `npm run test` (playground utility tests), `npm run build` (Next.js production build) |
+| **docker** | Builds the backend Docker image to verify the `Dockerfile` stays valid (runs after `backend` passes) |
+
+```text
+push / PR → ┬─ backend  ─── compile → platform tests → project tests → eval
+             ├─ frontend ─── lint → test → build
+             └─ docker   ─── (waits for backend) → docker build
 ```
 
-CI covers 3 project-level test suites plus the shared platform suite (`tests/`): API contracts (guest execution, streaming, BYOK, session memory, metrics, sharing), auth hardening (secret length/ephemeral fallback/prod enforcement), and catalog integrity (alias coverage, legacy compat, duplicate detection).
-
-### Frontend tests
-
-```bash
-cd portfolio
-npm run test
-```
-
-Runs focused unit tests for the extracted playground utility logic via `tsx` + `node:test`.
-
-### Frontend build
-
-```bash
-cd portfolio
-npm run build
-```
+Backend tests cover: API contracts (guest execution, streaming, BYOK, session memory, metrics, sharing), auth hardening (secret length/ephemeral fallback/prod enforcement), and catalog integrity (alias coverage, legacy compat, duplicate detection). Frontend tests cover the extracted playground utility logic via `tsx` + `node:test`.
 
 ---
 

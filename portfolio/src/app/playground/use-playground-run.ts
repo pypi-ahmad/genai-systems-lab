@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { projectDetails } from "@/data/projects";
 import type { ProjectDetail } from "@/data/projects";
 import { runProject, streamProject } from "@/lib/api";
-import type { RunMemoryEntry, StepEvent } from "@/lib/api";
+import type { HistoryRun, RunMemoryEntry, StepEvent } from "@/lib/api";
 import type { NodeStatusMap } from "@/components/animated-graph";
 import type { MemoryEntry } from "@/components/memory-panel";
 import {
@@ -122,6 +122,12 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
     }
   }, []);
 
+  const scrollOutputIntoView = useCallback(() => {
+    window.setTimeout(() => {
+      outputRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }, 100);
+  }, []);
+
   /* ── Reset all run state to idle ── */
 
   const resetRunState = useCallback(() => {
@@ -157,6 +163,33 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
       return prev === "streaming" ? "success" : "idle";
     });
   }, [disconnect, appendLog, appendMemoryEntry]);
+
+  const hydrateSavedRun = useCallback((historyRun: HistoryRun) => {
+    const replayProject = projectDetails.find((item) => item.slug === historyRun.project);
+
+    if (replayProject) {
+      setSelectedSlug(replayProject.slug);
+    }
+
+    setInput(historyRun.input);
+    setOutput(null);
+    setRawData(null);
+    setLatency(null);
+    setConfidence(historyRun.confidence);
+    setUsedSessionContext(false);
+    setStatus("idle");
+    setErrorMsg(null);
+    setStreamText("");
+    setStepStatuses({});
+    setStreamChunks(0);
+    setLogLines([]);
+
+    if (historyRun.memory.length > 0) {
+      replaceMemoryEntries(historyRun.memory);
+    } else {
+      resetMemoryEntries();
+    }
+  }, [replaceMemoryEntries, resetMemoryEntries]);
 
   /* ── Execute a project run ── */
 
@@ -443,7 +476,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
         })();
       }
 
-      setTimeout(() => outputRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" }), 100);
+      scrollOutputIntoView();
     },
     [
       activeSessionId,
@@ -460,6 +493,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
       selected,
       selectedSlug,
       sessionMemoryPreview,
+      scrollOutputIntoView,
     ],
   );
 
@@ -489,7 +523,11 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
     outputRef,
     streamPanelRef,
 
-    /* Setters — used by the parent for history replay and logout */
+    /* Actions used by parent-level orchestration */
+    hydrateSavedRun,
+    scrollOutputIntoView,
+
+    /* Setters — retained for parent-level orchestration */
     setSelectedSlug,
     setInput,
     setStatus,
