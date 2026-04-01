@@ -225,10 +225,4 @@ class TimeSeriesMetricPointResponse(BaseModel):
     success: bool = False
 
 
-class LeaderboardEntryResponse(BaseModel):
-    """Benchmark leaderboard entry for one project."""
 
-    project: str
-    accuracy: float = 0.0
-    latency: float = 0.0
-    score: float = 0.0

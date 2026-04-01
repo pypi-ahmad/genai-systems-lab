@@ -60,7 +60,7 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 ### Origin policy and abuse control
 
 - **CORS**: Defaults to explicit local frontend origins instead of `*`. Set `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` for deployed frontends.
-- **Rate limiting**: Lightweight in-memory throttling applies to signup/login and expensive endpoints such as `/leaderboard`, `/eval/*`, `/stream/*`, and `/explain/*`.
+- **Rate limiting**: Lightweight in-memory throttling applies to signup/login and expensive endpoints such as `/eval/*`, `/stream/*`, and `/explain/*`.
 
 ### Observability and operational reporting
 
@@ -121,11 +121,10 @@ Every execution is written to SQLite (`.data/genai_systems_lab.db`) with: projec
 
 `POST /explain/{run_id}` generates a structured narrative using Gemini 3.1-pro-preview with JSON schema-mode output. The schema enforces `steps_taken`, `key_decisions`, `final_reasoning`, and `final_outcome` — derived only from stored run artifacts (input, output, memory, timeline). The system prompt explicitly prohibits the model from inventing reasoning not present in the artifacts.
 
-### Evaluation and leaderboard
+### Evaluation
 
 - Benchmark datasets are registered per project in `shared/eval/benchmarks.py` (15 of 20 projects; the 5 CrewAI projects have none).
 - `POST /eval/{project}` runs the benchmark suite and returns per-case pass/fail, accuracy, and latency percentiles (mean, p50, p95, p99). Requires `X-API-Key`.
-- `GET /leaderboard` runs all registered benchmarks live and ranks projects by `score = accuracy / mean_latency_ms`. Because the evaluations are live, this route requires `X-API-Key`.
 
 ### In-memory metrics
 
@@ -189,7 +188,7 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 │    ErrorHandlingMiddleware    — structured JSON on unhandled exceptions│
 │                                                                        │
 │  Routes: auth · run · stream · history · session · metrics            │
-│          leaderboard · eval · sharing · explain · health              │
+│          eval · sharing · explain · health                            │
 └───────────────────────────────┬────────────────────────────────────────┘
                                 │
                                 ▼
@@ -225,7 +224,7 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 │  api/session_memory  12-entry window, 4-entry injection, dedup        │
 │  api/confidence      4-component weighted formula                     │
 │  api/run_explainer   LLM explain from stored artifacts                │
-│  api/eval_runner     Benchmark execution + leaderboard build          │
+│  api/eval_runner     Benchmark execution                              │
 │  api/step_events     ContextVar StepEmitter for streaming             │
 │  eval/        Benchmark datasets (15 projects) + latency metrics      │
 │  cache/       In-memory TTL caches (prompt-keyed)                     │
@@ -307,12 +306,12 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key: <key>)
 | `shared/api/session_memory.py` | 12-entry persisted window, 4-entry context injection, content deduplication |
 | `shared/api/confidence.py` | 4-component weighted confidence score; evaluator field extraction from arbitrary output shape |
 | `shared/api/run_explainer.py` | Gemini 3.1-pro-preview structured explanation from stored run artifacts |
-| `shared/api/eval_runner.py` | Per-case benchmark execution, rule evaluation, leaderboard ranking |
+| `shared/api/eval_runner.py` | Per-case benchmark execution, rule evaluation |
 | `shared/api/step_events.py` | `ContextVar`-based `StepEmitter` for decoupled step emission during streaming |
 | `shared/llm/gemini.py` | Gemini text, structured JSON, and vision calls with retry/backoff/fallback |
 | `shared/config.py` | BYOK `ContextVar`, `Settings` (Pydantic), per-project model resolution |
 | `shared/eval/benchmarks.py` | Rule-based benchmark datasets for 15 projects; `BenchmarkSuite` latency harness |
-| `portfolio/src/lib/api.ts` | TypeScript API client: batch run, SSE streaming, auth, history, metrics, sharing, leaderboard |
+| `portfolio/src/lib/api.ts` | TypeScript API client: batch run, SSE streaming, auth, history, metrics, sharing |
 
 ---
 
@@ -340,7 +339,7 @@ genai-systems-lab/
 │
 ├── portfolio/            Next.js 16 frontend
 │   └── src/
-│       ├── app/          App Router pages (playground, metrics, leaderboard,
+│       ├── app/          App Router pages (playground, metrics,
 │       │                 compare, projects/[slug], auth, run/[id], about)
 │       ├── lib/          API client, auth helpers, apikey storage, session
 │       ├── components/   AnimatedGraph, AgentGraph, MemoryPanel,
@@ -614,7 +613,6 @@ The Next.js frontend at `http://localhost:3000` provides:
 | `/playground` | Live execution: streaming pipeline graphs, real-time memory panel, timeline replay, session continuity, run history, public sharing, explainability |
 | `/projects/[slug]` | Per-project details: architecture, pipeline graph, example input/output, interactive demo |
 | `/metrics` | Time-series charts for latency, confidence, and success rate (hour/day/week) |
-| `/leaderboard` | Live benchmark ranking sorted by accuracy / mean latency (requires BYOK) |
 | `/compare` | Side-by-side comparison of two project runs |
 | `/auth` | Sign up and sign in |
 | `/run/[id]` | Public shared run view |
@@ -648,7 +646,7 @@ python -m pytest tests/test_shared_api_app.py -v
 python -m pytest tests/test_project_catalog.py -v
 ```
 
-CI covers 3 project test suites, the shared API platform tests (guest execution, streaming contracts, BYOK, session memory, metrics, leaderboard contract, and sharing), and catalog integrity tests.
+CI covers 3 project test suites, the shared API platform tests (guest execution, streaming contracts, BYOK, session memory, metrics, and sharing), and catalog integrity tests.
 
 ### Frontend build
 
@@ -674,7 +672,6 @@ npm run build
 | `GET` | `/stream/{project}` | API key (JWT optional) | SSE streaming execution |
 | `GET` | `/metrics` | — | Durable aggregate execution metrics |
 | `GET` | `/metrics/time` | — | Durable time-series execution metrics (`?project=&range=hour\|day\|week`) |
-| `GET` | `/leaderboard` | API key | Live benchmark ranking |
 | `GET` | `/history` | JWT or session cookie | Authenticated user's run history |
 | `GET` | `/session/{id}` | JWT or session cookie | Session memory preview (last 5 entries) |
 | `POST` | `/session/{id}/clear` | JWT or session cookie | Clear session memory |
@@ -699,16 +696,14 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key`. Authe
 | Rate limiting | Abuse control is in-memory and process-local; use an upstream proxy or WAF for multi-instance enforcement |
 | CI coverage | CI still validates only a subset of runnable projects directly |
 | CrewAI benchmarks | No benchmark datasets registered for any of the 5 CrewAI projects |
-| Live leaderboard | Benchmark suites execute on every `/leaderboard` request; no cached results |
 | Persistence | SQLite remains the default for local and demo use; deployed environments should set `GENAI_SYSTEMS_LAB_DATABASE_URL`. Schema changes are applied via idempotent `ALTER TABLE` guards in `db.py`; adopt Alembic if the schema grows beyond single-column additions. |
-| BYOK only | `GOOGLE_API_KEY` in `.env` is not used at runtime; all LLM execution paths require the `X-API-Key` header, including the leaderboard. |
+| BYOK only | `GOOGLE_API_KEY` in `.env` is not used at runtime; all LLM execution paths require the `X-API-Key` header. |
 
 ### Planned improvements
 
 - ~~Generate the public project catalog from a shared source.~~ Done — `portfolio/src/data/project-catalog.json` is the single source of truth, read by both the Python backend and the Next.js frontend.
 - Implement `lg-research-agent` and register benchmarks for it.
 - Expand CI to cover all project modules and shared platform paths.
-- Persist evaluation results to SQLite and serve leaderboard from stored data.
 - Add benchmark datasets for all 5 CrewAI projects.
 - Adopt Alembic for schema migrations if the data model expands beyond the current column-level additions.
 
@@ -724,7 +719,7 @@ GenAI Systems Lab is a **portfolio-optimized showcase** — it prioritizes demo 
 | **Auth** | HS256 JWT + HttpOnly cookies — simple, auditable, sufficient for single-operator use |
 | **BYOK** | All LLM calls require a per-request API key; no server-side key storage |
 | **Persistence** | SQLite by default for zero-config local demos; `GENAI_SYSTEMS_LAB_DATABASE_URL` for deployed environments |
-| **Frontend** | One Next.js app with playground, metrics, leaderboard, compare, and per-project pages |
+| **Frontend** | One Next.js app with playground, metrics, compare, and per-project pages |
 | **Testing** | Contract-level API tests plus per-project smoke tests; catalog integrity tests guard the shared manifest |
 
 If this evolves toward a reusable platform, the next priorities would be: Alembic migrations, per-user quotas, external identity provider integration, structured observability (the OTel hooks are already wired), and container-per-project isolation.

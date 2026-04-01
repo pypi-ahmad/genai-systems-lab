@@ -210,12 +210,6 @@ export interface RunSessionState {
   updated_at: string | null;
 }
 
-export interface LeaderboardEntry {
-  project: string;
-  accuracy: number;
-  latency: number;
-  score: number;
-}
 
 // ── API calls ────────────────────────────────────────────
 
@@ -473,19 +467,6 @@ export async function fetchSharedRun(shareToken: string): Promise<SharedRun> {
   return res.json();
 }
 
-export async function fetchLeaderboard(apiKey?: string): Promise<LeaderboardEntry[]> {
-  const res = await apiFetch("/leaderboard", {
-    headers: authHeaders(undefined, apiKey),
-    cache: "no-store",
-  });
-
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`);
-  }
-
-  return res.json();
-}
 
 // ── Streaming ────────────────────────────────────────────
 
