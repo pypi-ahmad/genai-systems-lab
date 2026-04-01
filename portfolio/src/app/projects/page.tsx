@@ -3,7 +3,7 @@ import { projects, type Category } from "@/data/projects";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Projects — Portfolio",
+  title: "Projects — GenAI Systems Lab",
 };
 
 const groups: { label: string; category: Category; accent: string; dot: string }[] = [
@@ -22,7 +22,7 @@ export default function ProjectsPage() {
             Twenty AI systems organized for quick scanning.
           </h1>
           <p className="copy-lead max-w-2xl text-lg">
-            Browse the full portfolio grouped by GenAI, LangGraph, and CrewAI.
+            Browse the full collection grouped by GenAI, LangGraph, and CrewAI.
             Each project card keeps the signal tight: name, short description,
             category, and a direct path to the detail page.
           </p>

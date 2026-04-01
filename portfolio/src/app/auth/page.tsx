@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import AuthClient from "./auth-client";
 
 export const metadata: Metadata = {
-  title: "Auth — Portfolio",
+  title: "Auth — GenAI Systems Lab",
   description: "Sign up or log in to save and replay project runs.",
 };
 
