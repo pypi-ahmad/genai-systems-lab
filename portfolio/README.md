@@ -148,7 +148,6 @@ portfolio/
 │   │   │   └── [slug]/
 │   │   │       ├── page.tsx        # Project detail (SSG with generateStaticParams)
 │   │   │       ├── project-demo.tsx  # Inline live demo widget
-│   │   │       └── demo-button.tsx   # Standalone demo trigger
 │   │   ├── metrics/page.tsx        # Time-series performance charts
 │   │   ├── compare/page.tsx        # LangGraph vs CrewAI comparison
 │   │   ├── architecture/           # Interactive architecture diagram

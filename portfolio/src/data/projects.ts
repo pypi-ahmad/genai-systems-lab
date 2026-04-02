@@ -53,7 +53,3 @@ export const projects: Project[] = projectDetails.map(
 export function getProject(slug: string): ProjectDetail | undefined {
   return projectDetails.find((project) => project.slug === slug);
 }
-
-export function getProjectsByCategory(category: Category): Project[] {
-  return projects.filter((p) => p.category === category);
-}
