@@ -863,3 +863,7 @@ If this evolves toward a reusable platform, the next priorities would be: Alembi
 - [docs/comparison.md](docs/comparison.md) — LangGraph vs. CrewAI framework comparison.
 - [portfolio/README.md](portfolio/README.md) — Frontend-specific documentation.
 
+---
+
+Suggestions and bug reports are welcome — feel free to [open an issue](https://github.com/pypi-ahmad/genai-systems-lab/issues).
+
