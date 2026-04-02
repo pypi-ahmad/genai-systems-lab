@@ -411,8 +411,8 @@ export default function AnimatedGraph({
       <div className="surface-panel-strong overflow-x-auto rounded-xl px-3 py-4 sm:px-4">
         <svg
           viewBox={`0 0 ${maxX} ${maxY}`}
-          className="mx-auto block h-auto"
-          style={{ width: maxX, minWidth: maxX, minHeight: maxY, maxWidth: "none" }}
+          className="mx-auto block h-auto w-full"
+          style={{ minWidth: maxX > 600 ? 600 : maxX, minHeight: maxY }}
         >
           <defs>
             <marker id="ag-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
