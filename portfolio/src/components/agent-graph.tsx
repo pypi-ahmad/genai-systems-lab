@@ -124,12 +124,12 @@ export default function AgentGraph({
   const completedSet = new Set(completedSteps);
 
   return (
-    <div className={`surface-panel-strong rounded-[1.25rem] p-4 sm:p-5 ${className}`.trim()}>
+    <div className={`surface-panel-strong rounded-[1.25rem] p-4 sm:p-6 ${className}`.trim()}>
       <div className="overflow-x-auto pb-1">
         <svg
           viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
-          className="block h-auto"
-          style={{ width: VIEWBOX_W, minWidth: VIEWBOX_W }}
+          className="mx-auto block h-auto w-full"
+          style={{ minWidth: 580 }}
           role="img"
           aria-label="Agent workflow graph showing planner, executor, evaluator, and final steps"
         >
