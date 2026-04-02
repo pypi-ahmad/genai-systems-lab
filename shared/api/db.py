@@ -11,8 +11,24 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, Session, sessionmaker
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
-DATA_DIR = REPO_ROOT / ".data"
-DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def _resolve_data_dir() -> Path:
+    """Return a writable directory for the SQLite database.
+
+    On read-only filesystems (e.g. Vercel serverless) fall back to ``/tmp``.
+    """
+    primary = REPO_ROOT / ".data"
+    try:
+        primary.mkdir(parents=True, exist_ok=True)
+        return primary
+    except OSError:
+        fallback = Path("/tmp/.data")
+        fallback.mkdir(parents=True, exist_ok=True)
+        return fallback
+
+
+DATA_DIR = _resolve_data_dir()
 DEFAULT_SQLITE_DATABASE_URL = f"sqlite:///{(DATA_DIR / 'genai_systems_lab.db').as_posix()}"
 DATABASE_URL = (
     os.getenv("GENAI_SYSTEMS_LAB_DATABASE_URL")

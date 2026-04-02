@@ -1,17 +1,17 @@
 "use client";
 
 import { useCallback, useState, type Dispatch, type SetStateAction } from "react";
-import type { HistoryRun, RunExplanation } from "@/lib/api";
+import type { HistoryRun, LLMRequestOptions, RunExplanation } from "@/lib/api";
 import { explainRun, shareRun, unshareRun } from "@/lib/api";
 import type { TimelineReplayFrame } from "@/components/TimelineReplay";
 import type { ExecuteRunOverrides } from "./use-playground-run";
 
 export interface PlaygroundHistoryDeps {
   authToken: string | null;
-  apiKey: string;
+  llm: LLMRequestOptions;
   appendLog: (message: string) => void;
   disconnect: () => void;
-  executeRun: (streamMode: boolean, apiKey: string, overrides?: ExecuteRunOverrides) => void;
+  executeRun: (streamMode: boolean, llm: LLMRequestOptions, overrides?: ExecuteRunOverrides) => void;
   hydrateSavedRun: (historyRun: HistoryRun) => void;
   scrollOutputIntoView: () => void;
   setHistoryRuns: Dispatch<SetStateAction<HistoryRun[]>>;
@@ -20,7 +20,7 @@ export interface PlaygroundHistoryDeps {
 
 export function usePlaygroundHistory({
   authToken,
-  apiKey,
+  llm,
   appendLog,
   disconnect,
   executeRun,
@@ -80,7 +80,7 @@ export function usePlaygroundHistory({
     setExplainingRunId(historyRun.id);
 
     try {
-      const explanation = await explainRun(historyRun.id, authToken, apiKey || undefined);
+      const explanation = await explainRun(historyRun.id, authToken, llm);
       setRunExplanations((previous) => ({
         ...previous,
         [historyRun.id]: explanation,
@@ -91,13 +91,13 @@ export function usePlaygroundHistory({
     } finally {
       setExplainingRunId((value) => (value === historyRun.id ? null : value));
     }
-  }, [activeExplanationRun?.id, apiKey, authToken, clearExplanation, runExplanations]);
+  }, [activeExplanationRun?.id, authToken, clearExplanation, llm, runExplanations]);
 
   const handleHistoryRerun = useCallback((historyRun: HistoryRun) => {
     clearReplay();
     clearExplanation();
-    void executeRun(streamMode, apiKey, { slug: historyRun.project, inputText: historyRun.input });
-  }, [apiKey, clearExplanation, clearReplay, executeRun, streamMode]);
+    void executeRun(streamMode, llm, { slug: historyRun.project, inputText: historyRun.input });
+  }, [clearExplanation, clearReplay, executeRun, llm, streamMode]);
 
   const handleShare = useCallback(async (historyRun: HistoryRun) => {
     if (!authToken) {

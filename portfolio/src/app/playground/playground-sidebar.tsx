@@ -4,7 +4,8 @@ import Link from "next/link";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
 import { projectDetails } from "@/data/projects";
 import type { ProjectDetail } from "@/data/projects";
-import type { HistoryRun, RunExplanation } from "@/lib/api";
+import type { HistoryRun, LLMCatalogResponse, LLMProviderInfo, RunExplanation } from "@/lib/api";
+import type { LLMProviderId } from "@/lib/apikey";
 import { categoryBadgeTone, formatRunTimestamp, maskApiKey } from "./playground-utils";
 
 function Spinner({ className = "h-4 w-4" }: { className?: string }) {
@@ -20,9 +21,9 @@ interface PlaygroundSidebarProps {
   activeExplanationRunId: number | null;
   activeReplayRunId: number | null;
   activeSessionId: number | null;
-  apiKey: string;
   authToken: string | null;
   clearingSession: boolean;
+  canRun: boolean;
   errorMsg: string | null;
   explainingRunId: number | null;
   hasSessionContext: boolean;
@@ -32,6 +33,9 @@ interface PlaygroundSidebarProps {
   input: string;
   isActive: boolean;
   keyFocused: boolean;
+  llmCatalog: LLMCatalogResponse | null;
+  llmCatalogError: string | null;
+  llmCatalogLoading: boolean;
   onApiKeyChange: (value: string) => void;
   onClearSession: () => void;
   onHistoryExplain: (run: HistoryRun) => void;
@@ -40,14 +44,21 @@ interface PlaygroundSidebarProps {
   onInputChange: (value: string) => void;
   onKeyFocusedChange: (value: boolean) => void;
   onLogout: () => void;
+  onModelChange: (value: string) => void;
   onProjectChange: (slug: string) => void;
   onRun: () => void;
   onShare: (run: HistoryRun) => void;
   onStop: () => void;
   onStreamModeChange: (value: boolean) => void;
   onUnshare: (run: HistoryRun) => void;
+  providerAvailable: boolean;
+  providerUnavailableReason: string | null;
   runExplanations: Record<number, RunExplanation>;
   selected: ProjectDetail;
+  selectedApiKey: string;
+  selectedModel: string;
+  selectedProvider: LLMProviderId;
+  selectedProviderInfo: LLMProviderInfo | null;
   selectedSlug: string;
   sessionEntries: string[];
   sessionLoading: boolean;
@@ -59,9 +70,9 @@ export function PlaygroundSidebar({
   activeExplanationRunId,
   activeReplayRunId,
   activeSessionId,
-  apiKey,
   authToken,
   clearingSession,
+  canRun,
   errorMsg,
   explainingRunId,
   hasSessionContext,
@@ -71,6 +82,9 @@ export function PlaygroundSidebar({
   input,
   isActive,
   keyFocused,
+  llmCatalog,
+  llmCatalogError,
+  llmCatalogLoading,
   onApiKeyChange,
   onClearSession,
   onHistoryExplain,
@@ -79,14 +93,21 @@ export function PlaygroundSidebar({
   onInputChange,
   onKeyFocusedChange,
   onLogout,
+  onModelChange,
   onProjectChange,
   onRun,
   onShare,
   onStop,
   onStreamModeChange,
   onUnshare,
+  providerAvailable,
+  providerUnavailableReason,
   runExplanations,
   selected,
+  selectedApiKey,
+  selectedModel,
+  selectedProvider,
+  selectedProviderInfo,
   selectedSlug,
   sessionEntries,
   sessionLoading,
@@ -94,6 +115,12 @@ export function PlaygroundSidebar({
   streamMode,
 }: PlaygroundSidebarProps) {
   const recentRuns = historyRuns.slice(0, 6);
+  const keyError = Boolean(errorMsg && /api.key|api key|x-api-key|missing x-api-key/i.test(errorMsg));
+  const providerLabel = selectedProviderInfo?.label ?? selectedProvider;
+  const apiKeyRequired = selectedProviderInfo?.requires_api_key ?? (selectedProvider !== "ollama");
+  const apiKeyLabel = selectedProviderInfo?.api_key_label ?? "API key";
+  const apiKeyPlaceholder = selectedProviderInfo?.api_key_placeholder ?? "";
+  const apiKeyHelpUrl = selectedProviderInfo?.api_key_help_url ?? null;
 
   return (
     <aside className="flex flex-col gap-7 xl:sticky xl:top-24">
@@ -134,7 +161,7 @@ export function PlaygroundSidebar({
               Stop
             </button>
           ) : (
-            <button type="button" onClick={onRun} disabled={!apiKey.trim()} className="button-base button-primary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50">
+            <button type="button" onClick={onRun} disabled={!canRun} className="button-base button-primary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50">
               Send request
             </button>
           )}
@@ -142,54 +169,117 @@ export function PlaygroundSidebar({
       </section>
 
       <section className="surface-card rounded-[1.75rem] p-5">
-        <div className="flex items-center justify-between">
-          <label className="block text-xs font-semibold text-[var(--foreground)]">
-            Enter your Google API Key
-          </label>
-          <a
-            href="https://aistudio.google.com/apikey"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[11px] font-medium text-[var(--accent)] hover:underline"
-          >
-            Get API key &rarr;
-          </a>
+        <div className="flex items-start justify-between gap-3">
+          <div>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Model</p>
+            <p className="mt-1 text-base font-semibold text-[var(--foreground)]">Provider and runtime</p>
+          </div>
+          <span className="surface-pill rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
+            {providerLabel}
+          </span>
         </div>
-        <div className="relative mt-2">
-          <input
-            type={keyFocused || !apiKey ? "password" : "text"}
-            value={keyFocused ? apiKey : maskApiKey(apiKey)}
-            onChange={(event) => onApiKeyChange(event.target.value)}
-            onFocus={() => onKeyFocusedChange(true)}
-            onBlur={() => onKeyFocusedChange(false)}
-            placeholder="AIza..."
-            disabled={isActive}
-            className={`input-shell w-full rounded-[1rem] px-4 py-2.5 font-mono text-xs leading-6 disabled:cursor-not-allowed disabled:opacity-60${errorMsg && /api.key|Missing x-api-key/i.test(errorMsg) ? " ring-2 ring-red-500/60" : ""}`}
-            spellCheck={false}
-            autoComplete="off"
-          />
-          {apiKey && !keyFocused && (
-            <button
-              type="button"
-              onClick={() => onApiKeyChange("")}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
-              aria-label="Clear API key"
+
+        <div className="mt-4 space-y-4">
+          <label className="block">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+              Available models
+            </span>
+            <select
+              value={selectedModel}
+              onChange={(event) => onModelChange(event.target.value)}
+              disabled={isActive || llmCatalogLoading || !llmCatalog}
+              className="input-shell mt-3 w-full rounded-[1rem] px-4 py-3 text-sm leading-6 disabled:cursor-not-allowed disabled:opacity-60"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-3.5">
-                <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
-              </svg>
-            </button>
+              {llmCatalog
+                ? (llmCatalog.providers.map((provider) => (
+                    provider.models.length > 0 ? (
+                      <optgroup
+                        key={provider.id}
+                        label={provider.available ? provider.label : `${provider.label} (unavailable)`}
+                      >
+                        {provider.models.map((model) => (
+                          <option key={model.id} value={model.id}>
+                            {model.label}
+                          </option>
+                        ))}
+                      </optgroup>
+                    ) : null
+                  )))
+                : <option value={selectedModel}>{llmCatalogError ? "Model catalog unavailable" : "Loading models..."}</option>}
+            </select>
+          </label>
+
+          {llmCatalogError ? (
+            <p className="text-[11px] leading-5 text-red-400">{llmCatalogError}</p>
+          ) : null}
+
+          {!providerAvailable && providerUnavailableReason ? (
+            <p className="rounded-[1rem] border border-amber-400/30 bg-amber-500/10 px-4 py-3 text-[11px] leading-5 text-amber-200">
+              {providerUnavailableReason}
+            </p>
+          ) : null}
+
+          {apiKeyRequired ? (
+            <div>
+              <div className="flex items-center justify-between gap-3">
+                <label className="block text-xs font-semibold text-[var(--foreground)]">
+                  {apiKeyLabel}
+                </label>
+                {apiKeyHelpUrl ? (
+                  <a
+                    href={apiKeyHelpUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] font-medium text-[var(--accent)] hover:underline"
+                  >
+                    Get API key &rarr;
+                  </a>
+                ) : null}
+              </div>
+
+              <div className="relative mt-2">
+                <input
+                  type={keyFocused || !selectedApiKey ? "password" : "text"}
+                  value={keyFocused ? selectedApiKey : maskApiKey(selectedApiKey)}
+                  onChange={(event) => onApiKeyChange(event.target.value)}
+                  onFocus={() => onKeyFocusedChange(true)}
+                  onBlur={() => onKeyFocusedChange(false)}
+                  placeholder={apiKeyPlaceholder}
+                  disabled={isActive}
+                  className={`input-shell w-full rounded-[1rem] px-4 py-2.5 font-mono text-xs leading-6 disabled:cursor-not-allowed disabled:opacity-60${keyError ? " ring-2 ring-red-500/60" : ""}`}
+                  spellCheck={false}
+                  autoComplete="off"
+                />
+                {selectedApiKey && !keyFocused && (
+                  <button
+                    type="button"
+                    onClick={() => onApiKeyChange("")}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+                    aria-label="Clear API key"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-3.5">
+                      <path d="M5.28 4.22a.75.75 0 0 0-1.06 1.06L6.94 8l-2.72 2.72a.75.75 0 1 0 1.06 1.06L8 9.06l2.72 2.72a.75.75 0 1 0 1.06-1.06L9.06 8l2.72-2.72a.75.75 0 0 0-1.06-1.06L8 6.94 5.28 4.22Z" />
+                    </svg>
+                  </button>
+                )}
+              </div>
+
+              {keyError ? (
+                <p className="mt-1.5 text-[11px] font-medium leading-5 text-red-400">
+                  Invalid or expired API key
+                </p>
+              ) : (
+                <p className="mt-1.5 text-[11px] leading-5 text-[var(--muted)]">
+                  Your key is kept only in memory for this browser session.
+                </p>
+              )}
+            </div>
+          ) : (
+            <div className="rounded-[1rem] border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-3 text-[11px] leading-5 text-[var(--muted)]">
+              Ollama runs do not need an API key. The backend will use the models visible from its configured Ollama host.
+            </div>
           )}
         </div>
-        {errorMsg && /api.key|Missing x-api-key/i.test(errorMsg) ? (
-          <p className="mt-1.5 text-[11px] font-medium leading-5 text-red-400">
-            Invalid or expired API key
-          </p>
-        ) : (
-          <p className="mt-1.5 text-[11px] leading-5 text-[var(--muted)]">
-            Your key is never stored.
-          </p>
-        )}
       </section>
 
       <section className="surface-card rounded-[1.75rem] p-5">

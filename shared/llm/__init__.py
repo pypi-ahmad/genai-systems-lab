@@ -1,12 +1,7 @@
 """Shared LLM integrations."""
 
-from .gemini import (
-    generate_structured,
-    generate_text,
-    generate_text_from_image,
-    GeminiGenerationError,
-    GeminiTimeoutError,
-)
+from .dispatch import generate_structured, generate_text, generate_text_from_image
+from .exceptions import GeminiGenerationError, GeminiTimeoutError, LLMGenerationError, LLMTimeoutError
 
 __all__ = [
     "generate_text",
@@ -14,4 +9,6 @@ __all__ = [
     "generate_text_from_image",
     "GeminiGenerationError",
     "GeminiTimeoutError",
+    "LLMGenerationError",
+    "LLMTimeoutError",
 ]

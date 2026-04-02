@@ -1,4 +1,5 @@
 import { AUTH_SESSION_MARKER } from "@/lib/auth";
+import type { LLMProviderId } from "@/lib/apikey";
 
 const DEFAULT_API_BASE = "http://localhost:8000";
 const LOCAL_FALLBACK_API_BASE = "http://127.0.0.1:8001";
@@ -83,7 +84,13 @@ export function getApiUrl(path: string): string {
   return buildApiUrl(activeApiBase, path);
 }
 
-function authHeaders(token?: string, apiKey?: string): HeadersInit {
+export interface LLMRequestOptions {
+  provider?: LLMProviderId;
+  model?: string;
+  apiKey?: string;
+}
+
+function authHeaders(token?: string, llm?: LLMRequestOptions): HeadersInit {
   const headers: Record<string, string> = {
     "Content-Type": "application/json",
   };
@@ -92,8 +99,16 @@ function authHeaders(token?: string, apiKey?: string): HeadersInit {
     headers["Authorization"] = `Bearer ${token}`;
   }
 
-  if (apiKey) {
-    headers["X-API-Key"] = apiKey;
+  if (llm?.apiKey) {
+    headers["X-API-Key"] = llm.apiKey;
+  }
+
+  if (llm?.provider) {
+    headers["X-LLM-Provider"] = llm.provider;
+  }
+
+  if (llm?.model) {
+    headers["X-LLM-Model"] = llm.model;
   }
 
   return headers;
@@ -160,6 +175,29 @@ export interface AuthUser {
 
 export interface AuthConfigResponse {
   public_signup: boolean;
+}
+
+export interface LLMModelOption {
+  id: string;
+  label: string;
+  provider: LLMProviderId;
+}
+
+export interface LLMProviderInfo {
+  id: LLMProviderId;
+  label: string;
+  requires_api_key: boolean;
+  api_key_label: string;
+  api_key_help_url: string | null;
+  api_key_placeholder: string;
+  available: boolean;
+  unavailable_reason: string | null;
+  models: LLMModelOption[];
+}
+
+export interface LLMCatalogResponse {
+  default_model: string;
+  providers: LLMProviderInfo[];
 }
 
 export interface AuthResponse {
@@ -248,11 +286,11 @@ export async function runProject(
   projectName: string,
   input: Record<string, unknown>,
   token?: string,
-  apiKey?: string,
+  llm?: LLMRequestOptions,
 ): Promise<RunResult | RunError> {
   const res = await apiFetch(`/${projectName}/run`, {
     method: "POST",
-    headers: authHeaders(token, apiKey),
+    headers: authHeaders(token, llm),
     body: JSON.stringify(input),
   });
 
@@ -371,6 +409,19 @@ export async function fetchAuthConfig(): Promise<AuthConfigResponse> {
   return res.json();
 }
 
+export async function fetchLLMCatalog(): Promise<LLMCatalogResponse> {
+  const res = await apiFetch("/llm/catalog", {
+    cache: "no-store",
+  });
+
+  if (!res.ok) {
+    const text = await res.text().catch(() => "");
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+  }
+
+  return res.json();
+}
+
 export async function fetchHistory(token: string): Promise<HistoryResponse> {
   const res = await apiFetch("/history", {
     headers: authHeaders(token),
@@ -414,10 +465,10 @@ export async function clearRunSession(sessionId: number, token: string): Promise
   return res.json();
 }
 
-export async function explainRun(runId: number, token: string, apiKey?: string): Promise<RunExplanation> {
+export async function explainRun(runId: number, token: string, llm?: LLMRequestOptions): Promise<RunExplanation> {
   const res = await apiFetch(`/explain/${runId}`, {
     method: "POST",
-    headers: authHeaders(token, apiKey),
+    headers: authHeaders(token, llm),
     body: "{}",
   });
 
@@ -608,7 +659,7 @@ export function streamProject(
   input: string,
   callbacks: StreamCallbacks,
   token?: string,
-  apiKey?: string,
+  llm?: LLMRequestOptions,
   sessionId?: number | null,
 ): () => void {
   const params = new URLSearchParams({ input });
@@ -628,8 +679,14 @@ export function streamProject(
       if (token && token !== AUTH_SESSION_MARKER) {
         headers.Authorization = `Bearer ${token}`;
       }
-      if (apiKey) {
-        headers["X-API-Key"] = apiKey;
+      if (llm?.apiKey) {
+        headers["X-API-Key"] = llm.apiKey;
+      }
+      if (llm?.provider) {
+        headers["X-LLM-Provider"] = llm.provider;
+      }
+      if (llm?.model) {
+        headers["X-LLM-Model"] = llm.model;
       }
 
       const res = await apiFetch(path, {
