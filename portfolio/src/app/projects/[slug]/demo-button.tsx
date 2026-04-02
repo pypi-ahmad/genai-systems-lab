@@ -1,9 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { fetchCurrentUser, runProject } from "@/lib/api";
-import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
+import { fetchCurrentUser, fetchLLMCatalog, runProject } from "@/lib/api";
+import type { LLMCatalogResponse, LLMRequestOptions } from "@/lib/api";
+import { getStoredApiKeys, getStoredLLMSelection, setStoredApiKey, setStoredLLMSelection } from "@/lib/apikey";
+import type { LLMProviderId } from "@/lib/apikey";
 import { getStoredAuthSession, storeAuthSession } from "@/lib/auth";
+import { findProviderForModel, findProviderInfo } from "@/lib/llm-catalog";
 
 export default function DemoButton({
   projectName,
@@ -17,7 +20,11 @@ export default function DemoButton({
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthSession());
-  const [apiKey, setApiKey] = useState(() => getStoredApiKey());
+  const [llmCatalog, setLlMCatalog] = useState<LLMCatalogResponse | null>(null);
+  const [llmCatalogError, setLlMCatalogError] = useState<string | null>(null);
+  const [apiKeys, setApiKeys] = useState(() => getStoredApiKeys());
+  const [selectedModel, setSelectedModel] = useState(() => getStoredLLMSelection()?.model ?? "gemini-3-flash-preview");
+  const [selectedProvider, setSelectedProvider] = useState<LLMProviderId>(() => getStoredLLMSelection()?.provider ?? "gemini");
 
   useEffect(() => {
     if (authToken) {
@@ -40,14 +47,79 @@ export default function DemoButton({
     };
   }, [authToken]);
 
+  useEffect(() => {
+    let cancelled = false;
+
+    void fetchLLMCatalog()
+      .then((catalog) => {
+        if (cancelled) {
+          return;
+        }
+
+        const knownModels = new Set(
+          catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),
+        );
+        const storedSelection = getStoredLLMSelection();
+        const preferredModel = storedSelection?.model ?? "gemini-3-flash-preview";
+        const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;
+        const nextProvider = findProviderForModel(catalog, nextModel);
+
+        setLlMCatalog(catalog);
+        setLlMCatalogError(null);
+        setSelectedModel(nextModel);
+        setSelectedProvider(nextProvider);
+        setStoredLLMSelection({ provider: nextProvider, model: nextModel });
+      })
+      .catch((reason) => {
+        if (!cancelled) {
+          setLlMCatalogError(reason instanceof Error ? reason.message : "Unable to load the model catalog.");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const selectedProviderInfo = findProviderInfo(llmCatalog, selectedProvider);
+  const selectedApiKey = apiKeys[selectedProvider] ?? "";
+  const apiKeyRequired = selectedProviderInfo?.requires_api_key ?? (selectedProvider !== "ollama");
+  const providerAvailable = selectedProviderInfo?.available ?? true;
+  const providerUnavailableReason = selectedProviderInfo?.unavailable_reason ?? null;
+  const apiKeyLabel = selectedProviderInfo?.api_key_label ?? "API key";
+  const apiKeyPlaceholder = selectedProviderInfo?.api_key_placeholder ?? "";
+  const llm: LLMRequestOptions = {
+    provider: selectedProvider,
+    model: selectedModel,
+    apiKey: apiKeyRequired ? selectedApiKey.trim() || undefined : undefined,
+  };
+
+  function handleModelChange(model: string) {
+    const provider = findProviderForModel(llmCatalog, model);
+    setSelectedModel(model);
+    setSelectedProvider(provider);
+    setStoredLLMSelection({ provider, model });
+  }
+
+  function handleApiKeyChange(value: string) {
+    setApiKeys((previous) => ({ ...previous, [selectedProvider]: value }));
+    setStoredApiKey(selectedProvider, value.trim());
+  }
+
   async function handleRun() {
     setLoading(true);
     setError(null);
     setOutput(null);
 
-    const normalizedApiKey = apiKey.trim();
-    if (!normalizedApiKey) {
-      setError("Enter a Google API key before running this demo.");
+    if (!providerAvailable) {
+      setError(providerUnavailableReason ?? "This provider is not currently available.");
+      setLoading(false);
+      return;
+    }
+
+    const normalizedApiKey = selectedApiKey.trim();
+    if (apiKeyRequired && !normalizedApiKey) {
+      setError(`Enter your ${apiKeyLabel.toLowerCase()} before running this demo.`);
       setLoading(false);
       return;
     }
@@ -62,7 +134,7 @@ export default function DemoButton({
     }
 
     try {
-      const result = await runProject(projectName, body, authToken ?? undefined, normalizedApiKey);
+      const result = await runProject(projectName, body, authToken ?? undefined, llm);
       if (result.ok) {
         setOutput(JSON.stringify(result.data, null, 2));
       } else {
@@ -96,31 +168,67 @@ export default function DemoButton({
 
       <div className="space-y-1.5">
         <label
+          htmlFor="demo-model"
+          className="block text-sm font-medium text-[var(--muted)]"
+        >
+          Model
+        </label>
+        <select
+          id="demo-model"
+          value={selectedModel}
+          onChange={(event) => handleModelChange(event.target.value)}
+          className="input-shell w-full rounded-lg p-3 text-sm leading-relaxed"
+        >
+          {llmCatalog
+            ? (llmCatalog.providers.map((provider) => (
+                provider.models.length > 0 ? (
+                  <optgroup key={provider.id} label={provider.available ? provider.label : `${provider.label} (unavailable)`}>
+                    {provider.models.map((model) => (
+                      <option key={model.id} value={model.id}>{model.label}</option>
+                    ))}
+                  </optgroup>
+                ) : null
+              )))
+            : <option value={selectedModel}>{llmCatalogError ? "Model catalog unavailable" : "Loading models..."}</option>}
+        </select>
+      </div>
+
+      <div className="space-y-1.5">
+        <label
           htmlFor="demo-api-key"
           className="block text-sm font-medium text-[var(--muted)]"
         >
-          Google API key
+          {apiKeyLabel}
         </label>
-        <input
-          id="demo-api-key"
-          type="password"
-          value={apiKey}
-          onChange={(event) => {
-            const nextApiKey = event.target.value;
-            setApiKey(nextApiKey);
-            setStoredApiKey(nextApiKey.trim());
-          }}
-          autoComplete="off"
-          spellCheck={false}
-          placeholder="AIza..."
-          className="input-shell w-full rounded-lg p-3 font-mono text-sm leading-relaxed"
-        />
+        {apiKeyRequired ? (
+          <input
+            id="demo-api-key"
+            type="password"
+            value={selectedApiKey}
+            onChange={(event) => handleApiKeyChange(event.target.value)}
+            autoComplete="off"
+            spellCheck={false}
+            placeholder={apiKeyPlaceholder}
+            className="input-shell w-full rounded-lg p-3 font-mono text-sm leading-relaxed"
+          />
+        ) : (
+          <div className="surface-panel rounded-lg p-3 text-sm leading-relaxed text-[var(--muted)]">
+            No API key required for Ollama.
+          </div>
+        )}
       </div>
+
+      {(providerUnavailableReason || llmCatalogError) && (
+        <div className="space-y-1 text-xs leading-6 text-[var(--muted)]">
+          {providerUnavailableReason ? <p className="text-amber-300">{providerUnavailableReason}</p> : null}
+          {llmCatalogError ? <p className="text-red-400">{llmCatalogError}</p> : null}
+        </div>
+      )}
 
       <div className="flex items-center gap-3">
         <button
           onClick={handleRun}
-          disabled={loading}
+          disabled={loading || !providerAvailable || (apiKeyRequired && !selectedApiKey.trim())}
           className="button-base button-primary disabled:opacity-50"
         >
           {loading && (

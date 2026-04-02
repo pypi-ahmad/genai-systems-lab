@@ -2,9 +2,12 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { fetchCurrentUser, getApiUrl, runProject } from "@/lib/api";
-import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
+import { fetchCurrentUser, fetchLLMCatalog, getApiUrl, runProject } from "@/lib/api";
+import type { LLMCatalogResponse, LLMRequestOptions } from "@/lib/api";
+import { getStoredApiKeys, getStoredLLMSelection, setStoredApiKey, setStoredLLMSelection } from "@/lib/apikey";
+import type { LLMProviderId } from "@/lib/apikey";
 import { getStoredAuthSession, storeAuthSession } from "@/lib/auth";
+import { findProviderForModel, findProviderInfo } from "@/lib/llm-catalog";
 
 interface ProjectDemoProps {
   apiEndpoint: string;
@@ -37,7 +40,11 @@ export default function ProjectDemo({
   const [result, setResult] = useState<string>("");
   const [input, setInput] = useState(exampleInput);
   const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthSession());
-  const [apiKey, setApiKey] = useState(() => getStoredApiKey());
+  const [llmCatalog, setLlMCatalog] = useState<LLMCatalogResponse | null>(null);
+  const [llmCatalogError, setLlMCatalogError] = useState<string | null>(null);
+  const [apiKeys, setApiKeys] = useState(() => getStoredApiKeys());
+  const [selectedModel, setSelectedModel] = useState(() => getStoredLLMSelection()?.model ?? "gemini-3-flash-preview");
+  const [selectedProvider, setSelectedProvider] = useState<LLMProviderId>(() => getStoredLLMSelection()?.provider ?? "gemini");
   const projectName = projectApiName(apiEndpoint);
 
   useEffect(() => {
@@ -61,14 +68,80 @@ export default function ProjectDemo({
     };
   }, [authToken]);
 
+  useEffect(() => {
+    let cancelled = false;
+
+    void fetchLLMCatalog()
+      .then((catalog) => {
+        if (cancelled) {
+          return;
+        }
+
+        const knownModels = new Set(
+          catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),
+        );
+        const storedSelection = getStoredLLMSelection();
+        const preferredModel = storedSelection?.model ?? "gemini-3-flash-preview";
+        const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;
+        const nextProvider = findProviderForModel(catalog, nextModel);
+
+        setLlMCatalog(catalog);
+        setLlMCatalogError(null);
+        setSelectedModel(nextModel);
+        setSelectedProvider(nextProvider);
+        setStoredLLMSelection({ provider: nextProvider, model: nextModel });
+      })
+      .catch((error) => {
+        if (!cancelled) {
+          setLlMCatalogError(error instanceof Error ? error.message : "Unable to load the model catalog.");
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const selectedProviderInfo = findProviderInfo(llmCatalog, selectedProvider);
+  const selectedApiKey = apiKeys[selectedProvider] ?? "";
+  const apiKeyRequired = selectedProviderInfo?.requires_api_key ?? (selectedProvider !== "ollama");
+  const providerAvailable = selectedProviderInfo?.available ?? true;
+  const providerUnavailableReason = selectedProviderInfo?.unavailable_reason ?? null;
+  const apiKeyLabel = selectedProviderInfo?.api_key_label ?? "API key";
+  const apiKeyHelpUrl = selectedProviderInfo?.api_key_help_url ?? null;
+  const apiKeyPlaceholder = selectedProviderInfo?.api_key_placeholder ?? "";
+  const llm: LLMRequestOptions = {
+    provider: selectedProvider,
+    model: selectedModel,
+    apiKey: apiKeyRequired ? selectedApiKey.trim() || undefined : undefined,
+  };
+
+  function handleModelChange(model: string) {
+    const provider = findProviderForModel(llmCatalog, model);
+    setSelectedModel(model);
+    setSelectedProvider(provider);
+    setStoredLLMSelection({ provider, model });
+  }
+
+  function handleApiKeyChange(value: string) {
+    setApiKeys((previous) => ({ ...previous, [selectedProvider]: value }));
+    setStoredApiKey(selectedProvider, value.trim());
+  }
+
   async function handleRun() {
     setStatus("running");
     setResult("");
 
-    const normalizedApiKey = apiKey.trim();
-    if (!normalizedApiKey) {
+    if (!providerAvailable) {
       setStatus("error");
-      setResult("Enter a Google API key before running this demo.");
+      setResult(providerUnavailableReason ?? "This provider is not currently available.");
+      return;
+    }
+
+    const normalizedApiKey = selectedApiKey.trim();
+    if (apiKeyRequired && !normalizedApiKey) {
+      setStatus("error");
+      setResult(`Enter your ${apiKeyLabel.toLowerCase()} before running this demo.`);
       return;
     }
 
@@ -82,7 +155,7 @@ export default function ProjectDemo({
     }
 
     try {
-      const response = await runProject(projectName, body, authToken ?? undefined, normalizedApiKey);
+      const response = await runProject(projectName, body, authToken ?? undefined, llm);
 
       if (!response.ok) {
         setStatus("error");
@@ -112,24 +185,48 @@ export default function ProjectDemo({
         POST {getApiUrl(`/${projectName}/run`)}
       </div>
 
-      <div className="mt-5 grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
+      <div className="mt-5 grid gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-end">
         <label className="block">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-            Google API Key
+            Model
           </span>
-          <input
-            type="password"
-            value={apiKey}
-            onChange={(event) => {
-              const nextApiKey = event.target.value;
-              setApiKey(nextApiKey);
-              setStoredApiKey(nextApiKey.trim());
-            }}
-            autoComplete="off"
-            spellCheck={false}
-            placeholder="AIza..."
-            className="input-shell mt-3 w-full rounded-[1rem] px-4 py-3 font-mono text-xs leading-6"
-          />
+          <select
+            value={selectedModel}
+            onChange={(event) => handleModelChange(event.target.value)}
+            className="input-shell mt-3 w-full rounded-[1rem] px-4 py-3 text-sm leading-6"
+          >
+            {llmCatalog
+              ? (llmCatalog.providers.map((provider) => (
+                  provider.models.length > 0 ? (
+                    <optgroup key={provider.id} label={provider.available ? provider.label : `${provider.label} (unavailable)`}>
+                      {provider.models.map((model) => (
+                        <option key={model.id} value={model.id}>{model.label}</option>
+                      ))}
+                    </optgroup>
+                  ) : null
+                )))
+              : <option value={selectedModel}>{llmCatalogError ? "Model catalog unavailable" : "Loading models..."}</option>}
+          </select>
+        </label>
+        <label className="block">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+            {apiKeyLabel}
+          </span>
+          {apiKeyRequired ? (
+            <input
+              type="password"
+              value={selectedApiKey}
+              onChange={(event) => handleApiKeyChange(event.target.value)}
+              autoComplete="off"
+              spellCheck={false}
+              placeholder={apiKeyPlaceholder}
+              className="input-shell mt-3 w-full rounded-[1rem] px-4 py-3 font-mono text-xs leading-6"
+            />
+          ) : (
+            <div className="surface-panel mt-3 rounded-[1rem] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
+              No API key required for Ollama.
+            </div>
+          )}
         </label>
         <div className="surface-panel rounded-[1rem] px-4 py-3 text-sm leading-6 text-[var(--muted)]">
           {authToken ? (
@@ -144,6 +241,25 @@ export default function ProjectDemo({
           )}
         </div>
       </div>
+
+      {(apiKeyHelpUrl || providerUnavailableReason || llmCatalogError) && (
+        <div className="mt-3 space-y-2 text-[11px] leading-5 text-[var(--muted)]">
+          {apiKeyHelpUrl && apiKeyRequired ? (
+            <p>
+              <a
+                href={apiKeyHelpUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-medium text-[var(--accent)] hover:underline"
+              >
+                Get a {apiKeyLabel.toLowerCase()} &rarr;
+              </a>
+            </p>
+          ) : null}
+          {providerUnavailableReason ? <p className="text-amber-300">{providerUnavailableReason}</p> : null}
+          {llmCatalogError ? <p className="text-red-400">{llmCatalogError}</p> : null}
+        </div>
+      )}
 
       <div className="mt-5">
         <label
@@ -165,7 +281,7 @@ export default function ProjectDemo({
       <button
         type="button"
         onClick={handleRun}
-        disabled={status === "running"}
+        disabled={status === "running" || !providerAvailable || (apiKeyRequired && !selectedApiKey.trim())}
         className="button-base button-primary button-pill mt-5 disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === "running" ? "Running..." : (ctaLabel ?? "Run Demo")}

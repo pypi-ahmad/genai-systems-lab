@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { projectDetails } from "@/data/projects";
 import type { ProjectDetail } from "@/data/projects";
 import { runProject, streamProject } from "@/lib/api";
-import type { HistoryRun, RunMemoryEntry, StepEvent } from "@/lib/api";
+import type { HistoryRun, LLMRequestOptions, RunMemoryEntry, StepEvent } from "@/lib/api";
 import type { NodeStatusMap } from "@/components/animated-graph";
 import type { MemoryEntry } from "@/components/memory-panel";
 import {
@@ -196,7 +196,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
   const executeRun = useCallback(
     (
       streamMode: boolean,
-      apiKey: string,
+      llm: LLMRequestOptions,
       overrides?: ExecuteRunOverrides,
     ) => {
       disconnect();
@@ -248,6 +248,9 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
       const inputStr = typeof body.input === "string" ? body.input : JSON.stringify(body);
       appendLog(`Request prepared for ${targetProject.name}`);
       appendLog(`Endpoint ${streamMode ? `/stream/${projectApiName(targetProject.apiEndpoint)}` : targetProject.apiEndpoint}`);
+      if (llm.model) {
+        appendLog(`Model ${llm.model}${llm.provider ? ` (${llm.provider})` : ""}`);
+      }
       appendMemoryEntry({
         stepName: "Request",
         type: "action",
@@ -372,7 +375,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
             },
           },
           authToken ?? undefined,
-          apiKey || undefined,
+          llm,
           authToken ? activeSessionId : null,
         );
         abortRef.current = abort;
@@ -389,7 +392,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
 
         void (async () => {
           try {
-            const result = await runProject(projectApiName(targetProject.apiEndpoint), body, authToken ?? undefined, apiKey || undefined);
+            const result = await runProject(projectApiName(targetProject.apiEndpoint), body, authToken ?? undefined, llm);
 
             if (result.ok) {
               const data = result.data;

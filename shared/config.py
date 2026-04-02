@@ -10,11 +10,11 @@ from typing import Literal
 from dotenv import load_dotenv
 from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator
 
-# ── BYOK (Bring Your Own Key) ContextVar ──────────────────────
-# Set per-request from the X-API-Key header so individual project modules
-# pick up the visitor-supplied key instead of the server-side env var.
+# ── Request-scoped runtime context ────────────────────────────
 
 _BYOK_API_KEY: ContextVar[str | None] = ContextVar("byok_api_key", default=None)
+_REQUEST_MODEL: ContextVar[str | None] = ContextVar("request_model", default=None)
+_REQUEST_PROVIDER: ContextVar[str | None] = ContextVar("request_provider", default=None)
 
 
 def set_byok_api_key(key: str | None) -> Token[str | None]:
@@ -27,7 +27,37 @@ def reset_byok_api_key(token: Token[str | None]) -> None:
     _BYOK_API_KEY.reset(token)
 
 
-def get_effective_api_key() -> str:
+def set_request_model(model: str | None) -> Token[str | None]:
+    """Bind a request-scoped model override for the current execution context."""
+    return _REQUEST_MODEL.set((model or "").strip() or None)
+
+
+def reset_request_model(token: Token[str | None]) -> None:
+    """Restore the previous request-model binding."""
+    _REQUEST_MODEL.reset(token)
+
+
+def get_request_model() -> str | None:
+    """Return the request-scoped model override, if present."""
+    return _REQUEST_MODEL.get()
+
+
+def set_request_provider(provider: str | None) -> Token[str | None]:
+    """Bind a request-scoped provider override for the current execution context."""
+    return _REQUEST_PROVIDER.set((provider or "").strip().lower() or None)
+
+
+def reset_request_provider(token: Token[str | None]) -> None:
+    """Restore the previous request-provider binding."""
+    _REQUEST_PROVIDER.reset(token)
+
+
+def get_request_provider() -> str | None:
+    """Return the request-scoped provider override, if present."""
+    return _REQUEST_PROVIDER.get()
+
+
+def get_effective_api_key(*, required: bool = True) -> str:
     """Return the per-request BYOK key from the ``x-api-key`` header.
 
     Raises ``RuntimeError`` when no key was provided for this request.
@@ -35,10 +65,20 @@ def get_effective_api_key() -> str:
     byok = _BYOK_API_KEY.get()
     if byok:
         return byok
+    if not required:
+        return ""
     raise RuntimeError(
-        "No Google API key available. "
+        "No API key available. "
         "Provide one via the x-api-key request header."
     )
+
+
+def get_effective_model(fallback_model: str) -> str:
+    """Return the request-scoped model override, or the provided fallback."""
+    request_model = _REQUEST_MODEL.get()
+    if request_model:
+        return request_model
+    return fallback_model.strip()
 
 
 ROOT_ENV_FILE = Path(__file__).resolve().parents[1] / ".env"
@@ -150,6 +190,10 @@ def get_environment() -> str:
 
 
 def get_model(project_name: str, *, environment: str | None = None) -> str:
+    request_model = get_request_model()
+    if request_model:
+        return request_model
+
     settings = get_settings()
     target_environment = (environment or settings.environment).strip().lower()
     normalized_project = _normalize_project_name(project_name)

@@ -118,6 +118,35 @@ class AuthConfigResponse(BaseModel):
     public_signup: bool = False
 
 
+class LLMModelOptionResponse(BaseModel):
+    """One selectable LLM model in the frontend catalog."""
+
+    id: str
+    label: str
+    provider: Literal["gemini", "openai", "anthropic", "ollama"]
+
+
+class LLMProviderResponse(BaseModel):
+    """Provider-specific configuration surfaced to the frontend."""
+
+    id: Literal["gemini", "openai", "anthropic", "ollama"]
+    label: str
+    requires_api_key: bool
+    api_key_label: str
+    api_key_help_url: str | None = None
+    api_key_placeholder: str = ""
+    available: bool = True
+    unavailable_reason: str | None = None
+    models: list[LLMModelOptionResponse] = Field(default_factory=list)
+
+
+class LLMCatalogResponse(BaseModel):
+    """Interactive model catalog returned to the frontend."""
+
+    default_model: str
+    providers: list[LLMProviderResponse] = Field(default_factory=list)
+
+
 class AuthResponse(BaseModel):
     """Authentication response payload."""
 

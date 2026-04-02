@@ -2,9 +2,12 @@
 
 import { useState, useEffect } from "react";
 import { projectDetails } from "@/data/projects";
-import { logout as logoutSession } from "@/lib/api";
+import { fetchLLMCatalog, logout as logoutSession } from "@/lib/api";
+import type { LLMCatalogResponse, LLMRequestOptions } from "@/lib/api";
 import { RunExplanationPanel } from "@/components/RunExplanation";
-import { getStoredApiKey, setStoredApiKey } from "@/lib/apikey";
+import { getStoredApiKeys, getStoredLLMSelection, setStoredApiKey, setStoredLLMSelection } from "@/lib/apikey";
+import type { LLMProviderId } from "@/lib/apikey";
+import { findProviderForModel, findProviderInfo } from "@/lib/llm-catalog";
 import { clearAuthSession } from "@/lib/auth";
 import { PlaygroundSidebar } from "./playground-sidebar";
 import { PlaygroundConversationPanel } from "./playground-conversation-panel";
@@ -87,16 +90,85 @@ export default function PlaygroundClient() {
   } = run;
 
   const [streamMode, setStreamMode] = useState(true);
-  const [apiKey, setApiKey] = useState(() => getStoredApiKey());
+  const [llmCatalog, setLlMCatalog] = useState<LLMCatalogResponse | null>(null);
+  const [llmCatalogError, setLlMCatalogError] = useState<string | null>(null);
+  const [llmCatalogLoading, setLlMCatalogLoading] = useState(true);
+  const [apiKeys, setApiKeys] = useState(() => getStoredApiKeys());
+  const [selectedModel, setSelectedModel] = useState(() => getStoredLLMSelection()?.model ?? "gemini-3-flash-preview");
+  const [selectedProvider, setSelectedProvider] = useState<LLMProviderId>(() => getStoredLLMSelection()?.provider ?? "gemini");
   const [keyFocused, setKeyFocused] = useState(false);
 
   useEffect(() => {
-    setStoredApiKey(apiKey.trim());
-  }, [apiKey]);
+    let cancelled = false;
+
+    void fetchLLMCatalog()
+      .then((catalog) => {
+        if (cancelled) {
+          return;
+        }
+
+        const knownModels = new Set(
+          catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),
+        );
+        const storedSelection = getStoredLLMSelection();
+        const preferredModel = storedSelection?.model ?? "gemini-3-flash-preview";
+        const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;
+        const nextProvider = findProviderForModel(catalog, nextModel);
+
+        setLlMCatalog(catalog);
+        setLlMCatalogError(null);
+        setSelectedModel(nextModel);
+        setSelectedProvider(nextProvider);
+        setStoredLLMSelection({ provider: nextProvider, model: nextModel });
+      })
+      .catch((error) => {
+        if (cancelled) {
+          return;
+        }
+        setLlMCatalogError(error instanceof Error ? error.message : "Unable to load the model catalog.");
+      })
+      .finally(() => {
+        if (!cancelled) {
+          setLlMCatalogLoading(false);
+        }
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const selectedProviderInfo = findProviderInfo(llmCatalog, selectedProvider);
+  const selectedApiKey = apiKeys[selectedProvider] ?? "";
+  const selectedProviderRequiresApiKey = selectedProviderInfo?.requires_api_key ?? (selectedProvider !== "ollama");
+  const selectedProviderAvailable = selectedProviderInfo?.available ?? true;
+  const selectedProviderReason = selectedProviderInfo?.unavailable_reason ?? null;
+  const currentLLM: LLMRequestOptions = {
+    provider: selectedProvider,
+    model: selectedModel,
+    apiKey: selectedProviderRequiresApiKey ? selectedApiKey.trim() || undefined : undefined,
+  };
+  const canRun = selectedProviderAvailable && (!selectedProviderRequiresApiKey || Boolean(selectedApiKey.trim()));
+
+  function handleModelChange(nextModel: string) {
+    const nextProvider = findProviderForModel(llmCatalog, nextModel);
+    setSelectedModel(nextModel);
+    setSelectedProvider(nextProvider);
+    setStoredLLMSelection({ provider: nextProvider, model: nextModel });
+    setKeyFocused(false);
+  }
+
+  function handleApiKeyChange(value: string) {
+    setApiKeys((previous) => {
+      const next = { ...previous, [selectedProvider]: value };
+      return next;
+    });
+    setStoredApiKey(selectedProvider, value.trim());
+  }
 
   const history = usePlaygroundHistory({
     authToken,
-    apiKey,
+    llm: currentLLM,
     appendLog,
     disconnect,
     executeRun,
@@ -138,7 +210,7 @@ export default function PlaygroundClient() {
   function handleRun() {
     clearReplay();
     clearExplanation();
-    void executeRun(streamMode, apiKey);
+    void executeRun(streamMode, currentLLM);
   }
 
   async function handleClearSession() {
@@ -225,9 +297,9 @@ export default function PlaygroundClient() {
           activeExplanationRunId={activeExplanationRun?.id ?? null}
           activeReplayRunId={activeReplayRun?.id ?? null}
           activeSessionId={activeSessionId}
-          apiKey={apiKey}
           authToken={authToken}
           clearingSession={clearingSession}
+          canRun={canRun}
           errorMsg={errorMsg}
           explainingRunId={explainingRunId}
           hasSessionContext={hasSessionContext}
@@ -237,7 +309,10 @@ export default function PlaygroundClient() {
           input={input}
           isActive={isActive}
           keyFocused={keyFocused}
-          onApiKeyChange={setApiKey}
+          llmCatalog={llmCatalog}
+          llmCatalogError={llmCatalogError}
+          llmCatalogLoading={llmCatalogLoading}
+          onApiKeyChange={handleApiKeyChange}
           onClearSession={() => void handleClearSession()}
           onHistoryExplain={(run) => void handleHistoryExplain(run)}
           onHistoryReplay={handleHistoryReplay}
@@ -245,12 +320,19 @@ export default function PlaygroundClient() {
           onInputChange={setInput}
           onKeyFocusedChange={setKeyFocused}
           onLogout={handleLogout}
+          onModelChange={handleModelChange}
           onProjectChange={handleProjectChange}
           onRun={handleRun}
           onShare={(run) => void handleShare(run)}
           onStop={handleStop}
           onStreamModeChange={setStreamMode}
           onUnshare={(run) => void handleUnshare(run)}
+          providerAvailable={selectedProviderAvailable}
+          providerUnavailableReason={selectedProviderReason}
+          selectedApiKey={selectedApiKey}
+          selectedModel={selectedModel}
+          selectedProvider={selectedProvider}
+          selectedProviderInfo={selectedProviderInfo}
           runExplanations={runExplanations}
           selected={selected}
           selectedSlug={selectedSlug}

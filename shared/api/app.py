@@ -38,12 +38,13 @@ from .session_memory import (
     serialize_session_memory_entries,
     update_session_memory_entries,
 )
-from shared.config import get_effective_api_key, set_byok_api_key, reset_byok_api_key
+from shared.config import get_effective_api_key, get_request_model, get_request_provider, reset_byok_api_key, reset_request_model, reset_request_provider, set_byok_api_key, set_request_model, set_request_provider
 from shared.llm import GeminiGenerationError, GeminiTimeoutError
+from shared.llm.catalog import build_provider_catalog, get_model_spec, infer_provider, provider_requires_api_key
 from shared.logging import get_logger, new_request_id, reset_log_context, set_log_context, setup_otel, shutdown_otel
 from shared.logging.otel import span as otel_span
 from shared.project_catalog import build_pipeline_nodes_index, list_project_manifest_entries
-from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
+from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, LLMCatalogResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
 
 logger = get_logger(__name__)
 
@@ -57,7 +58,7 @@ _DEFAULT_ALLOWED_ORIGINS = (
     "http://127.0.0.1:3001",
 )
 _CORS_ALLOWED_METHODS = ["DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"]
-_CORS_ALLOWED_HEADERS = ["Authorization", "Content-Type", "X-API-Key", "X-Requested-With"]
+_CORS_ALLOWED_HEADERS = ["Authorization", "Content-Type", "X-API-Key", "X-LLM-Model", "X-LLM-Provider", "X-Requested-With"]
 
 
 # -- In-memory metrics store ---------------------------------------------------
@@ -828,8 +829,16 @@ def _validate_api_key_format(key: str) -> str | None:
     return None
 
 
+def _current_request_provider() -> str:
+    provider = get_request_provider()
+    if provider:
+        return provider
+    return infer_provider(get_request_model())
+
+
 _BYOK_EXEMPT_PREFIXES = (
     "/health",
+    "/llm/",
     "/projects",
     "/auth/",
     "/metrics",
@@ -870,15 +879,35 @@ class BYOKMiddleware:
 
         # 1. Prefer x-api-key header
         api_key: str | None = None
+        requested_model: str | None = None
+        requested_provider: str | None = None
         for header_name, header_value in scope.get("headers", []):
             if header_name == b"x-api-key":
                 api_key = header_value.decode("latin-1").strip()
-                break
+            elif header_name == b"x-llm-model":
+                requested_model = header_value.decode("latin-1").strip()
+            elif header_name == b"x-llm-provider":
+                requested_provider = header_value.decode("latin-1").strip().lower()
+
+        requested_spec = get_model_spec(requested_model)
+        resolved_provider = requested_provider or requested_spec["provider"]
+        if requested_provider and requested_spec["provider"] != "ollama" and requested_provider != requested_spec["provider"]:
+            body = json.dumps({"detail": "Selected provider does not match the selected model."}).encode()
+            await send({
+                "type": "http.response.start",
+                "status": 400,
+                "headers": [
+                    [b"content-type", b"application/json"],
+                    [b"content-length", str(len(body)).encode()],
+                ],
+            })
+            await send({"type": "http.response.body", "body": body})
+            return
 
         # Exempt paths that never call the LLM
         is_exempt = any(path.startswith(prefix) for prefix in _BYOK_EXEMPT_PREFIXES)
 
-        if not api_key and not is_exempt:
+        if not api_key and not is_exempt and provider_requires_api_key(resolved_provider):
             body = json.dumps({"detail": "Missing x-api-key header."}).encode()
             await send({
                 "type": "http.response.start",
@@ -907,14 +936,23 @@ class BYOKMiddleware:
                 await send({"type": "http.response.body", "body": body})
                 return
 
+        provider_token = set_request_provider(resolved_provider)
+        model_token = set_request_model(requested_model)
+
         if api_key:
             token = set_byok_api_key(api_key)
             try:
                 await self.app(scope, receive, send)
             finally:
                 reset_byok_api_key(token)
+                reset_request_model(model_token)
+                reset_request_provider(provider_token)
         else:
-            await self.app(scope, receive, send)
+            try:
+                await self.app(scope, receive, send)
+            finally:
+                reset_request_model(model_token)
+                reset_request_provider(provider_token)
 
 
 # -- Factory -------------------------------------------------------------------
@@ -980,6 +1018,10 @@ def create_app(
     @app.get("/health")
     async def health() -> dict[str, str]:
         return {"status": "ok"}
+
+    @app.get("/llm/catalog", response_model=LLMCatalogResponse)
+    async def llm_catalog() -> LLMCatalogResponse:
+        return LLMCatalogResponse(**build_provider_catalog())
 
     @app.get("/projects")
     async def projects() -> dict[str, Any]:
@@ -1079,7 +1121,7 @@ def create_app(
             _append_execution_trace(memory_entries, timeline_entries, start, step, status)
 
         try:
-            api_key = get_effective_api_key()
+            api_key = get_effective_api_key(required=provider_requires_api_key(_current_request_provider()))
             result = run_project(project_name, prepared_input, api_key=api_key, step_emitter=step_memory_emitter)
             success = result.exit_code == 0
             metrics_project = result.project
@@ -1333,8 +1375,9 @@ def create_app(
                 def step_emitter(step: str, status: str) -> None:
                     loop.call_soon_threadsafe(step_queue.put_nowait, {"step": step, "status": status})
 
+                api_key = get_effective_api_key(required=provider_requires_api_key(_current_request_provider()))
                 run_task = asyncio.create_task(
-                    asyncio.to_thread(run_project, project_name, prepared_input, api_key=get_effective_api_key(), step_emitter=step_emitter)
+                    asyncio.to_thread(run_project, project_name, prepared_input, api_key=api_key, step_emitter=step_emitter)
                 )
                 nodes = _get_pipeline_nodes(project_name)
                 seen_steps: list[tuple[str, str]] = []
