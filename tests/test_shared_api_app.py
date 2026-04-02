@@ -122,6 +122,18 @@ def test_run_requires_x_api_key(client: TestClient) -> None:
     assert response.json()["detail"] == "Missing x-api-key header."
 
 
+def test_root_is_public_and_returns_service_metadata(client: TestClient) -> None:
+    response = client.get("/")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "service": "genai-systems-lab-api",
+        "status": "ok",
+        "health": "/health",
+        "catalog": "/llm/catalog",
+    }
+
+
 def test_run_response_contract_and_history_payload(client: TestClient) -> None:
     headers = _signup_and_headers(client)
 

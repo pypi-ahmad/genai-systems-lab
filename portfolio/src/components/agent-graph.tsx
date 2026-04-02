@@ -125,12 +125,14 @@ export default function AgentGraph({
 
   return (
     <div className={`surface-panel-strong rounded-[1.25rem] p-4 sm:p-5 ${className}`.trim()}>
-      <svg
-        viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
-        className="block h-auto w-full"
-        role="img"
-        aria-label="Agent workflow graph showing planner, executor, evaluator, and final steps"
-      >
+      <div className="overflow-x-auto pb-1">
+        <svg
+          viewBox={`0 0 ${VIEWBOX_W} ${VIEWBOX_H}`}
+          className="block h-auto"
+          style={{ width: VIEWBOX_W, minWidth: VIEWBOX_W }}
+          role="img"
+          aria-label="Agent workflow graph showing planner, executor, evaluator, and final steps"
+        >
         <defs>
           <marker
             id={`${markerId}-arrow-idle`}
@@ -291,7 +293,8 @@ export default function AgentGraph({
             </g>
           );
         })}
-      </svg>
+        </svg>
+      </div>
     </div>
   );
 }
