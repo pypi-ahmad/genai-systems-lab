@@ -48,6 +48,23 @@ def _project_aliases() -> dict[str, str]:
 
 PREFIXES = ("crew-", "genai-", "lg-")
 
+OPTIONAL_DEPLOYMENT_DEPENDENCIES: dict[str, str] = {
+    "crewai": "CrewAI-backed projects are unavailable in this deployment because the optional CrewAI runtime is not installed.",
+    "playwright": "Browser automation projects are unavailable in this deployment because the optional Playwright runtime is not installed.",
+}
+
+
+class ProjectUnavailableError(RuntimeError):
+    """Raised when a project cannot run in the current deployment footprint."""
+
+
+def _optional_dependency_error(exc: ModuleNotFoundError) -> ProjectUnavailableError | None:
+    missing = (exc.name or "").split(".", 1)[0]
+    if missing not in OPTIONAL_DEPLOYMENT_DEPENDENCIES:
+        return None
+    message = OPTIONAL_DEPLOYMENT_DEPENDENCIES[missing]
+    return ProjectUnavailableError(message)
+
 
 @dataclass
 class RunResult:
@@ -166,6 +183,19 @@ def run_project(project: str, user_input: str, *, api_key: str, step_emitter: St
             exit_code=0,
             elapsed_ms=round(elapsed_ms, 2),
         )
+    except ModuleNotFoundError as exc:
+        unavailable_error = _optional_dependency_error(exc)
+        if unavailable_error is None:
+            LOGGER.exception(
+                "project run failed",
+                extra={"project_name": resolved_project, "error": str(exc)},
+            )
+            raise
+        LOGGER.warning(
+            "project unavailable in deployment",
+            extra={"project_name": resolved_project, "error": str(unavailable_error)},
+        )
+        raise unavailable_error from exc
     except Exception as exc:
         LOGGER.exception(
             "project run failed",

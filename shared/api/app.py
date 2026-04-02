@@ -30,7 +30,7 @@ from .db import get_db_session, init_db
 from .eval_runner import run_project_evaluation
 from .models import OperationalMetric, Run, RunSession, User
 from .run_explainer import build_run_explanation
-from .runner import list_available, resolve_project_name, run_project
+from .runner import ProjectUnavailableError, list_available, resolve_project_name, run_project
 from .session_memory import (
     build_session_prompt,
     deserialize_session_memory_entries,
@@ -1148,6 +1148,9 @@ def create_app(
                 latency_ms=result.elapsed_ms,
                 timeline_entries=timeline_entries,
             )
+        except ProjectUnavailableError as exc:
+            logger.warning("project unavailable", extra={"project_name": project_name, "error": str(exc)})
+            raise HTTPException(status_code=503, detail=str(exc)) from exc
         except ValueError as exc:
             logger.warning("project run rejected", extra={"project_name": project_name, "error": str(exc)})
             raise HTTPException(status_code=404, detail=str(exc)) from exc
@@ -1533,6 +1536,9 @@ def create_app(
                 })
                 yield f"event: done\ndata: {done_payload}\n\n"
 
+            except ProjectUnavailableError as exc:
+                error_payload = json.dumps({"error": str(exc)})
+                yield f"event: error\ndata: {error_payload}\n\n"
             except ValueError as exc:
                 error_payload = json.dumps({"error": str(exc)})
                 yield f"event: error\ndata: {error_payload}\n\n"

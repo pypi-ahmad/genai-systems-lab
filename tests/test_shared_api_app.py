@@ -11,7 +11,7 @@ from sqlalchemy.pool import StaticPool
 
 import shared.api.app as lab_api
 from shared.api.db import Base, get_db_session
-from shared.api.runner import RunResult
+from shared.api.runner import ProjectUnavailableError, RunResult
 
 
 TEST_API_KEY = "smoke-test-key-1234567890"
@@ -191,6 +191,22 @@ def test_guest_run_allows_execution_without_history(client: TestClient) -> None:
 
     history = client.get("/history", headers=headers)
     assert history.status_code == 401
+
+
+def test_run_returns_503_when_project_dependency_is_unavailable(client: TestClient, monkeypatch: pytest.MonkeyPatch) -> None:
+    headers = _signup_and_headers(client)
+
+    def unavailable_run_project(project: str, user_input: str, *, api_key: str, step_emitter=None) -> RunResult:
+        raise ProjectUnavailableError(
+            "CrewAI-backed projects are unavailable in this deployment because the optional CrewAI runtime is not installed."
+        )
+
+    monkeypatch.setattr(lab_api, "run_project", unavailable_run_project)
+
+    response = client.post("/nl2sql-agent/run", headers=headers, json={"input": "select * from users"})
+
+    assert response.status_code == 503
+    assert "optional CrewAI runtime is not installed" in response.json()["detail"]
 
 
 def test_guest_stream_allows_execution_without_session_state(client: TestClient) -> None:
