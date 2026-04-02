@@ -905,7 +905,7 @@ class BYOKMiddleware:
             return
 
         # Exempt paths that never call the LLM
-        is_exempt = any(path.startswith(prefix) for prefix in _BYOK_EXEMPT_PREFIXES)
+        is_exempt = path == "/" or any(path.startswith(prefix) for prefix in _BYOK_EXEMPT_PREFIXES)
 
         if not api_key and not is_exempt and provider_requires_api_key(resolved_provider):
             body = json.dumps({"detail": "Missing x-api-key header."}).encode()
@@ -1014,6 +1014,15 @@ def create_app(
     )
 
     # -- Routes ----------------------------------------------------------------
+
+    @app.get("/")
+    async def root() -> dict[str, str]:
+        return {
+            "service": "genai-systems-lab-api",
+            "status": "ok",
+            "health": "/health",
+            "catalog": "/llm/catalog",
+        }
 
     @app.get("/health")
     async def health() -> dict[str, str]:

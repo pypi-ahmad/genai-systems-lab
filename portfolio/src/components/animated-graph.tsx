@@ -364,7 +364,7 @@ export default function AnimatedGraph({
 
       {/* Live mode status bar */}
       {isLive && (
-        <div className="flex items-center gap-3 text-xs text-[var(--muted)]">
+        <div className="flex flex-wrap items-center gap-3 text-xs text-[var(--muted)]">
           <span className="tabular-nums">{doneCount} / {nodes.length} steps</span>
           {runningCount > 0 && (
             <span className="inline-flex items-center gap-1 text-[var(--running-text)]">
@@ -388,7 +388,7 @@ export default function AnimatedGraph({
       )}
 
       {/* Legend */}
-      <div className="flex items-center gap-4 text-[10px] font-medium text-[var(--muted)]">
+      <div className="flex flex-wrap items-center gap-x-4 gap-y-2 text-[10px] font-medium text-[var(--muted)]">
         <span className="flex items-center gap-1.5">
           <span className="inline-block h-2.5 w-2.5 rounded-sm border" style={{ borderColor: palette.idle.stroke, background: palette.idle.fill }} />
           Idle
@@ -408,8 +408,12 @@ export default function AnimatedGraph({
       </div>
 
       {/* SVG diagram */}
-      <div className="surface-panel-strong overflow-x-auto rounded-xl">
-        <svg viewBox={`0 0 ${maxX} ${maxY}`} className="mx-auto block w-full" style={{ maxWidth: maxX, minHeight: maxY }}>
+      <div className="surface-panel-strong overflow-x-auto rounded-xl px-3 py-4 sm:px-4">
+        <svg
+          viewBox={`0 0 ${maxX} ${maxY}`}
+          className="mx-auto block h-auto"
+          style={{ width: maxX, minWidth: maxX, minHeight: maxY, maxWidth: "none" }}
+        >
           <defs>
             <marker id="ag-arrow" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
               <polygon points="0 0, 8 3, 0 6" fill={palette.edgeDefault} />
