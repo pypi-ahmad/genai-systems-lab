@@ -2,30 +2,8 @@
 
 from __future__ import annotations
 
-import math
 import re
 from typing import Sequence
-
-
-def accuracy(expected: Sequence[str], actual: Sequence[str]) -> float:
-    """Fraction of exact matches between two equal-length sequences."""
-    if len(expected) != len(actual):
-        raise ValueError("Sequences must have the same length.")
-    if not expected:
-        return 1.0
-    return sum(e == a for e, a in zip(expected, actual)) / len(expected)
-
-
-def cosine_similarity(a: Sequence[float], b: Sequence[float]) -> float:
-    """Cosine similarity between two vectors."""
-    if len(a) != len(b):
-        raise ValueError("Vectors must have the same dimensionality.")
-    dot = sum(x * y for x, y in zip(a, b))
-    norm_a = math.sqrt(sum(x * x for x in a))
-    norm_b = math.sqrt(sum(x * x for x in b))
-    if norm_a == 0 or norm_b == 0:
-        return 0.0
-    return dot / (norm_a * norm_b)
 
 
 def keyword_accuracy(pred: str, expected: Sequence[str] | str) -> float:
@@ -72,17 +50,3 @@ def latency_stats(latencies_ms: Sequence[float]) -> dict[str, float]:
         "mean": sum(s) / n,
         "p95": s[int(n * 0.95)] if n > 1 else s[0],
     }
-
-
-def f1_score(precision: float, recall: float) -> float:
-    """Harmonic mean of precision and recall."""
-    if precision + recall == 0:
-        return 0.0
-    return 2 * (precision * recall) / (precision + recall)
-
-
-def normalize_score(value: float, min_val: float = 0.0, max_val: float = 1.0) -> float:
-    """Clamp and normalize a value into [0, 1]."""
-    if max_val == min_val:
-        return 0.0
-    return max(0.0, min(1.0, (value - min_val) / (max_val - min_val)))

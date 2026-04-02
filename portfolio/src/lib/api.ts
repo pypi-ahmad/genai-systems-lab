@@ -76,10 +76,6 @@ async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
   throw formatApiReachabilityError(candidates, lastError);
 }
 
-export function getApiBaseUrl(): string {
-  return activeApiBase;
-}
-
 export function getApiUrl(path: string): string {
   return buildApiUrl(activeApiBase, path);
 }
@@ -304,14 +300,6 @@ export async function runProject(
 
   const data = await res.json();
   return { ok: true, data };
-}
-
-export async function fetchMetrics(): Promise<MetricsResponse> {
-  const res = await apiFetch("/metrics");
-  if (!res.ok) {
-    throw new Error(`${res.status} ${res.statusText}`);
-  }
-  return res.json();
 }
 
 export async function fetchMetricsTime(options: {

@@ -2,8 +2,6 @@
 
 from .evaluator import run_evaluation
 from .metrics import (
-    accuracy,
-    cosine_similarity,
     keyword_accuracy,
     latency_stats,
     structural_match,
@@ -27,8 +25,6 @@ __all__ = [
     "run_stress_test",
     "StressRunner",
     "StressResult",
-    "accuracy",
-    "cosine_similarity",
     "keyword_accuracy",
     "latency_stats",
     "structural_match",

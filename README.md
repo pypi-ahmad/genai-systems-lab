@@ -9,6 +9,8 @@
 [![Next.js 16](https://img.shields.io/badge/Next.js-16-000000.svg)](https://nextjs.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
 [![Google Gemini](https://img.shields.io/badge/Google%20Gemini-8E75B2.svg?logo=googlegemini&logoColor=white)](https://ai.google.dev/)
+[![OpenAI](https://img.shields.io/badge/OpenAI-412991.svg?logo=openai&logoColor=white)](https://platform.openai.com/)
+[![Anthropic](https://img.shields.io/badge/Anthropic%20Claude-191919.svg?logo=anthropic&logoColor=white)](https://www.anthropic.com/)
 [![LangGraph](https://img.shields.io/badge/LangGraph-1C3C3C.svg?logo=langchain&logoColor=white)](https://langchain-ai.github.io/langgraph/)
 [![CrewAI](https://img.shields.io/badge/CrewAI-FF5A50.svg)](https://www.crewai.com/)
 [![React 19](https://img.shields.io/badge/React-19-61dafb.svg?logo=react&logoColor=white)](https://react.dev/)
@@ -35,7 +37,7 @@ The three paradigms:
 | **LangGraph** | Typed state machine with `graph.invoke()` and conditional edges | Iterative debugging, workflow planning, support routing |
 | **CrewAI** | Role-based agent team with `crew.kickoff()` and sequential handoff | Content pipelines, hiring evaluation, investment analysis |
 
-All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT plus HttpOnly-cookie authentication, request validation and sanitization, per-request API key binding via `ContextVar`, synchronous and SSE streaming execution, configurable persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
+All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT plus HttpOnly-cookie authentication, request validation and sanitization, per-request API key binding via `ContextVar`, multi-provider LLM dispatch (Gemini, OpenAI, Anthropic, Ollama), synchronous and SSE streaming execution, configurable persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
 
 ### Why this design
 
@@ -45,9 +47,28 @@ Without a shared runtime, every new AI project rebuilds the same infrastructure:
 
 ## Core Features
 
-### Bring-your-own-key (BYOK) execution
+### Multi-provider BYOK execution
 
-The platform is **stateless with respect to API keys**. Every LLM-calling route requires an `X-API-Key: <google_api_key>` header. `BYOKMiddleware` (pure ASGI) binds this value to a `ContextVar` for the duration of each request; `get_effective_api_key()` retrieves it anywhere in the call stack without argument threading. The key is never logged, stored, or echoed in responses. Routes that don't invoke an LLM (`/health`, `/projects`, `/auth/*`, `/metrics`, `/history`, `/session/*`, `/shared/*`) are exempt.
+The platform is **stateless with respect to API keys**. Every LLM-calling route requires an `X-API-Key` header. Two optional companion headers select the provider and model:
+
+| Header | Purpose | Required |
+|---|---|---|
+| `X-API-Key` | Provider API key (not needed for Ollama) | Yes (except Ollama) |
+| `X-LLM-Provider` | Force a provider (`gemini`, `openai`, `anthropic`, `ollama`) | No — inferred from model |
+| `X-LLM-Model` | Override the default model | No — falls back to config |
+
+`BYOKMiddleware` (pure ASGI) binds all three values to `ContextVar` instances for the duration of each request. `get_effective_api_key()` retrieves the key anywhere in the call stack without argument threading. Keys are never logged, stored, or echoed in responses. Routes that don't invoke an LLM (`/`, `/health`, `/projects`, `/auth/*`, `/metrics`, `/history`, `/session/*`, `/shared/*`, `/run/*`, `/llm/catalog`) are exempt.
+
+**Supported providers and models:**
+
+| Provider | Models | API key format |
+|---|---|---|
+| **Google Gemini** (default) | `gemini-3-flash-preview`, `gemini-3.1-pro-preview` | `AIza...` |
+| **OpenAI** | `gpt-5.4`, `gpt-5.4-mini` | `sk-...` |
+| **Anthropic Claude** | `claude-sonnet-4-6`, `claude-opus-4-6` | `sk-ant-...` |
+| **Ollama** (local) | Any model available on the local Ollama server | None required |
+
+`GET /llm/catalog` returns the full provider catalog at runtime, including dynamically discovered Ollama models. If the provider is not specified, `infer_provider()` resolves it from the model name — any unknown model ID routes to Ollama.
 
 ### Authentication
 
@@ -73,11 +94,11 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 
 - Rejects empty `input` or inputs exceeding 10,000 characters.
 - Rejects payloads matching XSS, SQL injection, JS protocol, and null-byte patterns.
-- Sanitizes all string values: strips control characters (`\x00–\x08`, `\x0b`, `\x0c`, `\x0e–\x1f`) and HTML-escapes remaining content.
+- Sanitizes all string values: strips control characters (`\x00–\x08`, `\x0b`, `\x0c`, `\x0e–\x1f`, `\x7f`) and HTML-escapes remaining content.
 
 ### Project auto-discovery and alias resolution
 
-`shared/api/runner.py` scans the repository root at startup for any directory containing `app/main.py`. No registration is needed. The runner resolves 20 canonical aliases (e.g., `nl2sql-agent` → `genai-nl2sql-agent`, `hiring-crew` → `crew-hiring-system`) and supports prefix-stripped lookups so projects are addressable by short or full name.
+`shared/api/runner.py` scans the repository root at startup for any directory containing `app/main.py`. No registration is needed. The runner resolves 29 aliases — 20 from the project catalog and 9 legacy names (e.g., `nl2sql-agent` → `genai-nl2sql-agent`, `hiring-crew` → `crew-hiring-system`) — and supports prefix-stripped lookups so projects are addressable by short or full name.
 
 Every discovered project is dynamically imported with `importlib`. The runner clears cached `app.*` imports between loads to prevent cross-project module leakage.
 
@@ -90,7 +111,7 @@ Every discovered project is dynamically imported with `importlib`. The runner cl
 3. `event: done` — full response payload (latency, confidence, session metadata).
 4. `event: error` — error string on failure.
 
-The 10 GenAI projects call `emit_step()` natively (via a `ContextVar`-bound `StepEmitter`). For LangGraph and CrewAI projects, the backend synthesizes step events from the shared project catalog in `portfolio/src/data/project-catalog.json`, which it compiles into `PIPELINE_NODES` at startup.
+Projects that call `emit_step()` natively stream their own step events. When a project emits no step events, the backend falls back to pipeline nodes from the shared project catalog in `portfolio/src/data/project-catalog.json`, which it compiles into `PIPELINE_NODES` at startup.
 
 ### Confidence scoring
 
@@ -123,7 +144,7 @@ Every execution is written to SQLite (`.data/genai_systems_lab.db`) with: projec
 
 ### Evaluation
 
-- Benchmark datasets are registered per project in `shared/eval/benchmarks.py` (15 of 20 projects; the 5 CrewAI projects have none).
+- Benchmark datasets are registered per project in `shared/eval/benchmarks.py` (all 20 projects).
 - `POST /eval/{project}` runs the benchmark suite and returns per-case pass/fail, accuracy, and latency percentiles (mean, p50, p95, p99). Requires `X-API-Key`.
 
 ### In-memory metrics
@@ -136,8 +157,9 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 
 | Layer | Technology | Version |
 |---|---|---|
-| LLM | Google Gemini via `google-genai` | 1.68.0 |
-| LLM models | `gemini-3-flash-preview` (dev), `gemini-3.1-pro-preview` (prod) | — |
+| LLM (default) | Google Gemini via `google-genai` | 1.69.0 |
+| LLM providers | OpenAI (HTTP), Anthropic Claude (HTTP), Ollama (local HTTP) | — |
+| LLM models | Gemini 3 Flash / 3.1 Pro, GPT-5.4 / 5.4 mini, Claude Sonnet 4.6 / Opus 4.6, any Ollama model | — |
 | Backend | Python, FastAPI, Uvicorn | 3.13 |
 | ORM / DB | SQLAlchemy + SQLite | 2.0.48 |
 | Validation | Pydantic | 2.11.10 |
@@ -149,15 +171,38 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 | Observability | `rich` structured logging, OpenTelemetry spans | 14.3.3 |
 | Infra | Docker, Docker Compose, GitHub Actions | — |
 
-### LLM wrapper internals (`shared/llm/gemini.py`)
+### LLM dispatch architecture (`shared/llm/`)
 
-- **Client caching**: `genai.Client` instances are cached per API key in a thread-safe dict, preventing httpx connection-pool exhaustion across concurrent and sequential requests.
-- **Retry**: 3 attempts with exponential backoff (1 s → 2 s → 4 s). Retries on `ServerError`, HTTP 429, and generic `APIError`.
+All LLM calls pass through a unified dispatch layer (`dispatch.py`) that routes to the correct provider based on request-scoped `ContextVar` values:
+
+```
+Project calls generate_text() / generate_structured() / embed()
+  │
+  └─ dispatch.py → infer_provider(model) → route to:
+       ├─ gemini_provider.py — google-genai SDK (text, structured, vision, embeddings)
+       ├─ providers.py       — OpenAI HTTP (text, structured, vision, embeddings)
+       ├─ providers.py       — Anthropic HTTP (text, structured, vision)
+       └─ providers.py       — Ollama HTTP (text, structured, vision, embeddings)
+```
+
+**Shared behavior across all providers:**
+
+- **Retry**: 3 attempts with exponential backoff (1 s → 2 s → 4 s).
 - **Timeout**: 120 seconds per attempt.
+- **Key resolution**: every call goes through `get_effective_api_key()`, which reads the per-request `ContextVar`. API keys from `.env` are **not** used at runtime.
+
+**Gemini-specific:**
+
+- **Client caching**: `genai.Client` instances are cached per API key in a thread-safe dict, preventing httpx connection-pool exhaustion.
 - **Model fallback**: `gemini-3.1-pro-preview` → `gemini-3-flash-preview` on generation or timeout failure.
-- **Structured output**: `generate_structured()` requests `application/json` MIME type with a Pydantic-derived JSON schema.
-- **Vision**: `generate_text_from_image()` wraps image bytes as a multipart `Part` with the same retry/fallback policy.
-- **Key resolution**: every call goes through `get_effective_api_key()`, which reads the per-request `ContextVar`. `GOOGLE_API_KEY` from `.env` is **not** used at runtime.
+- **Structured output**: `application/json` MIME type with Pydantic-derived JSON schema.
+- **Vision**: `generate_text_from_image()` wraps image bytes as a multipart `Part`.
+
+**OpenAI / Anthropic / Ollama:**
+
+- Implemented via raw `urllib.request` — zero SDK dependencies.
+- OpenAI and Ollama support text embeddings; Anthropic does not.
+- Ollama models are discovered dynamically from the local server.
 
 ---
 
@@ -181,14 +226,14 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 │  Middleware (outermost → innermost):                                   │
 │    CORSMiddleware                                                       │
 │    RequestRateLimitMiddleware — in-memory abuse throttling             │
-│    BYOKMiddleware             — X-API-Key → ContextVar                 │
+│    BYOKMiddleware             — X-API-Key / X-LLM-Provider / X-LLM-Model → ContextVars │
 │    InputValidationMiddleware  — length, injection, sanitize            │
 │    RequestLoggingMiddleware   — request_id, project_name, status log   │
 │    RequestTimingMiddleware    — X-Process-Time-Ms header + OTel span   │
 │    ErrorHandlingMiddleware    — structured JSON on unhandled exceptions│
 │                                                                        │
 │  Routes: auth · run · stream · history · session · metrics            │
-│          eval · sharing · explain · health                            │
+│          eval · sharing · explain · health · llm/catalog              │
 └───────────────────────────────┬────────────────────────────────────────┘
                                 │
                                 ▼
@@ -196,7 +241,7 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 │  Shared Runner  (shared/api/runner.py)                                 │
 │                                                                        │
 │  1. Auto-discover: scan repo root for <dir>/app/main.py               │
-│  2. Resolve name: alias map (20 entries) + prefix stripping           │
+│  2. Resolve name: alias map (29 entries: 20 catalog + 9 legacy) + prefix stripping           │
 │  3. Dynamic import: importlib + sys.path injection + cache clearing   │
 │  4. Invoke run(input, api_key) → dict                                 │
 │  5. Bind StepEmitter ContextVar for streaming step events             │
@@ -206,27 +251,29 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
          ┌──────────────────────┼──────────────────────┐
          ▼                      ▼                       ▼
 ┌─────────────────┐  ┌──────────────────┐  ┌──────────────────┐
-│ 10 GenAI        │  │ 5 LangGraph      │  │ 5 CrewAI         │
-│ Pipelines       │  │ State Machines   │  │ Agent Teams      │
+│ 9 Sequential    │  │ 6 LangGraph      │  │ 5 CrewAI         │
+│ Pipelines       │  │ Workflows        │  │ Agent Teams      │
 │                 │  │                  │  │                  │
 │ emit_step()     │  │ graph.invoke()   │  │ crew.kickoff()   │
-│ native SSE      │  │ synthetic steps  │  │ synthetic steps  │
+│ native SSE      │  │ native SSE via   │  │ fallback steps   │
+│                 │  │ instrument_node  │  │                  │
 └────────┬────────┘  └────────┬─────────┘  └────────┬─────────┘
          └──────────────────────┼──────────────────────┘
                                 ▼
 ┌────────────────────────────────────────────────────────────────────────┐
 │  Shared Runtime  (shared/)                                             │
 │                                                                        │
-│  llm/         Gemini wrapper (retry, fallback, structured, vision)    │
+│  llm/         Multi-provider dispatch (Gemini SDK, OpenAI/Anthropic/   │
+│               Ollama HTTP), retry, fallback, structured, vision        │
 │  api/auth     JWT lifecycle, PBKDF2 hashing, run serialization        │
-│  api/models   SQLAlchemy: User, RunSession, Run (15 columns)          │
+│  api/models   SQLAlchemy: User, RunSession, Run, OperationalMetric    │
 │  api/db       SQLite engine + backward-compat column migrations        │
 │  api/session_memory  12-entry window, 4-entry injection, dedup        │
 │  api/confidence      4-component weighted formula                     │
 │  api/run_explainer   LLM explain from stored artifacts                │
 │  api/eval_runner     Benchmark execution                              │
 │  api/step_events     ContextVar StepEmitter for streaming             │
-│  eval/        Benchmark datasets (15 projects) + latency metrics      │
+│  eval/        Benchmark datasets (20 projects) + latency metrics      │
 │  cache/       In-memory TTL caches (prompt-keyed)                     │
 │  logging/     Structured logs + OpenTelemetry spans                   │
 │  config.py    BYOK ContextVar, Settings, model resolution             │
@@ -236,12 +283,12 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 ### Batch request lifecycle
 
 ```
-POST /{project}/run  (Authorization: Bearer <jwt>  +  X-API-Key: <key>)
+POST /{project}/run  (Authorization: Bearer <jwt>  +  X-API-Key  +  X-LLM-Provider?  +  X-LLM-Model?)
   │
   ├─ InputValidationMiddleware:  reject/sanitize body
   ├─ RequestLoggingMiddleware:   assign request_id, log method + path
   ├─ RequestTimingMiddleware:    start timer, open OTel span
-  ├─ BYOKMiddleware:             bind X-API-Key to ContextVar
+  ├─ BYOKMiddleware:             bind X-API-Key, X-LLM-Provider, X-LLM-Model to ContextVars
   │
   └─ Route handler:
       ├─ Decode JWT → load User from SQLite
@@ -260,7 +307,7 @@ POST /{project}/run  (Authorization: Bearer <jwt>  +  X-API-Key: <key>)
 ### Streaming request lifecycle
 
 ```
-GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key: <key>)
+GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key  +  X-LLM-Provider?  +  X-LLM-Model?)
   │
   ├─ Middleware chain (same as batch)
   └─ Route handler:
@@ -292,26 +339,41 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key: <key>)
                                               │ share_token, is_public       │
                                               │ expires_at                   │
                                               └──────────────────────────────┘
+
+┌──────────────────────────┐
+│ operational_metrics      │
+│                          │
+│ id, project, latency_ms  │
+│ confidence, success      │
+│ timestamp                │
+└──────────────────────────┘
 ```
 
 ### Key modules
 
 | Module | Responsibility |
 |---|---|
-| `shared/api/app.py` | FastAPI factory: 5 middleware classes, 17 route handlers, SSE generator, metrics store |
-| `shared/api/runner.py` | Project discovery, 20-alias resolution, `run(input, api_key)` dispatch, step emitter binding |
+| `shared/api/app.py` | FastAPI factory: 7 middleware classes, 22 route handlers, SSE generator, metrics store |
+| `shared/api/runner.py` | Project discovery, 29-alias resolution (20 catalog + 9 legacy), `run(input, api_key)` dispatch, step emitter binding |
 | `shared/api/auth.py` | JWT encode/decode (pure HMAC-SHA256), PBKDF2 hashing, run serialization helpers |
-| `shared/api/models.py` | SQLAlchemy ORM: `User`, `RunSession`, `Run` (15 mapped columns) |
+| `shared/api/models.py` | SQLAlchemy ORM: `User`, `RunSession`, `Run` (15 mapped columns), `OperationalMetric` |
 | `shared/api/db.py` | SQLite engine init, `create_all()`, backward-compatible column migrations via `PRAGMA table_info` |
 | `shared/api/session_memory.py` | 12-entry persisted window, 4-entry context injection, content deduplication |
 | `shared/api/confidence.py` | 4-component weighted confidence score; evaluator field extraction from arbitrary output shape |
 | `shared/api/run_explainer.py` | Gemini 3.1-pro-preview structured explanation from stored run artifacts |
 | `shared/api/eval_runner.py` | Per-case benchmark execution, rule evaluation |
 | `shared/api/step_events.py` | `ContextVar`-based `StepEmitter` for decoupled step emission during streaming |
-| `shared/llm/gemini.py` | Gemini text, structured JSON, and vision calls with retry/backoff/fallback |
-| `shared/config.py` | BYOK `ContextVar`, `Settings` (Pydantic), per-project model resolution |
-| `shared/eval/benchmarks.py` | Rule-based benchmark datasets for 15 projects; `BenchmarkSuite` latency harness |
-| `portfolio/src/lib/api.ts` | TypeScript API client: batch run, SSE streaming, auth, history, metrics, sharing |
+| `shared/api/langgraph_events.py` | `instrument_node` wrapper — emits step events from LangGraph node functions |
+| `shared/llm/dispatch.py` | Unified provider dispatch: routes calls to Gemini, OpenAI, Anthropic, or Ollama |
+| `shared/llm/catalog.py` | Provider catalog: static definitions for Gemini/OpenAI/Anthropic, dynamic Ollama discovery |
+| `shared/llm/gemini.py` | Backward-compatible facade delegating to the dispatch layer |
+| `shared/llm/gemini_provider.py` | Gemini-specific client: `google-genai` SDK, retry/backoff/fallback, client caching |
+| `shared/llm/providers.py` | HTTP-based implementations for OpenAI, Anthropic, and Ollama (zero SDK deps) |
+| `shared/project_catalog.py` | Loads `project-catalog.json` manifest; Pydantic models for graph nodes/edges |
+| `shared/config.py` | BYOK `ContextVar`, request-scoped model/provider overrides, `Settings` (Pydantic), model resolution |
+| `shared/eval/benchmarks.py` | Rule-based benchmark datasets for all 20 projects; `BenchmarkSuite` latency harness |
+| `shared/eval/stress.py` | Asyncio-based stress testing for throughput and error-rate analysis |
+| `portfolio/src/lib/api.ts` | TypeScript API client: batch run, SSE streaming, auth, history, metrics, sharing, BYOK headers |
 
 ---
 
@@ -322,25 +384,28 @@ genai-systems-lab/
 ├── shared/
 │   ├── api/              FastAPI platform (app, runner, auth, models, db,
 │   │                     session_memory, confidence, run_explainer,
-│   │                     eval_runner, step_events)
-│   ├── llm/              Gemini wrapper (text, structured output, vision)
-│   ├── eval/             Benchmark datasets + latency metrics
+│   │                     eval_runner, step_events, langgraph_events)
+│   ├── llm/              Multi-provider dispatch (dispatch, catalog, gemini_provider,
+│   │                     gemini facade, providers, exceptions)
+│   ├── eval/             Benchmark datasets + latency metrics + stress testing
 │   ├── cache/            In-memory TTL caches (prompt-keyed)
 │   ├── logging/          Structured logging + OpenTelemetry spans
 │   ├── schemas/          Pydantic request/response models
-│   └── config.py         BYOK ContextVar, Settings, model resolution
+│   ├── utils/            Generic helpers (text chunking, timing)
+│   ├── config.py         BYOK ContextVar, request-scoped model/provider, Settings
+│   └── project_catalog.py  Portfolio manifest loader + graph node models
 │
-├── genai-*/              10 Generative AI pipeline projects
-│   └── app/main.py       Implements run(input, api_key) → dict
-├── lg-*/                 5 LangGraph state machine projects
+├── genai-*/              10 project directories with the `genai-` prefix
+│   └── app/main.py       Most are sequential pipelines; `genai-research-system` is LangGraph-based
+├── lg-*/                 5 additional LangGraph state machine projects
 │   └── app/main.py       Implements run(input, api_key) → dict
 ├── crew-*/               5 CrewAI multi-agent team projects
 │   └── app/main.py       Implements run(input, api_key) → dict
 │
 ├── portfolio/            Next.js 16 frontend
 │   └── src/
-│       ├── app/          App Router pages (playground, metrics,
-│       │                 compare, projects/[slug], auth, run/[id], about)
+│       ├── app/          App Router pages (playground, metrics, compare,
+│       │                 projects, projects/[slug], auth, run/[id], about, architecture)
 │       ├── lib/          API client, auth helpers, apikey storage, session
 │       ├── components/   AnimatedGraph, AgentGraph, MemoryPanel,
 │       │                 TimelineReplay, RunExplanation, ConfidenceIndicator
@@ -351,7 +416,8 @@ genai-systems-lab/
 ├── ARCHITECTURE.md       Platform design principles
 ├── docker-compose.yml    api (8000) service for the shared backend
 ├── Dockerfile            python:3.13-slim; installs deps; runs uvicorn
-├── requirements.txt      Core Python deps (see note in Setup)
+├── pyproject.toml        Primary dependency manifest (slim, for serverless deployment)
+├── requirements.txt      Full Python deps (local development and Docker builds)
 └── .env.example          Model/config examples only; BYOK required at runtime
 ```
 
@@ -359,38 +425,38 @@ genai-systems-lab/
 
 ## Project Catalog
 
-### Generative AI pipelines (10 projects)
+### Sequential / prompt-pipeline projects (9 projects)
 
 All emit native SSE step events via `emit_step()`.
 
 | Project folder | Pipeline nodes | Description |
 |---|---|---|
-| `genai-research-system` | planner → researcher → critic → writer → editor → formatter | Multi-step research with quality metrics, configurable tone, and structured output formats (report, blog, LinkedIn, Twitter). |
 | `genai-nl2sql-agent` | planner → schema → generator → validator → executor → summarizer | Natural language → validated DuckDB SQL → execution → plain-language result summary. |
 | `genai-clinical-assistant` | extractor → retriever → reasoner → formatter | Extracts patient data, retrieves matching conditions, reasons over differential, outputs structured clinical report with confidence. |
 | `genai-browser-agent` | perception → planner → executor → memory | Observe-plan-act loop using Playwright for browser automation tasks. |
 | `genai-financial-analyst` | metrics → trends → forecaster → writer | Loads CSV data, computes financial KPIs, optional time-series forecast, trend analysis, narrative report. |
-| `genai-code-copilot` | indexer → store → retriever → generator | Chunks a codebase, retrieves relevant context for a query, generates a grounded answer. |
-| `genai-doc-intelligence` | chunker → embedder → retriever → qa → extractor | Document ingestion, vector retrieval, Q&A with citations, structured field extraction. |
-| `genai-knowledge-os` | ingest → store → retriever → summarizer → insights | Document-backed RAG with summarization and persisted insight memory. |
+| `genai-code-copilot` | indexer → retriever → store → generator | Indexes a codebase, retrieves relevant chunks for a question, builds context, and generates a grounded answer. |
+| `genai-doc-intelligence` | retriever → qa → extractor | Queries the local vector store, generates cited answers, and returns referenced sources. The module also includes separate ingestion and file-extraction helpers. |
+| `genai-knowledge-os` | store → retriever → summarizer → insights | Opens the persisted vector and memory stores, retrieves matching chunks, summarizes the context, and optionally saves generated insights. |
 | `genai-interviewer` | generator → evaluator → adjuster → compiler | Generates 5 interview questions for a topic/role with difficulty calibration and scoring. |
 | `genai-ui-builder` | spec → validator → codegen → repair | Generates a UI spec from a prompt, produces React files (`App.jsx`), validates structure, and retries a repair pass on failure. |
 
-### LangGraph state machines (5 projects)
+### LangGraph workflows (6 projects)
 
-Use `graph.invoke()` with typed state objects. During streaming, the platform generates synthetic step events from pipeline nodes derived from the shared catalog manifest.
+Use `graph.invoke()` with typed state objects. All workflows emit native step events via `instrument_node()` or equivalent wrappers.
 
 | Project folder | Pipeline nodes | Description |
 |---|---|---|
-| `lg-data-agent` | planner → executor → interpreter → evaluator | Plans and executes tabular analysis with pandas or DuckDB, interprets results, evaluates output quality. |
-| `lg-debugging-agent` | analyzer → fixer → tester → evaluator | Analyzes buggy code, generates a patch, produces tests, runs them, evaluates resolution with bounded retries. |
-| `lg-research-agent` | planner → retriever → reporter | **Stub** — returns `{"status": "not_implemented"}`. Not yet implemented. |
-| `lg-support-agent` | classifier → retriever → responder → router | Classifies customer intent, retrieves context, drafts a response, routes to escalation when confidence is low. |
-| `lg-workflow-agent` | planner → executor → validator → checkpoint | Decomposes tasks into step plans, executes them, validates results. Supports `--resume` via checkpoint state. |
+| `genai-research-system` | planner → researcher → critic → writer → editor → originality_checker → formatter | LangGraph research workflow with conditional revision loops, editorial/originality checks, and report-oriented output with quality metrics. |
+| `lg-data-agent` | planner → executor / duckdb_executor → analyzer → evaluator | Plans tabular analysis, routes to pandas or DuckDB execution, analyzes results, evaluates output quality with bounded retries. |
+| `lg-debugging-agent` | analyzer → fixer → test_generator → tester → evaluator | Analyzes buggy code, generates a patch, produces test cases, runs them, evaluates resolution with bounded retries. |
+| `lg-research-agent` | planner → researcher → critic → writer | Plans research sub-tasks, gathers findings per task, critiques the results, and produces a synthesized report. |
+| `lg-support-agent` | classifier → retriever → responder → evaluator → escalation | Classifies customer intent, retrieves context, drafts a response, evaluates quality, and conditionally escalates. |
+| `lg-workflow-agent` | planner → executor → validator → checkpoint → finalizer | Decomposes tasks into step plans, executes them, validates results, checkpoints progress, and produces a final summary. |
 
 ### CrewAI multi-agent teams (5 projects)
 
-Use `crew.kickoff()` with role-based agents. No registered benchmark datasets. Synthetic step events during streaming.
+Use `crew.kickoff()` with role-based agents. Synthetic step events during streaming.
 
 | Project folder | Pipeline nodes | Description |
 |---|---|---|
@@ -408,7 +474,7 @@ Use `crew.kickoff()` with role-based agents. No registered benchmark datasets. S
 
 - Python 3.13+
 - Node.js 20+ (portfolio frontend only)
-- A Google API key with Gemini access (supplied per request — never stored server-side)
+- A Google, OpenAI, or Anthropic API key (supplied per request — never stored server-side), or a local Ollama server
 
 ### 1. Clone
 
@@ -431,7 +497,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-> **Note:** the root requirements now include the shared API runtime dependencies and the framework packages imported by the in-scope projects. Browser binaries for Playwright may still need `playwright install` in environments that execute the browser agent.
+> **Note:** `requirements.txt` includes the full set of framework packages for local development and Docker builds. `pyproject.toml` is the primary dependency manifest for deployed environments (e.g., Vercel) and excludes heavyweight packages like `crewai` and `playwright` that exceed serverless bundle limits. Browser binaries for Playwright may still need `playwright install` in environments that execute the browser agent.
 
 ### 3. Environment file
 
@@ -439,18 +505,29 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 
-`.env` is loaded by `python-dotenv` at startup and is used for application configuration such as model selection. The shared Gemini client resolves credentials through `get_effective_api_key()`, so the shared API and runner paths do **not** consume `GOOGLE_API_KEY` from `.env`; they require a BYOK key to be bound explicitly.
+`.env` is loaded by `python-dotenv` at startup and is used for application configuration such as model selection. The LLM dispatch layer resolves credentials through `get_effective_api_key()`, so API keys from `.env` are **not** consumed at runtime; they must be bound explicitly via request headers.
 
-### 4. Optional model overrides
+### 4. Configuration
+
+All variables below are optional. The defaults shown are suitable for local development.
 
 | Variable | Default | Purpose |
 |---|---|---|
 | `APP_ENV` | `dev` | Controls the default model (`dev` → flash, `prod` → pro) |
 | `GENAI_SYSTEMS_LAB_JWT_SECRET` | — | Required in production for JWT signing; local dev falls back to an ephemeral secret |
-| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000` | Explicit CORS allowlist for browser clients |
+| `GENAI_SYSTEMS_LAB_JWT_TTL_SECONDS` | `604800` (7 days) | JWT token lifetime |
+| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001` | Explicit CORS allowlist for browser clients |
 | `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP` | `true` in dev, `false` in prod | Controls whether `/auth/signup` is exposed publicly |
 | `GENAI_SYSTEMS_LAB_DATABASE_URL` | local SQLite file | Override the default local SQLite database for deployed environments |
+| `DATABASE_URL` | — | Fallback if `GENAI_SYSTEMS_LAB_DATABASE_URL` is not set |
 | `GENAI_SYSTEMS_LAB_AUTH_COOKIE_SAMESITE` | `lax` | SameSite policy for the HttpOnly browser session cookie |
+| `GENAI_SYSTEMS_LAB_AUTH_COOKIE_SECURE` | `true` in prod | Secure flag for the HttpOnly browser session cookie |
+| `GENAI_SYSTEMS_LAB_AUTH_COOKIE_NAME` | `genai_systems_lab_session` | Cookie name for the HttpOnly browser session cookie |
+| `GENAI_SYSTEMS_LAB_DISABLE_RATE_LIMITS` | `false` | Bypass rate limiting entirely (useful for testing) |
+| `OLLAMA_BASE_URL` | `http://127.0.0.1:11434` | Ollama server URL for local model discovery and inference |
+| `OPENAI_EMBEDDING_MODEL` | `text-embedding-3-small` | OpenAI embedding model name |
+| `GEMINI_EMBEDDING_MODEL` | `gemini-embedding-2-preview` | Gemini embedding model name |
+| `OLLAMA_EMBEDDING_MODEL` | `embeddinggemma` | Ollama embedding model name |
 | `OTEL_ENABLED` | `false` | Enable OpenTelemetry startup wiring for the API |
 | `OTEL_CONSOLE_EXPORT` | `false` | Mirror spans to the console exporter |
 | `OTEL_SERVICE_NAME` | `genai-systems-lab` | Service name reported to the tracing backend |
@@ -482,6 +559,41 @@ docker compose up --build
 
 Starts the API on port 8000. The Next.js portfolio is the supported frontend and can be run separately with `npm run dev` inside `portfolio/`.
 
+### Vercel
+
+The repository supports deployment as two separate Vercel projects — one for the Python backend, one for the Next.js frontend.
+
+#### Backend (Python serverless function)
+
+Vercel auto-detects `pyproject.toml` and uses it as the dependency manifest. The slim dependency list in `pyproject.toml` intentionally excludes `crewai` and `playwright` to stay under the 500 MB uncompressed bundle limit. Projects that depend on these packages return a graceful `503 Service Unavailable` with an explanatory message instead of crashing.
+
+Required environment variables on the backend Vercel project:
+
+| Variable | Value |
+|---|---|
+| `APP_ENV` | `prod` |
+| `GENAI_SYSTEMS_LAB_JWT_SECRET` | A random string ≥ 16 characters |
+| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | The frontend Vercel URL (e.g., `https://your-frontend.vercel.app`) |
+| `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP` | `true` if you want open registration |
+
+The Python runtime is pinned to 3.13 via `requires-python` in `pyproject.toml`. On Vercel's read-only filesystem, the SQLite database falls back to `/tmp/.data/` automatically — this means **data is ephemeral** and does not persist across cold starts or redeployments.
+
+#### Frontend (Next.js)
+
+Set the root directory to `portfolio/` in the Vercel project settings. `next.config.ts` sets `outputFileTracingRoot` to the parent directory so the monorepo structure is traced correctly.
+
+Required environment variable on the frontend Vercel project:
+
+| Variable | Value |
+|---|---|
+| `NEXT_PUBLIC_API_BASE_URL` | The backend Vercel URL (e.g., `https://your-backend.vercel.app`) |
+
+#### Deployment notes
+
+- The entry point `shared.api.app:app` is declared in `pyproject.toml` under `[project.scripts]`.
+- Ollama is backend-scoped: a Vercel-hosted backend cannot reach an end user's local Ollama instance, so the `/llm/catalog` endpoint will report Ollama as unavailable.
+- If `GENAI_SYSTEMS_LAB_JWT_SECRET` is missing in production, the backend will fail on every request — including `/health`.
+
 ### langgraph-data-analyst (standalone example)
 
 `langgraph-data-analyst` is deliberately kept outside the shared platform runner. It serves as a reference implementation showing how a LangGraph application can be built independently — with its own dependency set, data directory, and test suite — while still benefiting from the same agent design patterns used in the platform projects. It is not auto-discovered by the runner and will not appear in `/projects`.
@@ -512,12 +624,30 @@ curl -X POST http://localhost:8000/auth/login \
 
 #### Batch execution
 
-Execution routes require `X-API-Key: <google_api_key>`. Authentication is optional — guest users can run projects without signing in (history and session memory are skipped for guests):
+Execution routes require `X-API-Key` (provider-appropriate). Authentication is optional — guest users can run projects without signing in (history and session memory are skipped for guests):
 
 ```bash
+# Default (Gemini)
 curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
   -H "Authorization: Bearer <jwt>" \
   -H "X-API-Key: <google_api_key>" \
+  -H "Content-Type: application/json" \
+  -d '{"input":"top customers by revenue"}'
+
+# OpenAI
+curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
+  -H "Authorization: Bearer <jwt>" \
+  -H "X-API-Key: <openai_api_key>" \
+  -H "X-LLM-Provider: openai" \
+  -H "X-LLM-Model: gpt-5.4" \
+  -H "Content-Type: application/json" \
+  -d '{"input":"top customers by revenue"}'
+
+# Ollama (local, no API key)
+curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
+  -H "Authorization: Bearer <jwt>" \
+  -H "X-LLM-Provider: ollama" \
+  -H "X-LLM-Model: llama3" \
   -H "Content-Type: application/json" \
   -d '{"input":"top customers by revenue"}'
 ```
@@ -542,7 +672,7 @@ Response:
 
 ```bash
 curl -N -G "http://localhost:8000/stream/genai-research-system" \
-  -H "X-API-Key: <google_api_key>" \
+  -H "X-API-Key: <api_key>" \
   --data-urlencode "token=<jwt>" \
   --data-urlencode "input=Compare transformer architectures for code generation"
 ```
@@ -569,7 +699,7 @@ Pass a `session_id` from a prior response to inject the last 4 memory entries as
 ```bash
 curl -X POST http://localhost:8000/genai-research-system/run \
   -H "Authorization: Bearer <jwt>" \
-  -H "X-API-Key: <google_api_key>" \
+  -H "X-API-Key: <api_key>" \
   -H "Content-Type: application/json" \
   -d '{"input":"Now focus only on evaluation benchmarks","session_id":12}'
 ```
@@ -580,7 +710,7 @@ curl -X POST http://localhost:8000/genai-research-system/run \
 # Generate a structured explanation from stored artifacts
 curl -X POST http://localhost:8000/explain/42 \
   -H "Authorization: Bearer <jwt>" \
-  -H "X-API-Key: <google_api_key>" \
+  -H "X-API-Key: <api_key>" \
   -H "Content-Type: application/json" \
   -d '{}'
 
@@ -611,6 +741,7 @@ The Next.js frontend at `http://localhost:3000` provides:
 | Route | Feature |
 |---|---|
 | `/playground` | Live execution: streaming pipeline graphs, real-time memory panel, timeline replay, session continuity, run history, public sharing, explainability |
+| `/projects` | Project gallery: browse all 20 systems with metadata, architecture info, and demo links |
 | `/projects/[slug]` | Per-project details: architecture, pipeline graph, example input/output, interactive demo |
 | `/metrics` | Time-series charts for latency, confidence, and success rate (hour/day/week) |
 | `/compare` | Side-by-side comparison of two project runs |
@@ -636,7 +767,7 @@ The runner discovers the project automatically on next startup — no registrati
 
 ### CI/CD
 
-GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests. The pipeline uses three parallel jobs with dependency caching and concurrency grouping (in-flight runs for the same ref are cancelled automatically).
+GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests. The pipeline uses four jobs with dependency caching and concurrency grouping (in-flight runs for the same ref are cancelled automatically).
 
 | Job | What it does |
 |---|---|
@@ -660,7 +791,9 @@ Backend platform tests cover: API contracts (guest execution, streaming, BYOK, s
 
 | Method | Path | Auth | Description |
 |---|---|---|---|
+| `GET` | `/` | — | Root endpoint returning service metadata |
 | `GET` | `/health` | — | Health check |
+| `GET` | `/llm/catalog` | — | Available LLM providers, models, and connection status |
 | `GET` | `/projects` | — | List all auto-discovered projects |
 | `GET` | `/auth/config` | — | Expose frontend auth capabilities such as public signup availability |
 | `POST` | `/auth/signup` | — | Create account when public signup is enabled; returns JWT + user and sets browser session cookie |
@@ -672,6 +805,7 @@ Backend platform tests cover: API contracts (guest execution, streaming, BYOK, s
 | `GET` | `/metrics` | — | Durable aggregate execution metrics |
 | `GET` | `/metrics/time` | — | Durable time-series execution metrics (`?project=&range=hour\|day\|week`) |
 | `GET` | `/history` | JWT or session cookie | Authenticated user's run history |
+| `GET` | `/run/{run_id}` | JWT or session cookie | Single run detail |
 | `GET` | `/session/{id}` | JWT or session cookie | Session memory preview (last 5 entries) |
 | `POST` | `/session/{id}/clear` | JWT or session cookie | Clear session memory |
 | `POST` | `/explain/{run_id}` | JWT or session cookie + API key | Generate structured run explanation |
@@ -680,7 +814,7 @@ Backend platform tests cover: API contracts (guest execution, streaming, BYOK, s
 | `GET` | `/shared/{token}` | — | View a public shared run |
 | `POST` | `/eval/{project}` | API key | Run benchmark suite for a project |
 
-Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key`. Authentication via JWT is optional for `run` and `stream` — unauthenticated (guest) requests skip history and session memory.
+Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key` (except Ollama). Authentication via JWT is optional for `run` and `stream` — unauthenticated (guest) requests skip history and session memory.
 
 ---
 
@@ -690,20 +824,18 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key`. Authe
 
 | Area | Limitation |
 |---|---|
-| `requirements.txt` | Includes the shared API runtime plus the framework packages imported by the in-scope projects |
-| API base URL | Defaults to `http://localhost:8000`, but can now be overridden with `NEXT_PUBLIC_API_BASE_URL` |
+| `requirements.txt` | Includes the full framework set for local/Docker use; `pyproject.toml` is the slim manifest for serverless deployment |
+| API base URL | Defaults to `http://localhost:8000`; override with `NEXT_PUBLIC_API_BASE_URL` for deployed frontends |
 | Rate limiting | Abuse control is in-memory and process-local; use an upstream proxy or WAF for multi-instance enforcement |
 | CI coverage | CI still validates only a subset of runnable projects directly |
-| CrewAI benchmarks | No benchmark datasets registered for any of the 5 CrewAI projects |
 | Persistence | SQLite remains the default for local and demo use; deployed environments should set `GENAI_SYSTEMS_LAB_DATABASE_URL`. Schema changes are applied via idempotent `ALTER TABLE` guards in `db.py`; adopt Alembic if the schema grows beyond single-column additions. |
-| BYOK only | `GOOGLE_API_KEY` in `.env` is not used at runtime; all LLM execution paths require the `X-API-Key` header. |
+| BYOK | All LLM calls require per-request API key headers; Ollama is the exception (local, no key). No server-side key storage. |
 
 ### Planned improvements
 
 - ~~Generate the public project catalog from a shared source.~~ Done — `portfolio/src/data/project-catalog.json` is the single source of truth, read by both the Python backend and the Next.js frontend.
-- Implement `lg-research-agent` and register benchmarks for it.
+- ~~Multi-provider BYOK support.~~ Done — Gemini, OpenAI, Anthropic, and Ollama are all supported via `X-API-Key` / `X-LLM-Provider` / `X-LLM-Model` headers.
 - Expand CI to cover all project modules and shared platform paths.
-- Add benchmark datasets for all 5 CrewAI projects.
 - Adopt Alembic for schema migrations if the data model expands beyond the current column-level additions.
 
 ---
@@ -716,7 +848,7 @@ GenAI Systems Lab is a **portfolio-optimized showcase** — it prioritizes demo 
 |---|---|
 | **Runtime** | Single shared FastAPI process discovers all 20 projects automatically; no per-project deployment overhead |
 | **Auth** | HS256 JWT + HttpOnly cookies — simple, auditable, sufficient for single-operator use |
-| **BYOK** | All LLM calls require a per-request API key; no server-side key storage |
+| **BYOK** | All LLM calls require a per-request API key via headers; multi-provider dispatch routes to Gemini, OpenAI, Anthropic, or Ollama |
 | **Persistence** | SQLite by default for zero-config local demos; `GENAI_SYSTEMS_LAB_DATABASE_URL` for deployed environments |
 | **Frontend** | One Next.js app with playground, metrics, compare, and per-project pages |
 | **Testing** | Contract-level API tests plus per-project smoke tests; catalog integrity tests guard the shared manifest |

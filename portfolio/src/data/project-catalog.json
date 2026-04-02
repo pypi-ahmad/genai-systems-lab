@@ -54,6 +54,10 @@
           "label": "Editor"
         },
         {
+          "id": "originality_checker",
+          "label": "Originality Checker"
+        },
+        {
           "id": "formatter",
           "label": "Formatter"
         }
@@ -83,6 +87,10 @@
         },
         {
           "from": "editor",
+          "to": "originality_checker"
+        },
+        {
+          "from": "originality_checker",
           "to": "formatter"
         }
       ]
@@ -117,6 +125,10 @@
     "graph": {
       "nodes": [
         {
+          "id": "planner",
+          "label": "Planner"
+        },
+        {
           "id": "schema",
           "label": "Schema Loader"
         },
@@ -138,6 +150,10 @@
         }
       ],
       "edges": [
+        {
+          "from": "planner",
+          "to": "schema"
+        },
         {
           "from": "schema",
           "to": "generator"
@@ -384,12 +400,12 @@
           "label": "Indexer"
         },
         {
-          "id": "store",
-          "label": "Vector Store"
-        },
-        {
           "id": "retriever",
           "label": "Retriever"
+        },
+        {
+          "id": "store",
+          "label": "Context Store"
         },
         {
           "id": "generator",
@@ -399,14 +415,14 @@
       "edges": [
         {
           "from": "indexer",
-          "to": "store"
-        },
-        {
-          "from": "store",
           "to": "retriever"
         },
         {
           "from": "retriever",
+          "to": "store"
+        },
+        {
+          "from": "store",
           "to": "generator"
         }
       ]
@@ -689,7 +705,7 @@
     "name": "Data Analysis Agent",
     "slug": "lg-data-agent",
     "category": "LangGraph",
-    "description": "Plans tabular operations, executes them deterministically, interprets results, and loops through evaluation until the analysis is sufficient.",
+    "description": "Plans tabular operations, routes to pandas or DuckDB execution, analyzes results, and loops through evaluation until the analysis is sufficient.",
     "tags": [
       "Data",
       "Tabular",
@@ -697,14 +713,14 @@
     ],
     "highlights": [
       "Structured data reasoning with retries",
-      "Deterministic tabular execution",
+      "Dual execution engine (pandas and DuckDB)",
       "Evaluator-gated iteration"
     ],
-    "architecture": "A LangGraph state machine connects Planner → Executor → Interpreter → Evaluator nodes. The Planner selects tabular operations (filter, group, aggregate). The Executor runs them deterministically. The Interpreter generates an explanation. The Evaluator decides whether the analysis is sufficient or triggers another iteration.",
+    "architecture": "A LangGraph state machine connects Planner → Executor / DuckDB Executor → Analyzer → Evaluator nodes. The Planner selects the execution engine and operations. The chosen executor runs them deterministically. The Analyzer generates an explanation. The Evaluator decides whether the analysis is sufficient or triggers another iteration.",
     "features": [
       "Structured operation planning over tabular data",
-      "Deterministic pandas-based execution",
-      "LLM-powered result interpretation",
+      "Dual execution: pandas or DuckDB based on planner decision",
+      "LLM-powered result analysis",
       "Evaluator-gated iteration loop",
       "Controlled retry budget"
     ],
@@ -719,11 +735,15 @@
         },
         {
           "id": "executor",
-          "label": "Executor"
+          "label": "Pandas Executor"
         },
         {
-          "id": "interpreter",
-          "label": "Interpreter"
+          "id": "duckdb_executor",
+          "label": "DuckDB Executor"
+        },
+        {
+          "id": "analyzer",
+          "label": "Analyzer"
         },
         {
           "id": "evaluator",
@@ -733,14 +753,24 @@
       "edges": [
         {
           "from": "planner",
-          "to": "executor"
+          "to": "executor",
+          "label": "pandas"
+        },
+        {
+          "from": "planner",
+          "to": "duckdb_executor",
+          "label": "duckdb"
         },
         {
           "from": "executor",
-          "to": "interpreter"
+          "to": "analyzer"
         },
         {
-          "from": "interpreter",
+          "from": "duckdb_executor",
+          "to": "analyzer"
+        },
+        {
+          "from": "analyzer",
           "to": "evaluator"
         },
         {
@@ -766,13 +796,14 @@
       "Bounded retry budget",
       "Sandbox-based test execution"
     ],
-    "architecture": "The LangGraph loop connects Analyzer → Fixer → Tester → Evaluator. The Analyzer identifies the root cause. The Fixer generates a patch. The Tester runs validation in a sandboxed environment. The Evaluator checks pass/fail and routes back to the Fixer or exits. A bounded retry budget prevents infinite loops.",
+    "architecture": "The LangGraph loop connects Analyzer → Fixer → Test Generator → Tester → Evaluator. The Analyzer identifies the root cause. The Fixer generates a patch. The Test Generator produces test cases. The Tester runs them in a sandboxed environment. The Evaluator checks pass/fail and routes back to the Fixer or exits. A bounded retry budget prevents infinite loops.",
     "features": [
       "Automated root cause analysis",
       "LLM-generated code patches",
+      "Test case generation",
       "Sandbox test execution",
       "Evaluator-controlled fix loop",
-      "Bounded retry budget (max 3 attempts)"
+      "Bounded retry budget (max iterations)"
     ],
     "exampleInput": "{\"input\": \"Function crashes on empty input and should return an empty list\"}",
     "exampleOutput": "{\"fixed\": true, \"patch\": \"def process(items):\\n    if not items:\\n        return []\\n    ...\", \"attempts\": 2, \"tests_passed\": 4}",
@@ -786,6 +817,10 @@
         {
           "id": "fixer",
           "label": "Fixer"
+        },
+        {
+          "id": "test_generator",
+          "label": "Test Generator"
         },
         {
           "id": "tester",
@@ -803,6 +838,10 @@
         },
         {
           "from": "fixer",
+          "to": "test_generator"
+        },
+        {
+          "from": "test_generator",
           "to": "tester"
         },
         {
@@ -821,24 +860,24 @@
     "name": "Research Agent",
     "slug": "lg-research-agent",
     "category": "LangGraph",
-    "description": "A graph-based research scaffold for expanding planning, retrieval, and reporting logic into a full iterative research workflow.",
+    "description": "Plans research sub-tasks, gathers findings per task, critiques the results, and produces a synthesized report.",
     "tags": [
       "Research",
-      "Scaffold",
+      "Multi-Agent",
       "Planning"
     ],
     "highlights": [
-      "Extensible graph-based architecture",
-      "Planning and retrieval node structure",
-      "Designed for iterative expansion"
+      "Task decomposition and planning",
+      "Critic-driven quality feedback",
+      "Synthesized research output"
     ],
-    "architecture": "A minimal LangGraph scaffold with Planner → Retriever → Reporter nodes. The Planner decomposes the query into sub-tasks. The Retriever gathers information per task. The Reporter synthesizes findings. The architecture is designed to slot in additional nodes (critic, reviser) as the workflow matures.",
+    "architecture": "A LangGraph workflow with Planner → Researcher → Critic → Writer nodes. The Planner decomposes the query into sub-tasks. The Researcher gathers information per task. The Critic reviews the findings and provides feedback. The Writer synthesizes everything into a coherent research report.",
     "features": [
       "Query decomposition into research sub-tasks",
       "Per-task information retrieval",
+      "Critic-driven quality feedback loop",
       "Finding synthesis and report generation",
-      "Extensible node architecture for future expansion",
-      "Clean separation between planning and execution"
+      "Clean separation between planning, research, and writing"
     ],
     "exampleInput": "{\"input\": \"Survey recent advances in mixture-of-experts models\"}",
     "exampleOutput": "{\"plan\": [\"MoE architectures\", \"routing strategies\", \"scaling results\"], \"report\": \"## Survey\\nMixture-of-experts models have evolved...\", \"sources\": 5}",
@@ -850,22 +889,30 @@
           "label": "Planner"
         },
         {
-          "id": "retriever",
-          "label": "Retriever"
+          "id": "researcher",
+          "label": "Researcher"
         },
         {
-          "id": "reporter",
-          "label": "Reporter"
+          "id": "critic",
+          "label": "Critic"
+        },
+        {
+          "id": "writer",
+          "label": "Writer"
         }
       ],
       "edges": [
         {
           "from": "planner",
-          "to": "retriever"
+          "to": "researcher"
         },
         {
-          "from": "retriever",
-          "to": "reporter"
+          "from": "researcher",
+          "to": "critic"
+        },
+        {
+          "from": "critic",
+          "to": "writer"
         }
       ]
     }
@@ -874,7 +921,7 @@
     "name": "Support Agent",
     "slug": "lg-support-agent",
     "category": "LangGraph",
-    "description": "Classifies inbound requests, retrieves relevant context, generates a response, and decides whether to escalate.",
+    "description": "Classifies inbound requests, retrieves relevant context, generates a response, evaluates quality, and conditionally escalates.",
     "tags": [
       "Support",
       "Classification",
@@ -883,14 +930,14 @@
     "highlights": [
       "Intent classification node",
       "Context-aware response generation",
-      "Escalation routing logic"
+      "Quality evaluation and escalation routing"
     ],
-    "architecture": "The LangGraph flow runs Classifier → Retriever → Responder → Escalation Router. The Classifier identifies intent and urgency. The Retriever pulls relevant knowledge-base articles. The Responder drafts a reply. The Router decides if the case needs human escalation based on confidence and complexity thresholds.",
+    "architecture": "The LangGraph flow runs Classifier → Retriever → Responder → Evaluator → Escalation. The Classifier identifies intent and urgency. The Retriever pulls relevant knowledge-base articles. The Responder drafts a reply. The Evaluator assesses quality. The Escalation node routes cases needing human review based on the evaluator's assessment.",
     "features": [
       "Intent and urgency classification",
       "Knowledge-base article retrieval",
       "Context-grounded response generation",
-      "Confidence-based escalation routing",
+      "Quality evaluation with escalation routing",
       "Structured case metadata output"
     ],
     "exampleInput": "{\"input\": \"My API key stopped working after I rotated it yesterday\"}",
@@ -911,8 +958,12 @@
           "label": "Responder"
         },
         {
-          "id": "router",
-          "label": "Escalation Router"
+          "id": "evaluator",
+          "label": "Evaluator"
+        },
+        {
+          "id": "escalation",
+          "label": "Escalation"
         }
       ],
       "edges": [
@@ -926,7 +977,12 @@
         },
         {
           "from": "responder",
-          "to": "router"
+          "to": "evaluator"
+        },
+        {
+          "from": "evaluator",
+          "to": "escalation",
+          "label": "escalate"
         }
       ]
     }
@@ -935,7 +991,7 @@
     "name": "Workflow Agent",
     "slug": "lg-workflow-agent",
     "category": "LangGraph",
-    "description": "Plans multi-step tasks, executes with checkpoints, validates intermediate progress, and supports controlled continuation across steps.",
+    "description": "Plans multi-step tasks, executes with checkpoints, validates intermediate progress, and produces a final summary.",
     "tags": [
       "Workflow",
       "Checkpoints",
@@ -943,16 +999,16 @@
     ],
     "highlights": [
       "Checkpoint-aware execution",
-      "Resume support for interrupted runs",
-      "Step-level validation"
+      "Step-level validation",
+      "Final summary generation"
     ],
-    "architecture": "A stateful LangGraph workflow connects Planner → Executor → Validator → Checkpoint Manager. The Planner breaks the task into ordered steps. The Executor runs each step with state updates. The Validator checks progress per step. The Checkpoint Manager persists state so interrupted runs can resume from the last successful step.",
+    "architecture": "A stateful LangGraph workflow connects Planner → Executor → Validator → Checkpoint → Finalizer. The Planner breaks the task into ordered steps. The Executor runs each step with state updates. The Validator checks progress per step. The Checkpoint persists state and routes back to the Executor if incomplete, or forward to the Finalizer to produce a summary.",
     "features": [
       "Multi-step task decomposition",
       "Checkpoint persistence for durability",
       "Step-level validation and progress tracking",
-      "Resume from last successful checkpoint",
-      "Configurable step timeout and retry policy"
+      "Conditional looping back to executor",
+      "Final summary generation via finalizer node"
     ],
     "exampleInput": "{\"input\": \"Run a multi-step onboarding workflow for a new enterprise customer\"}",
     "exampleOutput": "{\"steps_completed\": 5, \"steps_total\": 5, \"status\": \"completed\", \"checkpoints\": [\"account_created\", \"team_invited\", \"integrations_configured\", \"training_scheduled\", \"handoff_complete\"]}",
@@ -973,7 +1029,11 @@
         },
         {
           "id": "checkpoint",
-          "label": "Checkpoint Mgr"
+          "label": "Checkpoint"
+        },
+        {
+          "id": "finalizer",
+          "label": "Finalizer"
         }
       ],
       "edges": [
@@ -993,6 +1053,11 @@
           "from": "checkpoint",
           "to": "executor",
           "label": "next step"
+        },
+        {
+          "from": "checkpoint",
+          "to": "finalizer",
+          "label": "complete"
         }
       ]
     }
