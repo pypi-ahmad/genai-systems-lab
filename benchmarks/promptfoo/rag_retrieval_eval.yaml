@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────────
+# Promptfoo – RAG retrieval evaluation
+# Tests the retrieval stage of the repo's codebase copilot on real source files
+# Run: npx promptfoo@latest eval -c benchmarks/promptfoo/rag_retrieval_eval.yaml
+# ─────────────────────────────────────────────────────────────
+
+description: "GenAI Systems Lab – Codebase retrieval evaluation"
+
+providers:
+  - id: "file://providers/code_copilot_retrieval_provider.py"
+    label: "Code Copilot Retrieval"
+    config:
+      codebase_path: shared
+
+prompts:
+  - "{{query}}"
+
+defaultTest:
+  assert:
+    - type: javascript
+      value: "typeof output === 'string' && output.trim().length > 150"
+    - type: latency
+      threshold: 120000
+
+tests:
+  - description: "Retrieve auth cookie implementation"
+    vars:
+      query: "How does the shared API configure the authentication cookie?"
+      codebase_path: shared
+    assert:
+      - type: contains-all
+        value: ["shared/api/app.py", "set_cookie", "httponly", "samesite"]
+
+  - description: "Retrieve request model override implementation"
+    vars:
+      query: "How are request-scoped model overrides stored and resolved?"
+      codebase_path: shared
+    assert:
+      - type: contains-all
+        value: ["shared/config.py", "ContextVar", "_REQUEST_MODEL", "_REQUEST_PROVIDER"]
+
+  - description: "Retrieve project import isolation logic"
+    vars:
+      query: "How does the project runner avoid leaking app imports between projects?"
+      codebase_path: shared
+    assert:
+      - type: contains-all
+        value: ["shared/api/runner.py", "_clear_project_imports", "app.", "sys.modules"]

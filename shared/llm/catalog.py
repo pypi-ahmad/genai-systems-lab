@@ -106,6 +106,13 @@ def infer_provider(model: str | None) -> ProviderId:
     static_match = STATIC_MODEL_SPECS.get(model_name)
     if static_match is not None:
         return cast(ProviderId, static_match["provider"])
+    lowered = model_name.lower()
+    if lowered.startswith("gemini"):
+        return "gemini"
+    if lowered.startswith("gpt") or lowered.startswith("o1") or lowered.startswith("o3"):
+        return "openai"
+    if lowered.startswith("claude"):
+        return "anthropic"
     return "ollama"
 
 

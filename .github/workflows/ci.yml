@@ -71,6 +71,55 @@ jobs:
           module.run_project_eval_with_api_key(os.environ["GOOGLE_API_KEY"])
           PY
 
+  # ── Promptfoo offline evals ───────────────────────────
+  promptfoo-eval:
+    name: Promptfoo offline evals
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' || github.event_name == 'pull_request' }}
+    env:
+      GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+      OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Node.js 22
+        uses: actions/setup-node@v6
+        with:
+          node-version: "22"
+
+      - name: Set up Python 3.13
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run promptfoo model comparison
+        if: ${{ env.GOOGLE_API_KEY != '' && env.OPENAI_API_KEY != '' && env.ANTHROPIC_API_KEY != '' }}
+        working-directory: benchmarks/promptfoo
+        run: npx promptfoo@latest eval --no-cache
+
+      - name: Run promptfoo agent evaluation
+        if: ${{ env.GOOGLE_API_KEY != '' && env.OPENAI_API_KEY != '' && env.ANTHROPIC_API_KEY != '' }}
+        working-directory: benchmarks/promptfoo
+        run: npx promptfoo@latest eval -c agent_eval.yaml --no-cache
+
+      - name: Run promptfoo RAG retrieval evaluation
+        if: ${{ env.GOOGLE_API_KEY != '' }}
+        working-directory: benchmarks/promptfoo
+        run: npx promptfoo@latest eval -c rag_retrieval_eval.yaml --no-cache
+
+      - name: Run promptfoo RAG evaluation
+        if: ${{ env.GOOGLE_API_KEY != '' && env.OPENAI_API_KEY != '' && env.ANTHROPIC_API_KEY != '' }}
+        working-directory: benchmarks/promptfoo
+        run: npx promptfoo@latest eval -c rag_eval.yaml --no-cache
+
   # ── Standalone project ────────────────────────────────
   backend-standalone-analyst:
     name: Standalone analyst tests

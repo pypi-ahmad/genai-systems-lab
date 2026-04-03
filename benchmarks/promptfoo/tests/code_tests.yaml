@@ -1,0 +1,50 @@
+# ── Code generation test cases ──────────────────────────────
+- vars:
+    task: "implement a binary search function"
+    language: "Python"
+  assert:
+    - type: contains
+      value: "def "
+    - type: python
+      value: |
+        def get_assert(output, context):
+            has_function = "def " in output
+            has_return = "return" in output
+            return has_function and has_return
+    - type: llm-rubric
+      value: "The code correctly implements binary search with proper edge case handling"
+
+- vars:
+    task: "create a REST API endpoint that accepts JSON and validates input"
+    language: "Python"
+  assert:
+    - type: contains-any
+      value:
+        - "fastapi"
+        - "flask"
+        - "django"
+        - "def "
+    - type: llm-rubric
+      value: "The code includes input validation and proper HTTP status codes"
+
+- vars:
+    task: "implement a simple LRU cache class"
+    language: "Python"
+  assert:
+    - type: contains
+      value: "class "
+    - type: llm-rubric
+      value: "The implementation correctly handles cache eviction when capacity is reached"
+
+- vars:
+    task: "write a function to parse and validate email addresses"
+    language: "Python"
+  assert:
+    - type: contains-any
+      value:
+        - "re."
+        - "regex"
+        - "@"
+        - "email"
+    - type: llm-rubric
+      value: "The code handles common email format edge cases"

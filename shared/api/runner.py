@@ -12,6 +12,7 @@ from functools import lru_cache
 from pathlib import Path
 
 from shared.logging import get_logger, reset_log_context, set_log_context
+from shared.observability.langfuse import score_trace, trace_context, flush as langfuse_flush
 from shared.project_catalog import load_project_catalog, project_api_name
 from .step_events import StepEmitter, bind_step_emitter, reset_step_emitter
 
@@ -72,6 +73,7 @@ class RunResult:
     output: str
     exit_code: int
     elapsed_ms: float
+    trace_id: str | None = None
 
 
 def _clear_project_imports() -> None:
@@ -144,45 +146,69 @@ def run_project(project: str, user_input: str, *, api_key: str, step_emitter: St
     tokens = set_log_context(project_name=resolved_project)
     emitter_token = bind_step_emitter(step_emitter)
 
+    trace = None
+    trace_id: str | None = None
+
     LOGGER.info("project run started", extra={"project_name": resolved_project})
 
     try:
-        mod = _load_main(resolved_project)
-        if mod is None:
-            raise ValueError(f"Project '{project}' not found or has no app/main.py")
+        with trace_context(
+            name=f"project-run:{resolved_project}",
+            input={"project": resolved_project, "user_input": user_input[:500]},
+            metadata={"project": resolved_project},
+            tags=[resolved_project],
+        ) as active_trace:
+            trace = active_trace
+            trace_id = getattr(active_trace, "trace_id", None)
 
-        run_fn = getattr(mod, "run", None)
-        if run_fn is None:
-            raise ValueError(f"{resolved_project}/app/main.py has no run() function")
+            mod = _load_main(resolved_project)
+            if mod is None:
+                raise ValueError(f"Project '{project}' not found or has no app/main.py")
 
-        start = time.perf_counter()
-        run_signature = inspect.signature(run_fn)
-        kwargs = {"api_key": api_key}
-        if "step_emitter" in run_signature.parameters:
-            kwargs["step_emitter"] = step_emitter
-        result_dict = run_fn(user_input, **kwargs)
-        elapsed_ms = (time.perf_counter() - start) * 1000
+            run_fn = getattr(mod, "run", None)
+            if run_fn is None:
+                raise ValueError(f"{resolved_project}/app/main.py has no run() function")
 
-        if not isinstance(result_dict, dict):
-            result_dict = {"output": result_dict}
+            start = time.perf_counter()
+            run_signature = inspect.signature(run_fn)
+            kwargs = {"api_key": api_key}
+            if "step_emitter" in run_signature.parameters:
+                kwargs["step_emitter"] = step_emitter
+            result_dict = run_fn(user_input, **kwargs)
+            elapsed_ms = (time.perf_counter() - start) * 1000
 
-        output = json.dumps(result_dict, default=str)
+            if not isinstance(result_dict, dict):
+                result_dict = {"output": result_dict}
 
-        LOGGER.info(
-            "project run finished",
-            extra={
-                "project_name": resolved_project,
-                "latency_ms": f"{elapsed_ms:.2f}",
-                "error": "-",
-            },
-        )
+            output = json.dumps(result_dict, default=str)
 
-        return RunResult(
-            project=resolved_project,
-            output=output,
-            exit_code=0,
-            elapsed_ms=round(elapsed_ms, 2),
-        )
+            LOGGER.info(
+                "project run finished",
+                extra={
+                    "project_name": resolved_project,
+                    "latency_ms": f"{elapsed_ms:.2f}",
+                    "error": "-",
+                },
+            )
+
+            if trace is not None:
+                try:
+                    trace.update(
+                        output=result_dict,
+                        metadata={"latency_ms": round(elapsed_ms, 2), "success": True},
+                    )
+                    score_trace(trace=trace, name="success", value=1.0)
+                    score_trace(trace=trace, name="latency_ms", value=round(elapsed_ms, 2))
+                except Exception:
+                    pass
+
+            return RunResult(
+                project=resolved_project,
+                output=output,
+                exit_code=0,
+                elapsed_ms=round(elapsed_ms, 2),
+                trace_id=trace_id,
+            )
     except ModuleNotFoundError as exc:
         unavailable_error = _optional_dependency_error(exc)
         if unavailable_error is None:
@@ -190,18 +216,25 @@ def run_project(project: str, user_input: str, *, api_key: str, step_emitter: St
                 "project run failed",
                 extra={"project_name": resolved_project, "error": str(exc)},
             )
+            if trace is not None:
+                score_trace(trace=trace, name="success", value=0.0)
             raise
         LOGGER.warning(
             "project unavailable in deployment",
             extra={"project_name": resolved_project, "error": str(unavailable_error)},
         )
+        if trace is not None:
+            score_trace(trace=trace, name="success", value=0.0)
         raise unavailable_error from exc
     except Exception as exc:
         LOGGER.exception(
             "project run failed",
             extra={"project_name": resolved_project, "error": str(exc)},
         )
+        if trace is not None:
+            score_trace(trace=trace, name="success", value=0.0)
         raise
     finally:
+        langfuse_flush()
         reset_step_emitter(emitter_token)
         reset_log_context(tokens)

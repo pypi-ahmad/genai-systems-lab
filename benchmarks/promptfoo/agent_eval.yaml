@@ -1,0 +1,93 @@
+# ─────────────────────────────────────────────────────────────
+# Promptfoo – Agent workflow evaluation
+# Tests real repo workflows and compares model families on the same pipelines
+# Run: npx promptfoo@latest eval -c benchmarks/promptfoo/agent_eval.yaml
+# ─────────────────────────────────────────────────────────────
+
+description: "GenAI Systems Lab – Agent workflow evaluation"
+
+providers:
+  - id: "file://providers/project_provider.py"
+    label: "Financial Analyst | Gemini 3.1 Pro"
+    transform: output.text
+    config:
+      project: genai-financial-analyst
+      provider: gemini
+      model: gemini-3.1-pro-preview
+
+  - id: "file://providers/project_provider.py"
+    label: "Financial Analyst | GPT-4.1 Mini"
+    transform: output.text
+    config:
+      project: genai-financial-analyst
+      provider: openai
+      model: gpt-4.1-mini
+
+  - id: "file://providers/project_provider.py"
+    label: "Financial Analyst | Claude Sonnet"
+    transform: output.text
+    config:
+      project: genai-financial-analyst
+      provider: anthropic
+      model: claude-sonnet-4-20250514
+
+  - id: "file://providers/project_provider.py"
+    label: "Workflow Agent | Gemini 3.1 Pro"
+    transform: output.text
+    config:
+      project: lg-workflow-agent
+      provider: gemini
+      model: gemini-3.1-pro-preview
+
+  - id: "file://providers/project_provider.py"
+    label: "Workflow Agent | GPT-4.1 Mini"
+    transform: output.text
+    config:
+      project: lg-workflow-agent
+      provider: openai
+      model: gpt-4.1-mini
+
+  - id: "file://providers/project_provider.py"
+    label: "Workflow Agent | Claude Sonnet"
+    transform: output.text
+    config:
+      project: lg-workflow-agent
+      provider: anthropic
+      model: claude-sonnet-4-20250514
+
+prompts:
+  - "{{input}}"
+
+defaultTest:
+  assert:
+    - type: latency
+      threshold: 120000
+    - type: javascript
+      value: "typeof output === 'string' && output.trim().length > 80"
+
+tests:
+  - description: "Financial analyst trend report"
+    providers:
+      - "Financial Analyst | Gemini 3.1 Pro"
+      - "Financial Analyst | GPT-4.1 Mini"
+      - "Financial Analyst | Claude Sonnet"
+    vars:
+      input: "genai-financial-analyst/data/fintech_saas_financials.csv --forecast 3"
+    assert:
+      - type: contains-any
+        value: ["revenue", "ARR", "forecast", "churn"]
+      - type: llm-rubric
+        value: "The response identifies meaningful business trends from the provided SaaS metrics and is not just a generic market summary."
+
+  - description: "Workflow agent rollout plan"
+    providers:
+      - "Workflow Agent | Gemini 3.1 Pro"
+      - "Workflow Agent | GPT-4.1 Mini"
+      - "Workflow Agent | Claude Sonnet"
+    vars:
+      input: "Prepare a three-step rollout plan for a new internal API gateway deployment."
+    assert:
+      - type: contains-any
+        value: ["deployment", "rollout", "API", "gateway", "plan"]
+      - type: llm-rubric
+        value: "The response provides a concrete multi-step workflow plan with clear sequencing instead of a vague one-paragraph answer."

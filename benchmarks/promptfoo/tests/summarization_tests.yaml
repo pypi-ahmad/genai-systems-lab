@@ -1,0 +1,62 @@
+# ── Summarization test cases ────────────────────────────────
+- vars:
+    length: "25%"
+    text: >
+      Artificial intelligence has rapidly transformed numerous industries
+      over the past decade. In healthcare, AI algorithms now assist with
+      medical imaging analysis, drug discovery, and patient outcome
+      prediction. The financial sector uses machine learning for fraud
+      detection, algorithmic trading, and credit scoring. Manufacturing
+      has embraced AI through predictive maintenance and quality control
+      automation. Education is being reshaped by adaptive learning platforms
+      and intelligent tutoring systems. Despite these advances, challenges
+      remain around data privacy, algorithmic bias, and the need for
+      explainable AI systems that humans can trust and oversee.
+  assert:
+    - type: javascript
+      value: "output.length < context.vars.text.length"
+    - type: llm-rubric
+      value: "The summary preserves key industries mentioned (healthcare, finance, manufacturing, education) and the challenges"
+
+- vars:
+    length: "30%"
+    text: >
+      The global semiconductor shortage that began in 2020 exposed critical
+      vulnerabilities in technology supply chains. Major automakers were
+      forced to halt production lines, consumer electronics faced delays,
+      and prices for computing hardware surged. Governments responded with
+      massive investment programs: the US CHIPS Act allocated $52 billion,
+      the EU announced a similar European Chips Act, and Asian governments
+      expanded existing incentives for domestic chip production. Industry
+      analysts project that new fabrication facilities coming online between
+      2024 and 2027 will gradually ease supply constraints, though
+      geopolitical tensions between major chip-producing nations continue
+      to pose risks to global supply stability.
+  assert:
+    - type: contains-any
+      value:
+        - "semiconductor"
+        - "chip"
+        - "supply chain"
+    - type: llm-rubric
+      value: "The summary captures the cause, impact, and government response to the semiconductor shortage"
+
+- vars:
+    length: "20%"
+    text: >
+      Quantum computing represents a fundamentally different approach to
+      computation compared to classical computers. While classical computers
+      use bits that exist as either 0 or 1, quantum computers leverage
+      qubits that can exist in superposition states. This enables quantum
+      computers to process certain types of problems exponentially faster,
+      particularly in areas like cryptography, molecular simulation, and
+      optimization problems. However, current quantum computers face
+      significant challenges including qubit decoherence, error rates,
+      and the need for extremely low operating temperatures. Leading
+      companies including IBM, Google, and startups like IonQ are racing
+      to achieve quantum advantage for practical applications.
+  assert:
+    - type: javascript
+      value: "output.length < context.vars.text.length * 0.5"
+    - type: llm-rubric
+      value: "The summary accurately explains what makes quantum computing different and its current challenges"

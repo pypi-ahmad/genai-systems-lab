@@ -43,6 +43,7 @@ from shared.llm import GeminiGenerationError, GeminiTimeoutError
 from shared.llm.catalog import build_provider_catalog, get_model_spec, infer_provider, provider_requires_api_key
 from shared.logging import get_logger, new_request_id, reset_log_context, set_log_context, setup_otel, shutdown_otel
 from shared.logging.otel import span as otel_span
+from shared.observability.langfuse import score_trace as score_langfuse_trace
 from shared.project_catalog import build_pipeline_nodes_index, list_project_manifest_entries
 from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, LLMCatalogResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
 
@@ -234,6 +235,18 @@ def _record_operational_metric(
             "failed to persist operational metric",
             extra={"project_name": project, "error": str(exc)},
         )
+
+
+def _score_langfuse_confidence(trace_id: str | None, confidence: float) -> None:
+    if not trace_id:
+        return
+
+    score_langfuse_trace(
+        trace_id=trace_id,
+        name="confidence",
+        value=round(confidence, 4),
+        comment="Heuristic run confidence from API post-processing.",
+    )
 
 
 def _snapshot_persisted_metrics(session: Session) -> MetricsResponse:
@@ -1157,6 +1170,7 @@ def create_app(
                 latency_ms=result.elapsed_ms,
                 timeline_entries=timeline_entries,
             )
+            _score_langfuse_confidence(result.trace_id, confidence)
         except ProjectUnavailableError as exc:
             logger.warning("project unavailable", extra={"project_name": project_name, "error": str(exc)})
             raise HTTPException(status_code=503, detail=str(exc)) from exc
@@ -1496,6 +1510,7 @@ def create_app(
                     latency_ms=result.elapsed_ms,
                     timeline_entries=timeline_entries,
                 )
+                _score_langfuse_confidence(result.trace_id, confidence)
 
                 session_payload = {"id": None, "memory": []}
                 if current_user is not None and run_session is not None:

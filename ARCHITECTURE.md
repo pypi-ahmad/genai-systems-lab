@@ -80,3 +80,38 @@ The platform stores runs, metrics, sessions, and shared links in a relational da
 | **When to graduate** | If the schema grows beyond single-column additions (e.g. new tables, foreign keys, data transforms), adopt Alembic with an ``alembic/`` directory at the repo root |
 
 Current managed columns added via migration guards: ``confidence``, ``success``, ``session_id``, ``memory``, ``timeline``, ``share_token``, ``is_public``, ``expires_at``.
+
+## Benchmarking & Observability
+
+The platform uses a two-layer approach to quality assurance and monitoring:
+
+### Layer 1 — Promptfoo (Offline Evals & Red-Teaming)
+
+Promptfoo runs in CI and locally to evaluate prompts, compare models, and test agent workflows before they reach production.
+
+| Config | Purpose |
+|---|---|
+| `benchmarks/promptfoo/promptfooconfig.yaml` | Model comparison: Gemini vs OpenAI vs Claude across research, code, and summarization prompts |
+| `benchmarks/promptfoo/agent_eval.yaml` | End-to-end workflow testing on shared repo pipelines with provider/model overrides |
+| `benchmarks/promptfoo/rag_retrieval_eval.yaml` | Retrieval-stage evaluation for the repo's codebase copilot |
+| `benchmarks/promptfoo/rag_eval.yaml` | End-to-end RAG quality for the repo's codebase copilot using context-faithfulness and context-relevance assertions |
+| `benchmarks/promptfoo/redteam.yaml` | Red-teaming and safety evaluation (jailbreak, prompt injection, PII leakage) |
+
+Custom providers under `benchmarks/promptfoo/providers/` wrap the shared `run_project()` runner and the `genai-code-copilot` pipeline directly so promptfoo can evaluate real repo workflows end-to-end.
+
+### Layer 2 — Langfuse (Production Observability)
+
+Langfuse traces every LLM call and project execution in production, providing:
+
+- **Traces**: Every `run_project()` call creates a top-level trace with input, output, latency, and success score.
+- **Generations**: Every `generate_text()` and `generate_structured()` call in the LLM dispatch layer is recorded with model, provider, and timing.
+- **Cost tracking**: Token usage flows through the Langfuse generation observations.
+- **Prompt history**: Traces are tagged by project name for filtering and version comparison.
+
+Integration points:
+- `shared/observability/langfuse.py` — core tracing module with decorator, context manager, and manual trace APIs.
+- `shared/llm/dispatch.py` — instruments each LLM call as a Langfuse generation.
+- `shared/api/runner.py` — wraps each project execution in a top-level trace.
+- `shared/api/app.py` — attaches post-run confidence scores back onto completed traces.
+
+Langfuse is opt-in via `LANGFUSE_ENABLED=true`. When disabled or when the SDK is not installed, all tracing degrades to no-ops. Point `LANGFUSE_HOST` or `LANGFUSE_BASE_URL` at a hosted or officially self-hosted Langfuse deployment; this repo does not embed the full Langfuse infrastructure stack.
