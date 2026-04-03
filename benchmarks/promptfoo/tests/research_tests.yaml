@@ -1,0 +1,60 @@
+# ── Research prompt test cases ──────────────────────────────
+- vars:
+    query: "impact of large language models on software engineering"
+  assert:
+    - type: contains-any
+      value:
+        - "language model"
+        - "LLM"
+        - "software engineering"
+    - type: javascript
+      value: "output.length > 500"
+    - type: llm-rubric
+      value: "The response contains structured sections with headings"
+
+- vars:
+    query: "renewable energy trends in 2025"
+  assert:
+    - type: contains-any
+      value:
+        - "solar"
+        - "wind"
+        - "renewable"
+        - "energy"
+    - type: llm-rubric
+      value: "The response discusses specific renewable energy technologies and trends"
+    - type: javascript
+      value: "output.length > 300"
+
+- vars:
+    query: "history of transformer architecture in deep learning"
+  assert:
+    - type: contains-all
+      value:
+        - "attention"
+        - "transformer"
+    - type: llm-rubric
+      value: "The response accurately describes the transformer architecture and its evolution"
+
+- vars:
+    query: "top cloud security risks for enterprise teams"
+  assert:
+    - type: contains-any
+      value:
+        - "security"
+        - "cloud"
+        - "risk"
+    - type: llm-rubric
+      value: "The response identifies specific, actionable security risks"
+
+- vars:
+    query: "future of AI in healthcare diagnostics"
+  assert:
+    - type: contains-any
+      value:
+        - "healthcare"
+        - "diagnostic"
+        - "AI"
+        - "medical"
+    - type: llm-rubric
+      value: "The response discusses realistic AI applications in medical diagnostics"

@@ -1,0 +1,38 @@
+# ─────────────────────────────────────────────────────────────
+# Promptfoo – Offline evaluation config for genai-systems-lab
+# Run: npx promptfoo@latest eval -c benchmarks/promptfoo/promptfooconfig.yaml
+# View: npx promptfoo@latest view
+# ─────────────────────────────────────────────────────────────
+
+description: "GenAI Systems Lab – Model comparison & prompt evaluation"
+
+# ── Providers: compare across models ────────────────────────
+providers:
+  - id: google:gemini-3.1-pro-preview
+    label: "Gemini 3.1 Pro"
+  - id: openai:gpt-4.1-mini
+    label: "GPT-4.1 Mini"
+  - id: anthropic:messages:claude-sonnet-4-20250514
+    label: "Claude Sonnet"
+
+# ── Prompts ─────────────────────────────────────────────────
+prompts:
+  - file://prompts/research_query.txt
+  - file://prompts/code_generation.txt
+  - file://prompts/summarization.txt
+
+# ── Default test config ─────────────────────────────────────
+defaultTest:
+  assert:
+    - type: llm-rubric
+      value: "Response is helpful, accurate, and does not hallucinate facts"
+    - type: cost
+      threshold: 0.05    # max $0.05 per call
+    - type: latency
+      threshold: 30000   # max 30s
+
+# ── Test cases ──────────────────────────────────────────────
+tests:
+  - file://tests/research_tests.yaml
+  - file://tests/code_tests.yaml
+  - file://tests/summarization_tests.yaml

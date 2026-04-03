@@ -1,0 +1,75 @@
+# ─────────────────────────────────────────────────────────────
+# Promptfoo – RAG pipeline evaluation
+# Tests the repo's codebase copilot end-to-end with real retrieval + generation
+# Run: npx promptfoo@latest eval -c benchmarks/promptfoo/rag_eval.yaml
+# ─────────────────────────────────────────────────────────────
+
+description: "GenAI Systems Lab – Codebase copilot RAG evaluation"
+
+providers:
+  - id: "file://providers/code_copilot_rag_provider.py"
+    label: "Code Copilot | Gemini 3.1 Pro"
+    config:
+      codebase_path: shared
+      provider: gemini
+      model: gemini-3.1-pro-preview
+
+  - id: "file://providers/code_copilot_rag_provider.py"
+    label: "Code Copilot | GPT-4.1 Mini"
+    config:
+      codebase_path: shared
+      provider: openai
+      model: gpt-4.1-mini
+
+  - id: "file://providers/code_copilot_rag_provider.py"
+    label: "Code Copilot | Claude Sonnet"
+    config:
+      codebase_path: shared
+      provider: anthropic
+      model: claude-sonnet-4-20250514
+
+prompts:
+  - "{{query}}"
+
+defaultTest:
+  options:
+    transform: output.answer
+  assert:
+    - type: context-faithfulness
+      contextTransform: "output.retrieved_context"
+      threshold: 0.75
+    - type: context-relevance
+      contextTransform: "output.retrieved_context"
+      threshold: 0.75
+    - type: answer-relevance
+      threshold: 0.75
+    - type: llm-rubric
+      value: "The answer stays grounded in the retrieved code and explains the implementation without inventing behavior."
+
+tests:
+  - vars:
+      query: "How does the shared API configure the authentication cookie?"
+      codebase_path: shared
+    assert:
+      - type: contains-any
+        value: ["httponly", "secure", "samesite", "cookie"]
+      - type: llm-rubric
+        value: "The answer explains that the cookie is set with httponly, secure, samesite, max_age, and path fields in the shared API layer."
+
+  - vars:
+      query: "How are request-scoped model overrides stored and resolved?"
+      codebase_path: shared
+    assert:
+      - type: contains-any
+        value: ["ContextVar", "request-scoped", "model", "provider"]
+      - type: llm-rubric
+        value: "The answer identifies shared/config.py as the source of the request-scoped model and provider override mechanism."
+
+  - vars:
+      query: "How does the project runner avoid leaking app imports between projects?"
+      codebase_path: shared
+    assert:
+      - type: contains-any
+        value: ["sys.modules", "app", "clear", "imports"]
+      - type: llm-rubric
+        value: "The answer explains that the runner clears cached app and app.* modules before loading another project's main module."

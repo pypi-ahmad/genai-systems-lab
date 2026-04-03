@@ -1,0 +1,8 @@
+Summarize the following text concisely while preserving all key information.
+The summary should be clear, well-structured, and approximately {{length}} of
+the original length.
+
+Text to summarize:
+{{text}}
+
+Output only the summary, no preamble.

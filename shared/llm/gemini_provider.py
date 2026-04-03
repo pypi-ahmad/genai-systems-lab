@@ -12,6 +12,7 @@ from shared.config import get_effective_api_key
 from shared.logging import get_logger
 
 from .exceptions import LLMGenerationError, LLMTimeoutError
+from .telemetry import record_llm_call_metadata
 
 
 SUPPORTED_MODELS = {
@@ -21,6 +22,29 @@ SUPPORTED_MODELS = {
 MAX_RETRY_ATTEMPTS = 3
 BASE_BACKOFF_SECONDS = 1.0
 REQUEST_TIMEOUT_SECONDS = 120
+
+
+def _record_usage_metadata(response: types.GenerateContentResponse) -> None:
+    usage_metadata = getattr(response, "usage_metadata", None)
+    if usage_metadata is None:
+        record_llm_call_metadata(None)
+        return
+
+    usage_details: dict[str, int] = {}
+    attribute_map = {
+        "prompt_token_count": "input",
+        "candidates_token_count": "output",
+        "total_token_count": "total",
+        "cached_content_token_count": "input_cached_tokens",
+        "thoughts_token_count": "output_reasoning_tokens",
+    }
+
+    for attribute_name, target_name in attribute_map.items():
+        value = getattr(usage_metadata, attribute_name, None)
+        if isinstance(value, int):
+            usage_details[target_name] = value
+
+    record_llm_call_metadata({"usage_details": usage_details} if usage_details else None)
 
 MODEL_FALLBACK: dict[str, str] = {
     "gemini-3.1-pro-preview": "gemini-3-flash-preview",
@@ -141,6 +165,7 @@ def _request_content(
 
 def generate_text(prompt: str, model: str) -> str:
     response = _request_content(prompt=prompt, model=model)
+    _record_usage_metadata(response)
     text = (response.text or "").strip()
     if not text:
         raise LLMGenerationError("Gemini returned an empty text response.")
@@ -156,6 +181,7 @@ def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict
             response_schema=schema,
         ),
     )
+    _record_usage_metadata(response)
 
     if isinstance(response.parsed, dict):
         return response.parsed
@@ -245,6 +271,7 @@ def generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
         LOGGER.warning("Vision falling back from %s to %s after error: %s", model, fallback, primary_err)
         response = _vision_request_single(prompt=prompt, image=image, model=fallback)
 
+    _record_usage_metadata(response)
     text = (response.text or "").strip()
     if not text:
         raise LLMGenerationError("Gemini returned an empty vision response.")

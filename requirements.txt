@@ -12,3 +12,4 @@ pandas==3.0.1
 rich==14.3.3
 numpy==2.3.3
 uvicorn==0.42.0
+langfuse>=2.0.0

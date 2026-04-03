@@ -14,11 +14,85 @@ from shared.config import get_effective_api_key
 
 from .catalog import ollama_base_url, ollama_embedding_model, openai_embedding_model
 from .exceptions import LLMGenerationError, LLMTimeoutError
+from .telemetry import record_llm_call_metadata
 
 
 REQUEST_TIMEOUT_SECONDS = 120
 MAX_RETRY_ATTEMPTS = 3
 BASE_BACKOFF_SECONDS = 1.0
+
+
+def _coerce_int(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, (int, float)):
+        return int(value)
+    return None
+
+
+def _flatten_usage_details(prefix: str, payload: Any, usage_details: dict[str, int]) -> None:
+    if not isinstance(payload, dict):
+        return
+    for key, value in payload.items():
+        coerced = _coerce_int(value)
+        if coerced is not None:
+            usage_details[f"{prefix}_{key}"] = coerced
+
+
+def _record_openai_usage(response: dict[str, Any]) -> None:
+    usage_payload = response.get("usage")
+    if not isinstance(usage_payload, dict):
+        record_llm_call_metadata(None)
+        return
+
+    usage_details: dict[str, int] = {}
+
+    input_tokens = _coerce_int(usage_payload.get("input_tokens"))
+    if input_tokens is not None:
+        usage_details["input"] = input_tokens
+
+    output_tokens = _coerce_int(usage_payload.get("output_tokens"))
+    if output_tokens is not None:
+        usage_details["output"] = output_tokens
+
+    total_tokens = _coerce_int(usage_payload.get("total_tokens"))
+    if total_tokens is not None:
+        usage_details["total"] = total_tokens
+
+    _flatten_usage_details("input", usage_payload.get("input_tokens_details"), usage_details)
+    _flatten_usage_details("output", usage_payload.get("output_tokens_details"), usage_details)
+
+    record_llm_call_metadata({"usage_details": usage_details} if usage_details else None)
+
+
+def _record_anthropic_usage(response: dict[str, Any]) -> None:
+    usage_payload = response.get("usage")
+    if not isinstance(usage_payload, dict):
+        record_llm_call_metadata(None)
+        return
+
+    usage_details: dict[str, int] = {}
+
+    input_tokens = _coerce_int(usage_payload.get("input_tokens"))
+    if input_tokens is not None:
+        usage_details["input"] = input_tokens
+
+    output_tokens = _coerce_int(usage_payload.get("output_tokens"))
+    if output_tokens is not None:
+        usage_details["output"] = output_tokens
+
+    cache_creation_tokens = _coerce_int(usage_payload.get("cache_creation_input_tokens"))
+    if cache_creation_tokens is not None:
+        usage_details["input_cache_write_tokens"] = cache_creation_tokens
+
+    cache_read_tokens = _coerce_int(usage_payload.get("cache_read_input_tokens"))
+    if cache_read_tokens is not None:
+        usage_details["input_cache_read_tokens"] = cache_read_tokens
+
+    if usage_details and "total" not in usage_details:
+        usage_details["total"] = sum(usage_details.values())
+
+    record_llm_call_metadata({"usage_details": usage_details} if usage_details else None)
 
 
 def _sleep_for_attempt(attempt: int) -> None:
@@ -176,6 +250,7 @@ def openai_generate_text(prompt: str, model: str, *, temperature: float | None =
     if temperature is not None:
         payload["temperature"] = temperature
     response = _request_json(url="https://api.openai.com/v1/responses", headers=headers, payload=payload)
+    _record_openai_usage(response)
     return _extract_openai_text(response)
 
 
@@ -197,6 +272,7 @@ def openai_generate_structured(prompt: str, model: str, schema: dict[str, Any]) 
         },
     }
     response = _request_json(url="https://api.openai.com/v1/responses", headers=headers, payload=payload)
+    _record_openai_usage(response)
     text = _extract_openai_text(response)
     try:
         parsed = json.loads(text)
@@ -225,6 +301,7 @@ def openai_generate_text_from_image(prompt: str, image: bytes, model: str) -> st
         ],
     }
     response = _request_json(url="https://api.openai.com/v1/responses", headers=headers, payload=payload)
+    _record_openai_usage(response)
     return _extract_openai_text(response)
 
 
@@ -286,6 +363,7 @@ def anthropic_generate_text(prompt: str, model: str, *, temperature: float | Non
     if temperature is not None:
         payload["temperature"] = temperature
     response = _request_json(url="https://api.anthropic.com/v1/messages", headers=headers, payload=payload)
+    _record_anthropic_usage(response)
     return _extract_anthropic_text(response)
 
 
@@ -307,6 +385,7 @@ def anthropic_generate_structured(prompt: str, model: str, schema: dict[str, Any
         },
     }
     response = _request_json(url="https://api.anthropic.com/v1/messages", headers=headers, payload=payload)
+    _record_anthropic_usage(response)
     text = _extract_anthropic_text(response)
     try:
         parsed = json.loads(text)
@@ -344,6 +423,7 @@ def anthropic_generate_text_from_image(prompt: str, image: bytes, model: str) ->
         ],
     }
     response = _request_json(url="https://api.anthropic.com/v1/messages", headers=headers, payload=payload)
+    _record_anthropic_usage(response)
     return _extract_anthropic_text(response)
 
 

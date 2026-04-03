@@ -1,0 +1,10 @@
+Given the following context, answer the user's question accurately.
+Only use information from the provided context. If the context does not
+contain enough information to answer fully, say so.
+
+Context:
+{{context}}
+
+Question: {{query}}
+
+Answer:
