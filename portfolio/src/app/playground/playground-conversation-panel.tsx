@@ -64,7 +64,7 @@ export function PlaygroundConversationPanel({
           </div>
           <p className="mt-1 text-base font-semibold text-[var(--foreground)]">{selected.name}</p>
         </div>
-        <div className="flex flex-wrap items-center gap-2" aria-live="polite">
+        <div className="flex flex-wrap items-center gap-2">
           <WorkspaceStateBadge state={workspaceState} />
           <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
             {streamMode ? "Streaming on" : "Batch mode"}

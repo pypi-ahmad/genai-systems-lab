@@ -36,16 +36,6 @@ const capabilities = [
   },
 ];
 
-const techStack = [
-  { name: "Next.js", version: "16" },
-  { name: "React", version: "19" },
-  { name: "TypeScript", version: "5" },
-  { name: "FastAPI", version: "0.115" },
-  { name: "LangGraph", version: "0.4" },
-  { name: "CrewAI", version: "0.119" },
-  { name: "Tailwind CSS", version: "4" },
-];
-
 export default function Home() {
   return (
     <div className="space-y-0">
@@ -151,31 +141,28 @@ export default function Home() {
 
       <div className="section-divider" />
 
-      <section className="space-y-8 py-16">
+      <section className="space-y-6 py-16">
         <div className="section-heading">
           <p className="eyebrow">Built With</p>
           <h2 className="heading-section text-3xl sm:text-4xl">
-            Production-grade stack, open source.
+            Technology stack and open source.
           </h2>
         </div>
-        <div className="flex flex-wrap gap-3">
-          {techStack.map((tech) => (
-            <span
-              key={tech.name}
-              className="surface-card rounded-full border border-[var(--line)] px-4 py-2 text-sm font-medium text-[var(--foreground)]"
-            >
-              {tech.name} <span className="text-[var(--muted)]">v{tech.version}</span>
+        <div className="flex flex-wrap items-center gap-3">
+          {["Python", "FastAPI", "LangChain", "LangGraph", "CrewAI", "Next.js", "TypeScript", "Tailwind CSS", "Docker"].map((tech) => (
+            <span key={tech} className="surface-pill rounded-full px-4 py-1.5 text-sm font-medium text-[var(--foreground)]">
+              {tech}
             </span>
           ))}
         </div>
         <div className="flex flex-wrap gap-3 pt-2">
           <a
-            href="https://github.com/ahmadpanah/genai-systems-lab"
+            href="https://github.com/ahnazary/genai-systems-lab"
             target="_blank"
             rel="noopener noreferrer"
             className="button-base button-secondary button-pill"
           >
-            View on GitHub →
+            View on GitHub ↗
           </a>
         </div>
       </section>

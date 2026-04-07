@@ -1,5 +1,4 @@
 import type { RunExplanation } from "@/lib/api";
-import { FeatureTooltip } from "@/components/feature-tooltip";
 
 type RunExplanationPanelProps = {
   explanation: RunExplanation | null;
@@ -24,8 +23,15 @@ export function RunExplanationPanel({
     <section className="surface-card rounded-[1.75rem] p-4 sm:p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+          <p className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
             {title}
+            <span
+              title="AI-generated summary of what the agent did, key decisions it made, and why"
+              className="cursor-help text-xs normal-case tracking-normal hover:text-[var(--foreground)]"
+              aria-label="AI-generated summary of what the agent did, key decisions it made, and why"
+            >
+              ⓘ
+            </span>
           </p>
           <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
             {description}
@@ -45,15 +51,13 @@ export function RunExplanationPanel({
         </div>
       </div>
 
-      <FeatureTooltip storageKey="tip-run-explanation" message="AI-generated summary of what happened during the run." />
-
       {isLoading ? (
-        <div aria-live="polite" className="mt-5 rounded-[1.25rem] border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-5 text-sm leading-7 text-[var(--foreground)]">
+        <div className="mt-5 rounded-[1.25rem] border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-5 text-sm leading-7 text-[var(--foreground)]" aria-live="polite">
           <div className="flex items-center gap-3">
             <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-[var(--accent-solid)]" />
             Generating a concise explanation from the saved run artifacts.
           </div>
-          <p className="mt-2 text-[11px] leading-5 text-[var(--muted)]">This usually takes 15–30 seconds.</p>
+          <p className="mt-2 text-[11px] text-[var(--muted)]">This usually takes 15–30 seconds.</p>
         </div>
       ) : error ? (
         <div className="error-panel mt-5 rounded-[1.25rem] px-4 py-4 text-sm leading-7 text-[var(--danger-text-soft)]">

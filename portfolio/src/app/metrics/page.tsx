@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { projectDetails } from "@/data/projects";
 import {
   fetchMetricsTime,
@@ -368,8 +368,8 @@ function EmptyState({ message }: { message: string }) {
   );
 }
 
-function downloadFile(content: string, filename: string, mime: string) {
-  const blob = new Blob([content], { type: mime });
+function downloadBlob(content: string, filename: string, type: string) {
+  const blob = new Blob([content], { type });
   const url = URL.createObjectURL(blob);
   const a = document.createElement("a");
   a.href = url;
@@ -378,16 +378,14 @@ function downloadFile(content: string, filename: string, mime: string) {
   URL.revokeObjectURL(url);
 }
 
-function exportChartCsv(data: ChartPoint[]) {
-  const header = "label,latency_ms,confidence,success_rate_pct,runs";
-  const rows = data.map((p) =>
-    [p.label, p.latency ?? "", p.confidence ?? "", p.successRate ?? "", p.runs].join(",")
-  );
-  downloadFile([header, ...rows].join("\n"), "metrics.csv", "text/csv");
+function exportJSON(data: TimeSeriesMetricPoint[]) {
+  downloadBlob(JSON.stringify(data, null, 2), "metrics.json", "application/json");
 }
 
-function exportChartJson(data: ChartPoint[]) {
-  downloadFile(JSON.stringify(data, null, 2), "metrics.json", "application/json");
+function exportCSV(data: TimeSeriesMetricPoint[]) {
+  const header = "timestamp,latency,confidence,success";
+  const rows = data.map((p) => `${p.timestamp},${p.latency},${p.confidence},${p.success}`);
+  downloadBlob([header, ...rows].join("\n"), "metrics.csv", "text/csv");
 }
 
 export default function MetricsPage() {
@@ -561,6 +559,15 @@ export default function MetricsPage() {
               </span>
             </div>
             <p className="copy-body mt-3 text-sm">{trend.summary}</p>
+          </div>
+
+          <div className="mt-4 flex flex-wrap gap-2">
+            <button type="button" onClick={() => exportJSON(points)} className="button-base button-secondary button-sm button-pill">
+              Export JSON
+            </button>
+            <button type="button" onClick={() => exportCSV(points)} className="button-base button-secondary button-sm button-pill">
+              Export CSV
+            </button>
           </div>
         </div>
       </section>
@@ -737,23 +744,6 @@ export default function MetricsPage() {
               </LineChart>
             </ResponsiveContainer>
           </ChartCard>
-        </div>
-
-        <div className="flex flex-wrap gap-3 pt-4">
-          <button
-            type="button"
-            onClick={() => exportChartCsv(chartSeries)}
-            className="button-base button-secondary button-sm button-pill"
-          >
-            Export CSV
-          </button>
-          <button
-            type="button"
-            onClick={() => exportChartJson(chartSeries)}
-            className="button-base button-secondary button-sm button-pill"
-          >
-            Export JSON
-          </button>
         </div>
       </section>
     </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { FeatureTooltip } from "@/components/feature-tooltip";
 
 export type TimelineReplayEntry = {
   timestamp: number;
@@ -160,8 +159,15 @@ function TimelineReplayInner({
     <section className="rounded-[1.5rem] border border-[var(--line)] bg-[var(--card)] p-4 sm:p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+          <p className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
             {title}
+            <span
+              title="Step-by-step replay of the agent's execution timeline — use the controls to scrub through events"
+              className="cursor-help text-xs normal-case tracking-normal hover:text-[var(--foreground)]"
+              aria-label="Step-by-step replay of the agent's execution timeline"
+            >
+              ⓘ
+            </span>
           </p>
           <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
             {description}
@@ -180,8 +186,6 @@ function TimelineReplayInner({
           ) : null}
         </div>
       </div>
-
-      <FeatureTooltip storageKey="tip-timeline-replay" message="Scrub through the execution timeline to see what happened at each step." />
 
       {entries.length === 0 ? (
         <div className="mt-4 rounded-[1.25rem] border border-dashed border-[var(--line)] bg-[var(--surface-soft)] px-4 py-6 text-sm leading-7 text-[var(--muted)]">
@@ -254,20 +258,18 @@ function TimelineReplayInner({
           </div>
 
           <div className="mt-5">
-            <div className="relative">
-              <input
-                type="range"
-                min={0}
-                max={Math.max(0, entries.length - 1)}
-                value={Math.max(0, currentIndex)}
-                onChange={(e) => {
-                  setIsPlaying(false);
-                  setCurrentIndex(Number(e.target.value));
-                }}
-                className="timeline-range-input w-full"
-                aria-label="Timeline position"
-              />
-            </div>
+            <input
+              type="range"
+              min={0}
+              max={Math.max(0, entries.length - 1)}
+              value={currentIndex}
+              onChange={(event) => {
+                setIsPlaying(false);
+                setCurrentIndex(Number(event.target.value));
+              }}
+              className="w-full cursor-pointer accent-[var(--accent-solid)]"
+              aria-label={`Timeline position: event ${currentIndex + 1} of ${entries.length}`}
+            />
             <div className="mt-2 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
               <span>{formatReplayTime(entries[0]?.timestamp ?? 0)}</span>
               <span>{formatReplayTime(entries[entries.length - 1]?.timestamp ?? 0)}</span>
