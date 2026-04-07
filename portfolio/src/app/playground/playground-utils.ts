@@ -323,7 +323,7 @@ export function formatLogTimestamp(date = new Date()) {
 
 /* ── Lifecycle helpers ────────────────────────────────── */
 
-export function matchesLifecycleKeyword(label: string, keywords: string[]) {
+function matchesLifecycleKeyword(label: string, keywords: string[]) {
   return keywords.some((keyword) => label.includes(keyword));
 }
 
@@ -373,7 +373,7 @@ export function inferLifecycleStep(stepId: string, graphNodes: GraphNode[]): Age
   return null;
 }
 
-export function lifecycleState(status: RunStatus): {
+function lifecycleState(status: RunStatus): {
   activeStep: AgentGraphStep | null;
   completedSteps: AgentGraphStep[];
 } {

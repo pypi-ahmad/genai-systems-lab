@@ -135,14 +135,17 @@ portfolio/
 │   │   ├── globals.css             # Design system: 100+ CSS variables, surfaces, buttons
 │   │   ├── theme-provider.tsx      # next-themes wrapper
 │   │   ├── playground/
-│   │   │   ├── page.tsx                   # Playground route (metadata)
-│   │   │   ├── playground-client.tsx      # Main playground orchestrator
-│   │   │   ├── playground-sidebar.tsx     # Input, account, and history sidebar
-│   │   │   ├── playground-widgets.tsx     # Extracted presentational components
-│   │   │   ├── playground-utils.ts        # Pure replay/status/memory helpers
-│   │   │   ├── playground-utils.test.ts   # Unit tests for playground utilities
-│   │   │   ├── use-playground-run.ts      # Run execution and SSE streaming hook
-│   │   │   └── use-playground-account.ts  # Auth, session, and history hook
+│   │   │   ├── page.tsx                       # Playground route (metadata)
+│   │   │   ├── playground-client.tsx          # Main playground orchestrator
+│   │   │   ├── playground-sidebar.tsx         # Input, account, and history sidebar
+│   │   │   ├── playground-conversation-panel.tsx  # Conversation input/output panel
+│   │   │   ├── playground-graph-panel.tsx     # Execution graph + debug panels
+│   │   │   ├── playground-widgets.tsx         # Extracted presentational components
+│   │   │   ├── playground-utils.ts            # Pure replay/status/memory helpers
+│   │   │   ├── playground-utils.test.ts       # Unit tests for playground utilities
+│   │   │   ├── use-playground-run.ts          # Run execution and SSE streaming hook
+│   │   │   ├── use-playground-history.ts      # Run history, explain, replay, share
+│   │   │   └── use-playground-account.ts      # Auth and session state hook
 │   │   ├── projects/
 │   │   │   ├── page.tsx            # Project listing with category filter
 │   │   │   └── [slug]/
@@ -159,6 +162,12 @@ portfolio/
 │   │   ├── agent-graph.tsx         # Static agent lifecycle visualization
 │   │   ├── flow-diagram.tsx        # Topologically-sorted component flow
 │   │   ├── confidence-indicator.tsx # Visual confidence score
+│   │   ├── dismissible-tip.tsx     # One-time dismissible info tooltip
+│   │   ├── copy-button.tsx         # Clipboard copy with feedback
+│   │   ├── project-card-preview.tsx # Hover preview tooltip for project cards
+│   │   ├── project-run-badge.tsx   # Live success rate + latency badge
+│   │   ├── onboarding-modal.tsx    # First-visit welcome modal
+│   │   ├── nav-links.tsx           # Navigation with mobile <details> menu
 │   │   ├── memory-panel.tsx        # thought / action / observation trace
 │   │   ├── TimelineReplay.tsx      # Frame-by-frame replay controls
 │   │   ├── RunExplanation.tsx      # LLM-generated run explanation
@@ -227,11 +236,13 @@ No `.env` file is required. The BYOK API key is kept in memory for the active ta
 
 ## Usage
 
-### Running a Project
+> **Detailed guide:** See **[USAGE.md](USAGE.md)** for the complete feature-by-feature walkthrough — covering every page, playground control, streaming mode, timeline replay, sharing, session memory, metrics export, authentication, accessibility, and troubleshooting.
+
+### Quick Start
 
 1. Navigate to **Playground** (`/playground`)
 2. Select a project from the sidebar dropdown (e.g., `genai-research-system`)
-3. Enter your Google Gemini API key — it stays in memory for the current tab and is sent as `X-API-Key`
+3. Enter your API key — it stays in memory for the current tab and is sent as `X-API-Key`
 4. Type an input prompt and press **Run**
 5. Watch tokens stream in, the agent graph animate node-by-node, and memory entries accumulate
 
@@ -293,12 +304,10 @@ Navigate to **Metrics** → select a project and time range → view latency, co
 - **No Next.js route middleware auth** — browser auth relies on the backend's HttpOnly session cookie and API keys live only in client memory; Next.js routes themselves do not independently enforce auth
 - **No SSR for dynamic pages** — the playground and metrics pages are fully client-rendered; initial paint shows loading states
 - **Minimal test suite** — focused unit tests exist for pure playground utility logic (`npm run test`); no component or integration tests yet
-- **No mobile navigation** — the nav bar renders all links in a horizontal row without a responsive hamburger menu
 - **Build-time catalog sync** — the frontend ships a static project manifest for reliability; changes to project definitions still require updating `src/data/project-catalog.json`
 
 ### Planned
 
-- Responsive mobile navigation
 - Component-level tests for key interactive surfaces
 - Client-side route guards based on auth state
 - End-to-end tests with Playwright

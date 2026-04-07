@@ -1,46 +1,93 @@
-# How to Use GenAI Systems Lab
+# GenAI Systems Lab — Usage Guide
 
-A practical guide to navigating and using every feature in the portfolio app.
+> A practical, step-by-step reference for using the GenAI Systems Lab portfolio app.  
+> Everything in this document reflects the code as it exists in the repository today.
 
 ---
 
 ## Table of Contents
 
-- [Getting Started](#getting-started)
-- [Home Page](#home-page)
-- [Browsing Projects](#browsing-projects)
-- [Running a Project in the Playground](#running-a-project-in-the-playground)
-- [Understanding Execution Output](#understanding-execution-output)
-- [Timeline Replay](#timeline-replay)
-- [Run Explanation](#run-explanation)
-- [Sharing a Run](#sharing-a-run)
-- [Metrics Dashboard](#metrics-dashboard)
-- [LangGraph vs CrewAI Comparison](#langgraph-vs-crewai-comparison)
-- [Architecture Diagram](#architecture-diagram)
-- [Authentication & Sessions](#authentication--sessions)
-- [Theme Toggle](#theme-toggle)
-- [Keyboard & UI Tips](#keyboard--ui-tips)
-- [Troubleshooting](#troubleshooting)
+1. [What This App Is](#what-this-app-is)
+2. [Who This Is For](#who-this-is-for)
+3. [Before You Start](#before-you-start)
+4. [Setup & Local Development](#setup--local-development)
+5. [Navigation](#navigation)
+6. [Home Page](#home-page)
+7. [About Page](#about-page)
+8. [Browsing Projects](#browsing-projects)
+9. [Project Detail Page](#project-detail-page)
+10. [Playground — Running a Project](#playground--running-a-project)
+    - [Selecting a Project](#selecting-a-project)
+    - [API Key & Model Selection](#api-key--model-selection)
+    - [Writing Input](#writing-input)
+    - [Streaming vs Batch Execution](#streaming-vs-batch-execution)
+    - [Execution Output](#execution-output)
+    - [Memory Trace Panel](#memory-trace-panel)
+    - [Execution Graph](#execution-graph)
+11. [Timeline Replay](#timeline-replay)
+12. [Run Explanation](#run-explanation)
+13. [Run History](#run-history)
+14. [Sharing a Run](#sharing-a-run)
+15. [Multi-Turn Sessions](#multi-turn-sessions)
+16. [Metrics Dashboard](#metrics-dashboard)
+17. [LangGraph vs CrewAI Comparison](#langgraph-vs-crewai-comparison)
+18. [Architecture Diagram](#architecture-diagram)
+19. [Authentication](#authentication)
+20. [Onboarding Modal](#onboarding-modal)
+21. [Theme Toggle](#theme-toggle)
+22. [Accessibility & Keyboard Navigation](#accessibility--keyboard-navigation)
+23. [Environment Variables](#environment-variables)
+24. [Docker Deployment](#docker-deployment)
+25. [Troubleshooting](#troubleshooting)
+26. [Limitations & Important Notes](#limitations--important-notes)
 
 ---
 
-## Getting Started
+## What This App Is
 
-### Prerequisites
+GenAI Systems Lab is a full-stack portfolio application that showcases **20 production-grade AI systems** built across three paradigms: **GenAI** (custom agents), **LangGraph** (stateful graph orchestration), and **CrewAI** (role-based multi-agent collaboration).
+
+The frontend is a Next.js 16 application. The backend is a FastAPI server that orchestrates project execution, authentication, metrics collection, and run history.
+
+Users can browse all 20 systems, inspect their architectures, and **run any system live in the browser** via a BYOK (Bring Your Own Key) model.
+
+---
+
+## Who This Is For
+
+- **Hiring managers and technical reviewers** evaluating the portfolio
+- **Engineers** interested in multi-agent architecture patterns
+- **Anyone** wanting to run the AI systems hands-on with their own API key
+
+---
+
+## Before You Start
 
 | Requirement | Details |
 | --- | --- |
 | **Browser** | Any modern browser (Chrome, Firefox, Edge, Safari) |
-| **API key** | A Google Gemini API key (or OpenAI / Anthropic / Ollama) |
-| **Backend** | The FastAPI backend running at `http://localhost:8000` (for local use) |
+| **API key** | An LLM provider key — Google Gemini, OpenAI, Anthropic, or no key for Ollama (local) |
+| **Backend** | The FastAPI backend running locally or at a configured URL |
+| **Node.js** | Required to build/run the frontend (`npm` available) |
+| **Python 3.13+** | Required to run the backend |
 
-### Running Locally
+---
+
+## Setup & Local Development
+
+### 1. Start the backend
+
+From the repository root:
 
 ```bash
-# 1. Start the backend
-python -m uvicorn shared.api.main:app --reload
+uvicorn shared.api.app:app --reload
+```
 
-# 2. Start the frontend
+This starts the FastAPI server on `http://localhost:8000`.
+
+### 2. Start the frontend
+
+```bash
 cd portfolio
 npm install
 npm run dev
@@ -48,16 +95,34 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### API Key — Bring Your Own Key (BYOK)
+### Available npm scripts
 
-You need your own LLM API key to run any project. The app supports multiple providers:
+| Script | Command | Purpose |
+| --- | --- | --- |
+| `npm run dev` | `next dev` | Development server with hot reload (Turbopack) |
+| `npm run build` | `next build` | Production build |
+| `npm start` | `next start` | Serve production build |
+| `npm run lint` | `eslint` | Run ESLint checks |
+| `npm test` | `tsx --test src/app/playground/playground-utils.test.ts` | Run playground utility tests |
 
-- **Google Gemini** (default)
-- **OpenAI**
-- **Anthropic**
-- **Ollama** (local models, no key needed)
+---
 
-Your key is stored **only in browser tab memory** — it is never saved to disk, localStorage, or the server. Closing the tab discards it. Each tab maintains its own independent key.
+## Navigation
+
+The top navigation bar contains links to all pages:
+
+| Label | Route | Description |
+| --- | --- | --- |
+| Home | `/` | Landing page |
+| About | `/about` | Skills and approach |
+| Projects | `/projects` | All 20 systems |
+| Playground | `/playground` | Interactive execution |
+| Metrics | `/metrics` | Performance dashboard |
+| LangGraph vs CrewAI | `/compare` | Framework comparison |
+| Architecture | `/architecture` | System diagram |
+| Auth | `/auth` | Login / signup |
+
+The active page is highlighted with a soft background. On mobile, the navigation collapses into a `<details>` disclosure menu.
 
 ---
 
@@ -65,13 +130,26 @@ Your key is stored **only in browser tab memory** — it is never saved to disk,
 
 **Route:** `/`
 
-The landing page shows:
+The landing page displays:
 
 - A hero section introducing the lab and its 20 AI systems
-- Aggregate stats (number of systems, paradigms, and capabilities)
-- Quick links to the Playground, Projects, Metrics, and Comparison pages
+- Aggregate stats (number of systems, paradigms, capabilities)
+- Highlighted project cards
+- A "Built With" section listing the tech stack (Next.js, FastAPI, LangGraph, CrewAI, etc.)
+- A link to the GitHub repository
+- Quick CTAs to browse Projects or open the Playground
 
-Click any navigation link in the top bar to move between sections.
+---
+
+## About Page
+
+**Route:** `/about`
+
+Displays the author's professional profile:
+
+- **Core skills** grouped by category: Languages (Python, TypeScript, SQL), Frameworks (LangGraph, CrewAI, FastAPI, Next.js), AI/ML (LLM Integration, Multi-Agent Systems, RAG Pipelines, Prompt Engineering), Infra (Docker, OpenTelemetry, DuckDB, ChromaDB)
+- **Working approach** principles: Ship, Observe, Keep legible
+- A brief professional summary
 
 ---
 
@@ -79,122 +157,226 @@ Click any navigation link in the top bar to move between sections.
 
 **Route:** `/projects`
 
-The projects page lists all 20 AI systems organized into three paradigms:
+Lists all 20 AI systems organized by paradigm:
 
-| Paradigm | Color | Examples |
+| Paradigm | Accent color | Example systems |
 | --- | --- | --- |
-| **GenAI** | Emerald | Research System, NL2SQL Agent, Clinical Assistant |
-| **LangGraph** | Blue | Debugging Agent, Data Analysis Agent |
-| **CrewAI** | Violet | Hiring Crew, Investment Analyst Crew |
+| **GenAI** | Emerald | Research System, NL2SQL Agent, Clinical Assistant, Financial Analyst |
+| **LangGraph** | Blue | Debugging Agent, Data Analysis Agent, Support Agent |
+| **CrewAI** | Violet | Hiring Crew, Investment Analyst Crew, Content Pipeline |
 
-### Filtering
+### Features on this page
 
-Use the category filter tabs at the top to show only a specific paradigm (GenAI / LangGraph / CrewAI) or view all.
+- **Category filter tabs** — show All, GenAI, LangGraph, or CrewAI
+- **Hover preview** — hovering a project card for 400 ms shows a tooltip with the project name, a two-line description, and quick links ("Try it" → Playground, "Details" → detail page)
+- **Run badges** — each card shows a live metrics badge (e.g., "87% success · 2.4s avg") fetched from the `/metrics` endpoint, if data is available
 
-### Project Detail Page
+---
+
+## Project Detail Page
 
 **Route:** `/projects/[slug]`
 
-Click any project card to open its detail page, which includes:
+Each project's detail page includes:
 
-- **Architecture description** — how the system is designed
-- **Flow diagram** — a visual representation of data flow between agents/nodes
-- **Feature list** — key capabilities
-- **Example input/output** — sample prompts and expected responses
+- **Breadcrumb navigation** — Home › Projects › {Project Name}
+- **Category badge** and slug label
+- **Architecture description** — how the system is designed internally
+- **Interactive flow diagram** — a topologically sorted DAG of agents/nodes with:
+  - Zoom in/out/reset controls
+  - Drag-to-pan (grab cursor)
+  - Hover highlighting of connected nodes and edges
+  - Accent color per paradigm (blue, emerald, violet)
+- **Feature list** — capabilities as bullet points
+- **Example input/output** — formatted JSON with a **Copy** button
 - **Tags** — technology and pattern labels
+- **API endpoint** — the FastAPI route the system uses
 - **Live demo panel** — run the project directly from the detail page
 
 ---
 
-## Running a Project in the Playground
+## Playground — Running a Project
 
 **Route:** `/playground`
 
-The playground is the core interactive feature. Here you can execute any of the 20 AI systems in real time.
+The playground is the primary interactive surface. It uses a three-column layout:
 
-### Step-by-Step
+1. **Left sidebar** — project selector, model/key configuration, account, history
+2. **Center panel** — conversation input and streamed output
+3. **Right panel** — execution graph, memory traces, timeline replay, explanation
 
-1. **Open the Playground** — click "Playground" in the navigation bar
-2. **Select a project** — use the dropdown in the left sidebar to pick a system (e.g., `genai-research-system`)
-3. **Enter your API key** — paste your key in the API Key field. Optionally select a different LLM provider and model
-4. **Write your input** — type a prompt or paste a JSON request body in the input area. The sidebar shows an example input for the selected project
-5. **Click Run** — the system begins executing immediately
+### Onboarding
 
-### What Happens During a Run
+On first visit, a **welcome modal** appears with three numbered steps: Browse systems, Bring your API key, Run live. Dismiss it by clicking "Get Started." This modal does not reappear (tracked via `localStorage`).
 
-Once you click Run:
+### Selecting a Project
 
-- **Token streaming** — output text appears character-by-character in real time via Server-Sent Events (SSE)
-- **Animated execution graph** — a directed acyclic graph (DAG) renders in the main panel, showing each agent/node transitioning through states:
-  - Gray = idle
-  - Yellow = running
-  - Green = done
-  - Red = error
-- **Memory trace panel** — entries appear as the agent thinks and acts:
-  - **Thought** (blue) — the agent's reasoning
-  - **Action** (orange) — tool calls or decisions taken
-  - **Observation** (gray) — results from tools or the environment
-- **Latency and confidence** — metrics update as the run progresses and are finalized when execution completes
+- Use the **project dropdown** in the sidebar — the recommended project (`genai-research-system`) is pinned to the top with a "Recommended" badge
+- Use the **search field** above the dropdown to filter by name
+- Each project shows its category badge (GenAI / LangGraph / CrewAI)
 
-### Batch Fallback
+### API Key & Model Selection
 
-If SSE streaming is not supported by your browser or network, the playground automatically falls back to a batch execution mode that returns the full response at once.
+- **Provider and model dropdown** — loaded from the backend's `/llm/catalog` endpoint. Models are grouped by provider (Google Gemini, OpenAI, Anthropic, Ollama). Unavailable providers show an amber warning
+- **API key input** — paste your key. The field is masked when not focused (shows only the last 3 characters). An error message appears only **after** you interact with the field (deferred validation)
+- **BYOK model** — your key is held in **browser tab memory only**. It is never written to `localStorage`, `sessionStorage`, or the server. Closing the tab discards it. Each tab maintains its own independent key
+- A "Get API key" link is shown for providers that expose one
 
----
+### Writing Input
 
-## Understanding Execution Output
+- The input field is a resizable textarea that accepts free-text or JSON
+- The sidebar displays the **example input** for the selected project below the textarea
+- A help note reads "Optional JSON matching the project's request schema"
+- **Live JSON validation** — if input looks like JSON but is malformed, a yellow warning appears immediately
 
-After a run completes, you have several panels to inspect:
+### Streaming vs Batch Execution
 
-| Panel | What It Shows |
-| --- | --- |
-| **Output** | The final generated text, streamed token-by-token |
-| **Graph** | The agent execution DAG with final node statuses |
-| **Memory** | Expandable entries for every thought, action, and observation |
-| **Metrics** | Latency (ms), confidence score, and success/failure status |
+Toggle **"Live streaming"** in the sidebar to control the execution mode:
 
-Click on any memory entry to expand it and see the full content.
+| Mode | Protocol | Behavior |
+| --- | --- | --- |
+| **Streaming** (default) | SSE via `GET /stream/{project}` | Tokens appear character-by-character. Node statuses update in real time. A `done` event delivers final metrics |
+| **Batch** | `POST /{project}/run` | A spinner shows while the full response is assembled. Output appears all at once when complete |
+
+The conversation panel header shows a badge — "Streaming on" or "Batch mode" — reflecting the active mode.
+
+#### SSE event protocol
+
+| Event type | Payload | Frontend effect |
+| --- | --- | --- |
+| `message` | `{"token": "..."}` | Appended to live output with blinking cursor |
+| `step` | `{"step": "researcher", "status": "running"}` | Graph node changes color |
+| `done` | `{"latency", "confidence", "success", "session_id", ...}` | Metrics finalized, graph settles |
+| `error` | `{"detail": "..."}` | Friendly error message displayed |
+
+### Execution Output
+
+The center panel renders the conversation:
+
+- **System message** — project description + tags (light card)
+- **User message** — your input preview (dark card, max 240 characters)
+- **AI message** — streamed output with a blinking cursor during streaming, or full output in batch mode
+- **Key metrics pills** — extracted from the response JSON (numeric values, scores, etc.)
+- **Error state** — a friendly human-readable message with an optional "Show details" toggle that reveals the raw HTTP status and technical detail
+
+Header stats update in real time: latency (ms), confidence (%), chunk count, and a workspace state badge (Idle / Thinking / Streaming / Completed / Error).
+
+### Memory Trace Panel
+
+As the agent runs, memory entries appear:
+
+| Type | Color | Icon | Label Shown |
+| --- | --- | --- | --- |
+| Thought | Blue | Star | Reasoning |
+| Action | Orange | Arrow | Action Taken |
+| Observation | Gray | Eye | Result Received |
+
+- Entries are expandable — the last entry is expanded by default
+- A timeline line on the left connects entries visually
+- The panel shows the total entry count
+
+### Execution Graph
+
+Two graph views render in the right panel:
+
+1. **Run Lifecycle** — a simplified 4-step view: Planner → Executor → Evaluator → Final,  showing which lifecycle phase is active
+2. **Execution Flow** — the full DAG from the project's `graph` definition, with live node status transitions:
+   - Gray = idle
+   - Yellow = running
+   - Green = done
+   - Red = error
 
 ---
 
 ## Timeline Replay
 
-After a run finishes, the **Timeline Replay** panel lets you scrub through the execution frame by frame.
+After a run finishes (or when replaying a saved run), the **Timeline Replay** panel lets you scrub through execution events frame by frame.
 
 ### Controls
 
-- **Play / Pause** — auto-advance through timestamped events
-- **Frame scrubber** — drag the slider to jump to any point in the execution
-- **Speed controls** — adjust playback speed: 0.5×, 1×, 1.5×, 2×, or 4×
+| Control | Action |
+| --- | --- |
+| **Play / Pause** | Auto-advance through timestamped events |
+| **Previous / Next** | Step one frame backward or forward |
+| **Range slider** | Drag to jump to any point in the execution (keyboard-accessible) |
+| **Speed selector** | 0.5×, 1×, 1.5×, 2×, 4× |
 
-Each frame shows the agent graph state, memory entries, and output at that exact moment in the execution. This is useful for understanding multi-step reasoning and debugging agent behavior.
+Each frame shows the step name, event type, timestamp, and data. The execution graph and memory panel update in sync with the scrubber position.
+
+A **dismissible tip** appears on first use explaining the controls.
 
 ---
 
 ## Run Explanation
 
-After a run completes, click **Explain** to generate an AI-powered summary of the execution.
+After a run completes, click **Explain** in the history panel to generate an AI-powered summary.
+
+The explanation request goes to `POST /explain/{runId}` and uses your current LLM settings. A loading indicator shows "Generating… this usually takes 15–30 seconds."
 
 The explanation includes:
 
-- **Steps taken** — a structured list of each execution step
-- **What happened** — a plain-language description of each step's action
-- **Why it mattered** — the reasoning behind key decisions
+| Section | Content |
+| --- | --- |
+| **Final Outcome** | Highlighted summary of what the system produced |
+| **Steps Taken** | Numbered cards — each with "what happened" and "why it mattered" |
+| **Key Decisions** | Decision + reasoning pairs |
+| **Final Reasoning** | The chain of thought behind the overall result |
 
-This is powered by a separate LLM call to the backend (`POST /explain/{id}`), so it requires a valid API key.
+A **dismissible tip** appears on first use.
+
+---
+
+## Run History
+
+Requires [authentication](#authentication).
+
+The sidebar's **Account** section lists up to 6 recent saved runs, each showing:
+
+- Project name and timestamp
+- Event count
+- Confidence indicator (color-coded: green ≥ 75%, orange 50–75%, red < 50%)
+
+Per-run actions:
+
+| Button | Action |
+| --- | --- |
+| **Replay** | Loads the timeline and drives the graph + memory panel in sync |
+| **Explain** | Generates an AI explanation (see above) |
+| **Re-run** | Re-hydrates the original input and re-executes |
+| **Share** | Creates or revokes a public link (see below) |
 
 ---
 
 ## Sharing a Run
 
-After a run completes:
+Requires [authentication](#authentication).
 
-1. Click the **Share** button
-2. A public URL is generated at `/run/{shareToken}`
-3. Optionally set an **expiry** (in hours) for the link
-4. Copy and share the link with anyone
+1. Click **Share** on a saved run
+2. The backend creates a public token via `POST /run/{runId}/share`
+3. Optionally set an **expiry** (in hours)
+4. A shareable URL is generated at `/run/{shareToken}`
+5. To revoke, click the share button again — it calls `DELETE /run/{runId}/share`
 
-The shared page renders the full output, memory trace, timeline, and metrics — no API key or login required for the viewer.
+**Shared run page** (`/run/[id]`):
+
+- Displays project name, timestamp, latency, and confidence score
+- Three tabs: **Output**, **Memory**, **Timeline**
+- No API key or login required for the viewer
+- Handles expired links (410 Gone) and not-found tokens (404)
+
+---
+
+## Multi-Turn Sessions
+
+Requires [authentication](#authentication).
+
+When logged in, runs are associated with a **session**. This enables multi-turn context — the backend preserves conversation memory across runs for the same project.
+
+- The sidebar shows session state: "Conversation active" or "No active conversation"
+- A preview of up to 5 recent session memory entries is shown
+- **"Start new conversation"** clears the session memory via `POST /session/{sessionId}/clear` — with a confirmation dialog that includes a "Don't ask again" option
+- The session ID is stored in `localStorage` and survives page reloads
+- The stream request includes `session_id` to maintain context
 
 ---
 
@@ -202,15 +384,29 @@ The shared page renders the full output, memory trace, timeline, and metrics —
 
 **Route:** `/metrics`
 
-View performance data for all 20 systems.
+Track performance across all 20 systems over time.
 
-### Charts Available
+### Stat Cards (top)
 
-- **Latency** — response time per run (ms)
-- **Confidence** — model confidence score per run
-- **Success rate** — percentage of successful vs. failed runs
+| Card | Value |
+| --- | --- |
+| Runs Analyzed | Total count within selected window |
+| Average Latency | Formatted as ms |
+| Average Confidence | Formatted as % |
+| Success Rate | Formatted as % |
 
-### Time Ranges
+### Charts
+
+Three line charts powered by Recharts:
+
+1. **Latency Over Time** — response time in ms (downward = improving)
+2. **Confidence Over Time** — 0–100% (upward = improving)
+3. **Success Rate Over Time** — spans two columns, shows reliability drift
+
+### Filters
+
+- **Project dropdown** — "All projects" or a specific project slug
+- **Time range buttons**:
 
 | Range | Granularity |
 | --- | --- |
@@ -218,9 +414,20 @@ View performance data for all 20 systems.
 | Last day | Hourly buckets |
 | Last week | Daily buckets |
 
-### Filtering
+### Trend Summary
 
-Select a specific project from the dropdown to view its individual metrics with trend lines and automated summary text.
+An automated directional indicator based on start-vs-end comparison:
+
+- **Improving** (green) — latency dropped ≥ 40 ms, confidence or success rose ≥ 3%
+- **Degrading** (red) — opposite movement
+- **Stable** (gray) — within threshold
+
+### Export
+
+Two buttons at the top of the chart section:
+
+- **Export JSON** — downloads `metrics.json` with the full `TimeSeriesMetricPoint[]` array
+- **Export CSV** — downloads `metrics.csv` with a header row and one row per data point
 
 ---
 
@@ -228,16 +435,14 @@ Select a specific project from the dropdown to view its individual metrics with 
 
 **Route:** `/compare`
 
-A side-by-side technical comparison of the two multi-agent frameworks used in the lab:
+A structured side-by-side comparison of the two multi-agent frameworks:
 
-| Dimension | LangGraph | CrewAI |
-| --- | --- | --- |
-| **Control flow** | Explicit graph topology with conditional edges | Task ordering with sequential/hierarchical process modes |
-| **Determinism** | Higher — routing is code-defined | Lower — more prompt-shaped behavior |
-| **Flexibility** | Branching, loops, human-in-the-loop approval | Best for analyst teams with clear role delegation |
-| **State** | TypedDict checkpointed state | Shared memory across agents |
-
-Each comparison point links to concrete implementations in the repository (e.g., the `lg-debugging-agent` for evaluator-driven retry loops).
+| Section | Content |
+| --- | --- |
+| **Overview cards** | LangGraph: "Stateful orchestration" — CrewAI: "Role-based collaboration" |
+| **Comparison table** | Rows for control flow, determinism, flexibility, use cases |
+| **Repo examples** | Real implementations from this repo (e.g., `lg-debugging-agent` for evaluator-driven retry loops, `crew-hiring-system` for composable crew review) — each links to `/projects/{slug}` |
+| **Decision guidance** | When to use LangGraph vs CrewAI, with a practical rule of thumb |
 
 ---
 
@@ -245,55 +450,131 @@ Each comparison point links to concrete implementations in the repository (e.g.,
 
 **Route:** `/architecture`
 
-An interactive diagram of the full system architecture. Hover over boxes to highlight data flow paths. Click a component to see a detail panel with its purpose, inputs, and outputs.
+An interactive four-step diagram showing how requests flow through the system:
+
+1. **UI** — Next.js frontend
+2. **API** — FastAPI gateway
+3. **Project** — per-project runtime (LangGraph, CrewAI, or GenAI)
+4. **Shared Layer** — schemas, logging, LLM clients, eval, metrics
+
+**Interactions:**
+
+- **Hover** a box to highlight it and its immediate neighbors, with connecting arrows accented
+- **Click** a box to pin its detailed description in the panel below
+- The detail panel shows the box's title, subtitle, and a prose description of its role
 
 ---
 
-## Authentication & Sessions
+## Authentication
 
 **Route:** `/auth`
 
-Authentication is **optional** — you can run any project without logging in.
+Authentication is **optional**. You can browse all pages and run projects without logging in. Authentication unlocks:
 
-### Why Log In?
-
-Logging in unlocks:
-
-- **Run history** — a list of all your past runs with project name, timestamp, and output preview
-- **Persistent sessions** — multi-turn conversation context is preserved across runs (e.g., a chatbot remembers prior messages)
-- **Session management** — use "Clear context" to reset the session while keeping history
+- Run history
+- Multi-turn session memory
+- Run sharing
 
 ### How It Works
 
-1. Navigate to `/auth` and sign up or log in
-2. The server sets an **HttpOnly cookie** (the JWT is never exposed to JavaScript)
-3. A session marker is stored in `sessionStorage` to detect the active session on page load
-4. Subsequent API calls automatically include the auth token
+1. Navigate to `/auth` — toggle between **Log in** and **Create account**
+2. Enter email and password (minimum 8 characters — a live ✓/○ indicator shows below the field)
+3. The backend sets an **HttpOnly session cookie** (never exposed to JavaScript)
+4. A session marker is stored in `sessionStorage` (key: `portfolio.authenticated`) to detect the session on page load
+5. The session ID is stored in `localStorage` (key: `portfolio.active-session-id`) and survives tab reloads
+6. Subsequent API calls include the cookie automatically via `credentials: "include"`
 
-### Session Behavior
+**Public signup** is controlled by the backend's `/auth/config` endpoint (`public_signup` flag). When disabled, only login is available.
 
-- **Session ID** is stored in `localStorage` and survives tab/page reloads
-- Each run is associated with your session, enabling multi-turn context
-- Closing all tabs and reopening retains your session until you explicitly log out or clear context
+**Logout** clears the `sessionStorage` marker, removes the `localStorage` session ID, and calls `POST /auth/logout`.
+
+---
+
+## Onboarding Modal
+
+On the first visit to the Playground, a modal appears:
+
+1. **Browse 20 AI systems** — each with architecture, features, and live demos
+2. **Bring your own API key** — keys stay in your browser and are never stored
+3. **Run any system live** — see real-time output, memory traces, and timeline replays
+
+Click **"Get Started"** to dismiss. The modal is tracked via `localStorage` (key: `onboarding-dismissed`) and does not reappear.
 
 ---
 
 ## Theme Toggle
 
-Click the **sun/moon icon** in the top-right corner of the navigation bar to toggle between light and dark mode.
+Click the **sun/moon icon** in the top-right corner of the navigation bar to switch between light and dark mode.
 
-- The app ships with a full design system of 100+ CSS custom properties
-- Theme preference is persisted in `localStorage` and respected on reload
-- System preference (OS-level light/dark) is detected automatically on first visit
+- Theme is managed by `next-themes` and persisted in `localStorage`
+- On first visit, the OS-level preference (`prefers-color-scheme`) is detected automatically
+- The app uses 100+ CSS custom properties that adapt to the active theme
+- A `prefers-reduced-motion: reduce` media query disables all CSS animations and transitions
 
 ---
 
-## Keyboard & UI Tips
+## Accessibility & Keyboard Navigation
 
-- **Tab navigation** — all interactive elements are keyboard-accessible
-- **JSON input** — the playground input field accepts free-text or JSON. Check the example input shown in the sidebar for the expected format
-- **Multiple tabs** — each browser tab runs independently with its own API key and session state
-- **Auto-scroll** — the output panel auto-scrolls during streaming. Scroll up manually to pause auto-scroll
+- All interactive elements are keyboard-accessible via Tab
+- The timeline replay slider is an `<input type="range">` with an `aria-label`
+- Workspace state badges use `role="status"` and `aria-live="polite"` (or `"assertive"` for errors)
+- The run explanation loading region uses `aria-live="polite"`
+- The architecture diagram boxes are focusable `<button>` elements
+- The onboarding modal uses `role="dialog"` with `aria-modal="true"` and an `aria-label`
+- Confidence tooltip uses both a `title` attribute and an `aria-label`
+
+---
+
+## Environment Variables
+
+| Variable | Scope | Default | Purpose |
+| --- | --- | --- | --- |
+| `NEXT_PUBLIC_API_BASE_URL` | Frontend | `http://localhost:8000` | Backend API URL. When unset, the frontend tries `localhost:8000` then falls back to `127.0.0.1:8001` |
+| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | Backend | `localhost:3000, localhost:3001` variants | Comma-separated CORS origins. Defaults to localhost ports 3000 and 3001 |
+| `APP_ENV` | Backend | `dev` | When set to `prod`, logs a warning if `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` is not explicitly configured |
+
+---
+
+## Docker Deployment
+
+The repository includes a `Dockerfile` and `docker-compose.yml` for the **backend only**.
+
+### Dockerfile
+
+```dockerfile
+FROM python:3.13-slim
+WORKDIR /app
+COPY requirements.txt .
+RUN pip install --no-cache-dir -r requirements.txt
+COPY shared/ shared/
+COPY crew-*/ ./
+COPY genai-*/ ./
+COPY lg-*/ ./
+COPY .env* ./
+EXPOSE 8000
+CMD ["uvicorn", "shared.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+### docker-compose.yml
+
+```yaml
+services:
+  api:
+    build: .
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    command: ["uvicorn", "shared.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
+```
+
+Start with:
+
+```bash
+docker compose up --build
+```
+
+The frontend is not included in the Docker image — run it separately with `npm run dev` or `npm run build && npm start` from the `portfolio/` directory.
 
 ---
 
@@ -301,32 +582,52 @@ Click the **sun/moon icon** in the top-right corner of the navigation bar to tog
 
 ### "API unreachable" or connection errors
 
-- Ensure the FastAPI backend is running on `http://localhost:8000`
-- If using a custom backend URL, set the `NEXT_PUBLIC_API_BASE_URL` environment variable before starting the frontend
-- Check for CORS issues — the backend must have `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` set to allow the frontend origin
+- Confirm the FastAPI backend is running on `http://localhost:8000`
+- If using a custom URL, set `NEXT_PUBLIC_API_BASE_URL` before starting the frontend
+- On CORS errors, ensure `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` includes the frontend origin (defaults cover `localhost:3000` and `localhost:3001`)
 
 ### No output after clicking Run
 
-- Verify your API key is correct and has not expired
-- Check the browser console (F12 → Console) for error messages
+- Verify your API key is valid and not expired
+- Check the browser console (F12 → Console) for network errors
+- The friendly error message in the UI includes a "Show details" toggle — expand it to see the raw HTTP status and error detail
 - Try a different project to rule out project-specific issues
 
 ### Streaming seems stuck
 
 - The SSE connection may have timed out. Refresh the page and try again
-- If streaming consistently fails, the app will fall back to batch mode automatically
+- If streaming consistently fails, toggle "Live streaming" off in the sidebar to switch to batch mode
 
-### Theme not applying
+### Rate limit errors
 
-- Clear `localStorage` for the site and reload
-- Ensure your browser supports CSS custom properties (all modern browsers do)
+- The backend enforces per-endpoint rate limits (e.g., 30 requests/60 s for `/stream/`, 10/60 s for `/auth/login`)
+- Wait for the `Retry-After` period indicated in the response, then try again
 
 ### Shared link not loading
 
 - The share link may have expired if an expiry was set
 - The backend must be running and reachable from the viewer's network
+- Expired links show "This shared link has expired" (HTTP 410)
+
+### Theme not applying
+
+- Clear `localStorage` for the site and reload
 
 ### Login not working
 
-- Check that the backend is running and the `/auth/login` endpoint returns a valid response
+- Ensure the backend is running and the `/auth/login` endpoint is reachable
+- If public signup is disabled by the backend configuration, only existing accounts can log in
 - Clear cookies for the site and try again
+
+---
+
+## Limitations & Important Notes
+
+- **API key is per-tab** — each browser tab holds its own key in memory. Closing the tab discards the key. There is no cross-tab key sharing
+- **Session cookie is HttpOnly** — the auth token is never accessible to JavaScript. The frontend uses a `sessionStorage` marker to track login state
+- **Session ID persists in localStorage** — closing all tabs does not clear the session. Log out explicitly or use "Start new conversation" to reset
+- **Backend required** — all execution, metrics, history, sharing, and auth features require the FastAPI backend to be running. The frontend alone only serves static project information
+- **No offline mode** — the app does not cache runs or support offline execution
+- **Metrics are backend-persisted** — chart data comes from the `OperationalMetric` database table. If the backend has no data, charts will be empty
+- **Input size limit** — the backend rejects inputs longer than 10,000 characters
+- **Input sanitization** — the backend strips control characters, HTML-escapes strings, and rejects patterns that resemble SQL injection or XSS
