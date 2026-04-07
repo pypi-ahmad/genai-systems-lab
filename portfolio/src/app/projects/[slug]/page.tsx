@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import FlowDiagram from "@/components/flow-diagram";
+import { CopyCodeBlock } from "@/components/copy-code-block";
 import { getProject, projects } from "@/data/projects";
 import ProjectDemo from "./project-demo";
 
@@ -46,7 +47,7 @@ export default async function ProjectDetailPage({ params }: Props) {
   return (
     <article className="mx-auto max-w-6xl space-y-0">
       <section className="space-y-6 py-16">
-        <div>
+        <div className="flex flex-wrap items-center gap-3">
           <Link
             href="/projects"
             className="button-base button-secondary button-pill"
@@ -54,6 +55,13 @@ export default async function ProjectDetailPage({ params }: Props) {
             <span aria-hidden>&larr;</span>
             Back to projects
           </Link>
+          <nav aria-label="Breadcrumb" className="text-sm text-[var(--muted)]">
+            <ol className="flex items-center gap-1.5">
+              <li><Link href="/projects" className="hover:text-[var(--foreground)] transition-colors">Projects</Link></li>
+              <li aria-hidden className="text-[var(--muted)]">/</li>
+              <li className="font-semibold text-[var(--foreground)]">{project.name}</li>
+            </ol>
+          </nav>
         </div>
 
         <header className="surface-card overflow-hidden rounded-xl p-6 sm:p-8">
@@ -164,15 +172,17 @@ export default async function ProjectDetailPage({ params }: Props) {
             <div className="mt-6 grid gap-6 xl:grid-cols-2">
               <div>
                 <p className="mb-3 text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Input</p>
-                <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
-                  {formatJson(project.exampleInput)}
-                </pre>
+                <CopyCodeBlock
+                  code={formatJson(project.exampleInput)}
+                  className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]"
+                />
               </div>
               <div>
                 <p className="mb-3 text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Output</p>
-                <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
-                  {formatJson(project.exampleOutput)}
-                </pre>
+                <CopyCodeBlock
+                  code={formatJson(project.exampleOutput)}
+                  className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]"
+                />
               </div>
             </div>
           </section>

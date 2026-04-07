@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
 import { projectDetails } from "@/data/projects";
@@ -115,12 +116,81 @@ export function PlaygroundSidebar({
   streamMode,
 }: PlaygroundSidebarProps) {
   const recentRuns = historyRuns.slice(0, 6);
-  const keyError = Boolean(errorMsg && /api.key|api key|x-api-key|missing x-api-key/i.test(errorMsg));
+  const [keyTouched, setKeyTouched] = useState(false);
+  const [projectSearch, setProjectSearch] = useState("");
+  const [jsonWarning, setJsonWarning] = useState<string | null>(null);
+  const jsonTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const skipRerunConfirmRef = useRef(() => {
+    try { return localStorage.getItem("skip-rerun-confirm") === "1"; } catch { return false; }
+  });
+  const skipClearConfirmRef = useRef(() => {
+    try { return localStorage.getItem("skip-clear-confirm") === "1"; } catch { return false; }
+  });
+
+  function confirmRerun(): boolean {
+    if (skipRerunConfirmRef.current()) return true;
+    const ok = window.confirm("This will replace your current output. Continue?");
+    if (ok) {
+      try { localStorage.setItem("skip-rerun-confirm", "1"); } catch {}
+    }
+    return ok;
+  }
+
+  function confirmClear(): boolean {
+    if (skipClearConfirmRef.current()) return true;
+    const ok = window.confirm("Start a new conversation? Current context will be cleared.");
+    if (ok) {
+      try { localStorage.setItem("skip-clear-confirm", "1"); } catch {}
+    }
+    return ok;
+  }
+
+  useEffect(() => {
+    if (jsonTimerRef.current) clearTimeout(jsonTimerRef.current);
+    const trimmed = input.trim();
+    if (!trimmed || !(trimmed.startsWith("{") || trimmed.startsWith("["))) {
+      setJsonWarning(null);
+      return;
+    }
+    jsonTimerRef.current = setTimeout(() => {
+      try {
+        JSON.parse(trimmed);
+        setJsonWarning(null);
+      } catch (err) {
+        const msg = err instanceof SyntaxError ? err.message : "Invalid JSON";
+        const posMatch = msg.match(/position\s+(\d+)/i);
+        if (posMatch) {
+          const pos = Number(posMatch[1]);
+          const line = trimmed.slice(0, pos).split("\n").length;
+          setJsonWarning(`Syntax error near line ${line}: ${msg.replace(/^JSON\.parse:\s*/i, "").replace(/\s+at position \d+.*$/i, "").trim()}`);
+        } else {
+          setJsonWarning(msg.replace(/^JSON\.parse:\s*/i, "").trim());
+        }
+      }
+    }, 500);
+    return () => { if (jsonTimerRef.current) clearTimeout(jsonTimerRef.current); };
+  }, [input]);
+  const [guideDismissed, setGuideDismissed] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return localStorage.getItem("playground-guide-dismissed") === "1";
+  });
+  const rawKeyError = Boolean(errorMsg && /api.key|api key|x-api-key|missing x-api-key/i.test(errorMsg));
+  const keyError = rawKeyError && keyTouched;
   const providerLabel = selectedProviderInfo?.label ?? selectedProvider;
   const apiKeyRequired = selectedProviderInfo?.requires_api_key ?? (selectedProvider !== "ollama");
   const apiKeyLabel = selectedProviderInfo?.api_key_label ?? "API key";
-  const apiKeyPlaceholder = selectedProviderInfo?.api_key_placeholder ?? "";
+  const apiKeyPlaceholder = selectedProviderInfo?.api_key_placeholder ?? "Paste your API key to get started";
   const apiKeyHelpUrl = selectedProviderInfo?.api_key_help_url ?? null;
+
+  const RECOMMENDED_SLUG = "genai-research-system";
+  const filteredProjects = projectDetails.filter((project) => {
+    if (!projectSearch.trim()) return true;
+    const q = projectSearch.toLowerCase();
+    return project.name.toLowerCase().includes(q) || project.category.toLowerCase().includes(q) || project.slug.toLowerCase().includes(q);
+  });
+  const recommendedProject = filteredProjects.find((p) => p.slug === RECOMMENDED_SLUG);
+  const otherProjects = filteredProjects.filter((p) => p.slug !== RECOMMENDED_SLUG);
+  const sortedProjects = recommendedProject ? [recommendedProject, ...otherProjects] : filteredProjects;
 
   return (
     <aside className="flex flex-col gap-7 xl:sticky xl:top-24">
@@ -144,6 +214,12 @@ export function PlaygroundSidebar({
           spellCheck={false}
         />
 
+        {jsonWarning && (
+          <p className="mt-1.5 text-[11px] leading-5 text-amber-400">
+            ⚠ {jsonWarning}
+          </p>
+        )}
+
         <div className="mt-4 flex flex-wrap items-center gap-3">
           <label className="flex cursor-pointer items-center gap-2 rounded-full border border-[var(--line)] bg-[var(--surface-soft)] px-3 py-2 text-xs text-[var(--muted)]">
             <input
@@ -153,7 +229,8 @@ export function PlaygroundSidebar({
               disabled={isActive}
               className="accent-[var(--accent-solid)]"
             />
-            Stream
+            <span>Live streaming</span>
+            <span className="ml-1 text-[10px] text-[var(--muted)]">See output as it generates</span>
           </label>
 
           {isActive ? (
@@ -161,7 +238,7 @@ export function PlaygroundSidebar({
               Stop
             </button>
           ) : (
-            <button type="button" onClick={onRun} disabled={!canRun} className="button-base button-primary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50">
+            <button type="button" onClick={() => { setKeyTouched(true); onRun(); }} disabled={!canRun} className="button-base button-primary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50">
               Send request
             </button>
           )}
@@ -236,6 +313,9 @@ export function PlaygroundSidebar({
                   </a>
                 ) : null}
               </div>
+              <p className="mt-1.5 text-[11px] leading-5 text-[var(--muted)]">
+                Your key is kept only in memory for this browser tab and is never stored.
+              </p>
 
               <div className="relative mt-2">
                 <input
@@ -243,7 +323,7 @@ export function PlaygroundSidebar({
                   value={keyFocused ? selectedApiKey : maskApiKey(selectedApiKey)}
                   onChange={(event) => onApiKeyChange(event.target.value)}
                   onFocus={() => onKeyFocusedChange(true)}
-                  onBlur={() => onKeyFocusedChange(false)}
+                  onBlur={() => { onKeyFocusedChange(false); setKeyTouched(true); }}
                   placeholder={apiKeyPlaceholder}
                   disabled={isActive}
                   className={`input-shell w-full rounded-[1rem] px-4 py-2.5 font-mono text-xs leading-6 disabled:cursor-not-allowed disabled:opacity-60${keyError ? " ring-2 ring-red-500/60" : ""}`}
@@ -266,13 +346,9 @@ export function PlaygroundSidebar({
 
               {keyError ? (
                 <p className="mt-1.5 text-[11px] font-medium leading-5 text-red-400">
-                  Invalid or expired API key
+                  API key not accepted. Double-check and try again.
                 </p>
-              ) : (
-                <p className="mt-1.5 text-[11px] leading-5 text-[var(--muted)]">
-                  Your key is kept only in memory for this browser session.
-                </p>
-              )}
+              ) : null}
             </div>
           ) : (
             <div className="rounded-[1rem] border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-3 text-[11px] leading-5 text-[var(--muted)]">
@@ -293,9 +369,44 @@ export function PlaygroundSidebar({
           </span>
         </div>
 
-        <div className="mt-4 max-h-[420px] space-y-2.5 overflow-auto pr-1">
-          {projectDetails.map((project) => {
+        {!guideDismissed && (
+          <div className="mt-4 rounded-[1rem] border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-3">
+            <div className="flex items-start justify-between gap-3">
+              <p className="text-sm leading-6 text-[var(--foreground)]">
+                <span className="font-semibold">① </span>Pick a project
+                <span className="mx-1.5 text-[var(--muted)]">→</span>
+                <span className="font-semibold">② </span>Enter your API key
+                <span className="mx-1.5 text-[var(--muted)]">→</span>
+                <span className="font-semibold">③ </span>Press Send
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setGuideDismissed(true);
+                  try { localStorage.setItem("playground-guide-dismissed", "1"); } catch {}
+                }}
+                className="shrink-0 text-[11px] font-medium text-[var(--muted)] hover:text-[var(--foreground)]"
+                aria-label="Dismiss guide"
+              >
+                ✕
+              </button>
+            </div>
+          </div>
+        )}
+
+        <input
+          type="text"
+          value={projectSearch}
+          onChange={(event) => setProjectSearch(event.target.value)}
+          placeholder="Search projects..."
+          className="input-shell mt-4 w-full rounded-[1rem] px-4 py-2.5 text-sm leading-6"
+          spellCheck={false}
+        />
+
+        <div className="mt-3 max-h-[420px] space-y-2.5 overflow-auto pr-1">
+          {sortedProjects.map((project) => {
             const isSelected = project.slug === selectedSlug;
+            const isRecommended = project.slug === RECOMMENDED_SLUG;
             return (
               <button
                 key={project.slug}
@@ -309,7 +420,14 @@ export function PlaygroundSidebar({
                 }`}
               >
                 <div className="flex items-start justify-between gap-3">
-                  <p className="text-sm font-semibold text-[var(--foreground)]">{project.name}</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="text-sm font-semibold text-[var(--foreground)]">{project.name}</p>
+                    {isRecommended && (
+                      <span className="rounded-full border border-[var(--done-border)] bg-[var(--done-bg)] px-2 py-0.5 text-[9px] font-semibold uppercase tracking-[0.14em] text-[var(--done-text)]">
+                        Recommended
+                      </span>
+                    )}
+                  </div>
                   <span className={`rounded-full px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] ${categoryBadgeTone[project.category]}`}>
                     {project.category}
                   </span>
@@ -318,6 +436,9 @@ export function PlaygroundSidebar({
               </button>
             );
           })}
+          {sortedProjects.length === 0 && (
+            <p className="py-4 text-center text-sm text-[var(--muted)]">No projects match your search.</p>
+          )}
         </div>
       </section>
 
@@ -343,20 +464,20 @@ export function PlaygroundSidebar({
                 <div>
                   <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Session</p>
                   <p className="mt-1 text-sm font-semibold text-[var(--foreground)]">
-                    {activeSessionId !== null ? "Session active" : "Session idle"}
+                    {activeSessionId !== null ? "Conversation active" : "No active conversation"}
                   </p>
                   {hasSessionContext && (
-                    <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">Last few interactions are ready for reuse.</p>
+                    <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">Previous messages in this conversation will be included.</p>
                   )}
                 </div>
                 {activeSessionId !== null && (
                   <button
                     type="button"
-                    onClick={onClearSession}
+                    onClick={() => { if (confirmClear()) onClearSession(); }}
                     disabled={sessionLoading || clearingSession}
                     className="button-base button-secondary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50"
                   >
-                    {clearingSession ? "Clearing..." : "Clear session"}
+                    {clearingSession ? "Clearing..." : "Start new conversation"}
                   </button>
                 )}
               </div>
@@ -368,11 +489,11 @@ export function PlaygroundSidebar({
               )}
 
               {!sessionLoading && activeSessionId === null && (
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Start a run to begin a reusable session.</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Start a run to begin a conversation.</p>
               )}
 
               {!sessionLoading && activeSessionId !== null && sessionEntries.length === 0 && (
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">This session is active, but no previous interactions are stored yet.</p>
+                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">Conversation is active, but no previous messages are stored yet.</p>
               )}
 
               {sessionEntries.length > 0 && (
@@ -455,7 +576,7 @@ export function PlaygroundSidebar({
                                     ? "Show Explanation"
                                     : "Explain How It Worked"}
                             </button>
-                            <button type="button" onClick={() => onHistoryRerun(run)} className="button-base button-primary button-sm button-pill">
+                            <button type="button" onClick={() => { if (confirmRerun()) onHistoryRerun(run); }} className="button-base button-primary button-sm button-pill">
                               Re-run
                             </button>
                             <button

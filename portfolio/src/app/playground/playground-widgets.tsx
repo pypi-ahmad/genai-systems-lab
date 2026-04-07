@@ -153,6 +153,7 @@ export function DebugPanel({
 
       <div
         ref={scrollRef}
+        aria-live="polite"
         className="max-h-[360px] overflow-y-auto px-5 py-5 font-mono text-[11px] leading-6 text-[#86EFAC] sm:px-6"
       >
         {logs.length > 0 ? (

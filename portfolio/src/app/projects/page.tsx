@@ -1,5 +1,7 @@
 import Link from "next/link";
-import { projects, type Category } from "@/data/projects";
+import { projects, projectDetails, type Category } from "@/data/projects";
+import { AggregateRunBadge } from "@/components/project-run-badge";
+import { ProjectQuickPreview } from "@/components/project-quick-preview";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -26,6 +28,7 @@ export default function ProjectsPage() {
             Each project card keeps the signal tight: name, short description,
             category, and a direct path to the detail page.
           </p>
+          <AggregateRunBadge />
         </div>
 
         <div className="surface-card rounded-xl p-6 sm:p-8">
@@ -61,8 +64,11 @@ export default function ProjectsPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {items.map((project) => (
+              {items.map((project) => {
+                const detail = projectDetails.find((d) => d.slug === project.slug);
+                return (
                 <article key={project.slug} className="h-full">
+                  <ProjectQuickPreview slug={project.slug} description={project.description} tags={detail?.tags ?? []}>
                   <Link
                     href={`/projects/${project.slug}`}
                     className="group surface-card surface-card-hover flex h-full flex-col rounded-xl border border-[color-mix(in_srgb,var(--line)_92%,transparent)] bg-[color-mix(in_srgb,var(--card)_94%,var(--surface-soft)_6%)] p-6 sm:p-8"
@@ -96,8 +102,10 @@ export default function ProjectsPage() {
                       </span>
                     </div>
                   </Link>
+                  </ProjectQuickPreview>
                 </article>
-              ))}
+                );
+              })}
             </div>
           </section>
         );

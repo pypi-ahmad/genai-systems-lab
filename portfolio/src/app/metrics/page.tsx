@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useState, type ReactNode } from "react";
 import { projectDetails } from "@/data/projects";
 import {
   fetchMetricsTime,
@@ -368,6 +368,28 @@ function EmptyState({ message }: { message: string }) {
   );
 }
 
+function downloadFile(content: string, filename: string, mime: string) {
+  const blob = new Blob([content], { type: mime });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
+function exportChartCsv(data: ChartPoint[]) {
+  const header = "label,latency_ms,confidence,success_rate_pct,runs";
+  const rows = data.map((p) =>
+    [p.label, p.latency ?? "", p.confidence ?? "", p.successRate ?? "", p.runs].join(",")
+  );
+  downloadFile([header, ...rows].join("\n"), "metrics.csv", "text/csv");
+}
+
+function exportChartJson(data: ChartPoint[]) {
+  downloadFile(JSON.stringify(data, null, 2), "metrics.json", "application/json");
+}
+
 export default function MetricsPage() {
   const [selectedProject, setSelectedProject] = useState("all");
   const [range, setRange] = useState<MetricsTimeRange>("day");
@@ -715,6 +737,23 @@ export default function MetricsPage() {
               </LineChart>
             </ResponsiveContainer>
           </ChartCard>
+        </div>
+
+        <div className="flex flex-wrap gap-3 pt-4">
+          <button
+            type="button"
+            onClick={() => exportChartCsv(chartSeries)}
+            className="button-base button-secondary button-sm button-pill"
+          >
+            Export CSV
+          </button>
+          <button
+            type="button"
+            onClick={() => exportChartJson(chartSeries)}
+            className="button-base button-secondary button-sm button-pill"
+          >
+            Export JSON
+          </button>
         </div>
       </section>
     </div>
