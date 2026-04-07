@@ -83,9 +83,10 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 - **CORS**: Defaults to explicit local frontend origins instead of `*`. Set `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` for deployed frontends.
 - **Rate limiting**: Lightweight in-memory throttling applies to signup/login and expensive endpoints such as `/eval/*`, `/stream/*`, and `/explain/*`.
 
-### Observability and operational reporting
+### Observability
 
-- **Tracing**: OpenTelemetry is bootstrapped automatically at API startup when `OTEL_ENABLED=true`. If the optional packages are unavailable, startup logs a warning instead of failing silently.
+- **OpenTelemetry**: Bootstrapped automatically at API startup when `OTEL_ENABLED=true`. If the optional packages are unavailable, startup logs a warning instead of failing silently.
+- **Langfuse**: Opt-in production observability via `LANGFUSE_ENABLED=true`. Traces every LLM call and project execution with latency, token usage, and cost tracking. When disabled or when the SDK is not installed, all tracing degrades to no-ops.
 - **Durable metrics**: Project execution metrics are persisted to the `operational_metrics` table, so `/metrics` and `/metrics/time` survive process restarts and include guest as well as authenticated runs.
 
 ### Input validation and sanitization
@@ -273,6 +274,7 @@ Project calls generate_text() / generate_structured() / embed()
 │  api/run_explainer   LLM explain from stored artifacts                │
 │  api/eval_runner     Benchmark execution                              │
 │  api/step_events     ContextVar StepEmitter for streaming             │
+│  observability/  Langfuse tracing (opt-in), no-ops when disabled      │
 │  eval/        Benchmark datasets (20 projects) + latency metrics      │
 │  cache/       In-memory TTL caches (prompt-keyed)                     │
 │  logging/     Structured logs + OpenTelemetry spans                   │
@@ -364,6 +366,7 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key  +  X-LLM-Provider?  
 | `shared/api/eval_runner.py` | Per-case benchmark execution, rule evaluation |
 | `shared/api/step_events.py` | `ContextVar`-based `StepEmitter` for decoupled step emission during streaming |
 | `shared/api/langgraph_events.py` | `instrument_node` wrapper — emits step events from LangGraph node functions |
+| `shared/observability/langfuse.py` | Langfuse tracing integration: decorator, context manager, and manual trace APIs; no-ops when disabled |
 | `shared/llm/dispatch.py` | Unified provider dispatch: routes calls to Gemini, OpenAI, Anthropic, or Ollama |
 | `shared/llm/catalog.py` | Provider catalog: static definitions for Gemini/OpenAI/Anthropic, dynamic Ollama discovery |
 | `shared/llm/gemini.py` | Backward-compatible facade delegating to the dispatch layer |
@@ -388,6 +391,7 @@ genai-systems-lab/
 │   ├── llm/              Multi-provider dispatch (dispatch, catalog, gemini_provider,
 │   │                     gemini facade, providers, exceptions)
 │   ├── eval/             Benchmark datasets + latency metrics + stress testing
+│   ├── observability/    Langfuse tracing (opt-in via LANGFUSE_ENABLED)
 │   ├── cache/            In-memory TTL caches (prompt-keyed)
 │   ├── logging/          Structured logging + OpenTelemetry spans
 │   ├── schemas/          Pydantic request/response models
@@ -411,6 +415,8 @@ genai-systems-lab/
 │       │                 TimelineReplay, RunExplanation, ConfidenceIndicator
 │       └── data/         Shared project catalog manifest + typed frontend facade
 │
+├── benchmarks/
+│   └── promptfoo/        Promptfoo eval configs: model comparison, agent eval, RAG retrieval, RAG e2e
 ├── langgraph-data-analyst/  Standalone reference project (own deps;
 │                            deliberately outside the platform runner)
 ├── ARCHITECTURE.md       Platform design principles
@@ -532,6 +538,10 @@ All variables below are optional. The defaults shown are suitable for local deve
 | `OTEL_CONSOLE_EXPORT` | `false` | Mirror spans to the console exporter |
 | `OTEL_SERVICE_NAME` | `genai-systems-lab` | Service name reported to the tracing backend |
 | `OTEL_EXPORTER_OTLP_ENDPOINT` | `http://localhost:4317` | OTLP collector endpoint |
+| `LANGFUSE_ENABLED` | `false` | Enable Langfuse tracing for LLM calls and project executions |
+| `LANGFUSE_SECRET_KEY` | — | Langfuse secret key (required when Langfuse is enabled) |
+| `LANGFUSE_PUBLIC_KEY` | — | Langfuse public key (required when Langfuse is enabled) |
+| `LANGFUSE_HOST` | `https://cloud.langfuse.com` | Langfuse server URL (cloud or self-hosted) |
 | `MODEL_DEFAULT_DEV` | `gemini-3-flash-preview` | Default model in dev |
 | `MODEL_DEFAULT_PROD` | `gemini-3.1-pro-preview` | Default model in prod |
 | `PROJECT_MODELS_JSON` | `{}` | JSON object mapping project names to model overrides |
@@ -744,11 +754,30 @@ The Next.js frontend at `http://localhost:3000` provides:
 | `/projects` | Project gallery: browse all 20 systems with metadata, architecture info, and demo links |
 | `/projects/[slug]` | Per-project details: architecture, pipeline graph, example input/output, interactive demo |
 | `/metrics` | Time-series charts for latency, confidence, and success rate (hour/day/week) |
-| `/compare` | Side-by-side comparison of two project runs |
+| `/compare` | LangGraph vs CrewAI framework comparison with linked implementations |
 | `/auth` | Sign up and sign in |
 | `/run/[id]` | Public shared run view |
-| `/about` | Platform overview |
-| `/architecture` | Architecture walkthrough |
+| `/about` | Author skills and approach |
+| `/architecture` | Interactive system architecture diagram |
+
+For a comprehensive walkthrough of every frontend feature — including playground controls, streaming behavior, timeline replay, run sharing, session memory, metrics export, authentication, accessibility, and troubleshooting — see the **[Usage Guide](portfolio/USAGE.md)**.
+
+<details>
+<summary>Usage Guide contents</summary>
+
+- [What This App Is](portfolio/USAGE.md#what-this-app-is) · [Who This Is For](portfolio/USAGE.md#who-this-is-for) · [Before You Start](portfolio/USAGE.md#before-you-start)
+- [Setup & Local Development](portfolio/USAGE.md#setup--local-development) · [Navigation](portfolio/USAGE.md#navigation)
+- [Home Page](portfolio/USAGE.md#home-page) · [About Page](portfolio/USAGE.md#about-page) · [Browsing Projects](portfolio/USAGE.md#browsing-projects) · [Project Detail Page](portfolio/USAGE.md#project-detail-page)
+- [Playground — Running a Project](portfolio/USAGE.md#playground--running-a-project) (selecting, API keys, input, streaming, output, memory, graph)
+- [Timeline Replay](portfolio/USAGE.md#timeline-replay) · [Run Explanation](portfolio/USAGE.md#run-explanation) · [Run History](portfolio/USAGE.md#run-history) · [Sharing a Run](portfolio/USAGE.md#sharing-a-run)
+- [Multi-Turn Sessions](portfolio/USAGE.md#multi-turn-sessions) · [Metrics Dashboard](portfolio/USAGE.md#metrics-dashboard)
+- [LangGraph vs CrewAI Comparison](portfolio/USAGE.md#langgraph-vs-crewai-comparison) · [Architecture Diagram](portfolio/USAGE.md#architecture-diagram)
+- [Authentication](portfolio/USAGE.md#authentication) · [Onboarding Modal](portfolio/USAGE.md#onboarding-modal) · [Theme Toggle](portfolio/USAGE.md#theme-toggle)
+- [Accessibility & Keyboard Navigation](portfolio/USAGE.md#accessibility--keyboard-navigation)
+- [Environment Variables](portfolio/USAGE.md#environment-variables) · [Docker Deployment](portfolio/USAGE.md#docker-deployment)
+- [Troubleshooting](portfolio/USAGE.md#troubleshooting) · [Limitations & Important Notes](portfolio/USAGE.md#limitations--important-notes)
+
+</details>
 
 ---
 
@@ -767,17 +796,19 @@ The runner discovers the project automatically on next startup — no registrati
 
 ### CI/CD
 
-GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests. The pipeline uses four jobs with dependency caching and concurrency grouping (in-flight runs for the same ref are cancelled automatically).
+GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests. The pipeline uses five jobs with dependency caching and concurrency grouping (in-flight runs for the same ref are cancelled automatically).
 
 | Job | What it does |
 |---|---|
-| **backend-platform** | installs the root Python environment, runs `compileall` on `shared/` + `tests/`, runs the platform suite (`tests/`), runs the `crew-startup-simulator` and `lg-research-agent` project suites, and optionally runs Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
-| **backend-standalone-analyst** | installs `langgraph-data-analyst/requirements.txt` in its own isolated environment and runs that standalone project suite separately to avoid dependency conflicts with the shared platform runtime |
+| **backend-platform** | Installs the root Python environment, runs `compileall` on `shared/` + `tests/`, runs the platform suite (`tests/`), runs the `crew-startup-simulator` and `lg-research-agent` project suites, and optionally runs Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
+| **promptfoo-eval** | Runs Promptfoo offline evaluation suites (`benchmarks/promptfoo/`): model comparison, agent evaluation, RAG retrieval, and RAG end-to-end — when provider API keys are available |
+| **backend-standalone-analyst** | Installs `langgraph-data-analyst/requirements.txt` in its own isolated environment and runs that standalone project suite separately to avoid dependency conflicts with the shared platform runtime |
 | **frontend** | `npm run lint`, `npm run test` (playground utility tests), `npm run build` (Next.js production build) |
 | **docker** | Builds the backend Docker image to verify the `Dockerfile` stays valid (runs after both backend jobs pass) |
 
 ```text
 push / PR → ┬─ backend-platform          ─── install root env → compile → tests → eval
+             ├─ promptfoo-eval            ─── model comparison → agent eval → RAG eval
              ├─ backend-standalone-analyst ─ install analyst env → analyst tests
              ├─ frontend                  ─── lint → test → build
              └─ docker                    ─── (waits for backend jobs) → docker build
@@ -859,6 +890,7 @@ If this evolves toward a reusable platform, the next priorities would be: Alembi
 
 ## Further Reading
 
+- [portfolio/USAGE.md](portfolio/USAGE.md) — Step-by-step usage guide for all frontend features: playground, metrics, sharing, sessions, auth, and accessibility.
 - [ARCHITECTURE.md](ARCHITECTURE.md) — Platform design principles: separation of concerns, deterministic + LLM hybrid, evaluation-first.
 - [docs/comparison.md](docs/comparison.md) — LangGraph vs. CrewAI framework comparison.
 - [portfolio/README.md](portfolio/README.md) — Frontend-specific documentation.
