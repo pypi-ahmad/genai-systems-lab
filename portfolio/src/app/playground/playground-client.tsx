@@ -59,6 +59,8 @@ export default function PlaygroundClient() {
   const {
     selectedSlug,
     input,
+    inputMode,
+    textModeAvailable,
     status,
     output,
     rawData,
@@ -75,6 +77,7 @@ export default function PlaygroundClient() {
     streamPanelRef,
     setSelectedSlug,
     setInput,
+    setInputMode,
     setStatus,
     setConfidence,
     setUsedSessionContext,
@@ -203,8 +206,35 @@ export default function PlaygroundClient() {
     clearExplanation();
     setSelectedSlug(slug);
     const proj = projectDetails.find((p) => p.slug === slug)!;
-    setInput(proj.exampleInput);
+    // Extract plain text for text-eligible projects, otherwise use raw JSON
+    try {
+      const parsed = JSON.parse(proj.exampleInput);
+      const keys = Object.keys(parsed);
+      const eligible = keys.length === 1 && keys[0] === "input" && typeof parsed.input === "string";
+      setInputMode(eligible ? "text" : "json");
+      setInput(eligible ? parsed.input : proj.exampleInput);
+    } catch {
+      setInputMode("json");
+      setInput(proj.exampleInput);
+    }
     resetRunState();
+  }
+
+  function handleInputModeChange(mode: "json" | "text") {
+    if (mode === inputMode) return;
+    if (mode === "text") {
+      // Try to extract the "input" value from current JSON
+      try {
+        const parsed = JSON.parse(input);
+        if (typeof parsed.input === "string") {
+          setInput(parsed.input);
+        }
+      } catch { /* keep current input as-is */ }
+    } else {
+      // Wrap current text back into JSON
+      setInput(JSON.stringify({ input }, null, 2));
+    }
+    setInputMode(mode);
   }
 
   function handleRun() {
@@ -287,7 +317,7 @@ export default function PlaygroundClient() {
         <p className="eyebrow">Playground</p>
         <h1 className="heading-display text-3xl sm:text-4xl">AI Playground</h1>
         <p className="copy-lead max-w-2xl text-base sm:text-lg">
-          Compose a request on the left, then watch the response stream into the workspace on the right.
+          Pick a project on the left, then press Run to see the response on the right.
         </p>
       </section>
 
@@ -307,6 +337,9 @@ export default function PlaygroundClient() {
           historyLoading={historyLoading}
           historyRuns={historyRuns}
           input={input}
+          inputMode={inputMode}
+          textModeAvailable={textModeAvailable}
+          onInputModeChange={handleInputModeChange}
           isActive={isActive}
           keyFocused={keyFocused}
           llmCatalog={llmCatalog}
@@ -348,6 +381,7 @@ export default function PlaygroundClient() {
             confidence={confidence}
             conversationStarted={conversationStarted}
             errorMsg={errorMsg}
+            inputMode={inputMode}
             inputPreview={inputPreview}
             keyMetrics={keyMetrics}
             latency={latency}

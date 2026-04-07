@@ -33,7 +33,11 @@ const categoryDiagramAccent: Record<string, string> = {
 };
 
 function formatJson(value: string) {
-  return JSON.stringify(JSON.parse(value), null, 2);
+  try {
+    return JSON.stringify(JSON.parse(value), null, 2);
+  } catch {
+    return value;
+  }
 }
 
 export default async function ProjectDetailPage({ params }: Props) {
@@ -64,9 +68,6 @@ export default async function ProjectDetailPage({ params }: Props) {
                 >
                   {project.category}
                 </span>
-                <span className="surface-pill rounded-full px-3 py-1 font-mono text-[11px] tracking-[0.16em] text-[var(--muted)] uppercase">
-                  {project.slug}
-                </span>
               </div>
 
               <div className="title-stack">
@@ -88,13 +89,13 @@ export default async function ProjectDetailPage({ params }: Props) {
               </div>
               <div className="surface-panel rounded-[1.5rem] px-4 py-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-                  Features
+                  Capabilities
                 </p>
                 <p className="mt-2 text-sm font-semibold text-[var(--foreground)]">{project.features.length}</p>
               </div>
               <div className="surface-panel rounded-[1.5rem] px-4 py-4">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-                  API
+                  Powered by
                 </p>
                 <p className="mt-2 text-sm font-semibold text-[var(--foreground)]">FastAPI</p>
               </div>
@@ -122,7 +123,7 @@ export default async function ProjectDetailPage({ params }: Props) {
                     Component flow
                   </p>
                   <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
-                    nodes = components, edges = flow
+                    Each box is a component · arrows show data flow
                   </p>
                 </div>
 
@@ -136,9 +137,9 @@ export default async function ProjectDetailPage({ params }: Props) {
           </section>
 
           <section className="surface-card rounded-xl p-6 sm:p-8">
-            <p className="eyebrow">Features</p>
+            <p className="eyebrow">Capabilities</p>
             <h2 className="heading-section mt-3 text-3xl text-[var(--foreground)]">
-              Built for practical developer workflows
+              What this project can do
             </h2>
             <ul className="mt-6 grid gap-6 sm:grid-cols-2">
               {project.features.map((feature) => (
@@ -155,32 +156,44 @@ export default async function ProjectDetailPage({ params }: Props) {
             </ul>
           </section>
 
-          <section className="surface-card rounded-xl p-6 sm:p-8">
-            <p className="eyebrow">Example Input / Output</p>
-            <h2 className="heading-section mt-3 text-3xl text-[var(--foreground)]">
-              Request and response shape
-            </h2>
-            <div className="mt-6 grid gap-6 xl:grid-cols-2">
-              <div>
-                <div className="mb-3 flex items-center justify-between">
-                  <p className="text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Input</p>
-                  <CopyButton text={formatJson(project.exampleInput)} />
+          <details className="surface-card rounded-xl">
+            <summary className="cursor-pointer select-none p-6 sm:p-8 [&>svg]:open:rotate-180">
+              <div className="inline-flex w-[calc(100%-1.5rem)] items-start justify-between gap-4">
+                <div>
+                  <p className="eyebrow">Developer Reference</p>
+                  <h2 className="heading-section mt-3 text-3xl text-[var(--foreground)]">
+                    Example request and response
+                  </h2>
+                  <p className="copy-body mt-3 text-sm">Expand to see the exact JSON this endpoint accepts and returns.</p>
                 </div>
-                <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
-                  {formatJson(project.exampleInput)}
-                </pre>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="mt-1 h-5 w-5 shrink-0 text-[var(--muted)] transition-transform duration-200">
+                  <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                </svg>
               </div>
-              <div>
-                <div className="mb-3 flex items-center justify-between">
-                  <p className="text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Output</p>
-                  <CopyButton text={formatJson(project.exampleOutput)} />
+            </summary>
+            <div className="border-t border-[var(--line)] p-6 sm:p-8">
+              <div className="grid gap-6 xl:grid-cols-2">
+                <div>
+                  <div className="mb-3 flex items-center justify-between">
+                    <p className="text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Input</p>
+                    <CopyButton text={formatJson(project.exampleInput)} />
+                  </div>
+                  <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
+                    {formatJson(project.exampleInput)}
+                  </pre>
                 </div>
-                <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
-                  {formatJson(project.exampleOutput)}
-                </pre>
+                <div>
+                  <div className="mb-3 flex items-center justify-between">
+                    <p className="text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Output</p>
+                    <CopyButton text={formatJson(project.exampleOutput)} />
+                  </div>
+                  <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
+                    {formatJson(project.exampleOutput)}
+                  </pre>
+                </div>
               </div>
             </div>
-          </section>
+          </details>
         </div>
 
         <aside className="space-y-8 xl:sticky xl:top-24">
@@ -212,7 +225,7 @@ export default async function ProjectDetailPage({ params }: Props) {
 
               <div>
                 <p className="text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
-                  Project Slug
+                  Project ID
                 </p>
                 <p className="mt-2 font-mono text-xs text-[var(--muted)]">{project.slug}</p>
               </div>
@@ -221,12 +234,24 @@ export default async function ProjectDetailPage({ params }: Props) {
 
           {project.apiEndpoint && (project.demo?.enabled ?? true) ? (
             <>
-              <section className="surface-card rounded-xl p-6 sm:p-8">
-                <p className="eyebrow">FastAPI Endpoint</p>
-                <p className="surface-panel mt-4 rounded-[1rem] px-4 py-3 font-mono text-sm leading-7 text-[var(--foreground)]">
-                  {project.apiEndpoint}
-                </p>
-              </section>
+              <details className="surface-card rounded-xl">
+                <summary className="cursor-pointer select-none p-6 sm:p-8 [&>svg]:open:rotate-180">
+                  <div className="inline-flex w-[calc(100%-1.5rem)] items-start justify-between gap-4">
+                    <div>
+                      <p className="eyebrow">Developer Reference</p>
+                      <p className="mt-2 text-sm text-[var(--muted)]">API path for direct integration</p>
+                    </div>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="mt-1 h-5 w-5 shrink-0 text-[var(--muted)] transition-transform duration-200">
+                      <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+                    </svg>
+                  </div>
+                </summary>
+                <div className="border-t border-[var(--line)] px-6 pb-6 pt-4 sm:px-8 sm:pb-8">
+                  <p className="surface-panel rounded-[1rem] px-4 py-3 font-mono text-sm leading-7 text-[var(--foreground)]">
+                    {project.apiEndpoint}
+                  </p>
+                </div>
+              </details>
 
               <ProjectDemo
                 apiEndpoint={project.apiEndpoint}

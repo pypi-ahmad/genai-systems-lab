@@ -11,12 +11,14 @@ import {
   type RunStatus,
   type WorkspaceState,
 } from "./playground-utils";
+import { ChevronIcon } from "./playground-icons";
 import { ThinkingStateList, WorkspaceStateBadge } from "./playground-widgets";
 
 interface PlaygroundConversationPanelProps {
   confidence: number | null;
   conversationStarted: boolean;
   errorMsg: string | null;
+  inputMode: "json" | "text";
   inputPreview: string;
   keyMetrics: Array<{ label: string; value: string }>;
   latency: number | null;
@@ -63,6 +65,7 @@ export function PlaygroundConversationPanel({
   confidence,
   conversationStarted,
   errorMsg,
+  inputMode,
   inputPreview,
   keyMetrics,
   latency,
@@ -77,6 +80,7 @@ export function PlaygroundConversationPanel({
   usedSessionContext,
   workspaceState,
 }: PlaygroundConversationPanelProps) {
+  const [systemDetailOpen, setSystemDetailOpen] = useState(false);
   const graphNodes = selected.graph.nodes;
   const showAgentBreakdown = selected.category === "LangGraph" || selected.category === "CrewAI";
 
@@ -95,7 +99,7 @@ export function PlaygroundConversationPanel({
         <div className="flex flex-wrap items-center gap-2">
           <WorkspaceStateBadge state={workspaceState} />
           <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-            {streamMode ? "Streaming on" : "Batch mode"}
+            {streamMode ? "Streaming on" : "Standard"}
           </span>
           {workspaceState === "streaming" && streamChunks > 0 && (
             <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
@@ -129,9 +133,18 @@ export function PlaygroundConversationPanel({
             <div className="max-w-2xl rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel-strong)] px-5 py-4 shadow-sm transition-all duration-300 ease-in-out">
               <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">System</p>
               <p className="mt-2 text-sm leading-7 text-[var(--foreground)]">{selected.description}</p>
-              <div className="mt-4 flex flex-wrap gap-2">
+              <button
+                type="button"
+                onClick={() => setSystemDetailOpen((v) => !v)}
+                className="mt-3 flex items-center gap-1.5 text-[11px] font-semibold text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+              >
+                <span>{systemDetailOpen ? "Hide details" : "Show details"}</span>
+                <ChevronIcon open={systemDetailOpen} className="h-3 w-3" />
+              </button>
+              {systemDetailOpen && (
+              <div className="mt-3 flex flex-wrap gap-2">
                 <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
-                  {streamMode ? "SSE stream" : "Batch request"}
+                  {streamMode ? "Streaming" : "Standard"}
                 </span>
                 <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
                   {graphNodes.length} {showAgentBreakdown ? "agents" : "nodes"}
@@ -140,14 +153,15 @@ export function PlaygroundConversationPanel({
                   <span key={tag} className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold text-[var(--muted)]">{tag}</span>
                 ))}
               </div>
+              )}
             </div>
           </div>
 
           {!conversationStarted && (
             <div className="rounded-[1.75rem] border border-dashed border-[var(--line)] bg-[var(--panel)]/70 px-6 py-12 text-center transition-all duration-300 ease-in-out">
-              <p className="text-sm font-semibold text-[var(--foreground)]">Output will stream here.</p>
+              <p className="text-sm font-semibold text-[var(--foreground)]">Output will appear here.</p>
               <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                Edit the request body on the left, then press Send request.
+                Edit your input on the left, then press Run.
               </p>
             </div>
           )}
@@ -159,7 +173,7 @@ export function PlaygroundConversationPanel({
                   <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[color-mix(in_srgb,var(--bg)_64%,transparent)]">You</p>
                   <p className="mt-2 whitespace-pre-wrap text-sm leading-7">{inputPreview}</p>
                   <p className="mt-3 text-[11px] font-medium text-[color-mix(in_srgb,var(--bg)_64%,transparent)]">
-                    JSON request prepared for {selected.name}
+                    {inputMode === "text" ? `Sent to ${selected.name}` : `JSON request prepared for ${selected.name}`}
                   </p>
                 </div>
               </div>
@@ -180,8 +194,8 @@ export function PlaygroundConversationPanel({
                     <div className="transition-opacity duration-300 ease-in-out">
                       <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
                         {status === "running"
-                          ? "Batch mode is preparing the full assistant reply before rendering it here."
-                          : "The stream is open and the model is working through the request before the first tokens arrive."}
+                          ? "Generating the full response before displaying it here."
+                          : "Connected — waiting for the first tokens from the model."}
                       </p>
                       <ThinkingStateList />
                     </div>

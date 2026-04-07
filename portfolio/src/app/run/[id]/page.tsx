@@ -68,6 +68,7 @@ export default function SharedRunPage({ params }: { params: Promise<{ id: string
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<"output" | "memory" | "timeline">("output");
+  const [inputOpen, setInputOpen] = useState(false);
 
   useEffect(() => {
     fetchSharedRun(shareToken)
@@ -108,34 +109,76 @@ export default function SharedRunPage({ params }: { params: Promise<{ id: string
 
   const tabs = [
     { key: "output" as const, label: "Output" },
-    { key: "memory" as const, label: `Memory (${run.memory.length})` },
-    { key: "timeline" as const, label: `Timeline (${run.timeline.length})` },
+    { key: "memory" as const, label: `Reasoning (${run.memory.length})` },
+    { key: "timeline" as const, label: `Execution log (${run.timeline.length})` },
   ];
 
   return (
     <section className="py-16">
       <div className="surface-card rounded-[1.75rem] p-6 sm:p-8">
+        {/* Context banner */}
+        <div className="rounded-[1rem] border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-3">
+          <p className="text-sm leading-6 text-[var(--foreground)]">
+            You&apos;re viewing a saved run of <span className="font-semibold">{proj?.name ?? run.project}</span>.
+            {proj?.description ? ` ${proj.description}` : ""}
+          </p>
+          <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">
+            The output below is exactly what the model produced. Want to try it yourself? Open the playground, bring your own API key, and run any of the 20 systems live.
+          </p>
+        </div>
+
         {/* Header */}
-        <div className="flex flex-wrap items-start justify-between gap-4">
+        <div className="mt-6 flex flex-wrap items-start justify-between gap-4">
           <div>
-            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Shared Run</p>
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">{proj?.category ?? "Project"}</p>
             <h1 className="mt-1 text-2xl font-bold text-[var(--foreground)]">{proj?.name ?? run.project}</h1>
-            <p className="mt-1 text-xs text-[var(--muted)]">{formatTimestamp(run.timestamp)} · {run.latency.toFixed(0)} ms</p>
+            <p className="mt-1 text-xs text-[var(--muted)]">{formatTimestamp(run.timestamp)}</p>
           </div>
           <div className="flex w-full max-w-[240px] flex-col gap-3 sm:items-end">
             <ConfidenceIndicator confidence={run.confidence} />
-            <Link href="/playground" className="button-base button-secondary button-sm button-pill sm:self-end">
-              Open Playground
+            <Link href="/playground" className="button-base button-primary button-sm button-pill sm:self-end">
+              Try it yourself
             </Link>
           </div>
         </div>
 
-        {/* Input */}
+        {/* Summary stats */}
+        <div className="mt-5 flex flex-wrap gap-3">
+          <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold text-[var(--muted)]">
+            Response time: {run.latency.toFixed(0)} ms
+          </span>
+          <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold text-[var(--muted)]">
+            Confidence: {(run.confidence * 100).toFixed(0)}%
+          </span>
+          {run.memory.length > 0 && (
+            <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold text-[var(--muted)]">
+              {run.memory.length} reasoning {run.memory.length === 1 ? "step" : "steps"}
+            </span>
+          )}
+          {run.timeline.length > 0 && (
+            <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold text-[var(--muted)]">
+              {run.timeline.length} execution {run.timeline.length === 1 ? "event" : "events"}
+            </span>
+          )}
+        </div>
+
+        {/* Input (collapsed by default) */}
         <div className="mt-6">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Input</p>
-          <div className="surface-panel mt-2 rounded-[1rem] p-4">
-            <p className="font-mono text-sm leading-7 text-[var(--foreground)] whitespace-pre-wrap">{run.input}</p>
-          </div>
+          <button
+            type="button"
+            onClick={() => setInputOpen((v) => !v)}
+            className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+          >
+            <span>Input sent to the model</span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className={`h-4 w-4 transition-transform duration-200 ${inputOpen ? "rotate-180" : ""}`}>
+              <path fillRule="evenodd" d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z" clipRule="evenodd" />
+            </svg>
+          </button>
+          {inputOpen && (
+            <div className="surface-panel mt-2 rounded-[1rem] p-4">
+              <p className="font-mono text-sm leading-7 text-[var(--foreground)] whitespace-pre-wrap">{run.input}</p>
+            </div>
+          )}
         </div>
 
         {/* Tabs */}
@@ -158,6 +201,19 @@ export default function SharedRunPage({ params }: { params: Promise<{ id: string
 
         {/* Tab Content */}
         <div className="mt-4">
+          {activeTab === "memory" && run.memory.length > 0 && (
+            <p className="mb-3 text-[11px] leading-5 text-[var(--muted)]">
+              Each entry below is one step in the model&apos;s reasoning.
+              <span className="font-semibold text-[var(--info-text)]"> Thoughts</span> are internal planning,
+              <span className="font-semibold text-[var(--warning-text)]"> actions</span> are tool calls or decisions, and
+              <span className="font-semibold text-[var(--success-text)]"> observations</span> are results the model received back.
+            </p>
+          )}
+          {activeTab === "timeline" && run.timeline.length > 0 && (
+            <p className="mb-3 text-[11px] leading-5 text-[var(--muted)]">
+              Each row is one execution event, shown in order with the time elapsed since the run started.
+            </p>
+          )}
           {activeTab === "output" && (
             <div className="surface-panel rounded-[1rem] p-4">
               <p className="font-mono text-sm leading-7 text-[var(--foreground)] whitespace-pre-wrap">{run.output}</p>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import AnimatedGraph, { type NodeStatusMap } from "@/components/animated-graph";
 import AgentGraph from "@/components/agent-graph";
 import { MemoryPanel, type MemoryEntry } from "@/components/memory-panel";
@@ -18,6 +19,7 @@ import {
   type RunStatus,
   type WorkspaceState,
 } from "./playground-utils";
+import { ChevronIcon } from "./playground-icons";
 import { ReplayStateBadge, StatCard, WorkspaceStateBadge } from "./playground-widgets";
 
 interface PlaygroundGraphPanelProps {
@@ -53,6 +55,10 @@ export function PlaygroundGraphPanel({
   streamMode,
   workspaceState,
 }: PlaygroundGraphPanelProps) {
+  const [lifecycleOpen, setLifecycleOpen] = useState(false);
+  const [stepStatusOpen, setStepStatusOpen] = useState(false);
+  const [parsedStepsOpen, setParsedStepsOpen] = useState(false);
+  const [statsOpen, setStatsOpen] = useState(false);
   const graphNodes = graphProject.graph.nodes;
   const showAgentBreakdown = graphProject.category === "LangGraph" || graphProject.category === "CrewAI";
   const replayStepStatuses = activeReplayRun
@@ -71,7 +77,11 @@ export function PlaygroundGraphPanel({
     <div className="space-y-8">
       {/* ── Run Lifecycle — full width hero ── */}
       <section className="surface-card rounded-[1.75rem] p-6 sm:p-8 transition-all duration-300 ease-in-out">
-        <div className="flex flex-wrap items-center justify-between gap-4">
+        <button
+          type="button"
+          onClick={() => setLifecycleOpen((v) => !v)}
+          className="flex w-full flex-wrap items-center justify-between gap-4 text-left"
+        >
           <div>
             <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Run Lifecycle</p>
             <p className="mt-1.5 text-lg font-semibold text-[var(--foreground)]">
@@ -89,11 +99,14 @@ export function PlaygroundGraphPanel({
             <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
               {lifecycleLabel(runLifecycle.activeStep)}
             </span>
+            <ChevronIcon open={lifecycleOpen} />
           </div>
-        </div>
-        <div className="mt-6">
-          <AgentGraph activeStep={runLifecycle.activeStep} completedSteps={runLifecycle.completedSteps} />
-        </div>
+        </button>
+        {lifecycleOpen && (
+          <div className="mt-6">
+            <AgentGraph activeStep={runLifecycle.activeStep} completedSteps={runLifecycle.completedSteps} />
+          </div>
+        )}
       </section>
 
       {/* ── Execution Flow — full width hero ── */}
@@ -108,7 +121,7 @@ export function PlaygroundGraphPanel({
             <p className="mt-1.5 text-lg font-semibold text-[var(--foreground)]">
               {activeReplayRun
                 ? "Node transitions are synchronized with the replay timeline."
-                : "Node transitions update live as streamed step events arrive."}
+                : "Node transitions update live as the run progresses."}
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-2">
@@ -171,19 +184,40 @@ export function PlaygroundGraphPanel({
         )}
 
         <div className="mt-6 space-y-6">
+          <button
+            type="button"
+            onClick={() => setStatsOpen((v) => !v)}
+            className="flex w-full items-center justify-between gap-3 text-left"
+          >
+            <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+              Run Stats
+            </p>
+            <ChevronIcon open={statsOpen} />
+          </button>
+          {statsOpen && (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <StatCard label="Project" value={selected.name} />
-            <StatCard label="Mode" value={streamMode ? "SSE Stream" : "Batch POST"} />
-            <StatCard label={showAgentBreakdown ? "Agent Nodes" : "Flow Nodes"} value={String(graphNodes.length)} />
+            <StatCard label="Mode" value={streamMode ? "Streaming" : "Standard"} />
+            <StatCard label={showAgentBreakdown ? "Agents" : "Steps"} value={String(graphNodes.length)} />
             <StatCard label="Steps" value={steps ? String(steps.length) : workspaceState === "completed" ? "Not returned" : "Live"} />
           </div>
+          )}
 
           <div className="grid gap-6 lg:grid-cols-2">
-            <div className="space-y-3 rounded-[1.35rem] border border-[var(--line)] bg-[var(--card)] p-5 transition-all duration-300 ease-in-out sm:p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
-                {activeReplayRun ? "Replay Step Status" : "Step Status"}
-              </p>
-              <div className="grid gap-3">
+            <div className="rounded-[1.35rem] border border-[var(--line)] bg-[var(--card)] p-5 transition-all duration-300 ease-in-out sm:p-6">
+              <button
+                type="button"
+                onClick={() => setStepStatusOpen((v) => !v)}
+                className="flex w-full items-center justify-between gap-3 text-left"
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+                  {activeReplayRun ? "Replay Step Status" : "Step Status"}
+                  <span className="ml-2 text-[var(--muted)]">({liveNodeItems.length})</span>
+                </p>
+                <ChevronIcon open={stepStatusOpen} />
+              </button>
+              {stepStatusOpen && (
+              <div className="mt-3 grid gap-3">
                 {liveNodeItems.map((node) => (
                   <div
                     key={node.id}
@@ -199,6 +233,7 @@ export function PlaygroundGraphPanel({
                   </div>
                 ))}
               </div>
+              )}
             </div>
 
             <MemoryPanel
@@ -215,7 +250,18 @@ export function PlaygroundGraphPanel({
 
           {steps && steps.length > 0 && (
             <div className="rounded-[1.35rem] border border-[var(--line)] bg-[var(--card)] p-5 transition-all duration-300 ease-in-out sm:p-6">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">Parsed Steps</p>
+              <button
+                type="button"
+                onClick={() => setParsedStepsOpen((v) => !v)}
+                className="flex w-full items-center justify-between gap-3 text-left"
+              >
+                <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+                  Parsed Steps
+                  <span className="ml-2 text-[var(--muted)]">({steps.length})</span>
+                </p>
+                <ChevronIcon open={parsedStepsOpen} />
+              </button>
+              {parsedStepsOpen && (
               <ol className="mt-4 space-y-3 text-sm leading-7 text-[var(--foreground)]">
                 {steps.slice(0, 5).map((step, index) => (
                   <li key={`${index}-${step}`} className="flex gap-3">
@@ -226,6 +272,7 @@ export function PlaygroundGraphPanel({
                   </li>
                 ))}
               </ol>
+              )}
             </div>
           )}
         </div>
