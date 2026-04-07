@@ -9,6 +9,7 @@ import type { LLMProviderId } from "@/lib/apikey";
 import { getStoredAuthSession, storeAuthSession } from "@/lib/auth";
 import { DismissibleTip } from "@/components/dismissible-tip";
 import { findProviderForModel, findProviderInfo } from "@/lib/llm-catalog";
+import { projectApiName } from "@/app/playground/playground-utils";
 
 interface ProjectDemoProps {
   apiEndpoint: string;
@@ -16,10 +17,6 @@ interface ProjectDemoProps {
   title?: string;
   description?: string;
   ctaLabel?: string;
-}
-
-function projectApiName(apiEndpoint: string) {
-  return apiEndpoint.replace(/^\//, "").replace(/\/run$/, "");
 }
 
 function formatResult(value: unknown) {
