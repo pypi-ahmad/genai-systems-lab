@@ -151,13 +151,28 @@ function humanizeError(status: number, rawMessage: string): string {
   return friendly[status] ?? rawMessage;
 }
 
+/** Error detail separator used to bundle a friendly message with raw details. */
+const ERROR_DETAIL_SEP = "\n---DETAIL---\n";
+
 function formatRunError(status: number, statusText: string, raw: string): string {
   const parsed = parseErrorMessage(raw, statusText);
   const friendly = humanizeError(status, parsed);
-  if (process.env.NODE_ENV === "development") {
-    console.warn(`[API ${status}]`, parsed);
+  // Always include raw detail so the UI can offer a "Show details" toggle.
+  const detail = `${status} ${statusText}${parsed ? `: ${parsed}` : ""}`;
+  if (detail && detail !== friendly) {
+    return `${friendly}${ERROR_DETAIL_SEP}${detail}`;
   }
   return friendly;
+}
+
+/**
+ * Split a potentially compound error message into the user-friendly part
+ * and the optional raw technical detail.
+ */
+export function splitErrorDetail(msg: string): { friendly: string; detail: string | null } {
+  const idx = msg.indexOf(ERROR_DETAIL_SEP);
+  if (idx === -1) return { friendly: msg, detail: null };
+  return { friendly: msg.slice(0, idx), detail: msg.slice(idx + ERROR_DETAIL_SEP.length) };
 }
 
 // ── Types ────────────────────────────────────────────────

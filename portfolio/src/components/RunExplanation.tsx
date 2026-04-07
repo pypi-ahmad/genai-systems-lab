@@ -1,3 +1,4 @@
+import { DismissibleTip } from "@/components/dismissible-tip";
 import type { RunExplanation } from "@/lib/api";
 
 type RunExplanationPanelProps = {
@@ -23,15 +24,8 @@ export function RunExplanationPanel({
     <section className="surface-card rounded-[1.75rem] p-4 sm:p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
             {title}
-            <span
-              title="AI-generated summary of what the agent did, key decisions it made, and why"
-              className="cursor-help text-xs normal-case tracking-normal hover:text-[var(--foreground)]"
-              aria-label="AI-generated summary of what the agent did, key decisions it made, and why"
-            >
-              ⓘ
-            </span>
           </p>
           <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
             {description}
@@ -50,6 +44,11 @@ export function RunExplanationPanel({
           ) : null}
         </div>
       </div>
+      <DismissibleTip
+        storageKey="tip-run-explanation"
+        text="AI-generated summary of what the agent did, key decisions it made, and why."
+        className="mt-3"
+      />
 
       {isLoading ? (
         <div className="mt-5 rounded-[1.25rem] border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-5 text-sm leading-7 text-[var(--foreground)]" aria-live="polite">

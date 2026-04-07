@@ -43,7 +43,7 @@ export function ConfidenceIndicator({ confidence, compact = false, className = "
   const normalized = clampConfidence(confidence);
   const percent = Math.round(normalized * 100);
   const tone = confidenceTone(normalized);
-  const tooltip = "Confidence based on execution success, evaluation, and consistency";
+  const tooltip = "Confidence reflects the system\u2019s self-assessed certainty in its output. Higher is better.";
 
   if (compact) {
     return (

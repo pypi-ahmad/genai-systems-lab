@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { DismissibleTip } from "@/components/dismissible-tip";
 
 export type MemoryEntryType = "thought" | "action" | "observation";
 
@@ -99,15 +100,8 @@ export function MemoryPanel({
     >
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
             {title}
-            <span
-              title="Shows the agent's internal reasoning, tool calls, and observations during execution"
-              className="cursor-help text-xs normal-case tracking-normal hover:text-[var(--foreground)]"
-              aria-label="Shows the agent's internal reasoning, tool calls, and observations during execution"
-            >
-              ⓘ
-            </span>
           </p>
           <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
             {description}
@@ -117,6 +111,11 @@ export function MemoryPanel({
           {entries.length} entries
         </span>
       </div>
+      <DismissibleTip
+        storageKey="tip-memory-panel"
+        text="This shows the agent's internal reasoning, tool calls, and observations during execution."
+        className="mt-3"
+      />
 
       {entries.length === 0 ? (
         <div className="mt-4 rounded-[1rem] border border-dashed border-[var(--line)] bg-[var(--surface-soft)] px-4 py-6 text-sm leading-7 text-[var(--muted)]">

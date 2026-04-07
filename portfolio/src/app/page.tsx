@@ -157,7 +157,7 @@ export default function Home() {
         </div>
         <div className="flex flex-wrap gap-3 pt-2">
           <a
-            href="https://github.com/ahnazary/genai-systems-lab"
+            href="https://github.com/pypi-ahmad/genai-systems-lab"
             target="_blank"
             rel="noopener noreferrer"
             className="button-base button-secondary button-pill"
