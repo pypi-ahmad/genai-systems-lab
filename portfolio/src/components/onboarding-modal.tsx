@@ -1,81 +1,50 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useEffect, useState } from "react";
 
-const STORAGE_KEY = "onboarding-modal-seen";
+const ONBOARDING_KEY = "onboarding-dismissed";
 
 export function OnboardingModal() {
-  const [open, setOpen] = useState(() => {
-    if (typeof window === "undefined") return false;
-    try {
-      return localStorage.getItem(STORAGE_KEY) !== "1";
-    } catch {
-      return false;
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    if (!localStorage.getItem(ONBOARDING_KEY)) {
+      setShow(true);
     }
-  });
+  }, []);
 
-  function dismiss() {
-    setOpen(false);
-    try { localStorage.setItem(STORAGE_KEY, "1"); } catch {}
-  }
+  if (!show) return null;
 
-  if (!open) return null;
+  const dismiss = () => {
+    localStorage.setItem(ONBOARDING_KEY, "true");
+    setShow(false);
+  };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 p-4" onClick={dismiss}>
-      <div
-        className="relative w-full max-w-md space-y-6 rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-xl sm:p-8"
-        onClick={(e) => e.stopPropagation()}
-      >
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4" role="dialog" aria-modal="true" aria-label="Welcome">
+      <div className="w-full max-w-md rounded-2xl border border-[var(--line)] bg-[var(--card)] p-6 shadow-xl">
+        <h2 className="text-lg font-semibold text-[var(--foreground)]">Welcome to GenAI Systems Lab</h2>
+        <ol className="mt-4 space-y-3 text-sm leading-6 text-[var(--muted)]">
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-bold text-[var(--accent-solid)]">1</span>
+            <span><strong className="text-[var(--foreground)]">Browse 20 AI systems</strong> — each with architecture, features, and live demos.</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-bold text-[var(--accent-solid)]">2</span>
+            <span><strong className="text-[var(--foreground)]">Bring your own API key</strong> — keys stay in your browser and are never stored.</span>
+          </li>
+          <li className="flex gap-3">
+            <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-bold text-[var(--accent-solid)]">3</span>
+            <span><strong className="text-[var(--foreground)]">Run any system live</strong> — see real-time output, memory traces, and timeline replays.</span>
+          </li>
+        </ol>
         <button
           type="button"
           onClick={dismiss}
-          className="absolute right-4 top-4 text-[var(--muted)] hover:text-[var(--foreground)]"
-          aria-label="Close"
+          className="button-base button-primary button-pill mt-6 w-full"
         >
-          ✕
+          Get Started
         </button>
-
-        <div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--accent-solid)]">Welcome</p>
-          <h2 className="mt-2 text-2xl font-semibold text-[var(--foreground)]">GenAI Systems Lab</h2>
-          <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-            Explore 20 production-grade AI systems spanning retrieval, orchestration, and multi-agent workflows.
-          </p>
-        </div>
-
-        <div className="space-y-3">
-          <div className="surface-panel rounded-xl px-4 py-3">
-            <p className="text-sm font-semibold text-[var(--foreground)]">① Browse projects</p>
-            <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">See what each system does and how it works.</p>
-          </div>
-          <div className="surface-panel rounded-xl px-4 py-3">
-            <p className="text-sm font-semibold text-[var(--foreground)]">② Try the playground</p>
-            <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">Run any system live with your own API key (BYOK).</p>
-          </div>
-          <div className="surface-panel rounded-xl px-4 py-3">
-            <p className="text-sm font-semibold text-[var(--foreground)]">③ Get your API key</p>
-            <p className="mt-1 text-[11px] leading-5 text-[var(--muted)]">You&apos;ll need an OpenAI or provider key. Your key stays in your browser only.</p>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-3">
-          <Link
-            href="/playground"
-            onClick={dismiss}
-            className="button-base button-primary button-sm button-pill"
-          >
-            Open Playground
-          </Link>
-          <button
-            type="button"
-            onClick={dismiss}
-            className="button-base button-secondary button-sm button-pill"
-          >
-            Explore on my own
-          </button>
-        </div>
       </div>
     </div>
   );

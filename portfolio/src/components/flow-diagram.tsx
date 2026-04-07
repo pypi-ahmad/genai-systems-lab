@@ -112,6 +112,7 @@ export default function FlowDiagram({
   accentColor = "blue",
 }: FlowDiagramProps) {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
+  const [zoom, setZoom] = useState(1);
 
   const positioned = layout(nodes, edges);
   const posMap = Object.fromEntries(positioned.map((n) => [n.id, n]));
@@ -132,7 +133,13 @@ export default function FlowDiagram({
   }
 
   return (
-    <div className="surface-panel-strong overflow-x-auto rounded-xl">
+    <div className="surface-panel-strong overflow-auto rounded-xl">
+      <div className="flex items-center justify-end gap-1 px-3 pt-2">
+        <button type="button" onClick={() => setZoom((z) => Math.min(3, z + 0.25))} className="button-base button-ghost button-sm px-2" aria-label="Zoom in">+</button>
+        <button type="button" onClick={() => setZoom(1)} className="button-base button-ghost button-sm px-2 text-[11px]">{Math.round(zoom * 100)}%</button>
+        <button type="button" onClick={() => setZoom((z) => Math.max(0.25, z - 0.25))} className="button-base button-ghost button-sm px-2" aria-label="Zoom out">−</button>
+      </div>
+      <div style={{ transform: `scale(${zoom})`, transformOrigin: "top left", width: maxX * zoom, height: maxY * zoom }}>
       <svg
         viewBox={`0 0 ${maxX} ${maxY}`}
         className="mx-auto block w-full"
@@ -243,6 +250,7 @@ export default function FlowDiagram({
           );
         })}
       </svg>
+      </div>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OnboardingModal } from "@/components/onboarding-modal";
 import PlaygroundClient from "./playground-client";
 
 export const metadata: Metadata = {
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function PlaygroundPage() {
   return (
     <section className="py-16">
+      <OnboardingModal />
       <PlaygroundClient />
     </section>
   );

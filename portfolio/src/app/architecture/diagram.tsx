@@ -47,7 +47,6 @@ function stepIndex(id: string | null) {
 export default function ArchitectureDiagram() {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [selectedId, setSelectedId] = useState<string>(STEPS[1].id);
-  const [zoom, setZoom] = useState(1);
 
   const activeId = hoveredId ?? selectedId;
   const activeIndex = stepIndex(activeId);
@@ -55,40 +54,6 @@ export default function ArchitectureDiagram() {
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-end gap-2">
-        <button
-          type="button"
-          onClick={() => setZoom((z) => Math.max(0.5, z - 0.1))}
-          disabled={zoom <= 0.5}
-          className="button-base button-secondary button-sm button-pill disabled:opacity-50"
-          aria-label="Zoom out"
-        >
-          −
-        </button>
-        <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold tabular-nums text-[var(--muted)]">
-          {Math.round(zoom * 100)}%
-        </span>
-        <button
-          type="button"
-          onClick={() => setZoom((z) => Math.min(1.5, z + 0.1))}
-          disabled={zoom >= 1.5}
-          className="button-base button-secondary button-sm button-pill disabled:opacity-50"
-          aria-label="Zoom in"
-        >
-          +
-        </button>
-        {zoom !== 1 && (
-          <button
-            type="button"
-            onClick={() => setZoom(1)}
-            className="button-base button-ghost button-sm button-pill"
-          >
-            Reset
-          </button>
-        )}
-      </div>
-      <div className="overflow-auto">
-      <div style={{ transform: `scale(${zoom})`, transformOrigin: "top left", width: zoom < 1 ? "100%" : undefined }}>
       <div className="surface-card rounded-xl p-6 sm:p-8">
         <div className="grid gap-6 lg:grid-cols-[1fr_auto_1fr_auto_1fr_auto_1fr] lg:items-center">
           {STEPS.map((step, index) => {
@@ -195,8 +160,6 @@ export default function ArchitectureDiagram() {
         <p className="copy-body mt-5 max-w-2xl text-sm sm:text-base">
           {selectedStep.description}
         </p>
-      </div>
-      </div>
       </div>
     </div>
   );

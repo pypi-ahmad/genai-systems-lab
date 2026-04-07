@@ -24,27 +24,19 @@ function isLocalHostname(hostname: string): boolean {
 
 function formatApiReachabilityError(candidates: string[], lastError: unknown): Error {
   const configuredBase = process.env.NEXT_PUBLIC_API_BASE_URL?.trim();
-  const browserOrigin = typeof window !== "undefined" ? window.location.origin : null;
   const browserHostname = typeof window !== "undefined" ? window.location.hostname : null;
-  const triedBases = candidates.join(", ");
   const lastMessage = lastError instanceof Error && lastError.message
-    ? ` Last error: ${lastError.message}`
+    ? ` (${lastError.message})`
     : "";
 
   if (!configuredBase && browserHostname && !isLocalHostname(browserHostname)) {
     return new Error(
-      `Unable to reach the API. This frontend is using local fallback URLs (${triedBases}) because NEXT_PUBLIC_API_BASE_URL is not set. Configure NEXT_PUBLIC_API_BASE_URL to your deployed FastAPI backend.${lastMessage}`,
-    );
-  }
-
-  if (configuredBase && browserOrigin) {
-    return new Error(
-      `Unable to reach the API at ${triedBases}. If the backend is deployed on another origin, make sure GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS includes ${browserOrigin}.${lastMessage}`,
+      `Unable to reach the backend server. The API is not configured for this deployment.${lastMessage}`,
     );
   }
 
   return new Error(
-    `Unable to reach the API at ${triedBases}. Start the FastAPI backend or set NEXT_PUBLIC_API_BASE_URL to the correct backend origin.${lastMessage}`,
+    `Unable to reach the backend server. Make sure it is running and try again.${lastMessage}`,
   );
 }
 
@@ -73,7 +65,7 @@ async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
     }
   }
 
-  throw new Error(humanizeError(formatApiReachabilityError(candidates, lastError).message));
+  throw formatApiReachabilityError(candidates, lastError);
 }
 
 export function getApiUrl(path: string): string {
@@ -130,45 +122,42 @@ function parseErrorMessage(raw: string, fallback: string): string {
   return raw;
 }
 
-/**
- * Map raw API error strings to user-friendly messages.
- * The original error is logged to `console.error` for debugging.
- */
-function humanizeError(raw: string): string {
-  if (typeof raw !== "string" || !raw) return "Something went wrong. Please try again.";
+/** Map HTTP status codes and raw server messages to user-friendly text. */
+function humanizeError(status: number, rawMessage: string): string {
+  const friendly: Record<number, string> = {
+    400: "The request was invalid. Check your input and try again.",
+    401: "You are not logged in or your session has expired. Please sign in again.",
+    403: "You don't have permission to do that.",
+    404: "The requested resource was not found.",
+    408: "The request timed out. Try again in a moment.",
+    422: "Some of the input could not be processed. Review and try again.",
+    429: "Too many requests — please wait a moment and retry.",
+    500: "Something went wrong on the server. Try again shortly.",
+    502: "The server is temporarily unreachable. Try again in a moment.",
+    503: "The service is temporarily unavailable. Try again shortly.",
+    504: "The server took too long to respond. Try again in a moment.",
+  };
 
-  // Log the raw error for developer debugging
-  console.error("[API error detail]", raw);
-
-  // HTTP status code patterns
-  if (/\b401\b/.test(raw)) return "API key not accepted. Double-check it and try again.";
-  if (/\b403\b/.test(raw)) return "Access denied. Check your credentials and try again.";
-  if (/\b404\b/.test(raw)) return "The requested resource was not found.";
-  if (/\b422\b/.test(raw)) return "The request was invalid. Check your input and try again.";
-  if (/\b429\b/.test(raw)) return "Rate limit reached. Wait a moment and try again.";
-  if (/\b50[0-9]\b/.test(raw)) return "Server error. Try again in a few seconds.";
-
-  // Network / connectivity patterns
-  if (/unable to reach|failed to fetch|network|ECONNREFUSED|ENOTFOUND/i.test(raw)) {
-    return "Cannot reach the backend. Make sure the server is running.";
+  if (/api.key|api key|x-api-key|missing x-api-key/i.test(rawMessage)) {
+    return "API key missing or invalid. Double-check your key and try again.";
   }
-  if (/cors/i.test(raw)) return "Cross-origin request blocked. Check backend CORS settings.";
-  if (/timeout/i.test(raw)) return "The request timed out. Try again.";
-
-  // API key patterns
-  if (/api.key|x-api-key|missing.*key/i.test(raw)) {
-    return "API key not accepted. Double-check it and try again.";
+  if (/rate.limit/i.test(rawMessage)) {
+    return "Rate limit reached. Wait a moment and try again.";
+  }
+  if (/model.*not found|model.*not available/i.test(rawMessage)) {
+    return "The selected model is not available. Choose a different model.";
   }
 
-  // If none match but it contains env var names, strip them
-  if (/NEXT_PUBLIC_|GENAI_SYSTEMS_LAB_/i.test(raw)) {
-    return "Cannot reach the backend. Make sure the server is running.";
+  return friendly[status] ?? rawMessage;
+}
+
+function formatRunError(status: number, statusText: string, raw: string): string {
+  const parsed = parseErrorMessage(raw, statusText);
+  const friendly = humanizeError(status, parsed);
+  if (process.env.NODE_ENV === "development") {
+    console.warn(`[API ${status}]`, parsed);
   }
-
-  // Return as-is only if it's reasonably short and clean
-  if (raw.length <= 120 && !/\b[A-Z_]{4,}\b/.test(raw)) return raw;
-
-  return "Something went wrong. Please try again.";
+  return friendly;
 }
 
 // ── Types ────────────────────────────────────────────────
@@ -333,15 +322,22 @@ export async function runProject(
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    const rawError = `${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`;
     return {
       ok: false,
-      error: humanizeError(rawError),
+      error: formatRunError(res.status, res.statusText, text),
     };
   }
 
   const data = await res.json();
   return { ok: true, data };
+}
+
+export async function fetchMetrics(): Promise<MetricsResponse> {
+  const res = await apiFetch("/metrics", { cache: "no-store" });
+  if (!res.ok) {
+    throw new Error(`${res.status} ${res.statusText}`);
+  }
+  return res.json();
 }
 
 export async function fetchMetricsTime(options: {
@@ -362,7 +358,7 @@ export async function fetchMetricsTime(options: {
   });
 
   if (!res.ok) {
-    throw new Error(humanizeError(`${res.status} ${res.statusText}`));
+    throw new Error(`${res.status} ${res.statusText}`);
   }
 
   return res.json();
@@ -377,7 +373,7 @@ export async function signup(email: string, password: string): Promise<AuthRespo
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -392,7 +388,7 @@ export async function login(email: string, password: string): Promise<AuthRespon
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -405,7 +401,7 @@ export async function logout(): Promise<void> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 }
 
@@ -420,7 +416,7 @@ export async function fetchCurrentUser(): Promise<AuthUser | null> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -433,7 +429,7 @@ export async function fetchAuthConfig(): Promise<AuthConfigResponse> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -446,7 +442,7 @@ export async function fetchLLMCatalog(): Promise<LLMCatalogResponse> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -460,7 +456,7 @@ export async function fetchHistory(token: string): Promise<HistoryResponse> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -474,7 +470,7 @@ export async function fetchRunSession(sessionId: number, token: string): Promise
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -489,7 +485,7 @@ export async function clearRunSession(sessionId: number, token: string): Promise
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -504,7 +500,7 @@ export async function explainRun(runId: number, token: string, llm?: LLMRequestO
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -548,7 +544,7 @@ export async function shareRun(
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -562,7 +558,7 @@ export async function unshareRun(runId: number, token: string): Promise<void> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 }
 
@@ -573,7 +569,7 @@ export async function fetchSharedRun(shareToken: string): Promise<SharedRun> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
+    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
   }
 
   return res.json();
@@ -728,14 +724,13 @@ export function streamProject(
 
       if (!res.ok) {
         const text = await res.text().catch(() => "");
-        const rawError = parseErrorMessage(text, `${res.status} ${res.statusText}`);
-        callbacks.onError(humanizeError(`${res.status} ${rawError}`));
+        callbacks.onError(formatRunError(res.status, res.statusText, text));
         terminated = true;
         return;
       }
 
       if (!res.body) {
-        callbacks.onError("Empty stream response. Try again.");
+        callbacks.onError("Empty stream response.");
         terminated = true;
         return;
       }
@@ -782,7 +777,7 @@ export function streamProject(
       if (error instanceof DOMException && error.name === "AbortError") {
         return;
       }
-      callbacks.onError(humanizeError(error instanceof Error ? error.message : "Stream disconnected"));
+      callbacks.onError(error instanceof Error ? error.message : "Stream disconnected");
     }
   })();
 

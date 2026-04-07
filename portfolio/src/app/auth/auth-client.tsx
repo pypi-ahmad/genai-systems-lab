@@ -186,10 +186,13 @@ export default function AuthClient() {
               required
               className="input-shell w-full rounded-2xl px-4 py-3 text-sm"
             />
-            <span className="block text-[11px] font-normal leading-5 text-[var(--muted)]">
-              {password.length > 0 && password.length < 8
-                ? `${8 - password.length} more character${8 - password.length === 1 ? "" : "s"} needed`
-                : "At least 8 characters"}
+            <span className="flex items-center gap-1.5 text-[11px] text-[var(--muted)]">
+              {password.length >= 8 ? (
+                <span className="text-[var(--success-dot)]">✓</span>
+              ) : (
+                <span className="opacity-60">○</span>
+              )}
+              At least 8 characters
             </span>
           </label>
 

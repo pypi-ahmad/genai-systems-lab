@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CopyButton } from "@/components/copy-button";
 import FlowDiagram from "@/components/flow-diagram";
-import { CopyCodeBlock } from "@/components/copy-code-block";
 import { getProject, projects } from "@/data/projects";
 import ProjectDemo from "./project-demo";
 
@@ -47,22 +47,13 @@ export default async function ProjectDetailPage({ params }: Props) {
   return (
     <article className="mx-auto max-w-6xl space-y-0">
       <section className="space-y-6 py-16">
-        <div className="flex flex-wrap items-center gap-3">
-          <Link
-            href="/projects"
-            className="button-base button-secondary button-pill"
-          >
-            <span aria-hidden>&larr;</span>
-            Back to projects
-          </Link>
-          <nav aria-label="Breadcrumb" className="text-sm text-[var(--muted)]">
-            <ol className="flex items-center gap-1.5">
-              <li><Link href="/projects" className="hover:text-[var(--foreground)] transition-colors">Projects</Link></li>
-              <li aria-hidden className="text-[var(--muted)]">/</li>
-              <li className="font-semibold text-[var(--foreground)]">{project.name}</li>
-            </ol>
-          </nav>
-        </div>
+        <nav aria-label="Breadcrumb" className="flex items-center gap-2 text-sm text-[var(--muted)]">
+          <Link href="/" className="hover:text-[var(--foreground)] transition-colors">Home</Link>
+          <span aria-hidden>›</span>
+          <Link href="/projects" className="hover:text-[var(--foreground)] transition-colors">Projects</Link>
+          <span aria-hidden>›</span>
+          <span className="text-[var(--foreground)] font-medium">{project.name}</span>
+        </nav>
 
         <header className="surface-card overflow-hidden rounded-xl p-6 sm:p-8">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
@@ -171,18 +162,22 @@ export default async function ProjectDetailPage({ params }: Props) {
             </h2>
             <div className="mt-6 grid gap-6 xl:grid-cols-2">
               <div>
-                <p className="mb-3 text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Input</p>
-                <CopyCodeBlock
-                  code={formatJson(project.exampleInput)}
-                  className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]"
-                />
+                <div className="mb-3 flex items-center justify-between">
+                  <p className="text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Input</p>
+                  <CopyButton text={formatJson(project.exampleInput)} />
+                </div>
+                <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
+                  {formatJson(project.exampleInput)}
+                </pre>
               </div>
               <div>
-                <p className="mb-3 text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Output</p>
-                <CopyCodeBlock
-                  code={formatJson(project.exampleOutput)}
-                  className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]"
-                />
+                <div className="mb-3 flex items-center justify-between">
+                  <p className="text-sm font-semibold tracking-[-0.01em] text-[var(--foreground)]">Output</p>
+                  <CopyButton text={formatJson(project.exampleOutput)} />
+                </div>
+                <pre className="min-h-56 rounded-[1.5rem] border border-[var(--line)] bg-[var(--code-sample-bg)] p-5 font-mono text-[13px] leading-7 text-[var(--code-sample-text)] shadow-[var(--code-inset-shadow)]">
+                  {formatJson(project.exampleOutput)}
+                </pre>
               </div>
             </div>
           </section>

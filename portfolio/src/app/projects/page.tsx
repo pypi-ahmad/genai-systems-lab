@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { projects, projectDetails, type Category } from "@/data/projects";
-import { AggregateRunBadge } from "@/components/project-run-badge";
-import { ProjectQuickPreview } from "@/components/project-quick-preview";
+import { projects, type Category } from "@/data/projects";
+import { ProjectCardPreview } from "@/components/project-card-preview";
+import { ProjectRunBadge } from "@/components/project-run-badge";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -28,7 +28,6 @@ export default function ProjectsPage() {
             Each project card keeps the signal tight: name, short description,
             category, and a direct path to the detail page.
           </p>
-          <AggregateRunBadge />
         </div>
 
         <div className="surface-card rounded-xl p-6 sm:p-8">
@@ -64,11 +63,9 @@ export default function ProjectsPage() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-              {items.map((project) => {
-                const detail = projectDetails.find((d) => d.slug === project.slug);
-                return (
+              {items.map((project) => (
                 <article key={project.slug} className="h-full">
-                  <ProjectQuickPreview slug={project.slug} description={project.description} tags={detail?.tags ?? []}>
+                  <ProjectCardPreview slug={project.slug} name={project.name} description={project.description}>
                   <Link
                     href={`/projects/${project.slug}`}
                     className="group surface-card surface-card-hover flex h-full flex-col rounded-xl border border-[color-mix(in_srgb,var(--line)_92%,transparent)] bg-[color-mix(in_srgb,var(--card)_94%,var(--surface-soft)_6%)] p-6 sm:p-8"
@@ -93,19 +90,21 @@ export default function ProjectsPage() {
                       </p>
                     </div>
 
-                    <div className="mt-auto flex items-center justify-between gap-4 border-t border-[color-mix(in_srgb,var(--line)_88%,transparent)] pt-6">
-                      <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
-                        Open project
-                      </span>
-                      <span className="text-sm font-medium text-[var(--muted)] transition-all duration-200 ease-in-out group-hover:translate-x-0.5 group-hover:text-[var(--accent-solid)]">
-                        View details →
-                      </span>
+                    <div className="mt-auto space-y-3 border-t border-[color-mix(in_srgb,var(--line)_88%,transparent)] pt-6">
+                      <ProjectRunBadge slug={project.slug} />
+                      <div className="flex items-center justify-between gap-4">
+                        <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[var(--muted)]">
+                          Open project
+                        </span>
+                        <span className="text-sm font-medium text-[var(--muted)] transition-all duration-200 ease-in-out group-hover:translate-x-0.5 group-hover:text-[var(--accent-solid)]">
+                          View details →
+                        </span>
+                      </div>
                     </div>
                   </Link>
-                  </ProjectQuickPreview>
+                  </ProjectCardPreview>
                 </article>
-                );
-              })}
+              ))}
             </div>
           </section>
         );

@@ -153,8 +153,9 @@ export function DebugPanel({
 
       <div
         ref={scrollRef}
-        aria-live="polite"
         className="max-h-[360px] overflow-y-auto px-5 py-5 font-mono text-[11px] leading-6 text-[#86EFAC] sm:px-6"
+        aria-live="polite"
+        aria-relevant="additions"
       >
         {logs.length > 0 ? (
           <div className="space-y-0.5">
@@ -200,7 +201,7 @@ export function StatCard({
 export function WorkspaceStateBadge({ state }: { state: WorkspaceState }) {
   if (state === "thinking") {
     return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
+      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`} role="status" aria-live="polite">
         <Spinner className="h-3 w-3" />
         {workspaceStateLabel(state)}
       </span>
@@ -209,7 +210,7 @@ export function WorkspaceStateBadge({ state }: { state: WorkspaceState }) {
 
   if (state === "streaming") {
     return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
+      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`} role="status" aria-live="polite">
         <Spinner className="h-3 w-3" />
         {workspaceStateLabel(state)}
       </span>
@@ -218,7 +219,7 @@ export function WorkspaceStateBadge({ state }: { state: WorkspaceState }) {
 
   if (state === "completed") {
     return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
+      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`} role="status" aria-live="polite">
         <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--success-dot)]" />
         {workspaceStateLabel(state)}
       </span>
@@ -227,7 +228,7 @@ export function WorkspaceStateBadge({ state }: { state: WorkspaceState }) {
 
   if (state === "error") {
     return (
-      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
+      <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`} role="status" aria-live="assertive">
         <span className="inline-block h-1.5 w-1.5 rounded-full bg-[var(--error-dot)]" />
         {workspaceStateLabel(state)}
       </span>
@@ -235,7 +236,7 @@ export function WorkspaceStateBadge({ state }: { state: WorkspaceState }) {
   }
 
   return (
-    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`}>
+    <span className={`inline-flex items-center gap-1 rounded-full border px-2.5 py-1 text-xs font-semibold ${workspaceStateTone(state)}`} role="status">
       {workspaceStateLabel(state)}
     </span>
   );

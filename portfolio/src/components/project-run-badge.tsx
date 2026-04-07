@@ -1,53 +1,42 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { fetchMetricsTime } from "@/lib/api";
+import { fetchMetrics, type ProjectMetrics } from "@/lib/api";
 
-type AggregateStats = {
-  runs: number;
-  successRate: number;
-};
+let metricsCache: Map<string, ProjectMetrics> | null = null;
+let fetchPromise: Promise<void> | null = null;
 
-let cachedStats: AggregateStats | null | undefined;
+function loadMetrics(): Promise<void> {
+  if (metricsCache) return Promise.resolve();
+  if (fetchPromise) return fetchPromise;
+  fetchPromise = fetchMetrics()
+    .then((res) => {
+      metricsCache = new Map(res.projects.map((p) => [p.name, p]));
+    })
+    .catch(() => {
+      metricsCache = new Map();
+    });
+  return fetchPromise;
+}
 
-/**
- * Shows aggregate run stats from the metrics API.
- * Falls back to nothing if metrics are unavailable.
- */
-export function AggregateRunBadge() {
-  const [stats, setStats] = useState<AggregateStats | null | undefined>(cachedStats);
+export function ProjectRunBadge({ slug }: { slug: string }) {
+  const [metrics, setMetrics] = useState<ProjectMetrics | null>(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (cachedStats !== undefined) return;
-    cachedStats = null; // mark as loading
+    void loadMetrics().then(() => {
+      setMetrics(metricsCache?.get(slug) ?? null);
+      setLoaded(true);
+    });
+  }, [slug]);
 
-    let cancelled = false;
-    void (async () => {
-      try {
-        const data = await fetchMetricsTime({ range: "week" });
-        if (data.length === 0) {
-          if (!cancelled) { cachedStats = null; setStats(null); }
-          return;
-        }
-        const success = data.filter((p) => p.success).length;
-        const total = data.length;
-        const result: AggregateStats = {
-          runs: total,
-          successRate: Math.round((success / total) * 100),
-        };
-        if (!cancelled) { cachedStats = result; setStats(result); }
-      } catch {
-        if (!cancelled) { cachedStats = null; setStats(null); }
-      }
-    })();
-    return () => { cancelled = true; };
-  }, []);
+  if (!loaded || !metrics) return null;
 
-  if (!stats || stats.runs === 0) return null;
+  const successPct = Math.round(metrics.success_rate * 100);
 
   return (
-    <span className="surface-pill rounded-full px-3 py-1 text-xs text-[var(--muted)]">
-      {stats.runs} runs this week · {stats.successRate}% success
+    <span className="text-[11px] text-[var(--muted)]">
+      {successPct}% success · {metrics.latency.toFixed(1)}s avg
     </span>
   );
 }
