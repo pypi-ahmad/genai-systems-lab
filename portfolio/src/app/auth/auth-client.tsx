@@ -117,7 +117,7 @@ export default function AuthClient() {
           Save runs, keep history, and replay prior prompts.
         </h1>
         <p className="copy-lead max-w-2xl text-base sm:text-lg">
-          Authentication is intentionally lightweight: email, password, an HttpOnly browser session cookie, and a local SQLite-backed run history.
+          Sign in with your email and password to save runs, track history, and replay past prompts.
         </p>
 
         <div className="surface-card rounded-xl p-6 sm:p-8">
@@ -132,7 +132,7 @@ export default function AuthClient() {
               Persist input, output, project, latency, and timestamp automatically.
             </div>
             <div className="surface-panel rounded-[1.25rem] px-4 py-4">
-              Re-run saved executions from the playground without rebuilding the payload.
+              Re-run saved executions from the playground with one click.
             </div>
           </div>
         </div>
@@ -149,7 +149,7 @@ export default function AuthClient() {
             </h2>
           </div>
           <div className="surface-pill flex items-center gap-2 rounded-full p-1">
-            <ModeButton active={mode === "login"} label="Login" onClick={() => setMode("login")} />
+            <ModeButton active={mode === "login"} label="Log in" onClick={() => setMode("login")} />
             {publicSignupEnabled ? (
               <ModeButton active={mode === "signup"} label="Sign up" onClick={() => setMode("signup")} />
             ) : null}
@@ -158,7 +158,7 @@ export default function AuthClient() {
 
         {!publicSignupEnabled ? (
           <div className="surface-panel mt-6 rounded-[1.25rem] p-4 text-sm leading-7 text-[var(--muted)]">
-            Public sign-up is disabled on hardened deployments. Login is reserved for the portfolio owner.
+            Public sign-up is currently disabled. Access is reserved for the portfolio owner.
           </div>
         ) : null}
 
@@ -220,7 +220,7 @@ export default function AuthClient() {
                 onClick={handleLogout}
                 className="button-base button-secondary button-pill"
               >
-                Clear token
+                Log out
               </button>
             </div>
           ) : (

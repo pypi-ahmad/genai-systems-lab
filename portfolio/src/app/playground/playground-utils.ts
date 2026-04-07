@@ -124,7 +124,7 @@ export function extractTextOutput(data: AnyObj): string | null {
 export function summarizeInputPayload(raw: string): string {
   const trimmed = raw.trim();
   if (!trimmed) {
-    return "Empty request body.";
+    return "Empty input.";
   }
 
   const parsed = tryParse(trimmed);

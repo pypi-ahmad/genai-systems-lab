@@ -693,3 +693,9 @@ html.theme-fade body {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── Native disclosure (details/summary) ─────────────── */
+
+details > summary { list-style: none; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary::marker { display: none; }

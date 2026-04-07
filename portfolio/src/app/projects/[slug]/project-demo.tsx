@@ -1,12 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { fetchCurrentUser, fetchLLMCatalog, getApiUrl, runProject } from "@/lib/api";
+import { useEffect, useMemo, useState } from "react";
+import { fetchCurrentUser, fetchLLMCatalog, runProject } from "@/lib/api";
 import type { LLMCatalogResponse, LLMRequestOptions } from "@/lib/api";
 import { getStoredApiKeys, getStoredLLMSelection, setStoredApiKey, setStoredLLMSelection } from "@/lib/apikey";
 import type { LLMProviderId } from "@/lib/apikey";
 import { getStoredAuthSession, storeAuthSession } from "@/lib/auth";
+import { DismissibleTip } from "@/components/dismissible-tip";
 import { findProviderForModel, findProviderInfo } from "@/lib/llm-catalog";
 
 interface ProjectDemoProps {
@@ -38,7 +39,26 @@ export default function ProjectDemo({
 }: ProjectDemoProps) {
   const [status, setStatus] = useState<"idle" | "running" | "success" | "error">("idle");
   const [result, setResult] = useState<string>("");
-  const [input, setInput] = useState(exampleInput);
+
+  // Text mode: eligible when exampleInput is {"input": "..."} with no extra keys
+  const textModeAvailable = useMemo(() => {
+    try {
+      const parsed = JSON.parse(exampleInput);
+      const keys = Object.keys(parsed);
+      return keys.length === 1 && keys[0] === "input" && typeof parsed.input === "string";
+    } catch { return false; }
+  }, [exampleInput]);
+
+  const [inputMode, setInputMode] = useState<"json" | "text">(() => {
+    if (!textModeAvailable) return "json";
+    try { return "text"; } catch { return "json"; }
+  });
+  const [input, setInput] = useState(() => {
+    if (textModeAvailable) {
+      try { return JSON.parse(exampleInput).input as string; } catch { /* fall through */ }
+    }
+    return exampleInput;
+  });
   const [authToken, setAuthToken] = useState<string | null>(() => getStoredAuthSession());
   const [llmCatalog, setLlMCatalog] = useState<LLMCatalogResponse | null>(null);
   const [llmCatalogError, setLlMCatalogError] = useState<string | null>(null);
@@ -146,12 +166,16 @@ export default function ProjectDemo({
     }
 
     let body: Record<string, unknown>;
-    try {
-      body = JSON.parse(input);
-    } catch {
-      setStatus("error");
-      setResult("Input is not valid JSON.");
-      return;
+    if (inputMode === "text") {
+      body = { input };
+    } else {
+      try {
+        body = JSON.parse(input);
+      } catch {
+        setStatus("error");
+        setResult("Input is not valid JSON.");
+        return;
+      }
     }
 
     try {
@@ -175,15 +199,17 @@ export default function ProjectDemo({
     <section className="surface-card rounded-xl p-6 sm:p-8">
       <p className="eyebrow">Run Demo</p>
       <h3 className="mt-3 text-xl font-semibold tracking-[-0.03em] text-[var(--foreground)]">
-        {title ?? "Test the live endpoint"}
+        {title ?? "Try this project"}
       </h3>
       <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-        {description ?? "Edit the JSON body and send it to the FastAPI backend for this project."}
+        {description ?? "Edit the input below and run this project."}
       </p>
 
-      <div className="surface-panel mt-4 rounded-[1.25rem] px-4 py-3 font-mono text-xs leading-6 text-[var(--muted)]">
-        POST {getApiUrl(`/${projectName}/run`)}
-      </div>
+      <DismissibleTip
+        storageKey="tip-demo-apikey"
+        text="Your API key never leaves your browser. It is sent directly to the provider — our backend does not store or log it."
+        className="mt-4"
+      />
 
       <div className="mt-5 grid gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-end">
         <label className="block">
@@ -262,19 +288,51 @@ export default function ProjectDemo({
       )}
 
       <div className="mt-5">
-        <label
-          htmlFor={`demo-input-${projectName}`}
-          className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
-        >
-          Request Body
-        </label>
+        <div className="flex items-center justify-between gap-2">
+          <label
+            htmlFor={`demo-input-${projectName}`}
+            className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]"
+          >
+            Input
+          </label>
+          {textModeAvailable && (
+            <div className="surface-pill flex items-center gap-0.5 rounded-full p-0.5">
+              <button
+                type="button"
+                onClick={() => {
+                  if (inputMode === "text") return;
+                  try {
+                    const parsed = JSON.parse(input);
+                    if (typeof parsed.input === "string") setInput(parsed.input);
+                  } catch { /* keep as-is */ }
+                  setInputMode("text");
+                }}
+                className={`rounded-full px-2.5 py-1 text-[11px] font-semibold transition-colors ${inputMode === "text" ? "bg-[var(--accent-solid)] text-white" : "text-[var(--muted)] hover:text-[var(--foreground)]"}`}
+              >
+                Text
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  if (inputMode === "json") return;
+                  setInput(JSON.stringify({ input }, null, 2));
+                  setInputMode("json");
+                }}
+                className={`rounded-full px-2.5 py-1 text-[11px] font-semibold transition-colors ${inputMode === "json" ? "bg-[var(--accent-solid)] text-white" : "text-[var(--muted)] hover:text-[var(--foreground)]"}`}
+              >
+                JSON
+              </button>
+            </div>
+          )}
+        </div>
         <textarea
           id={`demo-input-${projectName}`}
           value={input}
           onChange={(event) => setInput(event.target.value)}
-          spellCheck={false}
-          rows={10}
-          className="input-shell mt-3 w-full rounded-[1.25rem] px-4 py-4 font-mono text-[13px] leading-7"
+          spellCheck={inputMode === "text"}
+          placeholder={inputMode === "text" ? "Type your prompt here\u2026" : undefined}
+          rows={inputMode === "text" ? 4 : 10}
+          className={`input-shell mt-3 w-full rounded-[1.25rem] px-4 py-4 text-[13px] leading-7 ${inputMode === "json" ? "font-mono" : ""}`}
         />
       </div>
 
@@ -294,7 +352,7 @@ export default function ProjectDemo({
           </p>
           <div className="mt-3 flex items-center gap-3 text-sm leading-7 text-[var(--muted)]">
             <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-[var(--accent-solid)]" />
-            <span>Waiting for the FastAPI response.</span>
+            <span>Processing your request…</span>
           </div>
         </div>
       ) : null}

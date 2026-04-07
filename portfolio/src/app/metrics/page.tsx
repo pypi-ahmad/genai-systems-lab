@@ -4,10 +4,10 @@ import { useEffect, useState, type ReactNode } from "react";
 import { projectDetails } from "@/data/projects";
 import {
   fetchMetricsTime,
-  getApiUrl,
   type MetricsTimeRange,
   type TimeSeriesMetricPoint,
 } from "@/lib/api";
+import { DismissibleTip } from "@/components/dismissible-tip";
 import {
   CartesianGrid,
   Line,
@@ -47,19 +47,19 @@ const rangeMeta: Record<MetricsTimeRange, {
     label: "Last hour",
     bucketMs: 5 * 60 * 1000,
     durationMs: 60 * 60 * 1000,
-    bucketLabel: "5-minute buckets",
+    bucketLabel: "5-minute intervals",
   },
   day: {
     label: "Last day",
     bucketMs: 60 * 60 * 1000,
     durationMs: 24 * 60 * 60 * 1000,
-    bucketLabel: "hourly buckets",
+    bucketLabel: "hourly intervals",
   },
   week: {
     label: "Last week",
     bucketMs: 24 * 60 * 60 * 1000,
     durationMs: 7 * 24 * 60 * 60 * 1000,
-    bucketLabel: "daily buckets",
+    bucketLabel: "daily intervals",
   },
 };
 
@@ -360,7 +360,7 @@ function EmptyState({ message }: { message: string }) {
       <div className="surface-card rounded-[1.5rem] p-6 sm:p-8">
         <p className="eyebrow">Performance Over Time</p>
         <h2 className="heading-section mt-3 text-3xl text-[var(--foreground)]">
-          No persisted execution metrics match this filter yet
+          No metrics match this filter yet
         </h2>
         <p className="copy-body mt-4 max-w-2xl text-sm">{message}</p>
       </div>
@@ -428,7 +428,7 @@ export default function MetricsPage() {
       <section className="flex min-h-[50vh] items-center justify-center py-16">
         <div className="surface-card flex items-center gap-3 rounded-full px-5 py-3 text-sm text-[var(--muted)]">
           <span className="inline-block h-2.5 w-2.5 animate-pulse rounded-full bg-[var(--accent-solid)]" />
-          Loading persisted run metrics.
+          Loading run metrics.
         </div>
       </section>
     );
@@ -443,7 +443,7 @@ export default function MetricsPage() {
             Historical run metrics are unavailable right now.
           </h1>
           <p className="copy-body max-w-2xl text-sm sm:text-base">
-            Confirm the FastAPI service is running locally and exposing persisted performance telemetry.
+            Check your connection and try again shortly.
           </p>
         </div>
 
@@ -452,7 +452,6 @@ export default function MetricsPage() {
             Unable to load metrics
           </p>
           <p className="mt-4 text-base leading-8 text-[var(--danger-text-soft)]">{error}</p>
-          <p className="mt-4 font-mono text-sm text-[var(--danger-text)]">GET {getApiUrl("/metrics/time")}</p>
         </div>
       </section>
     );
@@ -464,7 +463,7 @@ export default function MetricsPage() {
       : `${projectLabel(selectedProject)} in the selected time range`;
 
     return (
-      <EmptyState message={`No persisted execution metrics were found for ${projectDescription}. Execute a few runs and this view will populate automatically.`} />
+      <EmptyState message={`No metrics were found for ${projectDescription}. Run a few projects and this view will populate automatically.`} />
     );
   }
 
@@ -479,6 +478,11 @@ export default function MetricsPage() {
 
   return (
     <div className="space-y-0">
+      <DismissibleTip
+        storageKey="tip-metrics-intro"
+        text="Metrics are computed from your playground runs. Pick a project and time range to see latency, confidence, and success trends."
+        className="mb-4 mt-16"
+      />
       <section className="section-accent grid gap-8 py-16 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
         <div className="title-stack">
           <p className="eyebrow">Performance Over Time</p>
@@ -486,14 +490,11 @@ export default function MetricsPage() {
             Track whether the system is improving, holding, or slipping.
           </h1>
           <p className="copy-lead max-w-2xl text-base sm:text-lg">
-            Persisted execution metrics are grouped into {rangeMeta[range].bucketLabel} so latency, confidence, and success rate reveal actual direction over time.
+            Run metrics are grouped by {rangeMeta[range].bucketLabel} so latency, confidence, and success rate reveal actual direction over time.
           </p>
           <div className="flex flex-wrap gap-3 pt-2">
             <span className={`rounded-full px-3 py-1 text-xs font-medium ${trend.toneClass}`}>
               {trend.label}
-            </span>
-            <span className="surface-pill rounded-full px-3 py-1 font-mono text-xs text-[var(--foreground)]">
-              GET {getApiUrl("/metrics/time")}
             </span>
             <span className="surface-pill rounded-full px-3 py-1 text-xs text-[var(--muted)]">
               {activeProjectLabel}
@@ -582,12 +583,12 @@ export default function MetricsPage() {
         <StatCard
           label="Average Latency"
           value={averageLatency !== null ? formatLatency(averageLatency) : "--"}
-          note="Average completion time across the visible time buckets. Lower is better."
+          note="Average completion time across the visible intervals. Lower is better."
         />
         <StatCard
           label="Average Confidence"
           value={averageConfidence !== null ? formatConfidence(averageConfidence) : "--"}
-          note="Mean confidence across persisted runs in the selected window."
+          note="Mean confidence across runs in the selected time range."
         />
         <StatCard
           label="Success Rate"
@@ -610,7 +611,7 @@ export default function MetricsPage() {
           <ChartCard
             eyebrow="Latency"
             title="Latency over time"
-            description="Average latency per visible bucket. A downward slope means the system is getting faster."
+            description="Average latency per interval. A downward slope means the system is getting faster."
           >
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={chartSeries} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -655,7 +656,7 @@ export default function MetricsPage() {
           <ChartCard
             eyebrow="Confidence"
             title="Confidence over time"
-            description="Average confidence per bucket. A rising line suggests responses are becoming more reliable."
+            description="Average confidence per interval. A rising line suggests responses are becoming more reliable."
           >
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={chartSeries} margin={{ top: 8, right: 8, left: 0, bottom: 0 }}>
@@ -701,7 +702,7 @@ export default function MetricsPage() {
           <ChartCard
             eyebrow="Reliability"
             title="Success rate over time"
-            description="Success percentage per bucket. This makes reliability drift obvious without scanning individual runs."
+            description="Success percentage per interval. This makes reliability drift obvious without scanning individual runs."
             className="xl:col-span-2"
           >
             <ResponsiveContainer width="100%" height={320}>

@@ -9,7 +9,7 @@ const highlights = [
 
 const stats = [
   { value: "20", label: "AI systems" },
-  { value: "3", label: "Paradigms" },
+  { value: "3", label: "Frameworks" },
   { value: "GenAI · LangGraph · CrewAI", label: "Platform mix" },
 ];
 

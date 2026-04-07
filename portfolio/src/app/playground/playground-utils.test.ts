@@ -23,7 +23,7 @@ test("summarizeInputPayload extracts the nested input field when present", () =>
 });
 
 test("summarizeInputPayload returns a fixed message for empty bodies", () => {
-  assert.equal(summarizeInputPayload("   \n  "), "Empty request body.");
+  assert.equal(summarizeInputPayload("   \n  "), "Empty input.");
 });
 
 test("buildReplayNodeStatuses closes the prior running step when the next step starts", () => {

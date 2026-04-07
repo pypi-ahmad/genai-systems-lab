@@ -3,6 +3,7 @@ import Link from "next/link";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { NavLinks } from "@/components/nav-links";
+import { HelpReset } from "@/components/help-reset";
 import { ThemeProvider } from "./theme-provider";
 import "./globals.css";
 
@@ -47,7 +48,10 @@ function Footer() {
     <footer className="border-t border-[var(--line)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-3 px-5 py-10 text-sm text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between sm:px-6 lg:px-8">
         <p className="font-medium">&copy; {new Date().getFullYear()} Ahmad — GenAI Systems Lab</p>
-        <p className="text-xs tracking-wide">Next.js 16 · TypeScript · Tailwind CSS v4</p>
+        <div className="flex items-center gap-4">
+          <p className="text-xs tracking-wide">Next.js 16 · TypeScript · Tailwind CSS v4</p>
+          <HelpReset />
+        </div>
       </div>
     </footer>
   );

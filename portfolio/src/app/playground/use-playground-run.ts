@@ -23,6 +23,8 @@ import {
 
 /* ── Types ────────────────────────────────────────────── */
 
+export type InputMode = "json" | "text";
+
 export interface PlaygroundRunDeps {
   authToken: string | null;
   activeSessionId: number | null;
@@ -39,6 +41,15 @@ export interface ExecuteRunOverrides {
 
 /* ── Hook ─────────────────────────────────────────────── */
 
+/** A project is eligible for plain-text mode when its exampleInput is `{"input": "..."}` with no extra keys. */
+function isTextModeEligible(project: ProjectDetail): boolean {
+  try {
+    const parsed = JSON.parse(project.exampleInput);
+    const keys = Object.keys(parsed);
+    return keys.length === 1 && keys[0] === "input" && typeof parsed.input === "string";
+  } catch { return false; }
+}
+
 export function usePlaygroundRun(deps: PlaygroundRunDeps) {
   const {
     authToken,
@@ -51,7 +62,15 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
 
   /* ── Core run state ── */
   const [selectedSlug, setSelectedSlug] = useState(projectDetails[0].slug);
-  const [input, setInput] = useState(projectDetails[0].exampleInput);
+  const [input, setInput] = useState(() => {
+    if (isTextModeEligible(projectDetails[0])) {
+      try { return JSON.parse(projectDetails[0].exampleInput).input as string; } catch { /* fall through */ }
+    }
+    return projectDetails[0].exampleInput;
+  });
+  const [inputMode, setInputMode] = useState<InputMode>(
+    isTextModeEligible(projectDetails[0]) ? "text" : "json",
+  );
   const [rawData, setRawData] = useState<AnyObj | null>(null);
   const [output, setOutput] = useState<string | null>(null);
   const [latency, setLatency] = useState<number | null>(null);
@@ -75,6 +94,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
 
   /* ── Derived ── */
   const selected = projectDetails.find((p) => p.slug === selectedSlug)!;
+  const textModeAvailable = isTextModeEligible(selected);
 
   /* ── Memory helpers ── */
 
@@ -171,7 +191,26 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
       setSelectedSlug(replayProject.slug);
     }
 
-    setInput(historyRun.input);
+    // History stores raw JSON; extract text for text-eligible projects
+    const eligible = replayProject ? isTextModeEligible(replayProject) : false;
+    if (eligible) {
+      try {
+        const parsed = JSON.parse(historyRun.input);
+        if (typeof parsed.input === "string") {
+          setInput(parsed.input);
+          setInputMode("text");
+        } else {
+          setInput(historyRun.input);
+          setInputMode("json");
+        }
+      } catch {
+        setInput(historyRun.input);
+        setInputMode("json");
+      }
+    } else {
+      setInput(historyRun.input);
+      setInputMode("json");
+    }
     setOutput(null);
     setRawData(null);
     setLatency(null);
@@ -223,20 +262,24 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
         setUsedSessionContext(false);
       }
 
-      // Validate JSON input
+      // Validate / build JSON input
       let body: Record<string, unknown>;
-      try {
-        body = JSON.parse(targetInput);
-      } catch {
-        setStatus("error");
-        setErrorMsg("Invalid JSON — check your input syntax.");
-        appendMemoryEntry({
-          stepName: "Input validation",
-          type: "observation",
-          content: "The request body is not valid JSON. Fix the syntax and try again.",
-          initiallyExpanded: true,
-        });
-        return;
+      if (inputMode === "text") {
+        body = { input: targetInput };
+      } else {
+        try {
+          body = JSON.parse(targetInput);
+        } catch {
+          setStatus("error");
+          setErrorMsg("Invalid JSON — check your input syntax.");
+          appendMemoryEntry({
+            stepName: "Input validation",
+            type: "observation",
+            content: "The input is not valid JSON. Fix the syntax and try again.",
+            initiallyExpanded: true,
+          });
+          return;
+        }
       }
 
       if (authToken && activeSessionId !== null) {
@@ -254,7 +297,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
       appendMemoryEntry({
         stepName: "Request",
         type: "action",
-        content: `Prepared a ${streamMode ? "streaming" : "batch"} run for ${targetProject.name}.`,
+        content: `Prepared a ${streamMode ? "streaming" : "standard"} run for ${targetProject.name}.`,
         initiallyExpanded: true,
       });
 
@@ -380,13 +423,13 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
         );
         abortRef.current = abort;
       } else {
-        // ── Batch path (original) ────────────────────
+        // ── Standard path (original) ────────────────────
         setStatus("running");
-        appendLog("Batch execution started");
+        appendLog("Standard execution started");
         appendMemoryEntry({
-          stepName: "Batch request",
+          stepName: "Standard request",
           type: "action",
-          content: "Executing the run and waiting for a complete response payload.",
+          content: "Executing the run and waiting for the complete response.",
           initiallyExpanded: true,
         });
 
@@ -424,10 +467,10 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
                   stepName: runSucceeded ? "Completion" : "Failure",
                   type: "observation",
                   content: typeof data?.latency === "number"
-                    ? `${runSucceeded ? "Batch response returned" : "Batch run failed"} in ${Math.round(data.latency)} ms.`
+                    ? `${runSucceeded ? "Response returned" : "Run failed"} in ${Math.round(data.latency)} ms.`
                     : runSucceeded
-                      ? "Batch response returned successfully."
-                      : "Batch run failed.",
+                      ? "Response returned successfully."
+                      : "Run failed.",
                   initiallyExpanded: true,
                 });
               }
@@ -490,6 +533,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
       clearLocalSession,
       disconnect,
       input,
+      inputMode,
       refreshHistory,
       replaceMemoryEntries,
       resetMemoryEntries,
@@ -506,6 +550,8 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
     /* State */
     selectedSlug,
     input,
+    inputMode,
+    textModeAvailable,
     status,
     output,
     rawData,
@@ -533,6 +579,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
     /* Setters — retained for parent-level orchestration */
     setSelectedSlug,
     setInput,
+    setInputMode,
     setStatus,
     setOutput,
     setRawData,

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { projects } from "@/data/projects";
 
+import { DismissibleTip } from "@/components/dismissible-tip";
+
 export const metadata: Metadata = {
   title: "LangGraph vs CrewAI — GenAI Systems Lab",
   description:
@@ -168,6 +170,11 @@ function ExampleColumn({
 export default function ComparePage() {
   return (
     <div className="space-y-0">
+      <DismissibleTip
+        storageKey="tip-compare-intro"
+        text="This page compares LangGraph and CrewAI using real projects from this portfolio. Scroll down for implementation examples."
+        className="mb-4 mt-16"
+      />
       <section className="grid gap-8 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
         <div className="title-stack">
           <p className="eyebrow">Framework Comparison</p>

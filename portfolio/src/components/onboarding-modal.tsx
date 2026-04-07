@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-const ONBOARDING_KEY = "onboarding-dismissed";
+export const ONBOARDING_KEY = "onboarding-dismissed";
 
 export function OnboardingModal() {
   const [show, setShow] = useState(() => {

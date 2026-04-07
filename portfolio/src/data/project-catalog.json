@@ -28,7 +28,7 @@
     "demo": {
       "enabled": true,
       "title": "Run live research query",
-      "description": "Edit the request body and send it to the FastAPI backend for this system.",
+      "description": "Edit the input and run this system live.",
       "ctaLabel": "Run Research Demo"
     },
     "graph": {
