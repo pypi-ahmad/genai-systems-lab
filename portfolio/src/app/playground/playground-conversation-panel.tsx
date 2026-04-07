@@ -1,8 +1,9 @@
 "use client";
 
-import type { RefObject } from "react";
+import { useState, type RefObject } from "react";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
 import type { ProjectDetail } from "@/data/projects";
+import { splitErrorDetail } from "@/lib/api";
 import {
   assistantCardTone,
   assistantStateTitle,
@@ -29,6 +30,33 @@ interface PlaygroundConversationPanelProps {
   textOutput: string | null;
   usedSessionContext: boolean;
   workspaceState: WorkspaceState;
+}
+
+function ErrorDisplay({ errorMsg, streamText }: { errorMsg: string; streamText?: string }) {
+  const [showDetail, setShowDetail] = useState(false);
+  const { friendly, detail } = splitErrorDetail(errorMsg);
+  return (
+    <>
+      <p className="mt-3 text-sm leading-7 text-[var(--danger-text)]">{friendly}</p>
+      {detail && (
+        <button
+          type="button"
+          onClick={() => setShowDetail((v) => !v)}
+          className="mt-1 text-xs text-[var(--muted)] underline hover:text-[var(--foreground)]"
+        >
+          {showDetail ? "Hide details" : "Show details"}
+        </button>
+      )}
+      {showDetail && detail && (
+        <pre className="mt-2 max-h-[160px] overflow-auto rounded-[1rem] bg-[var(--danger-surface,var(--surface-soft))] p-3 font-mono text-xs leading-6 text-[var(--danger-text-soft,var(--muted))]">
+          {detail}
+        </pre>
+      )}
+      {streamText && (
+        <pre className="mt-4 max-h-[240px] overflow-auto rounded-[1.25rem] bg-[var(--danger-surface)] p-4 font-mono text-xs leading-6 text-[var(--danger-text-soft)] transition-all duration-300 ease-in-out">{streamText}</pre>
+      )}
+    </>
+  );
 }
 
 export function PlaygroundConversationPanel({
@@ -187,13 +215,8 @@ export function PlaygroundConversationPanel({
                     </>
                   )}
 
-                  {workspaceState === "error" && (
-                    <>
-                      <p className="mt-3 text-sm leading-7 text-[var(--danger-text)]">{errorMsg}</p>
-                      {streamText && (
-                        <pre className="mt-4 max-h-[240px] overflow-auto rounded-[1.25rem] bg-[var(--danger-surface)] p-4 font-mono text-xs leading-6 text-[var(--danger-text-soft)] transition-all duration-300 ease-in-out">{streamText}</pre>
-                      )}
-                    </>
+                  {workspaceState === "error" && errorMsg && (
+                    <ErrorDisplay errorMsg={errorMsg} streamText={streamText} />
                   )}
                 </div>
               </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import type { GraphNode, GraphEdge } from "@/data/projects";
 
 /* ── Layout ───────────────────────────────────────────── */
@@ -114,6 +114,36 @@ export default function FlowDiagram({
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const [zoom, setZoom] = useState(1);
 
+  // Drag-to-pan state
+  const containerRef = useRef<HTMLDivElement>(null);
+  const dragState = useRef<{ active: boolean; startX: number; startY: number; scrollLeft: number; scrollTop: number }>({ active: false, startX: 0, startY: 0, scrollLeft: 0, scrollTop: 0 });
+
+  const onPointerDown = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const el = containerRef.current;
+    if (!el) return;
+    dragState.current = { active: true, startX: e.clientX, startY: e.clientY, scrollLeft: el.scrollLeft, scrollTop: el.scrollTop };
+    el.setPointerCapture(e.pointerId);
+    el.style.cursor = "grabbing";
+  }, []);
+
+  const onPointerMove = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    const ds = dragState.current;
+    if (!ds.active) return;
+    const el = containerRef.current;
+    if (!el) return;
+    el.scrollLeft = ds.scrollLeft - (e.clientX - ds.startX);
+    el.scrollTop = ds.scrollTop - (e.clientY - ds.startY);
+  }, []);
+
+  const onPointerUp = useCallback((e: React.PointerEvent<HTMLDivElement>) => {
+    dragState.current.active = false;
+    const el = containerRef.current;
+    if (el) {
+      el.releasePointerCapture(e.pointerId);
+      el.style.cursor = "grab";
+    }
+  }, []);
+
   const positioned = layout(nodes, edges);
   const posMap = Object.fromEntries(positioned.map((n) => [n.id, n]));
   const palette = COLORS[accentColor] ?? COLORS.blue;
@@ -133,7 +163,14 @@ export default function FlowDiagram({
   }
 
   return (
-    <div className="surface-panel-strong overflow-auto rounded-xl">
+    <div
+      ref={containerRef}
+      className="surface-panel-strong overflow-auto rounded-xl"
+      style={{ cursor: "grab" }}
+      onPointerDown={onPointerDown}
+      onPointerMove={onPointerMove}
+      onPointerUp={onPointerUp}
+    >
       <div className="flex items-center justify-end gap-1 px-3 pt-2">
         <button type="button" onClick={() => setZoom((z) => Math.min(3, z + 0.25))} className="button-base button-ghost button-sm px-2" aria-label="Zoom in">+</button>
         <button type="button" onClick={() => setZoom(1)} className="button-base button-ghost button-sm px-2 text-[11px]">{Math.round(zoom * 100)}%</button>

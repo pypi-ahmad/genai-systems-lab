@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { DismissibleTip } from "@/components/dismissible-tip";
 
 export type TimelineReplayEntry = {
   timestamp: number;
@@ -53,14 +54,6 @@ function formatReplayTime(timestamp: number) {
   }
 
   return `+${timestamp.toFixed(timestamp >= 10 ? 1 : 2)}s`;
-}
-
-function markerPosition(index: number, total: number) {
-  if (total <= 1) {
-    return 0;
-  }
-
-  return (index / (total - 1)) * 100;
 }
 
 function progressValue(currentIndex: number, total: number) {
@@ -159,15 +152,8 @@ function TimelineReplayInner({
     <section className="rounded-[1.5rem] border border-[var(--line)] bg-[var(--card)] p-4 sm:p-5">
       <div className="flex flex-wrap items-start justify-between gap-3">
         <div>
-          <p className="flex items-center gap-1.5 text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
             {title}
-            <span
-              title="Step-by-step replay of the agent's execution timeline — use the controls to scrub through events"
-              className="cursor-help text-xs normal-case tracking-normal hover:text-[var(--foreground)]"
-              aria-label="Step-by-step replay of the agent's execution timeline"
-            >
-              ⓘ
-            </span>
           </p>
           <p className="mt-1 text-sm leading-7 text-[var(--muted)]">
             {description}
@@ -186,6 +172,11 @@ function TimelineReplayInner({
           ) : null}
         </div>
       </div>
+      <DismissibleTip
+        storageKey="tip-timeline-replay"
+        text="Scrub through the execution timeline to see each step the agent took."
+        className="mt-3"
+      />
 
       {entries.length === 0 ? (
         <div className="mt-4 rounded-[1.25rem] border border-dashed border-[var(--line)] bg-[var(--surface-soft)] px-4 py-6 text-sm leading-7 text-[var(--muted)]">

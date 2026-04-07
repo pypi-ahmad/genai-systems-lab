@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
 import { projectDetails } from "@/data/projects";
@@ -11,6 +11,21 @@ import { categoryBadgeTone, formatRunTimestamp, maskApiKey } from "./playground-
 
 const RECOMMENDED_PROJECT = "genai-research-system";
 const GUIDE_DISMISSED_KEY = "playground-guide-dismissed";
+const SUPPRESS_CLEAR_CONFIRM_KEY = "suppress-clear-session-confirm";
+const SUPPRESS_RERUN_CONFIRM_KEY = "suppress-rerun-confirm";
+
+/**
+ * Show a confirmation dialog unless the user has chosen "Don't ask again".
+ * On confirmation, offers to suppress future prompts via a second confirm.
+ */
+function confirmWithSuppression(storageKey: string, message: string): boolean {
+  if (localStorage.getItem(storageKey) === "true") return true;
+  const ok = window.confirm(message);
+  if (ok && window.confirm("Don\u2019t ask again for this action?")) {
+    localStorage.setItem(storageKey, "true");
+  }
+  return ok;
+}
 
 function sortedProjects(projects: ProjectDetail[], search: string): ProjectDetail[] {
   let list = projects;
@@ -31,10 +46,10 @@ function sortedProjects(projects: ProjectDetail[], search: string): ProjectDetai
 }
 
 function PlaygroundGuide() {
-  const [dismissed, setDismissed] = useState(true); // default hidden until we read localStorage
-  useEffect(() => {
-    setDismissed(localStorage.getItem(GUIDE_DISMISSED_KEY) === "true");
-  }, []);
+  const [dismissed, setDismissed] = useState(() => {
+    if (typeof window === "undefined") return true;
+    return localStorage.getItem(GUIDE_DISMISSED_KEY) === "true";
+  });
   if (dismissed) return null;
   return (
     <div className="mt-4 rounded-2xl border border-[var(--accent-border-soft)] bg-[var(--accent-soft)] px-4 py-3">
@@ -440,7 +455,7 @@ export function PlaygroundSidebar({
                 {activeSessionId !== null && (
                   <button
                     type="button"
-                    onClick={() => { if (window.confirm("Start a new conversation? This clears the current session context.")) onClearSession(); }}
+                    onClick={() => { if (confirmWithSuppression(SUPPRESS_CLEAR_CONFIRM_KEY, "Start a new conversation? Current context will be cleared.")) onClearSession(); }}
                     disabled={sessionLoading || clearingSession}
                     className="button-base button-secondary button-sm button-pill disabled:cursor-not-allowed disabled:opacity-50"
                   >
@@ -543,7 +558,7 @@ export function PlaygroundSidebar({
                                     ? "Show Explanation"
                                     : "Explain How It Worked"}
                             </button>
-                            <button type="button" onClick={() => { if (window.confirm("Re-run this request? This will use your API key for a new call.")) onHistoryRerun(run); }} className="button-base button-primary button-sm button-pill">
+                            <button type="button" onClick={() => { if (confirmWithSuppression(SUPPRESS_RERUN_CONFIRM_KEY, "Re-run this request? This will replace your current output.")) onHistoryRerun(run); }} className="button-base button-primary button-sm button-pill">
                               Re-run
                             </button>
                             <button

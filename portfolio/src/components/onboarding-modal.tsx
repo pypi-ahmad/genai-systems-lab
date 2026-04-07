@@ -1,17 +1,14 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const ONBOARDING_KEY = "onboarding-dismissed";
 
 export function OnboardingModal() {
-  const [show, setShow] = useState(false);
-
-  useEffect(() => {
-    if (!localStorage.getItem(ONBOARDING_KEY)) {
-      setShow(true);
-    }
-  }, []);
+  const [show, setShow] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return !localStorage.getItem(ONBOARDING_KEY);
+  });
 
   if (!show) return null;
 
