@@ -68,10 +68,6 @@ async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
   throw formatApiReachabilityError(candidates, lastError);
 }
 
-export function getApiUrl(path: string): string {
-  return buildApiUrl(activeApiBase, path);
-}
-
 export interface LLMRequestOptions {
   provider?: LLMProviderId;
   model?: string;

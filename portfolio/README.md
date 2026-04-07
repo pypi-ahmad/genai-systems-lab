@@ -16,7 +16,7 @@ Every project belongs to one of three paradigms:
 | **LangGraph** | 5 | Stateful graph-based orchestration with conditional routing |
 | **CrewAI** | 5 | Role-based multi-agent collaboration with staged handoffs |
 
-Users supply their own Google Gemini API key (BYOK). The key stays in in-memory client state for the current tab and is sent per-request via the `X-API-Key` header — the server never persists it.
+Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, Anthropic, or no key for local Ollama. The key is held in module-level browser memory for the current page session and is sent per-request via the `X-API-Key` header — the server never persists it.
 
 ---
 
@@ -24,7 +24,7 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 
 ### Interactive Playground
 
-- **SSE streaming** — tokens arrive in real time via `text/event-stream`; a batch fallback is available when streaming is unsupported
+- **SSE streaming** — tokens arrive in real time via `text/event-stream`; a standard (non-streaming) mode is available via a toggle for environments where SSE is unreliable
 - **Animated execution graph** — a topologically-sorted DAG renders node status (`idle` → `running` → `done` / `error`) and active edges as the system executes
 - **Memory trace panel** — displays `thought`, `action`, and `observation` entries emitted by the agent during a run
 - **Timeline replay** — frame-by-frame scrubbing through timestamped execution events with play/pause controls
@@ -101,7 +101,7 @@ Users supply their own Google Gemini API key (BYOK). The key stays in in-memory 
 ┌──────────────────────────────────────────────────────────────────┐
 │                     FastAPI Backend (:8000)                       │
 │                                                                  │
-│  POST /{project}/run          — batch execution                  │
+│  POST /{project}/run          — standard execution                  │
 │  GET  /stream/{project}       — SSE token streaming              │
 │  GET  /metrics, /metrics/time — aggregate + time-series metrics  │
 │  POST /auth/signup, /login    — authentication                   │
@@ -140,6 +140,7 @@ portfolio/
 │   │   │   ├── playground-sidebar.tsx         # Input, account, and history sidebar
 │   │   │   ├── playground-conversation-panel.tsx  # Conversation input/output panel
 │   │   │   ├── playground-graph-panel.tsx     # Execution graph + debug panels
+│   │   │   ├── playground-icons.tsx           # SVG icon components for the playground
 │   │   │   ├── playground-widgets.tsx         # Extracted presentational components
 │   │   │   ├── playground-utils.ts            # Pure replay/status/memory helpers
 │   │   │   ├── playground-utils.test.ts       # Unit tests for playground utilities
@@ -147,7 +148,7 @@ portfolio/
 │   │   │   ├── use-playground-history.ts      # Run history, explain, replay, share
 │   │   │   └── use-playground-account.ts      # Auth and session state hook
 │   │   ├── projects/
-│   │   │   ├── page.tsx            # Project listing with category filter
+│   │   │   ├── page.tsx            # Project listing, grouped by paradigm
 │   │   │   └── [slug]/
 │   │   │       ├── page.tsx        # Project detail (SSG with generateStaticParams)
 │   │   │       ├── project-demo.tsx  # Inline live demo widget
@@ -164,6 +165,7 @@ portfolio/
 │   │   ├── confidence-indicator.tsx # Visual confidence score
 │   │   ├── dismissible-tip.tsx     # One-time dismissible info tooltip
 │   │   ├── copy-button.tsx         # Clipboard copy with feedback
+│   │   ├── help-reset.tsx          # Footer link to reset all dismissed tips and modals
 │   │   ├── project-card-preview.tsx # Hover preview tooltip for project cards
 │   │   ├── project-run-badge.tsx   # Live success rate + latency badge
 │   │   ├── onboarding-modal.tsx    # First-visit welcome modal
@@ -236,7 +238,7 @@ No `.env` file is required. The BYOK API key is kept in memory for the active ta
 
 ## Usage
 
-> **Detailed guide:** See **[USAGE.md](USAGE.md)** for the complete feature-by-feature walkthrough — covering every page, playground control, streaming mode, timeline replay, sharing, session memory, metrics export, authentication, accessibility, and troubleshooting.
+For the complete operational reference, see **[USAGE.md](USAGE.md)**.
 
 ### Quick Start
 
@@ -257,6 +259,24 @@ After a run completes in the playground, click **Share** → a public URL is gen
 ### Metrics Dashboard
 
 Navigate to **Metrics** → select a project and time range → view latency, confidence, and success rate time-series charts with trend summaries.
+
+### Full Usage Guide
+
+**[USAGE.md](USAGE.md)** covers every page, control, and configuration surface in detail:
+
+| | |
+| --- | --- |
+| [Before You Start](USAGE.md#before-you-start) | [Timeline Replay](USAGE.md#timeline-replay) |
+| [Setup & Local Development](USAGE.md#setup--local-development) | [Run Explanation](USAGE.md#run-explanation) |
+| [Navigation](USAGE.md#navigation) | [Run History](USAGE.md#run-history) |
+| [Browsing Projects](USAGE.md#browsing-projects) | [Sharing a Run](USAGE.md#sharing-a-run) |
+| [Project Detail Page](USAGE.md#project-detail-page) | [Multi-Turn Sessions](USAGE.md#multi-turn-sessions) |
+| [Playground — Running a Project](USAGE.md#playground--running-a-project) | [Metrics Dashboard](USAGE.md#metrics-dashboard) |
+| [API Key & Model Selection](USAGE.md#api-key--model-selection) | [Authentication](USAGE.md#authentication) |
+| [Streaming vs Standard Execution](USAGE.md#streaming-vs-standard-execution) | [Environment Variables](USAGE.md#environment-variables) |
+| [Memory Trace Panel](USAGE.md#memory-trace-panel) | [Docker Deployment](USAGE.md#docker-deployment) |
+| [Execution Graph](USAGE.md#execution-graph) | [Troubleshooting](USAGE.md#troubleshooting) |
+| [Framework Comparison](USAGE.md#framework-comparison) | [Limitations & Important Notes](USAGE.md#limitations--important-notes) |
 
 ---
 
