@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { FeatureTooltip } from "@/components/feature-tooltip";
 
 export type MemoryEntryType = "thought" | "action" | "observation";
 
@@ -26,9 +27,9 @@ function joinClasses(...classes: Array<string | false | null | undefined>) {
 }
 
 function entryTypeLabel(type: MemoryEntryType) {
-  if (type === "thought") return "Thought";
-  if (type === "action") return "Action";
-  return "Observation";
+  if (type === "thought") return "Reasoning";
+  if (type === "action") return "Action taken";
+  return "Result received";
 }
 
 function entryBadgeTone(type: MemoryEntryType) {
@@ -110,6 +111,8 @@ export function MemoryPanel({
           {entries.length} entries
         </span>
       </div>
+
+      <FeatureTooltip storageKey="tip-memory-panel" message="This shows the agent's reasoning step by step." />
 
       {entries.length === 0 ? (
         <div className="mt-4 rounded-[1rem] border border-dashed border-[var(--line)] bg-[var(--surface-soft)] px-4 py-6 text-sm leading-7 text-[var(--muted)]">

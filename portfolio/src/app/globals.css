@@ -119,8 +119,8 @@
   --bg: #0b0f14;
   --card: #111827;
   --text: #f8fafc;
-  --muted: #98a4b3;
-  --copy-tone: #9ca3af;
+  --muted: #a3aebb;
+  --copy-tone: #a3aebb;
   --border: rgba(148, 163, 184, 0.16);
   --accent: linear-gradient(135deg, #7e8ee0 0%, #9788d2 100%);
   --accent-solid: #8993db;
@@ -681,4 +681,59 @@ body {
 
 html.theme-fade body {
   opacity: 0.94;
+}
+
+/* ── prefers-reduced-motion (B17) ──────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Timeline range input styling (B16) ────────────── */
+
+.timeline-range-input {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 0.75rem;
+  border-radius: 9999px;
+  background: var(--surface-soft);
+  outline: none;
+  cursor: pointer;
+}
+
+.timeline-range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background: var(--accent-solid);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-solid) 18%, transparent);
+  cursor: pointer;
+}
+
+.timeline-range-input::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 9999px;
+  background: var(--accent-solid);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-solid) 18%, transparent);
+  cursor: pointer;
+}
+
+.timeline-range-input:focus-visible::-webkit-slider-thumb {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-solid) 32%, transparent);
+}
+
+.timeline-range-input:focus-visible::-moz-range-thumb {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent-solid) 32%, transparent);
 }

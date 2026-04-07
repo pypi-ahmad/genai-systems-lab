@@ -36,6 +36,16 @@ const capabilities = [
   },
 ];
 
+const techStack = [
+  { name: "Next.js", version: "16" },
+  { name: "React", version: "19" },
+  { name: "TypeScript", version: "5" },
+  { name: "FastAPI", version: "0.115" },
+  { name: "LangGraph", version: "0.4" },
+  { name: "CrewAI", version: "0.119" },
+  { name: "Tailwind CSS", version: "4" },
+];
+
 export default function Home() {
   return (
     <div className="space-y-0">
@@ -136,6 +146,37 @@ export default function Home() {
               </p>
             </div>
           ))}
+        </div>
+      </section>
+
+      <div className="section-divider" />
+
+      <section className="space-y-8 py-16">
+        <div className="section-heading">
+          <p className="eyebrow">Built With</p>
+          <h2 className="heading-section text-3xl sm:text-4xl">
+            Production-grade stack, open source.
+          </h2>
+        </div>
+        <div className="flex flex-wrap gap-3">
+          {techStack.map((tech) => (
+            <span
+              key={tech.name}
+              className="surface-card rounded-full border border-[var(--line)] px-4 py-2 text-sm font-medium text-[var(--foreground)]"
+            >
+              {tech.name} <span className="text-[var(--muted)]">v{tech.version}</span>
+            </span>
+          ))}
+        </div>
+        <div className="flex flex-wrap gap-3 pt-2">
+          <a
+            href="https://github.com/ahmadpanah/genai-systems-lab"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="button-base button-secondary button-pill"
+          >
+            View on GitHub →
+          </a>
         </div>
       </section>
 

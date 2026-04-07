@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { IBM_Plex_Mono, Manrope } from "next/font/google";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { NavActiveIndicator } from "@/components/nav-active-indicator";
+import { OnboardingModal } from "@/components/onboarding-modal";
 import { ThemeProvider } from "./theme-provider";
 import "./globals.css";
 
@@ -28,7 +30,7 @@ function Nav() {
     { href: "/projects", label: "Projects" },
     { href: "/playground", label: "Playground" },
     { href: "/metrics", label: "Metrics" },
-    { href: "/compare", label: "Comparison" },
+    { href: "/compare", label: "LangGraph vs CrewAI" },
     { href: "/architecture", label: "Architecture" },
     { href: "/auth", label: "Auth" },
   ];
@@ -66,12 +68,7 @@ function Nav() {
           <ul className="hidden items-center gap-1 text-sm font-medium text-[var(--muted)] sm:flex">
             {links.map((link) => (
               <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="button-base button-ghost button-sm button-pill"
-                >
-                  {link.label}
-                </Link>
+                <NavActiveIndicator href={link.href} label={link.label} />
               </li>
             ))}
           </ul>
@@ -110,6 +107,7 @@ export default function RootLayout({
           <div className="bg-orb bg-orb-right" aria-hidden />
           <div className="flex min-h-full flex-col">
             <Nav />
+            <OnboardingModal />
             <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-0 sm:px-6 lg:px-8">
               {children}
             </main>

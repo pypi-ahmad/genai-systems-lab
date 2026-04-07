@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FeatureTooltip } from "@/components/feature-tooltip";
 
 export type TimelineReplayEntry = {
   timestamp: number;
@@ -180,6 +181,8 @@ function TimelineReplayInner({
         </div>
       </div>
 
+      <FeatureTooltip storageKey="tip-timeline-replay" message="Scrub through the execution timeline to see what happened at each step." />
+
       {entries.length === 0 ? (
         <div className="mt-4 rounded-[1.25rem] border border-dashed border-[var(--line)] bg-[var(--surface-soft)] px-4 py-6 text-sm leading-7 text-[var(--muted)]">
           {emptyState}
@@ -251,30 +254,19 @@ function TimelineReplayInner({
           </div>
 
           <div className="mt-5">
-            <div className="relative h-3 rounded-full bg-[var(--surface-soft)]">
-              <div
-                className="absolute inset-y-0 left-0 rounded-full bg-[var(--accent-solid)] transition-[width] duration-200 ease-out"
-                style={{ width: `${progress * 100}%` }}
+            <div className="relative">
+              <input
+                type="range"
+                min={0}
+                max={Math.max(0, entries.length - 1)}
+                value={Math.max(0, currentIndex)}
+                onChange={(e) => {
+                  setIsPlaying(false);
+                  setCurrentIndex(Number(e.target.value));
+                }}
+                className="timeline-range-input w-full"
+                aria-label="Timeline position"
               />
-              {entries.map((entry, index) => {
-                const isCurrent = index === currentIndex;
-                const isPlayed = index <= currentIndex;
-
-                return (
-                  <span
-                    key={`${entry.step}-${entry.event}-${index}`}
-                    className={joinClasses(
-                      "absolute top-1/2 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 transition-all duration-200 ease-out",
-                      isCurrent
-                        ? "border-[var(--accent-solid)] bg-[var(--bg)] shadow-[0_0_0_4px_color-mix(in_srgb,var(--accent-solid)_18%,transparent)]"
-                        : isPlayed
-                          ? "border-[var(--accent-solid)] bg-[var(--accent-solid)]"
-                          : "border-[var(--line)] bg-[var(--panel)]",
-                    )}
-                    style={{ left: `${markerPosition(index, entries.length)}%` }}
-                  />
-                );
-              })}
             </div>
             <div className="mt-2 flex items-center justify-between text-[11px] font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
               <span>{formatReplayTime(entries[0]?.timestamp ?? 0)}</span>

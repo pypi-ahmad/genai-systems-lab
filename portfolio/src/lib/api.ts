@@ -73,7 +73,7 @@ async function apiFetch(path: string, init?: RequestInit): Promise<Response> {
     }
   }
 
-  throw formatApiReachabilityError(candidates, lastError);
+  throw new Error(humanizeError(formatApiReachabilityError(candidates, lastError).message));
 }
 
 export function getApiUrl(path: string): string {
@@ -128,6 +128,47 @@ function parseErrorMessage(raw: string, fallback: string): string {
   }
 
   return raw;
+}
+
+/**
+ * Map raw API error strings to user-friendly messages.
+ * The original error is logged to `console.error` for debugging.
+ */
+function humanizeError(raw: string): string {
+  if (typeof raw !== "string" || !raw) return "Something went wrong. Please try again.";
+
+  // Log the raw error for developer debugging
+  console.error("[API error detail]", raw);
+
+  // HTTP status code patterns
+  if (/\b401\b/.test(raw)) return "API key not accepted. Double-check it and try again.";
+  if (/\b403\b/.test(raw)) return "Access denied. Check your credentials and try again.";
+  if (/\b404\b/.test(raw)) return "The requested resource was not found.";
+  if (/\b422\b/.test(raw)) return "The request was invalid. Check your input and try again.";
+  if (/\b429\b/.test(raw)) return "Rate limit reached. Wait a moment and try again.";
+  if (/\b50[0-9]\b/.test(raw)) return "Server error. Try again in a few seconds.";
+
+  // Network / connectivity patterns
+  if (/unable to reach|failed to fetch|network|ECONNREFUSED|ENOTFOUND/i.test(raw)) {
+    return "Cannot reach the backend. Make sure the server is running.";
+  }
+  if (/cors/i.test(raw)) return "Cross-origin request blocked. Check backend CORS settings.";
+  if (/timeout/i.test(raw)) return "The request timed out. Try again.";
+
+  // API key patterns
+  if (/api.key|x-api-key|missing.*key/i.test(raw)) {
+    return "API key not accepted. Double-check it and try again.";
+  }
+
+  // If none match but it contains env var names, strip them
+  if (/NEXT_PUBLIC_|GENAI_SYSTEMS_LAB_/i.test(raw)) {
+    return "Cannot reach the backend. Make sure the server is running.";
+  }
+
+  // Return as-is only if it's reasonably short and clean
+  if (raw.length <= 120 && !/\b[A-Z_]{4,}\b/.test(raw)) return raw;
+
+  return "Something went wrong. Please try again.";
 }
 
 // ── Types ────────────────────────────────────────────────
@@ -292,9 +333,10 @@ export async function runProject(
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
+    const rawError = `${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`;
     return {
       ok: false,
-      error: `${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`,
+      error: humanizeError(rawError),
     };
   }
 
@@ -320,7 +362,7 @@ export async function fetchMetricsTime(options: {
   });
 
   if (!res.ok) {
-    throw new Error(`${res.status} ${res.statusText}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}`));
   }
 
   return res.json();
@@ -335,7 +377,7 @@ export async function signup(email: string, password: string): Promise<AuthRespo
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -350,7 +392,7 @@ export async function login(email: string, password: string): Promise<AuthRespon
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -363,7 +405,7 @@ export async function logout(): Promise<void> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 }
 
@@ -378,7 +420,7 @@ export async function fetchCurrentUser(): Promise<AuthUser | null> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -391,7 +433,7 @@ export async function fetchAuthConfig(): Promise<AuthConfigResponse> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -404,7 +446,7 @@ export async function fetchLLMCatalog(): Promise<LLMCatalogResponse> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -418,7 +460,7 @@ export async function fetchHistory(token: string): Promise<HistoryResponse> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -432,7 +474,7 @@ export async function fetchRunSession(sessionId: number, token: string): Promise
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -447,7 +489,7 @@ export async function clearRunSession(sessionId: number, token: string): Promise
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -462,7 +504,7 @@ export async function explainRun(runId: number, token: string, llm?: LLMRequestO
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -506,7 +548,7 @@ export async function shareRun(
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -520,7 +562,7 @@ export async function unshareRun(runId: number, token: string): Promise<void> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 }
 
@@ -531,7 +573,7 @@ export async function fetchSharedRun(shareToken: string): Promise<SharedRun> {
 
   if (!res.ok) {
     const text = await res.text().catch(() => "");
-    throw new Error(`${res.status} ${res.statusText}${text ? `: ${text}` : ""}`);
+    throw new Error(humanizeError(`${res.status} ${res.statusText}${text ? `: ${parseErrorMessage(text, res.statusText)}` : ""}`));
   }
 
   return res.json();
@@ -686,13 +728,14 @@ export function streamProject(
 
       if (!res.ok) {
         const text = await res.text().catch(() => "");
-        callbacks.onError(parseErrorMessage(text, `${res.status} ${res.statusText}`));
+        const rawError = parseErrorMessage(text, `${res.status} ${res.statusText}`);
+        callbacks.onError(humanizeError(`${res.status} ${rawError}`));
         terminated = true;
         return;
       }
 
       if (!res.body) {
-        callbacks.onError("Empty stream response.");
+        callbacks.onError("Empty stream response. Try again.");
         terminated = true;
         return;
       }
@@ -739,7 +782,7 @@ export function streamProject(
       if (error instanceof DOMException && error.name === "AbortError") {
         return;
       }
-      callbacks.onError(error instanceof Error ? error.message : "Stream disconnected");
+      callbacks.onError(humanizeError(error instanceof Error ? error.message : "Stream disconnected"));
     }
   })();
 
