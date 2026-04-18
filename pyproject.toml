@@ -14,8 +14,49 @@ dependencies = [
 	"pandas==3.0.1",
 	"rich==14.3.3",
 	"numpy==2.3.3",
+	"httpx==0.28.1",
 	"langfuse>=2.0.0",
+	"PyJWT==2.12.1",
+]
+
+# Optional extras — keep the default install slim.  Browser automation pulls
+# in the ~400 MB Playwright driver + Chromium; it is only needed by the
+# ``genai-browser-agent`` project.
+[project.optional-dependencies]
+browser = [
+	"playwright==1.58.0",
+]
+crew = [
+	"crewai==1.12.2",
 ]
 
 [project.scripts]
 app = "shared.api.app:app"
+
+[tool.ruff]
+line-length = 120
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+	"E",      # pycodestyle errors
+	"F",      # pyflakes
+	"I",      # isort
+	"B",      # flake8-bugbear
+	"UP",     # pyupgrade
+	"SIM",    # flake8-simplify
+	"S",      # flake8-bandit (security)
+	"RUF",    # ruff-specific
+]
+ignore = [
+	"E501",   # line length is handled by the formatter
+	"S101",   # asserts are OK in tests
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**/*.py" = ["S"]
+"benchmarks/**/*.py" = ["S"]
+
+[tool.bandit]
+exclude_dirs = ["tests", "benchmarks", "portfolio", "langgraph-data-analyst"]
+skips = ["B101"]

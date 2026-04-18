@@ -174,7 +174,7 @@ def test_stream_validates_input_and_emits_contract(client: TestClient) -> None:
 
     assert "event: step" in body
     assert '"step": "planner"' in body
-    assert '"token": ' in body
+    assert "event: output" in body
     assert "event: done" in body
 
     done_payload = _extract_done_event(body)
@@ -187,6 +187,56 @@ def test_stream_validates_input_and_emits_contract(client: TestClient) -> None:
     assert isinstance(done_payload["used_session_context"], bool)
     assert done_payload["memory"]
     assert done_payload["timeline"]
+
+
+def test_stream_emits_single_honest_output_frame_not_fake_token_chunks(
+    client: TestClient,
+) -> None:
+    """The SSE stream must not pretend to stream tokens.
+
+    Earlier revisions sliced the already-complete ``result.output`` into
+    80-character pieces and emitted each as ``{"token": "..."}`` to mimic
+    token-level streaming.  The honest behaviour is to emit the full output
+    exactly once, in a single ``event: output`` frame, because the project
+    has fully finished generating by the time the frame is sent.
+    """
+    headers = _signup_and_headers(client)
+
+    with client.stream(
+        "GET",
+        "/stream/nl2sql-agent",
+        headers=headers,
+        params={"input": "honest stream"},
+    ) as response:
+        assert response.status_code == 200
+        body = "".join(response.iter_text())
+
+    # No legacy fake-token frames must be emitted.
+    assert '"token":' not in body, (
+        "stream must not emit fake token chunks — the output is already "
+        "complete before any token frame would fire"
+    )
+
+    # Exactly one ``event: output`` frame carrying the full output.
+    output_frames = [
+        frame for frame in body.split("\n\n") if frame.startswith("event: output")
+    ]
+    assert len(output_frames) == 1, f"expected 1 output frame, got {len(output_frames)}"
+
+    marker = "event: output\ndata: "
+    start = body.index(marker) + len(marker)
+    end = body.index("\n\n", start)
+    output_payload = json.loads(body[start:end])
+
+    assert set(output_payload.keys()) == {"output"}
+    assert isinstance(output_payload["output"], str)
+    assert output_payload["output"] != ""
+
+    # The output frame must match the final done-frame output exactly —
+    # proving the "stream" frame and the "done" frame agree and no slicing
+    # has happened between them.
+    done_payload = _extract_done_event(body)
+    assert output_payload["output"] == done_payload["output"]
 
 
 def test_guest_run_allows_execution_without_history(client: TestClient) -> None:
@@ -455,3 +505,194 @@ def test_auth_config_exposes_signup_flag(client: TestClient) -> None:
     payload = response.json()
     assert "public_signup" in payload
     assert isinstance(payload["public_signup"], bool)
+
+
+# ---------- Input validation preserves raw prompt text ----------
+
+
+def test_input_validation_does_not_html_escape_prompt_body(client: TestClient) -> None:
+    """Regression guard: InputValidationMiddleware must not mutate string fields.
+
+    A previous iteration of the middleware ``html.escape``-d every string in
+    the JSON body, which turned ``O'Brien`` into ``O&#x27;Brien``, corrupted
+    SQL/HTML prompts for projects like ``genai-nl2sql-agent``, and poisoned
+    persisted run history.  The fake ``run_project`` in this module echoes
+    the received ``input`` into both the response ``output`` and the row
+    saved to the runs table, so we can assert exact byte-for-byte round-trip.
+    """
+    headers = _signup_and_headers(client)
+
+    prompt = (
+        "O'Brien said \"hello\" & wrote SELECT * FROM users WHERE name='<admin>' "
+        "-- a comment;\nnew line\ttab ok"
+    )
+
+    response = client.post(
+        "/nl2sql-agent/run",
+        headers=headers,
+        json={"input": prompt},
+    )
+    assert response.status_code == 200, response.text
+
+    output_payload = json.loads(response.json()["output"])
+    # The prompt must reach the project handler untouched.
+    assert output_payload["input"] == prompt
+    # Smoke-check common entity fingerprints that the old escaper produced.
+    for poison in ("&#x27;", "&quot;", "&lt;", "&amp;"):
+        assert poison not in output_payload["input"]
+        assert poison not in output_payload["summary"]
+
+    # And must be persisted verbatim to run history.
+    history = client.get("/history", headers=headers).json()
+    assert history["count"] == 1
+    persisted_output = json.loads(history["runs"][0]["output"])
+    assert persisted_output["input"] == prompt
+
+
+@pytest.mark.parametrize(
+    "prompt",
+    [
+        # SQL-injection-looking prompt: the old blocklist matched the literal
+        # substrings ``UNION SELECT``, ``; DROP ``, and ``-- `` and returned
+        # 422, which broke genai-nl2sql-agent entirely.
+        "Write a query using UNION SELECT to combine results; DROP the temp table -- done",
+        # Inline-JS event handlers: the old blocklist rejected ``onerror=``,
+        # ``onclick=``, etc., which broke genai-code-copilot / genai-ui-builder
+        # prompts that discussed XSS defensively.
+        "Explain why <img src=x onerror=alert(1)> and <a onclick=\"fn()\"> are unsafe in HTML.",
+        # <script> tags: same root cause.  The old blocklist treated any
+        # mention of ``<script`` as an attack signature.
+        "Review this snippet: <script>doThing()</script> and suggest a safer pattern.",
+    ],
+    ids=["sql_keywords", "inline_event_handlers", "script_tag"],
+)
+def test_no_regex_blocklist_rejects_legitimate_prompts(client: TestClient, prompt: str) -> None:
+    """Regression guard: no WAF-style regex may reject legitimate LLM prompts.
+
+    Historically a ``_SUSPICIOUS_PATTERN`` regex scanned the request body for
+    SQL keywords, inline-JS event handlers, and ``<script>`` tags and returned
+    422.  That silently broke the three most important projects on the
+    platform (nl2sql, code-copilot, debugging-agent).  This test sends prompts
+    that trip every historical signature and asserts 200 + verbatim
+    round-trip.
+    """
+    headers = _signup_and_headers(client)
+
+    response = client.post(
+        "/nl2sql-agent/run",
+        headers=headers,
+        json={"input": prompt},
+    )
+    assert response.status_code == 200, response.text
+    output_payload = json.loads(response.json()["output"])
+    assert output_payload["input"] == prompt
+
+
+# ---------- Query-string token is rejected ----------
+
+
+def test_history_rejects_query_string_token(client: TestClient) -> None:
+    """Regression guard: ``?token=...`` must never authenticate a request.
+
+    Query-string tokens leak into server access logs, reverse-proxy logs,
+    browser history, and ``Referer`` headers sent to third-party hosts.
+    ``get_bearer_token`` / ``get_optional_bearer_token`` only look at the
+    ``Authorization`` header and the HttpOnly session cookie; any code that
+    re-introduces a query-string fallback is a security regression.
+    """
+    # Obtain a valid token the legitimate way.
+    response = client.post(
+        "/auth/signup",
+        json={"email": "qs-reject@example.com", "password": "password123"},
+    )
+    assert response.status_code == 201
+    valid_token = response.json()["token"]
+
+    # Clear the session cookie that signup set — otherwise the TestClient
+    # would silently re-authenticate every subsequent request via the cookie
+    # jar, masking whether the query-string fallback is actually being used.
+    client.cookies.clear()
+
+    # Pass it only via query string — no Authorization header, no cookie.
+    response_qs = client.get(
+        "/history",
+        params={"token": valid_token, "access_token": valid_token},
+    )
+    assert response_qs.status_code == 401
+    assert response_qs.json()["detail"] == "Authentication required."
+
+
+def test_stream_rejects_query_string_token(client: TestClient) -> None:
+    """Same guard for the SSE streaming route.
+
+    ``/stream/{project}`` allows guest access, so the assertion is not about
+    the HTTP status code but about whether the query-string token was used
+    to bind the run to the token's owner.  We verify that no ``Authorization``
+    header on the request produces the guest-session contract
+    (``session_id is None``, empty ``session_memory``) even when a valid
+    token is sitting in the query string.
+    """
+    response = client.post(
+        "/auth/signup",
+        json={"email": "qs-reject-stream@example.com", "password": "password123"},
+    )
+    assert response.status_code == 201
+    valid_token = response.json()["token"]
+
+    # Drop the cookie so the TestClient cannot silently authenticate via it.
+    client.cookies.clear()
+
+    response_stream = client.get(
+        "/stream/nl2sql-agent",
+        params={"input": "select 1", "token": valid_token},
+        headers={"X-API-Key": TEST_API_KEY},
+    )
+    assert response_stream.status_code == 200
+    body = response_stream.text
+    done = _extract_done_event(body)
+    # Guest contract: no persisted session id, no accumulated memory.  If the
+    # query-string token were honoured we'd see the token-owner's session id
+    # + their memory echoed back here.
+    assert done["session_id"] is None
+    assert done["session_memory"] == []
+
+
+def test_batch_run_offloads_project_execution_to_thread(
+    client: TestClient, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Regression guard: the ``/{project}/run`` async route must not call
+    ``run_project`` directly — it must offload via ``asyncio.to_thread`` so a
+    slow project cannot freeze the worker event loop.
+
+    We verify this by intercepting ``asyncio.to_thread`` in the ``shared.api.app``
+    module namespace and recording whether ``run_project`` was scheduled
+    through it during a batch ``POST /{project}/run`` request.
+    """
+    import asyncio
+
+    observed: list[str] = []
+    real_to_thread = asyncio.to_thread
+
+    async def recording_to_thread(func, /, *args, **kwargs):
+        observed.append(getattr(func, "__name__", repr(func)))
+        return await real_to_thread(func, *args, **kwargs)
+
+    monkeypatch.setattr(lab_api.asyncio, "to_thread", recording_to_thread)
+
+    headers = _signup_and_headers(client)
+    response = client.post(
+        "/nl2sql-agent/run",
+        headers=headers,
+        json={"input": "select 1"},
+    )
+    assert response.status_code == 200, response.text
+    # The shared fixture monkey-patches ``run_project`` → ``fake_run_project``
+    # in the module namespace before the app is built, so the offloaded
+    # callable's ``__name__`` reflects the stub.  Either name is acceptable;
+    # what we assert is that *some* offload happened for this request.
+    assert any(
+        name in {"run_project", "fake_run_project"} for name in observed
+    ), (
+        "POST /{project}/run must route run_project through asyncio.to_thread "
+        f"to stay non-blocking; observed offloads: {observed!r}"
+    )

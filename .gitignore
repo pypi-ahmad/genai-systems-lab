@@ -9,3 +9,8 @@ node_modules/
 .next/
 portfolio/.next/
 portfolio/node_modules/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+# Local IDE-agent state (Claude Code, etc.) — never commit per-user permissions.
+.claude/

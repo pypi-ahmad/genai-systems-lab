@@ -2,7 +2,10 @@ fastapi==0.135.2
 starlette==0.52.1
 google-genai==1.69.0
 langgraph==1.1.3
-playwright==1.58.0
+# playwright is optional: only required by genai-browser-agent.  The runner
+# loader (``shared/api/runner.py``) returns a friendly ProjectUnavailableError
+# when the module is missing, so omitting it keeps the default image slim.
+# Install via ``pip install -e '.[browser]'`` to enable.
 python-dotenv==1.1.1
 pydantic==2.11.10
 crewai==1.12.2
@@ -12,4 +15,13 @@ pandas==3.0.1
 rich==14.3.3
 numpy==2.3.3
 uvicorn==0.42.0
+# httpx replaces urllib-based provider calls in shared/llm/providers.py so
+# OpenAI/Anthropic/Ollama HTTP traffic reuses a keepalive pool instead of
+# re-handshaking TLS on every request (P-4 in the audit).
+httpx==0.28.1
 langfuse>=2.0.0
+# PyJWT replaces the hand-rolled HS256 encode/decode in shared/api/auth.py
+# so token validation goes through a maintained, battle-tested library with
+# explicit algorithm allowlisting and required-claim enforcement (audit
+# item: custom-JWT replacement).
+PyJWT==2.12.1

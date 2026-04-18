@@ -72,11 +72,11 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 
 ### Authentication
 
-- **JWT**: Custom HS256 implementation (no third-party JWT library). Tokens carry `{sub, email, iat, exp}` with a 7-day TTL. `GENAI_SYSTEMS_LAB_JWT_SECRET` is required in production (`APP_ENV=prod`) and must be at least 16 characters; local development falls back to an ephemeral per-process secret with a clear startup warning.
-- **Browser sessions**: `/auth/signup` and `/auth/login` also set an HttpOnly session cookie so the Next.js frontend no longer persists raw JWTs in browser storage.
+- **JWT**: PyJWT-issued HS256 tokens with an explicit `algorithms=["HS256"]` decode allowlist (blocks `alg: none` and RS/HS algorithm confusion). Tokens carry `{sub, email, iat, exp}` with a 7-day TTL. `GENAI_SYSTEMS_LAB_JWT_SECRET` is required in production (`APP_ENV=prod`) and must be at least 16 characters; local development falls back to an ephemeral per-process secret with a clear startup warning.
+- **Browser sessions**: `/auth/signup` and `/auth/login` also set an HttpOnly session cookie so the Next.js frontend does not persist raw JWTs in browser storage.
 - **Password hashing**: PBKDF2-HMAC-SHA256 with 310,000 iterations and a 16-byte random salt. Verification uses `hmac.compare_digest()` to prevent timing attacks.
 - **Signup posture**: Public signup remains enabled in local development and defaults off when `APP_ENV=prod` unless `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP=true` is set explicitly.
-- Execution, history, session, sharing, and explainability routes accept `Authorization: Bearer <token>` for API clients and the HttpOnly session cookie for browser clients.
+- Execution, history, session, sharing, and explainability routes accept `Authorization: Bearer <token>` for API clients and the HttpOnly session cookie for browser clients. Query-string JWTs are not accepted on any route, including the SSE stream.
 
 ### Origin policy and abuse control
 
@@ -107,12 +107,10 @@ Every discovered project is dynamically imported with `importlib`. The runner cl
 
 `GET /stream/{project}` launches the project in a background thread and emits Server-Sent Events:
 
-1. `event: step` — `{"step": "<node>", "status": "running|done|error"}` as pipeline nodes execute.
-2. `data: {"token": "..."}` — output text in 80-character chunks.
-3. `event: done` — full response payload (latency, confidence, session metadata).
-4. `event: error` — error string on failure.
-
-Projects that call `emit_step()` natively stream their own step events. When a project emits no step events, the backend falls back to pipeline nodes from the shared project catalog in `portfolio/src/data/project-catalog.json`, which it compiles into `PIPELINE_NODES` at startup.
+1. `event: step` — `{"step": "<node>", "status": "running|done|error"}` as pipeline nodes execute. Projects that call `emit_step()` natively stream real step events; when a project emits none, the backend synthesises one running/done pair per node from the shared project catalog (`portfolio/src/data/project-catalog.json`, compiled into `PIPELINE_NODES` at startup).
+2. `event: output` — a single frame carrying `{"output": "<full output>"}` once the run completes. This is **not** token-level streaming: the project runs to completion in a background thread and the full output is emitted as soon as it is ready. Provider-native token streaming would require threading each project's SDK streaming API through the runtime and is intentionally not implemented.
+3. `event: done` — full response payload (latency, confidence, session metadata, memory, timeline).
+4. `event: error` — scrubbed error payload on failure (internal detail never reaches the browser).
 
 ### Confidence scoring
 
@@ -225,10 +223,12 @@ Project calls generate_text() / generate_structured() / embed()
 │  FastAPI  (shared/api/app.py)                                          │
 │                                                                        │
 │  Middleware (outermost → innermost):                                   │
-│    CORSMiddleware                                                       │
+│    GZipMiddleware             — compress responses ≥ 1 KB (SSE skipped)│
+│    CORSMiddleware             — explicit allowlist, credentials on     │
 │    RequestRateLimitMiddleware — in-memory abuse throttling             │
 │    BYOKMiddleware             — X-API-Key / X-LLM-Provider / X-LLM-Model → ContextVars │
 │    InputValidationMiddleware  — length, injection, sanitize            │
+│    SecurityHeadersMiddleware  — HSTS / no-sniff / Referrer-Policy      │
 │    RequestLoggingMiddleware   — request_id, project_name, status log   │
 │    RequestTimingMiddleware    — X-Process-Time-Ms header + OTel span   │
 │    ErrorHandlingMiddleware    — structured JSON on unhandled exceptions│
@@ -317,11 +317,11 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key  +  X-LLM-Provider?  
       ├─ Native projects: emit_step() pushes real {"step", "status"} events
       ├─ Others: catalog-derived PIPELINE_NODES provide synthetic step IDs
       └─ SSE generator yields:
-          ├─ event: step  →  {"step": "planner", "status": "running"}
-          ├─ event: step  →  {"step": "planner", "status": "done"}
-          ├─ data: {"token": "<80-char chunk>"}  (repeated)
-          ├─ event: done  →  full response payload
-          └─ event: error →  {"error": "..."}
+          ├─ event: step    →  {"step": "planner", "status": "running"}
+          ├─ event: step    →  {"step": "planner", "status": "done"}
+          ├─ event: output  →  {"output": "<full completed output>"}
+          ├─ event: done    →  full response payload
+          └─ event: error   →  scrubbed error payload
 ```
 
 ### Persistence schema
@@ -357,7 +357,7 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key  +  X-LLM-Provider?  
 |---|---|
 | `shared/api/app.py` | FastAPI factory: 7 middleware classes, 22 route handlers, SSE generator, metrics store |
 | `shared/api/runner.py` | Project discovery, 29-alias resolution (20 catalog + 9 legacy), `run(input, api_key)` dispatch, step emitter binding |
-| `shared/api/auth.py` | JWT encode/decode (pure HMAC-SHA256), PBKDF2 hashing, run serialization helpers |
+| `shared/api/auth.py` | JWT encode/decode via PyJWT (HS256 allowlist, `alg: none` blocked), PBKDF2 hashing, run serialization helpers |
 | `shared/api/models.py` | SQLAlchemy ORM: `User`, `RunSession`, `Run` (15 mapped columns), `OperationalMetric` |
 | `shared/api/db.py` | SQLite engine init, `create_all()`, backward-compatible column migrations via `PRAGMA table_info` |
 | `shared/api/session_memory.py` | 12-entry persisted window, 4-entry context injection, content deduplication |
@@ -683,9 +683,11 @@ Response:
 ```bash
 curl -N -G "http://localhost:8000/stream/genai-research-system" \
   -H "X-API-Key: <api_key>" \
-  --data-urlencode "token=<jwt>" \
+  -H "Authorization: Bearer <jwt>" \
   --data-urlencode "input=Compare transformer architectures for code generation"
 ```
+
+Authentication for the SSE route is optional (guest runs are allowed) and, when present, must be supplied via the `Authorization` header or the HttpOnly session cookie — never via query string.
 
 Event stream:
 
@@ -696,7 +698,8 @@ data: {"step": "planner", "status": "running"}
 event: step
 data: {"step": "planner", "status": "done"}
 
-data: {"token": "Transformer architecture..."}
+event: output
+data: {"output": "Transformer architectures ..."}
 
 event: done
 data: {"output": "...", "latency": 4210.5, "confidence": 0.91, ...}
@@ -796,22 +799,24 @@ The runner discovers the project automatically on next startup — no registrati
 
 ### CI/CD
 
-GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests. The pipeline uses five jobs with dependency caching and concurrency grouping (in-flight runs for the same ref are cancelled automatically).
+GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull requests. The pipeline uses six jobs with dependency caching and concurrency grouping (in-flight runs for the same ref are cancelled automatically).
 
 | Job | What it does |
 |---|---|
 | **backend-platform** | Installs the root Python environment, runs `compileall` on `shared/` + `tests/`, runs the platform suite (`tests/`), runs the `crew-startup-simulator` and `lg-research-agent` project suites, and optionally runs Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
 | **promptfoo-eval** | Runs Promptfoo offline evaluation suites (`benchmarks/promptfoo/`): model comparison, agent evaluation, RAG retrieval, and RAG end-to-end — when provider API keys are available |
 | **backend-standalone-analyst** | Installs `langgraph-data-analyst/requirements.txt` in its own isolated environment and runs that standalone project suite separately to avoid dependency conflicts with the shared platform runtime |
-| **frontend** | `npm run lint`, `npm run test` (playground utility tests), `npm run build` (Next.js production build) |
-| **docker** | Builds the backend Docker image to verify the `Dockerfile` stays valid (runs after both backend jobs pass) |
+| **frontend** | `npm run lint`, `npm run test` (playground utility + API-key storage tests), `npm run build` (Next.js production build) |
+| **docker** | Builds the backend Docker image and runs a Trivy vulnerability scan (CRITICAL/HIGH, blocking) on the resulting image |
+| **security** | `pip-audit --strict` for Python CVEs (blocking), Bandit static analysis, Gitleaks secret scanning with `.github/gitleaks.toml`, and `npm audit` for the portfolio |
 
 ```text
 push / PR → ┬─ backend-platform          ─── install root env → compile → tests → eval
              ├─ promptfoo-eval            ─── model comparison → agent eval → RAG eval
              ├─ backend-standalone-analyst ─ install analyst env → analyst tests
              ├─ frontend                  ─── lint → test → build
-             └─ docker                    ─── (waits for backend jobs) → docker build
+             ├─ docker                    ─── (waits for backend jobs) → docker build → Trivy
+             └─ security                  ─── pip-audit → bandit → gitleaks → npm audit
 ```
 
 Backend platform tests cover: API contracts (guest execution, streaming, BYOK, session memory, metrics, sharing), auth hardening (secret length/ephemeral fallback/prod enforcement), and catalog integrity (alias coverage, legacy compat, duplicate detection). Frontend tests cover the extracted playground utility logic via `tsx` + `node:test`.
@@ -859,7 +864,7 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key` (excep
 | API base URL | Defaults to `http://localhost:8000`; override with `NEXT_PUBLIC_API_BASE_URL` for deployed frontends |
 | Rate limiting | Abuse control is in-memory and process-local; use an upstream proxy or WAF for multi-instance enforcement |
 | CI coverage | CI still validates only a subset of runnable projects directly |
-| Persistence | SQLite remains the default for local and demo use; deployed environments should set `GENAI_SYSTEMS_LAB_DATABASE_URL`. Schema changes are applied via idempotent `ALTER TABLE` guards in `db.py`; adopt Alembic if the schema grows beyond single-column additions. |
+| Persistence | SQLite remains the default for local and demo use; deployed environments should set `GENAI_SYSTEMS_LAB_DATABASE_URL`. The SQLite engine applies `foreign_keys=ON`, `journal_mode=WAL` (file-backed), `synchronous=NORMAL`, `busy_timeout=5000`, and `temp_store=MEMORY` on every connection. Schema changes are applied via idempotent `ALTER TABLE` guards in `db.py`; adopt Alembic if the schema grows beyond single-column additions. |
 | BYOK | All LLM calls require per-request API key headers; Ollama is the exception (local, no key). No server-side key storage. |
 
 ### Planned improvements

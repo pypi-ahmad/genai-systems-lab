@@ -103,7 +103,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `npm run build` | `next build` | Production build |
 | `npm start` | `next start` | Serve production build |
 | `npm run lint` | `eslint` | Run ESLint checks |
-| `npm test` | `tsx --test src/app/playground/playground-utils.test.ts` | Run playground utility tests |
+| `npm test` | `tsx --test src/app/playground/playground-utils.test.ts src/lib/apikey.test.ts` | Run playground utility and BYOK API-key tests |
 
 ---
 
@@ -254,17 +254,19 @@ Toggle **"Live streaming"** in the sidebar to control the execution mode:
 
 | Mode | Protocol | Endpoint | Behavior |
 | --- | --- | --- | --- |
-| **Streaming** (default) | SSE | `GET /stream/{project}?input=...` | Tokens appear character-by-character. Node statuses update in real time. A `done` event delivers final metrics |
+| **Streaming** (default) | SSE | `GET /stream/{project}?input=...` | Per-node `step` frames update the graph in real time. Once the project finishes, a single `output` frame delivers the full completed output, followed by a `done` frame with final metrics |
 | **Standard** | REST | `POST /{project}/run` | A spinner shows while the full response is assembled. Output appears all at once when complete |
 
 The conversation panel header shows a badge — **"Streaming on"** or **"Standard"** — reflecting the active mode.
+
+> **Note on streaming semantics.** The backend does not emit synthetic per-token chunks. Project runtimes (LangGraph, CrewAI, and the GenAI systems) complete end-to-end before the output is serialized, so streaming gives you live node-level progress plus a single honest output payload — not a token-by-token typewriter effect.
 
 #### SSE event protocol
 
 | Event type | Payload | Frontend effect |
 | --- | --- | --- |
-| `message` | `{"token": "..."}` | Appended to live output with blinking cursor |
 | `step` | `{"step": "researcher", "status": "running\|done\|error"}` | Graph node changes color |
+| `output` | `{"output": "..."}` | Full completed output rendered in the conversation panel |
 | `done` | `{"latency", "confidence", "success", "session_id", ...}` | Metrics finalized, graph settles |
 | `error` | `{"detail": "..."}` | Friendly error message displayed |
 

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import logging
 import re
 from collections.abc import Sequence
 
@@ -13,6 +14,8 @@ MAX_INPUT_PREVIEW_CHARS = 220
 MAX_OUTPUT_PREVIEW_CHARS = 320
 MAX_ENTRY_CHARS = 620
 
+_LOGGER = logging.getLogger(__name__)
+
 
 def deserialize_session_memory_entries(raw: str | None) -> list[str]:
     if not raw:
@@ -20,7 +23,14 @@ def deserialize_session_memory_entries(raw: str | None) -> list[str]:
 
     try:
         data = json.loads(raw)
-    except json.JSONDecodeError:
+    except json.JSONDecodeError as exc:
+        # Don't crash the request on data drift, but surface the corruption
+        # so silent loss of memory entries shows up in logs.
+        _LOGGER.warning(
+            "failed to decode session memory entries json (len=%d): %s",
+            len(raw),
+            exc,
+        )
         return []
 
     if not isinstance(data, list):
@@ -63,13 +73,14 @@ def update_session_memory_entries(
     if not new_entry:
         return cleaned[-MAX_SESSION_MEMORY_ENTRIES:]
 
+    # Dedup against the *entire* window, not just the last two entries
+    # (C-14 in the audit).  A user who asks the same question every third
+    # turn previously filled the memory with near-duplicates, which then
+    # got re-injected as "Previous context" into the next prompt.
     new_key = _dedupe_key(new_entry)
-    if cleaned and _dedupe_key(cleaned[-1]) == new_key:
+    existing_keys = {_dedupe_key(entry) for entry in cleaned}
+    if new_key in existing_keys:
         return cleaned[-MAX_SESSION_MEMORY_ENTRIES:]
-
-    for candidate in cleaned[-2:]:
-        if _dedupe_key(candidate) == new_key:
-            return cleaned[-MAX_SESSION_MEMORY_ENTRIES:]
 
     return [*cleaned, new_entry][-MAX_SESSION_MEMORY_ENTRIES:]
 

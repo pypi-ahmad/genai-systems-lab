@@ -3,6 +3,7 @@ import type { LLMProviderId } from "@/lib/apikey";
 
 const DEFAULT_API_BASE = "http://localhost:8000";
 const LOCAL_FALLBACK_API_BASE = "http://127.0.0.1:8001";
+const IS_PROD = process.env.NODE_ENV === "production";
 
 function normalizeApiBase(rawValue?: string): string {
   const value = rawValue?.trim();
@@ -13,9 +14,14 @@ function normalizeApiBase(rawValue?: string): string {
 }
 
 const CONFIGURED_API_BASE = normalizeApiBase(process.env.NEXT_PUBLIC_API_BASE_URL);
+// In production, never fall back to loopback origins — if the configured
+// base fails, surface a real error instead of silently trying to hit the
+// end-user's own machine.
 const API_BASES = process.env.NEXT_PUBLIC_API_BASE_URL?.trim()
   ? [CONFIGURED_API_BASE]
-  : [DEFAULT_API_BASE, LOCAL_FALLBACK_API_BASE];
+  : IS_PROD
+    ? [CONFIGURED_API_BASE]
+    : [DEFAULT_API_BASE, LOCAL_FALLBACK_API_BASE];
 let activeApiBase = API_BASES[0];
 
 function isLocalHostname(hostname: string): boolean {
@@ -673,6 +679,23 @@ function dispatchStreamEvent(rawEvent: string, callbacks: StreamCallbacks): "con
   if (eventName === "error") {
     callbacks.onError(parseErrorMessage(payload, "Stream error"));
     return "error";
+  }
+
+  if (eventName === "output") {
+    // The backend emits a single ``event: output`` frame carrying the full
+    // completed output string.  This is not token-level streaming — the
+    // project has already finished generating by the time this frame is
+    // sent — but it lets the UI show the output as soon as it arrives and
+    // is honest about the single-shot nature of the payload.
+    try {
+      const data = JSON.parse(payload);
+      if (typeof data.output === "string") {
+        callbacks.onToken(data.output);
+      }
+    } catch {
+      // Ignore malformed output frames.
+    }
+    return "continue";
   }
 
   try {

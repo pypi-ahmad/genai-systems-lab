@@ -154,13 +154,24 @@ def _request_content(
     *, prompt: str, model: str, config: types.GenerateContentConfig | None = None
 ) -> types.GenerateContentResponse:
     try:
-        return _request_content_single(prompt=prompt, model=model, config=config)
+        response = _request_content_single(prompt=prompt, model=model, config=config)
+        record_llm_call_metadata({"model_used": model})
+        return response
     except (LLMGenerationError, LLMTimeoutError) as primary_err:
         fallback = MODEL_FALLBACK.get(model)
         if not fallback or fallback == model:
             raise
         LOGGER.warning("Falling back from %s to %s after error: %s", model, fallback, primary_err)
-        return _request_content_single(prompt=prompt, model=fallback, config=config)
+        response = _request_content_single(prompt=prompt, model=fallback, config=config)
+        # DA-5: record the model that actually produced the response, distinct
+        # from the one originally requested, so telemetry and the UI can show
+        # the real provenance.
+        record_llm_call_metadata({
+            "model_used": fallback,
+            "model_requested": model,
+            "fallback_reason": str(primary_err)[:200],
+        })
+        return response
 
 
 def generate_text(prompt: str, model: str) -> str:

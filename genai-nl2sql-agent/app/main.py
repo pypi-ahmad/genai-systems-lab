@@ -1,11 +1,17 @@
-"""Application entry point."""
+"""Application entry point.
+
+Step events (``emit_step``) are now emitted from inside ``agent.run_agent``
+as each pipeline stage actually executes — running this wrapper as a flat
+``emit_step("planner","running") / emit_step("planner","done") / ...`` loop
+*after* ``run_agent`` returned produced a cosmetic replay rather than a
+real progress stream (C-3 / C-15 in the audit).
+"""
 
 from __future__ import annotations
 
 import importlib.util
 from pathlib import Path
 
-from shared.api.step_events import emit_step
 from shared.config import set_byok_api_key, reset_byok_api_key
 
 
@@ -32,19 +38,7 @@ def run(input: str, api_key: str) -> dict:
 	"""Run the NL-to-SQL pipeline and return structured output."""
 	token = set_byok_api_key(api_key)
 	try:
-		emit_step("planner", "running")
 		response = run_agent(input)
-		emit_step("planner", "done")
-		emit_step("schema", "running")
-		emit_step("schema", "done")
-		emit_step("generator", "running")
-		emit_step("generator", "done")
-		emit_step("validator", "running")
-		emit_step("validator", "done")
-		emit_step("executor", "running")
-		emit_step("executor", "done")
-		emit_step("summarizer", "running")
-		emit_step("summarizer", "done")
 		result_data = response["result"]
 		if hasattr(result_data, "to_dict"):
 			result_data = result_data.to_dict(orient="records")
