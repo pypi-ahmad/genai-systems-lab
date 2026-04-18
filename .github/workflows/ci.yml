@@ -169,7 +169,7 @@ jobs:
           cache-dependency-path: portfolio/package-lock.json
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --include=dev
 
       - name: Lint
         run: npm run lint
@@ -178,6 +178,8 @@ jobs:
         run: npm run test
 
       - name: Production build
+        env:
+          NEXT_PUBLIC_API_BASE_URL: http://localhost:8000
         run: npm run build
 
   # ── Docker build smoke test ───────────────────────────
@@ -222,7 +224,24 @@ jobs:
           pip install "pip-audit>=2.7" "bandit[toml]>=1.7"
 
       - name: pip-audit — Python dependency CVEs
-        run: pip-audit --requirement requirements.txt --strict --desc
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          src = Path("requirements.txt")
+          dst = Path("requirements.audit.txt")
+          lines = []
+          for raw in src.read_text(encoding="utf-8").splitlines():
+            line = raw.strip()
+            if not line or line.startswith("#"):
+              continue
+            lines.append(line)
+          dst.write_text("\n".join(lines) + "\n", encoding="utf-8")
+          PY
+          # GHSA-pjjw-68hj-v9mw currently comes via crewai->uv~=0.9.x.
+          # We cannot raise uv without breaking crewai's solver constraint,
+          # so ignore this one advisory until crewai relaxes the pin.
+          pip-audit --requirement requirements.audit.txt --strict --desc --ignore-vuln GHSA-pjjw-68hj-v9mw
 
       - name: Bandit — Python static analysis
         run: bandit -r shared/ -ll -q
