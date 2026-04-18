@@ -3,7 +3,8 @@ from __future__ import annotations
 import json
 import os
 from typing import Any, Literal, TypedDict, cast
-from urllib import error, request
+import httpx
+from urllib.parse import urlparse
 
 
 ProviderId = Literal["gemini", "openai", "anthropic", "ollama"]
@@ -82,6 +83,16 @@ def ollama_base_url() -> str:
     return raw.rstrip("/") or "http://127.0.0.1:11434"
 
 
+def _validated_ollama_tags_url() -> str:
+    url = f"{ollama_base_url()}/api/tags"
+    parsed = urlparse(url)
+    if parsed.scheme not in {"http", "https"}:
+        raise ValueError(f"Invalid Ollama URL scheme: {parsed.scheme!r}")
+    if not parsed.netloc:
+        raise ValueError("OLLAMA_BASE_URL is missing a host.")
+    return url
+
+
 def openai_embedding_model() -> str:
     return os.getenv("OPENAI_EMBEDDING_MODEL", "text-embedding-3-small").strip() or "text-embedding-3-small"
 
@@ -133,10 +144,10 @@ def provider_requires_api_key(provider: ProviderId) -> bool:
 
 
 def _fetch_ollama_tags(timeout_seconds: float = 1.0) -> dict[str, Any]:
-    url = f"{ollama_base_url()}/api/tags"
-    req = request.Request(url=url, method="GET")
-    with request.urlopen(req, timeout=timeout_seconds) as response:
-        payload = response.read().decode("utf-8")
+    url = _validated_ollama_tags_url()
+    response = httpx.get(url, timeout=timeout_seconds, follow_redirects=False)
+    response.raise_for_status()
+    payload = response.text
     parsed = json.loads(payload)
     if not isinstance(parsed, dict):
         raise ValueError("Invalid Ollama tags payload.")
@@ -146,7 +157,7 @@ def _fetch_ollama_tags(timeout_seconds: float = 1.0) -> dict[str, Any]:
 def list_ollama_models(timeout_seconds: float = 1.0) -> tuple[list[ModelSpec], str | None]:
     try:
         payload = _fetch_ollama_tags(timeout_seconds=timeout_seconds)
-    except error.URLError:
+    except httpx.HTTPError:
         reason = (
             f"Unable to reach Ollama at {ollama_base_url()}. "
             "Local Ollama only works when the backend can reach that host."
