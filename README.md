@@ -624,12 +624,12 @@ pip install -r langgraph-data-analyst/requirements.txt
 # Create an account
 curl -X POST http://localhost:8000/auth/signup \
   -H "Content-Type: application/json" \
-  -d '{"email":"user@example.com","password":"StrongPass123"}'
+  -d '{"email":"user@example.com","password":"example-password"}'
 
 # Login — returns a 7-day JWT for API clients and sets an HttpOnly cookie for browsers
 curl -X POST http://localhost:8000/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"user@example.com","password":"StrongPass123"}'
+  -d '{"email":"user@example.com","password":"example-password"}'
 ```
 
 #### Batch execution
@@ -640,14 +640,14 @@ Execution routes require `X-API-Key` (provider-appropriate). Authentication is o
 # Default (Gemini)
 curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
   -H "Authorization: Bearer <jwt>" \
-  -H "X-API-Key: <google_api_key>" \
+  -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \
   -d '{"input":"top customers by revenue"}'
 
 # OpenAI
 curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
   -H "Authorization: Bearer <jwt>" \
-  -H "X-API-Key: <openai_api_key>" \
+  -H "X-API-Key: <your_api_key_here>" \
   -H "X-LLM-Provider: openai" \
   -H "X-LLM-Model: gpt-5.4" \
   -H "Content-Type: application/json" \
@@ -682,7 +682,7 @@ Response:
 
 ```bash
 curl -N -G "http://localhost:8000/stream/genai-research-system" \
-  -H "X-API-Key: <api_key>" \
+  -H "X-API-Key: <your_api_key_here>" \
   -H "Authorization: Bearer <jwt>" \
   --data-urlencode "input=Compare transformer architectures for code generation"
 ```
@@ -712,7 +712,7 @@ Pass a `session_id` from a prior response to inject the last 4 memory entries as
 ```bash
 curl -X POST http://localhost:8000/genai-research-system/run \
   -H "Authorization: Bearer <jwt>" \
-  -H "X-API-Key: <api_key>" \
+  -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \
   -d '{"input":"Now focus only on evaluation benchmarks","session_id":12}'
 ```
@@ -723,7 +723,7 @@ curl -X POST http://localhost:8000/genai-research-system/run \
 # Generate a structured explanation from stored artifacts
 curl -X POST http://localhost:8000/explain/42 \
   -H "Authorization: Bearer <jwt>" \
-  -H "X-API-Key: <api_key>" \
+  -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \
   -d '{}'
 
