@@ -14,7 +14,8 @@ from shared.api.db import Base, get_db_session
 from shared.api.runner import ProjectUnavailableError, RunResult
 
 
-TEST_API_KEY = "smoke-test-key-1234567890"
+TEST_PROVIDER_CREDENTIAL = "local-test-credential"
+TEST_ACCOUNT_PASSWORD = "example-password"
 
 
 @pytest.fixture()
@@ -35,7 +36,7 @@ def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient, None, None]
             session.close()
 
     def fake_run_project(project: str, user_input: str, *, api_key: str, step_emitter=None) -> RunResult:
-        assert api_key == TEST_API_KEY
+        assert api_key == TEST_PROVIDER_CREDENTIAL
         if step_emitter is not None:
             step_emitter("planner", "running")
             step_emitter("planner", "done")
@@ -96,13 +97,13 @@ def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient, None, None]
 def _signup_and_headers(client: TestClient, *, include_api_key: bool = True) -> dict[str, str]:
     response = client.post(
         "/auth/signup",
-        json={"email": "audit@example.com", "password": "password123"},
+        json={"email": "audit@example.com", "password": TEST_ACCOUNT_PASSWORD},
     )
     assert response.status_code == 201
     token = response.json()["token"]
     headers = {"Authorization": f"Bearer {token}"}
     if include_api_key:
-        headers["X-API-Key"] = TEST_API_KEY
+        headers["X-API-Key"] = TEST_PROVIDER_CREDENTIAL
     return headers
 
 
@@ -240,7 +241,7 @@ def test_stream_emits_single_honest_output_frame_not_fake_token_chunks(
 
 
 def test_guest_run_allows_execution_without_history(client: TestClient) -> None:
-    headers = {"X-API-Key": TEST_API_KEY}
+    headers = {"X-API-Key": TEST_PROVIDER_CREDENTIAL}
 
     response = client.post("/nl2sql-agent/run", headers=headers, json={"input": "guest mode"})
 
@@ -272,7 +273,7 @@ def test_run_returns_503_when_project_dependency_is_unavailable(client: TestClie
 
 
 def test_guest_stream_allows_execution_without_session_state(client: TestClient) -> None:
-    headers = {"X-API-Key": TEST_API_KEY}
+    headers = {"X-API-Key": TEST_PROVIDER_CREDENTIAL}
 
     with client.stream("GET", "/stream/nl2sql-agent", headers=headers, params={"input": "guest stream"}) as response:
         assert response.status_code == 200
@@ -288,7 +289,7 @@ def test_guest_stream_allows_execution_without_session_state(client: TestClient)
 def test_auth_cookie_supports_browser_session_without_authorization_header(client: TestClient) -> None:
     signup = client.post(
         "/auth/signup",
-        json={"email": "cookie@example.com", "password": "password123"},
+        json={"email": "cookie@example.com", "password": TEST_ACCOUNT_PASSWORD},
     )
     assert signup.status_code == 201
     assert "genai_systems_lab_session=" in signup.headers.get("set-cookie", "")
@@ -299,7 +300,7 @@ def test_auth_cookie_supports_browser_session_without_authorization_header(clien
 
     run = client.post(
         "/nl2sql-agent/run",
-        headers={"X-API-Key": TEST_API_KEY},
+        headers={"X-API-Key": TEST_PROVIDER_CREDENTIAL},
         json={"input": "cookie-backed auth"},
     )
     assert run.status_code == 200
@@ -394,7 +395,7 @@ def test_metrics_use_canonical_project_names(client: TestClient) -> None:
 def test_metrics_persist_across_app_restart_for_guest_runs(client: TestClient) -> None:
     response = client.post(
         "/nl2sql-agent/run",
-        headers={"X-API-Key": TEST_API_KEY},
+        headers={"X-API-Key": TEST_PROVIDER_CREDENTIAL},
         json={"input": "persist guest metrics"},
     )
     assert response.status_code == 200
@@ -603,7 +604,7 @@ def test_history_rejects_query_string_token(client: TestClient) -> None:
     # Obtain a valid token the legitimate way.
     response = client.post(
         "/auth/signup",
-        json={"email": "qs-reject@example.com", "password": "password123"},
+        json={"email": "qs-reject@example.com", "password": TEST_ACCOUNT_PASSWORD},
     )
     assert response.status_code == 201
     valid_token = response.json()["token"]
@@ -634,7 +635,7 @@ def test_stream_rejects_query_string_token(client: TestClient) -> None:
     """
     response = client.post(
         "/auth/signup",
-        json={"email": "qs-reject-stream@example.com", "password": "password123"},
+        json={"email": "qs-reject-stream@example.com", "password": TEST_ACCOUNT_PASSWORD},
     )
     assert response.status_code == 201
     valid_token = response.json()["token"]
@@ -645,7 +646,7 @@ def test_stream_rejects_query_string_token(client: TestClient) -> None:
     response_stream = client.get(
         "/stream/nl2sql-agent",
         params={"input": "select 1", "token": valid_token},
-        headers={"X-API-Key": TEST_API_KEY},
+        headers={"X-API-Key": TEST_PROVIDER_CREDENTIAL},
     )
     assert response_stream.status_code == 200
     body = response_stream.text

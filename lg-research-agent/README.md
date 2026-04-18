@@ -23,7 +23,7 @@ Query -> Planner -> Researcher -> Critic -> Writer -> Final Report
 ```bash
 curl -X POST http://127.0.0.1:8000/research-graph/run \
   -H "Authorization: Bearer <jwt>" \
-  -H "X-API-Key: <google_api_key>" \
+  -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \
   -d '{"input": "Research recent approaches to agent memory systems"}'
 ```
