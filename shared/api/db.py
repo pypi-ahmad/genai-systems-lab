@@ -6,6 +6,7 @@ from collections.abc import Generator
 import logging
 import os
 from pathlib import Path
+from tempfile import gettempdir
 import warnings
 
 from sqlalchemy import create_engine, event
@@ -19,14 +20,15 @@ _LOGGER = logging.getLogger(__name__)
 def _resolve_data_dir() -> Path:
     """Return a writable directory for the SQLite database.
 
-    On read-only filesystems (e.g. Vercel serverless) fall back to ``/tmp``.
+    On read-only filesystems (e.g. Vercel serverless) fall back to the
+    platform temp directory.
     """
     primary = REPO_ROOT / ".data"
     try:
         primary.mkdir(parents=True, exist_ok=True)
         return primary
     except OSError:
-        fallback = Path("/tmp/.data")
+        fallback = Path(gettempdir()) / "genai_systems_lab_data"
         fallback.mkdir(parents=True, exist_ok=True)
         _LOGGER.warning(
             "SQLite data directory fell back to %s — persisted data is ephemeral "
