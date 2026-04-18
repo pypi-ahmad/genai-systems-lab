@@ -4,18 +4,18 @@ from __future__ import annotations
 
 import asyncio
 from collections import deque
+from contextlib import asynccontextmanager
 from datetime import UTC, datetime, timedelta
-import html
 import json
 import os
 import re
 import threading
 import time
-import traceback
 from typing import Any, Literal
 
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from pydantic import ValidationError
 from fastapi.responses import JSONResponse
 from sqlalchemy import select
@@ -23,6 +23,9 @@ from sqlalchemy.exc import IntegrityError
 from sqlalchemy.orm import Session
 from starlette.middleware.base import BaseHTTPMiddleware
 from starlette.responses import StreamingResponse
+
+import secrets as _secrets
+from datetime import timezone as _timezone
 
 from .auth import AUTH_COOKIE_NAME, JWT_TTL_SECONDS, authenticate_user, create_access_token, create_user, get_current_user, get_optional_current_user, save_run, serialize_run
 from .confidence import compute_run_confidence
@@ -50,6 +53,10 @@ from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUs
 logger = get_logger(__name__)
 
 MAX_INPUT_LENGTH = 10_000  # characters
+MAX_HISTORY_PAGE_SIZE = 200
+DEFAULT_HISTORY_PAGE_SIZE = 50
+DEFAULT_SHARE_TTL_HOURS = 24 * 7  # Public share links auto-expire after 7 days by default.
+MAX_SHARE_TTL_HOURS = 24 * 30
 MemoryEntryPayload = dict[str, str]
 TimelineEntryPayload = dict[str, str | float]
 _DEFAULT_ALLOWED_ORIGINS = (
@@ -60,6 +67,14 @@ _DEFAULT_ALLOWED_ORIGINS = (
 )
 _CORS_ALLOWED_METHODS = ["DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"]
 _CORS_ALLOWED_HEADERS = ["Authorization", "Content-Type", "X-API-Key", "X-LLM-Model", "X-LLM-Provider", "X-Requested-With"]
+
+# Only trust X-Forwarded-For when the immediate peer is a known reverse proxy.
+# Leave empty in local dev; set in production via the env var.
+_TRUSTED_PROXY_IPS = tuple(
+    ip.strip()
+    for ip in os.getenv("GENAI_SYSTEMS_LAB_TRUSTED_PROXIES", "").split(",")
+    if ip.strip()
+)
 
 
 # -- In-memory metrics store ---------------------------------------------------
@@ -617,29 +632,46 @@ class RequestTimingMiddleware(BaseHTTPMiddleware):
 
 
 class ErrorHandlingMiddleware(BaseHTTPMiddleware):
-    """Catch unhandled exceptions and return a structured JSON error."""
+    """Catch unhandled exceptions and return a structured JSON error.
+
+    Never return internal exception strings to the client — traceback text and
+    exception messages routinely contain file paths, SQL fragments, and third-
+    party library internals.  The full traceback is logged server-side keyed
+    on the request id so operators can still correlate.
+    """
 
     async def dispatch(self, request: Request, call_next):  # noqa: ANN001
         try:
             return await call_next(request)
-        except Exception as exc:
+        except Exception:
+            request_id = request.headers.get("X-Request-ID", "-")
             logger.exception(
                 "Unhandled error on %s %s",
                 request.method,
                 request.url.path,
-                extra={"error": str(exc)},
+                extra={"request_id": request_id},
             )
             return JSONResponse(
                 status_code=500,
                 content={
                     "error": "internal_server_error",
-                    "detail": traceback.format_exc().splitlines()[-1],
+                    "request_id": request_id,
                 },
             )
 
 
 class RequestRateLimitMiddleware(BaseHTTPMiddleware):
-    """Apply lightweight in-memory rate limiting to the shared API."""
+    """Apply lightweight in-memory rate limiting to the shared API.
+
+    Notes:
+    - Per-process only.  For multi-worker / multi-instance deployments, put a
+      real distributed limiter in front (nginx ``limit_req``, Cloudflare,
+      AWS WAF, ``fastapi-limiter`` on Redis).  The audit flagged this as
+      ``C-11``.
+    - X-Forwarded-For is only trusted when the immediate peer is listed in
+      ``GENAI_SYSTEMS_LAB_TRUSTED_PROXIES`` to prevent IP spoofing.
+    - Empty deques are swept periodically to bound memory.
+    """
 
     _DEFAULT_LIMIT = (120, 60)
     _RULES: tuple[tuple[str, str, int, int], ...] = (
@@ -648,20 +680,27 @@ class RequestRateLimitMiddleware(BaseHTTPMiddleware):
         ("/eval/", "evaluation", 6, 300),
         ("/stream/", "stream", 30, 60),
         ("/explain/", "explain", 20, 60),
+        ("/shared/", "shared", 60, 60),
     )
+    _SWEEP_INTERVAL_SECONDS = 300.0
 
     def __init__(self, app: Any) -> None:
         super().__init__(app)
         self._lock = threading.Lock()
         self._timestamps: dict[tuple[str, str], deque[float]] = {}
+        self._last_sweep = time.monotonic()
 
     @staticmethod
     def _client_identifier(request: Request) -> str:
+        peer_host = request.client.host if request.client else None
         forwarded_for = request.headers.get("x-forwarded-for", "").strip()
-        if forwarded_for:
-            return forwarded_for.split(",", 1)[0].strip() or "unknown"
-        if request.client and request.client.host:
-            return request.client.host
+        # Only honour X-Forwarded-For when the peer is a known reverse proxy.
+        if forwarded_for and peer_host and peer_host in _TRUSTED_PROXY_IPS:
+            candidate = forwarded_for.split(",", 1)[0].strip()
+            if candidate:
+                return candidate
+        if peer_host:
+            return peer_host
         return "unknown"
 
     @classmethod
@@ -670,6 +709,20 @@ class RequestRateLimitMiddleware(BaseHTTPMiddleware):
             if path.startswith(prefix):
                 return bucket, limit, window_seconds
         return "default", cls._DEFAULT_LIMIT[0], cls._DEFAULT_LIMIT[1]
+
+    def _sweep_expired(self, now: float) -> None:
+        """Drop empty deques and stale buckets.  Caller must hold ``self._lock``."""
+        if now - self._last_sweep < self._SWEEP_INTERVAL_SECONDS:
+            return
+        self._last_sweep = now
+        stale_keys: list[tuple[str, str]] = []
+        for key, timestamps in self._timestamps.items():
+            # An entry is stale if its newest timestamp is older than the
+            # longest configured window (kept generous at 300 s to be safe).
+            if not timestamps or (now - timestamps[-1]) > 600.0:
+                stale_keys.append(key)
+        for key in stale_keys:
+            self._timestamps.pop(key, None)
 
     async def dispatch(self, request: Request, call_next):  # noqa: ANN001
         if request.method == "OPTIONS" or _env_flag("GENAI_SYSTEMS_LAB_DISABLE_RATE_LIMITS", False):
@@ -680,6 +733,7 @@ class RequestRateLimitMiddleware(BaseHTTPMiddleware):
         key = (bucket, self._client_identifier(request))
 
         with self._lock:
+            self._sweep_expired(now)
             timestamps = self._timestamps.setdefault(key, deque())
             cutoff = now - window_seconds
             while timestamps and timestamps[0] <= cutoff:
@@ -700,107 +754,76 @@ class RequestRateLimitMiddleware(BaseHTTPMiddleware):
 
 
 # -- Regex for control chars (keep newlines/tabs) ----------------------------
+#
+# ``InputValidationMiddleware`` previously HTML-escaped every string in the
+# request body (turning quotes into ``&quot;``, apostrophes into ``&#x27;``,
+# ``<`` into ``&lt;``) and additionally rejected any input containing common
+# SQL keywords (``UNION SELECT``, ``; DROP ``, ``-- ``) or inline event
+# handlers.  That was catastrophic for an LLM platform:
+#
+#   1. Every prompt reaching the model was corrupted; "O'Brien" became
+#      ``O&#x27;Brien``.
+#   2. Projects like ``genai-nl2sql-agent``, ``genai-code-copilot``, and
+#      ``lg-debugging-agent`` must accept SQL and HTML fragments from the user.
+#      The regex blocklist silently rejected valid prompts with a 422.
+#
+# The middleware is now purely a DoS guardrail:
+#   * reject non-JSON bodies cleanly,
+#   * reject empty or oversized ``input`` fields,
+#   * reject null bytes (which break most downstream libraries).
+#
+# XSS protection belongs at the output/render layer (React escapes by default);
+# prompt-injection defence belongs to project system prompts and guardrail
+# models, not to a regex WAF.
+
 _CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
 
 
-def _sanitize(value: str) -> str:
-    """Strip control chars, collapse whitespace, and escape HTML entities."""
-    value = _CONTROL_RE.sub("", value)
-    value = html.escape(value, quote=True)
-    return value.strip()
-
-
-def _sanitize_json(obj: Any) -> Any:
-    """Recursively sanitize all string values in a JSON-like structure."""
-    if isinstance(obj, str):
-        return _sanitize(obj)
-    if isinstance(obj, dict):
-        return {k: _sanitize_json(v) for k, v in obj.items()}
-    if isinstance(obj, list):
-        return [_sanitize_json(item) for item in obj]
-    return obj
-
-
-# -- Suspicious input detection ------------------------------------------------
-_SUSPICIOUS_PATTERNS = re.compile(
-    r"|".join([
-        r"(?:<script[\s>])",                       # XSS script tags
-        r"(?:javascript\s*:)",                      # JS protocol
-        r"(?:on\w+\s*=)",                           # inline event handlers
-        r"(?:;\s*(?:DROP|DELETE|ALTER|TRUNCATE)\s)", # SQL injection
-        r"(?:UNION\s+(?:ALL\s+)?SELECT)",           # SQL UNION injection
-        r"(?:--\s*$)",                              # SQL comment terminator
-        r"(?:\x00)",                                # null byte injection
-    ]),
-    re.IGNORECASE,
-)
-
-
 class InputValidationMiddleware(BaseHTTPMiddleware):
-    """Validate and sanitize incoming JSON bodies on mutating methods.
+    """Validate incoming JSON bodies on mutating methods.
 
-    This is a supplemental guardrail, not the primary security boundary.
-
-    Rules:
-    - Reject empty ``input`` field.
-    - Reject ``input`` exceeding *MAX_INPUT_LENGTH* characters.
-    - Reject inputs matching known injection patterns.
-    - Sanitize every string value (strip control chars, HTML-escape).
+    Only structural / size checks are performed here; string contents are
+    passed through untouched so that the downstream LLM sees exactly what the
+    user typed.
     """
 
     async def dispatch(self, request: Request, call_next):  # noqa: ANN001
-        if request.method in {"POST", "PUT", "PATCH"}:
-            content_type = request.headers.get("content-type", "")
-            if "application/json" in content_type:
-                body_bytes = await request.body()
-                try:
-                    body = json.loads(body_bytes)
-                except (json.JSONDecodeError, ValueError):
-                    return JSONResponse(
-                        status_code=422,
-                        content={"error": "invalid_json", "detail": "Request body is not valid JSON."},
-                    )
+        if request.method not in {"POST", "PUT", "PATCH"}:
+            return await call_next(request)
 
-                # Reject empty input
-                raw_input = body.get("input", None)
-                if isinstance(raw_input, str) and raw_input.strip() == "":
-                    return JSONResponse(
-                        status_code=422,
-                        content={"error": "empty_input", "detail": "The 'input' field must not be empty."},
-                    )
+        content_type = request.headers.get("content-type", "")
+        if "application/json" not in content_type:
+            return await call_next(request)
 
-                # Reject oversized input
-                if isinstance(raw_input, str) and len(raw_input) > MAX_INPUT_LENGTH:
-                    return JSONResponse(
-                        status_code=422,
-                        content={
-                            "error": "input_too_long",
-                            "detail": f"The 'input' field exceeds the maximum length of {MAX_INPUT_LENGTH} characters.",
-                        },
-                    )
+        body_bytes = await request.body()
+        try:
+            body = json.loads(body_bytes) if body_bytes else {}
+        except (json.JSONDecodeError, ValueError):
+            return JSONResponse(
+                status_code=422,
+                content={"error": "invalid_json", "detail": "Request body is not valid JSON."},
+            )
 
-                # Reject suspicious / injection-like input
-                if isinstance(raw_input, str) and _SUSPICIOUS_PATTERNS.search(raw_input):
-                    return JSONResponse(
-                        status_code=422,
-                        content={
-                            "error": "suspicious_input",
-                            "detail": "The input contains disallowed patterns.",
-                        },
-                    )
-
-                # Sanitize all string values and re-inject the body
-                body = _sanitize_json(body)
-                sanitized = json.dumps(body).encode("utf-8")
-
-                # Replace the request body with the sanitized version
-                async def receive():  # noqa: ANN202
-                    return {"type": "http.request", "body": sanitized}
-
-                request._receive = receive  # noqa: SLF001
-                # Clear the cached body so Starlette re-reads from _receive
-                if hasattr(request, "_body"):
-                    request._body = sanitized  # noqa: SLF001
+        raw_input = body.get("input") if isinstance(body, dict) else None
+        if isinstance(raw_input, str):
+            if raw_input.strip() == "":
+                return JSONResponse(
+                    status_code=422,
+                    content={"error": "empty_input", "detail": "The 'input' field must not be empty."},
+                )
+            if len(raw_input) > MAX_INPUT_LENGTH:
+                return JSONResponse(
+                    status_code=422,
+                    content={
+                        "error": "input_too_long",
+                        "detail": f"The 'input' field exceeds the maximum length of {MAX_INPUT_LENGTH} characters.",
+                    },
+                )
+            if "\x00" in raw_input:
+                return JSONResponse(
+                    status_code=422,
+                    content={"error": "null_byte_rejected", "detail": "Null bytes are not allowed."},
+                )
 
         return await call_next(request)
 
@@ -816,19 +839,19 @@ def _validate_stream_input(value: str) -> str:
             detail=f"The 'input' field exceeds the maximum length of {MAX_INPUT_LENGTH} characters.",
         )
 
-    if _SUSPICIOUS_PATTERNS.search(value):
-        raise HTTPException(
-            status_code=422,
-            detail="The input contains disallowed patterns.",
-        )
-
+    # Strip ASCII control chars (except \t, \n, \r) so log lines stay clean,
+    # but do not HTML-escape — the LLM should see exactly what the user typed.
     return _CONTROL_RE.sub("", value)
 
 
 # -- API key validation --------------------------------------------------------
 _MIN_API_KEY_LENGTH = 20
 _MAX_API_KEY_LENGTH = 256
-_API_KEY_RE = re.compile(r"^[A-Za-z0-9_\-]+$")
+# Accept the full character set used by real provider keys: alphanumerics, the
+# url-safe base64 symbols, plus ``.`` (Anthropic admin keys), ``/`` and ``+``
+# (legacy base64), ``=`` (padding), and ``:`` (multi-part tokens).  Anything
+# outside this set is almost certainly garbage.
+_API_KEY_RE = re.compile(r"^[A-Za-z0-9_\-./=+:]+$")
 
 
 def _validate_api_key_format(key: str) -> str | None:
@@ -840,6 +863,55 @@ def _validate_api_key_format(key: str) -> str | None:
     if not _API_KEY_RE.match(key):
         return "API key contains invalid characters."
     return None
+
+
+def _safe_sse_error_payload(exc: BaseException, request_id: str) -> str:
+    """Return a safe JSON payload for SSE ``event: error`` frames.
+
+    Only leak messages from exceptions whose ``str`` is known to be operator-
+    controlled (``HTTPException.detail``, ``ValueError``,
+    ``ProjectUnavailableError``).  Everything else is logged server-side with
+    the request id and reduced to a generic ``internal_server_error`` on the
+    wire.  Mirrors ``ErrorHandlingMiddleware`` for the batch path.
+    """
+    if isinstance(exc, HTTPException):
+        return json.dumps({"error": exc.detail, "request_id": request_id})
+    if isinstance(exc, (ValueError, ProjectUnavailableError)):
+        message = str(exc) or "Execution failed."
+        return json.dumps({"error": message, "request_id": request_id})
+    logger.exception("sse stream failed", extra={"request_id": request_id})
+    return json.dumps({"error": "internal_server_error", "request_id": request_id})
+
+
+class SecurityHeadersMiddleware(BaseHTTPMiddleware):
+    """Attach a conservative set of security response headers.
+
+    Intentionally small (no inline ``script-src``, no ``frame-ancestors``) so
+    the separately-hosted Next.js portfolio controls its own CSP.  The
+    backend serves JSON, a bit of OpenAPI HTML from FastAPI, and SSE — none of
+    those should ever be framed, rendered as HTML by a browser, or sniffed.
+    """
+
+    _HEADERS = {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Referrer-Policy": "no-referrer",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
+        "Cross-Origin-Opener-Policy": "same-origin",
+        "Cross-Origin-Resource-Policy": "same-site",
+    }
+
+    async def dispatch(self, request: Request, call_next):  # noqa: ANN001
+        response = await call_next(request)
+        for header, value in self._HEADERS.items():
+            response.headers.setdefault(header, value)
+        # HSTS only in prod to avoid breaking local http:// dev.
+        if os.getenv("APP_ENV", "dev").strip().lower() == "prod":
+            response.headers.setdefault(
+                "Strict-Transport-Security",
+                "max-age=63072000; includeSubDomains",
+            )
+        return response
 
 
 def _current_request_provider() -> str:
@@ -987,35 +1059,41 @@ def create_app(
         app.include_router(my_router)
     """
     init_db()
-    app = FastAPI(title=title, version=version, description=description)
 
-    async def _startup() -> None:
-        if not _env_flag("OTEL_ENABLED", False):
-            return
+    @asynccontextmanager
+    async def _lifespan(_app: FastAPI):
+        if _env_flag("OTEL_ENABLED", False):
+            console_export = _env_flag("OTEL_CONSOLE_EXPORT", False)
+            if setup_otel(console_export=console_export):
+                logger.info("OpenTelemetry tracing enabled for shared API.")
+            else:
+                logger.warning("OTEL_ENABLED is set, but OpenTelemetry packages are unavailable.")
+        try:
+            yield
+        finally:
+            shutdown_otel()
 
-        console_export = _env_flag("OTEL_CONSOLE_EXPORT", False)
-        if setup_otel(console_export=console_export):
-            logger.info("OpenTelemetry tracing enabled for shared API.")
-        else:
-            logger.warning("OTEL_ENABLED is set, but OpenTelemetry packages are unavailable.")
-
-    async def _shutdown() -> None:
-        shutdown_otel()
-
-    app.add_event_handler("startup", _startup)
-    app.add_event_handler("shutdown", _shutdown)
+    app = FastAPI(title=title, version=version, description=description, lifespan=_lifespan)
 
     # Middleware executes in reverse registration order.
     app.add_middleware(ErrorHandlingMiddleware)
     app.add_middleware(RequestTimingMiddleware)
     app.add_middleware(RequestLoggingMiddleware)
+    app.add_middleware(SecurityHeadersMiddleware)
     app.add_middleware(InputValidationMiddleware)
     app.add_middleware(BYOKMiddleware)
     app.add_middleware(RequestRateLimitMiddleware)
 
     origins = _resolve_allowed_origins(allowed_origins)
-    if os.getenv("APP_ENV", "dev").strip().lower() == "prod" and allowed_origins is None and not os.getenv("GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS", "").strip():
-        logger.warning("APP_ENV=prod without GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS; defaulting CORS to localhost-only origins.")
+    if os.getenv("APP_ENV", "dev").strip().lower() == "prod" and allowed_origins is None:
+        if not os.getenv("GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS", "").strip():
+            # Fail loudly: a silent localhost-only fallback in prod is
+            # indistinguishable from "login is broken for every user".
+            raise RuntimeError(
+                "GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS must be set when APP_ENV=prod "
+                "to enable cross-origin browser sessions.  Refusing to start "
+                "with an implicit localhost-only allowlist."
+            )
 
     app.add_middleware(
         CORSMiddleware,
@@ -1025,6 +1103,12 @@ def create_app(
         allow_headers=_CORS_ALLOWED_HEADERS,
         expose_headers=["X-Process-Time-Ms", "X-Request-ID"],
     )
+
+    # GZip is registered last so it wraps every other middleware.  The 1 KB
+    # threshold keeps tiny JSON responses (``/health``) uncompressed; SSE
+    # responses are already streamed without a ``Content-Length`` header and
+    # are skipped by Starlette's GZipMiddleware automatically.
+    app.add_middleware(GZipMiddleware, minimum_size=1024)
 
     # -- Routes ----------------------------------------------------------------
 
@@ -1144,7 +1228,16 @@ def create_app(
 
         try:
             api_key = get_effective_api_key(required=provider_requires_api_key(_current_request_provider()))
-            result = run_project(project_name, prepared_input, api_key=api_key, step_emitter=step_memory_emitter)
+            # Run the project on a worker thread so the LLM call does not block
+            # the event loop; ProjectUnavailableError / ValueError surface the
+            # same way as a direct call.
+            result = await asyncio.to_thread(
+                run_project,
+                project_name,
+                prepared_input,
+                api_key=api_key,
+                step_emitter=step_memory_emitter,
+            )
             success = result.exit_code == 0
             metrics_project = result.project
 
@@ -1263,11 +1356,14 @@ def create_app(
     async def history(
         current_user: User = Depends(get_current_user),
         session: Session = Depends(get_db_session),
+        limit: int = Query(default=DEFAULT_HISTORY_PAGE_SIZE, ge=1, le=MAX_HISTORY_PAGE_SIZE),
+        before_id: int | None = Query(default=None, ge=1),
     ) -> HistoryResponse:
+        query = select(Run).where(Run.user_id == current_user.id)
+        if before_id is not None:
+            query = query.where(Run.id < before_id)
         runs = session.scalars(
-            select(Run)
-            .where(Run.user_id == current_user.id)
-            .order_by(Run.timestamp.desc(), Run.id.desc())
+            query.order_by(Run.timestamp.desc(), Run.id.desc()).limit(limit)
         ).all()
         items = [serialize_run(run) for run in runs]
         return HistoryResponse(count=len(items), runs=items)
@@ -1358,6 +1454,7 @@ def create_app(
     @app.get("/stream/{project_name}")
     async def stream(
         project_name: str,
+        request: Request,
         input: str = "",
         session_id: int | None = None,
         current_user: User | None = Depends(get_optional_current_user),
@@ -1372,6 +1469,7 @@ def create_app(
         """
 
         validated_input = _validate_stream_input(input)
+        sse_request_id = request.headers.get("X-Request-ID", "-")
         run_session: RunSession | None = None
         existing_session_memory: list[dict[str, str]] = []
         prepared_input = validated_input
@@ -1439,13 +1537,21 @@ def create_app(
                 try:
                     result = await run_task
                 except Exception as exc:
-                    error_message = str(exc) or "Execution failed."
+                    # Only surface the message to the user-facing step frame
+                    # when the exception is operator-controlled; otherwise
+                    # scrub to ``Execution failed.`` so stack traces / internal
+                    # detail never reach the browser.  The SSE ``error`` frame
+                    # then goes through the same scrubbing helper.
+                    if isinstance(exc, (ValueError, ProjectUnavailableError, HTTPException)):
+                        user_message = getattr(exc, "detail", None) or str(exc) or "Execution failed."
+                    else:
+                        user_message = "Execution failed."
                     if running_steps:
                         failed_step = running_steps[-1]
                         step_error = {
                             "step": failed_step,
                             "status": "error",
-                            "error": error_message,
+                            "error": user_message,
                         }
                         _append_execution_trace(
                             memory_entries,
@@ -1453,10 +1559,10 @@ def create_app(
                             start,
                             failed_step,
                             "error",
-                            error=error_message,
+                            error=user_message,
                         )
                         yield f"event: step\ndata: {json.dumps(step_error)}\n\n"
-                    error_payload = json.dumps({"error": error_message})
+                    error_payload = _safe_sse_error_payload(exc, sse_request_id)
                     yield f"event: error\ndata: {error_payload}\n\n"
                     return
 
@@ -1464,6 +1570,11 @@ def create_app(
                 metrics_project = result.project
 
                 if not seen_steps and nodes:
+                    # The project emitted no real step events.  Synthesise a
+                    # running/done pair per pipeline node so the UI has
+                    # something to render, but do not pace the events with
+                    # artificial sleeps (previously ~40 ms per node = up to
+                    # ~300 ms of fake latency for a large graph).
                     for index, node_id in enumerate(nodes):
                         synthetic_running = {"step": node_id, "status": "running"}
                         _append_memory_entry(memory_entries, node_id, "running")
@@ -1475,7 +1586,6 @@ def create_app(
                             data=_memory_content(_format_memory_step(node_id), "running", _memory_entry_type(node_id, "running")),
                         )
                         yield f"event: step\ndata: {json.dumps(synthetic_running)}\n\n"
-                        await asyncio.sleep(0.02)
                         synthetic_done = {"step": node_id, "status": "done"}
                         _append_memory_entry(memory_entries, node_id, "done")
                         _append_timeline_entry(
@@ -1486,7 +1596,6 @@ def create_app(
                             data=_memory_content(_format_memory_step(node_id), "done", "observation"),
                         )
                         yield f"event: step\ndata: {json.dumps(synthetic_done)}\n\n"
-                        await asyncio.sleep(0.02)
 
                 _append_fallback_memory_entries(memory_entries, result.project)
                 _append_fallback_timeline_entries(timeline_entries, result.project)
@@ -1538,13 +1647,24 @@ def create_app(
                         success=success,
                     )
 
-                output = result.output
-                chunk_size = 80  # characters per chunk
-
-                for i in range(0, len(output), chunk_size):
-                    chunk = output[i : i + chunk_size]
-                    yield f"data: {json.dumps({'token': chunk})}\n\n"
-                    await asyncio.sleep(0.03)
+                # Honest output emission (C-3 / HI-1 in the audit).
+                #
+                # ``result.output`` is already a *completed* string by the
+                # time we get here — the project ran to completion inside
+                # ``asyncio.to_thread(run_project, ...)`` above.  Earlier
+                # revisions sliced that completed string into 80-char pieces
+                # and emitted them as ``{"token": "..."}`` SSE frames to
+                # mimic token-level streaming.  That was theatre, not
+                # streaming: no provider token boundaries, no pacing tied to
+                # real generation, and every "token" was already sitting in
+                # memory.  We now emit the full completed output as a single
+                # frame so the UI can render it as soon as it arrives, and
+                # document the field as the full output rather than a
+                # provider token.  Real provider-native token streaming
+                # requires threading the streaming SDK API through each
+                # project pipeline and is tracked separately.
+                output_payload = json.dumps({"output": result.output})
+                yield f"event: output\ndata: {output_payload}\n\n"
 
                 # Final summary event
                 done_payload = json.dumps({
@@ -1561,13 +1681,13 @@ def create_app(
                 yield f"event: done\ndata: {done_payload}\n\n"
 
             except ProjectUnavailableError as exc:
-                error_payload = json.dumps({"error": str(exc)})
+                error_payload = _safe_sse_error_payload(exc, sse_request_id)
                 yield f"event: error\ndata: {error_payload}\n\n"
             except ValueError as exc:
-                error_payload = json.dumps({"error": str(exc)})
+                error_payload = _safe_sse_error_payload(exc, sse_request_id)
                 yield f"event: error\ndata: {error_payload}\n\n"
             except Exception as exc:
-                error_payload = json.dumps({"error": str(exc) or "Execution failed."})
+                error_payload = _safe_sse_error_payload(exc, sse_request_id)
                 yield f"event: error\ndata: {error_payload}\n\n"
             finally:
                 elapsed_ms = (time.perf_counter() - start) * 1000
@@ -1599,17 +1719,19 @@ def create_app(
         if run is None:
             raise HTTPException(status_code=404, detail="Run not found.")
 
-        import secrets
-        from datetime import datetime, timedelta, timezone
-
         if not run.share_token:
-            run.share_token = secrets.token_urlsafe(32)
+            run.share_token = _secrets.token_urlsafe(32)
 
         run.is_public = True
-        if body and body.expires_in_hours is not None:
-            run.expires_at = datetime.now(timezone.utc) + timedelta(hours=body.expires_in_hours)
-        else:
-            run.expires_at = None
+        # Default to a bounded TTL so forgotten shares do not stay public
+        # forever.  Explicit ``expires_in_hours = 0`` can be treated as
+        # "permanent" by setting it to ``None`` server-side (but ShareRunRequest
+        # already enforces ``ge=1``, so users can't accidentally choose 0).
+        requested_hours = body.expires_in_hours if body else None
+        if requested_hours is None:
+            requested_hours = DEFAULT_SHARE_TTL_HOURS
+        requested_hours = max(1, min(requested_hours, MAX_SHARE_TTL_HOURS))
+        run.expires_at = datetime.now(UTC) + timedelta(hours=requested_hours)
 
         session.commit()
         session.refresh(run)
@@ -1645,14 +1767,19 @@ def create_app(
         session: Session = Depends(get_db_session),
     ) -> SharedRunResponse:
         run = session.scalar(
-            select(Run).where(Run.share_token == share_token, Run.is_public == True)
+            select(Run).where(Run.share_token == share_token, Run.is_public == True)  # noqa: E712
         )
         if run is None:
             raise HTTPException(status_code=404, detail="Shared run not found.")
 
-        from datetime import datetime, timezone
-        if run.expires_at and run.expires_at.replace(tzinfo=timezone.utc) < datetime.now(timezone.utc):
-            raise HTTPException(status_code=410, detail="This shared link has expired.")
+        if run.expires_at is not None:
+            # ``expires_at`` is stored timezone-aware via SQLAlchemy but SQLite
+            # round-trips can strip tzinfo — coerce to UTC defensively.
+            expires_at = run.expires_at
+            if expires_at.tzinfo is None:
+                expires_at = expires_at.replace(tzinfo=_timezone.utc)
+            if expires_at < datetime.now(UTC):
+                raise HTTPException(status_code=410, detail="This shared link has expired.")
 
         serialized = serialize_run(run)
         return SharedRunResponse(

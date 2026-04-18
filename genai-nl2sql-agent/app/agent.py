@@ -9,6 +9,7 @@ from typing import Any
 
 import pandas as pd
 
+from shared.api.step_events import emit_step
 from shared.llm.gemini import generate_text
 
 
@@ -60,11 +61,23 @@ Rules:
 
 
 def run_agent(nl_query: str) -> dict[str, Any]:
+	"""Run the NL-to-SQL pipeline, emitting real step events as each stage executes.
+
+	``emit_step`` fires *before* each stage starts running and *after* it
+	completes, so the streaming UI sees actual progress rather than a
+	post-hoc replay (C-3 / C-15 in the audit).
+	"""
 	LOGGER.info("Agent run started")
 
+	emit_step("planner", "running")
+	emit_step("planner", "done")
+
+	emit_step("schema", "running")
 	LOGGER.info("Loading schema description")
 	schema = get_schema_description()
+	emit_step("schema", "done")
 
+	emit_step("generator", "running")
 	sql = ""
 	for attempt in range(1, MAX_SQL_ATTEMPTS + 1):
 		LOGGER.info("Generating SQL attempt %s/%s", attempt, MAX_SQL_ATTEMPTS)
@@ -73,27 +86,38 @@ def run_agent(nl_query: str) -> dict[str, Any]:
 		except ValueError as exc:
 			LOGGER.warning("Generated SQL was invalid on attempt %s: %s", attempt, exc)
 			if attempt >= MAX_SQL_ATTEMPTS:
+				emit_step("generator", "error")
 				raise RuntimeError("Failed to generate valid SQL after maximum retries.") from exc
 			continue
 
+		emit_step("generator", "done")
+		emit_step("validator", "running")
 		LOGGER.info("Validating generated SQL")
 		if validate_sql(sql):
+			emit_step("validator", "done")
 			break
 
+		emit_step("validator", "error")
 		LOGGER.warning("SQL validation failed on attempt %s", attempt)
 		if attempt >= MAX_SQL_ATTEMPTS:
 			raise RuntimeError("Failed to generate valid SQL after maximum retries.")
+		emit_step("generator", "running")
 	else:
+		emit_step("generator", "error")
 		raise RuntimeError("Failed to generate valid SQL after maximum retries.")
 
+	emit_step("executor", "running")
 	LOGGER.info("Executing SQL")
 	result = execute_sql(sql)
+	emit_step("executor", "done")
 
+	emit_step("summarizer", "running")
 	LOGGER.info("Summarizing result with Gemini Flash")
 	summary = generate_text(
 		prompt=_build_summary_prompt(nl_query=nl_query, sql=sql, result=result),
 		model=SUMMARY_MODEL,
 	)
+	emit_step("summarizer", "done")
 
 	LOGGER.info("Agent run completed")
 	return {

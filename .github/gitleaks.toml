@@ -1,0 +1,40 @@
+# Gitleaks configuration for genai-systems-lab.
+#
+# This file extends the upstream default ruleset (which already covers
+# ~100 common secret patterns: AWS, GCP, Azure, Slack, Stripe, GitHub,
+# generic API keys, etc.) and adds a narrow allowlist for places where
+# test doubles or illustrative strings would otherwise trip the scanner.
+#
+# Docs: https://github.com/gitleaks/gitleaks
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Paths and patterns that are safe by construction"
+
+paths = [
+    # Checked-in env template — values are placeholders.
+    '''(^|/)\.env\.example$''',
+    # Test fixtures deliberately use fake keys/tokens.
+    '''(^|/)tests/.*\.py$''',
+    '''(^|/)tests/.*\.ts$''',
+    '''(^|/)tests/.*\.tsx$''',
+    # Portfolio test files
+    '''(^|/)portfolio/src/.*\.test\.(ts|tsx)$''',
+    # Benchmark fixtures and promptfoo configs reference provider keys
+    # by name only, never real values.
+    '''(^|/)benchmarks/promptfoo/.*''',
+]
+
+regexes = [
+    # Documented placeholder tokens used across README / USAGE docs.
+    '''smoke-test-key-[0-9a-zA-Z-]+''',
+    '''cookie-session''',
+    '''sk-(live|test)-(secret|placeholder)''',
+    '''your[-_]?(api|key|token|secret)[-_]?here''',
+    '''example[-_]?(api|key|token|secret)''',
+]
+
+# No custom ``[[rules]]`` — the default set is comprehensive.  Add new rules
+# here only when a genuine secret pattern is not already covered.

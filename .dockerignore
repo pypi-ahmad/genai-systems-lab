@@ -1,0 +1,59 @@
+# Keep the build context small and, critically, never bake secrets or
+# build-time artefacts into image layers.
+
+# Version control & editor state
+.git/
+.gitattributes
+.github/
+.vscode/
+.idea/
+
+# Environment / secrets — serverside config is injected at runtime
+.env
+.env.*
+!.env.example
+
+# Local DB + runtime data
+.data/
+*.sqlite
+*.sqlite3
+*.db
+
+# Playwright / Python / Node build caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.ipynb_checkpoints/
+.playwright-mcp/
+
+# Frontend build outputs and deps
+portfolio/node_modules/
+portfolio/.next/
+portfolio/.turbo/
+portfolio/out/
+
+# Test suites, docs, benchmarks are not needed in the runtime image
+tests/
+benchmarks/
+docs/
+*.md
+!README.md
+!ARCHITECTURE.md
+
+# Standalone project kept out of the platform runner
+langgraph-data-analyst/
+
+# Misc noise
+stream-requests.txt
+coverage/
+htmlcov/
+.coverage
+.DS_Store
+Thumbs.db

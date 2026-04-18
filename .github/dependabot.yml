@@ -1,0 +1,50 @@
+version: 2
+
+# Dependency update automation.
+#
+# - ``pip``   : pins live in ``requirements.txt`` (primary) and ``pyproject.toml``.
+# - ``npm``   : the Next.js portfolio under ``portfolio/``.
+# - ``docker``: base images and workflow action versions.
+# - ``github-actions``: keep workflow action refs up to date.
+#
+# Weekly cadence is the default; security patches are delivered out-of-band
+# by Dependabot regardless.
+updates:
+  - package-ecosystem: pip
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    labels: ["deps", "python"]
+    groups:
+      python-minor-and-patch:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: pip
+    directory: "/langgraph-data-analyst"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+    labels: ["deps", "python", "standalone"]
+
+  - package-ecosystem: npm
+    directory: "/portfolio"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    labels: ["deps", "frontend"]
+    groups:
+      npm-minor-and-patch:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: docker
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels: ["deps", "docker"]
+
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: weekly
+    labels: ["deps", "ci"]

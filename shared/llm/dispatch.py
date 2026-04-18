@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import time
 from dataclasses import dataclass
 from typing import Any
 
@@ -127,9 +128,8 @@ def _consume_trace_details() -> tuple[dict[str, int] | None, dict[str, float] | 
 def generate_text(prompt: str, model: str, *, temperature: float | None = None) -> str:
     resolved_model = _resolved_model(model)
     provider = _resolved_provider(resolved_model)
-    import time as _time
     clear_llm_call_metadata()
-    _start = _time.perf_counter()
+    _start = time.perf_counter()
     if provider == "gemini":
         result = gemini_provider.generate_text(prompt=prompt, model=resolved_model)
     elif provider == "openai":
@@ -138,7 +138,7 @@ def generate_text(prompt: str, model: str, *, temperature: float | None = None) 
         result = anthropic_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
     else:
         result = ollama_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
-    _elapsed = (_time.perf_counter() - _start) * 1000
+    _elapsed = (time.perf_counter() - _start) * 1000
     _usage, _cost, _metadata = _consume_trace_details()
     _trace_llm(
         name="generate_text",
@@ -156,9 +156,8 @@ def generate_text(prompt: str, model: str, *, temperature: float | None = None) 
 def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
     resolved_model = _resolved_model(model)
     provider = _resolved_provider(resolved_model)
-    import time as _time
     clear_llm_call_metadata()
-    _start = _time.perf_counter()
+    _start = time.perf_counter()
     if provider == "gemini":
         result = gemini_provider.generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     elif provider == "openai":
@@ -167,7 +166,7 @@ def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict
         result = anthropic_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     else:
         result = ollama_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
-    _elapsed = (_time.perf_counter() - _start) * 1000
+    _elapsed = (time.perf_counter() - _start) * 1000
     _usage, _cost, _metadata = _consume_trace_details()
     _trace_llm(
         name="generate_structured",
@@ -185,9 +184,8 @@ def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict
 def generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
     resolved_model = _resolved_model(model)
     provider = _resolved_provider(resolved_model)
-    import time as _time
     clear_llm_call_metadata()
-    _start = _time.perf_counter()
+    _start = time.perf_counter()
     if provider == "gemini":
         result = gemini_provider.generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     elif provider == "openai":
@@ -196,7 +194,7 @@ def generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
         result = anthropic_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     else:
         result = ollama_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
-    _elapsed = (_time.perf_counter() - _start) * 1000
+    _elapsed = (time.perf_counter() - _start) * 1000
     _usage, _cost, _metadata = _consume_trace_details()
     _trace_llm(
         name="generate_text_from_image",
