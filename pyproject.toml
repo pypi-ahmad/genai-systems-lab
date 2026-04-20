@@ -15,7 +15,7 @@ dependencies = [
 	"rich==14.3.3",
 	"numpy==2.3.3",
 	"httpx==0.28.1",
-	"langfuse>=2.0.0",
+	"langfuse>=4.3.1",
 	"PyJWT==2.12.1",
 ]
 
