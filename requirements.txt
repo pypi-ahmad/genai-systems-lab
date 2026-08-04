@@ -6,7 +6,7 @@ langgraph==1.1.3
 # loader (``shared/api/runner.py``) returns a friendly ProjectUnavailableError
 # when the module is missing, so omitting it keeps the default image slim.
 # Install via ``pip install -e '.[browser]'`` to enable.
-python-dotenv==1.1.1
+python-dotenv==1.2.2
 pydantic==2.11.10
 crewai==1.12.2
 duckdb==1.5.1
