@@ -1,0 +1,418 @@
+{
+  "nodes": [
+    {
+      "id": "file:portfolio/src/app/layout.tsx",
+      "type": "file",
+      "name": "layout.tsx",
+      "filePath": "portfolio/src/app/layout.tsx",
+      "summary": "Implements layout functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/app/layout.tsx:Nav",
+      "type": "function",
+      "name": "Nav",
+      "filePath": "portfolio/src/app/layout.tsx",
+      "lineRange": [
+        26,
+        44
+      ],
+      "summary": "Executes the Nav operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/layout.tsx:Footer",
+      "type": "function",
+      "name": "Footer",
+      "filePath": "portfolio/src/app/layout.tsx",
+      "lineRange": [
+        46,
+        58
+      ],
+      "summary": "Executes the Footer operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/layout.tsx:RootLayout",
+      "type": "function",
+      "name": "RootLayout",
+      "filePath": "portfolio/src/app/layout.tsx",
+      "lineRange": [
+        60,
+        86
+      ],
+      "summary": "Executes the RootLayout operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/app/playground/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "portfolio/src/app/playground/page.tsx",
+      "summary": "Implements page functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/page.tsx:PlaygroundPage",
+      "type": "function",
+      "name": "PlaygroundPage",
+      "filePath": "portfolio/src/app/playground/page.tsx",
+      "lineRange": [
+        10,
+        17
+      ],
+      "summary": "Executes the PlaygroundPage operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/app/theme-provider.tsx",
+      "type": "file",
+      "name": "theme-provider.tsx",
+      "filePath": "portfolio/src/app/theme-provider.tsx",
+      "summary": "Implements theme provider functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/theme-provider.tsx:ThemeProvider",
+      "type": "function",
+      "name": "ThemeProvider",
+      "filePath": "portfolio/src/app/theme-provider.tsx",
+      "lineRange": [
+        8,
+        10
+      ],
+      "summary": "Executes the ThemeProvider operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/help-reset.tsx",
+      "type": "file",
+      "name": "help-reset.tsx",
+      "filePath": "portfolio/src/components/help-reset.tsx",
+      "summary": "Implements help reset functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/help-reset.tsx:HelpReset",
+      "type": "function",
+      "name": "HelpReset",
+      "filePath": "portfolio/src/components/help-reset.tsx",
+      "lineRange": [
+        12,
+        55
+      ],
+      "summary": "Executes the HelpReset operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/nav-links.tsx",
+      "type": "file",
+      "name": "nav-links.tsx",
+      "filePath": "portfolio/src/components/nav-links.tsx",
+      "summary": "Implements nav links functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/components/nav-links.tsx:NavLinks",
+      "type": "function",
+      "name": "NavLinks",
+      "filePath": "portfolio/src/components/nav-links.tsx",
+      "lineRange": [
+        28,
+        110
+      ],
+      "summary": "Executes the NavLinks operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/components/onboarding-modal.tsx",
+      "type": "file",
+      "name": "onboarding-modal.tsx",
+      "filePath": "portfolio/src/components/onboarding-modal.tsx",
+      "summary": "Implements onboarding modal functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/onboarding-modal.tsx:OnboardingModal",
+      "type": "function",
+      "name": "OnboardingModal",
+      "filePath": "portfolio/src/components/onboarding-modal.tsx",
+      "lineRange": [
+        7,
+        48
+      ],
+      "summary": "Executes the OnboardingModal operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/theme-toggle.tsx",
+      "type": "file",
+      "name": "theme-toggle.tsx",
+      "filePath": "portfolio/src/components/theme-toggle.tsx",
+      "summary": "Implements theme toggle functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/components/theme-toggle.tsx:ThemeToggle",
+      "type": "function",
+      "name": "ThemeToggle",
+      "filePath": "portfolio/src/components/theme-toggle.tsx",
+      "lineRange": [
+        17,
+        120
+      ],
+      "summary": "Executes the ThemeToggle operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "function:portfolio/src/app/layout.tsx:Nav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "function:portfolio/src/app/layout.tsx:Footer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "function:portfolio/src/app/layout.tsx:RootLayout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "function:portfolio/src/app/layout.tsx:RootLayout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "file:portfolio/src/app/globals.css",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "file:portfolio/src/app/theme-provider.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "file:portfolio/src/components/help-reset.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "file:portfolio/src/components/nav-links.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/layout.tsx",
+      "target": "file:portfolio/src/components/theme-toggle.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/page.tsx",
+      "target": "function:portfolio/src/app/playground/page.tsx:PlaygroundPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/app/playground/page.tsx",
+      "target": "function:portfolio/src/app/playground/page.tsx:PlaygroundPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/page.tsx",
+      "target": "file:portfolio/src/app/playground/playground-client.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/page.tsx",
+      "target": "file:portfolio/src/components/onboarding-modal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/theme-provider.tsx",
+      "target": "function:portfolio/src/app/theme-provider.tsx:ThemeProvider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/app/theme-provider.tsx",
+      "target": "function:portfolio/src/app/theme-provider.tsx:ThemeProvider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/help-reset.tsx",
+      "target": "function:portfolio/src/components/help-reset.tsx:HelpReset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/help-reset.tsx",
+      "target": "function:portfolio/src/components/help-reset.tsx:HelpReset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/help-reset.tsx",
+      "target": "file:portfolio/src/components/onboarding-modal.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/components/nav-links.tsx",
+      "target": "function:portfolio/src/components/nav-links.tsx:NavLinks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/nav-links.tsx",
+      "target": "function:portfolio/src/components/nav-links.tsx:NavLinks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/onboarding-modal.tsx",
+      "target": "function:portfolio/src/components/onboarding-modal.tsx:OnboardingModal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/onboarding-modal.tsx",
+      "target": "function:portfolio/src/components/onboarding-modal.tsx:OnboardingModal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/theme-toggle.tsx",
+      "target": "function:portfolio/src/components/theme-toggle.tsx:ThemeToggle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/theme-toggle.tsx",
+      "target": "function:portfolio/src/components/theme-toggle.tsx:ThemeToggle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

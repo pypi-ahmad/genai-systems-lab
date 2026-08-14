@@ -1,0 +1,147 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": ".ua/.trash-1786690380/batch-55.json",
+      "language": "json",
+      "sizeLines": 265,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-56.json",
+      "language": "json",
+      "sizeLines": 265,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-57.json",
+      "language": "json",
+      "sizeLines": 265,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-58.json",
+      "language": "json",
+      "sizeLines": 226,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-59.json",
+      "language": "json",
+      "sizeLines": 265,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-6-part-1.json",
+      "language": "json",
+      "sizeLines": 1107,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-6-part-2.json",
+      "language": "json",
+      "sizeLines": 1811,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-60.json",
+      "language": "json",
+      "sizeLines": 265,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-61.json",
+      "language": "json",
+      "sizeLines": 265,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-62.json",
+      "language": "json",
+      "sizeLines": 265,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-63.json",
+      "language": "json",
+      "sizeLines": 200,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-64.json",
+      "language": "json",
+      "sizeLines": 44,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-65.json",
+      "language": "json",
+      "sizeLines": 44,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-66.json",
+      "language": "json",
+      "sizeLines": 44,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-67.json",
+      "language": "json",
+      "sizeLines": 44,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-68.json",
+      "language": "json",
+      "sizeLines": 44,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-69.json",
+      "language": "json",
+      "sizeLines": 44,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-7-part-1.json",
+      "language": "json",
+      "sizeLines": 718,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-7-part-2.json",
+      "language": "json",
+      "sizeLines": 1494,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-70.json",
+      "language": "json",
+      "sizeLines": 57,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    ".ua/.trash-1786690380/batch-55.json": [],
+    ".ua/.trash-1786690380/batch-56.json": [],
+    ".ua/.trash-1786690380/batch-57.json": [],
+    ".ua/.trash-1786690380/batch-58.json": [],
+    ".ua/.trash-1786690380/batch-59.json": [],
+    ".ua/.trash-1786690380/batch-6-part-1.json": [],
+    ".ua/.trash-1786690380/batch-6-part-2.json": [],
+    ".ua/.trash-1786690380/batch-60.json": [],
+    ".ua/.trash-1786690380/batch-61.json": [],
+    ".ua/.trash-1786690380/batch-62.json": [],
+    ".ua/.trash-1786690380/batch-63.json": [],
+    ".ua/.trash-1786690380/batch-64.json": [],
+    ".ua/.trash-1786690380/batch-65.json": [],
+    ".ua/.trash-1786690380/batch-66.json": [],
+    ".ua/.trash-1786690380/batch-67.json": [],
+    ".ua/.trash-1786690380/batch-68.json": [],
+    ".ua/.trash-1786690380/batch-69.json": [],
+    ".ua/.trash-1786690380/batch-7-part-1.json": [],
+    ".ua/.trash-1786690380/batch-7-part-2.json": [],
+    ".ua/.trash-1786690380/batch-70.json": []
+  }
+}

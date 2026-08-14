@@ -1,0 +1,2041 @@
+{
+  "nodes": [
+    {
+      "id": "file:lg-research-agent/app/nodes/writer.py",
+      "type": "file",
+      "name": "writer.py",
+      "filePath": "lg-research-agent/app/nodes/writer.py",
+      "summary": "Implements writer.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/writer.py:writer_node",
+      "type": "function",
+      "name": "writer_node",
+      "filePath": "lg-research-agent/app/nodes/writer.py",
+      "lineRange": [
+        8,
+        21
+      ],
+      "summary": "Implements the writer_node routine in writer.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "lg-research-agent/app/state.py",
+      "summary": "Implements state.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/state.py:initial_state",
+      "type": "function",
+      "name": "initial_state",
+      "filePath": "lg-research-agent/app/state.py",
+      "lineRange": [
+        15,
+        23
+      ],
+      "summary": "Implements the initial_state routine in state.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lg-research-agent/app/state.py:ResearchState",
+      "type": "class",
+      "name": "ResearchState",
+      "filePath": "lg-research-agent/app/state.py",
+      "lineRange": [
+        6,
+        12
+      ],
+      "summary": "Defines the ResearchState class used by state.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/tests/test_main.py",
+      "type": "file",
+      "name": "test_main.py",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "summary": "Implements test_main.py functionality within the project.",
+      "tags": [
+        "test",
+        "python",
+        "verification"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/tests/test_main.py:test_run_executes_graph",
+      "type": "function",
+      "name": "test_run_executes_graph",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "lineRange": [
+        20,
+        37
+      ],
+      "summary": "Implements the test_run_executes_graph routine in test_main.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/tests/test_main.py:test_run_requires_query",
+      "type": "function",
+      "name": "test_run_requires_query",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "lineRange": [
+        40,
+        43
+      ],
+      "summary": "Implements the test_run_requires_query routine in test_main.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/tests/test_main.py:test_run_returns_completed_status",
+      "type": "function",
+      "name": "test_run_returns_completed_status",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "lineRange": [
+        46,
+        60
+      ],
+      "summary": "Implements the test_run_returns_completed_status routine in test_main.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "shared/config.py",
+      "summary": "Implements config.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/config.py:set_byok_api_key",
+      "type": "function",
+      "name": "set_byok_api_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "Implements the set_byok_api_key routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:reset_byok_api_key",
+      "type": "function",
+      "name": "reset_byok_api_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        25,
+        27
+      ],
+      "summary": "Implements the reset_byok_api_key routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:set_request_model",
+      "type": "function",
+      "name": "set_request_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        30,
+        32
+      ],
+      "summary": "Implements the set_request_model routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:reset_request_model",
+      "type": "function",
+      "name": "reset_request_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        35,
+        37
+      ],
+      "summary": "Implements the reset_request_model routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_request_model",
+      "type": "function",
+      "name": "get_request_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        40,
+        42
+      ],
+      "summary": "Implements the get_request_model routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:set_request_provider",
+      "type": "function",
+      "name": "set_request_provider",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        45,
+        47
+      ],
+      "summary": "Implements the set_request_provider routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:reset_request_provider",
+      "type": "function",
+      "name": "reset_request_provider",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "Implements the reset_request_provider routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_request_provider",
+      "type": "function",
+      "name": "get_request_provider",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        55,
+        57
+      ],
+      "summary": "Implements the get_request_provider routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_effective_api_key",
+      "type": "function",
+      "name": "get_effective_api_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        60,
+        73
+      ],
+      "summary": "Implements the get_effective_api_key routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_effective_model",
+      "type": "function",
+      "name": "get_effective_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        76,
+        81
+      ],
+      "summary": "Implements the get_effective_model routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:_normalize_project_name",
+      "type": "function",
+      "name": "_normalize_project_name",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        144,
+        148
+      ],
+      "summary": "Implements the _normalize_project_name routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:_project_env_key",
+      "type": "function",
+      "name": "_project_env_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        151,
+        159
+      ],
+      "summary": "Implements the _project_env_key routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:_read_project_model_override",
+      "type": "function",
+      "name": "_read_project_model_override",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        162,
+        172
+      ],
+      "summary": "Implements the _read_project_model_override routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_settings",
+      "type": "function",
+      "name": "get_settings",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        176,
+        185
+      ],
+      "summary": "Implements the get_settings routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_environment",
+      "type": "function",
+      "name": "get_environment",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        188,
+        189
+      ],
+      "summary": "Implements the get_environment routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_model",
+      "type": "function",
+      "name": "get_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        192,
+        209
+      ],
+      "summary": "Implements the get_model routine in config.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/config.py:Settings",
+      "type": "class",
+      "name": "Settings",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        94,
+        141
+      ],
+      "summary": "Defines the Settings class used by config.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/llm/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/llm/__init__.py",
+      "summary": "Implements __init__.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/llm/catalog.py",
+      "type": "file",
+      "name": "catalog.py",
+      "filePath": "shared/llm/catalog.py",
+      "summary": "Implements catalog.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:default_model",
+      "type": "function",
+      "name": "default_model",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        78,
+        79
+      ],
+      "summary": "Implements the default_model routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:ollama_base_url",
+      "type": "function",
+      "name": "ollama_base_url",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        82,
+        84
+      ],
+      "summary": "Implements the ollama_base_url routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:_validated_ollama_tags_url",
+      "type": "function",
+      "name": "_validated_ollama_tags_url",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        87,
+        94
+      ],
+      "summary": "Implements the _validated_ollama_tags_url routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:openai_embedding_model",
+      "type": "function",
+      "name": "openai_embedding_model",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        97,
+        98
+      ],
+      "summary": "Implements the openai_embedding_model routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:gemini_embedding_model",
+      "type": "function",
+      "name": "gemini_embedding_model",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        101,
+        102
+      ],
+      "summary": "Implements the gemini_embedding_model routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:ollama_embedding_model",
+      "type": "function",
+      "name": "ollama_embedding_model",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        105,
+        111
+      ],
+      "summary": "Implements the ollama_embedding_model routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:infer_provider",
+      "type": "function",
+      "name": "infer_provider",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        114,
+        128
+      ],
+      "summary": "Implements the infer_provider routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:get_model_spec",
+      "type": "function",
+      "name": "get_model_spec",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        131,
+        141
+      ],
+      "summary": "Implements the get_model_spec routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:estimate_model_cost",
+      "type": "function",
+      "name": "estimate_model_cost",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        144,
+        152
+      ],
+      "summary": "Implements the estimate_model_cost routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:provider_requires_api_key",
+      "type": "function",
+      "name": "provider_requires_api_key",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        155,
+        156
+      ],
+      "summary": "Implements the provider_requires_api_key routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:_fetch_ollama_tags",
+      "type": "function",
+      "name": "_fetch_ollama_tags",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        159,
+        167
+      ],
+      "summary": "Implements the _fetch_ollama_tags routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:list_ollama_models",
+      "type": "function",
+      "name": "list_ollama_models",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        170,
+        203
+      ],
+      "summary": "Implements the list_ollama_models routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/catalog.py:build_provider_catalog",
+      "type": "function",
+      "name": "build_provider_catalog",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        206,
+        235
+      ],
+      "summary": "Implements the build_provider_catalog routine in catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/catalog.py:ModelSpec",
+      "type": "class",
+      "name": "ModelSpec",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        13,
+        17
+      ],
+      "summary": "Defines the ModelSpec class used by catalog.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/catalog.py:ProviderSpec",
+      "type": "class",
+      "name": "ProviderSpec",
+      "filePath": "shared/llm/catalog.py",
+      "lineRange": [
+        20,
+        29
+      ],
+      "summary": "Defines the ProviderSpec class used by catalog.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/llm/dispatch.py",
+      "type": "file",
+      "name": "dispatch.py",
+      "filePath": "shared/llm/dispatch.py",
+      "summary": "Implements dispatch.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:_resolved_model",
+      "type": "function",
+      "name": "_resolved_model",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        51,
+        53
+      ],
+      "summary": "Implements the _resolved_model routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:_resolved_provider",
+      "type": "function",
+      "name": "_resolved_provider",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        56,
+        60
+      ],
+      "summary": "Implements the _resolved_provider routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:_extract_temperature",
+      "type": "function",
+      "name": "_extract_temperature",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        63,
+        69
+      ],
+      "summary": "Implements the _extract_temperature routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:_extract_schema",
+      "type": "function",
+      "name": "_extract_schema",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        72,
+        81
+      ],
+      "summary": "Implements the _extract_schema routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:_normalize_contents",
+      "type": "function",
+      "name": "_normalize_contents",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        84,
+        117
+      ],
+      "summary": "Implements the _normalize_contents routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:_consume_trace_details",
+      "type": "function",
+      "name": "_consume_trace_details",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        120,
+        134
+      ],
+      "summary": "Implements the _consume_trace_details routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:_record_run_usage",
+      "type": "function",
+      "name": "_record_run_usage",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        137,
+        151
+      ],
+      "summary": "Implements the _record_run_usage routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:generate_text",
+      "type": "function",
+      "name": "generate_text",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        154,
+        180
+      ],
+      "summary": "Implements the generate_text routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:generate_text_streaming",
+      "type": "function",
+      "name": "generate_text_streaming",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        183,
+        205
+      ],
+      "summary": "Implements the generate_text_streaming routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:generate_structured",
+      "type": "function",
+      "name": "generate_structured",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        208,
+        234
+      ],
+      "summary": "Implements the generate_structured routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:generate_text_from_image",
+      "type": "function",
+      "name": "generate_text_from_image",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        237,
+        263
+      ],
+      "summary": "Implements the generate_text_from_image routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:generate_embeddings",
+      "type": "function",
+      "name": "generate_embeddings",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        266,
+        282
+      ],
+      "summary": "Implements the generate_embeddings routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/dispatch.py:get_client_adapter",
+      "type": "function",
+      "name": "get_client_adapter",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        329,
+        333
+      ],
+      "summary": "Implements the get_client_adapter routine in dispatch.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/dispatch.py:CompatEmbedding",
+      "type": "class",
+      "name": "CompatEmbedding",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        36,
+        37
+      ],
+      "summary": "Defines the CompatEmbedding class used by dispatch.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/dispatch.py:CompatEmbedContentResponse",
+      "type": "class",
+      "name": "CompatEmbedContentResponse",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        41,
+        42
+      ],
+      "summary": "Defines the CompatEmbedContentResponse class used by dispatch.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/dispatch.py:CompatGenerateContentResponse",
+      "type": "class",
+      "name": "CompatGenerateContentResponse",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        46,
+        48
+      ],
+      "summary": "Defines the CompatGenerateContentResponse class used by dispatch.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/dispatch.py:_CompatModels",
+      "type": "class",
+      "name": "_CompatModels",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        285,
+        321
+      ],
+      "summary": "Defines the _CompatModels class used by dispatch.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/dispatch.py:CompatClient",
+      "type": "class",
+      "name": "CompatClient",
+      "filePath": "shared/llm/dispatch.py",
+      "lineRange": [
+        324,
+        326
+      ],
+      "summary": "Defines the CompatClient class used by dispatch.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/llm/exceptions.py",
+      "type": "file",
+      "name": "exceptions.py",
+      "filePath": "shared/llm/exceptions.py",
+      "summary": "Implements exceptions.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/exceptions.py:LLMGenerationError",
+      "type": "class",
+      "name": "LLMGenerationError",
+      "filePath": "shared/llm/exceptions.py",
+      "lineRange": [
+        4,
+        5
+      ],
+      "summary": "Defines the LLMGenerationError class used by exceptions.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/llm/exceptions.py:LLMTimeoutError",
+      "type": "class",
+      "name": "LLMTimeoutError",
+      "filePath": "shared/llm/exceptions.py",
+      "lineRange": [
+        8,
+        9
+      ],
+      "summary": "Defines the LLMTimeoutError class used by exceptions.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "function:lg-research-agent/app/nodes/writer.py:writer_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "function:lg-research-agent/app/nodes/writer.py:writer_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "function:lg-research-agent/app/state.py:initial_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "function:lg-research-agent/app/state.py:initial_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "class:lg-research-agent/app/state.py:ResearchState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "class:lg-research-agent/app/state.py:ResearchState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_executes_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_executes_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_requires_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_requires_query",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_returns_completed_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_returns_completed_status",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_byok_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_byok_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_byok_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_byok_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_normalize_project_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_normalize_project_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_project_env_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_project_env_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_read_project_model_override",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_read_project_model_override",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_settings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_environment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_environment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "class:shared/config.py:Settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "class:shared/config.py:Settings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:default_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:default_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:ollama_base_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:ollama_base_url",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:_validated_ollama_tags_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:_validated_ollama_tags_url",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:openai_embedding_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:openai_embedding_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:gemini_embedding_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:gemini_embedding_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:ollama_embedding_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:ollama_embedding_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:infer_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:infer_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:get_model_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:get_model_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:estimate_model_cost",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:estimate_model_cost",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:provider_requires_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:provider_requires_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:_fetch_ollama_tags",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:_fetch_ollama_tags",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:list_ollama_models",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:list_ollama_models",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:build_provider_catalog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "function:shared/llm/catalog.py:build_provider_catalog",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "class:shared/llm/catalog.py:ModelSpec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "class:shared/llm/catalog.py:ModelSpec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "class:shared/llm/catalog.py:ProviderSpec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/catalog.py",
+      "target": "class:shared/llm/catalog.py:ProviderSpec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_resolved_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_resolved_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_resolved_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_resolved_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_extract_temperature",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_extract_temperature",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_extract_schema",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_extract_schema",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_normalize_contents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_normalize_contents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_consume_trace_details",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_consume_trace_details",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_record_run_usage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:_record_run_usage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_text_streaming",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_text_streaming",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_structured",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_structured",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_text_from_image",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_text_from_image",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_embeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:generate_embeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:get_client_adapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "function:shared/llm/dispatch.py:get_client_adapter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatEmbedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatEmbedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatEmbedContentResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatEmbedContentResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatGenerateContentResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatGenerateContentResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:_CompatModels",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:_CompatModels",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "class:shared/llm/dispatch.py:CompatClient",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/exceptions.py",
+      "target": "class:shared/llm/exceptions.py:LLMGenerationError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/exceptions.py",
+      "target": "class:shared/llm/exceptions.py:LLMGenerationError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/exceptions.py",
+      "target": "class:shared/llm/exceptions.py:LLMTimeoutError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/llm/exceptions.py",
+      "target": "class:shared/llm/exceptions.py:LLMTimeoutError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/critic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/researcher.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/writer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/__init__.py",
+      "target": "file:shared/llm/dispatch.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/__init__.py",
+      "target": "file:shared/llm/exceptions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/llm/catalog.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/llm/exceptions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/llm/gemini_provider.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/llm/providers.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/llm/telemetry.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/llm/token_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/dispatch.py",
+      "target": "file:shared/observability/langfuse.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

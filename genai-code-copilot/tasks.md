@@ -79,8 +79,8 @@
 
 - Add a QA agent interface in `app/qa_agent.py`.
 - Define the QA prompt format using the developer question and constructed context.
-- Route complex reasoning requests to `gemini-3.1-pro-preview`.
-- Add an optional fast path for simple responses with `gemini-3-flash-preview`.
+- Route complex reasoning requests to `gemini-3.7-flash`.
+- Add an optional fast path for simple responses with `gemini-3.5-flash-lite`.
 - Require the answer formatter to include file paths and function names when relevant.
 - Add a fallback response when retrieval returns insufficient evidence.
 - Add tests for prompt construction and response formatting.

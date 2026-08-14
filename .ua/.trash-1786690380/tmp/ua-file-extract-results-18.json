@@ -1,0 +1,457 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "crew-product-launch/app/agents.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "build_market_researcher",
+          "startLine": 9,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "build_customer_analyst",
+          "startLine": 29,
+          "endLine": 45,
+          "params": []
+        },
+        {
+          "name": "build_product_strategist",
+          "startLine": 48,
+          "endLine": 65,
+          "params": []
+        },
+        {
+          "name": "build_marketing_strategist",
+          "startLine": 68,
+          "endLine": 88,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_market_researcher",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "build_customer_analyst",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "build_product_strategist",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "build_marketing_strategist",
+          "line": 68,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_market_researcher",
+          "callee": "Agent",
+          "lineNumber": 10
+        },
+        {
+          "caller": "build_customer_analyst",
+          "callee": "Agent",
+          "lineNumber": 30
+        },
+        {
+          "caller": "build_product_strategist",
+          "callee": "Agent",
+          "lineNumber": 49
+        },
+        {
+          "caller": "build_marketing_strategist",
+          "callee": "Agent",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-product-launch/app/crew.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 48,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "build_crew",
+          "startLine": 19,
+          "endLine": 39,
+          "params": [
+            "product",
+            "verbose"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 42,
+          "endLine": 48,
+          "params": [
+            "product",
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_crew",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_crew",
+          "callee": "build_market_researcher",
+          "lineNumber": 20
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_customer_analyst",
+          "lineNumber": 21
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_product_strategist",
+          "lineNumber": 22
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_marketing_strategist",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_market_task",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_customer_task",
+          "lineNumber": 26
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_positioning_task",
+          "lineNumber": 27
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_gtm_task",
+          "lineNumber": 30
+        },
+        {
+          "caller": "build_crew",
+          "callee": "Crew",
+          "lineNumber": 34
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 43
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 45
+        },
+        {
+          "caller": "run",
+          "callee": "RuntimeError",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "str",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-product-launch/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 32,
+      "functions": [
+        {
+          "name": "_parse_json",
+          "startLine": 11,
+          "endLine": 20,
+          "params": [
+            "raw"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 23,
+          "endLine": 39,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_parse_json",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_parse_json",
+          "callee": "raw.strip",
+          "lineNumber": 12
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.startswith",
+          "lineNumber": 13
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.splitlines",
+          "lineNumber": 14
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip().startswith",
+          "lineNumber": 15
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip",
+          "lineNumber": 15
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join(lines).strip",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "json.loads",
+          "lineNumber": 18
+        },
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 27
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run",
+          "callee": "hasattr",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "enumerate",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "_parse_json",
+          "lineNumber": 33
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-product-launch/app/tasks.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 222,
+      "nonEmptyLines": 207,
+      "functions": [
+        {
+          "name": "build_market_task",
+          "startLine": 123,
+          "endLine": 144,
+          "params": [
+            "agent",
+            "product"
+          ]
+        },
+        {
+          "name": "build_customer_task",
+          "startLine": 147,
+          "endLine": 163,
+          "params": [
+            "agent",
+            "market_task"
+          ]
+        },
+        {
+          "name": "build_positioning_task",
+          "startLine": 166,
+          "endLine": 185,
+          "params": [
+            "agent",
+            "market_task",
+            "customer_task"
+          ]
+        },
+        {
+          "name": "build_gtm_task",
+          "startLine": 188,
+          "endLine": 222,
+          "params": [
+            "agent",
+            "market_task",
+            "customer_task",
+            "positioning_task"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_market_task",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "build_customer_task",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "build_positioning_task",
+          "line": 166,
+          "isDefault": false
+        },
+        {
+          "name": "build_gtm_task",
+          "line": 188,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_market_task",
+          "callee": "Task",
+          "lineNumber": 124
+        },
+        {
+          "caller": "build_market_task",
+          "callee": "json.dumps",
+          "lineNumber": 139
+        },
+        {
+          "caller": "build_customer_task",
+          "callee": "Task",
+          "lineNumber": 148
+        },
+        {
+          "caller": "build_customer_task",
+          "callee": "json.dumps",
+          "lineNumber": 157
+        },
+        {
+          "caller": "build_positioning_task",
+          "callee": "Task",
+          "lineNumber": 169
+        },
+        {
+          "caller": "build_positioning_task",
+          "callee": "json.dumps",
+          "lineNumber": 179
+        },
+        {
+          "caller": "build_gtm_task",
+          "callee": "Task",
+          "lineNumber": 194
+        },
+        {
+          "caller": "build_gtm_task",
+          "callee": "json.dumps",
+          "lineNumber": 216
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    }
+  ]
+}

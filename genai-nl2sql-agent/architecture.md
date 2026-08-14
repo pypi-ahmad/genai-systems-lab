@@ -10,8 +10,8 @@ The system accepts a natural language question, converts it into safe read-only 
 
 Provides a single integration layer for model calls, prompt templates, request metadata, retries, and response logging. It routes tasks to the appropriate model:
 
-- `gemini-3.1-pro-preview` for reasoning-heavy SQL generation
-- `gemini-3-flash-preview` for result summarization
+- `gemini-3.7-flash` for reasoning-heavy SQL generation
+- `gemini-3.5-flash-lite` for result summarization
 
 ### Schema Loader
 
@@ -25,10 +25,10 @@ Transforms the user’s natural language request into SQL using the loaded schem
 
 Checks generated SQL before execution. Validation should enforce:
 
-- Only `SELECT`-style read queries are allowed
-- No `DROP`, `DELETE`, `UPDATE`, `INSERT`, `ALTER`, `TRUNCATE`, or multi-statement SQL
-- Referenced tables and columns must exist in the loaded schema
-- Query shape is compatible with DuckDB
+- Exactly one DuckDB-parsed `SELECT` is allowed.
+- Base tables are limited to `customers` and `orders`; table functions, CTEs, nested queries, external catalogs, and unknown functions are rejected.
+- Expression and aggregate functions use an explicit allowlist, and DuckDB binds referenced columns against the live schema.
+- The executor repeats validation, caps returned rows, and uses a connection with external access and extension loading disabled.
 
 ### Query Executor
 
@@ -36,7 +36,7 @@ Executes validated SQL against DuckDB and returns structured results, execution 
 
 ### Result Summarizer
 
-Takes the user’s original question and the query result set, then produces a concise natural language answer using `gemini-3-flash-preview`. The summary should be grounded only in returned data and should not invent unsupported conclusions.
+Takes the user’s original question and the query result set, then produces a concise natural language answer using `gemini-3.5-flash-lite`. The summary should be grounded only in returned data and should not invent unsupported conclusions.
 
 ## End-to-End Flow
 
@@ -44,17 +44,17 @@ Takes the user’s original question and the query result set, then produces a c
 
 1. The user submits a natural language query.
 2. The schema loader provides the current database schema context.
-3. The SQL generator uses `gemini-3.1-pro-preview` to produce DuckDB SQL.
+3. The SQL generator uses `gemini-3.7-flash` to produce DuckDB SQL.
 4. The SQL validator checks syntax class, schema usage, and safety rules.
 5. If valid, the query executor runs the SQL on DuckDB.
-6. The result summarizer uses `gemini-3-flash-preview` to convert result rows into a user-facing summary.
+6. The result summarizer uses `gemini-3.5-flash-lite` to convert result rows into a user-facing summary.
 7. The system returns both structured results and the summary.
 
 ## Safety and Reliability
 
 ### Read-Only Enforcement
 
-The validator must block destructive or mutating statements, including `DROP`, `DELETE`, and `UPDATE`. The system should default to deny unless the SQL clearly matches the allowed read-only pattern.
+The validator uses DuckDB's serialized AST rather than SQL text patterns. Unknown statement, table, expression, and function shapes fail closed. The executor revalidates so direct callers cannot bypass the orchestration-layer check.
 
 ### Retry Mechanism
 

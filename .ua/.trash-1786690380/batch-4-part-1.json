@@ -1,0 +1,1281 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-research-system/app/nodes/editor.py",
+      "type": "file",
+      "name": "editor.py",
+      "filePath": "genai-research-system/app/nodes/editor.py",
+      "summary": "Implements the editor workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/editor.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/nodes/editor.py",
+      "lineRange": [
+        31,
+        54
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/editor.py:editor_node",
+      "type": "function",
+      "name": "editor_node",
+      "filePath": "genai-research-system/app/nodes/editor.py",
+      "lineRange": [
+        57,
+        87
+      ],
+      "summary": "Implements the editor_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/nodes/formatter.py",
+      "type": "file",
+      "name": "formatter.py",
+      "filePath": "genai-research-system/app/nodes/formatter.py",
+      "summary": "Implements the formatter workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/formatter.py:_blog_prompt",
+      "type": "function",
+      "name": "_blog_prompt",
+      "filePath": "genai-research-system/app/nodes/formatter.py",
+      "lineRange": [
+        9,
+        22
+      ],
+      "summary": "Implements the _blog_prompt operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/formatter.py:_linkedin_prompt",
+      "type": "function",
+      "name": "_linkedin_prompt",
+      "filePath": "genai-research-system/app/nodes/formatter.py",
+      "lineRange": [
+        25,
+        39
+      ],
+      "summary": "Implements the _linkedin_prompt operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/formatter.py:_twitter_prompt",
+      "type": "function",
+      "name": "_twitter_prompt",
+      "filePath": "genai-research-system/app/nodes/formatter.py",
+      "lineRange": [
+        42,
+        56
+      ],
+      "summary": "Implements the _twitter_prompt operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/formatter.py:formatter_node",
+      "type": "function",
+      "name": "formatter_node",
+      "filePath": "genai-research-system/app/nodes/formatter.py",
+      "lineRange": [
+        66,
+        104
+      ],
+      "summary": "Implements the formatter_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/nodes/originality_checker.py",
+      "type": "file",
+      "name": "originality_checker.py",
+      "filePath": "genai-research-system/app/nodes/originality_checker.py",
+      "summary": "Implements the originality_checker workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/originality_checker.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/nodes/originality_checker.py",
+      "lineRange": [
+        36,
+        52
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/originality_checker.py:originality_checker_node",
+      "type": "function",
+      "name": "originality_checker_node",
+      "filePath": "genai-research-system/app/nodes/originality_checker.py",
+      "lineRange": [
+        55,
+        103
+      ],
+      "summary": "Implements the originality_checker_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/nodes/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "genai-research-system/app/nodes/planner.py",
+      "summary": "Implements the planner workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/planner.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/nodes/planner.py",
+      "lineRange": [
+        35,
+        49
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/planner.py:planner_node",
+      "type": "function",
+      "name": "planner_node",
+      "filePath": "genai-research-system/app/nodes/planner.py",
+      "lineRange": [
+        52,
+        98
+      ],
+      "summary": "Implements the planner_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/nodes/researcher.py",
+      "type": "file",
+      "name": "researcher.py",
+      "filePath": "genai-research-system/app/nodes/researcher.py",
+      "summary": "Implements the researcher workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/researcher.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/nodes/researcher.py",
+      "lineRange": [
+        33,
+        68
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/researcher.py:researcher_node",
+      "type": "function",
+      "name": "researcher_node",
+      "filePath": "genai-research-system/app/nodes/researcher.py",
+      "lineRange": [
+        71,
+        88
+      ],
+      "summary": "Implements the researcher_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/researcher.py:_research_single",
+      "type": "function",
+      "name": "_research_single",
+      "filePath": "genai-research-system/app/nodes/researcher.py",
+      "lineRange": [
+        98,
+        106
+      ],
+      "summary": "Implements the _research_single operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/researcher.py:parallel_researcher_node",
+      "type": "function",
+      "name": "parallel_researcher_node",
+      "filePath": "genai-research-system/app/nodes/researcher.py",
+      "lineRange": [
+        109,
+        141
+      ],
+      "summary": "Implements the parallel_researcher_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/nodes/writer.py",
+      "type": "file",
+      "name": "writer.py",
+      "filePath": "genai-research-system/app/nodes/writer.py",
+      "summary": "Implements the writer workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/writer.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/nodes/writer.py",
+      "lineRange": [
+        16,
+        63
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/writer.py:writer_node",
+      "type": "function",
+      "name": "writer_node",
+      "filePath": "genai-research-system/app/nodes/writer.py",
+      "lineRange": [
+        66,
+        108
+      ],
+      "summary": "Implements the writer_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/writer.py:_scenario_prompt",
+      "type": "function",
+      "name": "_scenario_prompt",
+      "filePath": "genai-research-system/app/nodes/writer.py",
+      "lineRange": [
+        111,
+        129
+      ],
+      "summary": "Implements the _scenario_prompt operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/orchestrator.py",
+      "type": "file",
+      "name": "orchestrator.py",
+      "filePath": "genai-research-system/app/orchestrator.py",
+      "summary": "Implements orchestrator.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/orchestrator.py:run_research",
+      "type": "function",
+      "name": "run_research",
+      "filePath": "genai-research-system/app/orchestrator.py",
+      "lineRange": [
+        21,
+        22
+      ],
+      "summary": "Implements the run_research operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/orchestrator.py:run_research_async",
+      "type": "function",
+      "name": "run_research_async",
+      "filePath": "genai-research-system/app/orchestrator.py",
+      "lineRange": [
+        25,
+        50
+      ],
+      "summary": "Implements the run_research_async operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/orchestrator.py:_process_task",
+      "type": "function",
+      "name": "_process_task",
+      "filePath": "genai-research-system/app/orchestrator.py",
+      "lineRange": [
+        60,
+        79
+      ],
+      "summary": "Implements the _process_task operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/orchestrator.py:_build_context",
+      "type": "function",
+      "name": "_build_context",
+      "filePath": "genai-research-system/app/orchestrator.py",
+      "lineRange": [
+        82,
+        96
+      ],
+      "summary": "Builds the _build_context structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/orchestrator.py:_needs_improvement",
+      "type": "function",
+      "name": "_needs_improvement",
+      "filePath": "genai-research-system/app/orchestrator.py",
+      "lineRange": [
+        99,
+        114
+      ],
+      "summary": "Implements the _needs_improvement operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-research-system/app/orchestrator.py:TaskResult",
+      "type": "class",
+      "name": "TaskResult",
+      "filePath": "genai-research-system/app/orchestrator.py",
+      "lineRange": [
+        54,
+        57
+      ],
+      "summary": "Represents the TaskResult abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "genai-research-system/app/planner.py",
+      "summary": "Implements planner.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/planner.py:create_plan",
+      "type": "function",
+      "name": "create_plan",
+      "filePath": "genai-research-system/app/planner.py",
+      "lineRange": [
+        15,
+        29
+      ],
+      "summary": "Builds the _plan structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/planner.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/planner.py",
+      "lineRange": [
+        32,
+        44
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/planner.py:_parse_tasks",
+      "type": "function",
+      "name": "_parse_tasks",
+      "filePath": "genai-research-system/app/planner.py",
+      "lineRange": [
+        47,
+        63
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/researcher.py",
+      "type": "file",
+      "name": "researcher.py",
+      "filePath": "genai-research-system/app/researcher.py",
+      "summary": "Implements researcher.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/researcher.py:research_task",
+      "type": "function",
+      "name": "research_task",
+      "filePath": "genai-research-system/app/researcher.py",
+      "lineRange": [
+        13,
+        35
+      ],
+      "summary": "Implements the research_task operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/researcher.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/researcher.py",
+      "lineRange": [
+        38,
+        57
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "genai-research-system/app/state.py",
+      "summary": "Defines shared workflow state and typed data exchanged between nodes.",
+      "tags": [
+        "state-management",
+        "type-definition",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/state.py:initial_state",
+      "type": "function",
+      "name": "initial_state",
+      "filePath": "genai-research-system/app/state.py",
+      "lineRange": [
+        57,
+        94
+      ],
+      "summary": "Implements the initial_state operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-research-system/app/state.py:ResearchState",
+      "type": "class",
+      "name": "ResearchState",
+      "filePath": "genai-research-system/app/state.py",
+      "lineRange": [
+        26,
+        54
+      ],
+      "summary": "Represents the ResearchState abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/writer.py",
+      "type": "file",
+      "name": "writer.py",
+      "filePath": "genai-research-system/app/writer.py",
+      "summary": "Implements writer.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/writer.py:write_report",
+      "type": "function",
+      "name": "write_report",
+      "filePath": "genai-research-system/app/writer.py",
+      "lineRange": [
+        15,
+        39
+      ],
+      "summary": "Implements the write_report operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/writer.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/writer.py",
+      "lineRange": [
+        42,
+        67
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-research-system/app/nodes/editor.py",
+      "target": "function:genai-research-system/app/nodes/editor.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/editor.py",
+      "target": "function:genai-research-system/app/nodes/editor.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/editor.py",
+      "target": "function:genai-research-system/app/nodes/editor.py:editor_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/editor.py",
+      "target": "function:genai-research-system/app/nodes/editor.py:editor_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/editor.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/editor.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:_blog_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:_blog_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:_linkedin_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:_linkedin_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:_twitter_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:_twitter_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:formatter_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "function:genai-research-system/app/nodes/formatter.py:formatter_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/formatter.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/originality_checker.py",
+      "target": "function:genai-research-system/app/nodes/originality_checker.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/originality_checker.py",
+      "target": "function:genai-research-system/app/nodes/originality_checker.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/originality_checker.py",
+      "target": "function:genai-research-system/app/nodes/originality_checker.py:originality_checker_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/originality_checker.py",
+      "target": "function:genai-research-system/app/nodes/originality_checker.py:originality_checker_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/originality_checker.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/originality_checker.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/planner.py",
+      "target": "function:genai-research-system/app/nodes/planner.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/planner.py",
+      "target": "function:genai-research-system/app/nodes/planner.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/planner.py",
+      "target": "function:genai-research-system/app/nodes/planner.py:planner_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/planner.py",
+      "target": "function:genai-research-system/app/nodes/planner.py:planner_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/planner.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/planner.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:researcher_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:researcher_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:_research_single",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:_research_single",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:parallel_researcher_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "function:genai-research-system/app/nodes/researcher.py:parallel_researcher_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/researcher.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "function:genai-research-system/app/nodes/writer.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "function:genai-research-system/app/nodes/writer.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "function:genai-research-system/app/nodes/writer.py:writer_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "function:genai-research-system/app/nodes/writer.py:writer_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "function:genai-research-system/app/nodes/writer.py:_scenario_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "function:genai-research-system/app/nodes/writer.py:_scenario_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/writer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:run_research",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:run_research",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:run_research_async",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:run_research_async",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:_process_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:_process_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:_build_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:_build_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:_needs_improvement",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "function:genai-research-system/app/orchestrator.py:_needs_improvement",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "class:genai-research-system/app/orchestrator.py:TaskResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "class:genai-research-system/app/orchestrator.py:TaskResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "file:genai-research-system/app/critic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "file:genai-research-system/app/memory.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "file:genai-research-system/app/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "file:genai-research-system/app/researcher.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/orchestrator.py",
+      "target": "file:genai-research-system/app/writer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/planner.py",
+      "target": "function:genai-research-system/app/planner.py:create_plan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/planner.py",
+      "target": "function:genai-research-system/app/planner.py:create_plan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/planner.py",
+      "target": "function:genai-research-system/app/planner.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/planner.py",
+      "target": "function:genai-research-system/app/planner.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/planner.py",
+      "target": "function:genai-research-system/app/planner.py:_parse_tasks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/planner.py",
+      "target": "function:genai-research-system/app/planner.py:_parse_tasks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/planner.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/researcher.py",
+      "target": "function:genai-research-system/app/researcher.py:research_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/researcher.py",
+      "target": "function:genai-research-system/app/researcher.py:research_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/researcher.py",
+      "target": "function:genai-research-system/app/researcher.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/researcher.py",
+      "target": "function:genai-research-system/app/researcher.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/researcher.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/state.py",
+      "target": "function:genai-research-system/app/state.py:initial_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/state.py",
+      "target": "function:genai-research-system/app/state.py:initial_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/state.py",
+      "target": "class:genai-research-system/app/state.py:ResearchState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/state.py",
+      "target": "class:genai-research-system/app/state.py:ResearchState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/writer.py",
+      "target": "function:genai-research-system/app/writer.py:write_report",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/writer.py",
+      "target": "function:genai-research-system/app/writer.py:write_report",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/writer.py",
+      "target": "function:genai-research-system/app/writer.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/writer.py",
+      "target": "function:genai-research-system/app/writer.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/writer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,236 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "lg-workflow-agent/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Workflow Agent",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "lg-workflow-agent/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 211,
+      "nonEmptyLines": 159,
+      "sections": [
+        {
+          "heading": "Workflow Automation Agent — Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Graph State",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "State design rules",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Nodes",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "planner",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "executor",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "validator",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "checkpoint",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "finalizer",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "Graph Transitions",
+          "level": 2,
+          "line": 94
+        },
+        {
+          "heading": "Edge map",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "Conditional edge after checkpoint",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "Why this topology works",
+          "level": 3,
+          "line": 129
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 137
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "Graph Construction",
+          "level": 2,
+          "line": 152
+        },
+        {
+          "heading": "File Structure",
+          "level": 2,
+          "line": 189
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 18
+      }
+    },
+    {
+      "path": "lg-workflow-agent/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 84,
+      "nonEmptyLines": 62,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define State Schema",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Implement Planner Node",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "3 — Implement Executor Node",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "4 — Implement Validator Node",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "5 — Implement Checkpoint Node",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "6 — Implement Finalizer Node",
+          "level": 2,
+          "line": 59
+        },
+        {
+          "heading": "7 — Build Graph Transitions",
+          "level": 2,
+          "line": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

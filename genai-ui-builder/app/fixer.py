@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from shared.llm.gemini import generate_text
 
-MODEL = "gemini-3-flash-preview"
+MODEL = "gemini-3.5-flash-lite"
 
 PROMPT_TEMPLATE = """\
 You are a React code fixer. The following React component code has an error.

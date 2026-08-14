@@ -1,0 +1,126 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "benchmarks/promptfoo/tests/code_tests.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 50,
+      "nonEmptyLines": 47,
+      "sections": [
+        {
+          "heading": "[0]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[1]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[2]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[3]",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "benchmarks/promptfoo/tests/research_tests.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 60,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "[0]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[1]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[2]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[3]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[4]",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "benchmarks/promptfoo/tests/summarization_tests.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 62,
+      "nonEmptyLines": 60,
+      "sections": [
+        {
+          "heading": "[0]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[1]",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[2]",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

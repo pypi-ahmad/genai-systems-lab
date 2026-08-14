@@ -100,7 +100,7 @@ The validated code is written to `output/` as the final deliverable. A summary o
 
 ## Model Usage
 
-### `gemini-3.1-pro-preview`
+### `gemini-3.7-flash`
 
 Use for spec generation—the most reasoning-intensive stage in the pipeline.
 
@@ -109,7 +109,7 @@ Recommended responsibilities:
 - Spec Generator: converting free-form prompts into structured JSON UI specs.
 - Complex spec-level fixes that require understanding component relationships.
 
-### `gemini-3-flash-preview`
+### `gemini-3.5-flash-lite`
 
 Use for faster, lower-cost operations where the task is well-constrained.
 

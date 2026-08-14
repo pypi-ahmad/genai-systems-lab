@@ -4,7 +4,7 @@ import os
 from shared.llm.gemini import generate_structured
 
 
-MODEL = "gemini-3.1-pro-preview"
+MODEL = "gemini-3.7-flash"
 
 EXTRACTION_SCHEMA = {
     "type": "object",

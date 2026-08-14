@@ -8,16 +8,15 @@ from typing import Any
 from google import genai
 from google.genai import errors, types
 
-from shared.config import get_effective_api_key
+from shared.config import get_effective_api_key, get_request_effort
 from shared.logging import get_logger
 
 from .exceptions import LLMGenerationError, LLMTimeoutError
 from .telemetry import record_llm_call_metadata
 
-
 SUPPORTED_MODELS = {
-    "gemini-3-flash-preview",
-    "gemini-3.1-pro-preview",
+    "gemini-3.7-flash",
+    "gemini-3.5-flash-lite",
 }
 MAX_RETRY_ATTEMPTS = 3
 BASE_BACKOFF_SECONDS = 1.0
@@ -46,9 +45,7 @@ def _record_usage_metadata(response: types.GenerateContentResponse) -> None:
 
     record_llm_call_metadata({"usage_details": usage_details} if usage_details else None)
 
-MODEL_FALLBACK: dict[str, str] = {
-    "gemini-3.1-pro-preview": "gemini-3-flash-preview",
-}
+MODEL_FALLBACK: dict[str, str] = {}
 
 LOGGER = get_logger("shared.llm.gemini")
 
@@ -76,14 +73,19 @@ def _validate_model(model: str) -> None:
         )
 
 
+def _thinking_config() -> types.ThinkingConfig | None:
+    effort = get_request_effort()
+    if not effort:
+        return None
+    return types.ThinkingConfig(thinking_level=types.ThinkingLevel(effort.upper()))
+
+
 def _should_retry(exc: Exception) -> bool:
     if isinstance(exc, errors.ServerError):
         return True
     if isinstance(exc, errors.ClientError):
         return exc.code == 429
-    if isinstance(exc, errors.APIError):
-        return True
-    return False
+    return isinstance(exc, errors.APIError)
 
 
 def _sleep_for_attempt(attempt: int) -> None:
@@ -175,12 +177,33 @@ def _request_content(
 
 
 def generate_text(prompt: str, model: str) -> str:
-    response = _request_content(prompt=prompt, model=model)
+    thinking_config = _thinking_config()
+    config = types.GenerateContentConfig(thinking_config=thinking_config) if thinking_config else None
+    response = _request_content(prompt=prompt, model=model, config=config)
     _record_usage_metadata(response)
     text = (response.text or "").strip()
     if not text:
         raise LLMGenerationError("Gemini returned an empty text response.")
     return text
+
+
+def stream_text(prompt: str, model: str, emit: Any) -> str:
+    """Stream native Gemini chunks and return their exact concatenation."""
+    _validate_model(model)
+    parts: list[str] = []
+    record_llm_call_metadata({"model_used": model})
+    thinking_config = _thinking_config()
+    config = types.GenerateContentConfig(thinking_config=thinking_config) if thinking_config else None
+    for chunk in _get_client().models.generate_content_stream(model=model, contents=prompt, config=config):
+        text = getattr(chunk, "text", None)
+        if isinstance(text, str) and text:
+            parts.append(text)
+            emit(text)
+        _record_usage_metadata(chunk)
+    result = "".join(parts).strip()
+    if not result:
+        raise LLMGenerationError("Gemini returned an empty streamed response.")
+    return result
 
 
 def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
@@ -190,6 +213,7 @@ def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict
         config=types.GenerateContentConfig(
             response_mime_type="application/json",
             response_schema=schema,
+            thinking_config=_thinking_config(),
         ),
     )
     _record_usage_metadata(response)
@@ -223,12 +247,18 @@ def _vision_request_single(
                 len(image),
             )
             start = time.monotonic()
+            thinking_config = _thinking_config()
             response = _get_client().models.generate_content(
                 model=model,
                 contents=[
                     types.Part.from_bytes(data=image, mime_type="image/png"),
                     prompt,
                 ],
+                config=(
+                    types.GenerateContentConfig(thinking_config=thinking_config)
+                    if thinking_config
+                    else None
+                ),
             )
             elapsed = time.monotonic() - start
             if elapsed > REQUEST_TIMEOUT_SECONDS:

@@ -1,0 +1,1993 @@
+{
+  "nodes": [
+    {
+      "id": "file:shared/api/auth.py",
+      "type": "file",
+      "name": "auth.py",
+      "filePath": "shared/api/auth.py",
+      "summary": "Implements auth.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/api/auth.py:_load_or_create_persistent_dev_secret",
+      "type": "function",
+      "name": "_load_or_create_persistent_dev_secret",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        26,
+        51
+      ],
+      "summary": "Builds the _load_or_create_persistent_dev_secret structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_load_jwt_ttl_seconds",
+      "type": "function",
+      "name": "_load_jwt_ttl_seconds",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        82,
+        88
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_load_jwt_secret",
+      "type": "function",
+      "name": "_load_jwt_secret",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        91,
+        112
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_allowed_jwt_algorithms",
+      "type": "function",
+      "name": "_allowed_jwt_algorithms",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        115,
+        121
+      ],
+      "summary": "Implements the _allowed_jwt_algorithms operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_b64url_encode",
+      "type": "function",
+      "name": "_b64url_encode",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        128,
+        129
+      ],
+      "summary": "Implements the _b64url_encode operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_b64url_decode",
+      "type": "function",
+      "name": "_b64url_decode",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        132,
+        134
+      ],
+      "summary": "Implements the _b64url_decode operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:hash_password",
+      "type": "function",
+      "name": "hash_password",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        137,
+        145
+      ],
+      "summary": "Implements the hash_password operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:verify_password",
+      "type": "function",
+      "name": "verify_password",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        148,
+        164
+      ],
+      "summary": "Implements the verify_password operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:create_access_token",
+      "type": "function",
+      "name": "create_access_token",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        167,
+        186
+      ],
+      "summary": "Builds the _access_token structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:decode_access_token",
+      "type": "function",
+      "name": "decode_access_token",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        189,
+        228
+      ],
+      "summary": "Implements the decode_access_token operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:authenticate_user",
+      "type": "function",
+      "name": "authenticate_user",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        231,
+        242
+      ],
+      "summary": "Implements the authenticate_user operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:create_user",
+      "type": "function",
+      "name": "create_user",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        245,
+        251
+      ],
+      "summary": "Builds the _user structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_serialize_memory_entries",
+      "type": "function",
+      "name": "_serialize_memory_entries",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        254,
+        273
+      ],
+      "summary": "Implements the _serialize_memory_entries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_deserialize_memory_entries",
+      "type": "function",
+      "name": "_deserialize_memory_entries",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        276,
+        312
+      ],
+      "summary": "Implements the _deserialize_memory_entries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_serialize_timeline_entries",
+      "type": "function",
+      "name": "_serialize_timeline_entries",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        315,
+        336
+      ],
+      "summary": "Implements the _serialize_timeline_entries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:_deserialize_timeline_entries",
+      "type": "function",
+      "name": "_deserialize_timeline_entries",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        339,
+        375
+      ],
+      "summary": "Implements the _deserialize_timeline_entries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:save_run",
+      "type": "function",
+      "name": "save_run",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        378,
+        418
+      ],
+      "summary": "Implements the save_run operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:serialize_run",
+      "type": "function",
+      "name": "serialize_run",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        421,
+        444
+      ],
+      "summary": "Implements the serialize_run operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:get_bearer_token",
+      "type": "function",
+      "name": "get_bearer_token",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        447,
+        469
+      ],
+      "summary": "Implements the get_bearer_token operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:get_optional_bearer_token",
+      "type": "function",
+      "name": "get_optional_bearer_token",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        472,
+        484
+      ],
+      "summary": "Implements the get_optional_bearer_token operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:get_current_user",
+      "type": "function",
+      "name": "get_current_user",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        487,
+        508
+      ],
+      "summary": "Implements the get_current_user operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/auth.py:get_optional_current_user",
+      "type": "function",
+      "name": "get_optional_current_user",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        511,
+        535
+      ],
+      "summary": "Implements the get_optional_current_user operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/auth.py:AuthError",
+      "type": "class",
+      "name": "AuthError",
+      "filePath": "shared/api/auth.py",
+      "lineRange": [
+        78,
+        79
+      ],
+      "summary": "Represents the AuthError abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/confidence.py",
+      "type": "file",
+      "name": "confidence.py",
+      "filePath": "shared/api/confidence.py",
+      "summary": "Implements confidence.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/confidence.py:compute_run_confidence",
+      "type": "function",
+      "name": "compute_run_confidence",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        45,
+        81
+      ],
+      "summary": "Implements the compute_run_confidence operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_parse_output_text",
+      "type": "function",
+      "name": "_parse_output_text",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        84,
+        92
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_compute_evaluator_score",
+      "type": "function",
+      "name": "_compute_evaluator_score",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        95,
+        120
+      ],
+      "summary": "Implements the _compute_evaluator_score operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_collect_evaluator_candidates",
+      "type": "function",
+      "name": "_collect_evaluator_candidates",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        123,
+        141
+      ],
+      "summary": "Implements the _collect_evaluator_candidates operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_normalize_numeric_metric",
+      "type": "function",
+      "name": "_normalize_numeric_metric",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        144,
+        162
+      ],
+      "summary": "Implements the _normalize_numeric_metric operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_normalize_boolean_metric",
+      "type": "function",
+      "name": "_normalize_boolean_metric",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        165,
+        168
+      ],
+      "summary": "Implements the _normalize_boolean_metric operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_normalize_fraction",
+      "type": "function",
+      "name": "_normalize_fraction",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        171,
+        176
+      ],
+      "summary": "Implements the _normalize_fraction operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_infer_retry_count",
+      "type": "function",
+      "name": "_infer_retry_count",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        179,
+        182
+      ],
+      "summary": "Implements the _infer_retry_count operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_extract_output_retries",
+      "type": "function",
+      "name": "_extract_output_retries",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        185,
+        208
+      ],
+      "summary": "Implements the _extract_output_retries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_extract_timeline_retries",
+      "type": "function",
+      "name": "_extract_timeline_retries",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        211,
+        218
+      ],
+      "summary": "Implements the _extract_timeline_retries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_has_meaningful_value",
+      "type": "function",
+      "name": "_has_meaningful_value",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        221,
+        230
+      ],
+      "summary": "Implements the _has_meaningful_value operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/confidence.py:_clamp01",
+      "type": "function",
+      "name": "_clamp01",
+      "filePath": "shared/api/confidence.py",
+      "lineRange": [
+        233,
+        234
+      ],
+      "summary": "Implements the _clamp01 operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/db.py",
+      "type": "file",
+      "name": "db.py",
+      "filePath": "shared/api/db.py",
+      "summary": "Implements db.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/db.py:_resolve_data_dir",
+      "type": "function",
+      "name": "_resolve_data_dir",
+      "filePath": "shared/api/db.py",
+      "lineRange": [
+        20,
+        38
+      ],
+      "summary": "Implements the _resolve_data_dir operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/db.py:_apply_sqlite_pragmas",
+      "type": "function",
+      "name": "_apply_sqlite_pragmas",
+      "filePath": "shared/api/db.py",
+      "lineRange": [
+        78,
+        92
+      ],
+      "summary": "Implements the _apply_sqlite_pragmas operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/db.py:_ensure_run_json_column",
+      "type": "function",
+      "name": "_ensure_run_json_column",
+      "filePath": "shared/api/db.py",
+      "lineRange": [
+        105,
+        129
+      ],
+      "summary": "Implements the _ensure_run_json_column operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/db.py:_ensure_run_column",
+      "type": "function",
+      "name": "_ensure_run_column",
+      "filePath": "shared/api/db.py",
+      "lineRange": [
+        132,
+        156
+      ],
+      "summary": "Implements the _ensure_run_column operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/db.py:init_db",
+      "type": "function",
+      "name": "init_db",
+      "filePath": "shared/api/db.py",
+      "lineRange": [
+        159,
+        177
+      ],
+      "summary": "Implements the init_db operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/db.py:get_db_session",
+      "type": "function",
+      "name": "get_db_session",
+      "filePath": "shared/api/db.py",
+      "lineRange": [
+        180,
+        186
+      ],
+      "summary": "Implements the get_db_session operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/db.py:Base",
+      "type": "class",
+      "name": "Base",
+      "filePath": "shared/api/db.py",
+      "lineRange": [
+        51,
+        52
+      ],
+      "summary": "Represents the Base abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/dependencies.py",
+      "type": "file",
+      "name": "dependencies.py",
+      "filePath": "shared/api/dependencies.py",
+      "summary": "Implements dependencies.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:get_settings_dep",
+      "type": "function",
+      "name": "get_settings_dep",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "Implements the get_settings_dep operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:get_llm_client_dep",
+      "type": "function",
+      "name": "get_llm_client_dep",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "Implements the get_llm_client_dep operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:_logger",
+      "type": "function",
+      "name": "_logger",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        25,
+        26
+      ],
+      "summary": "Implements the _logger operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:get_logger_dep",
+      "type": "function",
+      "name": "get_logger_dep",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        29,
+        31
+      ],
+      "summary": "Implements the get_logger_dep operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/eval_runner.py",
+      "type": "file",
+      "name": "eval_runner.py",
+      "filePath": "shared/api/eval_runner.py",
+      "summary": "Implements eval_runner.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/eval_runner.py:run_project_evaluation",
+      "type": "function",
+      "name": "run_project_evaluation",
+      "filePath": "shared/api/eval_runner.py",
+      "lineRange": [
+        19,
+        107
+      ],
+      "summary": "Implements the run_project_evaluation operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:shared/api/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "shared/api/models.py",
+      "summary": "Implements models.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:shared/api/models.py:User",
+      "type": "class",
+      "name": "User",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        13,
+        24
+      ],
+      "summary": "Represents the User abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/models.py:RunSession",
+      "type": "class",
+      "name": "RunSession",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        27,
+        43
+      ],
+      "summary": "Represents the RunSession abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/models.py:Run",
+      "type": "class",
+      "name": "Run",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        46,
+        84
+      ],
+      "summary": "Represents the Run abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/models.py:OperationalMetric",
+      "type": "class",
+      "name": "OperationalMetric",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        87,
+        102
+      ],
+      "summary": "Represents the OperationalMetric abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/run_explainer.py",
+      "type": "file",
+      "name": "run_explainer.py",
+      "filePath": "shared/api/run_explainer.py",
+      "summary": "Implements run_explainer.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_strip_tag_markers",
+      "type": "function",
+      "name": "_strip_tag_markers",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        69,
+        76
+      ],
+      "summary": "Implements the _strip_tag_markers operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_truncate",
+      "type": "function",
+      "name": "_truncate",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        79,
+        83
+      ],
+      "summary": "Implements the _truncate operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_input",
+      "type": "function",
+      "name": "_format_input",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        86,
+        87
+      ],
+      "summary": "Implements the _format_input operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_output",
+      "type": "function",
+      "name": "_format_output",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        90,
+        100
+      ],
+      "summary": "Implements the _format_output operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_memory",
+      "type": "function",
+      "name": "_format_memory",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        103,
+        117
+      ],
+      "summary": "Implements the _format_memory operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_timeline",
+      "type": "function",
+      "name": "_format_timeline",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        120,
+        135
+      ],
+      "summary": "Implements the _format_timeline operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:build_run_explanation",
+      "type": "function",
+      "name": "build_run_explanation",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        138,
+        172
+      ],
+      "summary": "Builds the _run_explanation structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_load_or_create_persistent_dev_secret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_load_or_create_persistent_dev_secret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_load_jwt_ttl_seconds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_load_jwt_ttl_seconds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_load_jwt_secret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_load_jwt_secret",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_allowed_jwt_algorithms",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_allowed_jwt_algorithms",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_b64url_encode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_b64url_encode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_b64url_decode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_b64url_decode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:hash_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:hash_password",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:verify_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:verify_password",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:create_access_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:create_access_token",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:decode_access_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:decode_access_token",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:authenticate_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:authenticate_user",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:create_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:create_user",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_serialize_memory_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_serialize_memory_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_deserialize_memory_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_deserialize_memory_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_serialize_timeline_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_serialize_timeline_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_deserialize_timeline_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:_deserialize_timeline_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:save_run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:save_run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:serialize_run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:serialize_run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_bearer_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_bearer_token",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_optional_bearer_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_optional_bearer_token",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_current_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_current_user",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_optional_current_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "function:shared/api/auth.py:get_optional_current_user",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "class:shared/api/auth.py:AuthError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "class:shared/api/auth.py:AuthError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "file:shared/api/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "file:shared/api/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/auth.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:compute_run_confidence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:compute_run_confidence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_parse_output_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_parse_output_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_compute_evaluator_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_compute_evaluator_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_collect_evaluator_candidates",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_collect_evaluator_candidates",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_normalize_numeric_metric",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_normalize_numeric_metric",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_normalize_boolean_metric",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_normalize_boolean_metric",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_normalize_fraction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_normalize_fraction",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_infer_retry_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_infer_retry_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_extract_output_retries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_extract_output_retries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_extract_timeline_retries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_extract_timeline_retries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_has_meaningful_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_has_meaningful_value",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_clamp01",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/confidence.py",
+      "target": "function:shared/api/confidence.py:_clamp01",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_resolve_data_dir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_resolve_data_dir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_apply_sqlite_pragmas",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_apply_sqlite_pragmas",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_ensure_run_json_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_ensure_run_json_column",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_ensure_run_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:_ensure_run_column",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:init_db",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:init_db",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:get_db_session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "function:shared/api/db.py:get_db_session",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "class:shared/api/db.py:Base",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "class:shared/api/db.py:Base",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/db.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_settings_dep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_settings_dep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_llm_client_dep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_llm_client_dep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_logger_dep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_logger_dep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "function:shared/api/eval_runner.py:run_project_evaluation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "function:shared/api/eval_runner.py:run_project_evaluation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/eval/benchmarks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:User",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:User",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:RunSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:RunSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:Run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:Run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:OperationalMetric",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:OperationalMetric",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "file:shared/api/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_strip_tag_markers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_strip_tag_markers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_truncate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_truncate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_input",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_memory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_memory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_timeline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_timeline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:build_run_explanation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:build_run_explanation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

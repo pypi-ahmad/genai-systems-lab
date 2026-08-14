@@ -1,0 +1,35 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-knowledge-os/data/notes/ai-ops-retrospective.md",
+      "language": "markdown",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-knowledge-os/data/notes/personal-research-roadmap.md",
+      "language": "markdown",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-knowledge-os/data/notes/vendor-evaluation.txt",
+      "language": "txt",
+      "sizeLines": 12,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-knowledge-os/data/notes/weekly-learning-log.md",
+      "language": "markdown",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "genai-knowledge-os/data/notes/ai-ops-retrospective.md": [],
+    "genai-knowledge-os/data/notes/personal-research-roadmap.md": [],
+    "genai-knowledge-os/data/notes/vendor-evaluation.txt": [],
+    "genai-knowledge-os/data/notes/weekly-learning-log.md": []
+  }
+}

@@ -1,0 +1,4291 @@
+{
+  "target": "D:\\AI\\Github\\genai-systems-lab",
+  "historyBoundary": "Use only the scoped history/current-change evidence in this brief",
+  "decision": "Review outer coding-agent harness and produce a durable report",
+  "risks": [
+    "Preserve unrelated work",
+    "Do not inspect Session or Agent Customize conclusions"
+  ],
+  "ownerLimit": 5,
+  "evidence": {
+    "schemaVersion": 2,
+    "kind": "core-change-watch-evidence-pack",
+    "status": "ok",
+    "repoRoot": "D:\\AI\\Github\\genai-systems-lab",
+    "analysisScope": {
+      "kind": "repo",
+      "route": ".",
+      "pathspecs": []
+    },
+    "generatedAt": "2026-08-14T06:21:13.63Z",
+    "summary": {
+      "reviewRecommended": false,
+      "attentionRequired": false,
+      "diffStatus": "ok",
+      "diffSeverity": "low",
+      "diffScore": 1,
+      "topLanguages": [
+        "python",
+        "tsx",
+        "typescript",
+        "javascript"
+      ],
+      "projectInfo": {
+        "name": "GenAI Systems Lab",
+        "description": "",
+        "readmeTitle": "GenAI Systems Lab",
+        "identityEvidence": [
+          "README.md:h1"
+        ],
+        "primaryLanguages": [
+          {
+            "language": "python",
+            "sourceFiles": 238,
+            "testFiles": 14
+          },
+          {
+            "language": "tsx",
+            "sourceFiles": 37,
+            "testFiles": 0
+          },
+          {
+            "language": "typescript",
+            "sourceFiles": 11,
+            "testFiles": 2
+          },
+          {
+            "language": "javascript",
+            "sourceFiles": 3,
+            "testFiles": 0
+          }
+        ],
+        "frameworks": [
+          {
+            "name": "fastapi",
+            "confidence": "high",
+            "evidence": [
+              "python manifest:fastapi"
+            ]
+          },
+          {
+            "name": "nextjs",
+            "confidence": "medium",
+            "evidence": [
+              "portfolio/package.json:next"
+            ]
+          },
+          {
+            "name": "django",
+            "confidence": "medium",
+            "evidence": [
+              "manage.py/settings.py"
+            ]
+          }
+        ],
+        "sourceFiles": 289,
+        "testFiles": 16,
+        "measuredSourceLines": null,
+        "sourceLineStatus": "skipped",
+        "sourceLineMethod": "not measured by default; use --measure-source-lines to count tracked readable primary source files only",
+        "sourceRoots": [
+          {
+            "path": "portfolio",
+            "files": 51
+          },
+          {
+            "path": "shared",
+            "files": 40
+          },
+          {
+            "path": "genai-research-system",
+            "files": 23
+          },
+          {
+            "path": "langgraph-data-analyst",
+            "files": 18
+          },
+          {
+            "path": "lg-workflow-agent",
+            "files": 13
+          },
+          {
+            "path": "lg-data-agent",
+            "files": 12
+          },
+          {
+            "path": "genai-knowledge-os",
+            "files": 11
+          },
+          {
+            "path": "genai-doc-intelligence",
+            "files": 10
+          }
+        ],
+        "entryCandidates": []
+      },
+      "agentInstructions": {
+        "status": "missing",
+        "count": 0,
+        "rootCount": 0,
+        "nestedCount": 0,
+        "suggestedMinimum": 2,
+        "suggestedAdditional": 2,
+        "sourceFilesPerInstruction": null,
+        "sourceFilesUnderNestedInstructions": 0,
+        "nestedSourceFileCoveragePercent": 0,
+        "suggestedScopes": [
+          {
+            "path": "portfolio/src",
+            "sourceFiles": 47
+          },
+          {
+            "path": "genai-research-system/app",
+            "sourceFiles": 22
+          },
+          {
+            "path": "langgraph-data-analyst/src",
+            "sourceFiles": 18
+          },
+          {
+            "path": "lg-workflow-agent/app",
+            "sourceFiles": 13
+          },
+          {
+            "path": "shared/api",
+            "sourceFiles": 13
+          },
+          {
+            "path": "lg-data-agent/app",
+            "sourceFiles": 12
+          },
+          {
+            "path": "genai-knowledge-os/app",
+            "sourceFiles": 11
+          },
+          {
+            "path": "genai-doc-intelligence/app",
+            "sourceFiles": 10
+          }
+        ],
+        "reasons": [
+          "no tracked AGENTS.md files found for a source-bearing repository",
+          "large source tree has no nested AGENTS.md coverage"
+        ]
+      },
+      "coreCandidates": {
+        "highConfidence": 4,
+        "mediumConfidence": 4,
+        "candidateCount": 28
+      },
+      "changedFiles": 1,
+      "changedLines": 6,
+      "companionHits": 0,
+      "changeDrift": {
+        "status": "ok",
+        "findingCount": 0,
+        "typeCounts": {}
+      },
+      "historyWindows": [
+        30,
+        90,
+        180
+      ],
+      "historyConfidence": {
+        "confidence": "high",
+        "reasons": [
+          "bounded history has enough commits and time span for hotspot ranking"
+        ]
+      },
+      "frameworks": [
+        "fastapi",
+        "nextjs",
+        "django"
+      ],
+      "filtersApplied": false
+    },
+    "filters": {
+      "projectProfile": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "historyProfile": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "coreAnalysis": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "diffImpact": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      }
+    },
+    "evidenceSources": {
+      "boundary": "static-local-git-and-file-analysis",
+      "numericSources": [
+        {
+          "claim": "tracked file, language, manifest, source-root, entrypoint, and framework counts",
+          "source": "projectProfile",
+          "command": "git ls-files -z -- plus local manifest/path inspection"
+        },
+        {
+          "claim": "hot files, hot paths, co-change paths, and history windows",
+          "source": "historyProfile",
+          "command": "git log -500 --numstat --format=commit... --"
+        },
+        {
+          "claim": "changed files, line counts, inferred core candidate hits, hot hits, and companion hits",
+          "source": "diffImpact",
+          "command": "git diff --numstat --no-ext-diff --find-renames HEAD --"
+        },
+        {
+          "claim": "changed API, schema, UI, config, error, and CLI surfaces with missing companion evidence",
+          "source": "changeDrift",
+          "command": "git diff --numstat --no-ext-diff --find-renames HEAD -- plus git ls-files -z --"
+        },
+        {
+          "claim": "history day windows",
+          "source": "summary.historyWindows",
+          "command": "bounded history windows: 30,90,180"
+        }
+      ],
+      "unverifiedClaims": [
+        {
+          "claim": "tests passed",
+          "status": "UNVERIFIED",
+          "reason": "core-change-watch does not run target project tests"
+        },
+        {
+          "claim": "CI status",
+          "status": "UNVERIFIED",
+          "reason": "core-change-watch does not open external CI systems"
+        },
+        {
+          "claim": "runtime behavior",
+          "status": "UNVERIFIED",
+          "reason": "core-change-watch does not execute the target application"
+        }
+      ]
+    },
+    "projectProfile": {
+      "schemaVersion": 2,
+      "kind": "project-profile",
+      "status": "ok",
+      "repoRoot": "D:\\AI\\Github\\genai-systems-lab",
+      "analysisScope": {
+        "kind": "repo",
+        "route": ".",
+        "pathspecs": []
+      },
+      "filters": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "projectInfo": {
+        "name": "GenAI Systems Lab",
+        "description": "",
+        "readmeTitle": "GenAI Systems Lab",
+        "evidence": [
+          "README.md:h1"
+        ],
+        "primaryLanguages": [
+          {
+            "language": "python",
+            "sourceFiles": 238,
+            "testFiles": 14
+          },
+          {
+            "language": "tsx",
+            "sourceFiles": 37,
+            "testFiles": 0
+          },
+          {
+            "language": "typescript",
+            "sourceFiles": 11,
+            "testFiles": 2
+          },
+          {
+            "language": "javascript",
+            "sourceFiles": 3,
+            "testFiles": 0
+          }
+        ],
+        "frameworks": [
+          {
+            "name": "fastapi",
+            "confidence": "high",
+            "evidence": [
+              "python manifest:fastapi"
+            ]
+          },
+          {
+            "name": "nextjs",
+            "confidence": "medium",
+            "evidence": [
+              "portfolio/package.json:next"
+            ]
+          },
+          {
+            "name": "django",
+            "confidence": "medium",
+            "evidence": [
+              "manage.py/settings.py"
+            ]
+          }
+        ],
+        "sourceFiles": 289,
+        "testFiles": 16,
+        "measuredSourceLines": null,
+        "sourceLineStatus": "skipped",
+        "sourceLineMethod": "not measured by default; use --measure-source-lines to count tracked readable primary source files only",
+        "sourceRoots": [
+          {
+            "path": "portfolio",
+            "files": 51
+          },
+          {
+            "path": "shared",
+            "files": 40
+          },
+          {
+            "path": "genai-research-system",
+            "files": 23
+          },
+          {
+            "path": "langgraph-data-analyst",
+            "files": 18
+          },
+          {
+            "path": "lg-workflow-agent",
+            "files": 13
+          },
+          {
+            "path": "lg-data-agent",
+            "files": 12
+          },
+          {
+            "path": "genai-knowledge-os",
+            "files": 11
+          },
+          {
+            "path": "genai-doc-intelligence",
+            "files": 10
+          }
+        ],
+        "entryCandidates": [],
+        "manifests": [
+          {
+            "path": "langgraph-data-analyst/requirements.txt",
+            "kind": "python",
+            "scripts": []
+          },
+          {
+            "path": "portfolio/package.json",
+            "kind": "node",
+            "scripts": [
+              "build",
+              "dev",
+              "lint",
+              "start",
+              "test"
+            ]
+          },
+          {
+            "path": "portfolio/tsconfig.json",
+            "kind": "config",
+            "scripts": []
+          },
+          {
+            "path": "pyproject.toml",
+            "kind": "toml",
+            "scripts": []
+          },
+          {
+            "path": "requirements.txt",
+            "kind": "python",
+            "scripts": []
+          }
+        ]
+      },
+      "agentInstructions": {
+        "count": 0,
+        "rootCount": 0,
+        "nestedCount": 0,
+        "files": [],
+        "status": "missing",
+        "suggestedMinimum": 2,
+        "suggestedAdditional": 2,
+        "sourceFilesPerInstruction": null,
+        "sourceFilesUnderNestedInstructions": 0,
+        "nestedSourceFileCoveragePercent": 0,
+        "suggestedScopes": [
+          {
+            "path": "portfolio/src",
+            "sourceFiles": 47
+          },
+          {
+            "path": "genai-research-system/app",
+            "sourceFiles": 22
+          },
+          {
+            "path": "langgraph-data-analyst/src",
+            "sourceFiles": 18
+          },
+          {
+            "path": "lg-workflow-agent/app",
+            "sourceFiles": 13
+          },
+          {
+            "path": "shared/api",
+            "sourceFiles": 13
+          },
+          {
+            "path": "lg-data-agent/app",
+            "sourceFiles": 12
+          },
+          {
+            "path": "genai-knowledge-os/app",
+            "sourceFiles": 11
+          },
+          {
+            "path": "genai-doc-intelligence/app",
+            "sourceFiles": 10
+          }
+        ],
+        "reasons": [
+          "no tracked AGENTS.md files found for a source-bearing repository",
+          "large source tree has no nested AGENTS.md coverage"
+        ]
+      },
+      "languages": [
+        {
+          "language": "python",
+          "files": 252,
+          "sourceFiles": 238,
+          "testFiles": 14,
+          "roots": [
+            {
+              "name": "genai-research-system/app",
+              "count": 22
+            },
+            {
+              "name": "langgraph-data-analyst/src",
+              "count": 18
+            },
+            {
+              "name": "lg-workflow-agent/app",
+              "count": 13
+            },
+            {
+              "name": "shared/api",
+              "count": 13
+            },
+            {
+              "name": "lg-data-agent/app",
+              "count": 12
+            },
+            {
+              "name": "genai-knowledge-os/app",
+              "count": 11
+            },
+            {
+              "name": "genai-doc-intelligence/app",
+              "count": 10
+            },
+            {
+              "name": "lg-support-agent/app",
+              "count": 10
+            }
+          ]
+        },
+        {
+          "language": "tsx",
+          "files": 37,
+          "sourceFiles": 37,
+          "testFiles": 0,
+          "roots": [
+            {
+              "name": "portfolio/src",
+              "count": 37
+            }
+          ]
+        },
+        {
+          "language": "typescript",
+          "files": 13,
+          "sourceFiles": 11,
+          "testFiles": 2,
+          "roots": [
+            {
+              "name": "portfolio/src",
+              "count": 12
+            },
+            {
+              "name": "portfolio",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "language": "javascript",
+          "files": 3,
+          "sourceFiles": 3,
+          "testFiles": 0,
+          "roots": [
+            {
+              "name": "portfolio",
+              "count": 3
+            }
+          ]
+        }
+      ],
+      "manifests": [
+        {
+          "path": "langgraph-data-analyst/requirements.txt",
+          "kind": "python",
+          "scripts": []
+        },
+        {
+          "path": "portfolio/package.json",
+          "kind": "node",
+          "scripts": [
+            "build",
+            "dev",
+            "lint",
+            "start",
+            "test"
+          ]
+        },
+        {
+          "path": "portfolio/tsconfig.json",
+          "kind": "config",
+          "scripts": []
+        },
+        {
+          "path": "pyproject.toml",
+          "kind": "toml",
+          "scripts": []
+        },
+        {
+          "path": "requirements.txt",
+          "kind": "python",
+          "scripts": []
+        }
+      ],
+      "frameworks": [
+        {
+          "name": "fastapi",
+          "score": 75,
+          "confidence": "high",
+          "evidence": [
+            "python manifest:fastapi"
+          ]
+        },
+        {
+          "name": "nextjs",
+          "score": 60,
+          "confidence": "medium",
+          "evidence": [
+            "portfolio/package.json:next"
+          ]
+        },
+        {
+          "name": "django",
+          "score": 35,
+          "confidence": "medium",
+          "evidence": [
+            "manage.py/settings.py"
+          ]
+        }
+      ],
+      "sourceRoots": [
+        {
+          "path": "portfolio",
+          "files": 51
+        },
+        {
+          "path": "shared",
+          "files": 40
+        },
+        {
+          "path": "genai-research-system",
+          "files": 23
+        },
+        {
+          "path": "langgraph-data-analyst",
+          "files": 18
+        },
+        {
+          "path": "lg-workflow-agent",
+          "files": 13
+        },
+        {
+          "path": "lg-data-agent",
+          "files": 12
+        },
+        {
+          "path": "genai-knowledge-os",
+          "files": 11
+        },
+        {
+          "path": "genai-doc-intelligence",
+          "files": 10
+        },
+        {
+          "path": "lg-support-agent",
+          "files": 10
+        },
+        {
+          "path": "genai-interviewer",
+          "files": 9
+        },
+        {
+          "path": "lg-debugging-agent",
+          "files": 9
+        },
+        {
+          "path": "lg-research-agent",
+          "files": 9
+        }
+      ],
+      "entryCandidates": [],
+      "corePathHints": [
+        {
+          "path": "shared/api",
+          "files": 13
+        }
+      ],
+      "totals": {
+        "trackedFiles": 444,
+        "trackedFilesBeforeFilters": 444,
+        "sourceFiles": 289,
+        "testFiles": 16,
+        "generatedOrDependencyFiles": 0,
+        "sourceLines": null,
+        "sourceLineMeasurement": "skipped",
+        "readableSourceFiles": 0,
+        "unreadableSourceFiles": 0
+      }
+    },
+    "historyProfile": {
+      "schemaVersion": 2,
+      "kind": "git-history-profile",
+      "status": "ok",
+      "repoRoot": "D:\\AI\\Github\\genai-systems-lab",
+      "analysisScope": {
+        "kind": "repo",
+        "route": ".",
+        "pathspecs": []
+      },
+      "filters": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "range": {
+        "maxCommits": 500,
+        "analyzedCommits": 50,
+        "newest": "b3f6268",
+        "oldest": "9701405"
+      },
+      "confidence": {
+        "confidence": "high",
+        "reasons": [
+          "bounded history has enough commits and time span for hotspot ranking"
+        ]
+      },
+      "historyWindows": [
+        {
+          "days": 30,
+          "since": "2026-07-15T06:21:13Z",
+          "analyzedCommits": 3,
+          "trendLabel": "recent-hotspots",
+          "interpretation": "recent window for spotting recent hotspots from bounded git history.",
+          "hotFiles": [],
+          "supportingHotFiles": [
+            {
+              "path": "requirements.txt",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 3,
+              "added": 4,
+              "deleted": 4,
+              "churn": 8,
+              "lastTouched": "b1c0a90"
+            },
+            {
+              "path": ".github/workflows/ci.yml",
+              "language": null,
+              "role": "configuration",
+              "supporting": true,
+              "commits": 1,
+              "added": 6,
+              "deleted": 2,
+              "churn": 8,
+              "lastTouched": "b3f6268"
+            },
+            {
+              "path": ".trivyignore",
+              "language": null,
+              "role": "other",
+              "supporting": true,
+              "commits": 1,
+              "added": 3,
+              "deleted": 0,
+              "churn": 3,
+              "lastTouched": "b3f6268"
+            }
+          ],
+          "hotPaths": []
+        },
+        {
+          "days": 90,
+          "since": "2026-05-16T06:21:13Z",
+          "analyzedCommits": 6,
+          "trendLabel": "sustained-hotspots",
+          "interpretation": "sustained window for spotting sustained hotspots from bounded git history.",
+          "hotFiles": [],
+          "supportingHotFiles": [
+            {
+              "path": "requirements.txt",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 3,
+              "added": 4,
+              "deleted": 4,
+              "churn": 8,
+              "lastTouched": "b1c0a90"
+            },
+            {
+              "path": "README.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 2,
+              "added": 911,
+              "deleted": 911,
+              "churn": 1822,
+              "lastTouched": "00fbc93"
+            },
+            {
+              "path": "CONTRIBUTING.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 2,
+              "added": 35,
+              "deleted": 35,
+              "churn": 70,
+              "lastTouched": "00fbc93"
+            },
+            {
+              "path": "CODE_OF_CONDUCT.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 1,
+              "added": 38,
+              "deleted": 0,
+              "churn": 38,
+              "lastTouched": "00fbc93"
+            },
+            {
+              "path": "SECURITY.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 1,
+              "added": 24,
+              "deleted": 0,
+              "churn": 24,
+              "lastTouched": "00fbc93"
+            },
+            {
+              "path": "CHANGELOG.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 1,
+              "added": 20,
+              "deleted": 0,
+              "churn": 20,
+              "lastTouched": "00fbc93"
+            },
+            {
+              "path": ".github/workflows/ci.yml",
+              "language": null,
+              "role": "configuration",
+              "supporting": true,
+              "commits": 1,
+              "added": 6,
+              "deleted": 2,
+              "churn": 8,
+              "lastTouched": "b3f6268"
+            },
+            {
+              "path": ".trivyignore",
+              "language": null,
+              "role": "other",
+              "supporting": true,
+              "commits": 1,
+              "added": 3,
+              "deleted": 0,
+              "churn": 3,
+              "lastTouched": "b3f6268"
+            }
+          ],
+          "hotPaths": []
+        },
+        {
+          "days": 180,
+          "since": "2026-02-15T06:21:13Z",
+          "analyzedCommits": 50,
+          "trendLabel": "legacy-or-long-range-hotspots",
+          "interpretation": "long-range window for spotting legacy or long range hotspots from bounded git history.",
+          "hotFiles": [
+            {
+              "path": "portfolio/src/lib/api.ts",
+              "language": "typescript",
+              "role": "source",
+              "supporting": false,
+              "commits": 12,
+              "added": 962,
+              "deleted": 140,
+              "churn": 1102,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "shared/api/app.py",
+              "language": "python",
+              "role": "source",
+              "supporting": false,
+              "commits": 8,
+              "added": 2062,
+              "deleted": 254,
+              "churn": 2316,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/src/app/layout.tsx",
+              "language": "tsx",
+              "role": "source",
+              "supporting": false,
+              "commits": 8,
+              "added": 140,
+              "deleted": 54,
+              "churn": 194,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/src/app/playground/playground-client.tsx",
+              "language": "tsx",
+              "role": "source",
+              "supporting": false,
+              "commits": 7,
+              "added": 2581,
+              "deleted": 2134,
+              "churn": 4715,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/src/app/page.tsx",
+              "language": "tsx",
+              "role": "source",
+              "supporting": false,
+              "commits": 7,
+              "added": 236,
+              "deleted": 33,
+              "churn": 269,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/src/app/playground/playground-sidebar.tsx",
+              "language": "tsx",
+              "role": "source",
+              "supporting": false,
+              "commits": 6,
+              "added": 947,
+              "deleted": 236,
+              "churn": 1183,
+              "lastTouched": "e1d98a3"
+            },
+            {
+              "path": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+              "language": "tsx",
+              "role": "source",
+              "supporting": false,
+              "commits": 6,
+              "added": 446,
+              "deleted": 59,
+              "churn": 505,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "shared/api/runner.py",
+              "language": "python",
+              "role": "source",
+              "supporting": false,
+              "commits": 6,
+              "added": 402,
+              "deleted": 73,
+              "churn": 475,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/src/app/auth/auth-client.tsx",
+              "language": "tsx",
+              "role": "source",
+              "supporting": false,
+              "commits": 6,
+              "added": 262,
+              "deleted": 27,
+              "churn": 289,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/src/app/metrics/page.tsx",
+              "language": "tsx",
+              "role": "source",
+              "supporting": false,
+              "commits": 5,
+              "added": 802,
+              "deleted": 50,
+              "churn": 852,
+              "lastTouched": "9701405"
+            }
+          ],
+          "supportingHotFiles": [
+            {
+              "path": "README.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 20,
+              "added": 2057,
+              "deleted": 1151,
+              "churn": 3208,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": ".github/workflows/ci.yml",
+              "language": null,
+              "role": "configuration",
+              "supporting": true,
+              "commits": 11,
+              "added": 312,
+              "deleted": 41,
+              "churn": 353,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "requirements.txt",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 9,
+              "added": 39,
+              "deleted": 12,
+              "churn": 51,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "tests/test_shared_api_app.py",
+              "language": "python",
+              "role": "test",
+              "supporting": true,
+              "commits": 8,
+              "added": 733,
+              "deleted": 34,
+              "churn": 767,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/README.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 7,
+              "added": 383,
+              "deleted": 49,
+              "churn": 432,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "ARCHITECTURE.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 5,
+              "added": 123,
+              "deleted": 6,
+              "churn": 129,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "pyproject.toml",
+              "language": null,
+              "role": "configuration",
+              "supporting": true,
+              "commits": 5,
+              "added": 66,
+              "deleted": 4,
+              "churn": 70,
+              "lastTouched": "c647956"
+            },
+            {
+              "path": ".gitignore",
+              "language": null,
+              "role": "other",
+              "supporting": true,
+              "commits": 5,
+              "added": 16,
+              "deleted": 0,
+              "churn": 16,
+              "lastTouched": "9701405"
+            },
+            {
+              "path": "portfolio/USAGE.md",
+              "language": null,
+              "role": "documentation",
+              "supporting": true,
+              "commits": 4,
+              "added": 879,
+              "deleted": 233,
+              "churn": 1112,
+              "lastTouched": "e077a0d"
+            },
+            {
+              "path": "portfolio/src/app/globals.css",
+              "language": null,
+              "role": "other",
+              "supporting": true,
+              "commits": 4,
+              "added": 750,
+              "deleted": 49,
+              "churn": 799,
+              "lastTouched": "9701405"
+            }
+          ],
+          "hotPaths": [
+            {
+              "path": "portfolio/src",
+              "commits": 20
+            },
+            {
+              "path": "shared/api",
+              "commits": 12
+            },
+            {
+              "path": "shared/llm",
+              "commits": 5
+            },
+            {
+              "path": "shared/schemas",
+              "commits": 4
+            },
+            {
+              "path": "portfolio",
+              "commits": 3
+            },
+            {
+              "path": "shared",
+              "commits": 3
+            },
+            {
+              "path": "shared/eval",
+              "commits": 3
+            },
+            {
+              "path": "shared/ui",
+              "commits": 3
+            },
+            {
+              "path": "genai-nl2sql-agent/app",
+              "commits": 2
+            },
+            {
+              "path": "genai-research-system/app",
+              "commits": 2
+            }
+          ]
+        }
+      ],
+      "languageTouchCounts": [
+        {
+          "language": "python",
+          "touches": 294
+        },
+        {
+          "language": "tsx",
+          "touches": 142
+        },
+        {
+          "language": "typescript",
+          "touches": 39
+        },
+        {
+          "language": "javascript",
+          "touches": 3
+        }
+      ],
+      "hotFiles": [
+        {
+          "path": "portfolio/src/lib/api.ts",
+          "language": "typescript",
+          "role": "source",
+          "supporting": false,
+          "commits": 12,
+          "added": 962,
+          "deleted": 140,
+          "churn": 1102,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "shared/api/app.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 8,
+          "added": 2062,
+          "deleted": 254,
+          "churn": 2316,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/layout.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 8,
+          "added": 140,
+          "deleted": 54,
+          "churn": 194,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/playground/playground-client.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 7,
+          "added": 2581,
+          "deleted": 2134,
+          "churn": 4715,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/page.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 7,
+          "added": 236,
+          "deleted": 33,
+          "churn": 269,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/playground/playground-sidebar.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 6,
+          "added": 947,
+          "deleted": 236,
+          "churn": 1183,
+          "lastTouched": "e1d98a3"
+        },
+        {
+          "path": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 6,
+          "added": 446,
+          "deleted": 59,
+          "churn": 505,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "shared/api/runner.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 6,
+          "added": 402,
+          "deleted": 73,
+          "churn": 475,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/auth/auth-client.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 6,
+          "added": 262,
+          "deleted": 27,
+          "churn": 289,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/metrics/page.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 5,
+          "added": 802,
+          "deleted": 50,
+          "churn": 852,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/projects/[slug]/demo-button.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 5,
+          "added": 318,
+          "deleted": 318,
+          "churn": 636,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/projects/[slug]/page.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 5,
+          "added": 342,
+          "deleted": 72,
+          "churn": 414,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/playground/playground-conversation-panel.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 5,
+          "added": 261,
+          "deleted": 18,
+          "churn": 279,
+          "lastTouched": "6caef49"
+        },
+        {
+          "path": "shared/api/db.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 5,
+          "added": 194,
+          "deleted": 8,
+          "churn": 202,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/playground/use-playground-run.ts",
+          "language": "typescript",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 636,
+          "deleted": 30,
+          "churn": 666,
+          "lastTouched": "d838052"
+        },
+        {
+          "path": "shared/api/auth.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 576,
+          "deleted": 41,
+          "churn": 617,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/playground/playground-graph-panel.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 415,
+          "deleted": 133,
+          "churn": 548,
+          "lastTouched": "6caef49"
+        },
+        {
+          "path": "portfolio/src/components/TimelineReplay.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 384,
+          "deleted": 57,
+          "churn": 441,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/playground/playground-widgets.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 272,
+          "deleted": 6,
+          "churn": 278,
+          "lastTouched": "d838052"
+        },
+        {
+          "path": "shared/schemas/common.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 263,
+          "deleted": 6,
+          "churn": 269,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/architecture/diagram.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 205,
+          "deleted": 39,
+          "churn": 244,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/components/memory-panel.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 221,
+          "deleted": 17,
+          "churn": 238,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/components/onboarding-modal.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 120,
+          "deleted": 72,
+          "churn": 192,
+          "lastTouched": "e077a0d"
+        },
+        {
+          "path": "portfolio/src/components/RunExplanation.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 160,
+          "deleted": 15,
+          "churn": 175,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/projects/page.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 137,
+          "deleted": 23,
+          "churn": 160,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/components/confidence-indicator.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 119,
+          "deleted": 33,
+          "churn": 152,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/lib/apikey.ts",
+          "language": "typescript",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 86,
+          "deleted": 20,
+          "churn": 106,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "shared/schemas/__init__.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 63,
+          "deleted": 2,
+          "churn": 65,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/lib/auth.ts",
+          "language": "typescript",
+          "role": "source",
+          "supporting": false,
+          "commits": 4,
+          "added": 48,
+          "deleted": 11,
+          "churn": 59,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/data/projects.ts",
+          "language": "typescript",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 868,
+          "deleted": 813,
+          "churn": 1681,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "shared/llm/providers.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 681,
+          "deleted": 21,
+          "churn": 702,
+          "lastTouched": "6c36402"
+        },
+        {
+          "path": "portfolio/src/app/playground/playground-utils.ts",
+          "language": "typescript",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 583,
+          "deleted": 3,
+          "churn": 586,
+          "lastTouched": "e1d98a3"
+        },
+        {
+          "path": "portfolio/src/components/animated-graph.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 548,
+          "deleted": 6,
+          "churn": 554,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/leaderboard/page.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 266,
+          "deleted": 266,
+          "churn": 532,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/app/compare/page.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 377,
+          "deleted": 1,
+          "churn": 378,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "shared/llm/dispatch.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 306,
+          "deleted": 27,
+          "churn": 333,
+          "lastTouched": "6c36402"
+        },
+        {
+          "path": "portfolio/src/components/agent-graph.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 310,
+          "deleted": 10,
+          "churn": 320,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/components/flow-diagram.tsx",
+          "language": "tsx",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 296,
+          "deleted": 3,
+          "churn": 299,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "shared/llm/gemini_provider.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 291,
+          "deleted": 2,
+          "churn": 293,
+          "lastTouched": "6c36402"
+        },
+        {
+          "path": "shared/llm/catalog.py",
+          "language": "python",
+          "role": "source",
+          "supporting": false,
+          "commits": 3,
+          "added": 227,
+          "deleted": 6,
+          "churn": 233,
+          "lastTouched": "6c36402"
+        }
+      ],
+      "supportingHotFiles": [
+        {
+          "path": "README.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 20,
+          "added": 2057,
+          "deleted": 1151,
+          "churn": 3208,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 11,
+          "added": 312,
+          "deleted": 41,
+          "churn": 353,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "requirements.txt",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 9,
+          "added": 39,
+          "deleted": 12,
+          "churn": 51,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "tests/test_shared_api_app.py",
+          "language": "python",
+          "role": "test",
+          "supporting": true,
+          "commits": 8,
+          "added": 733,
+          "deleted": 34,
+          "churn": 767,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/README.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 7,
+          "added": 383,
+          "deleted": 49,
+          "churn": 432,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "ARCHITECTURE.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 5,
+          "added": 123,
+          "deleted": 6,
+          "churn": 129,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "pyproject.toml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 5,
+          "added": 66,
+          "deleted": 4,
+          "churn": 70,
+          "lastTouched": "c647956"
+        },
+        {
+          "path": ".gitignore",
+          "language": null,
+          "role": "other",
+          "supporting": true,
+          "commits": 5,
+          "added": 16,
+          "deleted": 0,
+          "churn": 16,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/USAGE.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 4,
+          "added": 879,
+          "deleted": 233,
+          "churn": 1112,
+          "lastTouched": "e077a0d"
+        },
+        {
+          "path": "portfolio/src/app/globals.css",
+          "language": null,
+          "role": "other",
+          "supporting": true,
+          "commits": 4,
+          "added": 750,
+          "deleted": 49,
+          "churn": 799,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/package.json",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 4,
+          "added": 34,
+          "deleted": 4,
+          "churn": 38,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".env.example",
+          "language": null,
+          "role": "other",
+          "supporting": true,
+          "commits": 4,
+          "added": 24,
+          "deleted": 1,
+          "churn": 25,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/src/data/project-catalog.json",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 3,
+          "added": 1458,
+          "deleted": 51,
+          "churn": 1509,
+          "lastTouched": "e1d98a3"
+        },
+        {
+          "path": "tests/test_project_catalog.py",
+          "language": "python",
+          "role": "test",
+          "supporting": true,
+          "commits": 3,
+          "added": 123,
+          "deleted": 1,
+          "churn": 124,
+          "lastTouched": "e1d98a3"
+        },
+        {
+          "path": "Dockerfile",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 3,
+          "added": 95,
+          "deleted": 10,
+          "churn": 105,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "docker-compose.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 3,
+          "added": 56,
+          "deleted": 11,
+          "churn": 67,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/package-lock.json",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 7524,
+          "deleted": 1,
+          "churn": 7525,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-32-36-169Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 490,
+          "deleted": 490,
+          "churn": 980,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-32-36-200Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 490,
+          "deleted": 490,
+          "churn": 980,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "package-lock.json",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 459,
+          "deleted": 459,
+          "churn": 918,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/ROADMAP.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 2,
+          "added": 400,
+          "deleted": 400,
+          "churn": 800,
+          "lastTouched": "e077a0d"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-29-40-228Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 359,
+          "deleted": 359,
+          "churn": 718,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-29-40-576Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 359,
+          "deleted": 359,
+          "churn": 718,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-29-50-739Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 359,
+          "deleted": 359,
+          "churn": 718,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-29-03-948Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 341,
+          "deleted": 341,
+          "churn": 682,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-31-56-852Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 341,
+          "deleted": 341,
+          "churn": 682,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-31-55-359Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 330,
+          "deleted": 330,
+          "churn": 660,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-26-49-105Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 327,
+          "deleted": 327,
+          "churn": 654,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "portfolio/BACKLOG.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 2,
+          "added": 220,
+          "deleted": 220,
+          "churn": 440,
+          "lastTouched": "e077a0d"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-28-45-141Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 77,
+          "deleted": 77,
+          "churn": 154,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-28-45-221Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 77,
+          "deleted": 77,
+          "churn": 154,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-28-19-373Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 76,
+          "deleted": 76,
+          "churn": 152,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/page-2026-03-31T05-32-55-545Z.yml",
+          "language": null,
+          "role": "configuration",
+          "supporting": true,
+          "commits": 2,
+          "added": 64,
+          "deleted": 64,
+          "churn": 128,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/console-2026-03-31T05-31-54-771Z.log",
+          "language": null,
+          "role": "other",
+          "supporting": true,
+          "commits": 2,
+          "added": 41,
+          "deleted": 41,
+          "churn": 82,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "CONTRIBUTING.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 2,
+          "added": 35,
+          "deleted": 35,
+          "churn": 70,
+          "lastTouched": "00fbc93"
+        },
+        {
+          "path": "portfolio/src/app/playground/playground-utils.test.ts",
+          "language": "typescript",
+          "role": "test",
+          "supporting": true,
+          "commits": 2,
+          "added": 67,
+          "deleted": 1,
+          "churn": 68,
+          "lastTouched": "2e18048"
+        },
+        {
+          "path": "portfolio/.gitignore",
+          "language": null,
+          "role": "other",
+          "supporting": true,
+          "commits": 2,
+          "added": 42,
+          "deleted": 0,
+          "churn": 42,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "stream-requests.txt",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 2,
+          "added": 20,
+          "deleted": 20,
+          "churn": 40,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": "lg-research-agent/README.md",
+          "language": null,
+          "role": "documentation",
+          "supporting": true,
+          "commits": 2,
+          "added": 30,
+          "deleted": 1,
+          "churn": 31,
+          "lastTouched": "9701405"
+        },
+        {
+          "path": ".playwright-mcp/console-2026-03-31T05-28-18-191Z.log",
+          "language": null,
+          "role": "other",
+          "supporting": true,
+          "commits": 2,
+          "added": 12,
+          "deleted": 12,
+          "churn": 24,
+          "lastTouched": "9701405"
+        }
+      ],
+      "hotPaths": [
+        {
+          "path": "portfolio/src",
+          "commits": 20
+        },
+        {
+          "path": "shared/api",
+          "commits": 12
+        },
+        {
+          "path": "shared/llm",
+          "commits": 5
+        },
+        {
+          "path": "shared/schemas",
+          "commits": 4
+        },
+        {
+          "path": "portfolio",
+          "commits": 3
+        },
+        {
+          "path": "shared",
+          "commits": 3
+        },
+        {
+          "path": "shared/eval",
+          "commits": 3
+        },
+        {
+          "path": "shared/ui",
+          "commits": 3
+        },
+        {
+          "path": "genai-nl2sql-agent/app",
+          "commits": 2
+        },
+        {
+          "path": "genai-research-system/app",
+          "commits": 2
+        },
+        {
+          "path": "benchmarks/promptfoo",
+          "commits": 1
+        },
+        {
+          "path": "crew-content-pipeline/app",
+          "commits": 1
+        },
+        {
+          "path": "crew-hiring-system/app",
+          "commits": 1
+        },
+        {
+          "path": "crew-investment-analyst/app",
+          "commits": 1
+        },
+        {
+          "path": "crew-product-launch/app",
+          "commits": 1
+        },
+        {
+          "path": "crew-startup-simulator/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-browser-agent/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-clinical-assistant/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-code-copilot/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-doc-intelligence/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-financial-analyst/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-interviewer/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-knowledge-os/app",
+          "commits": 1
+        },
+        {
+          "path": "genai-research-system",
+          "commits": 1
+        },
+        {
+          "path": "genai-ui-builder/app",
+          "commits": 1
+        },
+        {
+          "path": "langgraph-data-analyst/src",
+          "commits": 1
+        },
+        {
+          "path": "lg-data-agent/app",
+          "commits": 1
+        },
+        {
+          "path": "lg-debugging-agent/app",
+          "commits": 1
+        },
+        {
+          "path": "lg-research-agent/app",
+          "commits": 1
+        },
+        {
+          "path": "lg-support-agent/app",
+          "commits": 1
+        }
+      ],
+      "supportingHotPaths": [
+        {
+          "path": ".",
+          "commits": 71
+        },
+        {
+          "path": ".playwright-mcp",
+          "commits": 34
+        },
+        {
+          "path": "portfolio",
+          "commits": 26
+        },
+        {
+          "path": "tests",
+          "commits": 18
+        },
+        {
+          "path": "benchmarks/promptfoo",
+          "commits": 12
+        },
+        {
+          "path": ".github/workflows",
+          "commits": 11
+        },
+        {
+          "path": "portfolio/src",
+          "commits": 11
+        },
+        {
+          "path": "portfolio/public",
+          "commits": 10
+        },
+        {
+          "path": "genai-doc-intelligence/data",
+          "commits": 5
+        },
+        {
+          "path": "genai-knowledge-os/data",
+          "commits": 5
+        },
+        {
+          "path": "langgraph-data-analyst",
+          "commits": 4
+        },
+        {
+          "path": "lg-research-agent",
+          "commits": 4
+        },
+        {
+          "path": "crew-content-pipeline",
+          "commits": 3
+        },
+        {
+          "path": "crew-hiring-system",
+          "commits": 3
+        },
+        {
+          "path": "crew-investment-analyst",
+          "commits": 3
+        },
+        {
+          "path": "crew-product-launch",
+          "commits": 3
+        },
+        {
+          "path": "crew-startup-simulator",
+          "commits": 3
+        },
+        {
+          "path": "crew-startup-simulator/tests",
+          "commits": 3
+        },
+        {
+          "path": "genai-browser-agent",
+          "commits": 3
+        },
+        {
+          "path": "genai-clinical-assistant",
+          "commits": 3
+        },
+        {
+          "path": "genai-code-copilot",
+          "commits": 3
+        },
+        {
+          "path": "genai-doc-intelligence",
+          "commits": 3
+        },
+        {
+          "path": "genai-financial-analyst",
+          "commits": 3
+        },
+        {
+          "path": "genai-interviewer",
+          "commits": 3
+        },
+        {
+          "path": "genai-knowledge-os",
+          "commits": 3
+        },
+        {
+          "path": "genai-nl2sql-agent",
+          "commits": 3
+        },
+        {
+          "path": "genai-research-system",
+          "commits": 3
+        },
+        {
+          "path": "genai-ui-builder",
+          "commits": 3
+        },
+        {
+          "path": "langgraph-data-analyst/tests",
+          "commits": 3
+        },
+        {
+          "path": "lg-data-agent",
+          "commits": 3
+        }
+      ],
+      "coChangePaths": [
+        {
+          "paths": [
+            "portfolio/src",
+            "shared/api"
+          ],
+          "commits": 6
+        },
+        {
+          "paths": [
+            "shared/api",
+            "shared/llm"
+          ],
+          "commits": 5
+        },
+        {
+          "paths": [
+            "portfolio/src",
+            "shared/schemas"
+          ],
+          "commits": 4
+        },
+        {
+          "paths": [
+            "shared/api",
+            "shared/schemas"
+          ],
+          "commits": 4
+        },
+        {
+          "paths": [
+            "portfolio/src",
+            "shared"
+          ],
+          "commits": 3
+        },
+        {
+          "paths": [
+            "portfolio/src",
+            "shared/eval"
+          ],
+          "commits": 3
+        },
+        {
+          "paths": [
+            "portfolio/src",
+            "shared/llm"
+          ],
+          "commits": 3
+        },
+        {
+          "paths": [
+            "shared",
+            "shared/api"
+          ],
+          "commits": 3
+        },
+        {
+          "paths": [
+            "shared",
+            "shared/schemas"
+          ],
+          "commits": 3
+        },
+        {
+          "paths": [
+            "genai-nl2sql-agent/app",
+            "portfolio"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "genai-nl2sql-agent/app",
+            "portfolio/src"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "genai-nl2sql-agent/app",
+            "shared/api"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "genai-nl2sql-agent/app",
+            "shared/llm"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "genai-research-system/app",
+            "shared/ui"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "portfolio",
+            "portfolio/src"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "portfolio",
+            "shared/api"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "portfolio",
+            "shared/llm"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "portfolio/src",
+            "shared/ui"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "shared",
+            "shared/llm"
+          ],
+          "commits": 2
+        },
+        {
+          "paths": [
+            "shared",
+            "shared/ui"
+          ],
+          "commits": 2
+        }
+      ]
+    },
+    "coreAnalysis": {
+      "schemaVersion": 2,
+      "kind": "core-candidates",
+      "status": "ok",
+      "repoRoot": "D:\\AI\\Github\\genai-systems-lab",
+      "analysisScope": {
+        "kind": "repo",
+        "route": ".",
+        "pathspecs": []
+      },
+      "filters": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "candidates": [
+        {
+          "path": "shared/api",
+          "score": 100,
+          "confidence": "high",
+          "files": 13,
+          "languages": [
+            {
+              "language": "python",
+              "files": 13
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files",
+            "domain/service path",
+            "hot path in git history (12 commits)",
+            "contains repeatedly touched files",
+            "django app module files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "shared/api/__init__.py",
+              "shared/api/app.py",
+              "shared/api/auth.py",
+              "shared/api/confidence.py",
+              "shared/api/db.py",
+              "shared/api/dependencies.py",
+              "shared/api/eval_runner.py",
+              "shared/api/langgraph_events.py",
+              "shared/api/models.py",
+              "shared/api/run_explainer.py"
+            ],
+            "hotFiles": [
+              {
+                "path": "shared/api/app.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 8,
+                "added": 2062,
+                "deleted": 254,
+                "churn": 2316,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/api/runner.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 402,
+                "deleted": 73,
+                "churn": 475,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/api/db.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 5,
+                "added": 194,
+                "deleted": 8,
+                "churn": 202,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/api/auth.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 4,
+                "added": 576,
+                "deleted": 41,
+                "churn": 617,
+                "lastTouched": "9701405"
+              }
+            ],
+            "manifests": []
+          }
+        },
+        {
+          "path": "portfolio/src",
+          "score": 88,
+          "confidence": "high",
+          "files": 47,
+          "languages": [
+            {
+              "language": "tsx",
+              "files": 37
+            },
+            {
+              "language": "typescript",
+              "files": 10
+            }
+          ],
+          "reasons": [
+            "dense package/root",
+            "hot path in git history (20 commits)",
+            "contains repeatedly touched files",
+            "nextjs manifest boundary"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "portfolio/src/app/about/page.tsx",
+              "portfolio/src/app/architecture/diagram.tsx",
+              "portfolio/src/app/architecture/page.tsx",
+              "portfolio/src/app/auth/auth-client.tsx",
+              "portfolio/src/app/auth/page.tsx",
+              "portfolio/src/app/compare/page.tsx",
+              "portfolio/src/app/layout.tsx",
+              "portfolio/src/app/metrics/page.tsx",
+              "portfolio/src/app/page.tsx",
+              "portfolio/src/app/playground/page.tsx"
+            ],
+            "hotFiles": [
+              {
+                "path": "portfolio/src/lib/api.ts",
+                "language": "typescript",
+                "role": "source",
+                "supporting": false,
+                "commits": 12,
+                "added": 962,
+                "deleted": 140,
+                "churn": 1102,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/layout.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 8,
+                "added": 140,
+                "deleted": 54,
+                "churn": 194,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/playground/playground-client.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 7,
+                "added": 2581,
+                "deleted": 2134,
+                "churn": 4715,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/page.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 7,
+                "added": 236,
+                "deleted": 33,
+                "churn": 269,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/playground/playground-sidebar.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 947,
+                "deleted": 236,
+                "churn": 1183,
+                "lastTouched": "e1d98a3"
+              },
+              {
+                "path": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 446,
+                "deleted": 59,
+                "churn": 505,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/auth/auth-client.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 262,
+                "deleted": 27,
+                "churn": 289,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/metrics/page.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 5,
+                "added": 802,
+                "deleted": 50,
+                "churn": 852,
+                "lastTouched": "9701405"
+              }
+            ],
+            "manifests": [
+              {
+                "path": "portfolio/package.json",
+                "kind": "node",
+                "scripts": [
+                  "build",
+                  "dev",
+                  "lint",
+                  "start",
+                  "test"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "path": "portfolio",
+          "score": 75,
+          "confidence": "high",
+          "files": 4,
+          "languages": [
+            {
+              "language": "javascript",
+              "files": 3
+            },
+            {
+              "language": "typescript",
+              "files": 1
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files",
+            "hot path in git history (3 commits)",
+            "contains repeatedly touched files",
+            "nextjs manifest boundary"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "portfolio/eslint.config.mjs",
+              "portfolio/next.config.ts",
+              "portfolio/postcss.config.mjs",
+              "portfolio/tailwind.config.js"
+            ],
+            "hotFiles": [
+              {
+                "path": "portfolio/src/lib/api.ts",
+                "language": "typescript",
+                "role": "source",
+                "supporting": false,
+                "commits": 12,
+                "added": 962,
+                "deleted": 140,
+                "churn": 1102,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/layout.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 8,
+                "added": 140,
+                "deleted": 54,
+                "churn": 194,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/playground/playground-client.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 7,
+                "added": 2581,
+                "deleted": 2134,
+                "churn": 4715,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/page.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 7,
+                "added": 236,
+                "deleted": 33,
+                "churn": 269,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/playground/playground-sidebar.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 947,
+                "deleted": 236,
+                "churn": 1183,
+                "lastTouched": "e1d98a3"
+              },
+              {
+                "path": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 446,
+                "deleted": 59,
+                "churn": 505,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/auth/auth-client.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 262,
+                "deleted": 27,
+                "churn": 289,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "portfolio/src/app/metrics/page.tsx",
+                "language": "tsx",
+                "role": "source",
+                "supporting": false,
+                "commits": 5,
+                "added": 802,
+                "deleted": 50,
+                "churn": 852,
+                "lastTouched": "9701405"
+              }
+            ],
+            "manifests": [
+              {
+                "path": "portfolio/package.json",
+                "kind": "node",
+                "scripts": [
+                  "build",
+                  "dev",
+                  "lint",
+                  "start",
+                  "test"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "path": "shared/llm",
+          "score": 68,
+          "confidence": "high",
+          "files": 8,
+          "languages": [
+            {
+              "language": "python",
+              "files": 8
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files",
+            "hot path in git history (5 commits)",
+            "contains repeatedly touched files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "shared/llm/__init__.py",
+              "shared/llm/catalog.py",
+              "shared/llm/dispatch.py",
+              "shared/llm/exceptions.py",
+              "shared/llm/gemini.py",
+              "shared/llm/gemini_provider.py",
+              "shared/llm/providers.py",
+              "shared/llm/telemetry.py"
+            ],
+            "hotFiles": [
+              {
+                "path": "shared/llm/providers.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 3,
+                "added": 681,
+                "deleted": 21,
+                "churn": 702,
+                "lastTouched": "6c36402"
+              },
+              {
+                "path": "shared/llm/dispatch.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 3,
+                "added": 306,
+                "deleted": 27,
+                "churn": 333,
+                "lastTouched": "6c36402"
+              },
+              {
+                "path": "shared/llm/gemini_provider.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 3,
+                "added": 291,
+                "deleted": 2,
+                "churn": 293,
+                "lastTouched": "6c36402"
+              },
+              {
+                "path": "shared/llm/catalog.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 3,
+                "added": 227,
+                "deleted": 6,
+                "churn": 233,
+                "lastTouched": "6c36402"
+              }
+            ],
+            "manifests": []
+          }
+        },
+        {
+          "path": "shared/schemas",
+          "score": 46,
+          "confidence": "medium",
+          "files": 2,
+          "languages": [
+            {
+              "language": "python",
+              "files": 2
+            }
+          ],
+          "reasons": [
+            "hot path in git history (4 commits)",
+            "contains repeatedly touched files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "shared/schemas/__init__.py",
+              "shared/schemas/common.py"
+            ],
+            "hotFiles": [
+              {
+                "path": "shared/schemas/common.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 4,
+                "added": 263,
+                "deleted": 6,
+                "churn": 269,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/schemas/__init__.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 4,
+                "added": 63,
+                "deleted": 2,
+                "churn": 65,
+                "lastTouched": "9701405"
+              }
+            ],
+            "manifests": []
+          }
+        },
+        {
+          "path": "shared",
+          "score": 43,
+          "confidence": "medium",
+          "files": 3,
+          "languages": [
+            {
+              "language": "python",
+              "files": 3
+            }
+          ],
+          "reasons": [
+            "hot path in git history (3 commits)",
+            "contains repeatedly touched files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "shared/__init__.py",
+              "shared/config.py",
+              "shared/project_catalog.py"
+            ],
+            "hotFiles": [
+              {
+                "path": "shared/api/app.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 8,
+                "added": 2062,
+                "deleted": 254,
+                "churn": 2316,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/api/runner.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 6,
+                "added": 402,
+                "deleted": 73,
+                "churn": 475,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/api/db.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 5,
+                "added": 194,
+                "deleted": 8,
+                "churn": 202,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/api/auth.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 4,
+                "added": 576,
+                "deleted": 41,
+                "churn": 617,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/schemas/common.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 4,
+                "added": 263,
+                "deleted": 6,
+                "churn": 269,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/schemas/__init__.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 4,
+                "added": 63,
+                "deleted": 2,
+                "churn": 65,
+                "lastTouched": "9701405"
+              },
+              {
+                "path": "shared/llm/providers.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 3,
+                "added": 681,
+                "deleted": 21,
+                "churn": 702,
+                "lastTouched": "6c36402"
+              },
+              {
+                "path": "shared/llm/dispatch.py",
+                "language": "python",
+                "role": "source",
+                "supporting": false,
+                "commits": 3,
+                "added": 306,
+                "deleted": 27,
+                "churn": 333,
+                "lastTouched": "6c36402"
+              }
+            ],
+            "manifests": []
+          }
+        },
+        {
+          "path": "shared/eval",
+          "score": 39,
+          "confidence": "medium",
+          "files": 5,
+          "languages": [
+            {
+              "language": "python",
+              "files": 5
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files",
+            "hot path in git history (3 commits)"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "shared/eval/__init__.py",
+              "shared/eval/benchmarks.py",
+              "shared/eval/evaluator.py",
+              "shared/eval/metrics.py",
+              "shared/eval/stress.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-research-system/app",
+          "score": 35,
+          "confidence": "medium",
+          "files": 22,
+          "languages": [
+            {
+              "language": "python",
+              "files": 22
+            }
+          ],
+          "reasons": [
+            "dense package/root",
+            "hot path in git history (2 commits)"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-research-system/app/__init__.py",
+              "genai-research-system/app/api.py",
+              "genai-research-system/app/critic.py",
+              "genai-research-system/app/graph.py",
+              "genai-research-system/app/main.py",
+              "genai-research-system/app/memory.py",
+              "genai-research-system/app/metrics.py",
+              "genai-research-system/app/nodes/__init__.py",
+              "genai-research-system/app/nodes/critic.py",
+              "genai-research-system/app/nodes/editor.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "langgraph-data-analyst/src",
+          "score": 33,
+          "confidence": "low",
+          "files": 18,
+          "languages": [
+            {
+              "language": "python",
+              "files": 18
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "langgraph-data-analyst/src/__init__.py",
+              "langgraph-data-analyst/src/agents/__init__.py",
+              "langgraph-data-analyst/src/agents/executor.py",
+              "langgraph-data-analyst/src/agents/planner.py",
+              "langgraph-data-analyst/src/agents/reporter.py",
+              "langgraph-data-analyst/src/agents/validator.py",
+              "langgraph-data-analyst/src/api/__init__.py",
+              "langgraph-data-analyst/src/api/app.py",
+              "langgraph-data-analyst/src/graph/__init__.py",
+              "langgraph-data-analyst/src/graph/workflow.py"
+            ],
+            "hotFiles": [],
+            "manifests": [
+              {
+                "path": "langgraph-data-analyst/requirements.txt",
+                "kind": "python",
+                "scripts": []
+              }
+            ]
+          }
+        },
+        {
+          "path": "genai-nl2sql-agent/app",
+          "score": 31,
+          "confidence": "low",
+          "files": 7,
+          "languages": [
+            {
+              "language": "python",
+              "files": 7
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files",
+            "hot path in git history (2 commits)"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-nl2sql-agent/app/__init__.py",
+              "genai-nl2sql-agent/app/agent.py",
+              "genai-nl2sql-agent/app/executor.py",
+              "genai-nl2sql-agent/app/main.py",
+              "genai-nl2sql-agent/app/schema.py",
+              "genai-nl2sql-agent/app/sql_generator.py",
+              "genai-nl2sql-agent/app/validator.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "lg-data-agent/app",
+          "score": 28,
+          "confidence": "low",
+          "files": 12,
+          "languages": [
+            {
+              "language": "python",
+              "files": 12
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "lg-data-agent/app/__init__.py",
+              "lg-data-agent/app/chart.py",
+              "lg-data-agent/app/data_loader.py",
+              "lg-data-agent/app/graph.py",
+              "lg-data-agent/app/main.py",
+              "lg-data-agent/app/nodes/__init__.py",
+              "lg-data-agent/app/nodes/analyzer.py",
+              "lg-data-agent/app/nodes/duckdb_executor.py",
+              "lg-data-agent/app/nodes/evaluator.py",
+              "lg-data-agent/app/nodes/executor.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-knowledge-os/app",
+          "score": 28,
+          "confidence": "low",
+          "files": 11,
+          "languages": [
+            {
+              "language": "python",
+              "files": 11
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-knowledge-os/app/__init__.py",
+              "genai-knowledge-os/app/chunker.py",
+              "genai-knowledge-os/app/embedder.py",
+              "genai-knowledge-os/app/ingest.py",
+              "genai-knowledge-os/app/insight_engine.py",
+              "genai-knowledge-os/app/knowledge_graph.py",
+              "genai-knowledge-os/app/main.py",
+              "genai-knowledge-os/app/memory.py",
+              "genai-knowledge-os/app/retriever.py",
+              "genai-knowledge-os/app/summarizer.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-doc-intelligence/app",
+          "score": 28,
+          "confidence": "low",
+          "files": 10,
+          "languages": [
+            {
+              "language": "python",
+              "files": 10
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-doc-intelligence/app/__init__.py",
+              "genai-doc-intelligence/app/chunker.py",
+              "genai-doc-intelligence/app/citation.py",
+              "genai-doc-intelligence/app/embedder.py",
+              "genai-doc-intelligence/app/extractor.py",
+              "genai-doc-intelligence/app/ingest.py",
+              "genai-doc-intelligence/app/main.py",
+              "genai-doc-intelligence/app/qa_engine.py",
+              "genai-doc-intelligence/app/retriever.py",
+              "genai-doc-intelligence/app/vector_store.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "lg-support-agent/app",
+          "score": 28,
+          "confidence": "low",
+          "files": 10,
+          "languages": [
+            {
+              "language": "python",
+              "files": 10
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "lg-support-agent/app/__init__.py",
+              "lg-support-agent/app/graph.py",
+              "lg-support-agent/app/knowledge_base.py",
+              "lg-support-agent/app/main.py",
+              "lg-support-agent/app/nodes/classifier.py",
+              "lg-support-agent/app/nodes/escalation.py",
+              "lg-support-agent/app/nodes/evaluator.py",
+              "lg-support-agent/app/nodes/responder.py",
+              "lg-support-agent/app/nodes/retriever.py",
+              "lg-support-agent/app/state.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-interviewer/app",
+          "score": 27,
+          "confidence": "low",
+          "files": 9,
+          "languages": [
+            {
+              "language": "python",
+              "files": 9
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-interviewer/app/__init__.py",
+              "genai-interviewer/app/difficulty_manager.py",
+              "genai-interviewer/app/evaluator.py",
+              "genai-interviewer/app/feedback.py",
+              "genai-interviewer/app/interviewer.py",
+              "genai-interviewer/app/main.py",
+              "genai-interviewer/app/question_generator.py",
+              "genai-interviewer/app/session.py",
+              "genai-interviewer/app/voice.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "lg-debugging-agent/app",
+          "score": 27,
+          "confidence": "low",
+          "files": 9,
+          "languages": [
+            {
+              "language": "python",
+              "files": 9
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "lg-debugging-agent/app/__init__.py",
+              "lg-debugging-agent/app/graph.py",
+              "lg-debugging-agent/app/main.py",
+              "lg-debugging-agent/app/nodes/analyzer.py",
+              "lg-debugging-agent/app/nodes/case_generator.py",
+              "lg-debugging-agent/app/nodes/evaluator.py",
+              "lg-debugging-agent/app/nodes/fixer.py",
+              "lg-debugging-agent/app/nodes/tester.py",
+              "lg-debugging-agent/app/state.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "lg-research-agent/app",
+          "score": 27,
+          "confidence": "low",
+          "files": 9,
+          "languages": [
+            {
+              "language": "python",
+              "files": 9
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "lg-research-agent/app/__init__.py",
+              "lg-research-agent/app/graph.py",
+              "lg-research-agent/app/main.py",
+              "lg-research-agent/app/nodes/__init__.py",
+              "lg-research-agent/app/nodes/critic.py",
+              "lg-research-agent/app/nodes/planner.py",
+              "lg-research-agent/app/nodes/researcher.py",
+              "lg-research-agent/app/nodes/writer.py",
+              "lg-research-agent/app/state.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-browser-agent/app",
+          "score": 26,
+          "confidence": "low",
+          "files": 8,
+          "languages": [
+            {
+              "language": "python",
+              "files": 8
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-browser-agent/app/__init__.py",
+              "genai-browser-agent/app/actions.py",
+              "genai-browser-agent/app/agent.py",
+              "genai-browser-agent/app/browser.py",
+              "genai-browser-agent/app/main.py",
+              "genai-browser-agent/app/memory.py",
+              "genai-browser-agent/app/perception.py",
+              "genai-browser-agent/app/planner.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-clinical-assistant/app",
+          "score": 26,
+          "confidence": "low",
+          "files": 8,
+          "languages": [
+            {
+              "language": "python",
+              "files": 8
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-clinical-assistant/app/__init__.py",
+              "genai-clinical-assistant/app/extractor.py",
+              "genai-clinical-assistant/app/formatter.py",
+              "genai-clinical-assistant/app/knowledge_base.py",
+              "genai-clinical-assistant/app/main.py",
+              "genai-clinical-assistant/app/reasoner.py",
+              "genai-clinical-assistant/app/retriever.py",
+              "genai-clinical-assistant/app/risk_evaluator.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-code-copilot/app",
+          "score": 26,
+          "confidence": "low",
+          "files": 8,
+          "languages": [
+            {
+              "language": "python",
+              "files": 8
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-code-copilot/app/__init__.py",
+              "genai-code-copilot/app/context_builder.py",
+              "genai-code-copilot/app/embedder.py",
+              "genai-code-copilot/app/file_parser.py",
+              "genai-code-copilot/app/indexer.py",
+              "genai-code-copilot/app/main.py",
+              "genai-code-copilot/app/qa_agent.py",
+              "genai-code-copilot/app/retriever.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-financial-analyst/app",
+          "score": 25,
+          "confidence": "low",
+          "files": 7,
+          "languages": [
+            {
+              "language": "python",
+              "files": 7
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-financial-analyst/app/__init__.py",
+              "genai-financial-analyst/app/analyzer.py",
+              "genai-financial-analyst/app/data_loader.py",
+              "genai-financial-analyst/app/forecaster.py",
+              "genai-financial-analyst/app/main.py",
+              "genai-financial-analyst/app/metrics.py",
+              "genai-financial-analyst/app/reporter.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "genai-ui-builder/app",
+          "score": 25,
+          "confidence": "low",
+          "files": 7,
+          "languages": [
+            {
+              "language": "python",
+              "files": 7
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "genai-ui-builder/app/__init__.py",
+              "genai-ui-builder/app/code_generator.py",
+              "genai-ui-builder/app/fixer.py",
+              "genai-ui-builder/app/main.py",
+              "genai-ui-builder/app/preview.py",
+              "genai-ui-builder/app/spec_generator.py",
+              "genai-ui-builder/app/validator.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "lg-workflow-agent/app",
+          "score": 24,
+          "confidence": "low",
+          "files": 13,
+          "languages": [
+            {
+              "language": "python",
+              "files": 13
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "lg-workflow-agent/app/__init__.py",
+              "lg-workflow-agent/app/graph.py",
+              "lg-workflow-agent/app/main.py",
+              "lg-workflow-agent/app/nodes/__init__.py",
+              "lg-workflow-agent/app/nodes/checkpoint.py",
+              "lg-workflow-agent/app/nodes/executor.py",
+              "lg-workflow-agent/app/nodes/finalizer.py",
+              "lg-workflow-agent/app/nodes/planner.py",
+              "lg-workflow-agent/app/nodes/validator.py",
+              "lg-workflow-agent/app/state.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "crew-content-pipeline/app",
+          "score": 23,
+          "confidence": "low",
+          "files": 5,
+          "languages": [
+            {
+              "language": "python",
+              "files": 5
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "crew-content-pipeline/app/__init__.py",
+              "crew-content-pipeline/app/agents.py",
+              "crew-content-pipeline/app/crew.py",
+              "crew-content-pipeline/app/main.py",
+              "crew-content-pipeline/app/tasks.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "crew-hiring-system/app",
+          "score": 23,
+          "confidence": "low",
+          "files": 5,
+          "languages": [
+            {
+              "language": "python",
+              "files": 5
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "crew-hiring-system/app/__init__.py",
+              "crew-hiring-system/app/agents.py",
+              "crew-hiring-system/app/crew.py",
+              "crew-hiring-system/app/main.py",
+              "crew-hiring-system/app/tasks.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "crew-investment-analyst/app",
+          "score": 23,
+          "confidence": "low",
+          "files": 5,
+          "languages": [
+            {
+              "language": "python",
+              "files": 5
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "crew-investment-analyst/app/__init__.py",
+              "crew-investment-analyst/app/agents.py",
+              "crew-investment-analyst/app/crew.py",
+              "crew-investment-analyst/app/main.py",
+              "crew-investment-analyst/app/tasks.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "crew-product-launch/app",
+          "score": 23,
+          "confidence": "low",
+          "files": 5,
+          "languages": [
+            {
+              "language": "python",
+              "files": 5
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "crew-product-launch/app/__init__.py",
+              "crew-product-launch/app/agents.py",
+              "crew-product-launch/app/crew.py",
+              "crew-product-launch/app/main.py",
+              "crew-product-launch/app/tasks.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        },
+        {
+          "path": "crew-startup-simulator/app",
+          "score": 23,
+          "confidence": "low",
+          "files": 5,
+          "languages": [
+            {
+              "language": "python",
+              "files": 5
+            }
+          ],
+          "reasons": [
+            "package/root with multiple source files"
+          ],
+          "evidence": {
+            "sourceFiles": [
+              "crew-startup-simulator/app/__init__.py",
+              "crew-startup-simulator/app/agents.py",
+              "crew-startup-simulator/app/crew.py",
+              "crew-startup-simulator/app/main.py",
+              "crew-startup-simulator/app/tasks.py"
+            ],
+            "hotFiles": [],
+            "manifests": []
+          }
+        }
+      ],
+      "summary": {
+        "highConfidence": 4,
+        "mediumConfidence": 4,
+        "candidateCount": 28
+      }
+    },
+    "diffImpact": {
+      "schemaVersion": 2,
+      "kind": "diff-impact",
+      "status": "ok",
+      "repoRoot": "D:\\AI\\Github\\genai-systems-lab",
+      "analysisScope": {
+        "kind": "repo",
+        "route": ".",
+        "pathspecs": []
+      },
+      "baseRef": "HEAD",
+      "filters": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "score": 1,
+      "severity": "low",
+      "reviewRecommended": false,
+      "attentionRequired": false,
+      "reasons": [],
+      "changedFiles": [
+        {
+          "path": ".codegraph/.gitignore",
+          "added": 6,
+          "deleted": 0,
+          "language": null,
+          "role": "other",
+          "supporting": true,
+          "untracked": true
+        }
+      ],
+      "coreHits": [],
+      "hotHits": [],
+      "companionHits": [],
+      "metrics": {
+        "changedFiles": 1,
+        "changedLines": 6,
+        "coreHits": 0,
+        "hotHits": 0,
+        "companionHits": 0
+      }
+    },
+    "changeDrift": {
+      "schemaVersion": 2,
+      "kind": "change-drift",
+      "status": "ok",
+      "repoRoot": "D:\\AI\\Github\\genai-systems-lab",
+      "analysisScope": {
+        "kind": "repo",
+        "route": ".",
+        "pathspecs": []
+      },
+      "baseRef": "HEAD",
+      "filters": {
+        "ignorePatterns": [],
+        "ignoredCount": 0,
+        "ignoredSample": []
+      },
+      "summary": {
+        "findingCount": 0,
+        "highConfidenceCount": 0,
+        "typeCounts": {},
+        "changedFiles": 1
+      },
+      "changedFiles": [
+        {
+          "path": ".codegraph/.gitignore",
+          "role": "other",
+          "language": null,
+          "added": 6,
+          "deleted": 0,
+          "untracked": true
+        }
+      ],
+      "findings": []
+    },
+    "recommendedReads": [
+      {
+        "path": ".codegraph/.gitignore",
+        "language": null,
+        "role": "other",
+        "supporting": true,
+        "priority": 100,
+        "reasons": [
+          "changed file"
+        ]
+      },
+      {
+        "path": "portfolio/src/app/layout.tsx",
+        "language": "tsx",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under portfolio/src",
+          "hot file under portfolio"
+        ]
+      },
+      {
+        "path": "portfolio/src/app/playground/playground-client.tsx",
+        "language": "tsx",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under portfolio/src",
+          "hot file under portfolio"
+        ]
+      },
+      {
+        "path": "portfolio/src/lib/api.ts",
+        "language": "typescript",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under portfolio/src",
+          "hot file under portfolio"
+        ]
+      },
+      {
+        "path": "shared/api/app.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/api",
+          "representative source under shared/api",
+          "hot file under shared"
+        ]
+      },
+      {
+        "path": "shared/api/db.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/api",
+          "hot file under shared"
+        ]
+      },
+      {
+        "path": "shared/api/runner.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/api",
+          "hot file under shared"
+        ]
+      },
+      {
+        "path": "shared/llm/dispatch.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/llm"
+        ]
+      },
+      {
+        "path": "shared/llm/gemini_provider.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/llm"
+        ]
+      },
+      {
+        "path": "shared/llm/providers.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/llm"
+        ]
+      },
+      {
+        "path": "shared/schemas/__init__.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/schemas",
+          "representative source under shared/schemas"
+        ]
+      },
+      {
+        "path": "shared/schemas/common.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 75,
+        "reasons": [
+          "hot file under shared/schemas",
+          "representative source under shared/schemas"
+        ]
+      },
+      {
+        "path": "genai-research-system/app/__init__.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under genai-research-system/app"
+        ]
+      },
+      {
+        "path": "genai-research-system/app/api.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under genai-research-system/app"
+        ]
+      },
+      {
+        "path": "portfolio/eslint.config.mjs",
+        "language": "javascript",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under portfolio"
+        ]
+      },
+      {
+        "path": "portfolio/next.config.ts",
+        "language": "typescript",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under portfolio"
+        ]
+      },
+      {
+        "path": "portfolio/src/app/about/page.tsx",
+        "language": "tsx",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under portfolio/src"
+        ]
+      },
+      {
+        "path": "portfolio/src/app/architecture/diagram.tsx",
+        "language": "tsx",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under portfolio/src"
+        ]
+      },
+      {
+        "path": "shared/__init__.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under shared"
+        ]
+      },
+      {
+        "path": "shared/api/__init__.py",
+        "language": "python",
+        "role": "source",
+        "supporting": false,
+        "priority": 55,
+        "reasons": [
+          "representative source under shared/api"
+        ]
+      }
+    ],
+    "followUpActions": [
+      {
+        "id": "inspect-primary-core",
+        "type": "inspection",
+        "priority": "high",
+        "title": "Inspect primary core implementation before editing",
+        "reason": "Core candidates combine path, density, and git-history signals.",
+        "files": [
+          {
+            "path": "shared/api/app.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/runner.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/db.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/auth.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/__init__.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/confidence.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/dependencies.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/eval_runner.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/langgraph_events.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/models.py",
+            "role": "source",
+            "language": "python"
+          }
+        ],
+        "passCheck": "The agent can name the target implementation files and likely callers before making changes."
+      },
+      {
+        "id": "apply-targeted-implementation",
+        "type": "implementation",
+        "priority": "high",
+        "title": "Make the requested behavior change in primary source first",
+        "reason": "Supporting files should follow source behavior, not substitute for the implementation change.",
+        "files": [
+          {
+            "path": "shared/api/app.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/runner.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/db.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/auth.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/__init__.py",
+            "role": "source",
+            "language": "python"
+          },
+          {
+            "path": "shared/api/confidence.py",
+            "role": "source",
+            "language": "python"
+          }
+        ],
+        "passCheck": "The requested behavior is implemented in source code and not only reflected in docs, locale, or fixture files."
+      },
+      {
+        "id": "sync-documentation",
+        "type": "companion-sync",
+        "priority": "medium",
+        "title": "Sync documentation when behavior or workflow changes",
+        "reason": "Documentation hotspots are useful follow-up checks but should not be mistaken for core implementation.",
+        "files": [
+          {
+            "path": "README.md",
+            "role": "documentation",
+            "language": null
+          },
+          {
+            "path": "requirements.txt",
+            "role": "documentation",
+            "language": null
+          },
+          {
+            "path": "portfolio/README.md",
+            "role": "documentation",
+            "language": null
+          },
+          {
+            "path": "ARCHITECTURE.md",
+            "role": "documentation",
+            "language": null
+          },
+          {
+            "path": "portfolio/USAGE.md",
+            "role": "documentation",
+            "language": null
+          },
+          {
+            "path": "lg-research-agent/README.md",
+            "role": "documentation",
+            "language": null
+          }
+        ],
+        "passCheck": "Docs that describe the changed behavior are updated, or the agent states why docs are unaffected."
+      },
+      {
+        "id": "validate-impact",
+        "type": "validation",
+        "priority": "medium",
+        "title": "Run focused validation for changed core or hotspot areas",
+        "reason": "Detected tests or fixtures can anchor validation.",
+        "files": [
+          {
+            "path": "tests/test_shared_api_app.py",
+            "role": "test",
+            "language": "python"
+          },
+          {
+            "path": "tests/test_project_catalog.py",
+            "role": "test",
+            "language": "python"
+          },
+          {
+            "path": "portfolio/src/app/playground/playground-utils.test.ts",
+            "role": "test",
+            "language": "typescript"
+          }
+        ],
+        "passCheck": "Relevant focused tests, build, lint, smoke, or caller/API checks pass or failures are reported with exact output."
+      }
+    ],
+    "agentGuidance": {
+      "stance": "Use the pack as an evidence starting point, then inspect source files and rerun narrower analysis when project-specific noise is visible.",
+      "optionalReruns": [
+        {
+          "id": "rerun-with-explicit-ignore",
+          "reason": "Supporting hotspots are visible; rerun with explicit ignores if they distract from the requested implementation change.",
+          "commandArgs": [
+            "--ignore",
+            "README.md,.github/workflows/ci.yml,requirements.txt,portfolio/**,ARCHITECTURE.md,pyproject.toml"
+          ],
+          "patterns": [
+            "README.md",
+            ".github/workflows/ci.yml",
+            "requirements.txt",
+            "portfolio/**",
+            "ARCHITECTURE.md",
+            "pyproject.toml"
+          ]
+        }
+      ],
+      "reportFiltering": [
+        "Keep primary source candidates and supporting files in separate sections.",
+        "When a locale, docs, fixture, config, or migration file matters, explain it as companion sync or evidence, not as the primary implementation.",
+        "For an affected core chain, review diagnostic coverage through the shared observability rubric. If inspected evidence confirms that a named segment lacks readable logs or correlation, keep the gap and its causal impact as a reader-facing finding; do not infer the gap from logger-call counts or a runtime-only access failure.",
+        "If explicit ignores are used, mention the patterns and do not hide changed files that are directly relevant to the user's request."
+      ],
+      "currentFilters": {
+        "projectProfile": {
+          "ignorePatterns": [],
+          "ignoredCount": 0,
+          "ignoredSample": []
+        },
+        "historyProfile": {
+          "ignorePatterns": [],
+          "ignoredCount": 0,
+          "ignoredSample": []
+        },
+        "coreAnalysis": {
+          "ignorePatterns": [],
+          "ignoredCount": 0,
+          "ignoredSample": []
+        },
+        "diffImpact": {
+          "ignorePatterns": [],
+          "ignoredCount": 0,
+          "ignoredSample": []
+        }
+      },
+      "coreCandidateCount": 28
+    },
+    "reviewMatrix": [
+      {
+        "id": "core-supporting-separation",
+        "title": "Core candidates and supporting hotspots are separated",
+        "status": "ready",
+        "evidence": {
+          "primaryHotFiles": 40,
+          "supportingHotFiles": 40
+        },
+        "note": "Primary hot file lists should not be led by locale, docs, tests, fixtures, config, or migrations."
+      },
+      {
+        "id": "follow-up-edit-readiness",
+        "title": "Analysis can drive implementation work",
+        "status": "ready",
+        "evidence": {
+          "actionIds": [
+            "inspect-primary-core",
+            "apply-targeted-implementation",
+            "sync-documentation",
+            "validate-impact"
+          ]
+        },
+        "note": "For change/fix/optimize requests, convert follow-up actions into edits before final validation."
+      },
+      {
+        "id": "history-window-coverage",
+        "title": "History uses 30/90/180 style windows with confidence notes",
+        "status": "ready",
+        "evidence": {
+          "windows": [
+            30,
+            90,
+            180
+          ],
+          "confidence": "high"
+        },
+        "note": "Low history confidence should downgrade hotspot certainty, not block source inspection."
+      },
+      {
+        "id": "large-repo-safety",
+        "title": "Large git output has explicit bounded handling",
+        "status": "ready",
+        "evidence": {
+          "trackedFiles": 444,
+          "trackedFilesBeforeFilters": 444
+        },
+        "note": "A non-empty tracked-file profile is the first regression guard for large repositories."
+      },
+      {
+        "id": "language-framework-coverage",
+        "title": "Language and framework signals are visible",
+        "status": "ready",
+        "evidence": {
+          "languages": [
+            "python",
+            "tsx",
+            "typescript",
+            "javascript"
+          ],
+          "frameworks": [
+            "fastapi",
+            "nextjs",
+            "django"
+          ]
+        },
+        "note": "Framework signals guide inspection; they do not replace reading implementation files."
+      },
+      {
+        "id": "static-evidence-boundary",
+        "title": "Runtime, CI, and test claims stay unverified until separately checked",
+        "status": "ready",
+        "evidence": {
+          "boundary": "static-local-git-and-file-analysis",
+          "unverified": [
+            "tests passed",
+            "CI status",
+            "runtime behavior"
+          ]
+        },
+        "note": "Reports should cite commands for local counts and mark non-executed claims as UNVERIFIED."
+      },
+      {
+        "id": "core-diagnostic-coverage",
+        "title": "Affected core chains receive a diagnostic-coverage review",
+        "status": "not-applicable",
+        "evidence": {
+          "affectedCoreFiles": [],
+          "actionId": "review-core-diagnostic-coverage"
+        },
+        "note": "The static pack requests a semantic review; source, executable-route, or captured-output evidence must confirm any missing-log finding."
+      },
+      {
+        "id": "change-drift-companion-coverage",
+        "title": "Changed surfaces have companion evidence checks",
+        "status": "ready",
+        "evidence": {
+          "findingCount": 0,
+          "types": []
+        },
+        "note": "Companion drift findings are advisory; update the companion file or document why it is not needed."
+      },
+      {
+        "id": "agent-report-flexibility",
+        "title": "Agents can rerun or filter instead of accepting noisy defaults",
+        "status": "ready",
+        "evidence": {
+          "filtersApplied": false,
+          "optionalSupportingPatterns": [
+            "README.md",
+            ".github/workflows/ci.yml",
+            "requirements.txt",
+            "portfolio/**",
+            "ARCHITECTURE.md",
+            "pyproject.toml"
+          ]
+        },
+        "note": "Optional filters are analysis aids; they should be disclosed when used."
+      }
+    ]
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "docs/comparison.md",
+      "language": "markdown",
+      "sizeLines": 88,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "docs/genai-systems-lab-architecture.html",
+      "language": "html",
+      "sizeLines": 13262,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "docs/genai-systems-lab-architecture.json",
+      "language": "json",
+      "sizeLines": 217,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "docs/comparison.md": [],
+    "docs/genai-systems-lab-architecture.html": [],
+    "docs/genai-systems-lab-architecture.json": []
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-interviewer/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-interviewer/architecture.md",
+      "language": "markdown",
+      "sizeLines": 145,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-interviewer/tasks.md",
+      "language": "markdown",
+      "sizeLines": 51,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "genai-interviewer/README.md": [],
+    "genai-interviewer/architecture.md": [],
+    "genai-interviewer/tasks.md": []
+  }
+}

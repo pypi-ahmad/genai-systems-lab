@@ -1,0 +1,83 @@
+{
+  "nodes": [
+    {
+      "id": "config:graphify-out/.graphify_labels.json",
+      "type": "config",
+      "name": ".graphify_labels.json",
+      "filePath": "graphify-out/.graphify_labels.json",
+      "summary": "Stores Graphify label metadata used to classify or display generated graph elements.",
+      "tags": [
+        "configuration",
+        "graph-analysis",
+        "generated-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:graphify-out/GRAPH_REPORT.md",
+      "type": "document",
+      "name": "GRAPH_REPORT.md",
+      "filePath": "graphify-out/GRAPH_REPORT.md",
+      "summary": "Generated Graphify report summarizing repository structure, graph metrics, and analysis findings.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:graphify-out/cost.json",
+      "type": "config",
+      "name": "cost.json",
+      "filePath": "graphify-out/cost.json",
+      "summary": "Records Graphify analysis cost and usage metadata for the generated graph.",
+      "tags": [
+        "configuration",
+        "graph-analysis",
+        "generated-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:graphify-out/graph.html",
+      "type": "file",
+      "name": "graph.html",
+      "filePath": "graphify-out/graph.html",
+      "summary": "Generated interactive HTML visualization for the repository dependency graph.",
+      "tags": [
+        "configuration",
+        "graph-analysis",
+        "generated-artifact"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:graphify-out/graph.json",
+      "type": "config",
+      "name": "graph.json",
+      "filePath": "graphify-out/graph.json",
+      "summary": "Generated serialized repository graph containing the analysis nodes, edges, and metadata.",
+      "tags": [
+        "configuration",
+        "graph-analysis",
+        "generated-artifact"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:graphify-out/manifest.json",
+      "type": "config",
+      "name": "manifest.json",
+      "filePath": "graphify-out/manifest.json",
+      "summary": "Generated Graphify manifest indexing analyzed repository files and graph artifacts.",
+      "tags": [
+        "configuration",
+        "graph-analysis",
+        "generated-artifact"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": []
+}

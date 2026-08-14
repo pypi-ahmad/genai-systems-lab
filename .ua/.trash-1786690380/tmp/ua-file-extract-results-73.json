@@ -1,0 +1,2481 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [
+    "genai-ui-builder/output/.gitkeep",
+    "genai-ui-builder/tests/.gitkeep",
+    "graphify-out/.graphify_python",
+    "graphify-out/.graphify_root",
+    "langgraph-data-analyst/data/sample.csv",
+    "langgraph-data-analyst/tests/fixtures/sales.csv",
+    "lg-data-agent/data/.gitkeep",
+    "lg-data-agent/tests/.gitkeep",
+    "lg-debugging-agent/tests/.gitkeep",
+    "lg-research-agent/tests/.gitkeep"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 15,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 14,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "graphify-out/cache/stat-index.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".codex/better-harness/2026-08-14T0625-normal/findings.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".codex/better-harness/2026-08-14T0625-normal/report.html",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".codex/better-harness/2026-08-14T0625-normal/report.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".github/dependabot.yml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": ".github/workflows/ci.yml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "ARCHITECTURE.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "CHANGELOG.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "CODE_OF_CONDUCT.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "SECURITY.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/agent_eval.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/promptfooconfig.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/code_generation.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/rag_prompt.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/research_query.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/summarization.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/project_provider.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/project_utils.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/rag_eval.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/rag_retrieval_eval.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/redteam.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/tests/code_tests.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/tests/research_tests.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "benchmarks/promptfoo/tests/summarization_tests.yaml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/app/agents.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/app/crew.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/app/tasks.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-content-pipeline/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/app/agents.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/app/crew.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/app/tasks.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-hiring-system/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/app/agents.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/app/crew.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/app/tasks.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-investment-analyst/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/app/agents.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/app/crew.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/app/tasks.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-product-launch/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/app/agents.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/app/crew.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/app/tasks.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/tests/conftest.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "crew-startup-simulator/tests/test_all.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "docker-compose.yml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "docs/comparison.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/actions.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/agent.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/browser.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/memory.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/perception.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/app/planner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-browser-agent/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/extractor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/formatter.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/knowledge_base.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/reasoner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/retriever.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/app/risk_evaluator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-clinical-assistant/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/context_builder.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/embedder.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/file_parser.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/indexer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/qa_agent.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/app/retriever.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-code-copilot/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/chunker.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/citation.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/embedder.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/extractor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/ingest.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/qa_engine.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/retriever.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/app/vector_store.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/april_invoice.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/incident_report.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/security_policy_update.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/vendor_msa.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-doc-intelligence/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/app/analyzer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/app/data_loader.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/app/forecaster.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/app/metrics.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/app/reporter.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-financial-analyst/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/difficulty_manager.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/evaluator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/feedback.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/interviewer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/question_generator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/session.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/app/voice.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-interviewer/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/chunker.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/embedder.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/ingest.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/insight_engine.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/knowledge_graph.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/memory.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/retriever.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/summarizer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/app/vector_store.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/ai-ops-retrospective.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/personal-research-roadmap.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/vendor-evaluation.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/weekly-learning-log.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-knowledge-os/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/agent.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/executor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/schema.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/sql_generator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/validator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-nl2sql-agent/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/api.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/critic.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/graph.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/memory.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/metrics.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/critic.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/editor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/formatter.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/originality_checker.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/planner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/researcher.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/nodes/writer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/orchestrator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/planner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/researcher.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/service.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/state.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/tools.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/app/writer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/eval.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-research-system/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/app/code_generator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/app/fixer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/app/preview.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/app/spec_generator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/app/validator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "genai-ui-builder/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/requirements.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/executor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/planner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/reporter.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/validator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/api/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/api/app.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/config/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/config/settings.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/graph/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/graph/workflow.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/llm/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/llm/client.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/schemas/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/schemas/state.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/python_executor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/visualization.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/tests/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "langgraph-data-analyst/tests/test_core.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/chart.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/data_loader.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/graph.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/analyzer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/duckdb_executor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/evaluator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/executor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/planner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/app/state.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-data-agent/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/graph.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/analyzer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/case_generator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/evaluator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/fixer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/tester.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/app/state.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-debugging-agent/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/graph.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/critic.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/planner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/researcher.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/writer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/app/state.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-research-agent/tests/test_main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/graph.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/knowledge_base.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/classifier.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/escalation.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/evaluator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/responder.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/retriever.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/app/state.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-support-agent/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/graph.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/main.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/checkpoint.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/executor.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/finalizer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/planner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/validator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/state.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/tools/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/tools/analysis_tool.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/app/tools/file_tool.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/architecture.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "lg-workflow-agent/tasks.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/README.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/USAGE.md",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/eslint.config.mjs",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/next.config.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/package.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/postcss.config.mjs",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/about/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/architecture/diagram.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/architecture/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/auth/auth-client.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/auth/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/compare/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/layout.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/metrics/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-client.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-conversation-panel.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-graph-panel.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-icons.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-sidebar.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-utils.test.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-utils.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-widgets.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/use-playground-account.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/use-playground-history.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/playground/use-playground-run.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/projects/[slug]/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/projects/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/run/[id]/page.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/app/theme-provider.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/RunExplanation.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/TimelineReplay.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/agent-graph.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/animated-graph.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/card.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/confidence-indicator.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/copy-button.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/dismissible-tip.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/flow-diagram.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/help-reset.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/memory-panel.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/nav-links.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/onboarding-modal.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/project-card-preview.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/project-run-badge.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/components/theme-toggle.tsx",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/data/project-catalog.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/data/projects.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/lib/api.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/lib/apikey.test.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/lib/apikey.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/lib/auth.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/lib/llm-catalog.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/src/lib/session.ts",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/tailwind.config.js",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "portfolio/tsconfig.json",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "pyproject.toml",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "requirements.txt",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/app.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/auth.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/confidence.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/db.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/dependencies.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/eval_runner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/langgraph_events.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/models.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/run_explainer.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/runner.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/session_memory.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/api/step_events.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/cache/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/cache/cache.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/config.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/eval/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/eval/benchmarks.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/eval/evaluator.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/eval/metrics.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/eval/stress.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/catalog.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/dispatch.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/exceptions.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/gemini.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/gemini_provider.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/providers.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/llm/telemetry.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/logging/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/logging/logger.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/logging/otel.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/observability/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/observability/langfuse.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/project_catalog.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/schemas/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/schemas/common.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/utils/__init__.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "shared/utils/helpers.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_auth_hardening.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_ci_security_contract.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_dockerfile_contract.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_jwt_roundtrip.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_project_catalog.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_project_contracts.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_runner_module_cache.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_shared_api_app.py",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "tests/test_sqlite_pragmas.py",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 413
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/agents/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/api/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/config/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/graph/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/llm/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/schemas/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/tools/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/tests/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/chart.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 104,
+      "nonEmptyLines": 80,
+      "functions": [
+        {
+          "name": "_infer_chart_type",
+          "startLine": 17,
+          "endLine": 34,
+          "params": [
+            "df"
+          ]
+        },
+        {
+          "name": "generate_chart",
+          "startLine": 37,
+          "endLine": 104,
+          "params": [
+            "execution_result",
+            "output_path",
+            "chart_type"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_infer_chart_type",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "generate_chart",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_infer_chart_type",
+          "callee": "len",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_infer_chart_type",
+          "callee": "pd.api.types.is_datetime64_any_dtype",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_infer_chart_type",
+          "callee": "pd.to_datetime",
+          "lineNumber": 26
+        },
+        {
+          "caller": "_infer_chart_type",
+          "callee": "len",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_infer_chart_type",
+          "callee": "len",
+          "lineNumber": 31
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "execution_result.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "execution_result.get",
+          "lineNumber": 50
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "len",
+          "lineNumber": 51
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "pd.DataFrame",
+          "lineNumber": 55
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "_infer_chart_type",
+          "lineNumber": 65
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "pd.api.types.is_numeric_dtype",
+          "lineNumber": 70
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "pd.api.types.is_numeric_dtype",
+          "lineNumber": 72
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "os.makedirs",
+          "lineNumber": 79
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "os.path.dirname",
+          "lineNumber": 79
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "plt.subplots",
+          "lineNumber": 81
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.plot",
+          "lineNumber": 84
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.set_xlabel",
+          "lineNumber": 85
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.set_ylabel",
+          "lineNumber": 86
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "plt.xticks",
+          "lineNumber": 87
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.pie",
+          "lineNumber": 89
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.set_ylabel",
+          "lineNumber": 90
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.bar",
+          "lineNumber": 92
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "df[label_col].astype",
+          "lineNumber": 92
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.set_xlabel",
+          "lineNumber": 93
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.set_ylabel",
+          "lineNumber": 94
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "plt.xticks",
+          "lineNumber": 95
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "ax.set_title",
+          "lineNumber": 97
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "fig.tight_layout",
+          "lineNumber": 98
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "fig.savefig",
+          "lineNumber": 99
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "plt.close",
+          "lineNumber": 100
+        },
+        {
+          "caller": "generate_chart",
+          "callee": "plt.close",
+          "lineNumber": 103
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/nodes/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-support-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

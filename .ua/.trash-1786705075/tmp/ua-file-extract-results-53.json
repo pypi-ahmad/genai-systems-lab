@@ -1,0 +1,63 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [
+    "genai-doc-intelligence/data/docs/april_invoice.txt",
+    "genai-doc-intelligence/data/docs/incident_report.txt"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": "genai-doc-intelligence/data/docs/security_policy_update.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 17,
+      "nonEmptyLines": 13,
+      "sections": [
+        {
+          "heading": "Security Policy Update - Remote Access Standard",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "genai-doc-intelligence/data/docs/vendor_msa.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 24,
+      "nonEmptyLines": 18,
+      "sections": [
+        {
+          "heading": "Master Services Agreement",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    }
+  ]
+}

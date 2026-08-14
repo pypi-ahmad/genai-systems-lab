@@ -1,10 +1,10 @@
 [project]
 name = "genai-systems-lab"
-version = "1.0.0"
+version = "1.1.0"
 requires-python = ">=3.13,<3.14"
 dependencies = [
 	"fastapi==0.135.2",
-	"starlette==0.52.1",
+	"starlette==1.0.1",
 	"google-genai==1.69.0",
 	"langgraph==1.1.3",
 	"python-dotenv==1.1.1",
@@ -17,6 +17,9 @@ dependencies = [
 	"httpx==0.28.1",
 	"langfuse>=2.0.0",
 	"PyJWT==2.12.1",
+	"cryptography==50.0.0",
+	"redis==8.1.0",
+	"rq==2.10.0",
 ]
 
 # Optional extras — keep the default install slim.  Browser automation pulls
@@ -28,6 +31,16 @@ browser = [
 ]
 crew = [
 	"crewai==1.12.2",
+]
+production = [
+	"alembic==1.18.5",
+	"psycopg[binary]==3.3.4",
+]
+
+[dependency-groups]
+dev = [
+	"pytest==9.1.1",
+	"ruff==0.16.3",
 ]
 
 [project.scripts]

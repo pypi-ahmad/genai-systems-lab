@@ -7,7 +7,7 @@ File: `app/state.py`
 - [ ] Define `AnalysisState` as a `TypedDict` with fields: `query` (str), `plan` (list[dict]), `execution_result` (dict), `explanation` (str), `iteration` (int), `success` (bool).
 - [ ] Create `initial_state(query: str) -> AnalysisState` factory that sets `plan=[]`, `execution_result={}`, `explanation=""`, `iteration=0`, `success=False`.
 - [ ] Add module-level constants: `MAX_ITERATIONS = 3`, `MAX_PLAN_STEPS = 10`.
-- [ ] Add `REASONING_MODEL = "gemini-3.1-pro-preview"` and `EXPLANATION_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Add `REASONING_MODEL = "gemini-3.7-flash"` and `EXPLANATION_MODEL = "gemini-3.5-flash-lite"` constants.
 - [ ] Define `SUPPORTED_OPERATIONS` list: `["filter", "group_by", "sort", "aggregate", "pivot", "merge", "select", "drop", "rename"]`.
 
 ## 2 — Create Dataset Loader

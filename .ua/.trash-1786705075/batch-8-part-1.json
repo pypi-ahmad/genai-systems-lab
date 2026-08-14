@@ -1,0 +1,769 @@
+{
+  "nodes": [
+    {
+      "id": "file:portfolio/src/app/sitemap.ts",
+      "type": "file",
+      "name": "sitemap.ts",
+      "filePath": "portfolio/src/app/sitemap.ts",
+      "summary": "Implements sitemap functionality within the portfolio project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/sitemap.ts:sitemap",
+      "type": "function",
+      "name": "sitemap",
+      "filePath": "portfolio/src/app/sitemap.ts",
+      "lineRange": [
+        4,
+        8
+      ],
+      "summary": "Executes the sitemap operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/agent-graph.tsx",
+      "type": "file",
+      "name": "agent-graph.tsx",
+      "filePath": "portfolio/src/components/agent-graph.tsx",
+      "summary": "Implements agent graph functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/components/agent-graph.tsx:getNodeVisualState",
+      "type": "function",
+      "name": "getNodeVisualState",
+      "filePath": "portfolio/src/components/agent-graph.tsx",
+      "lineRange": [
+        85,
+        99
+      ],
+      "summary": "Executes the getNodeVisualState operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/agent-graph.tsx:getEdgeVisualState",
+      "type": "function",
+      "name": "getEdgeVisualState",
+      "filePath": "portfolio/src/components/agent-graph.tsx",
+      "lineRange": [
+        101,
+        116
+      ],
+      "summary": "Executes the getEdgeVisualState operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/agent-graph.tsx:AgentGraph",
+      "type": "function",
+      "name": "AgentGraph",
+      "filePath": "portfolio/src/components/agent-graph.tsx",
+      "lineRange": [
+        118,
+        300
+      ],
+      "summary": "Executes the AgentGraph operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/components/animated-graph.tsx",
+      "type": "file",
+      "name": "animated-graph.tsx",
+      "filePath": "portfolio/src/components/animated-graph.tsx",
+      "summary": "Implements animated graph functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/components/animated-graph.tsx:topoSort",
+      "type": "function",
+      "name": "topoSort",
+      "filePath": "portfolio/src/components/animated-graph.tsx",
+      "lineRange": [
+        19,
+        47
+      ],
+      "summary": "Executes the topoSort operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/animated-graph.tsx:layoutNodes",
+      "type": "function",
+      "name": "layoutNodes",
+      "filePath": "portfolio/src/components/animated-graph.tsx",
+      "lineRange": [
+        49,
+        58
+      ],
+      "summary": "Executes the layoutNodes operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/animated-graph.tsx:StatusIcon",
+      "type": "function",
+      "name": "StatusIcon",
+      "filePath": "portfolio/src/components/animated-graph.tsx",
+      "lineRange": [
+        124,
+        139
+      ],
+      "summary": "Executes the StatusIcon operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/animated-graph.tsx:AnimatedGraph",
+      "type": "function",
+      "name": "AnimatedGraph",
+      "filePath": "portfolio/src/components/animated-graph.tsx",
+      "lineRange": [
+        165,
+        542
+      ],
+      "summary": "Executes the AnimatedGraph operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:portfolio/src/components/confidence-indicator.tsx",
+      "type": "file",
+      "name": "confidence-indicator.tsx",
+      "filePath": "portfolio/src/components/confidence-indicator.tsx",
+      "summary": "Implements confidence indicator functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/components/confidence-indicator.tsx:confidenceTone",
+      "type": "function",
+      "name": "confidenceTone",
+      "filePath": "portfolio/src/components/confidence-indicator.tsx",
+      "lineRange": [
+        11,
+        36
+      ],
+      "summary": "Executes the confidenceTone operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/confidence-indicator.tsx:ConfidenceIndicator",
+      "type": "function",
+      "name": "ConfidenceIndicator",
+      "filePath": "portfolio/src/components/confidence-indicator.tsx",
+      "lineRange": [
+        38,
+        86
+      ],
+      "summary": "Executes the ConfidenceIndicator operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/copy-button.tsx",
+      "type": "file",
+      "name": "copy-button.tsx",
+      "filePath": "portfolio/src/components/copy-button.tsx",
+      "summary": "Implements copy button functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/copy-button.tsx:CopyButton",
+      "type": "function",
+      "name": "CopyButton",
+      "filePath": "portfolio/src/components/copy-button.tsx",
+      "lineRange": [
+        5,
+        33
+      ],
+      "summary": "Executes the CopyButton operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/dismissible-tip.tsx",
+      "type": "file",
+      "name": "dismissible-tip.tsx",
+      "filePath": "portfolio/src/components/dismissible-tip.tsx",
+      "summary": "Implements dismissible tip functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/dismissible-tip.tsx:DismissibleTip",
+      "type": "function",
+      "name": "DismissibleTip",
+      "filePath": "portfolio/src/components/dismissible-tip.tsx",
+      "lineRange": [
+        9,
+        41
+      ],
+      "summary": "Executes the DismissibleTip operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/flow-diagram.tsx",
+      "type": "file",
+      "name": "flow-diagram.tsx",
+      "filePath": "portfolio/src/components/flow-diagram.tsx",
+      "summary": "Implements flow diagram functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/components/flow-diagram.tsx:layout",
+      "type": "function",
+      "name": "layout",
+      "filePath": "portfolio/src/components/flow-diagram.tsx",
+      "lineRange": [
+        23,
+        72
+      ],
+      "summary": "Executes the layout operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/components/flow-diagram.tsx:edgeAnchor",
+      "type": "function",
+      "name": "edgeAnchor",
+      "filePath": "portfolio/src/components/flow-diagram.tsx",
+      "lineRange": [
+        80,
+        93
+      ],
+      "summary": "Executes the edgeAnchor operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/flow-diagram.tsx:FlowDiagram",
+      "type": "function",
+      "name": "FlowDiagram",
+      "filePath": "portfolio/src/components/flow-diagram.tsx",
+      "lineRange": [
+        109,
+        293
+      ],
+      "summary": "Executes the FlowDiagram operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/components/memory-panel.tsx",
+      "type": "file",
+      "name": "memory-panel.tsx",
+      "filePath": "portfolio/src/components/memory-panel.tsx",
+      "summary": "Implements memory panel functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/components/memory-panel.tsx:entryBadgeTone",
+      "type": "function",
+      "name": "entryBadgeTone",
+      "filePath": "portfolio/src/components/memory-panel.tsx",
+      "lineRange": [
+        35,
+        45
+      ],
+      "summary": "Executes the entryBadgeTone operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/memory-panel.tsx:entryIconTone",
+      "type": "function",
+      "name": "entryIconTone",
+      "filePath": "portfolio/src/components/memory-panel.tsx",
+      "lineRange": [
+        47,
+        57
+      ],
+      "summary": "Executes the entryIconTone operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/memory-panel.tsx:EntryIcon",
+      "type": "function",
+      "name": "EntryIcon",
+      "filePath": "portfolio/src/components/memory-panel.tsx",
+      "lineRange": [
+        59,
+        83
+      ],
+      "summary": "Executes the EntryIcon operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/memory-panel.tsx:MemoryPanel",
+      "type": "function",
+      "name": "MemoryPanel",
+      "filePath": "portfolio/src/components/memory-panel.tsx",
+      "lineRange": [
+        85,
+        204
+      ],
+      "summary": "Executes the MemoryPanel operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/components/project-card-preview.tsx",
+      "type": "file",
+      "name": "project-card-preview.tsx",
+      "filePath": "portfolio/src/components/project-card-preview.tsx",
+      "summary": "Implements project card preview functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/project-card-preview.tsx:ProjectCardPreview",
+      "type": "function",
+      "name": "ProjectCardPreview",
+      "filePath": "portfolio/src/components/project-card-preview.tsx",
+      "lineRange": [
+        13,
+        52
+      ],
+      "summary": "Executes the ProjectCardPreview operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/components/project-run-badge.tsx",
+      "type": "file",
+      "name": "project-run-badge.tsx",
+      "filePath": "portfolio/src/components/project-run-badge.tsx",
+      "summary": "Implements project run badge functionality within the portfolio project.",
+      "tags": [
+        "component",
+        "frontend",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/project-run-badge.tsx:loadMetrics",
+      "type": "function",
+      "name": "loadMetrics",
+      "filePath": "portfolio/src/components/project-run-badge.tsx",
+      "lineRange": [
+        9,
+        20
+      ],
+      "summary": "Executes the loadMetrics operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/project-run-badge.tsx:ProjectRunBadge",
+      "type": "function",
+      "name": "ProjectRunBadge",
+      "filePath": "portfolio/src/components/project-run-badge.tsx",
+      "lineRange": [
+        22,
+        42
+      ],
+      "summary": "Executes the ProjectRunBadge operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:portfolio/src/app/sitemap.ts",
+      "target": "function:portfolio/src/app/sitemap.ts:sitemap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/app/sitemap.ts",
+      "target": "function:portfolio/src/app/sitemap.ts:sitemap",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/sitemap.ts",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/components/agent-graph.tsx",
+      "target": "function:portfolio/src/components/agent-graph.tsx:getNodeVisualState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/agent-graph.tsx",
+      "target": "function:portfolio/src/components/agent-graph.tsx:getEdgeVisualState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/agent-graph.tsx",
+      "target": "function:portfolio/src/components/agent-graph.tsx:AgentGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/agent-graph.tsx",
+      "target": "function:portfolio/src/components/agent-graph.tsx:AgentGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/animated-graph.tsx",
+      "target": "function:portfolio/src/components/animated-graph.tsx:topoSort",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/animated-graph.tsx",
+      "target": "function:portfolio/src/components/animated-graph.tsx:layoutNodes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/animated-graph.tsx",
+      "target": "function:portfolio/src/components/animated-graph.tsx:StatusIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/animated-graph.tsx",
+      "target": "function:portfolio/src/components/animated-graph.tsx:AnimatedGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/animated-graph.tsx",
+      "target": "function:portfolio/src/components/animated-graph.tsx:AnimatedGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/animated-graph.tsx",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/components/confidence-indicator.tsx",
+      "target": "function:portfolio/src/components/confidence-indicator.tsx:confidenceTone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/confidence-indicator.tsx",
+      "target": "function:portfolio/src/components/confidence-indicator.tsx:ConfidenceIndicator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/confidence-indicator.tsx",
+      "target": "function:portfolio/src/components/confidence-indicator.tsx:ConfidenceIndicator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/copy-button.tsx",
+      "target": "function:portfolio/src/components/copy-button.tsx:CopyButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/copy-button.tsx",
+      "target": "function:portfolio/src/components/copy-button.tsx:CopyButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/dismissible-tip.tsx",
+      "target": "function:portfolio/src/components/dismissible-tip.tsx:DismissibleTip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/dismissible-tip.tsx",
+      "target": "function:portfolio/src/components/dismissible-tip.tsx:DismissibleTip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/flow-diagram.tsx",
+      "target": "function:portfolio/src/components/flow-diagram.tsx:layout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/flow-diagram.tsx",
+      "target": "function:portfolio/src/components/flow-diagram.tsx:edgeAnchor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/flow-diagram.tsx",
+      "target": "function:portfolio/src/components/flow-diagram.tsx:FlowDiagram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/flow-diagram.tsx",
+      "target": "function:portfolio/src/components/flow-diagram.tsx:FlowDiagram",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/flow-diagram.tsx",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/components/memory-panel.tsx",
+      "target": "function:portfolio/src/components/memory-panel.tsx:entryBadgeTone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/memory-panel.tsx",
+      "target": "function:portfolio/src/components/memory-panel.tsx:entryIconTone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/memory-panel.tsx",
+      "target": "function:portfolio/src/components/memory-panel.tsx:EntryIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/memory-panel.tsx",
+      "target": "function:portfolio/src/components/memory-panel.tsx:MemoryPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/memory-panel.tsx",
+      "target": "function:portfolio/src/components/memory-panel.tsx:MemoryPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/memory-panel.tsx",
+      "target": "file:portfolio/src/components/dismissible-tip.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/components/project-card-preview.tsx",
+      "target": "function:portfolio/src/components/project-card-preview.tsx:ProjectCardPreview",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/project-card-preview.tsx",
+      "target": "function:portfolio/src/components/project-card-preview.tsx:ProjectCardPreview",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/project-run-badge.tsx",
+      "target": "function:portfolio/src/components/project-run-badge.tsx:loadMetrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/project-run-badge.tsx",
+      "target": "function:portfolio/src/components/project-run-badge.tsx:ProjectRunBadge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:portfolio/src/components/project-run-badge.tsx",
+      "target": "function:portfolio/src/components/project-run-badge.tsx:ProjectRunBadge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/project-run-badge.tsx",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

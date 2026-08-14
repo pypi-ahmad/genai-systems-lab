@@ -1,0 +1,105 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": ".ua/.trash-1786690380/batch-71.json",
+      "language": "json",
+      "sizeLines": 579,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-72-part-1.json",
+      "language": "json",
+      "sizeLines": 1136,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-72-part-2.json",
+      "language": "json",
+      "sizeLines": 565,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-73.json",
+      "language": "json",
+      "sizeLines": 393,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-74.json",
+      "language": "json",
+      "sizeLines": 1363,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-8-part-1.json",
+      "language": "json",
+      "sizeLines": 1080,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-8-part-2.json",
+      "language": "json",
+      "sizeLines": 1965,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-8-part-3.json",
+      "language": "json",
+      "sizeLines": 2262,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-9.json",
+      "language": "json",
+      "sizeLines": 1631,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/batches.json",
+      "language": "json",
+      "sizeLines": 13305,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/fingerprint-input.json",
+      "language": "json",
+      "sizeLines": 815,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/layers.json",
+      "language": "json",
+      "sizeLines": 870,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/review.json",
+      "language": "json",
+      "sizeLines": 563,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tour.json",
+      "language": "json",
+      "sizeLines": 56,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    ".ua/.trash-1786690380/batch-71.json": [],
+    ".ua/.trash-1786690380/batch-72-part-1.json": [],
+    ".ua/.trash-1786690380/batch-72-part-2.json": [],
+    ".ua/.trash-1786690380/batch-73.json": [],
+    ".ua/.trash-1786690380/batch-74.json": [],
+    ".ua/.trash-1786690380/batch-8-part-1.json": [],
+    ".ua/.trash-1786690380/batch-8-part-2.json": [],
+    ".ua/.trash-1786690380/batch-8-part-3.json": [],
+    ".ua/.trash-1786690380/batch-9.json": [],
+    ".ua/.trash-1786690380/batches.json": [],
+    ".ua/.trash-1786690380/fingerprint-input.json": [],
+    ".ua/.trash-1786690380/layers.json": [],
+    ".ua/.trash-1786690380/review.json": [],
+    ".ua/.trash-1786690380/tour.json": []
+  }
+}

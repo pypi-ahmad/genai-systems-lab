@@ -1,0 +1,1437 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-interviewer/app/interviewer.py",
+      "type": "file",
+      "name": "interviewer.py",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "summary": "interviewer.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-interviewer/app/interviewer.py:_get_logger",
+      "type": "function",
+      "name": "_get_logger",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "lineRange": [
+        24,
+        34
+      ],
+      "summary": "Implements _get_logger as part of interviewer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/interviewer.py:_score_to_overall",
+      "type": "function",
+      "name": "_score_to_overall",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "lineRange": [
+        40,
+        45
+      ],
+      "summary": "Implements _score_to_overall as part of interviewer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/interviewer.py:_print_summary",
+      "type": "function",
+      "name": "_print_summary",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "lineRange": [
+        48,
+        59
+      ],
+      "summary": "Implements _print_summary as part of interviewer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/interviewer.py:_load_voice",
+      "type": "function",
+      "name": "_load_voice",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "lineRange": [
+        62,
+        68
+      ],
+      "summary": "Implements _load_voice as part of interviewer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/interviewer.py:_get_answer_text",
+      "type": "function",
+      "name": "_get_answer_text",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "lineRange": [
+        71,
+        73
+      ],
+      "summary": "Implements _get_answer_text as part of interviewer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/interviewer.py:_present_text",
+      "type": "function",
+      "name": "_present_text",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "lineRange": [
+        76,
+        78
+      ],
+      "summary": "Implements _present_text as part of interviewer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/interviewer.py:run_interview",
+      "type": "function",
+      "name": "run_interview",
+      "filePath": "genai-interviewer/app/interviewer.py",
+      "lineRange": [
+        81,
+        204
+      ],
+      "summary": "Implements run_interview as part of interviewer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:genai-interviewer/app/question_generator.py",
+      "type": "file",
+      "name": "question_generator.py",
+      "filePath": "genai-interviewer/app/question_generator.py",
+      "summary": "question_generator.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/question_generator.py:_build_history_block",
+      "type": "function",
+      "name": "_build_history_block",
+      "filePath": "genai-interviewer/app/question_generator.py",
+      "lineRange": [
+        43,
+        47
+      ],
+      "summary": "Implements _build_history_block as part of question_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/question_generator.py:generate_question",
+      "type": "function",
+      "name": "generate_question",
+      "filePath": "genai-interviewer/app/question_generator.py",
+      "lineRange": [
+        50,
+        61
+      ],
+      "summary": "Implements generate_question as part of question_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/app/session.py",
+      "type": "file",
+      "name": "session.py",
+      "filePath": "genai-interviewer/app/session.py",
+      "summary": "session.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:genai-interviewer/app/session.py:Score",
+      "type": "class",
+      "name": "Score",
+      "filePath": "genai-interviewer/app/session.py",
+      "lineRange": [
+        9,
+        14
+      ],
+      "summary": "Defines Score, a structured component used by session.py.",
+      "tags": [
+        "python",
+        "class",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-interviewer/app/session.py:Turn",
+      "type": "class",
+      "name": "Turn",
+      "filePath": "genai-interviewer/app/session.py",
+      "lineRange": [
+        18,
+        24
+      ],
+      "summary": "Defines Turn, a structured component used by session.py.",
+      "tags": [
+        "python",
+        "class",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-interviewer/app/session.py:InterviewSession",
+      "type": "class",
+      "name": "InterviewSession",
+      "filePath": "genai-interviewer/app/session.py",
+      "lineRange": [
+        27,
+        90
+      ],
+      "summary": "Defines InterviewSession, a structured component used by session.py.",
+      "tags": [
+        "python",
+        "class",
+        "application"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:genai-interviewer/app/voice.py",
+      "type": "file",
+      "name": "voice.py",
+      "filePath": "genai-interviewer/app/voice.py",
+      "summary": "voice.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:_require_sounddevice",
+      "type": "function",
+      "name": "_require_sounddevice",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        40,
+        49
+      ],
+      "summary": "Implements _require_sounddevice as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:speak",
+      "type": "function",
+      "name": "speak",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        56,
+        84
+      ],
+      "summary": "Implements speak as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:_extract_audio_bytes",
+      "type": "function",
+      "name": "_extract_audio_bytes",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        87,
+        94
+      ],
+      "summary": "Implements _extract_audio_bytes as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:_play_wav_bytes",
+      "type": "function",
+      "name": "_play_wav_bytes",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        97,
+        115
+      ],
+      "summary": "Implements _play_wav_bytes as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:listen",
+      "type": "function",
+      "name": "listen",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        122,
+        136
+      ],
+      "summary": "Implements listen as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:_record_until_silence",
+      "type": "function",
+      "name": "_record_until_silence",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        139,
+        174
+      ],
+      "summary": "Implements _record_until_silence as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:_frames_to_wav",
+      "type": "function",
+      "name": "_frames_to_wav",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        177,
+        187
+      ],
+      "summary": "Implements _frames_to_wav as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/voice.py:_transcribe",
+      "type": "function",
+      "name": "_transcribe",
+      "filePath": "genai-interviewer/app/voice.py",
+      "lineRange": [
+        190,
+        203
+      ],
+      "summary": "Implements _transcribe as part of voice.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-knowledge-os/app/knowledge_graph.py",
+      "type": "file",
+      "name": "knowledge_graph.py",
+      "filePath": "genai-knowledge-os/app/knowledge_graph.py",
+      "summary": "knowledge_graph.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:genai-knowledge-os/app/knowledge_graph.py:KnowledgeGraph",
+      "type": "class",
+      "name": "KnowledgeGraph",
+      "filePath": "genai-knowledge-os/app/knowledge_graph.py",
+      "lineRange": [
+        50,
+        137
+      ],
+      "summary": "Defines KnowledgeGraph, a structured component used by knowledge_graph.py.",
+      "tags": [
+        "python",
+        "class",
+        "application"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "type": "file",
+      "name": "sql_generator.py",
+      "filePath": "genai-nl2sql-agent/app/sql_generator.py",
+      "summary": "sql_generator.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/sql_generator.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-nl2sql-agent/app/sql_generator.py",
+      "lineRange": [
+        23,
+        40
+      ],
+      "summary": "Implements _build_prompt as part of sql_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/sql_generator.py:_clean_sql",
+      "type": "function",
+      "name": "_clean_sql",
+      "filePath": "genai-nl2sql-agent/app/sql_generator.py",
+      "lineRange": [
+        43,
+        50
+      ],
+      "summary": "Implements _clean_sql as part of sql_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/sql_generator.py:_validate_generated_sql",
+      "type": "function",
+      "name": "_validate_generated_sql",
+      "filePath": "genai-nl2sql-agent/app/sql_generator.py",
+      "lineRange": [
+        53,
+        65
+      ],
+      "summary": "Implements _validate_generated_sql as part of sql_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/sql_generator.py:generate_sql",
+      "type": "function",
+      "name": "generate_sql",
+      "filePath": "genai-nl2sql-agent/app/sql_generator.py",
+      "lineRange": [
+        68,
+        72
+      ],
+      "summary": "Implements generate_sql as part of sql_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/critic.py",
+      "type": "file",
+      "name": "critic.py",
+      "filePath": "genai-research-system/app/critic.py",
+      "summary": "critic.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/critic.py:critique",
+      "type": "function",
+      "name": "critique",
+      "filePath": "genai-research-system/app/critic.py",
+      "lineRange": [
+        13,
+        35
+      ],
+      "summary": "Implements critique as part of critic.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/critic.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/critic.py",
+      "lineRange": [
+        38,
+        59
+      ],
+      "summary": "Implements _build_prompt as part of critic.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/graph.py",
+      "type": "file",
+      "name": "graph.py",
+      "filePath": "genai-research-system/app/graph.py",
+      "summary": "graph.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/graph.py:_instrument_node",
+      "type": "function",
+      "name": "_instrument_node",
+      "filePath": "genai-research-system/app/graph.py",
+      "lineRange": [
+        22,
+        64
+      ],
+      "summary": "Implements _instrument_node as part of graph.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/graph.py:route_after_critic",
+      "type": "function",
+      "name": "route_after_critic",
+      "filePath": "genai-research-system/app/graph.py",
+      "lineRange": [
+        71,
+        78
+      ],
+      "summary": "Implements route_after_critic as part of graph.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/graph.py:route_after_originality",
+      "type": "function",
+      "name": "route_after_originality",
+      "filePath": "genai-research-system/app/graph.py",
+      "lineRange": [
+        81,
+        85
+      ],
+      "summary": "Implements route_after_originality as part of graph.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/graph.py:route_after_editor",
+      "type": "function",
+      "name": "route_after_editor",
+      "filePath": "genai-research-system/app/graph.py",
+      "lineRange": [
+        88,
+        92
+      ],
+      "summary": "Implements route_after_editor as part of graph.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/graph.py:build_graph",
+      "type": "function",
+      "name": "build_graph",
+      "filePath": "genai-research-system/app/graph.py",
+      "lineRange": [
+        99,
+        128
+      ],
+      "summary": "Implements build_graph as part of graph.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/memory.py",
+      "type": "file",
+      "name": "memory.py",
+      "filePath": "genai-research-system/app/memory.py",
+      "summary": "memory.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-research-system/app/memory.py:ResearchMemory",
+      "type": "class",
+      "name": "ResearchMemory",
+      "filePath": "genai-research-system/app/memory.py",
+      "lineRange": [
+        7,
+        28
+      ],
+      "summary": "Defines ResearchMemory, a structured component used by memory.py.",
+      "tags": [
+        "python",
+        "class",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/nodes/critic.py",
+      "type": "file",
+      "name": "critic.py",
+      "filePath": "genai-research-system/app/nodes/critic.py",
+      "summary": "critic.py implements application behavior for the nodes component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/critic.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-research-system/app/nodes/critic.py",
+      "lineRange": [
+        23,
+        36
+      ],
+      "summary": "Implements _build_prompt as part of critic.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/critic.py:critic_node",
+      "type": "function",
+      "name": "critic_node",
+      "filePath": "genai-research-system/app/nodes/critic.py",
+      "lineRange": [
+        39,
+        68
+      ],
+      "summary": "Implements critic_node as part of critic.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/critic.py:_critique_single",
+      "type": "function",
+      "name": "_critique_single",
+      "filePath": "genai-research-system/app/nodes/critic.py",
+      "lineRange": [
+        78,
+        89
+      ],
+      "summary": "Implements _critique_single as part of critic.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/nodes/critic.py:parallel_critic_node",
+      "type": "function",
+      "name": "parallel_critic_node",
+      "filePath": "genai-research-system/app/nodes/critic.py",
+      "lineRange": [
+        92,
+        120
+      ],
+      "summary": "Implements parallel_critic_node as part of critic.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_get_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_get_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_score_to_overall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_score_to_overall",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_print_summary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_print_summary",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_load_voice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_load_voice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_get_answer_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_get_answer_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_present_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:_present_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:run_interview",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "function:genai-interviewer/app/interviewer.py:run_interview",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/question_generator.py",
+      "target": "function:genai-interviewer/app/question_generator.py:_build_history_block",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/question_generator.py",
+      "target": "function:genai-interviewer/app/question_generator.py:_build_history_block",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/question_generator.py",
+      "target": "function:genai-interviewer/app/question_generator.py:generate_question",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/question_generator.py",
+      "target": "function:genai-interviewer/app/question_generator.py:generate_question",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/session.py",
+      "target": "class:genai-interviewer/app/session.py:Score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/session.py",
+      "target": "class:genai-interviewer/app/session.py:Score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/session.py",
+      "target": "class:genai-interviewer/app/session.py:Turn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/session.py",
+      "target": "class:genai-interviewer/app/session.py:Turn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/session.py",
+      "target": "class:genai-interviewer/app/session.py:InterviewSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/session.py",
+      "target": "class:genai-interviewer/app/session.py:InterviewSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_require_sounddevice",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_require_sounddevice",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:speak",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:speak",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_extract_audio_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_extract_audio_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_play_wav_bytes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_play_wav_bytes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:listen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:listen",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_record_until_silence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_record_until_silence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_frames_to_wav",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_frames_to_wav",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_transcribe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "function:genai-interviewer/app/voice.py:_transcribe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/knowledge_graph.py",
+      "target": "class:genai-knowledge-os/app/knowledge_graph.py:KnowledgeGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/knowledge_graph.py",
+      "target": "class:genai-knowledge-os/app/knowledge_graph.py:KnowledgeGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:_clean_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:_clean_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:_validate_generated_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:_validate_generated_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:generate_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "function:genai-nl2sql-agent/app/sql_generator.py:generate_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/critic.py",
+      "target": "function:genai-research-system/app/critic.py:critique",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/critic.py",
+      "target": "function:genai-research-system/app/critic.py:critique",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/critic.py",
+      "target": "function:genai-research-system/app/critic.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/critic.py",
+      "target": "function:genai-research-system/app/critic.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:_instrument_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:_instrument_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:route_after_critic",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:route_after_critic",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:route_after_originality",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:route_after_originality",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:route_after_editor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:route_after_editor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:build_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "function:genai-research-system/app/graph.py:build_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/memory.py",
+      "target": "class:genai-research-system/app/memory.py:ResearchMemory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/memory.py",
+      "target": "class:genai-research-system/app/memory.py:ResearchMemory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:critic_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:critic_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:_critique_single",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:_critique_single",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:parallel_critic_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "function:genai-research-system/app/nodes/critic.py:parallel_critic_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "file:genai-interviewer/app/difficulty_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "file:genai-interviewer/app/evaluator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "file:genai-interviewer/app/feedback.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "file:genai-interviewer/app/question_generator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/interviewer.py",
+      "target": "file:genai-interviewer/app/session.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/question_generator.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/voice.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/knowledge_graph.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/sql_generator.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/critic.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/nodes/critic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/nodes/editor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/nodes/formatter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/nodes/originality_checker.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/nodes/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/nodes/researcher.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/nodes/writer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/graph.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/nodes/critic.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

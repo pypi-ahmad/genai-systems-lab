@@ -6,6 +6,14 @@ from functools import lru_cache
 
 import duckdb
 
+DUCKDB_CONFIG = {
+	"enable_external_access": "false",
+	"autoinstall_known_extensions": "false",
+	"autoload_known_extensions": "false",
+	"threads": "1",
+	"memory_limit": "128MB",
+}
+
 
 CUSTOMERS = [
 	(1, "Alice Johnson", "United States"),
@@ -72,7 +80,7 @@ def _initialize_database(connection: duckdb.DuckDBPyConnection) -> duckdb.DuckDB
 
 @lru_cache(maxsize=1)
 def get_connection() -> duckdb.DuckDBPyConnection:
-	return _initialize_database(duckdb.connect(database=":memory:"))
+	return _initialize_database(duckdb.connect(database=":memory:", config=DUCKDB_CONFIG))
 
 
 def get_schema_description() -> str:

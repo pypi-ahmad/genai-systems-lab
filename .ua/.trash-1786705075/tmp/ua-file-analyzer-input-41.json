@@ -1,0 +1,35 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "benchmarks/promptfoo/prompts/code_generation.txt",
+      "language": "txt",
+      "sizeLines": 11,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "benchmarks/promptfoo/prompts/rag_prompt.txt",
+      "language": "txt",
+      "sizeLines": 10,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "benchmarks/promptfoo/prompts/research_query.txt",
+      "language": "txt",
+      "sizeLines": 16,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "benchmarks/promptfoo/prompts/summarization.txt",
+      "language": "txt",
+      "sizeLines": 8,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "benchmarks/promptfoo/prompts/code_generation.txt": [],
+    "benchmarks/promptfoo/prompts/rag_prompt.txt": [],
+    "benchmarks/promptfoo/prompts/research_query.txt": [],
+    "benchmarks/promptfoo/prompts/summarization.txt": []
+  }
+}

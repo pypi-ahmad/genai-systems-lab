@@ -1,0 +1,1494 @@
+{
+  "nodes": [
+    {
+      "id": "file:portfolio/src/components/RunExplanation.tsx",
+      "type": "file",
+      "name": "RunExplanation.tsx",
+      "filePath": "portfolio/src/components/RunExplanation.tsx",
+      "summary": "Implements RunExplanation.tsx as part of the portfolio application.",
+      "tags": [
+        "component",
+        "react",
+        "interface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/components/RunExplanation.tsx:RunExplanationPanel",
+      "type": "function",
+      "name": "RunExplanationPanel",
+      "filePath": "portfolio/src/components/RunExplanation.tsx",
+      "lineRange": [
+        14,
+        145
+      ],
+      "summary": "Implements the RunExplanationPanel operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/components/TimelineReplay.tsx",
+      "type": "file",
+      "name": "TimelineReplay.tsx",
+      "filePath": "portfolio/src/components/TimelineReplay.tsx",
+      "summary": "Implements TimelineReplay.tsx as part of the portfolio application.",
+      "tags": [
+        "component",
+        "react",
+        "interface"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/components/TimelineReplay.tsx:progressValue",
+      "type": "function",
+      "name": "progressValue",
+      "filePath": "portfolio/src/components/TimelineReplay.tsx",
+      "lineRange": [
+        59,
+        69
+      ],
+      "summary": "Implements the progressValue operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/components/TimelineReplay.tsx:TimelineReplayInner",
+      "type": "function",
+      "name": "TimelineReplayInner",
+      "filePath": "portfolio/src/components/TimelineReplay.tsx",
+      "lineRange": [
+        80,
+        313
+      ],
+      "summary": "Implements the TimelineReplayInner operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/components/TimelineReplay.tsx:TimelineReplay",
+      "type": "function",
+      "name": "TimelineReplay",
+      "filePath": "portfolio/src/components/TimelineReplay.tsx",
+      "lineRange": [
+        315,
+        327
+      ],
+      "summary": "Implements the TimelineReplay operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/data/projects.ts",
+      "type": "file",
+      "name": "projects.ts",
+      "filePath": "portfolio/src/data/projects.ts",
+      "summary": "Implements projects.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/data/projects.ts:getProject",
+      "type": "function",
+      "name": "getProject",
+      "filePath": "portfolio/src/data/projects.ts",
+      "lineRange": [
+        53,
+        55
+      ],
+      "summary": "Implements the getProject operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/lib/api.ts",
+      "type": "file",
+      "name": "api.ts",
+      "filePath": "portfolio/src/lib/api.ts",
+      "summary": "Implements api.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:formatApiReachabilityError",
+      "type": "function",
+      "name": "formatApiReachabilityError",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        31,
+        47
+      ],
+      "summary": "Implements the formatApiReachabilityError operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:apiFetch",
+      "type": "function",
+      "name": "apiFetch",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        57,
+        75
+      ],
+      "summary": "Implements the apiFetch operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:authHeaders",
+      "type": "function",
+      "name": "authHeaders",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        83,
+        105
+      ],
+      "summary": "Implements the authHeaders operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:parseErrorMessage",
+      "type": "function",
+      "name": "parseErrorMessage",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        107,
+        125
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:humanizeError",
+      "type": "function",
+      "name": "humanizeError",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        128,
+        154
+      ],
+      "summary": "Implements the humanizeError operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:formatRunError",
+      "type": "function",
+      "name": "formatRunError",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        159,
+        168
+      ],
+      "summary": "Implements the formatRunError operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:splitErrorDetail",
+      "type": "function",
+      "name": "splitErrorDetail",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        174,
+        178
+      ],
+      "summary": "Implements the splitErrorDetail operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:runProject",
+      "type": "function",
+      "name": "runProject",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        328,
+        350
+      ],
+      "summary": "Implements the runProject operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchMetrics",
+      "type": "function",
+      "name": "fetchMetrics",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        352,
+        358
+      ],
+      "summary": "Implements the fetchMetrics operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchMetricsTime",
+      "type": "function",
+      "name": "fetchMetricsTime",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        360,
+        382
+      ],
+      "summary": "Implements the fetchMetricsTime operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:signup",
+      "type": "function",
+      "name": "signup",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        384,
+        397
+      ],
+      "summary": "Implements the signup operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:login",
+      "type": "function",
+      "name": "login",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        399,
+        412
+      ],
+      "summary": "Implements the login operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:logout",
+      "type": "function",
+      "name": "logout",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        414,
+        423
+      ],
+      "summary": "Implements the logout operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchCurrentUser",
+      "type": "function",
+      "name": "fetchCurrentUser",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        425,
+        440
+      ],
+      "summary": "Implements the fetchCurrentUser operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchAuthConfig",
+      "type": "function",
+      "name": "fetchAuthConfig",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        442,
+        453
+      ],
+      "summary": "Implements the fetchAuthConfig operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchLLMCatalog",
+      "type": "function",
+      "name": "fetchLLMCatalog",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        455,
+        466
+      ],
+      "summary": "Implements the fetchLLMCatalog operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchHistory",
+      "type": "function",
+      "name": "fetchHistory",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        468,
+        480
+      ],
+      "summary": "Implements the fetchHistory operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchRunSession",
+      "type": "function",
+      "name": "fetchRunSession",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        482,
+        494
+      ],
+      "summary": "Implements the fetchRunSession operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:clearRunSession",
+      "type": "function",
+      "name": "clearRunSession",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        496,
+        509
+      ],
+      "summary": "Implements the clearRunSession operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:explainRun",
+      "type": "function",
+      "name": "explainRun",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        511,
+        524
+      ],
+      "summary": "Implements the explainRun operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:shareRun",
+      "type": "function",
+      "name": "shareRun",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        546,
+        568
+      ],
+      "summary": "Implements the shareRun operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:unshareRun",
+      "type": "function",
+      "name": "unshareRun",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        570,
+        580
+      ],
+      "summary": "Implements the unshareRun operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:fetchSharedRun",
+      "type": "function",
+      "name": "fetchSharedRun",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        582,
+        593
+      ],
+      "summary": "Implements the fetchSharedRun operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:dispatchStreamEvent",
+      "type": "function",
+      "name": "dispatchStreamEvent",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        619,
+        711
+      ],
+      "summary": "Implements the dispatchStreamEvent operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/lib/api.ts:streamProject",
+      "type": "function",
+      "name": "streamProject",
+      "filePath": "portfolio/src/lib/api.ts",
+      "lineRange": [
+        717,
+        822
+      ],
+      "summary": "Implements the streamProject operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/lib/apikey.test.ts",
+      "type": "file",
+      "name": "apikey.test.ts",
+      "filePath": "portfolio/src/lib/apikey.test.ts",
+      "summary": "Implements apikey.test.ts as part of the portfolio application.",
+      "tags": [
+        "test",
+        "verification",
+        "automation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/lib/apikey.ts",
+      "type": "file",
+      "name": "apikey.ts",
+      "filePath": "portfolio/src/lib/apikey.ts",
+      "summary": "Implements apikey.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/lib/apikey.ts:getStoredApiKeys",
+      "type": "function",
+      "name": "getStoredApiKeys",
+      "filePath": "portfolio/src/lib/apikey.ts",
+      "lineRange": [
+        33,
+        35
+      ],
+      "summary": "Implements the getStoredApiKeys operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/apikey.ts:setStoredApiKey",
+      "type": "function",
+      "name": "setStoredApiKey",
+      "filePath": "portfolio/src/lib/apikey.ts",
+      "lineRange": [
+        37,
+        44
+      ],
+      "summary": "Implements the setStoredApiKey operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/apikey.ts:clearStoredApiKey",
+      "type": "function",
+      "name": "clearStoredApiKey",
+      "filePath": "portfolio/src/lib/apikey.ts",
+      "lineRange": [
+        46,
+        48
+      ],
+      "summary": "Implements the clearStoredApiKey operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/apikey.ts:clearStoredApiKeys",
+      "type": "function",
+      "name": "clearStoredApiKeys",
+      "filePath": "portfolio/src/lib/apikey.ts",
+      "lineRange": [
+        50,
+        55
+      ],
+      "summary": "Implements the clearStoredApiKeys operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/apikey.ts:getStoredLLMSelection",
+      "type": "function",
+      "name": "getStoredLLMSelection",
+      "filePath": "portfolio/src/lib/apikey.ts",
+      "lineRange": [
+        57,
+        59
+      ],
+      "summary": "Implements the getStoredLLMSelection operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/apikey.ts:setStoredLLMSelection",
+      "type": "function",
+      "name": "setStoredLLMSelection",
+      "filePath": "portfolio/src/lib/apikey.ts",
+      "lineRange": [
+        61,
+        66
+      ],
+      "summary": "Implements the setStoredLLMSelection operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/lib/auth.ts",
+      "type": "file",
+      "name": "auth.ts",
+      "filePath": "portfolio/src/lib/auth.ts",
+      "summary": "Implements auth.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/auth.ts:getStoredAuthSession",
+      "type": "function",
+      "name": "getStoredAuthSession",
+      "filePath": "portfolio/src/lib/auth.ts",
+      "lineRange": [
+        6,
+        14
+      ],
+      "summary": "Implements the getStoredAuthSession operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/auth.ts:storeAuthSession",
+      "type": "function",
+      "name": "storeAuthSession",
+      "filePath": "portfolio/src/lib/auth.ts",
+      "lineRange": [
+        16,
+        22
+      ],
+      "summary": "Implements the storeAuthSession operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/auth.ts:clearAuthSession",
+      "type": "function",
+      "name": "clearAuthSession",
+      "filePath": "portfolio/src/lib/auth.ts",
+      "lineRange": [
+        30,
+        37
+      ],
+      "summary": "Implements the clearAuthSession operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/lib/llm-catalog.ts",
+      "type": "file",
+      "name": "llm-catalog.ts",
+      "filePath": "portfolio/src/lib/llm-catalog.ts",
+      "summary": "Implements llm-catalog.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/llm-catalog.ts:findProviderForModel",
+      "type": "function",
+      "name": "findProviderForModel",
+      "filePath": "portfolio/src/lib/llm-catalog.ts",
+      "lineRange": [
+        5,
+        13
+      ],
+      "summary": "Implements the findProviderForModel operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/llm-catalog.ts:findProviderInfo",
+      "type": "function",
+      "name": "findProviderInfo",
+      "filePath": "portfolio/src/lib/llm-catalog.ts",
+      "lineRange": [
+        16,
+        21
+      ],
+      "summary": "Implements the findProviderInfo operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/lib/session.ts",
+      "type": "file",
+      "name": "session.ts",
+      "filePath": "portfolio/src/lib/session.ts",
+      "summary": "Implements session.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/session.ts:getStoredSessionId",
+      "type": "function",
+      "name": "getStoredSessionId",
+      "filePath": "portfolio/src/lib/session.ts",
+      "lineRange": [
+        3,
+        15
+      ],
+      "summary": "Implements the getStoredSessionId operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/session.ts:storeSessionId",
+      "type": "function",
+      "name": "storeSessionId",
+      "filePath": "portfolio/src/lib/session.ts",
+      "lineRange": [
+        17,
+        23
+      ],
+      "summary": "Implements the storeSessionId operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/lib/session.ts:clearStoredSessionId",
+      "type": "function",
+      "name": "clearStoredSessionId",
+      "filePath": "portfolio/src/lib/session.ts",
+      "lineRange": [
+        25,
+        31
+      ],
+      "summary": "Implements the clearStoredSessionId operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:portfolio/src/components/RunExplanation.tsx",
+      "target": "function:portfolio/src/components/RunExplanation.tsx:RunExplanationPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/components/RunExplanation.tsx",
+      "target": "function:portfolio/src/components/RunExplanation.tsx:RunExplanationPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/RunExplanation.tsx",
+      "target": "file:portfolio/src/components/dismissible-tip.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/components/RunExplanation.tsx",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/components/TimelineReplay.tsx",
+      "target": "function:portfolio/src/components/TimelineReplay.tsx:progressValue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/components/TimelineReplay.tsx",
+      "target": "function:portfolio/src/components/TimelineReplay.tsx:TimelineReplayInner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/components/TimelineReplay.tsx",
+      "target": "function:portfolio/src/components/TimelineReplay.tsx:TimelineReplay",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/components/TimelineReplay.tsx",
+      "target": "function:portfolio/src/components/TimelineReplay.tsx:TimelineReplay",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/components/TimelineReplay.tsx",
+      "target": "file:portfolio/src/components/dismissible-tip.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/data/projects.ts",
+      "target": "function:portfolio/src/data/projects.ts:getProject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/data/projects.ts",
+      "target": "function:portfolio/src/data/projects.ts:getProject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/data/projects.ts",
+      "target": "file:portfolio/src/data/project-catalog.json",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:formatApiReachabilityError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:apiFetch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:authHeaders",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:parseErrorMessage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:humanizeError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:formatRunError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:splitErrorDetail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:splitErrorDetail",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:runProject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:runProject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchMetrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchMetrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchMetricsTime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchMetricsTime",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:signup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:signup",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:login",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:login",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:logout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:logout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchCurrentUser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchCurrentUser",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchAuthConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchAuthConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchLLMCatalog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchLLMCatalog",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchHistory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchHistory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchRunSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchRunSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:clearRunSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:clearRunSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:explainRun",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:explainRun",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:shareRun",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:shareRun",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:unshareRun",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:unshareRun",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchSharedRun",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:fetchSharedRun",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:dispatchStreamEvent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:streamProject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "function:portfolio/src/lib/api.ts:streamProject",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "file:portfolio/src/lib/apikey.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/lib/api.ts",
+      "target": "file:portfolio/src/lib/auth.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.test.ts",
+      "target": "file:portfolio/src/lib/apikey.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:getStoredApiKeys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:getStoredApiKeys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:setStoredApiKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:setStoredApiKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:clearStoredApiKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:clearStoredApiKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:clearStoredApiKeys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:clearStoredApiKeys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:getStoredLLMSelection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:getStoredLLMSelection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:setStoredLLMSelection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/apikey.ts",
+      "target": "function:portfolio/src/lib/apikey.ts:setStoredLLMSelection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/auth.ts",
+      "target": "function:portfolio/src/lib/auth.ts:getStoredAuthSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/auth.ts",
+      "target": "function:portfolio/src/lib/auth.ts:getStoredAuthSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/auth.ts",
+      "target": "function:portfolio/src/lib/auth.ts:storeAuthSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/auth.ts",
+      "target": "function:portfolio/src/lib/auth.ts:storeAuthSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/auth.ts",
+      "target": "function:portfolio/src/lib/auth.ts:clearAuthSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/auth.ts",
+      "target": "function:portfolio/src/lib/auth.ts:clearAuthSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/auth.ts",
+      "target": "file:portfolio/src/lib/apikey.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/lib/llm-catalog.ts",
+      "target": "function:portfolio/src/lib/llm-catalog.ts:findProviderForModel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/llm-catalog.ts",
+      "target": "function:portfolio/src/lib/llm-catalog.ts:findProviderForModel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/llm-catalog.ts",
+      "target": "function:portfolio/src/lib/llm-catalog.ts:findProviderInfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/llm-catalog.ts",
+      "target": "function:portfolio/src/lib/llm-catalog.ts:findProviderInfo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/llm-catalog.ts",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/lib/llm-catalog.ts",
+      "target": "file:portfolio/src/lib/apikey.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/lib/session.ts",
+      "target": "function:portfolio/src/lib/session.ts:getStoredSessionId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/session.ts",
+      "target": "function:portfolio/src/lib/session.ts:getStoredSessionId",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/session.ts",
+      "target": "function:portfolio/src/lib/session.ts:storeSessionId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/session.ts",
+      "target": "function:portfolio/src/lib/session.ts:storeSessionId",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/lib/session.ts",
+      "target": "function:portfolio/src/lib/session.ts:clearStoredSessionId",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/lib/session.ts",
+      "target": "function:portfolio/src/lib/session.ts:clearStoredSessionId",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

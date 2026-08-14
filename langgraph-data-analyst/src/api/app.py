@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="LangGraph Data Analyst",
-    version="1.0.0",
+    version="1.1.0",
 )
 
 

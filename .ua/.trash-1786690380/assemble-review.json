@@ -1,0 +1,13 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 1,
+  "edgesRestored": 1,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "The merge report emitted no Fixed section; assembled and batch nodes contained no missing IDs, unknown types, or unknown complexity values.",
+    "Recovered file:portfolio/src/data/project-catalog.json because batch-74 supplied only a config node for the scan-listed JSON file, then restored the observed imports edge from projects.ts.",
+    "All 810 importMap entries are now represented whenever both endpoints have file nodes."
+  ]
+}

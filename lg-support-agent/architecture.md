@@ -40,7 +40,7 @@ Determines the customer's intent from the raw query.
 
 - **Reads:** `query`
 - **Writes:** `intent`
-- **Model:** `gemini-3.1-pro-preview` — intent classification requires strong reasoning to handle ambiguous, multi-intent, or poorly worded queries.
+- **Model:** `gemini-3.7-flash` — intent classification requires strong reasoning to handle ambiguous, multi-intent, or poorly worded queries.
 - **Output:** A single intent label from a fixed set (e.g. `"billing"`, `"technical"`, `"account"`, `"returns"`, `"general"`). The model is prompted with the allowed labels and must return exactly one.
 - **Edge case:** If the query is unintelligible or maps to no known intent, the classifier sets `intent = "unknown"`.
 
@@ -61,7 +61,7 @@ Generates a customer-facing response grounded in the retrieved documentation.
 
 - **Reads:** `query`, `intent`, `retrieved_docs`
 - **Writes:** `response`
-- **Model:** `gemini-3-flash-preview` — response generation is a synthesis and formatting task; speed and tone matter more than deep reasoning.
+- **Model:** `gemini-3.5-flash-lite` — response generation is a synthesis and formatting task; speed and tone matter more than deep reasoning.
 - **Prompt strategy:** The retrieved docs are injected as context. The model is instructed to answer strictly from the provided material, cite article titles where applicable, and maintain a professional, empathetic tone.
 - **Edge case:** When `retrieved_docs` is empty, the responder produces a polite acknowledgment and states that a human agent will follow up.
 
@@ -71,7 +71,7 @@ Assesses the quality and correctness of the generated response and decides wheth
 
 - **Reads:** `query`, `intent`, `retrieved_docs`, `response`
 - **Writes:** `confidence`, `escalate`
-- **Model:** `gemini-3.1-pro-preview` — evaluation requires strong reasoning to detect hallucinations, unsupported claims, and tone issues.
+- **Model:** `gemini-3.7-flash` — evaluation requires strong reasoning to detect hallucinations, unsupported claims, and tone issues.
 - **Logic:**
   1. Score the response on a 0.0–1.0 scale across factual grounding, completeness, and tone.
   2. Compute a single `confidence` value (weighted average of the three scores).
@@ -121,13 +121,13 @@ def evaluator_node(state: SupportState) -> dict:
 
 | Model | Nodes | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | classifier, evaluator | Intent classification on ambiguous input and response evaluation both require strong reasoning |
-| `gemini-3-flash-preview` | responder | Response generation from retrieved context is a synthesis task; speed and fluency matter more than raw reasoning |
+| `gemini-3.7-flash` | classifier, evaluator | Intent classification on ambiguous input and response evaluation both require strong reasoning |
+| `gemini-3.5-flash-lite` | responder | Response generation from retrieved context is a synthesis task; speed and fluency matter more than raw reasoning |
 | `gemini-embedding-2-preview` | retriever | Embedding similarity search against KB articles |
 
 ### Cost and latency considerations
 
-- The graph makes exactly two `gemini-3.1-pro-preview` calls and one `gemini-3-flash-preview` call per query, plus one embedding call in the retriever.
+- The graph makes exactly two `gemini-3.7-flash` calls and one `gemini-3.5-flash-lite` call per query, plus one embedding call in the retriever.
 - KB article embeddings are computed once on the first search and cached in memory; subsequent searches only embed the query.
 - Total wall-clock time is dominated by the two pro-model calls. Running classifier and retriever sequentially (not in parallel) is intentional — the retriever needs the classified intent.
 
@@ -188,8 +188,8 @@ Key parameters should be externalized:
 | Parameter | Default | Purpose |
 |---|---|---|
 | `CONFIDENCE_THRESHOLD` | 0.7 | Minimum confidence to auto-deliver a response |
-| `CLASSIFICATION_MODEL` | `gemini-3.1-pro-preview` | Model for classifier and evaluator |
-| `RESPONSE_MODEL` | `gemini-3-flash-preview` | Model for responder |
+| `CLASSIFICATION_MODEL` | `gemini-3.7-flash` | Model for classifier and evaluator |
+| `RESPONSE_MODEL` | `gemini-3.5-flash-lite` | Model for responder |
 | `RETRIEVAL_TOP_K` | 5 | Number of KB articles to retrieve |
 | `RELEVANCE_THRESHOLD` | 0.3 | Minimum similarity score for retrieved docs |
 

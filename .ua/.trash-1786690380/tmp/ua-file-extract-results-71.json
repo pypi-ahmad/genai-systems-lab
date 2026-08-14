@@ -1,0 +1,612 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [
+    ".gitattributes",
+    ".trivyignore",
+    ".ua/.understandignore",
+    "crew-content-pipeline/tests/.gitkeep",
+    "crew-hiring-system/tests/.gitkeep",
+    "crew-investment-analyst/tests/.gitkeep",
+    "crew-product-launch/tests/.gitkeep",
+    "crew-startup-simulator/tests/.gitkeep",
+    "genai-clinical-assistant/data/.gitkeep",
+    "genai-clinical-assistant/tests/.gitkeep"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 15,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 11,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": ".github/dependabot.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 50,
+      "nonEmptyLines": 45,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "updates",
+          "level": 1,
+          "line": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".github/gitleaks.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 40,
+      "nonEmptyLines": 35,
+      "sections": [
+        {
+          "heading": "extend",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "allowlist",
+          "level": 1,
+          "line": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "sections": [
+        {
+          "heading": "outputLanguage",
+          "level": 1,
+          "line": 2
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 1
+      }
+    },
+    {
+      "path": "crew-content-pipeline/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-hiring-system/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-investment-analyst/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-product-launch/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/tests/conftest.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "docs/comparison.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 88,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "LangGraph vs CrewAI: Implementation Comparison",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Control vs Collaboration",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "Determinism vs Flexibility",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Use Cases",
+          "level": 2,
+          "line": 50
+        },
+        {
+          "heading": "When LangGraph fits",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "When CrewAI fits",
+          "level": 3,
+          "line": 63
+        },
+        {
+          "heading": "Side-by-Side Reference",
+          "level": 2,
+          "line": 75
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-clinical-assistant/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-code-copilot/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-code-copilot/app/context_builder.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 71,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "_normalize_chunk_text",
+          "startLine": 15,
+          "endLine": 23,
+          "params": [
+            "text",
+            "max_chars"
+          ]
+        },
+        {
+          "name": "_format_chunk",
+          "startLine": 26,
+          "endLine": 27,
+          "params": [
+            "path",
+            "text"
+          ]
+        },
+        {
+          "name": "build_context",
+          "startLine": 30,
+          "endLine": 68,
+          "params": [
+            "chunks"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ContextChunk",
+          "startLine": 10,
+          "endLine": 12,
+          "methods": [],
+          "properties": [
+            "text",
+            "path"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ContextChunk",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "_normalize_chunk_text",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "_format_chunk",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "build_context",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_normalize_chunk_text",
+          "callee": "text.strip",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_normalize_chunk_text",
+          "callee": "len",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_normalize_chunk_text",
+          "callee": "normalized[: max_chars - 3].rstrip",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build_context",
+          "callee": "str(chunk.get(\"path\", \"\")).strip",
+          "lineNumber": 38
+        },
+        {
+          "caller": "build_context",
+          "callee": "str",
+          "lineNumber": 38
+        },
+        {
+          "caller": "build_context",
+          "callee": "chunk.get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "build_context",
+          "callee": "str(chunk.get(\"text\", \"\")).strip",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build_context",
+          "callee": "str",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build_context",
+          "callee": "chunk.get",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build_context",
+          "callee": "_format_chunk",
+          "lineNumber": 44
+        },
+        {
+          "caller": "build_context",
+          "callee": "_normalize_chunk_text",
+          "lineNumber": 46
+        },
+        {
+          "caller": "build_context",
+          "callee": "len",
+          "lineNumber": 49
+        },
+        {
+          "caller": "build_context",
+          "callee": "len",
+          "lineNumber": 54
+        },
+        {
+          "caller": "build_context",
+          "callee": "max",
+          "lineNumber": 57
+        },
+        {
+          "caller": "build_context",
+          "callee": "len",
+          "lineNumber": 57
+        },
+        {
+          "caller": "build_context",
+          "callee": "_normalize_chunk_text",
+          "lineNumber": 58
+        },
+        {
+          "caller": "build_context",
+          "callee": "_format_chunk",
+          "lineNumber": 59
+        },
+        {
+          "caller": "build_context",
+          "callee": "len",
+          "lineNumber": 60
+        },
+        {
+          "caller": "build_context",
+          "callee": "formatted_sections.append",
+          "lineNumber": 62
+        },
+        {
+          "caller": "build_context",
+          "callee": "\"\\n\\n\".join",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "genai-code-copilot/app/file_parser.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 60,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "_should_ignore_directory",
+          "startLine": 17,
+          "endLine": 18,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "_read_text_file",
+          "startLine": 21,
+          "endLine": 22,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "scan_directory",
+          "startLine": 25,
+          "endLine": 57,
+          "params": [
+            "directory"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "ParsedFile",
+          "startLine": 12,
+          "endLine": 14,
+          "methods": [],
+          "properties": [
+            "path",
+            "content"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ParsedFile",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "_should_ignore_directory",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "_read_text_file",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "scan_directory",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_should_ignore_directory",
+          "callee": "any",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_read_text_file",
+          "callee": "path.read_text",
+          "lineNumber": 22
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "Path(directory).expanduser().resolve",
+          "lineNumber": 26
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "Path(directory).expanduser",
+          "lineNumber": 26
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "Path",
+          "lineNumber": 26
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "root.exists",
+          "lineNumber": 28
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "FileNotFoundError",
+          "lineNumber": 29
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "root.is_dir",
+          "lineNumber": 30
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "NotADirectoryError",
+          "lineNumber": 31
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "os.walk",
+          "lineNumber": 35
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "sorted",
+          "lineNumber": 36
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "Path",
+          "lineNumber": 40
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "_should_ignore_directory",
+          "lineNumber": 41
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "sorted",
+          "lineNumber": 44
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "file_path.suffix.lower",
+          "lineNumber": 47
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "parsed_files.append",
+          "lineNumber": 50
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "str",
+          "lineNumber": 52
+        },
+        {
+          "caller": "scan_directory",
+          "callee": "_read_text_file",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 1
+      }
+    }
+  ]
+}

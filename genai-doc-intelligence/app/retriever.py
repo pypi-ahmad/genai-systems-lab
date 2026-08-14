@@ -48,7 +48,7 @@ def _parse_rerank_score(response: str) -> float:
 def _rerank_score(query: str, text: str) -> float:
     try:
         prompt = _RERANK_PROMPT.format(query=query, passage=text[:1000])
-        response = generate_text(prompt, model="gemini-3-flash-preview")
+        response = generate_text(prompt, model="gemini-3.5-flash-lite")
         return _parse_rerank_score(response)
     except Exception:
         return 0.5

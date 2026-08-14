@@ -96,7 +96,7 @@ The Interviewer checks session boundaries. If the interview continues, it loops 
 
 ## Model Usage
 
-### `gemini-3.1-pro-preview`
+### `gemini-3.7-flash`
 
 Use for tasks requiring precise reasoning and structured judgment.
 
@@ -105,7 +105,7 @@ Responsibilities:
 - Evaluator: answer evaluation against criteria, gap identification, structured scoring with justification.
 - Question Generator: producing well-calibrated questions with clear expected-answer criteria.
 
-### `gemini-3-flash-preview`
+### `gemini-3.5-flash-lite`
 
 Use for generation tasks where speed matters more than deep reasoning.
 

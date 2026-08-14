@@ -1,0 +1,109 @@
+{
+  "nodes": [
+    {
+      "id": "config:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": "Documents the runtime environment variables required to configure the application without including secrets.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:ARCHITECTURE.md",
+      "type": "document",
+      "name": "ARCHITECTURE.md",
+      "filePath": "ARCHITECTURE.md",
+      "summary": "Describes the platform architecture, request flow, shared runtime services, and project-module organization.",
+      "tags": [
+        "documentation",
+        "project-governance",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:CHANGELOG.md",
+      "type": "document",
+      "name": "CHANGELOG.md",
+      "filePath": "CHANGELOG.md",
+      "summary": "Records notable project changes using the Keep a Changelog convention.",
+      "tags": [
+        "documentation",
+        "project-governance",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:CODE_OF_CONDUCT.md",
+      "type": "document",
+      "name": "CODE_OF_CONDUCT.md",
+      "filePath": "CODE_OF_CONDUCT.md",
+      "summary": "Sets participation expectations and reporting guidance for a respectful project community.",
+      "tags": [
+        "documentation",
+        "project-governance",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "Project entry-point documentation covering the GenAI Systems Lab platform, its systems, setup, API, and development workflow.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:SECURITY.md",
+      "type": "document",
+      "name": "SECURITY.md",
+      "filePath": "SECURITY.md",
+      "summary": "Explains supported versions and the project process for reporting security vulnerabilities.",
+      "tags": [
+        "documentation",
+        "project-governance",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:pyproject.toml",
+      "type": "config",
+      "name": "pyproject.toml",
+      "filePath": "pyproject.toml",
+      "summary": "Defines Python package metadata and tool configuration for the GenAI Systems Lab project.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "requirements.txt",
+      "summary": "Pins the Python runtime dependencies required by the application and its AI integrations.",
+      "tags": [
+        "documentation",
+        "project-governance",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

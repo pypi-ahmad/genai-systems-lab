@@ -3,20 +3,25 @@
 from __future__ import annotations
 
 import importlib.util
-import json
 import inspect
+import json
 import os
+import queue
 import sys
 import threading
-import queue
 import time
+from contextlib import suppress
 from dataclasses import dataclass
 from functools import lru_cache
 from pathlib import Path
 
+from shared.llm.telemetry import begin_llm_run, consume_llm_run_usage
+from shared.llm.token_events import TokenEmitter, bind_token_emitter, reset_token_emitter
 from shared.logging import get_logger, reset_log_context, set_log_context
-from shared.observability.langfuse import score_trace, trace_context, flush as langfuse_flush
+from shared.observability.langfuse import flush as langfuse_flush
+from shared.observability.langfuse import score_trace, trace_context
 from shared.project_catalog import load_project_catalog, project_api_name
+
 from .step_events import StepEmitter, bind_step_emitter, reset_step_emitter
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
@@ -33,6 +38,21 @@ _SYS_MODULES_LOCK = threading.Lock()
 
 def _is_dev_mode() -> bool:
     return os.getenv("APP_ENV", "dev").strip().lower() != "prod"
+
+
+UNSAFE_PUBLIC_PROJECTS = frozenset({"lg-debugging-agent"})
+
+
+def _unsafe_projects_enabled() -> bool:
+    """Allow trusted local demos only when explicitly enabled outside production."""
+    if not _is_dev_mode():
+        return False
+    return os.getenv("GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS", "").strip().lower() in {
+        "1",
+        "true",
+        "yes",
+        "on",
+    }
 
 LEGACY_PROJECT_API_NAMES = {
     "ai-interviewer": "interviewer",
@@ -89,6 +109,7 @@ class RunResult:
     exit_code: int
     elapsed_ms: float
     trace_id: str | None = None
+    usage: dict[str, object] | None = None
 
 
 def _clear_project_imports() -> None:
@@ -105,13 +126,21 @@ def _clear_project_imports() -> None:
         sys.modules.pop(module_name, None)
 
 
+def _ensure_import_paths(project: str) -> None:
+    """Add shared and project import roots while ``_SYS_MODULES_LOCK`` is held."""
+    for path in (REPO_ROOT / project, REPO_ROOT):
+        import_path = str(path)
+        if import_path not in sys.path:
+            sys.path.insert(0, import_path)
+
+
 def _load_main(project: str):
     """Import ``<project>/app/main.py`` and return the module, or *None*.
 
     Results are cached keyed on project name.  In dev mode the cache is
     invalidated when ``main.py``'s mtime changes so edits take effect without
     restarting the API.  In prod mode the first load wins — heavy frameworks
-    like CrewAI and LangGraph add 1–3 s of cold-import overhead which the old
+    like CrewAI and LangGraph add 1-3 s of cold-import overhead which the old
     code paid on every request.
 
     ``sys.modules`` mutation is serialised to avoid two concurrent project
@@ -130,22 +159,11 @@ def _load_main(project: str):
                 # Ensure sys.path still contains the project dir in case a
                 # subsequent project load cleared it — cheap enough to redo.
                 with _SYS_MODULES_LOCK:
-                    project_dir = str(REPO_ROOT / project)
-                    repo_root = str(REPO_ROOT)
-                    if project_dir not in sys.path:
-                        sys.path.insert(0, project_dir)
-                    if repo_root not in sys.path:
-                        sys.path.insert(0, repo_root)
+                    _ensure_import_paths(project)
                 return cached_module
 
-    project_dir = str(REPO_ROOT / project)
-    repo_root = str(REPO_ROOT)
-
     with _SYS_MODULES_LOCK:
-        if project_dir not in sys.path:
-            sys.path.insert(0, project_dir)
-        if repo_root not in sys.path:
-            sys.path.insert(0, repo_root)
+        _ensure_import_paths(project)
         _clear_project_imports()
 
         spec = importlib.util.spec_from_file_location(f"{project}.app.main", str(main_path))
@@ -160,11 +178,14 @@ def _load_main(project: str):
 
 
 def list_available() -> list[str]:
-    """Return names of all runnable projects."""
+    """Return projects that may be executed through the shared runner."""
+    allow_unsafe = _unsafe_projects_enabled()
     return sorted(
         d.name
         for d in REPO_ROOT.iterdir()
-        if d.is_dir() and (d / "app" / "main.py").is_file()
+        if d.is_dir()
+        and (d / "app" / "main.py").is_file()
+        and (allow_unsafe or d.name not in UNSAFE_PUBLIC_PROJECTS)
     )
 
 
@@ -186,7 +207,7 @@ def resolve_project_name(project: str) -> str:
     raise ValueError(f"Project '{project}' not found or has no app/main.py")
 
 
-def run_project(project: str, user_input: str, *, api_key: str, step_emitter: StepEmitter | None = None) -> RunResult:
+def run_project(project: str, user_input: str, *, api_key: str, step_emitter: StepEmitter | None = None, token_emitter: TokenEmitter | None = None) -> RunResult:
     """Run a project's standardized ``run(input, api_key)`` entry-point.
 
     Raises ``ValueError`` if the project is not found or has no callable ``run``.
@@ -194,6 +215,8 @@ def run_project(project: str, user_input: str, *, api_key: str, step_emitter: St
     resolved_project = resolve_project_name(project)
     tokens = set_log_context(project_name=resolved_project)
     emitter_token = bind_step_emitter(step_emitter)
+    output_token = bind_token_emitter(token_emitter)
+    begin_llm_run()
 
     trace = None
     trace_id: str | None = None
@@ -241,15 +264,13 @@ def run_project(project: str, user_input: str, *, api_key: str, step_emitter: St
             )
 
             if trace is not None:
-                try:
+                with suppress(Exception):
                     trace.update(
                         output=result_dict,
                         metadata={"latency_ms": round(elapsed_ms, 2), "success": True},
                     )
                     score_trace(trace=trace, name="success", value=1.0)
                     score_trace(trace=trace, name="latency_ms", value=round(elapsed_ms, 2))
-                except Exception:
-                    pass
 
             return RunResult(
                 project=resolved_project,
@@ -257,6 +278,7 @@ def run_project(project: str, user_input: str, *, api_key: str, step_emitter: St
                 exit_code=0,
                 elapsed_ms=round(elapsed_ms, 2),
                 trace_id=trace_id,
+                usage=consume_llm_run_usage(),
             )
     except ModuleNotFoundError as exc:
         unavailable_error = _optional_dependency_error(exc)
@@ -284,12 +306,14 @@ def run_project(project: str, user_input: str, *, api_key: str, step_emitter: St
             score_trace(trace=trace, name="success", value=0.0)
         raise
     finally:
+        consume_llm_run_usage()
         # ``langfuse_flush()`` synchronously drains the event queue over the
-        # network.  Running it in the request-serving thread added 100 ms–
+        # network.  Running it in the request-serving thread added 100 ms to
         # several seconds per request when Langfuse was enabled.  Offload it
         # to a daemon thread so the HTTP response can be sent immediately.
         _fire_and_forget_langfuse_flush()
         reset_step_emitter(emitter_token)
+        reset_token_emitter(output_token)
         reset_log_context(tokens)
 
 
@@ -304,11 +328,8 @@ def _fire_and_forget_langfuse_flush() -> None:
     loss and are swallowed at the worker level.
     """
 
-    try:
+    with suppress(queue.Full):
         _LANGFUSE_FLUSH_QUEUE.put_nowait(None)
-    except queue.Full:
-        # A flush is already pending; coalesce this one into it.
-        pass
 
 
 def _langfuse_flush_worker() -> None:
@@ -320,7 +341,7 @@ def _langfuse_flush_worker() -> None:
             LOGGER.debug("langfuse flush failed in background worker", exc_info=True)
 
 
-_LANGFUSE_FLUSH_QUEUE: "queue.Queue[None]" = queue.Queue(maxsize=1)
+_LANGFUSE_FLUSH_QUEUE: queue.Queue[None] = queue.Queue(maxsize=1)
 _LANGFUSE_FLUSH_WORKER = threading.Thread(
     target=_langfuse_flush_worker,
     name="langfuse-flush-worker",

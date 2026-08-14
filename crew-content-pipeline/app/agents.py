@@ -2,8 +2,8 @@
 
 from crewai import Agent
 
-RESEARCH_MODEL = "gemini-3.1-pro-preview"
-FAST_MODEL = "gemini-3-flash-preview"
+RESEARCH_MODEL = "gemini-3.7-flash"
+FAST_MODEL = "gemini-3.5-flash-lite"
 
 
 def build_researcher() -> Agent:

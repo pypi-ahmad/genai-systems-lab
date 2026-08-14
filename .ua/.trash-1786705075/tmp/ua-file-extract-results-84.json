@@ -1,0 +1,261 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "lg-data-agent/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Data Analysis Agent",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "lg-data-agent/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 239,
+      "nonEmptyLines": 176,
+      "sections": [
+        {
+          "heading": "Data Analysis Agent — Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Graph State",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "State design rules",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "Nodes",
+          "level": 2,
+          "line": 37
+        },
+        {
+          "heading": "planner",
+          "level": 3,
+          "line": 41
+        },
+        {
+          "heading": "executor",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "analyzer",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "evaluator",
+          "level": 3,
+          "line": 82
+        },
+        {
+          "heading": "Graph Transitions",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "Edge map",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "Conditional edge after evaluator",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "Why this topology works",
+          "level": 3,
+          "line": 128
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 135
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 143
+        },
+        {
+          "heading": "Graph Construction",
+          "level": 2,
+          "line": 150
+        },
+        {
+          "heading": "Production Design Notes",
+          "level": 2,
+          "line": 193
+        },
+        {
+          "heading": "Data Safety",
+          "level": 3,
+          "line": 195
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "Error Handling",
+          "level": 3,
+          "line": 211
+        },
+        {
+          "heading": "Configuration",
+          "level": 3,
+          "line": 217
+        },
+        {
+          "heading": "Testing",
+          "level": 3,
+          "line": 229
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 237
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "lg-data-agent/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 94,
+      "nonEmptyLines": 72,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define State Schema",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Create Dataset Loader",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "3 — Implement Planner Node",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "4 — Implement Executor Node",
+          "level": 2,
+          "line": 39
+        },
+        {
+          "heading": "5 — Implement Analyzer Node",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "6 — Implement Evaluator Node",
+          "level": 2,
+          "line": 65
+        },
+        {
+          "heading": "7 — Build Graph Transitions",
+          "level": 2,
+          "line": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

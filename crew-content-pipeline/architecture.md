@@ -20,7 +20,7 @@ Gathers background information, key facts, statistics, and source material on th
 
 - **Role:** Senior Research Analyst
 - **Goal:** Produce a comprehensive research brief with verified facts, data points, and source references that the writer can build on.
-- **Model:** `gemini-3.1-pro-preview` — deep reasoning needed to identify credible sources, cross-reference claims, and prioritize the most relevant information.
+- **Model:** `gemini-3.7-flash` — deep reasoning needed to identify credible sources, cross-reference claims, and prioritize the most relevant information.
 - **Output:** A structured research brief (key findings, statistics, quotes, source list).
 
 ### Writer
@@ -29,7 +29,7 @@ Transforms the research brief into a well-structured first draft.
 
 - **Role:** Content Writer
 - **Goal:** Create an engaging, informative article that covers all key points from the research brief with clear structure and compelling narrative.
-- **Model:** `gemini-3.1-pro-preview` — long-form generation with strong coherence requires the full reasoning model.
+- **Model:** `gemini-3.7-flash` — long-form generation with strong coherence requires the full reasoning model.
 - **Output:** A complete article draft in Markdown (title, introduction, body sections, conclusion).
 
 ### Editor
@@ -38,7 +38,7 @@ Refines the draft for clarity, tone, grammar, and factual consistency against th
 
 - **Role:** Senior Editor
 - **Goal:** Polish the draft into publication-quality content — fix structural issues, tighten prose, ensure factual accuracy, and maintain consistent tone throughout.
-- **Model:** `gemini-3-flash-preview` — editing is a targeted refinement task; speed matters more than deep generation.
+- **Model:** `gemini-3.5-flash-lite` — editing is a targeted refinement task; speed matters more than deep generation.
 - **Output:** A polished article with all edits applied inline.
 
 ### SEO Expert
@@ -47,7 +47,7 @@ Optimizes the final content for search engine visibility without degrading reada
 
 - **Role:** SEO Specialist
 - **Goal:** Optimize headings, meta description, keyword density, internal linking suggestions, and readability score while preserving the editorial quality.
-- **Model:** `gemini-3-flash-preview` — keyword analysis and structural tweaks are pattern-matching tasks that benefit from low latency.
+- **Model:** `gemini-3.5-flash-lite` — keyword analysis and structural tweaks are pattern-matching tasks that benefit from low latency.
 - **Output:** The final optimized article plus an SEO metadata block (title tag, meta description, target keywords, readability score).
 
 ## Task Chain
@@ -98,8 +98,8 @@ result = crew.kickoff(inputs={"topic": "How RAG is transforming enterprise searc
 
 | Model | Agents | Rationale |
 |-------|--------|-----------|
-| `gemini-3.1-pro-preview` | Researcher, Writer | Research synthesis and long-form drafting require strong reasoning and coherence |
-| `gemini-3-flash-preview` | Editor, SEO Expert | Refinement and optimization are targeted tasks where speed and cost efficiency matter |
+| `gemini-3.7-flash` | Researcher, Writer | Research synthesis and long-form drafting require strong reasoning and coherence |
+| `gemini-3.5-flash-lite` | Editor, SEO Expert | Refinement and optimization are targeted tasks where speed and cost efficiency matter |
 
 ### Cost and latency considerations
 

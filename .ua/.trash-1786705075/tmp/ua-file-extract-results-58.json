@@ -1,0 +1,231 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-nl2sql-agent/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 51,
+      "nonEmptyLines": 35,
+      "sections": [
+        {
+          "heading": "NL2SQL Agent",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-nl2sql-agent/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 76,
+      "nonEmptyLines": 45,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Core Components",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "LLM Interface (Gemini)",
+          "level": 3,
+          "line": 9
+        },
+        {
+          "heading": "Schema Loader",
+          "level": 3,
+          "line": 16
+        },
+        {
+          "heading": "SQL Generator",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "SQL Validator",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "Query Executor",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "Result Summarizer",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "End-to-End Flow",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "Safety and Reliability",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "Read-Only Enforcement",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "Retry Mechanism",
+          "level": 3,
+          "line": 59
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 70
+        },
+        {
+          "heading": "Production Notes",
+          "level": 2,
+          "line": 74
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 15
+      }
+    },
+    {
+      "path": "genai-nl2sql-agent/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 66,
+      "nonEmptyLines": 47,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. Setup Database (DuckDB)",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Create Sample Dataset",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "3. Implement Schema Extraction",
+          "level": 2,
+          "line": 17
+        },
+        {
+          "heading": "4. Build LLM Wrapper",
+          "level": 2,
+          "line": 24
+        },
+        {
+          "heading": "5. Implement SQL Generation",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "6. Implement SQL Validation",
+          "level": 2,
+          "line": 38
+        },
+        {
+          "heading": "7. Implement Retry Mechanism",
+          "level": 2,
+          "line": 45
+        },
+        {
+          "heading": "8. Execute Queries",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "9. Summarize Results",
+          "level": 2,
+          "line": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 10
+      }
+    }
+  ]
+}

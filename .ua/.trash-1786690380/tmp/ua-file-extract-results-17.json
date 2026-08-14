@@ -1,0 +1,489 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "crew-investment-analyst/app/agents.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 70,
+      "functions": [
+        {
+          "name": "build_market_analyst",
+          "startLine": 9,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "build_financial_analyst",
+          "startLine": 27,
+          "endLine": 43,
+          "params": []
+        },
+        {
+          "name": "build_risk_analyst",
+          "startLine": 46,
+          "endLine": 62,
+          "params": []
+        },
+        {
+          "name": "build_strategist",
+          "startLine": 65,
+          "endLine": 80,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_market_analyst",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "build_financial_analyst",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "build_risk_analyst",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "build_strategist",
+          "line": 65,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_market_analyst",
+          "callee": "Agent",
+          "lineNumber": 10
+        },
+        {
+          "caller": "build_financial_analyst",
+          "callee": "Agent",
+          "lineNumber": 28
+        },
+        {
+          "caller": "build_risk_analyst",
+          "callee": "Agent",
+          "lineNumber": 47
+        },
+        {
+          "caller": "build_strategist",
+          "callee": "Agent",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-investment-analyst/app/crew.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "build_crew",
+          "startLine": 20,
+          "endLine": 41,
+          "params": [
+            "target",
+            "verbose"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 44,
+          "endLine": 50,
+          "params": [
+            "target",
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_crew",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 44,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_crew",
+          "callee": "build_market_analyst",
+          "lineNumber": 21
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_financial_analyst",
+          "lineNumber": 22
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_risk_analyst",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_strategist",
+          "lineNumber": 24
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_market_task",
+          "lineNumber": 26
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_financial_task",
+          "lineNumber": 27
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_risk_task",
+          "lineNumber": 28
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_strategy_task",
+          "lineNumber": 29
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_risk_challenge_task",
+          "lineNumber": 32
+        },
+        {
+          "caller": "build_crew",
+          "callee": "Crew",
+          "lineNumber": 36
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 45
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "RuntimeError",
+          "lineNumber": 49
+        },
+        {
+          "caller": "run",
+          "callee": "str",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-investment-analyst/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "_parse_json",
+          "startLine": 17,
+          "endLine": 26,
+          "params": [
+            "raw"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 29,
+          "endLine": 44,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_parse_json",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_parse_json",
+          "callee": "raw.strip",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.startswith",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.splitlines",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip().startswith",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join(lines).strip",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "json.loads",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 33
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 34
+        },
+        {
+          "caller": "run",
+          "callee": "hasattr",
+          "lineNumber": 35
+        },
+        {
+          "caller": "run",
+          "callee": "enumerate",
+          "lineNumber": 37
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "_parse_json",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-investment-analyst/app/tasks.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 204,
+      "nonEmptyLines": 186,
+      "functions": [
+        {
+          "name": "build_market_task",
+          "startLine": 81,
+          "endLine": 95,
+          "params": [
+            "agent",
+            "target"
+          ]
+        },
+        {
+          "name": "build_financial_task",
+          "startLine": 98,
+          "endLine": 114,
+          "params": [
+            "agent",
+            "market_task"
+          ]
+        },
+        {
+          "name": "build_risk_task",
+          "startLine": 117,
+          "endLine": 133,
+          "params": [
+            "agent",
+            "market_task",
+            "financial_task"
+          ]
+        },
+        {
+          "name": "build_strategy_task",
+          "startLine": 136,
+          "endLine": 165,
+          "params": [
+            "agent",
+            "market_task",
+            "financial_task",
+            "risk_task"
+          ]
+        },
+        {
+          "name": "build_risk_challenge_task",
+          "startLine": 168,
+          "endLine": 204,
+          "params": [
+            "agent",
+            "market_task",
+            "financial_task",
+            "risk_task",
+            "strategy_task"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_market_task",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "build_financial_task",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "build_risk_task",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "build_strategy_task",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "build_risk_challenge_task",
+          "line": 168,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_market_task",
+          "callee": "Task",
+          "lineNumber": 82
+        },
+        {
+          "caller": "build_market_task",
+          "callee": "json.dumps",
+          "lineNumber": 90
+        },
+        {
+          "caller": "build_financial_task",
+          "callee": "Task",
+          "lineNumber": 99
+        },
+        {
+          "caller": "build_financial_task",
+          "callee": "json.dumps",
+          "lineNumber": 108
+        },
+        {
+          "caller": "build_risk_task",
+          "callee": "Task",
+          "lineNumber": 118
+        },
+        {
+          "caller": "build_risk_task",
+          "callee": "json.dumps",
+          "lineNumber": 127
+        },
+        {
+          "caller": "build_strategy_task",
+          "callee": "Task",
+          "lineNumber": 142
+        },
+        {
+          "caller": "build_strategy_task",
+          "callee": "json.dumps",
+          "lineNumber": 159
+        },
+        {
+          "caller": "build_risk_challenge_task",
+          "callee": "Task",
+          "lineNumber": 175
+        },
+        {
+          "caller": "build_risk_challenge_task",
+          "callee": "json.dumps",
+          "lineNumber": 198
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+{
+  "nodes": [
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/fbddd50a9cbcd27d58bf9cbc7abd449e94a46b6cea6bab0783ebad3bbbee5829.json",
+      "type": "config",
+      "name": "fbddd50a9cbcd27d58bf9cbc7abd449e94a46b6cea6bab0783ebad3bbbee5829.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/fbddd50a9cbcd27d58bf9cbc7abd449e94a46b6cea6bab0783ebad3bbbee5829.json",
+      "summary": "Defines fbddd50a9cbcd27d58bf9cbc7abd449e94a46b6cea6bab0783ebad3bbbee5829.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/fced483bf5dac5eb2ae6e70cee3b479b929237589595e7c7094b3586da8d18bd.json",
+      "type": "config",
+      "name": "fced483bf5dac5eb2ae6e70cee3b479b929237589595e7c7094b3586da8d18bd.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/fced483bf5dac5eb2ae6e70cee3b479b929237589595e7c7094b3586da8d18bd.json",
+      "summary": "Defines fced483bf5dac5eb2ae6e70cee3b479b929237589595e7c7094b3586da8d18bd.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/fd4f714dd79245541ec6ce3f4399e936b0947b9e3a891aee3abedfb8047a8a69.json",
+      "type": "config",
+      "name": "fd4f714dd79245541ec6ce3f4399e936b0947b9e3a891aee3abedfb8047a8a69.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/fd4f714dd79245541ec6ce3f4399e936b0947b9e3a891aee3abedfb8047a8a69.json",
+      "summary": "Defines fd4f714dd79245541ec6ce3f4399e936b0947b9e3a891aee3abedfb8047a8a69.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/ff25a162f20b06ccc65f7f2ec4030691f49ebc32140f1fc93a165844f93c3b10.json",
+      "type": "config",
+      "name": "ff25a162f20b06ccc65f7f2ec4030691f49ebc32140f1fc93a165844f93c3b10.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/ff25a162f20b06ccc65f7f2ec4030691f49ebc32140f1fc93a165844f93c3b10.json",
+      "summary": "Defines ff25a162f20b06ccc65f7f2ec4030691f49ebc32140f1fc93a165844f93c3b10.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/ff485259451d74a10a61464a06343c792a89705b1738e5d3b8331c587adb8c3b.json",
+      "type": "config",
+      "name": "ff485259451d74a10a61464a06343c792a89705b1738e5d3b8331c587adb8c3b.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/ff485259451d74a10a61464a06343c792a89705b1738e5d3b8331c587adb8c3b.json",
+      "summary": "Defines ff485259451d74a10a61464a06343c792a89705b1738e5d3b8331c587adb8c3b.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/ffb99c850bea8adf40ddb7e36deed523dec6c48bd2e0bf0e39d8b775c330b2a9.json",
+      "type": "config",
+      "name": "ffb99c850bea8adf40ddb7e36deed523dec6c48bd2e0bf0e39d8b775c330b2a9.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/ffb99c850bea8adf40ddb7e36deed523dec6c48bd2e0bf0e39d8b775c330b2a9.json",
+      "summary": "Defines ffb99c850bea8adf40ddb7e36deed523dec6c48bd2e0bf0e39d8b775c330b2a9.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

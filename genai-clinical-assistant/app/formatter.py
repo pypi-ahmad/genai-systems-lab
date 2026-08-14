@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from shared.llm.gemini import generate_text
 
-MODEL = "gemini-3-flash-preview"
+MODEL = "gemini-3.5-flash-lite"
 
 DISCLAIMER = "\n\n⚠️ Disclaimer: This is not medical advice. Consult a qualified healthcare professional."
 

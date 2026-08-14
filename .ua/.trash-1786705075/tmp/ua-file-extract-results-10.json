@@ -1,0 +1,1469 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 11,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 11,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 11,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "lg-workflow-agent/app/graph.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "_route_after_checkpoint",
+          "startLine": 14,
+          "endLine": 17,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "build_graph",
+          "startLine": 20,
+          "endLine": 41,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_route_after_checkpoint",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "build_graph",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_route_after_checkpoint",
+          "callee": "state.get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "build_graph",
+          "callee": "StateGraph",
+          "lineNumber": 21
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 24
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 24
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 26
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 26
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 27
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 27
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 29
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 30
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 31
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 32
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_conditional_edges",
+          "lineNumber": 34
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.compile",
+          "lineNumber": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 24,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 8,
+          "endLine": 24,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 10
+        },
+        {
+          "caller": "run",
+          "callee": "initial_state",
+          "lineNumber": 12
+        },
+        {
+          "caller": "run",
+          "callee": "build_graph",
+          "lineNumber": 13
+        },
+        {
+          "caller": "run",
+          "callee": "graph.invoke",
+          "lineNumber": 14
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 16
+        },
+        {
+          "caller": "run",
+          "callee": "results.get",
+          "lineNumber": 20
+        },
+        {
+          "caller": "run",
+          "callee": "results.get",
+          "lineNumber": 21
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/nodes/checkpoint.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 62,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "load_checkpoint",
+          "startLine": 14,
+          "endLine": 28,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "checkpoint_node",
+          "startLine": 31,
+          "endLine": 62,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "load_checkpoint",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "checkpoint_node",
+          "line": 31,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "load_checkpoint",
+          "callee": "Path(path or CHECKPOINT_PATH).resolve",
+          "lineNumber": 19
+        },
+        {
+          "caller": "load_checkpoint",
+          "callee": "Path",
+          "lineNumber": 19
+        },
+        {
+          "caller": "load_checkpoint",
+          "callee": "target.is_file",
+          "lineNumber": 20
+        },
+        {
+          "caller": "load_checkpoint",
+          "callee": "json.loads",
+          "lineNumber": 23
+        },
+        {
+          "caller": "load_checkpoint",
+          "callee": "target.read_text",
+          "lineNumber": 23
+        },
+        {
+          "caller": "load_checkpoint",
+          "callee": "isinstance",
+          "lineNumber": 26
+        },
+        {
+          "caller": "load_checkpoint",
+          "callee": "WorkflowState",
+          "lineNumber": 28
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "state.get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "state.get",
+          "lineNumber": 39
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "state.get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "len",
+          "lineNumber": 51
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "Path(CHECKPOINT_PATH).resolve",
+          "lineNumber": 58
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "Path",
+          "lineNumber": 58
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "path.parent.mkdir",
+          "lineNumber": 59
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "path.write_text",
+          "lineNumber": 60
+        },
+        {
+          "caller": "checkpoint_node",
+          "callee": "json.dumps",
+          "lineNumber": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/nodes/executor.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 14,
+          "endLine": 31,
+          "params": [
+            "task",
+            "plan",
+            "current_step",
+            "results"
+          ]
+        },
+        {
+          "name": "executor_node",
+          "startLine": 34,
+          "endLine": 51,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "executor_node",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_build_prompt",
+          "callee": "enumerate",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "results.get",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "\"\\n\".join",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "enumerate",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "len",
+          "lineNumber": 27
+        },
+        {
+          "caller": "executor_node",
+          "callee": "state.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "executor_node",
+          "callee": "state.get",
+          "lineNumber": 36
+        },
+        {
+          "caller": "executor_node",
+          "callee": "state.get",
+          "lineNumber": 37
+        },
+        {
+          "caller": "executor_node",
+          "callee": "dict",
+          "lineNumber": 38
+        },
+        {
+          "caller": "executor_node",
+          "callee": "state.get",
+          "lineNumber": 38
+        },
+        {
+          "caller": "executor_node",
+          "callee": "len",
+          "lineNumber": 40
+        },
+        {
+          "caller": "executor_node",
+          "callee": "generate_text",
+          "lineNumber": 45
+        },
+        {
+          "caller": "executor_node",
+          "callee": "_build_prompt",
+          "lineNumber": 46
+        },
+        {
+          "caller": "executor_node",
+          "callee": "response.strip",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/nodes/finalizer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 31,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 7,
+          "endLine": 22,
+          "params": [
+            "task",
+            "plan",
+            "results"
+          ]
+        },
+        {
+          "name": "finalizer_node",
+          "startLine": 25,
+          "endLine": 40,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "finalizer_node",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_build_prompt",
+          "callee": "enumerate",
+          "lineNumber": 9
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "results.get",
+          "lineNumber": 10
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "len",
+          "lineNumber": 17
+        },
+        {
+          "caller": "finalizer_node",
+          "callee": "state.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "finalizer_node",
+          "callee": "state.get",
+          "lineNumber": 27
+        },
+        {
+          "caller": "finalizer_node",
+          "callee": "state.get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "finalizer_node",
+          "callee": "generate_text",
+          "lineNumber": 33
+        },
+        {
+          "caller": "finalizer_node",
+          "callee": "_build_prompt",
+          "lineNumber": 34
+        },
+        {
+          "caller": "finalizer_node",
+          "callee": "dict",
+          "lineNumber": 38
+        },
+        {
+          "caller": "finalizer_node",
+          "callee": "summary.strip",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/nodes/planner.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 40,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 23,
+          "endLine": 33,
+          "params": [
+            "task"
+          ]
+        },
+        {
+          "name": "planner_node",
+          "startLine": 36,
+          "endLine": 52,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "planner_node",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "planner_node",
+          "callee": "state.get",
+          "lineNumber": 37
+        },
+        {
+          "caller": "planner_node",
+          "callee": "task.strip",
+          "lineNumber": 38
+        },
+        {
+          "caller": "planner_node",
+          "callee": "generate_structured",
+          "lineNumber": 41
+        },
+        {
+          "caller": "planner_node",
+          "callee": "_build_prompt",
+          "lineNumber": 42
+        },
+        {
+          "caller": "planner_node",
+          "callee": "s.strip",
+          "lineNumber": 47
+        },
+        {
+          "caller": "planner_node",
+          "callee": "result.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "planner_node",
+          "callee": "s.strip",
+          "lineNumber": 47
+        },
+        {
+          "caller": "planner_node",
+          "callee": "min",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/nodes/validator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 80,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 25,
+          "endLine": 42,
+          "params": [
+            "step_name",
+            "step_result",
+            "task",
+            "prior_results"
+          ]
+        },
+        {
+          "name": "validator_node",
+          "startLine": 45,
+          "endLine": 80,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "validator_node",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_build_prompt",
+          "callee": "prior_results.items",
+          "lineNumber": 27
+        },
+        {
+          "caller": "validator_node",
+          "callee": "state.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "validator_node",
+          "callee": "state.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "validator_node",
+          "callee": "state.get",
+          "lineNumber": 48
+        },
+        {
+          "caller": "validator_node",
+          "callee": "state.get",
+          "lineNumber": 49
+        },
+        {
+          "caller": "validator_node",
+          "callee": "state.get",
+          "lineNumber": 50
+        },
+        {
+          "caller": "validator_node",
+          "callee": "len",
+          "lineNumber": 52
+        },
+        {
+          "caller": "validator_node",
+          "callee": "results.get",
+          "lineNumber": 56
+        },
+        {
+          "caller": "validator_node",
+          "callee": "step_result.strip",
+          "lineNumber": 59
+        },
+        {
+          "caller": "validator_node",
+          "callee": "generate_structured",
+          "lineNumber": 64
+        },
+        {
+          "caller": "validator_node",
+          "callee": "_build_prompt",
+          "lineNumber": 65
+        },
+        {
+          "caller": "validator_node",
+          "callee": "response.get",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/state.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 22,
+      "functions": [
+        {
+          "name": "initial_state",
+          "startLine": 20,
+          "endLine": 28,
+          "params": [
+            "task"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "WorkflowState",
+          "startLine": 11,
+          "endLine": 17,
+          "methods": [],
+          "properties": [
+            "task",
+            "plan",
+            "current_step",
+            "results",
+            "iteration",
+            "completed"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "WorkflowState",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "initial_state",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initial_state",
+          "callee": "WorkflowState",
+          "lineNumber": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/tools/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 151,
+      "nonEmptyLines": 119,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 14,
+          "endLine": 28,
+          "params": [
+            "action",
+            "data",
+            "params"
+          ]
+        },
+        {
+          "name": "_parse_csv",
+          "startLine": 31,
+          "endLine": 41,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "_numeric_values",
+          "startLine": 44,
+          "endLine": 52,
+          "params": [
+            "rows",
+            "column"
+          ]
+        },
+        {
+          "name": "_summarize",
+          "startLine": 55,
+          "endLine": 69,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "_average",
+          "startLine": 72,
+          "endLine": 84,
+          "params": [
+            "data",
+            "column"
+          ]
+        },
+        {
+          "name": "_trends",
+          "startLine": 87,
+          "endLine": 109,
+          "params": [
+            "data",
+            "column"
+          ]
+        },
+        {
+          "name": "_group_by",
+          "startLine": 112,
+          "endLine": 137,
+          "params": [
+            "data",
+            "group_col",
+            "value_col"
+          ]
+        },
+        {
+          "name": "_min_max",
+          "startLine": 140,
+          "endLine": 151,
+          "params": [
+            "data",
+            "column"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_csv",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "_numeric_values",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "_summarize",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "_average",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "_trends",
+          "line": 87,
+          "isDefault": false
+        },
+        {
+          "name": "_group_by",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "_min_max",
+          "line": 140,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "_summarize",
+          "lineNumber": 16
+        },
+        {
+          "caller": "run",
+          "callee": "_average",
+          "lineNumber": 18
+        },
+        {
+          "caller": "run",
+          "callee": "_trends",
+          "lineNumber": 20
+        },
+        {
+          "caller": "run",
+          "callee": "params.split",
+          "lineNumber": 22
+        },
+        {
+          "caller": "run",
+          "callee": "parts[0].strip",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run",
+          "callee": "parts[1].strip",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run",
+          "callee": "_group_by",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "_min_max",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_parse_csv",
+          "callee": "data.strip",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_parse_csv",
+          "callee": "clean.splitlines",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_parse_csv",
+          "callee": "enumerate",
+          "lineNumber": 37
+        },
+        {
+          "caller": "_parse_csv",
+          "callee": "line.startswith",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_parse_csv",
+          "callee": "csv.DictReader",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_parse_csv",
+          "callee": "list",
+          "lineNumber": 40
+        },
+        {
+          "caller": "_numeric_values",
+          "callee": "row.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_numeric_values",
+          "callee": "values.append",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_numeric_values",
+          "callee": "float",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_summarize",
+          "callee": "_parse_csv",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_summarize",
+          "callee": "list",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_summarize",
+          "callee": "rows[0].keys",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_summarize",
+          "callee": "len",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_summarize",
+          "callee": "_numeric_values",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_summarize",
+          "callee": "sum",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_summarize",
+          "callee": "len",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_summarize",
+          "callee": "parts.append",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_summarize",
+          "callee": "min",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_summarize",
+          "callee": "max",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_summarize",
+          "callee": "len",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_summarize",
+          "callee": "\"\\n\".join",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_average",
+          "callee": "_parse_csv",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_average",
+          "callee": "_numeric_values",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_average",
+          "callee": "sum",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_average",
+          "callee": "len",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_average",
+          "callee": "len",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_trends",
+          "callee": "_parse_csv",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_trends",
+          "callee": "_numeric_values",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_trends",
+          "callee": "len",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_trends",
+          "callee": "range",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_trends",
+          "callee": "len",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_trends",
+          "callee": "sum",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_trends",
+          "callee": "len",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_trends",
+          "callee": "len",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_group_by",
+          "callee": "_parse_csv",
+          "lineNumber": 113
+        },
+        {
+          "caller": "_group_by",
+          "callee": "defaultdict",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_group_by",
+          "callee": "row.get",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_group_by",
+          "callee": "groups[key].append",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_group_by",
+          "callee": "float",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_group_by",
+          "callee": "row.get",
+          "lineNumber": 123
+        },
+        {
+          "caller": "_group_by",
+          "callee": "sorted",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_group_by",
+          "callee": "sum",
+          "lineNumber": 133
+        },
+        {
+          "caller": "_group_by",
+          "callee": "len",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_group_by",
+          "callee": "lines.append",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_group_by",
+          "callee": "len",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_group_by",
+          "callee": "\"\\n\".join",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_min_max",
+          "callee": "_parse_csv",
+          "lineNumber": 141
+        },
+        {
+          "caller": "_min_max",
+          "callee": "_numeric_values",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_min_max",
+          "callee": "min",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_min_max",
+          "callee": "max",
+          "lineNumber": 151
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/tools/file_tool.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 78,
+      "nonEmptyLines": 63,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 25,
+          "endLine": 57,
+          "params": [
+            "action",
+            "path",
+            "content"
+          ]
+        },
+        {
+          "name": "_read_csv",
+          "startLine": 60,
+          "endLine": 66,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "_format_rows",
+          "startLine": 69,
+          "endLine": 77,
+          "params": [
+            "rows"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "_read_csv",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "_format_rows",
+          "line": 69,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "os.path.isfile",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "open",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "f.read",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "os.makedirs",
+          "lineNumber": 37
+        },
+        {
+          "caller": "run",
+          "callee": "os.path.dirname",
+          "lineNumber": 37
+        },
+        {
+          "caller": "run",
+          "callee": "open",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "f.write",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 40
+        },
+        {
+          "caller": "run",
+          "callee": "os.path.isdir",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "sorted",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run",
+          "callee": "os.listdir",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run",
+          "callee": "\"\\n\".join",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "os.path.isfile",
+          "lineNumber": 50
+        },
+        {
+          "caller": "run",
+          "callee": "_read_csv",
+          "lineNumber": 51
+        },
+        {
+          "caller": "run",
+          "callee": "_format_rows",
+          "lineNumber": 52
+        },
+        {
+          "caller": "run",
+          "callee": "_format_rows",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_read_csv",
+          "callee": "open",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_read_csv",
+          "callee": "csv.DictReader",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_read_csv",
+          "callee": "list",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_read_csv",
+          "callee": "_format_rows",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "list",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "rows[0].keys",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "\",\".join",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "lines.append",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "\",\".join",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "str",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "row.get",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "len",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_format_rows",
+          "callee": "\"\\n\".join",
+          "lineNumber": 77
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

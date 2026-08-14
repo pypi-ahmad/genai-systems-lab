@@ -1,0 +1,42 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "benchmarks/promptfoo/agent_eval.yaml",
+      "language": "yaml",
+      "sizeLines": 93,
+      "fileCategory": "config"
+    },
+    {
+      "path": "benchmarks/promptfoo/promptfooconfig.yaml",
+      "language": "yaml",
+      "sizeLines": 38,
+      "fileCategory": "config"
+    },
+    {
+      "path": "benchmarks/promptfoo/rag_eval.yaml",
+      "language": "yaml",
+      "sizeLines": 75,
+      "fileCategory": "config"
+    },
+    {
+      "path": "benchmarks/promptfoo/rag_retrieval_eval.yaml",
+      "language": "yaml",
+      "sizeLines": 47,
+      "fileCategory": "config"
+    },
+    {
+      "path": "benchmarks/promptfoo/redteam.yaml",
+      "language": "yaml",
+      "sizeLines": 49,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "benchmarks/promptfoo/agent_eval.yaml": [],
+    "benchmarks/promptfoo/promptfooconfig.yaml": [],
+    "benchmarks/promptfoo/rag_eval.yaml": [],
+    "benchmarks/promptfoo/rag_retrieval_eval.yaml": [],
+    "benchmarks/promptfoo/redteam.yaml": []
+  }
+}

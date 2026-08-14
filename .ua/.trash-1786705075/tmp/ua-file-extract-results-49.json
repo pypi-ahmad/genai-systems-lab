@@ -1,0 +1,291 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-browser-agent/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Autonomous Browser Agent",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-browser-agent/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 163,
+      "nonEmptyLines": 101,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Core Components",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Browser Controller (`browser.py`)",
+          "level": 3,
+          "line": 15
+        },
+        {
+          "heading": "Perception Module (`perception.py`)",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "Planner (`planner.py`)",
+          "level": 3,
+          "line": 29
+        },
+        {
+          "heading": "Action Executor (`actions.py`)",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Memory (`memory.py`)",
+          "level": 3,
+          "line": 43
+        },
+        {
+          "heading": "Agent Loop (`agent.py`)",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "Entry Point (`main.py`)",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 63
+        },
+        {
+          "heading": "1. Task Input",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "2. Browser Initialization",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "3. Observation",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "4. Planning",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "5. Action Execution",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "6. Memory Update",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "7. Loop Continuation",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "8. Result Extraction",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 103
+        },
+        {
+          "heading": "`gemini-3.1-pro-preview`",
+          "level": 3,
+          "line": 105
+        },
+        {
+          "heading": "`gemini-3-flash-preview`",
+          "level": 3,
+          "line": 116
+        },
+        {
+          "heading": "Constraints and Failure Handling",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "Step Limit",
+          "level": 3,
+          "line": 130
+        },
+        {
+          "heading": "Action Retry",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "Loop Detection",
+          "level": 3,
+          "line": 141
+        },
+        {
+          "heading": "Graceful Degradation",
+          "level": 3,
+          "line": 146
+        },
+        {
+          "heading": "Production-Oriented Design Notes",
+          "level": 2,
+          "line": 152
+        },
+        {
+          "heading": "High-Level Architecture Summary",
+          "level": 2,
+          "line": 161
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 29
+      }
+    },
+    {
+      "path": "genai-browser-agent/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 62,
+      "nonEmptyLines": 47,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Setup Playwright",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Build Browser Controller",
+          "level": 2,
+          "line": 10
+        },
+        {
+          "heading": "Extract Page Content",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Define Action Space",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Implement Planner Agent",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "Implement Execution Loop",
+          "level": 2,
+          "line": 44
+        },
+        {
+          "heading": "Add Memory Tracking",
+          "level": 2,
+          "line": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

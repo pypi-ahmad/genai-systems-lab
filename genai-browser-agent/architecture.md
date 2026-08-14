@@ -102,7 +102,7 @@ Once the loop exits, the agent compiles the final result from Memory (extracted 
 
 ## Model Usage
 
-### `gemini-3.1-pro-preview`
+### `gemini-3.7-flash`
 
 Used for the Planner. All action-planning decisions go through this model.
 
@@ -113,7 +113,7 @@ Responsibilities:
 - Detecting task completion or failure conditions.
 - Reasoning about multi-step navigation strategies.
 
-### `gemini-3-flash-preview`
+### `gemini-3.5-flash-lite`
 
 Used for lightweight, low-latency decisions that do not require deep reasoning.
 

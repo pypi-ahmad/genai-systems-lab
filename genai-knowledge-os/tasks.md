@@ -52,7 +52,7 @@
 
 - Implement `summarize_text()` in `app/summarizer.py` that summarizes a single block of text using an LLM.
 - Implement `summarize_chunks()` that combines and summarizes a list of retrieved chunks.
-- Use `gemini-3-flash-preview` for all summarization calls.
+- Use `gemini-3.5-flash-lite` for all summarization calls.
 - Return a plain-text summary string.
 - Handle long inputs by truncating or splitting before sending to the LLM.
 
@@ -60,7 +60,7 @@
 
 - Implement `generate_insights()` in `app/insight_engine.py` that takes a topic or question.
 - Retrieve relevant chunks from the vector store and relevant entries from memory.
-- Combine retrieved context and send to `gemini-3.1-pro-preview` with a prompt for cross-document reasoning.
+- Combine retrieved context and send to `gemini-3.7-flash` with a prompt for cross-document reasoning.
 - Return a structured response with identified themes, connections, and contradictions.
 - Handle cases where insufficient context is available by returning a clear message.
 

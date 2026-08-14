@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "config:benchmarks/promptfoo/tests/code_tests.yaml",
+      "type": "config",
+      "name": "code_tests.yaml",
+      "filePath": "benchmarks/promptfoo/tests/code_tests.yaml",
+      "summary": "Defines code_tests.yaml configuration used by this project.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/tests/research_tests.yaml",
+      "type": "config",
+      "name": "research_tests.yaml",
+      "filePath": "benchmarks/promptfoo/tests/research_tests.yaml",
+      "summary": "Defines research_tests.yaml configuration used by this project.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/tests/summarization_tests.yaml",
+      "type": "config",
+      "name": "summarization_tests.yaml",
+      "filePath": "benchmarks/promptfoo/tests/summarization_tests.yaml",
+      "summary": "Defines summarization_tests.yaml configuration used by this project.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

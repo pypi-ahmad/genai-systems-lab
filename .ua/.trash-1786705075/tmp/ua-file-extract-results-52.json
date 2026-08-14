@@ -1,0 +1,149 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-doc-intelligence/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Document Intelligence",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-doc-intelligence/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "genai-doc-intelligence/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 74,
+      "nonEmptyLines": 57,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Document Ingestion",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Chunking Strategy",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Embedding Generation",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Vector Store",
+          "level": 2,
+          "line": 31
+        },
+        {
+          "heading": "Retrieval Logic",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "QA Engine with Grounding",
+          "level": 2,
+          "line": 49
+        },
+        {
+          "heading": "Citation System",
+          "level": 2,
+          "line": 58
+        },
+        {
+          "heading": "Structured Extraction",
+          "level": 2,
+          "line": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    }
+  ]
+}

@@ -28,7 +28,7 @@ export function OnboardingModal() {
           </li>
           <li className="flex gap-3">
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-bold text-[var(--accent-solid)]">2</span>
-            <span><strong className="text-[var(--foreground)]">Bring your own API key</strong> — keys stay in your browser and are never stored.</span>
+            <span><strong className="text-[var(--foreground)]">Bring your own API key</strong> — keys stay in browser memory and are never stored.</span>
           </li>
           <li className="flex gap-3">
             <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--accent-soft)] text-xs font-bold text-[var(--accent-solid)]">3</span>

@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-ui-builder/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-ui-builder/architecture.md",
+      "language": "markdown",
+      "sizeLines": 134,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-ui-builder/tasks.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "genai-ui-builder/README.md": [],
+    "genai-ui-builder/architecture.md": [],
+    "genai-ui-builder/tasks.md": []
+  }
+}

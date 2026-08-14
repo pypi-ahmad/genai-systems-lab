@@ -1,0 +1,256 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-research-system/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Multi-Agent Research System",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-research-system/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 195,
+      "nonEmptyLines": 137,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Graph State",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "State design rules",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "Nodes",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "planner",
+          "level": 3,
+          "line": 38
+        },
+        {
+          "heading": "researcher",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "critic",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "writer",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "Graph Transitions",
+          "level": 2,
+          "line": 78
+        },
+        {
+          "heading": "Edge map",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "Conditional edge after critic",
+          "level": 3,
+          "line": 91
+        },
+        {
+          "heading": "Why this topology works",
+          "level": 3,
+          "line": 109
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 122
+        },
+        {
+          "heading": "Graph Construction",
+          "level": 2,
+          "line": 128
+        },
+        {
+          "heading": "Production Design Notes",
+          "level": 2,
+          "line": 163
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 165
+        },
+        {
+          "heading": "Error handling",
+          "level": 3,
+          "line": 171
+        },
+        {
+          "heading": "Configuration",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "Testing",
+          "level": 3,
+          "line": 187
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 193
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 22
+      }
+    },
+    {
+      "path": "genai-research-system/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 73,
+      "nonEmptyLines": 51,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define State Schema",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Implement Planner Node",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "3 — Implement Researcher Node",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "4 — Implement Critic Node",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "5 — Implement Writer Node",
+          "level": 2,
+          "line": 43
+        },
+        {
+          "heading": "6 — Build Graph Transitions",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "7 — Add Loop Logic",
+          "level": 2,
+          "line": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

@@ -1,0 +1,2056 @@
+{
+  "nodes": [
+    {
+      "id": "file:tests/test_project_catalog.py",
+      "type": "file",
+      "name": "test_project_catalog.py",
+      "filePath": "tests/test_project_catalog.py",
+      "summary": "Implements test_project_catalog.py functionality within the project.",
+      "tags": [
+        "test",
+        "python",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_catalog_json_is_valid_and_non_empty",
+      "type": "function",
+      "name": "test_catalog_json_is_valid_and_non_empty",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        24,
+        27
+      ],
+      "summary": "Implements the test_catalog_json_is_valid_and_non_empty routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_load_project_catalog_returns_typed_entries",
+      "type": "function",
+      "name": "test_load_project_catalog_returns_typed_entries",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        30,
+        35
+      ],
+      "summary": "Implements the test_load_project_catalog_returns_typed_entries routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_every_entry_has_required_graph_nodes",
+      "type": "function",
+      "name": "test_every_entry_has_required_graph_nodes",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        38,
+        41
+      ],
+      "summary": "Implements the test_every_entry_has_required_graph_nodes routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_pipeline_nodes_index_covers_all_projects",
+      "type": "function",
+      "name": "test_pipeline_nodes_index_covers_all_projects",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        44,
+        49
+      ],
+      "summary": "Implements the test_pipeline_nodes_index_covers_all_projects routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_project_api_name_strips_properly",
+      "type": "function",
+      "name": "test_project_api_name_strips_properly",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        52,
+        55
+      ],
+      "summary": "Implements the test_project_api_name_strips_properly routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_list_project_manifest_entries_with_filter",
+      "type": "function",
+      "name": "test_list_project_manifest_entries_with_filter",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        58,
+        67
+      ],
+      "summary": "Implements the test_list_project_manifest_entries_with_filter routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_catalog_entries_have_consistent_api_endpoints",
+      "type": "function",
+      "name": "test_catalog_entries_have_consistent_api_endpoints",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        70,
+        74
+      ],
+      "summary": "Implements the test_catalog_entries_have_consistent_api_endpoints routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_legacy_project_api_names_still_resolve",
+      "type": "function",
+      "name": "test_legacy_project_api_names_still_resolve",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        77,
+        86
+      ],
+      "summary": "Implements the test_legacy_project_api_names_still_resolve routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_debugging_agent_is_not_publicly_runnable_by_default",
+      "type": "function",
+      "name": "test_debugging_agent_is_not_publicly_runnable_by_default",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        89,
+        95
+      ],
+      "summary": "Implements the test_debugging_agent_is_not_publicly_runnable_by_default routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_debugging_agent_requires_explicit_non_production_opt_in",
+      "type": "function",
+      "name": "test_debugging_agent_requires_explicit_non_production_opt_in",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        98,
+        105
+      ],
+      "summary": "Implements the test_debugging_agent_requires_explicit_non_production_opt_in routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_catalog_aliases_cover_every_api_endpoint",
+      "type": "function",
+      "name": "test_catalog_aliases_cover_every_api_endpoint",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        108,
+        114
+      ],
+      "summary": "Implements the test_catalog_aliases_cover_every_api_endpoint routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_no_duplicate_alias_keys",
+      "type": "function",
+      "name": "test_no_duplicate_alias_keys",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        117,
+        125
+      ],
+      "summary": "Implements the test_no_duplicate_alias_keys routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_catalog.py:test_legacy_names_all_map_to_valid_current_api_names",
+      "type": "function",
+      "name": "test_legacy_names_all_map_to_valid_current_api_names",
+      "filePath": "tests/test_project_catalog.py",
+      "lineRange": [
+        128,
+        144
+      ],
+      "summary": "Implements the test_legacy_names_all_map_to_valid_current_api_names routine in test_project_catalog.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_project_contracts.py",
+      "type": "file",
+      "name": "test_project_contracts.py",
+      "filePath": "tests/test_project_contracts.py",
+      "summary": "Implements test_project_contracts.py functionality within the project.",
+      "tags": [
+        "test",
+        "python",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_project_contracts.py:_all_projects",
+      "type": "function",
+      "name": "_all_projects",
+      "filePath": "tests/test_project_contracts.py",
+      "lineRange": [
+        41,
+        46
+      ],
+      "summary": "Implements the _all_projects routine in test_project_contracts.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_contracts.py:_load_main_module",
+      "type": "function",
+      "name": "_load_main_module",
+      "filePath": "tests/test_project_contracts.py",
+      "lineRange": [
+        49,
+        114
+      ],
+      "summary": "Implements the _load_main_module routine in test_project_contracts.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_project_contracts.py:test_project_exposes_run_callable",
+      "type": "function",
+      "name": "test_project_exposes_run_callable",
+      "filePath": "tests/test_project_contracts.py",
+      "lineRange": [
+        118,
+        123
+      ],
+      "summary": "Implements the test_project_exposes_run_callable routine in test_project_contracts.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_contracts.py:test_project_run_signature_is_compatible",
+      "type": "function",
+      "name": "test_project_run_signature_is_compatible",
+      "filePath": "tests/test_project_contracts.py",
+      "lineRange": [
+        127,
+        160
+      ],
+      "summary": "Implements the test_project_run_signature_is_compatible routine in test_project_contracts.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_project_contracts.py:test_project_run_return_annotation_is_dict_like",
+      "type": "function",
+      "name": "test_project_run_return_annotation_is_dict_like",
+      "filePath": "tests/test_project_contracts.py",
+      "lineRange": [
+        164,
+        186
+      ],
+      "summary": "Implements the test_project_run_return_annotation_is_dict_like routine in test_project_contracts.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_runner_module_cache.py",
+      "type": "file",
+      "name": "test_runner_module_cache.py",
+      "filePath": "tests/test_runner_module_cache.py",
+      "summary": "Implements test_runner_module_cache.py functionality within the project.",
+      "tags": [
+        "test",
+        "python",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_runner_module_cache.py:_reset_module_cache",
+      "type": "function",
+      "name": "_reset_module_cache",
+      "filePath": "tests/test_runner_module_cache.py",
+      "lineRange": [
+        22,
+        28
+      ],
+      "summary": "Implements the _reset_module_cache routine in test_runner_module_cache.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_runner_module_cache.py:_real_project_slug",
+      "type": "function",
+      "name": "_real_project_slug",
+      "filePath": "tests/test_runner_module_cache.py",
+      "lineRange": [
+        31,
+        58
+      ],
+      "summary": "Implements the _real_project_slug routine in test_runner_module_cache.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_runner_module_cache.py:test_module_cache_returns_same_instance_across_loads",
+      "type": "function",
+      "name": "test_module_cache_returns_same_instance_across_loads",
+      "filePath": "tests/test_runner_module_cache.py",
+      "lineRange": [
+        61,
+        79
+      ],
+      "summary": "Implements the test_module_cache_returns_same_instance_across_loads routine in test_runner_module_cache.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_runner_module_cache.py:test_module_cache_invalidates_on_mtime_change_in_dev",
+      "type": "function",
+      "name": "test_module_cache_invalidates_on_mtime_change_in_dev",
+      "filePath": "tests/test_runner_module_cache.py",
+      "lineRange": [
+        82,
+        101
+      ],
+      "summary": "Implements the test_module_cache_invalidates_on_mtime_change_in_dev routine in test_runner_module_cache.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_runner_module_cache.py:test_module_cache_is_sticky_in_prod",
+      "type": "function",
+      "name": "test_module_cache_is_sticky_in_prod",
+      "filePath": "tests/test_runner_module_cache.py",
+      "lineRange": [
+        104,
+        122
+      ],
+      "summary": "Implements the test_module_cache_is_sticky_in_prod routine in test_runner_module_cache.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_runner_module_cache.py:test_sys_modules_lock_is_a_threading_lock",
+      "type": "function",
+      "name": "test_sys_modules_lock_is_a_threading_lock",
+      "filePath": "tests/test_runner_module_cache.py",
+      "lineRange": [
+        125,
+        133
+      ],
+      "summary": "Implements the test_sys_modules_lock_is_a_threading_lock routine in test_runner_module_cache.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_runner_module_cache.py:test_concurrent_loads_populate_cache_and_stabilise",
+      "type": "function",
+      "name": "test_concurrent_loads_populate_cache_and_stabilise",
+      "filePath": "tests/test_runner_module_cache.py",
+      "lineRange": [
+        136,
+        173
+      ],
+      "summary": "Implements the test_concurrent_loads_populate_cache_and_stabilise routine in test_runner_module_cache.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_shared_api_app.py",
+      "type": "file",
+      "name": "test_shared_api_app.py",
+      "filePath": "tests/test_shared_api_app.py",
+      "summary": "Implements test_shared_api_app.py functionality within the project.",
+      "tags": [
+        "test",
+        "python",
+        "verification"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:client",
+      "type": "function",
+      "name": "client",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        22,
+        96
+      ],
+      "summary": "Implements the client routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:_signup_and_headers",
+      "type": "function",
+      "name": "_signup_and_headers",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        99,
+        114
+      ],
+      "summary": "Implements the _signup_and_headers routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:_extract_done_event",
+      "type": "function",
+      "name": "_extract_done_event",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        117,
+        121
+      ],
+      "summary": "Implements the _extract_done_event routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_run_requires_x_api_key",
+      "type": "function",
+      "name": "test_run_requires_x_api_key",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        124,
+        130
+      ],
+      "summary": "Implements the test_run_requires_x_api_key routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_jobs_require_authentication_before_provider_credentials",
+      "type": "function",
+      "name": "test_jobs_require_authentication_before_provider_credentials",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        133,
+        142
+      ],
+      "summary": "Implements the test_jobs_require_authentication_before_provider_credentials routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_jobs_require_provider_credentials_after_authentication",
+      "type": "function",
+      "name": "test_jobs_require_provider_credentials_after_authentication",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        145,
+        155
+      ],
+      "summary": "Implements the test_jobs_require_provider_credentials_after_authentication routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_job_status_and_cancellation_are_owner_scoped",
+      "type": "function",
+      "name": "test_job_status_and_cancellation_are_owner_scoped",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        158,
+        192
+      ],
+      "summary": "Implements the test_job_status_and_cancellation_are_owner_scoped routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_root_is_public_and_returns_service_metadata",
+      "type": "function",
+      "name": "test_root_is_public_and_returns_service_metadata",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        195,
+        204
+      ],
+      "summary": "Implements the test_root_is_public_and_returns_service_metadata routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_run_response_contract_and_history_payload",
+      "type": "function",
+      "name": "test_run_response_contract_and_history_payload",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        207,
+        231
+      ],
+      "summary": "Implements the test_run_response_contract_and_history_payload routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_stream_validates_input_and_emits_contract",
+      "type": "function",
+      "name": "test_stream_validates_input_and_emits_contract",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        234,
+        259
+      ],
+      "summary": "Implements the test_stream_validates_input_and_emits_contract routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_stream_emits_single_honest_output_frame_not_fake_token_chunks",
+      "type": "function",
+      "name": "test_stream_emits_single_honest_output_frame_not_fake_token_chunks",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        262,
+        309
+      ],
+      "summary": "Implements the test_stream_emits_single_honest_output_frame_not_fake_token_chunks routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_guest_run_allows_execution_without_history",
+      "type": "function",
+      "name": "test_guest_run_allows_execution_without_history",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        312,
+        325
+      ],
+      "summary": "Implements the test_guest_run_allows_execution_without_history routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_run_returns_503_when_project_dependency_is_unavailable",
+      "type": "function",
+      "name": "test_run_returns_503_when_project_dependency_is_unavailable",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        328,
+        341
+      ],
+      "summary": "Implements the test_run_returns_503_when_project_dependency_is_unavailable routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_guest_stream_allows_execution_without_session_state",
+      "type": "function",
+      "name": "test_guest_stream_allows_execution_without_session_state",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        344,
+        355
+      ],
+      "summary": "Implements the test_guest_stream_allows_execution_without_session_state routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_auth_cookie_supports_browser_session_without_authorization_header",
+      "type": "function",
+      "name": "test_auth_cookie_supports_browser_session_without_authorization_header",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        358,
+        385
+      ],
+      "summary": "Implements the test_auth_cookie_supports_browser_session_without_authorization_header routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_session_memory_is_deduped_capped_and_marks_context_usage",
+      "type": "function",
+      "name": "test_session_memory_is_deduped_capped_and_marks_context_usage",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        388,
+        419
+      ],
+      "summary": "Implements the test_session_memory_is_deduped_capped_and_marks_context_usage routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_explain_requires_byok_and_share_links_round_trip",
+      "type": "function",
+      "name": "test_explain_requires_byok_and_share_links_round_trip",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        422,
+        448
+      ],
+      "summary": "Implements the test_explain_requires_byok_and_share_links_round_trip routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_metrics_use_canonical_project_names",
+      "type": "function",
+      "name": "test_metrics_use_canonical_project_names",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        451,
+        461
+      ],
+      "summary": "Implements the test_metrics_use_canonical_project_names routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_metrics_persist_across_app_restart_for_guest_runs",
+      "type": "function",
+      "name": "test_metrics_persist_across_app_restart_for_guest_runs",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        464,
+        495
+      ],
+      "summary": "Implements the test_metrics_persist_across_app_restart_for_guest_runs routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_app_startup_bootstraps_otel_when_enabled",
+      "type": "function",
+      "name": "test_app_startup_bootstraps_otel_when_enabled",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        498,
+        519
+      ],
+      "summary": "Implements the test_app_startup_bootstraps_otel_when_enabled routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_cors_allows_local_frontend_origin_only",
+      "type": "function",
+      "name": "test_cors_allows_local_frontend_origin_only",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        522,
+        542
+      ],
+      "summary": "Implements the test_cors_allows_local_frontend_origin_only routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:_route_paths",
+      "type": "function",
+      "name": "_route_paths",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        548,
+        553
+      ],
+      "summary": "Implements the _route_paths routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_leaderboard_route_is_gone",
+      "type": "function",
+      "name": "test_leaderboard_route_is_gone",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        556,
+        558
+      ],
+      "summary": "Implements the test_leaderboard_route_is_gone routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_no_streamlit_routes",
+      "type": "function",
+      "name": "test_no_streamlit_routes",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        561,
+        565
+      ],
+      "summary": "Implements the test_no_streamlit_routes routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_auth_config_exposes_signup_flag",
+      "type": "function",
+      "name": "test_auth_config_exposes_signup_flag",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        571,
+        577
+      ],
+      "summary": "Implements the test_auth_config_exposes_signup_flag routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_input_validation_does_not_html_escape_prompt_body",
+      "type": "function",
+      "name": "test_input_validation_does_not_html_escape_prompt_body",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        583,
+        619
+      ],
+      "summary": "Implements the test_input_validation_does_not_html_escape_prompt_body routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_no_regex_blocklist_rejects_legitimate_prompts",
+      "type": "function",
+      "name": "test_no_regex_blocklist_rejects_legitimate_prompts",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        639,
+        658
+      ],
+      "summary": "Implements the test_no_regex_blocklist_rejects_legitimate_prompts routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_history_rejects_query_string_token",
+      "type": "function",
+      "name": "test_history_rejects_query_string_token",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        664,
+        692
+      ],
+      "summary": "Implements the test_history_rejects_query_string_token routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_stream_rejects_query_string_token",
+      "type": "function",
+      "name": "test_stream_rejects_query_string_token",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        695,
+        727
+      ],
+      "summary": "Implements the test_stream_rejects_query_string_token routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_shared_api_app.py:test_batch_run_offloads_project_execution_to_thread",
+      "type": "function",
+      "name": "test_batch_run_offloads_project_execution_to_thread",
+      "filePath": "tests/test_shared_api_app.py",
+      "lineRange": [
+        730,
+        768
+      ],
+      "summary": "Implements the test_batch_run_offloads_project_execution_to_thread routine in test_shared_api_app.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_sqlite_pragmas.py",
+      "type": "file",
+      "name": "test_sqlite_pragmas.py",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "summary": "Implements test_sqlite_pragmas.py functionality within the project.",
+      "tags": [
+        "test",
+        "python",
+        "verification"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_sqlite_pragmas.py:_make_file_engine",
+      "type": "function",
+      "name": "_make_file_engine",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "lineRange": [
+        22,
+        30
+      ],
+      "summary": "Implements the _make_file_engine routine in test_sqlite_pragmas.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_sqlite_pragmas.py:test_foreign_keys_are_enforced",
+      "type": "function",
+      "name": "test_foreign_keys_are_enforced",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "Implements the test_foreign_keys_are_enforced routine in test_sqlite_pragmas.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_sqlite_pragmas.py:test_journal_mode_is_wal_for_file_backed_sqlite",
+      "type": "function",
+      "name": "test_journal_mode_is_wal_for_file_backed_sqlite",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "lineRange": [
+        39,
+        44
+      ],
+      "summary": "Implements the test_journal_mode_is_wal_for_file_backed_sqlite routine in test_sqlite_pragmas.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_sqlite_pragmas.py:test_busy_timeout_is_at_least_five_seconds",
+      "type": "function",
+      "name": "test_busy_timeout_is_at_least_five_seconds",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "lineRange": [
+        47,
+        52
+      ],
+      "summary": "Implements the test_busy_timeout_is_at_least_five_seconds routine in test_sqlite_pragmas.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_sqlite_pragmas.py:test_synchronous_mode_is_normal",
+      "type": "function",
+      "name": "test_synchronous_mode_is_normal",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "lineRange": [
+        55,
+        60
+      ],
+      "summary": "Implements the test_synchronous_mode_is_normal routine in test_sqlite_pragmas.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_sqlite_pragmas.py:test_temp_store_is_memory",
+      "type": "function",
+      "name": "test_temp_store_is_memory",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "lineRange": [
+        63,
+        68
+      ],
+      "summary": "Implements the test_temp_store_is_memory routine in test_sqlite_pragmas.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_sqlite_pragmas.py:test_foreign_key_violation_is_rejected",
+      "type": "function",
+      "name": "test_foreign_key_violation_is_rejected",
+      "filePath": "tests/test_sqlite_pragmas.py",
+      "lineRange": [
+        71,
+        90
+      ],
+      "summary": "Implements the test_foreign_key_violation_is_rejected routine in test_sqlite_pragmas.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_catalog_json_is_valid_and_non_empty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_catalog_json_is_valid_and_non_empty",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_load_project_catalog_returns_typed_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_load_project_catalog_returns_typed_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_every_entry_has_required_graph_nodes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_every_entry_has_required_graph_nodes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_pipeline_nodes_index_covers_all_projects",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_pipeline_nodes_index_covers_all_projects",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_project_api_name_strips_properly",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_project_api_name_strips_properly",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_list_project_manifest_entries_with_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_list_project_manifest_entries_with_filter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_catalog_entries_have_consistent_api_endpoints",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_catalog_entries_have_consistent_api_endpoints",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_legacy_project_api_names_still_resolve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_legacy_project_api_names_still_resolve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_debugging_agent_is_not_publicly_runnable_by_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_debugging_agent_is_not_publicly_runnable_by_default",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_debugging_agent_requires_explicit_non_production_opt_in",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_debugging_agent_requires_explicit_non_production_opt_in",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_catalog_aliases_cover_every_api_endpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_catalog_aliases_cover_every_api_endpoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_no_duplicate_alias_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_no_duplicate_alias_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_legacy_names_all_map_to_valid_current_api_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "function:tests/test_project_catalog.py:test_legacy_names_all_map_to_valid_current_api_names",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:_all_projects",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:_all_projects",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:_load_main_module",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:_load_main_module",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:test_project_exposes_run_callable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:test_project_exposes_run_callable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:test_project_run_signature_is_compatible",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:test_project_run_signature_is_compatible",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:test_project_run_return_annotation_is_dict_like",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "function:tests/test_project_contracts.py:test_project_run_return_annotation_is_dict_like",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:_reset_module_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:_reset_module_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:_real_project_slug",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:_real_project_slug",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_module_cache_returns_same_instance_across_loads",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_module_cache_returns_same_instance_across_loads",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_module_cache_invalidates_on_mtime_change_in_dev",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_module_cache_invalidates_on_mtime_change_in_dev",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_module_cache_is_sticky_in_prod",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_module_cache_is_sticky_in_prod",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_sys_modules_lock_is_a_threading_lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_sys_modules_lock_is_a_threading_lock",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_concurrent_loads_populate_cache_and_stabilise",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "function:tests/test_runner_module_cache.py:test_concurrent_loads_populate_cache_and_stabilise",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:_signup_and_headers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:_signup_and_headers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:_extract_done_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:_extract_done_event",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_run_requires_x_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_run_requires_x_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_jobs_require_authentication_before_provider_credentials",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_jobs_require_authentication_before_provider_credentials",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_jobs_require_provider_credentials_after_authentication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_jobs_require_provider_credentials_after_authentication",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_job_status_and_cancellation_are_owner_scoped",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_job_status_and_cancellation_are_owner_scoped",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_root_is_public_and_returns_service_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_root_is_public_and_returns_service_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_run_response_contract_and_history_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_run_response_contract_and_history_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_stream_validates_input_and_emits_contract",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_stream_validates_input_and_emits_contract",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_stream_emits_single_honest_output_frame_not_fake_token_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_stream_emits_single_honest_output_frame_not_fake_token_chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_guest_run_allows_execution_without_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_guest_run_allows_execution_without_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_run_returns_503_when_project_dependency_is_unavailable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_run_returns_503_when_project_dependency_is_unavailable",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_guest_stream_allows_execution_without_session_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_guest_stream_allows_execution_without_session_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_auth_cookie_supports_browser_session_without_authorization_header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_auth_cookie_supports_browser_session_without_authorization_header",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_session_memory_is_deduped_capped_and_marks_context_usage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_session_memory_is_deduped_capped_and_marks_context_usage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_explain_requires_byok_and_share_links_round_trip",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_explain_requires_byok_and_share_links_round_trip",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_metrics_use_canonical_project_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_metrics_use_canonical_project_names",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_metrics_persist_across_app_restart_for_guest_runs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_metrics_persist_across_app_restart_for_guest_runs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_app_startup_bootstraps_otel_when_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_app_startup_bootstraps_otel_when_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_cors_allows_local_frontend_origin_only",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_cors_allows_local_frontend_origin_only",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:_route_paths",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:_route_paths",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_leaderboard_route_is_gone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_leaderboard_route_is_gone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_no_streamlit_routes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_no_streamlit_routes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_auth_config_exposes_signup_flag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_auth_config_exposes_signup_flag",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_input_validation_does_not_html_escape_prompt_body",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_input_validation_does_not_html_escape_prompt_body",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_no_regex_blocklist_rejects_legitimate_prompts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_no_regex_blocklist_rejects_legitimate_prompts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_history_rejects_query_string_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_history_rejects_query_string_token",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_stream_rejects_query_string_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_stream_rejects_query_string_token",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_batch_run_offloads_project_execution_to_thread",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "function:tests/test_shared_api_app.py:test_batch_run_offloads_project_execution_to_thread",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:_make_file_engine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:_make_file_engine",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_foreign_keys_are_enforced",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_foreign_keys_are_enforced",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_journal_mode_is_wal_for_file_backed_sqlite",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_journal_mode_is_wal_for_file_backed_sqlite",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_busy_timeout_is_at_least_five_seconds",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_busy_timeout_is_at_least_five_seconds",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_synchronous_mode_is_normal",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_synchronous_mode_is_normal",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_temp_store_is_memory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_temp_store_is_memory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_foreign_key_violation_is_rejected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "function:tests/test_sqlite_pragmas.py:test_foreign_key_violation_is_rejected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_project_catalog.py",
+      "target": "file:shared/project_catalog.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_project_contracts.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "file:shared/api/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_runner_module_cache.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "file:shared/api/app.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "file:shared/api/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_shared_api_app.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:tests/test_sqlite_pragmas.py",
+      "target": "file:shared/api/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

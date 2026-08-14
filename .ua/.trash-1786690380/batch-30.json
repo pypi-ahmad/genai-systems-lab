@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-investment-analyst/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-investment-analyst/README.md",
+      "summary": "Introduces the CrewAI investment-research workflow that combines market, financial, risk, and strategic analysis into an investment recommendation.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-investment-analyst/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-investment-analyst/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the CrewAI investment-research workflow that combines market, financial, risk, and strategic analysis into an investment recommendation.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:crew-investment-analyst/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-investment-analyst/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the CrewAI investment-research workflow that combines market, financial, risk, and strategic analysis into an investment recommendation.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

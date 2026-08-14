@@ -25,6 +25,9 @@ paths = [
     # Benchmark fixtures and promptfoo configs reference provider keys
     # by name only, never real values.
     '''(^|/)benchmarks/promptfoo/.*''',
+    # Graphify's stat index contains repository file-content hashes that can
+    # match generic high-entropy credential rules but are not credentials.
+    '''(^|/)graphify-out/cache/stat-index\.json$''',
 ]
 
 regexes = [

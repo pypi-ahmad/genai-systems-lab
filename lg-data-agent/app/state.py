@@ -4,8 +4,8 @@ from typing import TypedDict
 
 MAX_ITERATIONS = 3
 MAX_PLAN_STEPS = 10
-REASONING_MODEL = "gemini-3.1-pro-preview"
-EXPLANATION_MODEL = "gemini-3-flash-preview"
+REASONING_MODEL = "gemini-3.7-flash"
+EXPLANATION_MODEL = "gemini-3.5-flash-lite"
 
 SUPPORTED_OPERATIONS = [
     "filter",

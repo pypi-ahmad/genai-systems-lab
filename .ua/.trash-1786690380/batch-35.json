@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-code-copilot/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-code-copilot/README.md",
+      "summary": "Introduces the Repository-aware RAG assistant that indexes source files, retrieves grounded code context, and generates traceable answers.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-code-copilot/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-code-copilot/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the Repository-aware RAG assistant that indexes source files, retrieves grounded code context, and generates traceable answers.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:genai-code-copilot/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-code-copilot/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the Repository-aware RAG assistant that indexes source files, retrieves grounded code context, and generates traceable answers.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

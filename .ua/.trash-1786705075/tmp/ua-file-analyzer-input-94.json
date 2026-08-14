@@ -1,0 +1,42 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "shared/utils/helpers.py",
+      "language": "python",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test_auth_hardening.py",
+      "language": "python",
+      "sizeLines": 69,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test_ci_security_contract.py",
+      "language": "python",
+      "sizeLines": 140,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test_dockerfile_contract.py",
+      "language": "python",
+      "sizeLines": 141,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test_nl2sql_security.py",
+      "language": "python",
+      "sizeLines": 70,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "shared/utils/helpers.py": [],
+    "tests/test_auth_hardening.py": [],
+    "tests/test_ci_security_contract.py": [],
+    "tests/test_dockerfile_contract.py": [],
+    "tests/test_nl2sql_security.py": []
+  }
+}

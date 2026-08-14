@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "config:benchmarks/promptfoo/agent_eval.yaml",
+      "type": "config",
+      "name": "agent_eval.yaml",
+      "filePath": "benchmarks/promptfoo/agent_eval.yaml",
+      "summary": "Configures Promptfoo evaluations for agent workflows and compares model behavior on repository pipelines.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/promptfooconfig.yaml",
+      "type": "config",
+      "name": "promptfooconfig.yaml",
+      "filePath": "benchmarks/promptfoo/promptfooconfig.yaml",
+      "summary": "Provides the base Promptfoo configuration for running offline evaluation suites in this repository.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/rag_eval.yaml",
+      "type": "config",
+      "name": "rag_eval.yaml",
+      "filePath": "benchmarks/promptfoo/rag_eval.yaml",
+      "summary": "Configures an end-to-end Promptfoo evaluation of the repository-aware RAG pipeline.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/rag_retrieval_eval.yaml",
+      "type": "config",
+      "name": "rag_retrieval_eval.yaml",
+      "filePath": "benchmarks/promptfoo/rag_retrieval_eval.yaml",
+      "summary": "Configures Promptfoo checks focused on retrieval quality over real repository source files.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/redteam.yaml",
+      "type": "config",
+      "name": "redteam.yaml",
+      "filePath": "benchmarks/promptfoo/redteam.yaml",
+      "summary": "Defines Promptfoo red-team scenarios for safety testing of model-backed workflows.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

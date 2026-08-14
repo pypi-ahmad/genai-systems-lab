@@ -1,0 +1,157 @@
+{
+  "provider": "codex",
+  "assetAuthority": {
+    "projectMetadata": true,
+    "userHome": false,
+    "memoryMetadata": false,
+    "memoryBodies": false
+  },
+  "decision": "Review outer coding-agent harness and produce a durable report",
+  "risks": [
+    "Counts route inspection but do not prove effectiveness",
+    "Do not rerun deterministic commands or inspect Session/Project conclusions"
+  ],
+  "ownerLimit": 5,
+  "evidence": {
+    "kind": "agent-asset-baseline",
+    "schemaVersion": 1,
+    "status": "complete",
+    "scope": {
+      "provider": "codex",
+      "workspace": "D:\\AI\\Github\\genai-systems-lab",
+      "includeUserHome": false,
+      "includeMemories": false
+    },
+    "envelopes": {
+      "lint": {
+        "status": "available",
+        "data": {
+          "kind": "agent-lint",
+          "profile": "agent-assets-review",
+          "summary": {
+            "entrypoints": 0,
+            "documents": 0,
+            "links": 0,
+            "references": 0,
+            "missingReferences": 0,
+            "findings": 0,
+            "errors": 0,
+            "warnings": 0,
+            "advisories": 0
+          },
+          "assetInventory": {
+            "provider": "codex",
+            "summary": {
+              "skills": 0,
+              "mcps": 0,
+              "commands": 0,
+              "hooks": 0,
+              "rules": 0,
+              "agents": 0,
+              "plugins": 0
+            }
+          },
+          "findings": {
+            "items": [],
+            "total": 0,
+            "omitted": 0,
+            "truncated": false
+          }
+        }
+      },
+      "inventory": {
+        "status": "available",
+        "data": {
+          "scope": {
+            "platform": "codex",
+            "includeUserHome": false,
+            "includeMemories": false
+          },
+          "summary": {
+            "projectAssets": 1,
+            "userAssets": 0,
+            "pluginAssets": 0,
+            "sessionSourceHints": 1,
+            "memories": 0
+          },
+          "coverageRows": [],
+          "ownerRoutes": {
+            "items": [
+              {
+                "kind": "workflows",
+                "scope": "project",
+                "name": "ci.yml",
+                "route": ".github/workflows/ci.yml",
+                "modifiedAt": "2026-08-14T06:12:45.26Z"
+              }
+            ],
+            "total": 1,
+            "omitted": 0,
+            "truncated": false,
+            "selection": {
+              "strategy": "latest-modified",
+              "limit": 16,
+              "observedAt": "2026-08-14T06:21:13.646Z",
+              "timestampSource": "filesystem-mtime",
+              "timestamped": 1,
+              "untimestamped": 0
+            }
+          },
+          "memories": {
+            "included": false,
+            "contentPolicy": "raw-memory-content-not-read",
+            "categories": [],
+            "titleCount": 0
+          },
+          "warnings": []
+        }
+      },
+      "integrity": {
+        "status": "available",
+        "data": {
+          "kind": "asset-integrity-review",
+          "profile": "asset-integrity-review",
+          "status": "reviewed",
+          "contentPolicy": "memory-title-and-path-metadata-only",
+          "summary": {
+            "findingCount": 0,
+            "memories": {
+              "titleCount": 0,
+              "reviewedTitleCount": 0,
+              "truncated": false,
+              "exactCollisionGroups": 0,
+              "similarityCandidates": 0
+            },
+            "plugins": {
+              "enabledPluginCount": 0,
+              "nameCollisionGroups": 0,
+              "capabilityOverlapGroups": 0,
+              "familyCandidates": 0
+            },
+            "hooks": {
+              "enabledHookCount": 0,
+              "overRecommendedLimit": false,
+              "exactDuplicateGroups": 0,
+              "fanoutCandidates": 0
+            }
+          },
+          "findings": {
+            "items": [],
+            "total": 0,
+            "omitted": 0,
+            "truncated": false
+          }
+        }
+      }
+    },
+    "diagnostics": {
+      "sharedInventorySnapshot": true,
+      "compact": true,
+      "findingLimitPerEnvelope": 16,
+      "ownerRouteLimit": 16,
+      "inheritedWorkspaceCount": 0,
+      "truncatedStages": [],
+      "sampledStages": []
+    }
+  }
+}

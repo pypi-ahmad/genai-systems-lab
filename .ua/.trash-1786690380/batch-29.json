@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-hiring-system/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-hiring-system/README.md",
+      "summary": "Introduces the CrewAI hiring workflow that synthesizes screening, technical, behavioral, and bias-aware assessments into a recommendation.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-hiring-system/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-hiring-system/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the CrewAI hiring workflow that synthesizes screening, technical, behavioral, and bias-aware assessments into a recommendation.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:crew-hiring-system/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-hiring-system/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the CrewAI hiring workflow that synthesizes screening, technical, behavioral, and bias-aware assessments into a recommendation.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

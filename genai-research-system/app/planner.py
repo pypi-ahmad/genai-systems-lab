@@ -9,7 +9,7 @@ from google.genai import types
 from shared.llm.gemini import _get_client
 
 
-PLANNER_MODEL = "gemini-3.1-pro-preview"
+PLANNER_MODEL = "gemini-3.7-flash"
 
 
 def create_plan(query: str) -> list[str]:

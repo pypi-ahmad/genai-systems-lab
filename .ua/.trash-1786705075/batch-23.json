@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
+      "type": "config",
+      "name": "customize-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
+      "summary": "Stores structured configuration or project metadata in .codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json",
+      "type": "config",
+      "name": "evidence-bundle.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json",
+      "summary": "Stores structured configuration or project metadata in .codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json",
+      "type": "config",
+      "name": "lead-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json",
+      "summary": "Stores structured configuration or project metadata in .codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json",
+      "type": "config",
+      "name": "project-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json",
+      "summary": "Stores structured configuration or project metadata in .codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json",
+      "type": "config",
+      "name": "session-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json",
+      "summary": "Stores structured configuration or project metadata in .codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": []
+}

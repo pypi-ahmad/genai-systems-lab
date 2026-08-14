@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-clinical-assistant/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-clinical-assistant/README.md",
+      "summary": "Introduces the Clinical decision-support prototype that combines patient extraction, knowledge retrieval, deterministic confidence scoring, and LLM reasoning.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-clinical-assistant/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-clinical-assistant/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the Clinical decision-support prototype that combines patient extraction, knowledge retrieval, deterministic confidence scoring, and LLM reasoning.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-clinical-assistant/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-clinical-assistant/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the Clinical decision-support prototype that combines patient extraction, knowledge retrieval, deterministic confidence scoring, and LLM reasoning.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

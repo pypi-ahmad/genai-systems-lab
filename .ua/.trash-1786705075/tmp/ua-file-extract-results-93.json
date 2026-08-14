@@ -1,0 +1,488 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [
+    "lg-data-agent/data/.gitkeep",
+    "lg-data-agent/tests/.gitkeep",
+    "lg-debugging-agent/tests/.gitkeep",
+    "lg-research-agent/tests/.gitkeep",
+    "lg-support-agent/tests/.gitkeep",
+    "lg-workflow-agent/tests/.gitkeep",
+    "migrations/script.py.mako",
+    "portfolio/src/app/globals.css"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 17,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 16,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "lg-debugging-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-support-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/nodes/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/eslint.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/next.config.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "buildCsp",
+          "startLine": 25,
+          "endLine": 44,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "buildCsp",
+          "callee": "[\"'self'\", apiBaseForCsp].filter(Boolean).join",
+          "lineNumber": 26
+        },
+        {
+          "caller": "buildCsp",
+          "callee": "[\"'self'\", apiBaseForCsp].filter",
+          "lineNumber": 26
+        },
+        {
+          "caller": "buildCsp",
+          "callee": "[\r\n    \"default-src 'self'\",\r\n    \"base-uri 'self'\",\r\n    \"frame-ancestors 'none'\",\r\n    \"form-action 'self'\",\r\n    // Tailwind v4 + Next.js still need inline styles during hydration.\r\n    \"style-src 'self' 'unsafe-inline'\",\r\n    \"img-src 'self' data: blob:\",\r\n    \"font-src 'self' data:\",\r\n    // ``'unsafe-inline'`` is required for Next's bootstrap scripts in prod;\r\n    // tighten to nonces if you adopt a custom server.\r\n    `script-src 'self'${isProd ? \" 'unsafe-inline'\" : \" 'unsafe-inline' 'unsafe-eval'\"}`,\r\n    `connect-src ${connectSrc}`,\r\n    \"object-src 'none'\",\r\n    \"manifest-src 'self'\",\r\n    \"worker-src 'self' blob:\",\r\n  ].join",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/postcss.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/architecture/diagram.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 166,
+      "nonEmptyLines": 154,
+      "functions": [
+        {
+          "name": "stepIndex",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "ArchitectureDiagram",
+          "startLine": 47,
+          "endLine": 166,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArchitectureDiagram",
+          "line": 47,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "stepIndex",
+          "callee": "STEPS.findIndex",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "useState",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "useState",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "stepIndex",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.find",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.map",
+          "lineNumber": 59
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "Math.abs",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 68
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 69
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setSelectedId",
+          "lineNumber": 71
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                    \"rounded-[1.5rem] border p-5 text-left transition-all duration-200\",\r\n                    \"bg-[var(--card-strong)] shadow-[var(--card-hover-shadow)]\",\r\n                    isActive\r\n                      ? \"border-[var(--accent-border-soft)] bg-[var(--accent-soft-strong)]\"\r\n                      : isConnected\r\n                        ? \"border-[var(--accent-border-soft)] bg-[var(--surface-soft)]\"\r\n                        : \"border-[var(--line)]\",\r\n                  ].join",
+          "lineNumber": 72
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "String(index + 1).padStart",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "String",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                          \"h-px w-10 transition-colors duration-200\",\r\n                          activeIndex !== -1 && index >= activeIndex - 1 && index <= activeIndex\r\n                            ? \"bg-[var(--accent-solid)]\"\r\n                            : \"bg-[var(--line)]\",\r\n                        ].join",
+          "lineNumber": 97
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                          \"text-sm transition-colors duration-200\",\r\n                          activeIndex !== -1 && index >= activeIndex - 1 && index <= activeIndex\r\n                            ? \"text-[var(--accent-solid)]\"\r\n                            : \"text-[var(--muted)]\",\r\n                        ].join",
+          "lineNumber": 105
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                          \"h-px w-10 transition-colors duration-200\",\r\n                          activeIndex !== -1 && index >= activeIndex - 1 && index <= activeIndex\r\n                            ? \"bg-[var(--accent-solid)]\"\r\n                            : \"bg-[var(--border)]\",\r\n                        ].join",
+          "lineNumber": 115
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.slice(0, -1).map",
+          "lineNumber": 131
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.slice",
+          "lineNumber": 131
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/architecture/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "ArchitecturePage",
+          "startLine": 9,
+          "endLine": 54,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "ArchitecturePage",
+          "line": 9,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ArchitecturePage",
+          "callee": "[\r\n              \"Hover a box to highlight its immediate neighborhood in the flow.\",\r\n              \"Click a box to pin its description in the detail panel.\",\r\n              \"The diagram stays intentionally small: boxes, arrows, and no heavy rendering layer.\",\r\n            ].map",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/global-error.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "functions": [
+        {
+          "name": "GlobalError",
+          "startLine": 3,
+          "endLine": 5,
+          "params": [
+            "{ reset }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "GlobalError",
+          "line": 3,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/loading.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "functions": [
+        {
+          "name": "Loading",
+          "startLine": 1,
+          "endLine": 3,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Loading",
+          "line": 1,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/not-found.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "functions": [
+        {
+          "name": "NotFound",
+          "startLine": 3,
+          "endLine": 5,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "NotFound",
+          "line": 3,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/robots.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 4,
+      "functions": [
+        {
+          "name": "robots",
+          "startLine": 3,
+          "endLine": 5,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "robots",
+          "line": 3,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/data/project-catalog.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1412,
+      "nonEmptyLines": 1412,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "portfolio/tailwind.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "shared/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "shared/utils/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

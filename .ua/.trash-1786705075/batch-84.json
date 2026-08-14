@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:lg-data-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "lg-data-agent/README.md",
+      "summary": "Documents README for the lg-data-agent project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:lg-data-agent/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "lg-data-agent/architecture.md",
+      "summary": "Documents architecture for the lg-data-agent project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:lg-data-agent/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "lg-data-agent/tasks.md",
+      "summary": "Documents tasks for the lg-data-agent project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

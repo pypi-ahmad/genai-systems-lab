@@ -1,0 +1,231 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-financial-analyst/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Financial Analyst Agent",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-financial-analyst/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 107,
+      "nonEmptyLines": 65,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Component Responsibilities",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Data Loader",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "Metrics Engine",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "Analyzer (LLM)",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "Reporter (LLM)",
+          "level": 3,
+          "line": 38
+        },
+        {
+          "heading": "Forecaster (Optional)",
+          "level": 3,
+          "line": 44
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 51
+        },
+        {
+          "heading": "1. Data Ingestion",
+          "level": 3,
+          "line": 53
+        },
+        {
+          "heading": "2. Metric Computation",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "3. Forecasting (Optional)",
+          "level": 3,
+          "line": 61
+        },
+        {
+          "heading": "4. Analysis",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "5. Report Generation",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 73
+        },
+        {
+          "heading": "`gemini-3.1-pro-preview`",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "`gemini-3-flash-preview`",
+          "level": 3,
+          "line": 84
+        },
+        {
+          "heading": "Production-Oriented Design Notes",
+          "level": 2,
+          "line": 95
+        },
+        {
+          "heading": "High-Level Architecture Summary",
+          "level": 2,
+          "line": 105
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 19
+      }
+    },
+    {
+      "path": "genai-financial-analyst/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 45,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Load Financial Dataset",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Compute Metrics",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Analyze Trends",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "Generate Report",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Add Forecasting",
+          "level": 2,
+          "line": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    }
+  ]
+}

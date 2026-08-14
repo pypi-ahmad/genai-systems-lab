@@ -1,0 +1,127 @@
+Found 109 batch files (94 logical batches, 9 multi-part):
+  batch-1-part-1.json: 38 nodes, 70 edges
+  batch-1-part-2.json: 15 nodes, 33 edges
+  batch-1-part-3.json: 66 nodes, 135 edges
+  batch-1-part-4.json: 62 nodes, 128 edges
+  batch-2-part-1.json: 29 nodes, 56 edges
+  batch-2-part-2.json: 36 nodes, 65 edges
+  batch-3-part-1.json: 40 nodes, 73 edges
+  batch-3-part-2.json: 47 nodes, 96 edges
+  batch-4-part-1.json: 22 nodes, 48 edges
+  batch-4-part-2.json: 92 nodes, 196 edges
+  batch-4-part-3.json: 44 nodes, 96 edges
+  batch-4-part-4.json: 21 nodes, 39 edges
+  batch-5-part-1.json: 43 nodes, 84 edges
+  batch-5-part-2.json: 40 nodes, 84 edges
+  batch-6-part-1.json: 36 nodes, 81 edges
+  batch-6-part-2.json: 57 nodes, 128 edges
+  batch-7-part-1.json: 25 nodes, 46 edges
+  batch-7-part-2.json: 39 nodes, 73 edges
+  batch-7-part-3.json: 58 nodes, 110 edges
+  batch-7-part-4.json: 67 nodes, 133 edges
+  batch-8-part-1.json: 32 nodes, 37 edges
+  batch-8-part-2.json: 54 nodes, 91 edges
+  batch-9.json: 55 nodes, 106 edges
+  batch-10.json: 37 nodes, 74 edges
+  batch-11.json: 35 nodes, 68 edges
+  batch-12.json: 27 nodes, 53 edges
+  batch-13.json: 41 nodes, 85 edges
+  batch-14.json: 29 nodes, 60 edges
+  batch-15.json: 16 nodes, 24 edges
+  batch-16.json: 57 nodes, 112 edges
+  batch-17.json: 23 nodes, 42 edges
+  batch-18.json: 17 nodes, 30 edges
+  batch-19.json: 16 nodes, 28 edges
+  batch-20.json: 6 nodes, 8 edges
+  batch-21.json: 5 nodes, 2 edges
+  batch-22.json: 1 nodes, 0 edges
+  batch-23.json: 5 nodes, 0 edges
+  batch-24.json: 3 nodes, 0 edges
+  batch-25.json: 9 nodes, 0 edges
+  batch-26.json: 20 nodes, 0 edges
+  batch-27.json: 20 nodes, 0 edges
+  batch-28.json: 20 nodes, 0 edges
+  batch-29.json: 20 nodes, 0 edges
+  batch-30.json: 14 nodes, 0 edges
+  batch-31.json: 20 nodes, 0 edges
+  batch-32.json: 20 nodes, 0 edges
+  batch-33.json: 20 nodes, 0 edges
+  batch-34.json: 20 nodes, 0 edges
+  batch-35.json: 20 nodes, 0 edges
+  batch-36.json: 20 nodes, 0 edges
+  batch-37.json: 20 nodes, 0 edges
+  batch-38.json: 14 nodes, 0 edges
+  batch-39.json: 4 nodes, 0 edges
+  batch-40.json: 5 nodes, 0 edges
+  batch-41.json: 4 nodes, 0 edges
+  batch-42.json: 3 nodes, 0 edges
+  batch-43.json: 3 nodes, 0 edges
+  batch-44.json: 3 nodes, 0 edges
+  batch-45.json: 3 nodes, 0 edges
+  batch-46.json: 3 nodes, 0 edges
+  batch-47.json: 3 nodes, 0 edges
+  batch-48.json: 3 nodes, 0 edges
+  batch-49.json: 3 nodes, 0 edges
+  batch-50.json: 3 nodes, 0 edges
+  batch-51.json: 3 nodes, 0 edges
+  batch-52.json: 3 nodes, 0 edges
+  batch-53.json: 4 nodes, 0 edges
+  batch-54.json: 3 nodes, 0 edges
+  batch-55.json: 3 nodes, 0 edges
+  batch-56.json: 3 nodes, 0 edges
+  batch-57.json: 4 nodes, 0 edges
+  batch-58.json: 3 nodes, 0 edges
+  batch-59.json: 3 nodes, 0 edges
+  batch-60.json: 3 nodes, 0 edges
+  batch-61.json: 7 nodes, 0 edges
+  batch-62.json: 20 nodes, 0 edges
+  batch-63.json: 20 nodes, 0 edges
+  batch-64.json: 20 nodes, 0 edges
+  batch-65.json: 20 nodes, 0 edges
+  batch-66.json: 20 nodes, 0 edges
+  batch-67.json: 20 nodes, 0 edges
+  batch-68.json: 20 nodes, 0 edges
+  batch-69.json: 20 nodes, 0 edges
+  batch-70.json: 20 nodes, 0 edges
+  batch-71.json: 20 nodes, 0 edges
+  batch-72.json: 20 nodes, 0 edges
+  batch-73.json: 20 nodes, 0 edges
+  batch-74.json: 20 nodes, 0 edges
+  batch-75.json: 20 nodes, 0 edges
+  batch-76.json: 6 nodes, 0 edges
+  batch-77.json: 20 nodes, 0 edges
+  batch-78.json: 20 nodes, 0 edges
+  batch-79.json: 20 nodes, 0 edges
+  batch-80.json: 20 nodes, 0 edges
+  batch-81.json: 20 nodes, 0 edges
+  batch-82.json: 4 nodes, 0 edges
+  batch-83.json: 3 nodes, 0 edges
+  batch-84.json: 3 nodes, 0 edges
+  batch-85.json: 3 nodes, 0 edges
+  batch-86.json: 3 nodes, 0 edges
+  batch-87.json: 3 nodes, 0 edges
+  batch-88.json: 3 nodes, 0 edges
+  batch-89.json: 4 nodes, 0 edges
+  batch-90.json: 30 nodes, 5 edges
+  batch-91-part-1.json: 52 nodes, 78 edges
+  batch-91-part-2.json: 21 nodes, 18 edges
+  batch-92.json: 32 nodes, 14 edges
+  batch-93.json: 32 nodes, 15 edges
+  batch-94.json: 42 nodes, 74 edges
+
+Input: 2293 nodes, 2798 edges
+
+Tested-by linker:
+     2 � tested_by edges produced (path-convention supplement, production \u2192 test)
+     2 � production nodes tagged "tested"
+
+Could not fix (1 issues � needs agent review):
+  - Edge file:portfolio/src/data/projects.ts \u2192 file:portfolio/src/data/project-catalog.json (imports): dropped, missing target 'file:portfolio/src/data/project-catalog.json'
+
+Output: 2293 nodes, 2799 edges
+
+Imports edge recovery:
+  Recovered 0 `imports` edges from importMap (1126 entries scanned)
+  Skipped 1 importMap target paths with no `file:` node in graph
+
+Written to D:\AI\Github\genai-systems-lab\.ua\intermediate\assembled-graph.json (1713 KB)

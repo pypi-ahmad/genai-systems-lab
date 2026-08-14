@@ -7,7 +7,7 @@ File: `app/state.py`
 - [ ] Define `DebuggingState` as a `TypedDict` with fields: `input_code` (str), `error_message` (str), `analysis` (str), `fixed_code` (str), `test_result` (str), `iteration` (int), `is_resolved` (bool).
 - [ ] Create `initial_state(input_code: str, error_message: str) -> DebuggingState` factory that sets `analysis=""`, `fixed_code=""`, `test_result=""`, `iteration=0`, `is_resolved=False`.
 - [ ] Add module-level constants: `MAX_ITERATIONS = 3`, `EXEC_TIMEOUT = 10`, `EXEC_MEMORY_LIMIT = 256`.
-- [ ] Add `REASONING_MODEL = "gemini-3.1-pro-preview"` and `EXPLANATION_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Add `REASONING_MODEL = "gemini-3.7-flash"` and `EXPLANATION_MODEL = "gemini-3.5-flash-lite"` constants.
 
 ## 2 — Implement Analyzer Node
 

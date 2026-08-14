@@ -1,7 +1,7 @@
 from shared.llm.gemini import generate_text
 
 
-MODEL = "gemini-3-flash-preview"
+MODEL = "gemini-3.5-flash-lite"
 
 PROMPT_TEMPLATE = """Summarize the following text concisely. Preserve the key facts, ideas, and structure. Do not add information that is not present in the original text.
 

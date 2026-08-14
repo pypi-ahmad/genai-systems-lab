@@ -78,6 +78,7 @@ export interface LLMRequestOptions {
   provider?: LLMProviderId;
   model?: string;
   apiKey?: string;
+  effort?: string;
 }
 
 function authHeaders(token?: string, llm?: LLMRequestOptions): HeadersInit {
@@ -99,6 +100,10 @@ function authHeaders(token?: string, llm?: LLMRequestOptions): HeadersInit {
 
   if (llm?.model) {
     headers["X-LLM-Model"] = llm.model;
+  }
+
+  if (llm?.effort) {
+    headers["X-LLM-Effort"] = llm.effort;
   }
 
   return headers;
@@ -224,6 +229,47 @@ export interface LLMModelOption {
   id: string;
   label: string;
   provider: LLMProviderId;
+  effort_options: string[];
+  pricing: LLMModelPricing | null;
+}
+
+export interface LLMModelPricing {
+  input_per_million_usd: number;
+  output_per_million_usd: number;
+  cached_input_per_million_usd?: number;
+  batch_input_per_million_usd?: number;
+  batch_output_per_million_usd?: number;
+  long_context_threshold_tokens?: number;
+  long_context_input_per_million_usd?: number;
+  long_context_output_per_million_usd?: number;
+  fast_input_per_million_usd?: number;
+  fast_output_per_million_usd?: number;
+  promotion_ends_on?: string;
+  as_of: string;
+  details: string;
+}
+
+export interface UsageCostBreakdown {
+  model: string;
+  pricing_tier: "standard" | "long_context";
+  input_tokens: number;
+  cached_input_tokens: number;
+  output_tokens: number;
+  input_rate_per_million_usd: number;
+  cached_input_rate_per_million_usd: number | null;
+  output_rate_per_million_usd: number;
+  input_cost_usd: number;
+  output_cost_usd: number;
+  estimated_cost_usd: number;
+}
+
+export interface RunUsage {
+  input_tokens: number;
+  output_tokens: number;
+  total_tokens: number;
+  estimated_cost_usd: number | null;
+  models_used: string[];
+  cost_breakdown: UsageCostBreakdown[];
 }
 
 export interface LLMProviderInfo {
@@ -289,6 +335,7 @@ export interface ProjectRunResponse {
   success: boolean;
   memory: RunMemoryEntry[];
   timeline: RunTimelineEntry[];
+  usage: RunUsage | null;
 }
 
 export interface HistoryRun {
@@ -307,6 +354,11 @@ export interface HistoryRun {
   share_token: string | null;
   is_public: boolean;
   expires_at: string | null;
+  prompt_tokens: number | null;
+  completion_tokens: number | null;
+  total_tokens: number | null;
+  cost_usd: number | null;
+  model_used: string | null;
 }
 
 export interface HistoryResponse {
@@ -612,6 +664,7 @@ export interface StreamCallbacks {
     sessionId: number | null;
     sessionMemory: string[];
     usedSessionContext: boolean;
+    usage: RunUsage | null;
   }) => void;
   onError: (error: string) => void;
 }
@@ -662,6 +715,7 @@ function dispatchStreamEvent(rawEvent: string, callbacks: StreamCallbacks): "con
           ? data.session_memory.filter((entry: unknown): entry is string => typeof entry === "string")
           : [],
         usedSessionContext: data.used_session_context === true,
+        usage: data.usage ?? null,
       });
     } catch {
       callbacks.onDone({
@@ -671,6 +725,7 @@ function dispatchStreamEvent(rawEvent: string, callbacks: StreamCallbacks): "con
         sessionId: null,
         sessionMemory: [],
         usedSessionContext: false,
+        usage: null,
       });
     }
     return "done";

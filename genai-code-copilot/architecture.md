@@ -218,7 +218,7 @@ Production notes:
 
 ## Model Usage
 
-### `gemini-3.1-pro-preview`
+### `gemini-3.7-flash`
 
 Use for reasoning-heavy code understanding and answer generation.
 
@@ -229,7 +229,7 @@ Recommended responsibilities:
 - explaining control flow, dependencies, and architectural intent
 - resolving ambiguous code references using surrounding context
 
-### `gemini-3-flash-preview`
+### `gemini-3.5-flash-lite`
 
 Use for lightweight or latency-sensitive responses when deeper reasoning is not required.
 
@@ -241,8 +241,8 @@ Recommended responsibilities:
 
 Practical routing rule:
 
-- default to `gemini-3.1-pro-preview` for code reasoning over retrieved snippets
-- use `gemini-3-flash-preview` only when the request is simple and the retrieved evidence is already clear
+- default to `gemini-3.7-flash` for code reasoning over retrieved snippets
+- use `gemini-3.5-flash-lite` only when the request is simple and the retrieved evidence is already clear
 
 ## Production-Oriented Design Notes
 

@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "config:benchmarks/promptfoo/agent_eval.yaml",
+      "type": "config",
+      "name": "agent_eval.yaml",
+      "filePath": "benchmarks/promptfoo/agent_eval.yaml",
+      "summary": "Stores structured configuration or project metadata in benchmarks/promptfoo/agent_eval.yaml.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/promptfooconfig.yaml",
+      "type": "config",
+      "name": "promptfooconfig.yaml",
+      "filePath": "benchmarks/promptfoo/promptfooconfig.yaml",
+      "summary": "Stores structured configuration or project metadata in benchmarks/promptfoo/promptfooconfig.yaml.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/rag_eval.yaml",
+      "type": "config",
+      "name": "rag_eval.yaml",
+      "filePath": "benchmarks/promptfoo/rag_eval.yaml",
+      "summary": "Stores structured configuration or project metadata in benchmarks/promptfoo/rag_eval.yaml.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/rag_retrieval_eval.yaml",
+      "type": "config",
+      "name": "rag_retrieval_eval.yaml",
+      "filePath": "benchmarks/promptfoo/rag_retrieval_eval.yaml",
+      "summary": "Stores structured configuration or project metadata in benchmarks/promptfoo/rag_retrieval_eval.yaml.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/redteam.yaml",
+      "type": "config",
+      "name": "redteam.yaml",
+      "filePath": "benchmarks/promptfoo/redteam.yaml",
+      "summary": "Stores structured configuration or project metadata in benchmarks/promptfoo/redteam.yaml.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,843 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-browser-agent/app/actions.py",
+      "type": "file",
+      "name": "actions.py",
+      "filePath": "genai-browser-agent/app/actions.py",
+      "summary": "Implements actions.py as part of the genai-browser-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/actions.py:make_action",
+      "type": "function",
+      "name": "make_action",
+      "filePath": "genai-browser-agent/app/actions.py",
+      "lineRange": [
+        13,
+        14
+      ],
+      "summary": "Builds the _action structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/actions.py:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "genai-browser-agent/app/actions.py",
+      "lineRange": [
+        17,
+        39
+      ],
+      "summary": "Implements the execute operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-browser-agent/app/agent.py",
+      "type": "file",
+      "name": "agent.py",
+      "filePath": "genai-browser-agent/app/agent.py",
+      "summary": "Implements agent.py as part of the genai-browser-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-browser-agent/app/agent.py:run_agent",
+      "type": "function",
+      "name": "run_agent",
+      "filePath": "genai-browser-agent/app/agent.py",
+      "lineRange": [
+        17,
+        64
+      ],
+      "summary": "Implements the run_agent operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-browser-agent/app/browser.py",
+      "type": "file",
+      "name": "browser.py",
+      "filePath": "genai-browser-agent/app/browser.py",
+      "summary": "Implements browser.py as part of the genai-browser-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:genai-browser-agent/app/browser.py:BrowserController",
+      "type": "class",
+      "name": "BrowserController",
+      "filePath": "genai-browser-agent/app/browser.py",
+      "lineRange": [
+        6,
+        69
+      ],
+      "summary": "Represents the BrowserController abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:genai-browser-agent/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-browser-agent/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-browser-agent/app/main.py",
+      "lineRange": [
+        7,
+        13
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-browser-agent/app/memory.py",
+      "type": "file",
+      "name": "memory.py",
+      "filePath": "genai-browser-agent/app/memory.py",
+      "summary": "Implements memory.py as part of the genai-browser-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-browser-agent/app/memory.py:BrowserMemory",
+      "type": "class",
+      "name": "BrowserMemory",
+      "filePath": "genai-browser-agent/app/memory.py",
+      "lineRange": [
+        4,
+        29
+      ],
+      "summary": "Represents the BrowserMemory abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-browser-agent/app/perception.py",
+      "type": "file",
+      "name": "perception.py",
+      "filePath": "genai-browser-agent/app/perception.py",
+      "summary": "Implements perception.py as part of the genai-browser-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/perception.py:get_observation",
+      "type": "function",
+      "name": "get_observation",
+      "filePath": "genai-browser-agent/app/perception.py",
+      "lineRange": [
+        22,
+        31
+      ],
+      "summary": "Implements the get_observation operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/perception.py:_get_text_observation",
+      "type": "function",
+      "name": "_get_text_observation",
+      "filePath": "genai-browser-agent/app/perception.py",
+      "lineRange": [
+        34,
+        39
+      ],
+      "summary": "Implements the _get_text_observation operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/perception.py:_get_vision_observation",
+      "type": "function",
+      "name": "_get_vision_observation",
+      "filePath": "genai-browser-agent/app/perception.py",
+      "lineRange": [
+        42,
+        52
+      ],
+      "summary": "Implements the _get_vision_observation operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/perception.py:_clean",
+      "type": "function",
+      "name": "_clean",
+      "filePath": "genai-browser-agent/app/perception.py",
+      "lineRange": [
+        55,
+        59
+      ],
+      "summary": "Implements the _clean operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-browser-agent/app/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "genai-browser-agent/app/planner.py",
+      "summary": "Implements planner.py as part of the genai-browser-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-browser-agent/app/planner.py:decide_next_action",
+      "type": "function",
+      "name": "decide_next_action",
+      "filePath": "genai-browser-agent/app/planner.py",
+      "lineRange": [
+        47,
+        56
+      ],
+      "summary": "Implements the decide_next_action operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-code-copilot/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-code-copilot/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-code-copilot/app/main.py:_load_symbol",
+      "type": "function",
+      "name": "_load_symbol",
+      "filePath": "genai-code-copilot/app/main.py",
+      "lineRange": [
+        10,
+        25
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-code-copilot/app/main.py",
+      "lineRange": [
+        34,
+        72
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/app/analyzer.py",
+      "type": "file",
+      "name": "analyzer.py",
+      "filePath": "genai-financial-analyst/app/analyzer.py",
+      "summary": "Implements analyzer.py as part of the genai-financial-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-financial-analyst/app/analyzer.py:analyze_metrics",
+      "type": "function",
+      "name": "analyze_metrics",
+      "filePath": "genai-financial-analyst/app/analyzer.py",
+      "lineRange": [
+        12,
+        37
+      ],
+      "summary": "Implements the analyze_metrics operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/app/data_loader.py",
+      "type": "file",
+      "name": "data_loader.py",
+      "filePath": "genai-financial-analyst/app/data_loader.py",
+      "summary": "Implements data_loader.py as part of the genai-financial-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-financial-analyst/app/data_loader.py:load_data",
+      "type": "function",
+      "name": "load_data",
+      "filePath": "genai-financial-analyst/app/data_loader.py",
+      "lineRange": [
+        9,
+        42
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/app/forecaster.py",
+      "type": "file",
+      "name": "forecaster.py",
+      "filePath": "genai-financial-analyst/app/forecaster.py",
+      "summary": "Implements forecaster.py as part of the genai-financial-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-financial-analyst/app/forecaster.py:forecast",
+      "type": "function",
+      "name": "forecast",
+      "filePath": "genai-financial-analyst/app/forecaster.py",
+      "lineRange": [
+        5,
+        45
+      ],
+      "summary": "Implements the forecast operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-financial-analyst/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-financial-analyst/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-financial-analyst/app/main.py",
+      "lineRange": [
+        12,
+        53
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-browser-agent/app/actions.py",
+      "target": "function:genai-browser-agent/app/actions.py:make_action",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/actions.py",
+      "target": "function:genai-browser-agent/app/actions.py:make_action",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/actions.py",
+      "target": "function:genai-browser-agent/app/actions.py:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/actions.py",
+      "target": "function:genai-browser-agent/app/actions.py:execute",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/actions.py",
+      "target": "file:genai-browser-agent/app/browser.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "function:genai-browser-agent/app/agent.py:run_agent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "function:genai-browser-agent/app/agent.py:run_agent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "file:genai-browser-agent/app/actions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "file:genai-browser-agent/app/browser.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "file:genai-browser-agent/app/memory.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "file:genai-browser-agent/app/perception.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "file:genai-browser-agent/app/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/agent.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/browser.py",
+      "target": "class:genai-browser-agent/app/browser.py:BrowserController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/browser.py",
+      "target": "class:genai-browser-agent/app/browser.py:BrowserController",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/main.py",
+      "target": "function:genai-browser-agent/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/main.py",
+      "target": "function:genai-browser-agent/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/main.py",
+      "target": "file:genai-browser-agent/app/agent.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/memory.py",
+      "target": "class:genai-browser-agent/app/memory.py:BrowserMemory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/memory.py",
+      "target": "class:genai-browser-agent/app/memory.py:BrowserMemory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:get_observation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:get_observation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:_get_text_observation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:_get_text_observation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:_get_vision_observation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:_get_vision_observation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:_clean",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "function:genai-browser-agent/app/perception.py:_clean",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "file:genai-browser-agent/app/browser.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/perception.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-browser-agent/app/planner.py",
+      "target": "function:genai-browser-agent/app/planner.py:decide_next_action",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-browser-agent/app/planner.py",
+      "target": "function:genai-browser-agent/app/planner.py:decide_next_action",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-browser-agent/app/planner.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-code-copilot/app/main.py",
+      "target": "function:genai-code-copilot/app/main.py:_load_symbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/main.py",
+      "target": "function:genai-code-copilot/app/main.py:_load_symbol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/main.py",
+      "target": "function:genai-code-copilot/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/main.py",
+      "target": "function:genai-code-copilot/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/main.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-code-copilot/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/analyzer.py",
+      "target": "function:genai-financial-analyst/app/analyzer.py:analyze_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-financial-analyst/app/analyzer.py",
+      "target": "function:genai-financial-analyst/app/analyzer.py:analyze_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-financial-analyst/app/analyzer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/data_loader.py",
+      "target": "function:genai-financial-analyst/app/data_loader.py:load_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-financial-analyst/app/data_loader.py",
+      "target": "function:genai-financial-analyst/app/data_loader.py:load_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-financial-analyst/app/forecaster.py",
+      "target": "function:genai-financial-analyst/app/forecaster.py:forecast",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-financial-analyst/app/forecaster.py",
+      "target": "function:genai-financial-analyst/app/forecaster.py:forecast",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "function:genai-financial-analyst/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "function:genai-financial-analyst/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "file:genai-financial-analyst/app/analyzer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "file:genai-financial-analyst/app/data_loader.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "file:genai-financial-analyst/app/forecaster.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "file:genai-financial-analyst/app/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "file:genai-financial-analyst/app/reporter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

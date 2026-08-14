@@ -1,0 +1,306 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-code-copilot/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Codebase Copilot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-code-copilot/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 284,
+      "nonEmptyLines": 181,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Core Features",
+          "level": 2,
+          "line": 18
+        },
+        {
+          "heading": "Local Codebase Indexing",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "Intelligent Chunking",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "Embedding Generation",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Vector Storage With Metadata",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "Relevant Snippet Retrieval",
+          "level": 3,
+          "line": 44
+        },
+        {
+          "heading": "Developer Question Answering",
+          "level": 3,
+          "line": 48
+        },
+        {
+          "heading": "Required Metadata Contract",
+          "level": 2,
+          "line": 52
+        },
+        {
+          "heading": "Component Architecture",
+          "level": 2,
+          "line": 75
+        },
+        {
+          "heading": "File Parser",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "Chunking System",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "Embedding Generator",
+          "level": 3,
+          "line": 111
+        },
+        {
+          "heading": "Vector Store",
+          "level": 3,
+          "line": 127
+        },
+        {
+          "heading": "Retriever",
+          "level": 3,
+          "line": 148
+        },
+        {
+          "heading": "Context Builder",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "QA Agent",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "End-to-End Flows",
+          "level": 2,
+          "line": 197
+        },
+        {
+          "heading": "Indexing Flow",
+          "level": 3,
+          "line": 199
+        },
+        {
+          "heading": "Question Answering Flow",
+          "level": 3,
+          "line": 209
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 219
+        },
+        {
+          "heading": "`gemini-3.1-pro-preview`",
+          "level": 3,
+          "line": 221
+        },
+        {
+          "heading": "`gemini-3-flash-preview`",
+          "level": 3,
+          "line": 232
+        },
+        {
+          "heading": "Production-Oriented Design Notes",
+          "level": 2,
+          "line": 247
+        },
+        {
+          "heading": "Incremental Indexing",
+          "level": 3,
+          "line": 249
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 253
+        },
+        {
+          "heading": "Failure Isolation",
+          "level": 3,
+          "line": 266
+        },
+        {
+          "heading": "Grounded Responses",
+          "level": 3,
+          "line": 270
+        },
+        {
+          "heading": "Storage Evolution",
+          "level": 3,
+          "line": 274
+        },
+        {
+          "heading": "High-Level Summary",
+          "level": 2,
+          "line": 282
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 31
+      }
+    },
+    {
+      "path": "genai-code-copilot/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 87,
+      "nonEmptyLines": 70,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1. File Scanning System",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2. Code Parsing",
+          "level": 2,
+          "line": 14
+        },
+        {
+          "heading": "3. Chunking Logic",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "4. Embedding Generation",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "5. Vector Storage",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "6. Retrieval Logic",
+          "level": 2,
+          "line": 57
+        },
+        {
+          "heading": "7. Context Construction",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "8. QA Agent",
+          "level": 2,
+          "line": 78
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    }
+  ]
+}

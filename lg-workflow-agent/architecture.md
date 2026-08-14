@@ -43,7 +43,7 @@ Decomposes `state["task"]` into a structured, ordered list of execution steps.
 
 - **Reads:** `task`
 - **Writes:** `plan`, `current_step`, `iteration`
-- **Model:** `gemini-3.1-pro-preview` — requires strong reasoning to break down ambiguous tasks into concrete, sequentially-dependent steps with clear completion criteria.
+- **Model:** `gemini-3.7-flash` — requires strong reasoning to break down ambiguous tasks into concrete, sequentially-dependent steps with clear completion criteria.
 - **Output:** A list of 3–10 actionable steps, each described as a single imperative sentence. Initializes `current_step` to 0 and `iteration` to 0.
 
 ### executor
@@ -52,7 +52,7 @@ Runs the current step from the plan using available tools and LLM reasoning.
 
 - **Reads:** `task`, `plan`, `current_step`, `results` (prior step outputs for context)
 - **Writes:** `results`
-- **Model:** `gemini-3.1-pro-preview` — step execution may involve tool selection, multi-step reasoning, and incorporating prior results.
+- **Model:** `gemini-3.7-flash` — step execution may involve tool selection, multi-step reasoning, and incorporating prior results.
 - **Behavior:** Reads `plan[current_step]`, builds a prompt that includes the original task, the full plan for context, prior results, and the specific step instruction. Stores the output in `results[plan[current_step]]`.
 - **Tools:** Has access to `file_tool` (read/write files, list directories) and `analysis_tool` (compute metrics, parse structured data). The model decides which tools to invoke based on the step description.
 
@@ -62,7 +62,7 @@ Checks whether the executor's output for the current step meets quality and corr
 
 - **Reads:** `task`, `plan`, `current_step`, `results`, `iteration`
 - **Writes:** `iteration`, `results` (may annotate with validation status)
-- **Model:** `gemini-3.1-pro-preview` — evaluating correctness requires reasoning about whether the output satisfies the step's intent and is consistent with prior results.
+- **Model:** `gemini-3.7-flash` — evaluating correctness requires reasoning about whether the output satisfies the step's intent and is consistent with prior results.
 - **Logic:**
   1. Compare the executor output against the step description and expected behavior.
   2. If valid, return without modifying `iteration` (checkpoint will advance the step).
@@ -88,7 +88,7 @@ Produces a summary of the completed workflow and all step results.
 
 - **Reads:** `task`, `plan`, `results`, `completed`
 - **Writes:** (terminal — output is the final state)
-- **Model:** `gemini-3-flash-preview` — summarization is a formatting task; speed matters more than deep reasoning since all analytical work is done.
+- **Model:** `gemini-3.5-flash-lite` — summarization is a formatting task; speed matters more than deep reasoning since all analytical work is done.
 - **Output:** A structured report containing: task description, each step with its result, any steps that required retries, overall success/failure status, and recommendations for follow-up.
 
 ## Graph Transitions
@@ -138,8 +138,8 @@ The executor → validator → checkpoint cycle repeats for each step in the pla
 
 | Model | Nodes | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | planner, executor, validator | Task decomposition, step execution with tool use, and result validation all require strong reasoning |
-| `gemini-3-flash-preview` | finalizer | Report generation is a synthesis and formatting task; speed and cost efficiency matter more than raw reasoning |
+| `gemini-3.7-flash` | planner, executor, validator | Task decomposition, step execution with tool use, and result validation all require strong reasoning |
+| `gemini-3.5-flash-lite` | finalizer | Report generation is a synthesis and formatting task; speed and cost efficiency matter more than raw reasoning |
 
 ### Cost and latency considerations
 

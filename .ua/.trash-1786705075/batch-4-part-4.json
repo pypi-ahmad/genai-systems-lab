@@ -1,0 +1,624 @@
+{
+  "nodes": [
+    {
+      "id": "file:shared/api/session_memory.py",
+      "type": "file",
+      "name": "session_memory.py",
+      "filePath": "shared/api/session_memory.py",
+      "summary": "Implements session memory functionality within the shared project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:deserialize_session_memory_entries",
+      "type": "function",
+      "name": "deserialize_session_memory_entries",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        20,
+        47
+      ],
+      "summary": "Executes the deserialize_session_memory_entries operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:serialize_session_memory_entries",
+      "type": "function",
+      "name": "serialize_session_memory_entries",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        50,
+        51
+      ],
+      "summary": "Executes the serialize_session_memory_entries operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:build_session_prompt",
+      "type": "function",
+      "name": "build_session_prompt",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        54,
+        62
+      ],
+      "summary": "Executes the build_session_prompt operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:update_session_memory_entries",
+      "type": "function",
+      "name": "update_session_memory_entries",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        65,
+        85
+      ],
+      "summary": "Executes the update_session_memory_entries operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:preview_session_memory_entries",
+      "type": "function",
+      "name": "preview_session_memory_entries",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        88,
+        92
+      ],
+      "summary": "Executes the preview_session_memory_entries operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:_sanitize_entries",
+      "type": "function",
+      "name": "_sanitize_entries",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        95,
+        111
+      ],
+      "summary": "Executes the _sanitize_entries operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:_build_interaction_entry",
+      "type": "function",
+      "name": "_build_interaction_entry",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        114,
+        125
+      ],
+      "summary": "Executes the _build_interaction_entry operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:_normalize_whitespace",
+      "type": "function",
+      "name": "_normalize_whitespace",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        128,
+        129
+      ],
+      "summary": "Executes the _normalize_whitespace operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:_truncate",
+      "type": "function",
+      "name": "_truncate",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        132,
+        135
+      ],
+      "summary": "Executes the _truncate operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/session_memory.py:_dedupe_key",
+      "type": "function",
+      "name": "_dedupe_key",
+      "filePath": "shared/api/session_memory.py",
+      "lineRange": [
+        138,
+        139
+      ],
+      "summary": "Executes the _dedupe_key operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/cache/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/cache/__init__.py",
+      "summary": "Implements   init   functionality within the shared project.",
+      "tags": [
+        "entry-point",
+        "package",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/cache/__init__.py:",
+      "type": "function",
+      "name": null,
+      "filePath": "shared/cache/__init__.py",
+      "lineRange": [
+        null,
+        null
+      ],
+      "summary": "Executes the  operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/cache/__init__.py:",
+      "type": "class",
+      "name": null,
+      "filePath": "shared/cache/__init__.py",
+      "lineRange": [
+        null,
+        null
+      ],
+      "summary": "Encapsulates  behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/cache/cache.py",
+      "type": "file",
+      "name": "cache.py",
+      "filePath": "shared/cache/cache.py",
+      "summary": "Implements cache functionality within the shared project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/cache/cache.py:_hash_key",
+      "type": "function",
+      "name": "_hash_key",
+      "filePath": "shared/cache/cache.py",
+      "lineRange": [
+        14,
+        17
+      ],
+      "summary": "Executes the _hash_key operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/cache/cache.py:cached_llm_call",
+      "type": "function",
+      "name": "cached_llm_call",
+      "filePath": "shared/cache/cache.py",
+      "lineRange": [
+        87,
+        100
+      ],
+      "summary": "Executes the cached_llm_call operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/cache/cache.py:cached_embedding",
+      "type": "function",
+      "name": "cached_embedding",
+      "filePath": "shared/cache/cache.py",
+      "lineRange": [
+        103,
+        115
+      ],
+      "summary": "Executes the cached_embedding operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/cache/cache.py:get_llm_cache",
+      "type": "function",
+      "name": "get_llm_cache",
+      "filePath": "shared/cache/cache.py",
+      "lineRange": [
+        118,
+        120
+      ],
+      "summary": "Executes the get_llm_cache operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/cache/cache.py:get_embedding_cache",
+      "type": "function",
+      "name": "get_embedding_cache",
+      "filePath": "shared/cache/cache.py",
+      "lineRange": [
+        123,
+        125
+      ],
+      "summary": "Executes the get_embedding_cache operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/cache/cache.py:Cache",
+      "type": "class",
+      "name": "Cache",
+      "filePath": "shared/cache/cache.py",
+      "lineRange": [
+        20,
+        78
+      ],
+      "summary": "Encapsulates Cache behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:deserialize_session_memory_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:deserialize_session_memory_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:serialize_session_memory_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:serialize_session_memory_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:build_session_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:build_session_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:update_session_memory_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:update_session_memory_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:preview_session_memory_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:preview_session_memory_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_sanitize_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_sanitize_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_build_interaction_entry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_build_interaction_entry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_normalize_whitespace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_normalize_whitespace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_truncate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_truncate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_dedupe_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "function:shared/api/session_memory.py:_dedupe_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/session_memory.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/cache/__init__.py",
+      "target": "function:shared/cache/__init__.py:",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/__init__.py",
+      "target": "function:shared/cache/__init__.py:",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/__init__.py",
+      "target": "class:shared/cache/__init__.py:",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/__init__.py",
+      "target": "class:shared/cache/__init__.py:",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/__init__.py",
+      "target": "file:shared/cache/cache.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:_hash_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:_hash_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:cached_llm_call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:cached_llm_call",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:cached_embedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:cached_embedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:get_llm_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:get_llm_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:get_embedding_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "function:shared/cache/cache.py:get_embedding_cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "class:shared/cache/cache.py:Cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "class:shared/cache/cache.py:Cache",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/cache/cache.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

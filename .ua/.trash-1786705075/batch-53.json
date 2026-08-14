@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-doc-intelligence/data/docs/april_invoice.txt",
+      "type": "document",
+      "name": "april_invoice.txt",
+      "filePath": "genai-doc-intelligence/data/docs/april_invoice.txt",
+      "summary": "Documents april invoice for the genai-doc-intelligence project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/data/docs/incident_report.txt",
+      "type": "document",
+      "name": "incident_report.txt",
+      "filePath": "genai-doc-intelligence/data/docs/incident_report.txt",
+      "summary": "Documents incident report for the genai-doc-intelligence project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/data/docs/security_policy_update.md",
+      "type": "document",
+      "name": "security_policy_update.md",
+      "filePath": "genai-doc-intelligence/data/docs/security_policy_update.md",
+      "summary": "Documents security policy update for the genai-doc-intelligence project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/data/docs/vendor_msa.md",
+      "type": "document",
+      "name": "vendor_msa.md",
+      "filePath": "genai-doc-intelligence/data/docs/vendor_msa.md",
+      "summary": "Documents vendor msa for the genai-doc-intelligence project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

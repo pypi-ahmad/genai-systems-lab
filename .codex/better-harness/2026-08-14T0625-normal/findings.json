@@ -1,0 +1,63 @@
+{
+  "summary": {
+    "projectName": "GenAI Systems Lab",
+    "locale": "en",
+    "modelId": "agent-work-loop-v4",
+    "reportContractVersion": 25,
+    "overview": "Static project evidence exposes several plausible operating and validation routes, but the bounded Codex session evidence contains no retained completed task episode. The review therefore keeps behavior and delivery claims unobserved; no candidate demonstrated both a concrete consequence and an owner-aligned repair route.",
+    "dimensions": [
+      {
+        "id": "task-understanding",
+        "label": "Task Understanding",
+        "score": 52,
+        "summary": "Repository documentation is discoverable, while task-linked context, acceptance, and scope behavior remain unobserved.",
+        "findingRefs": []
+      },
+      {
+        "id": "controlled-execution",
+        "label": "Controlled Execution",
+        "score": 55,
+        "summary": "Project manifests and a front-end command surface are present, but startup, operation, and permission behavior were not exercised.",
+        "findingRefs": []
+      },
+      {
+        "id": "change-validation",
+        "label": "Change Validation",
+        "score": 54,
+        "summary": "Tests and validation scripts are statically discoverable, but no task-linked check, diagnosis, or revalidation result was retained.",
+        "findingRefs": []
+      },
+      {
+        "id": "reliable-delivery",
+        "label": "Reliable Delivery",
+        "score": 45,
+        "summary": "A CI workflow is present, while acceptance, approval, rollback, and recovery outcomes remain unobserved.",
+        "findingRefs": []
+      },
+      {
+        "id": "learning-capture",
+        "label": "Learning Capture",
+        "score": 35,
+        "summary": "Only one eligible task episode was available, so recurrence, durable-owner selection, and later effectiveness cannot be evaluated.",
+        "findingRefs": []
+      }
+    ],
+    "aiAgentPractice": {
+      "inspectedSurfaces": [],
+      "coverageRows": [
+        {
+          "surface": "Workflows",
+          "scopes": [
+            "Project"
+          ],
+          "count": 1,
+          "paths": [
+            ".github/workflows/ci.yml"
+          ]
+        }
+      ]
+    },
+    "assignmentSummaries": []
+  },
+  "findings": []
+}

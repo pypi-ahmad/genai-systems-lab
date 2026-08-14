@@ -19,14 +19,15 @@ except ImportError:  # pragma: no cover — graceful degradation
     httpx = None  # type: ignore[assignment]
     _HTTPX_AVAILABLE = False
 
-from shared.config import get_effective_api_key
+from shared.config import get_effective_api_key, get_request_effort
 
 from .catalog import ollama_base_url, ollama_embedding_model, openai_embedding_model
 from .exceptions import LLMGenerationError, LLMTimeoutError
 from .telemetry import record_llm_call_metadata
 
-
 REQUEST_TIMEOUT_SECONDS = 120
+OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
+XAI_RESPONSES_URL = "https://api.x.ai/v1/responses"
 MAX_RETRY_ATTEMPTS = 3
 BASE_BACKOFF_SECONDS = 1.0
 # Max jittered backoff to avoid every client retrying in lock-step.
@@ -36,7 +37,7 @@ _LOGGER = logging.getLogger(__name__)
 
 # Shared httpx.Client for keepalive/connection-pool reuse across LLM calls.
 # urllib's ``urlopen`` opens a fresh TCP+TLS connection for every request, so
-# switching to httpx saves ~30–80 ms/call per provider.  Falls back to urllib
+# switching to httpx saves ~30-80 ms/call per provider.  Falls back to urllib
 # when httpx is unavailable so installations without the optional dep still
 # work.
 _HTTP_CLIENT_LOCK = threading.Lock()
@@ -160,7 +161,7 @@ def _sleep_for_attempt(attempt: int, *, retry_after: float | None = None) -> Non
     """
     base = float(retry_after) if retry_after and retry_after > 0 else BASE_BACKOFF_SECONDS * (2 ** (attempt - 1))
     base = min(base, MAX_BACKOFF_SECONDS)
-    jitter = 1.0 + random.uniform(-0.2, 0.2)
+    jitter = 1.0 + random.uniform(-0.2, 0.2)  # noqa: S311 - retry timing is not security-sensitive
     time.sleep(max(0.1, base * jitter))
 
 
@@ -331,7 +332,7 @@ def _data_url(image: bytes, mime_type: str = "image/png") -> str:
     return f"data:{mime_type};base64,{encoded}"
 
 
-def _extract_openai_text(payload: dict[str, Any]) -> str:
+def _extract_openai_text(payload: dict[str, Any], *, provider_label: str = "OpenAI") -> str:
     text = payload.get("output_text")
     if isinstance(text, str) and text.strip():
         return text.strip()
@@ -356,31 +357,99 @@ def _extract_openai_text(payload: dict[str, Any]) -> str:
                 if fragments:
                     return "".join(fragments).strip()
 
-    raise LLMGenerationError("OpenAI returned an empty text response.")
+    raise LLMGenerationError(f"{provider_label} returned an empty text response.")
+
+
+def _responses_headers() -> dict[str, str]:
+    return {
+        "Authorization": f"Bearer {get_effective_api_key()}",
+        "Content-Type": "application/json",
+    }
+
+
+def _apply_responses_effort(payload: dict[str, Any]) -> None:
+    effort = get_request_effort()
+    if effort:
+        payload["reasoning"] = {"effort": effort}
+
+
+def _responses_generate_text(
+    prompt: str,
+    model: str,
+    *,
+    url: str,
+    provider_label: str,
+    temperature: float | None = None,
+) -> str:
+    payload: dict[str, Any] = {"model": model, "input": prompt}
+    if temperature is not None and not model.startswith("gpt-5.6"):
+        payload["temperature"] = temperature
+    _apply_responses_effort(payload)
+    response = _request_json(url=url, headers=_responses_headers(), payload=payload)
+    _record_openai_usage(response)
+    return _extract_openai_text(response, provider_label=provider_label)
 
 
 def openai_generate_text(prompt: str, model: str, *, temperature: float | None = None) -> str:
-    headers = {
-        "Authorization": f"Bearer {get_effective_api_key()}",
-        "Content-Type": "application/json",
-    }
+    return _responses_generate_text(
+        prompt,
+        model,
+        url=OPENAI_RESPONSES_URL,
+        provider_label="OpenAI",
+        temperature=temperature,
+    )
+
+
+def xai_generate_text(prompt: str, model: str, *, temperature: float | None = None) -> str:
+    return _responses_generate_text(
+        prompt,
+        model,
+        url=XAI_RESPONSES_URL,
+        provider_label="xAI",
+        temperature=temperature,
+    )
+
+
+def _responses_stream_text(prompt: str, model: str, emit: Any, *, url: str) -> str:
+    payload: dict[str, Any] = {"model": model, "input": prompt, "stream": True}
+    _apply_responses_effort(payload)
+    parts: list[str] = []
+    completed: dict[str, Any] | None = None
+    with _http_client().stream(
+        "POST", url, headers=_responses_headers(), json=payload, timeout=REQUEST_TIMEOUT_SECONDS,
+    ) as response:
+        response.raise_for_status()
+        for line in response.iter_lines():
+            if not line.startswith("data: ") or line == "data: [DONE]":
+                continue
+            event = json.loads(line[6:])
+            if event.get("type") == "response.output_text.delta" and isinstance(event.get("delta"), str):
+                parts.append(event["delta"])
+                emit(event["delta"])
+            elif event.get("type") == "response.completed" and isinstance(event.get("response"), dict):
+                completed = event["response"]
+    if completed:
+        _record_openai_usage(completed)
+    return "".join(parts).strip()
+
+
+def openai_stream_text(prompt: str, model: str, emit: Any) -> str:
+    return _responses_stream_text(prompt, model, emit, url=OPENAI_RESPONSES_URL)
+
+
+def xai_stream_text(prompt: str, model: str, emit: Any) -> str:
+    return _responses_stream_text(prompt, model, emit, url=XAI_RESPONSES_URL)
+
+
+def _responses_generate_structured(
+    prompt: str,
+    model: str,
+    schema: dict[str, Any],
+    *,
+    url: str,
+    provider_label: str,
+) -> dict[str, Any]:
     payload: dict[str, Any] = {
-        "model": model,
-        "input": prompt,
-    }
-    if temperature is not None:
-        payload["temperature"] = temperature
-    response = _request_json(url="https://api.openai.com/v1/responses", headers=headers, payload=payload)
-    _record_openai_usage(response)
-    return _extract_openai_text(response)
-
-
-def openai_generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
-    headers = {
-        "Authorization": f"Bearer {get_effective_api_key()}",
-        "Content-Type": "application/json",
-    }
-    payload = {
         "model": model,
         "input": prompt,
         "text": {
@@ -392,24 +461,48 @@ def openai_generate_structured(prompt: str, model: str, schema: dict[str, Any]) 
             }
         },
     }
-    response = _request_json(url="https://api.openai.com/v1/responses", headers=headers, payload=payload)
+    _apply_responses_effort(payload)
+    response = _request_json(url=url, headers=_responses_headers(), payload=payload)
     _record_openai_usage(response)
-    text = _extract_openai_text(response)
+    text = _extract_openai_text(response, provider_label=provider_label)
     try:
         parsed = json.loads(text)
     except json.JSONDecodeError as exc:
-        raise LLMGenerationError("OpenAI returned invalid structured JSON.") from exc
+        raise LLMGenerationError(f"{provider_label} returned invalid structured JSON.") from exc
     if not isinstance(parsed, dict):
-        raise LLMGenerationError("OpenAI structured output must be a JSON object.")
+        raise LLMGenerationError(f"{provider_label} structured output must be a JSON object.")
     return parsed
 
 
-def openai_generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
-    headers = {
-        "Authorization": f"Bearer {get_effective_api_key()}",
-        "Content-Type": "application/json",
-    }
-    payload = {
+def openai_generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
+    return _responses_generate_structured(
+        prompt,
+        model,
+        schema,
+        url=OPENAI_RESPONSES_URL,
+        provider_label="OpenAI",
+    )
+
+
+def xai_generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
+    return _responses_generate_structured(
+        prompt,
+        model,
+        schema,
+        url=XAI_RESPONSES_URL,
+        provider_label="xAI",
+    )
+
+
+def _responses_generate_text_from_image(
+    prompt: str,
+    image: bytes,
+    model: str,
+    *,
+    url: str,
+    provider_label: str,
+) -> str:
+    payload: dict[str, Any] = {
         "model": model,
         "input": [
             {
@@ -421,9 +514,30 @@ def openai_generate_text_from_image(prompt: str, image: bytes, model: str) -> st
             }
         ],
     }
-    response = _request_json(url="https://api.openai.com/v1/responses", headers=headers, payload=payload)
+    _apply_responses_effort(payload)
+    response = _request_json(url=url, headers=_responses_headers(), payload=payload)
     _record_openai_usage(response)
-    return _extract_openai_text(response)
+    return _extract_openai_text(response, provider_label=provider_label)
+
+
+def openai_generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
+    return _responses_generate_text_from_image(
+        prompt,
+        image,
+        model,
+        url=OPENAI_RESPONSES_URL,
+        provider_label="OpenAI",
+    )
+
+
+def xai_generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
+    return _responses_generate_text_from_image(
+        prompt,
+        image,
+        model,
+        url=XAI_RESPONSES_URL,
+        provider_label="xAI",
+    )
 
 
 def openai_embed_texts(texts: list[str]) -> list[list[float]]:
@@ -470,6 +584,13 @@ def _extract_anthropic_text(payload: dict[str, Any]) -> str:
     return result
 
 
+def _apply_anthropic_effort(payload: dict[str, Any]) -> None:
+    effort = get_request_effort()
+    if effort:
+        output_config = payload.setdefault("output_config", {})
+        output_config["effort"] = effort
+
+
 def anthropic_generate_text(prompt: str, model: str, *, temperature: float | None = None) -> str:
     headers = {
         "x-api-key": get_effective_api_key(),
@@ -481,11 +602,44 @@ def anthropic_generate_text(prompt: str, model: str, *, temperature: float | Non
         "max_tokens": 8192,
         "messages": [{"role": "user", "content": prompt}],
     }
-    if temperature is not None:
+    if temperature is not None and model != "claude-sonnet-5":
         payload["temperature"] = temperature
+    _apply_anthropic_effort(payload)
     response = _request_json(url="https://api.anthropic.com/v1/messages", headers=headers, payload=payload)
     _record_anthropic_usage(response)
     return _extract_anthropic_text(response)
+
+
+def anthropic_stream_text(prompt: str, model: str, emit: Any) -> str:
+    headers = {"x-api-key": get_effective_api_key(), "anthropic-version": "2023-06-01", "content-type": "application/json"}
+    parts: list[str] = []
+    usage: dict[str, int] = {}
+    payload: dict[str, Any] = {
+        "model": model,
+        "max_tokens": 8192,
+        "messages": [{"role": "user", "content": prompt}],
+        "stream": True,
+    }
+    _apply_anthropic_effort(payload)
+    with _http_client().stream(
+        "POST", "https://api.anthropic.com/v1/messages", headers=headers,
+        json=payload,
+        timeout=REQUEST_TIMEOUT_SECONDS,
+    ) as response:
+        response.raise_for_status()
+        for line in response.iter_lines():
+            if not line.startswith("data: "):
+                continue
+            event = json.loads(line[6:])
+            delta = event.get("delta")
+            if event.get("type") == "content_block_delta" and isinstance(delta, dict) and isinstance(delta.get("text"), str):
+                parts.append(delta["text"])
+                emit(delta["text"])
+            event_usage = event.get("usage") or (event.get("message") or {}).get("usage")
+            if isinstance(event_usage, dict):
+                usage.update(event_usage)
+    _record_anthropic_usage({"usage": usage})
+    return "".join(parts).strip()
 
 
 def anthropic_generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
@@ -505,6 +659,7 @@ def anthropic_generate_structured(prompt: str, model: str, schema: dict[str, Any
             }
         },
     }
+    _apply_anthropic_effort(payload)
     response = _request_json(url="https://api.anthropic.com/v1/messages", headers=headers, payload=payload)
     _record_anthropic_usage(response)
     text = _extract_anthropic_text(response)
@@ -543,6 +698,7 @@ def anthropic_generate_text_from_image(prompt: str, image: bytes, model: str) ->
             }
         ],
     }
+    _apply_anthropic_effort(payload)
     response = _request_json(url="https://api.anthropic.com/v1/messages", headers=headers, payload=payload)
     _record_anthropic_usage(response)
     return _extract_anthropic_text(response)
@@ -568,6 +724,25 @@ def ollama_generate_text(prompt: str, model: str, *, temperature: float | None =
     if not isinstance(content, str) or not content.strip():
         raise LLMGenerationError("Ollama returned an empty text response.")
     return content.strip()
+
+
+def ollama_stream_text(prompt: str, model: str, emit: Any) -> str:
+    parts: list[str] = []
+    with _http_client().stream(
+        "POST", f"{ollama_base_url()}/api/chat", headers={"Content-Type": "application/json"},
+        json={"model": model, "messages": [{"role": "user", "content": prompt}], "stream": True},
+        timeout=REQUEST_TIMEOUT_SECONDS,
+    ) as response:
+        response.raise_for_status()
+        for line in response.iter_lines():
+            event = json.loads(line)
+            text = (event.get("message") or {}).get("content")
+            if isinstance(text, str) and text:
+                parts.append(text)
+                emit(text)
+            if event.get("done"):
+                record_llm_call_metadata({"usage_details": {"input": int(event.get("prompt_eval_count") or 0), "output": int(event.get("eval_count") or 0)}})
+    return "".join(parts).strip()
 
 
 def ollama_generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:

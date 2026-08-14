@@ -1,0 +1,265 @@
+{
+  "nodes": [
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/9061bc2674b0756fc2a8e4b881e8a48e094bf5bcdb9ab2f0fe4779995307e2d7.json",
+      "type": "config",
+      "name": "9061bc2674b0756fc2a8e4b881e8a48e094bf5bcdb9ab2f0fe4779995307e2d7.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/9061bc2674b0756fc2a8e4b881e8a48e094bf5bcdb9ab2f0fe4779995307e2d7.json",
+      "summary": "Defines 9061bc2674b0756fc2a8e4b881e8a48e094bf5bcdb9ab2f0fe4779995307e2d7.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/929c4166c6c7c7cf253ec560f195699a54f3d8f94f56d3a54396805be7d73296.json",
+      "type": "config",
+      "name": "929c4166c6c7c7cf253ec560f195699a54f3d8f94f56d3a54396805be7d73296.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/929c4166c6c7c7cf253ec560f195699a54f3d8f94f56d3a54396805be7d73296.json",
+      "summary": "Defines 929c4166c6c7c7cf253ec560f195699a54f3d8f94f56d3a54396805be7d73296.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/92b668bedc55d9c842d3423a5e667dd581eb61d785eb4414ddfafea5712beb13.json",
+      "type": "config",
+      "name": "92b668bedc55d9c842d3423a5e667dd581eb61d785eb4414ddfafea5712beb13.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/92b668bedc55d9c842d3423a5e667dd581eb61d785eb4414ddfafea5712beb13.json",
+      "summary": "Defines 92b668bedc55d9c842d3423a5e667dd581eb61d785eb4414ddfafea5712beb13.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/92fa1ba5dc093244f09b48e70550eabc07ddaa9d86c52ace9649dabb84ada28d.json",
+      "type": "config",
+      "name": "92fa1ba5dc093244f09b48e70550eabc07ddaa9d86c52ace9649dabb84ada28d.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/92fa1ba5dc093244f09b48e70550eabc07ddaa9d86c52ace9649dabb84ada28d.json",
+      "summary": "Defines 92fa1ba5dc093244f09b48e70550eabc07ddaa9d86c52ace9649dabb84ada28d.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/93276554fdbe7cb41abbecbad2d2612262ce8a8bff337013a3119ff08c5fc519.json",
+      "type": "config",
+      "name": "93276554fdbe7cb41abbecbad2d2612262ce8a8bff337013a3119ff08c5fc519.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/93276554fdbe7cb41abbecbad2d2612262ce8a8bff337013a3119ff08c5fc519.json",
+      "summary": "Defines 93276554fdbe7cb41abbecbad2d2612262ce8a8bff337013a3119ff08c5fc519.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/957d63490bc4df4acdec7dd587cf62cc8ce5606ac3338ba6c49785615d750db8.json",
+      "type": "config",
+      "name": "957d63490bc4df4acdec7dd587cf62cc8ce5606ac3338ba6c49785615d750db8.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/957d63490bc4df4acdec7dd587cf62cc8ce5606ac3338ba6c49785615d750db8.json",
+      "summary": "Defines 957d63490bc4df4acdec7dd587cf62cc8ce5606ac3338ba6c49785615d750db8.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/95bd123bb5e7706d96357fb6761540bf18c028056c72bed1902144b785357221.json",
+      "type": "config",
+      "name": "95bd123bb5e7706d96357fb6761540bf18c028056c72bed1902144b785357221.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/95bd123bb5e7706d96357fb6761540bf18c028056c72bed1902144b785357221.json",
+      "summary": "Defines 95bd123bb5e7706d96357fb6761540bf18c028056c72bed1902144b785357221.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/95d5532a32b44c0aded0f77cf41f8c91c4315cf9ddaa268aa312aeef4787b14c.json",
+      "type": "config",
+      "name": "95d5532a32b44c0aded0f77cf41f8c91c4315cf9ddaa268aa312aeef4787b14c.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/95d5532a32b44c0aded0f77cf41f8c91c4315cf9ddaa268aa312aeef4787b14c.json",
+      "summary": "Defines 95d5532a32b44c0aded0f77cf41f8c91c4315cf9ddaa268aa312aeef4787b14c.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/96b18c6db7bfdd09684beace0856ee07c56c9b0b93cbe65f0aa7b03bb1623e60.json",
+      "type": "config",
+      "name": "96b18c6db7bfdd09684beace0856ee07c56c9b0b93cbe65f0aa7b03bb1623e60.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/96b18c6db7bfdd09684beace0856ee07c56c9b0b93cbe65f0aa7b03bb1623e60.json",
+      "summary": "Defines 96b18c6db7bfdd09684beace0856ee07c56c9b0b93cbe65f0aa7b03bb1623e60.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/98e4c89abd615b9164e61f836932e0240055f228e6353dd4e0d16ca7405a7cf4.json",
+      "type": "config",
+      "name": "98e4c89abd615b9164e61f836932e0240055f228e6353dd4e0d16ca7405a7cf4.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/98e4c89abd615b9164e61f836932e0240055f228e6353dd4e0d16ca7405a7cf4.json",
+      "summary": "Defines 98e4c89abd615b9164e61f836932e0240055f228e6353dd4e0d16ca7405a7cf4.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/98ea2d94db122c033386af692eafe332a312309fe4cbee987b7f7abe66d7fbca.json",
+      "type": "config",
+      "name": "98ea2d94db122c033386af692eafe332a312309fe4cbee987b7f7abe66d7fbca.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/98ea2d94db122c033386af692eafe332a312309fe4cbee987b7f7abe66d7fbca.json",
+      "summary": "Defines 98ea2d94db122c033386af692eafe332a312309fe4cbee987b7f7abe66d7fbca.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/9b8fe1d5942d76c1a3d1d163db7e9ecdea229822c6c2e58678a67a20a381eb0d.json",
+      "type": "config",
+      "name": "9b8fe1d5942d76c1a3d1d163db7e9ecdea229822c6c2e58678a67a20a381eb0d.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/9b8fe1d5942d76c1a3d1d163db7e9ecdea229822c6c2e58678a67a20a381eb0d.json",
+      "summary": "Defines 9b8fe1d5942d76c1a3d1d163db7e9ecdea229822c6c2e58678a67a20a381eb0d.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/9d4de42a041bc15cf59ddafa8962f08c91648d5f5d2ebf3201f2cb5ba422b2e7.json",
+      "type": "config",
+      "name": "9d4de42a041bc15cf59ddafa8962f08c91648d5f5d2ebf3201f2cb5ba422b2e7.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/9d4de42a041bc15cf59ddafa8962f08c91648d5f5d2ebf3201f2cb5ba422b2e7.json",
+      "summary": "Defines 9d4de42a041bc15cf59ddafa8962f08c91648d5f5d2ebf3201f2cb5ba422b2e7.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/a08507a791b895fb3896820eb923570b45708116212c9c78c6c58413edf85cfa.json",
+      "type": "config",
+      "name": "a08507a791b895fb3896820eb923570b45708116212c9c78c6c58413edf85cfa.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/a08507a791b895fb3896820eb923570b45708116212c9c78c6c58413edf85cfa.json",
+      "summary": "Defines a08507a791b895fb3896820eb923570b45708116212c9c78c6c58413edf85cfa.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/a11ad8ad87d9f0bd34cc6de5290f2f4b71d28de7ff8d0e62d2d43fb1052a78c7.json",
+      "type": "config",
+      "name": "a11ad8ad87d9f0bd34cc6de5290f2f4b71d28de7ff8d0e62d2d43fb1052a78c7.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/a11ad8ad87d9f0bd34cc6de5290f2f4b71d28de7ff8d0e62d2d43fb1052a78c7.json",
+      "summary": "Defines a11ad8ad87d9f0bd34cc6de5290f2f4b71d28de7ff8d0e62d2d43fb1052a78c7.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/a18f86d355c47b64aafcf81e601b45417f5624ed40076e1dab24e1eba158d437.json",
+      "type": "config",
+      "name": "a18f86d355c47b64aafcf81e601b45417f5624ed40076e1dab24e1eba158d437.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/a18f86d355c47b64aafcf81e601b45417f5624ed40076e1dab24e1eba158d437.json",
+      "summary": "Defines a18f86d355c47b64aafcf81e601b45417f5624ed40076e1dab24e1eba158d437.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/a30fdadf9640b98b80ceb5fb9229e271229a4c20dc47b2e26206c66c38c25e12.json",
+      "type": "config",
+      "name": "a30fdadf9640b98b80ceb5fb9229e271229a4c20dc47b2e26206c66c38c25e12.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/a30fdadf9640b98b80ceb5fb9229e271229a4c20dc47b2e26206c66c38c25e12.json",
+      "summary": "Defines a30fdadf9640b98b80ceb5fb9229e271229a4c20dc47b2e26206c66c38c25e12.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/a34962e1d741ae6ed1cb0a634e2152b83fbe9d4542de811ce24f243792c1103f.json",
+      "type": "config",
+      "name": "a34962e1d741ae6ed1cb0a634e2152b83fbe9d4542de811ce24f243792c1103f.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/a34962e1d741ae6ed1cb0a634e2152b83fbe9d4542de811ce24f243792c1103f.json",
+      "summary": "Defines a34962e1d741ae6ed1cb0a634e2152b83fbe9d4542de811ce24f243792c1103f.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/a369a4180ea7be2c379ec3078a849ec4eb26a1f0c89f27f0b8737cb5174ecc0c.json",
+      "type": "config",
+      "name": "a369a4180ea7be2c379ec3078a849ec4eb26a1f0c89f27f0b8737cb5174ecc0c.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/a369a4180ea7be2c379ec3078a849ec4eb26a1f0c89f27f0b8737cb5174ecc0c.json",
+      "summary": "Defines a369a4180ea7be2c379ec3078a849ec4eb26a1f0c89f27f0b8737cb5174ecc0c.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/a408d63b83a59b7aaa56330e4ed6bde8b197ecc90ee72cf665b35c4b9c4c05c4.json",
+      "type": "config",
+      "name": "a408d63b83a59b7aaa56330e4ed6bde8b197ecc90ee72cf665b35c4b9c4c05c4.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/a408d63b83a59b7aaa56330e4ed6bde8b197ecc90ee72cf665b35c4b9c4c05c4.json",
+      "summary": "Defines a408d63b83a59b7aaa56330e4ed6bde8b197ecc90ee72cf665b35c4b9c4c05c4.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

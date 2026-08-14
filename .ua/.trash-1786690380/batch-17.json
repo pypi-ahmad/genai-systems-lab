@@ -1,0 +1,489 @@
+{
+  "nodes": [
+    {
+      "id": "file:crew-investment-analyst/app/agents.py",
+      "type": "file",
+      "name": "agents.py",
+      "filePath": "crew-investment-analyst/app/agents.py",
+      "summary": "Creates the specialized AI agents used by this application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/agents.py:build_market_analyst",
+      "type": "function",
+      "name": "build_market_analyst",
+      "filePath": "crew-investment-analyst/app/agents.py",
+      "lineRange": [
+        9,
+        24
+      ],
+      "summary": "Builds the _market_analyst structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/agents.py:build_financial_analyst",
+      "type": "function",
+      "name": "build_financial_analyst",
+      "filePath": "crew-investment-analyst/app/agents.py",
+      "lineRange": [
+        27,
+        43
+      ],
+      "summary": "Builds the _financial_analyst structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/agents.py:build_risk_analyst",
+      "type": "function",
+      "name": "build_risk_analyst",
+      "filePath": "crew-investment-analyst/app/agents.py",
+      "lineRange": [
+        46,
+        62
+      ],
+      "summary": "Builds the _risk_analyst structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/agents.py:build_strategist",
+      "type": "function",
+      "name": "build_strategist",
+      "filePath": "crew-investment-analyst/app/agents.py",
+      "lineRange": [
+        65,
+        80
+      ],
+      "summary": "Builds the _strategist structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-investment-analyst/app/crew.py",
+      "type": "file",
+      "name": "crew.py",
+      "filePath": "crew-investment-analyst/app/crew.py",
+      "summary": "Composes agents and tasks into the application crew workflow.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/crew.py:build_crew",
+      "type": "function",
+      "name": "build_crew",
+      "filePath": "crew-investment-analyst/app/crew.py",
+      "lineRange": [
+        20,
+        41
+      ],
+      "summary": "Builds the _crew structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/crew.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "crew-investment-analyst/app/crew.py",
+      "lineRange": [
+        44,
+        50
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-investment-analyst/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "crew-investment-analyst/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/main.py:_parse_json",
+      "type": "function",
+      "name": "_parse_json",
+      "filePath": "crew-investment-analyst/app/main.py",
+      "lineRange": [
+        17,
+        26
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "crew-investment-analyst/app/main.py",
+      "lineRange": [
+        29,
+        44
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-investment-analyst/app/tasks.py",
+      "type": "file",
+      "name": "tasks.py",
+      "filePath": "crew-investment-analyst/app/tasks.py",
+      "summary": "Defines task prompts and task objects coordinated by the application crew.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/tasks.py:build_market_task",
+      "type": "function",
+      "name": "build_market_task",
+      "filePath": "crew-investment-analyst/app/tasks.py",
+      "lineRange": [
+        81,
+        95
+      ],
+      "summary": "Builds the _market_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/tasks.py:build_financial_task",
+      "type": "function",
+      "name": "build_financial_task",
+      "filePath": "crew-investment-analyst/app/tasks.py",
+      "lineRange": [
+        98,
+        114
+      ],
+      "summary": "Builds the _financial_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/tasks.py:build_risk_task",
+      "type": "function",
+      "name": "build_risk_task",
+      "filePath": "crew-investment-analyst/app/tasks.py",
+      "lineRange": [
+        117,
+        133
+      ],
+      "summary": "Builds the _risk_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/tasks.py:build_strategy_task",
+      "type": "function",
+      "name": "build_strategy_task",
+      "filePath": "crew-investment-analyst/app/tasks.py",
+      "lineRange": [
+        136,
+        165
+      ],
+      "summary": "Builds the _strategy_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-investment-analyst/app/tasks.py:build_risk_challenge_task",
+      "type": "function",
+      "name": "build_risk_challenge_task",
+      "filePath": "crew-investment-analyst/app/tasks.py",
+      "lineRange": [
+        168,
+        204
+      ],
+      "summary": "Builds the _risk_challenge_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_market_analyst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_market_analyst",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_financial_analyst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_financial_analyst",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_risk_analyst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_risk_analyst",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_strategist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/agents.py",
+      "target": "function:crew-investment-analyst/app/agents.py:build_strategist",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/crew.py",
+      "target": "function:crew-investment-analyst/app/crew.py:build_crew",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/crew.py",
+      "target": "function:crew-investment-analyst/app/crew.py:build_crew",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/crew.py",
+      "target": "function:crew-investment-analyst/app/crew.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/crew.py",
+      "target": "function:crew-investment-analyst/app/crew.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/crew.py",
+      "target": "file:crew-investment-analyst/app/agents.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-investment-analyst/app/crew.py",
+      "target": "file:crew-investment-analyst/app/tasks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-investment-analyst/app/main.py",
+      "target": "function:crew-investment-analyst/app/main.py:_parse_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/main.py",
+      "target": "function:crew-investment-analyst/app/main.py:_parse_json",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/main.py",
+      "target": "function:crew-investment-analyst/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/main.py",
+      "target": "function:crew-investment-analyst/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/main.py",
+      "target": "file:crew-investment-analyst/app/crew.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-investment-analyst/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_market_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_market_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_financial_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_financial_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_risk_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_risk_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_strategy_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_strategy_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_risk_challenge_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-investment-analyst/app/tasks.py",
+      "target": "function:crew-investment-analyst/app/tasks.py:build_risk_challenge_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

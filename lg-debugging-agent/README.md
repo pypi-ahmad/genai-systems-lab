@@ -21,8 +21,8 @@ The implementation separates bug analysis, fix generation, validation, and routi
 | graph.py | Builds the LangGraph loop for iterative debugging. |
 | state.py | Stores bug context, proposed fixes, and evaluation state. |
 | nodes/ | Contains analyzer, fixer, tester, and evaluator nodes. |
-| sandbox.py | Runs tests or validation in a controlled environment. |
-| main.py | Exposes `run(input, api_key)` for the shared runtime and API platform. |
+| nodes/tester.py | Runs generated Python in an ordinary subprocess for trusted local experiments. It is not a security sandbox. |
+| main.py | Exposes `run(input, api_key)` for direct trusted-local use. |
 
 ## Features
 
@@ -33,7 +33,11 @@ The implementation separates bug analysis, fix generation, validation, and routi
 
 ## Example Usage
 
-### Shared API
+### Trusted local use
+
+This project executes generated Python with the current process user's environment, filesystem, and network permissions. The shared runner and API therefore disable it by default and always disable it in production.
+
+To opt in for trusted development only, set `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS=true` while `APP_ENV` is not `prod`, then call:
 
 ```bash
 curl -X POST http://127.0.0.1:8000/debugging-agent/run \
@@ -42,6 +46,8 @@ curl -X POST http://127.0.0.1:8000/debugging-agent/run \
 ```
 
 ## Evaluation
+
+The evaluation route is subject to the same trusted-development opt-in.
 
 ```text
 POST /eval/debugging-agent

@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-doc-intelligence/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-doc-intelligence/README.md",
+      "summary": "Introduces the Local document-intelligence pipeline that ingests, embeds, retrieves, answers questions about, and extracts data from documents.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-doc-intelligence/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-doc-intelligence/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the Local document-intelligence pipeline that ingests, embeds, retrieves, answers questions about, and extracts data from documents.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-doc-intelligence/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the Local document-intelligence pipeline that ingests, embeds, retrieves, answers questions about, and extracts data from documents.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-financial-analyst/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-financial-analyst/architecture.md",
+      "language": "markdown",
+      "sizeLines": 106,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-financial-analyst/tasks.md",
+      "language": "markdown",
+      "sizeLines": 45,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "genai-financial-analyst/README.md": [],
+    "genai-financial-analyst/architecture.md": [],
+    "genai-financial-analyst/tasks.md": []
+  }
+}

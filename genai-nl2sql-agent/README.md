@@ -18,16 +18,17 @@ The implementation isolates schema loading, SQL generation, validation, executio
 
 | Module | Responsibility |
 |--------|----------------|
-| app/schema.py | Builds the DuckDB schema description and sample in-memory database. |
+| app/schema.py | Builds the sample in-memory database with external access and extension loading disabled. |
 | app/sql_generator.py | Generates DuckDB-compatible read-only SQL from the user request. |
-| app/validator.py | Rejects unsafe or malformed SQL before execution. |
-| app/executor.py | Executes validated SQL against DuckDB. |
+| app/validator.py | Parses SQL with DuckDB and applies a deny-by-default AST, table, and function allowlist. |
+| app/executor.py | Revalidates at the sink and executes a result-bounded query. |
 | app/agent.py | Orchestrates retries, execution, and result summarization. |
 
 ## Features
 
 - Schema-grounded SQL generation from natural language questions.
-- Read-only validation to block mutating SQL statements.
+- Parsed-AST validation that allows one analytics `SELECT` over `customers` and `orders` and rejects file readers, table functions, extensions, nested queries, and additional statements.
+- DuckDB external access, extension auto-install, and extension autoload disabled.
 - DuckDB-backed execution with structured results.
 - Natural-language result summary generated from returned rows only.
 

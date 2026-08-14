@@ -1,0 +1,72 @@
+[
+  {
+    "order": 1,
+    "title": "Platform Overview",
+    "description": "Begin with the repository guide to understand the lab as one execution platform for multiple generative-AI, LangGraph, and CrewAI systems. It supplies the vocabulary for the remaining stops: shared runtime services, a common API, and a portfolio interface rather than a collection of unrelated examples.",
+    "nodeIds": ["document:README.md"]
+  },
+  {
+    "order": 2,
+    "title": "Shared API Runtime",
+    "description": "The project configuration and shared application entry point establish the runtime that exposes the systems through a single API surface. The API module has the graph's highest fan-out, making it the best place to see how common execution concerns are composed before studying any individual workflow.",
+    "nodeIds": ["config:pyproject.toml", "file:shared/api/app.py"]
+  },
+  {
+    "order": 3,
+    "title": "Configuration, LLM Dispatch, and Step Events",
+    "description": "Building on the API entry point, these shared modules centralize configuration, model access, dispatch, and per-step event emission. The LLM implementation and configuration are among the most depended-on nodes in the graph, showing why these services belong below all three orchestration paradigms.",
+    "nodeIds": ["file:shared/config.py", "file:shared/llm/gemini.py", "file:shared/llm/dispatch.py", "file:shared/api/step_events.py"],
+    "languageLesson": "Python modules make shared services explicit through imports: keeping configuration and provider dispatch in dedicated modules gives many workflows one consistent integration boundary."
+  },
+  {
+    "order": 4,
+    "title": "Standalone Generative-AI Systems",
+    "description": "With the shared runtime in view, inspect a standalone system to see one domain-specific application built on the platform's conventions. The financial analyst entry point represents the Generative AI Systems layer, where specialized workflows can remain independent while reusing common runtime capabilities.",
+    "nodeIds": ["file:genai-financial-analyst/app/main.py"]
+  },
+  {
+    "order": 5,
+    "title": "LangGraph State Machines",
+    "description": "The LangGraph example shifts from a standalone application to an explicit stateful workflow: the graph defines the flow and the state module carries information between nodes. This is the platform's pattern for planner, executor, and supporting-agent pipelines that need visible control flow.",
+    "nodeIds": ["file:lg-research-agent/app/graph.py", "file:lg-research-agent/app/state.py"],
+    "languageLesson": "Stateful workflow code benefits from an explicit shared state contract: each graph node can read and update the same structured context instead of relying on hidden globals."
+  },
+  {
+    "order": 6,
+    "title": "CrewAI Collaborative Workflows",
+    "description": "CrewAI provides the third orchestration paradigm: agents define roles, tasks define the work, and the crew assembles them into a collaborative run. Compare this arrangement with the LangGraph stop to distinguish role-and-task composition from an explicit graph-and-state machine.",
+    "nodeIds": ["file:crew-content-pipeline/app/agents.py", "file:crew-content-pipeline/app/tasks.py", "file:crew-content-pipeline/app/crew.py"]
+  },
+  {
+    "order": 7,
+    "title": "Portfolio Catalog and Playground",
+    "description": "After seeing the systems that can run, move to the Portfolio UI layer that helps people discover and exercise them. The project catalog supplies the UI's system inventory, while the playground route is the user-facing starting point for an interactive session.",
+    "nodeIds": ["file:portfolio/src/data/projects.ts", "file:portfolio/src/app/playground/page.tsx"]
+  },
+  {
+    "order": 8,
+    "title": "Frontend-to-API Boundary",
+    "description": "The portfolio API client connects the exploration experience from the previous stop to the shared backend introduced at the beginning. Its high fan-in and fan-out show that this file is a central contract boundary: interface components depend on it, and it in turn reaches broad runtime functionality.",
+    "nodeIds": ["file:portfolio/src/lib/api.ts"]
+  },
+  {
+    "order": 9,
+    "title": "Example Data for an AI Workflow",
+    "description": "The tabular financial dataset anchors an application workflow in a concrete input artifact rather than treating every system as prompt-only. Pairing it with the financial analyst entry point makes the data layer's role clear: systems can share execution infrastructure while owning domain-specific data.",
+    "nodeIds": ["file:genai-financial-analyst/app/main.py", "table:genai-financial-analyst/data/fintech_saas_financials.csv"]
+  },
+  {
+    "order": 10,
+    "title": "Containerized Runtime Composition",
+    "description": "The Dockerfile packages the shared runtime, and the Compose definition describes how it is run alongside its local service environment. This operational layer turns the API and orchestration patterns from earlier steps into a repeatable runnable setup.",
+    "nodeIds": ["service:Dockerfile", "service:docker-compose.yml"],
+    "languageLesson": "Docker packaging separates image construction from service composition: a Dockerfile builds an image, while Compose declares how one or more services are run together."
+  },
+  {
+    "order": 11,
+    "title": "Continuous Integration Guardrails",
+    "description": "Finish with the CI workflow, which automates quality checks around the shared platform and its many systems. This capstone matters because changes to highly connected runtime and frontend boundary modules need repeatable verification before they are delivered.",
+    "nodeIds": ["pipeline:.github/workflows/ci.yml"],
+    "languageLesson": "GitHub Actions workflows model automation as triggers, jobs, and sequential steps, so repository checks can run consistently for every change."
+  }
+]

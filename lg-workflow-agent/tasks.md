@@ -7,7 +7,7 @@ File: `app/state.py`
 - [ ] Define `WorkflowState` as a `TypedDict` with fields: `task` (str), `plan` (list[str]), `current_step` (int), `results` (dict[str, str]), `iteration` (int), `completed` (bool).
 - [ ] Create `initial_state(task: str) -> WorkflowState` factory that sets `plan=[]`, `current_step=0`, `results={}`, `iteration=0`, `completed=False`.
 - [ ] Add module-level constants: `MAX_RETRIES = 3`, `MAX_PLAN_STEPS = 10`.
-- [ ] Add `REASONING_MODEL = "gemini-3.1-pro-preview"` and `SUMMARY_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Add `REASONING_MODEL = "gemini-3.7-flash"` and `SUMMARY_MODEL = "gemini-3.5-flash-lite"` constants.
 
 ## 2 — Implement Planner Node
 

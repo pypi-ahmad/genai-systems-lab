@@ -88,10 +88,10 @@ def _generate(prompt: str, *, model: str) -> str:
 
 
 def generate_fast(prompt: str) -> str:
-    """Generate a response using the fast model (``gemini-3-flash-preview``)."""
+    """Generate a response using the fast model (``gemini-3.5-flash-lite``)."""
     return _generate(prompt, model=settings.model_fast)
 
 
 def generate_pro(prompt: str) -> str:
-    """Generate a response using the pro model (``gemini-3.1-pro-preview``)."""
+    """Generate a response using the pro model (``gemini-3.7-flash``)."""
     return _generate(prompt, model=settings.model_pro)

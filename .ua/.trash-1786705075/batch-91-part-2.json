@@ -1,0 +1,441 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-financial-analyst/data/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-financial-analyst/data/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the data component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "table:genai-financial-analyst/data/fintech_saas_financials.csv",
+      "type": "table",
+      "name": "fintech_saas_financials.csv",
+      "filePath": "genai-financial-analyst/data/fintech_saas_financials.csv",
+      "summary": "fintech_saas_financials.csv stores project data or schema material used by the repository.",
+      "tags": [
+        "data",
+        "project-assets",
+        "repository-support"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-financial-analyst/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-interviewer/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-interviewer/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-knowledge-os/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-knowledge-os/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-knowledge-os/data/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-knowledge-os/data/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the data component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-knowledge-os/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-knowledge-os/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-nl2sql-agent/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/executor.py",
+      "type": "file",
+      "name": "executor.py",
+      "filePath": "genai-nl2sql-agent/app/executor.py",
+      "summary": "executor.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/executor.py:_load_symbol",
+      "type": "function",
+      "name": "_load_symbol",
+      "filePath": "genai-nl2sql-agent/app/executor.py",
+      "lineRange": [
+        13,
+        25
+      ],
+      "summary": "Implements _load_symbol as part of executor.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/executor.py:execute_sql",
+      "type": "function",
+      "name": "execute_sql",
+      "filePath": "genai-nl2sql-agent/app/executor.py",
+      "lineRange": [
+        34,
+        45
+      ],
+      "summary": "Implements execute_sql as part of executor.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/schema.py",
+      "type": "file",
+      "name": "schema.py",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "summary": "schema.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:_create_tables",
+      "type": "function",
+      "name": "_create_tables",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        41,
+        61
+      ],
+      "summary": "Implements _create_tables as part of schema.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:_seed_data",
+      "type": "function",
+      "name": "_seed_data",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        64,
+        72
+      ],
+      "summary": "Implements _seed_data as part of schema.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:_initialize_database",
+      "type": "function",
+      "name": "_initialize_database",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        75,
+        78
+      ],
+      "summary": "Implements _initialize_database as part of schema.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:get_connection",
+      "type": "function",
+      "name": "get_connection",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        82,
+        83
+      ],
+      "summary": "Implements get_connection as part of schema.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:get_schema_description",
+      "type": "function",
+      "name": "get_schema_description",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        86,
+        123
+      ],
+      "summary": "Implements get_schema_description as part of schema.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/validator.py",
+      "type": "file",
+      "name": "validator.py",
+      "filePath": "genai-nl2sql-agent/app/validator.py",
+      "summary": "validator.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/validator.py:_is_safe_ast",
+      "type": "function",
+      "name": "_is_safe_ast",
+      "filePath": "genai-nl2sql-agent/app/validator.py",
+      "lineRange": [
+        59,
+        93
+      ],
+      "summary": "Implements _is_safe_ast as part of validator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/validator.py:validate_sql",
+      "type": "function",
+      "name": "validate_sql",
+      "filePath": "genai-nl2sql-agent/app/validator.py",
+      "lineRange": [
+        96,
+        123
+      ],
+      "summary": "Implements validate_sql as part of validator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:_load_symbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:_load_symbol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:execute_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:execute_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_create_tables",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_create_tables",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_seed_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_seed_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_initialize_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_initialize_database",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_schema_description",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_schema_description",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/validator.py",
+      "target": "function:genai-nl2sql-agent/app/validator.py:_is_safe_ast",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/validator.py",
+      "target": "function:genai-nl2sql-agent/app/validator.py:_is_safe_ast",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/validator.py",
+      "target": "function:genai-nl2sql-agent/app/validator.py:validate_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/validator.py",
+      "target": "function:genai-nl2sql-agent/app/validator.py:validate_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

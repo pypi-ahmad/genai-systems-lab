@@ -3,12 +3,13 @@
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { fetchCurrentUser, fetchLLMCatalog, runProject } from "@/lib/api";
-import type { LLMCatalogResponse, LLMRequestOptions } from "@/lib/api";
+import type { LLMCatalogResponse, LLMRequestOptions, RunUsage } from "@/lib/api";
 import { getStoredApiKeys, getStoredLLMSelection, setStoredApiKey, setStoredLLMSelection } from "@/lib/apikey";
 import type { LLMProviderId } from "@/lib/apikey";
 import { getStoredAuthSession, storeAuthSession } from "@/lib/auth";
 import { DismissibleTip } from "@/components/dismissible-tip";
-import { findProviderForModel, findProviderInfo } from "@/lib/llm-catalog";
+import { ModelPricingSummary, UsageCostSummary } from "@/components/llm-cost";
+import { findModelInfo, findProviderForModel, findProviderInfo, normalizeModelEffort } from "@/lib/llm-catalog";
 import { projectApiName } from "@/app/playground/playground-utils";
 
 interface ProjectDemoProps {
@@ -36,6 +37,7 @@ export default function ProjectDemo({
 }: ProjectDemoProps) {
   const [status, setStatus] = useState<"idle" | "running" | "success" | "error">("idle");
   const [result, setResult] = useState<string>("");
+  const [usage, setUsage] = useState<RunUsage | null>(null);
 
   // Text mode: eligible when exampleInput is {"input": "..."} with no extra keys
   const textModeAvailable = useMemo(() => {
@@ -60,8 +62,9 @@ export default function ProjectDemo({
   const [llmCatalog, setLlMCatalog] = useState<LLMCatalogResponse | null>(null);
   const [llmCatalogError, setLlMCatalogError] = useState<string | null>(null);
   const [apiKeys, setApiKeys] = useState(() => getStoredApiKeys());
-  const [selectedModel, setSelectedModel] = useState(() => getStoredLLMSelection()?.model ?? "gemini-3-flash-preview");
+  const [selectedModel, setSelectedModel] = useState(() => getStoredLLMSelection()?.model ?? "gemini-3.7-flash");
   const [selectedProvider, setSelectedProvider] = useState<LLMProviderId>(() => getStoredLLMSelection()?.provider ?? "gemini");
+  const [selectedEffort, setSelectedEffort] = useState(() => getStoredLLMSelection()?.effort ?? "");
   const projectName = projectApiName(apiEndpoint);
 
   useEffect(() => {
@@ -98,15 +101,17 @@ export default function ProjectDemo({
           catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),
         );
         const storedSelection = getStoredLLMSelection();
-        const preferredModel = storedSelection?.model ?? "gemini-3-flash-preview";
+        const preferredModel = storedSelection?.model ?? "gemini-3.7-flash";
         const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;
         const nextProvider = findProviderForModel(catalog, nextModel);
+        const nextEffort = normalizeModelEffort(findModelInfo(catalog, nextModel), storedSelection?.effort);
 
         setLlMCatalog(catalog);
         setLlMCatalogError(null);
         setSelectedModel(nextModel);
         setSelectedProvider(nextProvider);
-        setStoredLLMSelection({ provider: nextProvider, model: nextModel });
+        setSelectedEffort(nextEffort);
+        setStoredLLMSelection({ provider: nextProvider, model: nextModel, effort: nextEffort || undefined });
       })
       .catch((error) => {
         if (!cancelled) {
@@ -127,17 +132,25 @@ export default function ProjectDemo({
   const apiKeyLabel = selectedProviderInfo?.api_key_label ?? "API key";
   const apiKeyHelpUrl = selectedProviderInfo?.api_key_help_url ?? null;
   const apiKeyPlaceholder = selectedProviderInfo?.api_key_placeholder ?? "";
+  const selectedModelInfo = findModelInfo(llmCatalog, selectedModel);
   const llm: LLMRequestOptions = {
     provider: selectedProvider,
     model: selectedModel,
     apiKey: apiKeyRequired ? selectedApiKey.trim() || undefined : undefined,
+    effort: selectedEffort || undefined,
   };
 
   function handleModelChange(model: string) {
     const provider = findProviderForModel(llmCatalog, model);
     setSelectedModel(model);
     setSelectedProvider(provider);
+    setSelectedEffort("");
     setStoredLLMSelection({ provider, model });
+  }
+
+  function handleEffortChange(effort: string) {
+    setSelectedEffort(effort);
+    setStoredLLMSelection({ provider: selectedProvider, model: selectedModel, effort: effort || undefined });
   }
 
   function handleApiKeyChange(value: string) {
@@ -148,6 +161,7 @@ export default function ProjectDemo({
   async function handleRun() {
     setStatus("running");
     setResult("");
+    setUsage(null);
 
     if (!providerAvailable) {
       setStatus("error");
@@ -185,7 +199,8 @@ export default function ProjectDemo({
       }
 
       setStatus("success");
-      setResult(formatResult(response.data));
+      setResult(formatResult(response.data.output));
+      setUsage(response.data.usage ?? null);
     } catch (error) {
       setStatus("error");
       setResult(error instanceof Error ? error.message : "Unable to run demo.");
@@ -204,11 +219,11 @@ export default function ProjectDemo({
 
       <DismissibleTip
         storageKey="tip-demo-apikey"
-        text="Your API key never leaves your browser. It is sent directly to the provider — our backend does not store or log it."
+        text="Your API key is kept only in browser memory and sent through the backend for this request. It is not stored or logged."
         className="mt-4"
       />
 
-      <div className="mt-5 grid gap-4 sm:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_auto] sm:items-end">
+      <div className="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-4 xl:items-end">
         <label className="block">
           <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
             Model
@@ -229,6 +244,22 @@ export default function ProjectDemo({
                   ) : null
                 )))
               : <option value={selectedModel}>{llmCatalogError ? "Model catalog unavailable" : "Loading models..."}</option>}
+          </select>
+        </label>
+        <label className="block">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+            Reasoning effort
+          </span>
+          <select
+            value={selectedEffort}
+            onChange={(event) => handleEffortChange(event.target.value)}
+            disabled={!selectedModelInfo || selectedModelInfo.effort_options.length === 0}
+            className="input-shell mt-3 w-full rounded-[1rem] px-4 py-3 text-sm leading-6 disabled:cursor-not-allowed disabled:opacity-60"
+          >
+            <option value="">Provider default</option>
+            {selectedModelInfo?.effort_options.map((effort) => (
+              <option key={effort} value={effort}>{effort}</option>
+            ))}
           </select>
         </label>
         <label className="block">
@@ -263,6 +294,10 @@ export default function ProjectDemo({
             </span>
           )}
         </div>
+      </div>
+
+      <div className="mt-4">
+        <ModelPricingSummary model={selectedModelInfo} />
       </div>
 
       {(apiKeyHelpUrl || providerUnavailableReason || llmCatalogError) && (
@@ -371,6 +406,7 @@ export default function ProjectDemo({
           >
             {status === "error" ? "Demo Error" : "Demo Output"}
           </p>
+          {usage ? <div className="mb-4"><UsageCostSummary usage={usage} /></div> : null}
           <pre
             className={`overflow-x-auto rounded-[1rem] p-4 font-mono text-[13px] leading-7 ${
               status === "error"

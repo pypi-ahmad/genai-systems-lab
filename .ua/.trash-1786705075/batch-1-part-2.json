@@ -1,0 +1,460 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-nl2sql-agent/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-nl2sql-agent/app/main.py",
+      "summary": "Implements main.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/main.py:_load_run_agent",
+      "type": "function",
+      "name": "_load_run_agent",
+      "filePath": "genai-nl2sql-agent/app/main.py",
+      "lineRange": [
+        18,
+        31
+      ],
+      "summary": "Implements the _load_run_agent routine in main.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-nl2sql-agent/app/main.py",
+      "lineRange": [
+        37,
+        47
+      ],
+      "summary": "Implements the run routine in main.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "lg-research-agent/app/__init__.py",
+      "summary": "Implements __init__.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/graph.py",
+      "type": "file",
+      "name": "graph.py",
+      "filePath": "lg-research-agent/app/graph.py",
+      "summary": "Implements graph.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/graph.py:build_graph",
+      "type": "function",
+      "name": "build_graph",
+      "filePath": "lg-research-agent/app/graph.py",
+      "lineRange": [
+        13,
+        27
+      ],
+      "summary": "Implements the build_graph routine in graph.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "lg-research-agent/app/main.py",
+      "summary": "Implements main.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "lg-research-agent/app/main.py",
+      "lineRange": [
+        10,
+        37
+      ],
+      "summary": "Implements the run routine in main.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "lg-research-agent/app/nodes/__init__.py",
+      "summary": "Implements __init__.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/critic.py",
+      "type": "file",
+      "name": "critic.py",
+      "filePath": "lg-research-agent/app/nodes/critic.py",
+      "summary": "Implements critic.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/critic.py:critic_node",
+      "type": "function",
+      "name": "critic_node",
+      "filePath": "lg-research-agent/app/nodes/critic.py",
+      "lineRange": [
+        22,
+        40
+      ],
+      "summary": "Implements the critic_node routine in critic.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "lg-research-agent/app/nodes/planner.py",
+      "summary": "Implements planner.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/planner.py:planner_node",
+      "type": "function",
+      "name": "planner_node",
+      "filePath": "lg-research-agent/app/nodes/planner.py",
+      "lineRange": [
+        22,
+        35
+      ],
+      "summary": "Implements the planner_node routine in planner.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/researcher.py",
+      "type": "file",
+      "name": "researcher.py",
+      "filePath": "lg-research-agent/app/nodes/researcher.py",
+      "summary": "Implements researcher.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/researcher.py:researcher_node",
+      "type": "function",
+      "name": "researcher_node",
+      "filePath": "lg-research-agent/app/nodes/researcher.py",
+      "lineRange": [
+        29,
+        50
+      ],
+      "summary": "Implements the researcher_node routine in researcher.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-nl2sql-agent/app/main.py",
+      "target": "function:genai-nl2sql-agent/app/main.py:_load_run_agent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/main.py",
+      "target": "function:genai-nl2sql-agent/app/main.py:_load_run_agent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/main.py",
+      "target": "function:genai-nl2sql-agent/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/main.py",
+      "target": "function:genai-nl2sql-agent/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "function:lg-research-agent/app/graph.py:build_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "function:lg-research-agent/app/graph.py:build_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/main.py",
+      "target": "function:lg-research-agent/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/main.py",
+      "target": "function:lg-research-agent/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "function:lg-research-agent/app/nodes/critic.py:critic_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "function:lg-research-agent/app/nodes/critic.py:critic_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "function:lg-research-agent/app/nodes/planner.py:planner_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "function:lg-research-agent/app/nodes/planner.py:planner_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "function:lg-research-agent/app/nodes/researcher.py:researcher_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "function:lg-research-agent/app/nodes/researcher.py:researcher_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "file:lg-research-agent/app/nodes/critic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "file:lg-research-agent/app/nodes/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "file:lg-research-agent/app/nodes/researcher.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "file:lg-research-agent/app/nodes/writer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/graph.py",
+      "target": "file:shared/api/langgraph_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/main.py",
+      "target": "file:lg-research-agent/app/graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/main.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

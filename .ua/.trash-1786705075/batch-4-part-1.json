@@ -1,0 +1,692 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-research-system/app/api.py",
+      "type": "file",
+      "name": "api.py",
+      "filePath": "genai-research-system/app/api.py",
+      "summary": "Implements api functionality within the genai-research-system project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/api.py:health",
+      "type": "function",
+      "name": "health",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        38,
+        39
+      ],
+      "summary": "Executes the health operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/api.py:run_research",
+      "type": "function",
+      "name": "run_research",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        43,
+        49
+      ],
+      "summary": "Executes the run_research operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-research-system/app/api.py:ResearchRunRequest",
+      "type": "class",
+      "name": "ResearchRunRequest",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        12,
+        15
+      ],
+      "summary": "Encapsulates ResearchRunRequest behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-research-system/app/api.py:ResearchRunResponse",
+      "type": "class",
+      "name": "ResearchRunResponse",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        18,
+        31
+      ],
+      "summary": "Encapsulates ResearchRunResponse behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-research-system/app/main.py",
+      "summary": "Implements main functionality within the genai-research-system project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-research-system/app/main.py",
+      "lineRange": [
+        9,
+        25
+      ],
+      "summary": "Executes the run operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/metrics.py",
+      "type": "file",
+      "name": "metrics.py",
+      "filePath": "genai-research-system/app/metrics.py",
+      "summary": "Implements metrics functionality within the genai-research-system project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/metrics.py:collect_research_metrics",
+      "type": "function",
+      "name": "collect_research_metrics",
+      "filePath": "genai-research-system/app/metrics.py",
+      "lineRange": [
+        8,
+        72
+      ],
+      "summary": "Executes the collect_research_metrics operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/metrics.py:aggregate_quality_metrics",
+      "type": "function",
+      "name": "aggregate_quality_metrics",
+      "filePath": "genai-research-system/app/metrics.py",
+      "lineRange": [
+        75,
+        95
+      ],
+      "summary": "Executes the aggregate_quality_metrics operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/service.py",
+      "type": "file",
+      "name": "service.py",
+      "filePath": "genai-research-system/app/service.py",
+      "summary": "Implements service functionality within the genai-research-system project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/service.py:normalize_formats",
+      "type": "function",
+      "name": "normalize_formats",
+      "filePath": "genai-research-system/app/service.py",
+      "lineRange": [
+        17,
+        31
+      ],
+      "summary": "Executes the normalize_formats operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/service.py:normalize_tone",
+      "type": "function",
+      "name": "normalize_tone",
+      "filePath": "genai-research-system/app/service.py",
+      "lineRange": [
+        34,
+        38
+      ],
+      "summary": "Executes the normalize_tone operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/service.py:run_research_workflow",
+      "type": "function",
+      "name": "run_research_workflow",
+      "filePath": "genai-research-system/app/service.py",
+      "lineRange": [
+        41,
+        104
+      ],
+      "summary": "Executes the run_research_workflow operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:genai-research-system/eval.py",
+      "type": "file",
+      "name": "eval.py",
+      "filePath": "genai-research-system/eval.py",
+      "summary": "Implements eval functionality within the genai-research-system project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:_contains_keywords",
+      "type": "function",
+      "name": "_contains_keywords",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        29,
+        30
+      ],
+      "summary": "Executes the _contains_keywords operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:_run_research_query",
+      "type": "function",
+      "name": "_run_research_query",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        87,
+        94
+      ],
+      "summary": "Executes the _run_research_query operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:run_project_eval",
+      "type": "function",
+      "name": "run_project_eval",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        97,
+        169
+      ],
+      "summary": "Executes the run_project_eval operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:run_project_eval_with_api_key",
+      "type": "function",
+      "name": "run_project_eval_with_api_key",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        172,
+        178
+      ],
+      "summary": "Executes the run_project_eval_with_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:migrations/env.py",
+      "type": "file",
+      "name": "env.py",
+      "filePath": "migrations/env.py",
+      "summary": "Implements env functionality within the migrations project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:migrations/env.py:",
+      "type": "function",
+      "name": null,
+      "filePath": "migrations/env.py",
+      "lineRange": [
+        null,
+        null
+      ],
+      "summary": "Executes the  operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:migrations/env.py:",
+      "type": "class",
+      "name": null,
+      "filePath": "migrations/env.py",
+      "lineRange": [
+        null,
+        null
+      ],
+      "summary": "Encapsulates  behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:health",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:health",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:run_research",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:run_research",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "file:genai-research-system/app/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "file:shared/api/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "function:genai-research-system/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "function:genai-research-system/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "file:genai-research-system/app/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:collect_research_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:collect_research_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:aggregate_quality_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:aggregate_quality_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_formats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_formats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_tone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_tone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:run_research_workflow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:run_research_workflow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:genai-research-system/app/graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:genai-research-system/app/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_contains_keywords",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_contains_keywords",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_run_research_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_run_research_query",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval_with_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval_with_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:genai-research-system/app/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:genai-research-system/app/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:shared/eval/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:migrations/env.py",
+      "target": "function:migrations/env.py:",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:migrations/env.py",
+      "target": "function:migrations/env.py:",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:migrations/env.py",
+      "target": "class:migrations/env.py:",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:migrations/env.py",
+      "target": "class:migrations/env.py:",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:migrations/env.py",
+      "target": "file:shared/api/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:migrations/env.py",
+      "target": "file:shared/api/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:migrations/env.py",
+      "target": "file:shared/api/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

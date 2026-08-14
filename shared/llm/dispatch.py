@@ -6,26 +6,34 @@ from dataclasses import dataclass
 from typing import Any
 
 from shared.config import get_effective_model, get_request_provider
+from shared.observability.langfuse import trace_llm_call as _trace_llm
 
 from . import gemini_provider
-from .catalog import default_model, gemini_embedding_model, infer_provider
+from .catalog import calculate_model_cost, default_model, gemini_embedding_model, infer_provider
 from .exceptions import LLMGenerationError
-from shared.observability.langfuse import trace_llm_call as _trace_llm
-from .telemetry import clear_llm_call_metadata, consume_llm_call_metadata
 from .providers import (
     anthropic_generate_structured,
     anthropic_generate_text,
     anthropic_generate_text_from_image,
+    anthropic_stream_text,
     local_hash_embeddings,
     ollama_embed_texts,
     ollama_generate_structured,
     ollama_generate_text,
     ollama_generate_text_from_image,
+    ollama_stream_text,
     openai_embed_texts,
     openai_generate_structured,
     openai_generate_text,
     openai_generate_text_from_image,
+    openai_stream_text,
+    xai_generate_structured,
+    xai_generate_text,
+    xai_generate_text_from_image,
+    xai_stream_text,
 )
+from .telemetry import clear_llm_call_metadata, consume_llm_call_metadata, record_llm_run_call
+from .token_events import emit_token
 
 
 @dataclass
@@ -77,6 +85,17 @@ def _extract_schema(config: Any) -> dict[str, Any] | None:
     return None
 
 
+def _requests_audio(config: Any, unsupported_kind: str | None) -> bool:
+    if unsupported_kind == "audio":
+        return True
+    modalities = getattr(config, "response_modalities", None)
+    if modalities is None and isinstance(config, dict):
+        modalities = config.get("response_modalities") or config.get("responseModalities")
+    return isinstance(modalities, (list, tuple)) and any(
+        str(modality).upper() == "AUDIO" for modality in modalities
+    )
+
+
 def _normalize_contents(contents: Any) -> tuple[str, bytes | None, str | None]:
     if isinstance(contents, str):
         return contents, None, None
@@ -117,12 +136,42 @@ def _consume_trace_details() -> tuple[dict[str, int] | None, dict[str, float] | 
     call_metadata = consume_llm_call_metadata() or {}
     usage_details = call_metadata.get("usage_details")
     cost_details = call_metadata.get("cost_details")
-    metadata = call_metadata.get("metadata")
+    metadata = {
+        key: value for key, value in call_metadata.items()
+        if key not in {"usage_details", "cost_details", "metadata"}
+    }
+    if isinstance(call_metadata.get("metadata"), dict):
+        metadata.update(call_metadata["metadata"])
 
     normalized_usage = usage_details if isinstance(usage_details, dict) else None
     normalized_cost = cost_details if isinstance(cost_details, dict) else None
-    normalized_metadata = metadata if isinstance(metadata, dict) else None
+    normalized_metadata = metadata or None
     return normalized_usage, normalized_cost, normalized_metadata
+
+
+def _record_run_usage(provider: str, requested_model: str, usage: dict[str, int] | None, metadata: dict[str, Any] | None) -> None:
+    if not usage:
+        return
+    model_used = str((metadata or {}).get("model_used") or requested_model)
+    input_tokens = int(usage.get("input") or usage.get("input_tokens") or usage.get("prompt_tokens") or 0)
+    output_tokens = int(usage.get("output") or usage.get("output_tokens") or usage.get("completion_tokens") or 0)
+    cached_input_tokens = int(usage.get("input_cached_tokens") or usage.get("input_cache_read_tokens") or 0)
+    cost_breakdown = calculate_model_cost(
+        model_used,
+        input_tokens,
+        output_tokens,
+        cached_input_tokens=cached_input_tokens,
+    )
+    record_llm_run_call({
+        "provider": provider,
+        "model_requested": requested_model,
+        "model_used": model_used,
+        "input_tokens": input_tokens,
+        "output_tokens": output_tokens,
+        "total_tokens": input_tokens + output_tokens,
+        "estimated_cost_usd": cost_breakdown["estimated_cost_usd"] if cost_breakdown else None,
+        "cost_breakdown": cost_breakdown,
+    })
 
 
 def generate_text(prompt: str, model: str, *, temperature: float | None = None) -> str:
@@ -136,10 +185,13 @@ def generate_text(prompt: str, model: str, *, temperature: float | None = None) 
         result = openai_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
     elif provider == "anthropic":
         result = anthropic_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
+    elif provider == "xai":
+        result = xai_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
     else:
         result = ollama_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
     _elapsed = (time.perf_counter() - _start) * 1000
     _usage, _cost, _metadata = _consume_trace_details()
+    _record_run_usage(provider, resolved_model, _usage, _metadata)
     _trace_llm(
         name="generate_text",
         model=resolved_model,
@@ -149,6 +201,33 @@ def generate_text(prompt: str, model: str, *, temperature: float | None = None) 
         cost_details=_cost,
         latency_ms=_elapsed,
         metadata={"provider": provider, **(_metadata or {})},
+    )
+    return result
+
+
+def generate_text_streaming(prompt: str, model: str) -> str:
+    """Use provider-native streaming for a user-visible final text stage."""
+    resolved_model = _resolved_model(model)
+    provider = _resolved_provider(resolved_model)
+    clear_llm_call_metadata()
+    start = time.perf_counter()
+    if provider == "gemini":
+        result = gemini_provider.stream_text(prompt, resolved_model, emit_token)
+    elif provider == "openai":
+        result = openai_stream_text(prompt, resolved_model, emit_token)
+    elif provider == "anthropic":
+        result = anthropic_stream_text(prompt, resolved_model, emit_token)
+    elif provider == "xai":
+        result = xai_stream_text(prompt, resolved_model, emit_token)
+    else:
+        result = ollama_stream_text(prompt, resolved_model, emit_token)
+    elapsed = (time.perf_counter() - start) * 1000
+    usage, cost, metadata = _consume_trace_details()
+    _record_run_usage(provider, resolved_model, usage, metadata)
+    _trace_llm(
+        name="generate_text_streaming", model=resolved_model, input=prompt[:500], output=result[:500],
+        usage=usage, cost_details=cost, latency_ms=elapsed,
+        metadata={"provider": provider, "native_stream": True, **(metadata or {})},
     )
     return result
 
@@ -164,10 +243,13 @@ def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict
         result = openai_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     elif provider == "anthropic":
         result = anthropic_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
+    elif provider == "xai":
+        result = xai_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     else:
         result = ollama_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     _elapsed = (time.perf_counter() - _start) * 1000
     _usage, _cost, _metadata = _consume_trace_details()
+    _record_run_usage(provider, resolved_model, _usage, _metadata)
     _trace_llm(
         name="generate_structured",
         model=resolved_model,
@@ -192,10 +274,13 @@ def generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
         result = openai_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     elif provider == "anthropic":
         result = anthropic_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
+    elif provider == "xai":
+        result = xai_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     else:
         result = ollama_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     _elapsed = (time.perf_counter() - _start) * 1000
     _usage, _cost, _metadata = _consume_trace_details()
+    _record_run_usage(provider, resolved_model, _usage, _metadata)
     _trace_llm(
         name="generate_text_from_image",
         model=resolved_model,
@@ -220,7 +305,7 @@ def generate_embeddings(texts: list[str], *, model: str | None = None) -> list[l
         return [list(item.values or []) for item in response.embeddings]
     if provider == "openai":
         return openai_embed_texts(texts)
-    if provider == "anthropic":
+    if provider in {"anthropic", "xai"}:
         return local_hash_embeddings(texts)
     try:
         return ollama_embed_texts(texts, selected_model=resolved_model)
@@ -232,10 +317,13 @@ class _CompatModels:
     def generate_content(self, *, model: str, contents: Any, config: Any = None) -> CompatGenerateContentResponse:
         resolved_model = _resolved_model(model)
         provider = _resolved_provider(resolved_model)
-        if provider == "gemini":
-            return gemini_provider._get_client().models.generate_content(model=resolved_model, contents=contents, config=config)
-
         prompt, image, unsupported_kind = _normalize_contents(contents)
+        if provider == "gemini" and _requests_audio(config, unsupported_kind):
+            return gemini_provider._get_client().models.generate_content(
+                model=resolved_model,
+                contents=contents,
+                config=config,
+            )
         if unsupported_kind == "audio":
             raise LLMGenerationError("The selected provider does not support Gemini audio generation APIs.")
 
@@ -273,7 +361,4 @@ class CompatClient:
 
 
 def get_client_adapter() -> Any:
-    resolved_provider = _resolved_provider(None)
-    if resolved_provider == "gemini":
-        return gemini_provider._get_client()
     return CompatClient()

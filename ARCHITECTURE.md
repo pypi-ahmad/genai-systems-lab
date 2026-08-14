@@ -2,6 +2,8 @@
 
 This repository is organized as a platform: a portfolio frontend and shared API surface route work into project modules, while common runtime services live in a reusable shared layer.
 
+The [interactive architecture diagram](docs/genai-systems-lab-architecture.html) provides an explorable view with repository-pinned source evidence.
+
 ## High-Level Flow
 
 ```text
@@ -17,13 +19,15 @@ This repository is organized as a platform: a portfolio frontend and shared API 
 - UI: The browser-facing entrypoint is the Next.js portfolio application, which provides an interactive playground for selecting projects, submitting input, and inspecting results.
 - API: The FastAPI layer exposes health, discovery, execution, and evaluation endpoints. Middleware handles input validation, structured request logging, timing, and error normalization.
 - Project Modules: Each runnable project exposes a standardized `run(input: str) -> dict` entrypoint. Projects implement domain logic independently while conforming to the same execution contract.
-- Shared Layer: Common infrastructure under `shared/` provides LLM access, evaluation helpers, caching, configuration, schemas, logging, and dynamic project loading.
+- Shared Layer: Common infrastructure under `shared/` provides LLM access, evaluation helpers, caching, configuration, schemas, logging, and dynamic project loading. Project and repository import roots are maintained through one lock-scoped runner helper.
+
+LLM output is treated as untrusted at capability boundaries. In particular, the NL2SQL project validates DuckDB's parsed AST against a table/function allowlist and revalidates at the executor before running a bounded query on a connection with external access and extension loading disabled.
 
 ## Shared Components
 
 ### LLM Wrapper
 
-The Gemini wrapper centralizes model access, timeout handling, retry logic, fallback behavior, and structured JSON generation. This keeps model invocation policy out of project code and makes LLM behavior consistent across all systems.
+The shared LLM layer centralizes provider routing, model-specific effort validation, timeout handling, token telemetry, conditional cost calculation, and structured JSON generation. Gemini uses the Google SDK; OpenAI, Anthropic, xAI, and Ollama use shared HTTP providers.
 
 ### Evaluation
 
@@ -75,11 +79,11 @@ The platform stores runs, metrics, sessions, and shared links in a relational da
 | Aspect | Current approach |
 |---|---|
 | **Default engine** | SQLite (``.data/genai_systems_lab.db``) for zero-config local use |
-| **Production override** | Set ``GENAI_SYSTEMS_LAB_DATABASE_URL`` to any SQLAlchemy-compatible URL |
-| **Schema evolution** | Idempotent ``ALTER TABLE`` guards in ``shared/api/db.py`` — each column addition checks ``PRAGMA table_info`` / ``sqlite_master`` before executing |
-| **When to graduate** | If the schema grows beyond single-column additions (e.g. new tables, foreign keys, data transforms), adopt Alembic with an ``alembic/`` directory at the repo root |
+| **Production engine** | PostgreSQL via ``GENAI_SYSTEMS_LAB_DATABASE_URL``; Compose configures it by default |
+| **Schema evolution** | Alembic migrations in ``migrations/``; SQLite compatibility guards remain for old local databases |
+| **Queued work** | Redis + RQ workers, with durable job status in PostgreSQL |
 
-Current managed columns added via migration guards: ``confidence``, ``success``, ``session_id``, ``memory``, ``timeline``, ``share_token``, ``is_public``, ``expires_at``.
+The `jobs` table tracks queued/running/terminal state and the authenticated owner. Every status or cancellation lookup is constrained by both job UUID and user ID; legacy rows without an owner are unreachable. Runs record token usage, per-model pricing tiers, estimated costs, and actual models. Queued BYOK values are encrypted in Redis with a one-hour TTL and never stored in the relational database; selected model/provider/effort values are propagated to the worker.
 
 ## Benchmarking & Observability
 
@@ -114,4 +118,4 @@ Integration points:
 - `shared/api/runner.py` — wraps each project execution in a top-level trace.
 - `shared/api/app.py` — attaches post-run confidence scores back onto completed traces.
 
-Langfuse is opt-in via `LANGFUSE_ENABLED=true`. When disabled or when the SDK is not installed, all tracing degrades to no-ops. Point `LANGFUSE_HOST` or `LANGFUSE_BASE_URL` at a hosted or officially self-hosted Langfuse deployment; this repo does not embed the full Langfuse infrastructure stack.
+Langfuse is opt-in via `LANGFUSE_ENABLED=true`. The runner sends trace events through a bounded background flush worker after each project execution, so telemetry network latency does not block the request path. When disabled or when the SDK is not installed, all tracing degrades to no-ops. Point `LANGFUSE_HOST` or `LANGFUSE_BASE_URL` at a hosted or officially self-hosted Langfuse deployment; this repo does not embed the full Langfuse infrastructure stack.

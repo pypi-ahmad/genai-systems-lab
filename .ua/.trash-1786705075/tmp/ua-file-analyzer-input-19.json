@@ -1,0 +1,41 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "crew-product-launch/app/agents.py",
+      "language": "python",
+      "sizeLines": 88,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-product-launch/app/crew.py",
+      "language": "python",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-product-launch/app/main.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-product-launch/app/tasks.py",
+      "language": "python",
+      "sizeLines": 222,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "crew-product-launch/app/agents.py": [],
+    "crew-product-launch/app/crew.py": [
+      "crew-product-launch/app/agents.py",
+      "crew-product-launch/app/tasks.py"
+    ],
+    "crew-product-launch/app/main.py": [
+      "crew-product-launch/app/crew.py",
+      "shared/config.py"
+    ],
+    "crew-product-launch/app/tasks.py": []
+  }
+}

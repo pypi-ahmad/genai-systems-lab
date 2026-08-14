@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:lg-debugging-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "lg-debugging-agent/README.md",
+      "summary": "Documents the project material contained in lg-debugging-agent/README.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:lg-debugging-agent/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "lg-debugging-agent/architecture.md",
+      "summary": "Documents the project material contained in lg-debugging-agent/architecture.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:lg-debugging-agent/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "lg-debugging-agent/tasks.md",
+      "summary": "Documents the project material contained in lg-debugging-agent/tasks.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

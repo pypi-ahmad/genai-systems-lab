@@ -1,0 +1,105 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-68.json",
+      "language": "json",
+      "sizeLines": 255,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-69.json",
+      "language": "json",
+      "sizeLines": 235,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-7.json",
+      "language": "json",
+      "sizeLines": 3325,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-70.json",
+      "language": "json",
+      "sizeLines": 566,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-71.json",
+      "language": "json",
+      "sizeLines": 611,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-72.json",
+      "language": "json",
+      "sizeLines": 1989,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-73.json",
+      "language": "json",
+      "sizeLines": 2480,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-74.json",
+      "language": "json",
+      "sizeLines": 1326,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-8.json",
+      "language": "json",
+      "sizeLines": 5796,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-extract-results-9.json",
+      "language": "json",
+      "sizeLines": 2907,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-import-map-input.json",
+      "language": "json",
+      "sizeLines": 4864,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-import-map-output.json",
+      "language": "json",
+      "sizeLines": 1493,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-scan-files.json",
+      "language": "json",
+      "sizeLines": 4895,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-tour-results.json",
+      "language": "json",
+      "sizeLines": 8069,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-68.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-69.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-7.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-70.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-71.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-72.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-73.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-74.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-8.json": [],
+    ".ua/.trash-1786690380/tmp/ua-file-extract-results-9.json": [],
+    ".ua/.trash-1786690380/tmp/ua-import-map-input.json": [],
+    ".ua/.trash-1786690380/tmp/ua-import-map-output.json": [],
+    ".ua/.trash-1786690380/tmp/ua-scan-files.json": [],
+    ".ua/.trash-1786690380/tmp/ua-tour-results.json": []
+  }
+}

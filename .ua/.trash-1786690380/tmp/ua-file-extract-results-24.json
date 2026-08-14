@@ -1,0 +1,781 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 7,
+  "filesSkipped": [
+    "requirements.txt"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 7,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 7
+    }
+  },
+  "results": [
+    {
+      "path": ".env.example",
+      "language": "config",
+      "fileCategory": "config",
+      "totalLines": 23,
+      "nonEmptyLines": 23,
+      "definitions": [
+        {
+          "name": "APP_ENV",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 3,
+          "endLine": 3
+        },
+        {
+          "name": "GENAI_SYSTEMS_LAB_JWT_SECRET",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 7,
+          "endLine": 7
+        },
+        {
+          "name": "GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 8,
+          "endLine": 8
+        },
+        {
+          "name": "GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 9,
+          "endLine": 9
+        },
+        {
+          "name": "GENAI_SYSTEMS_LAB_DATABASE_URL",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "GENAI_SYSTEMS_LAB_AUTH_COOKIE_SAMESITE",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 11,
+          "endLine": 11
+        },
+        {
+          "name": "OTEL_ENABLED",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "OTEL_CONSOLE_EXPORT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "OTEL_SERVICE_NAME",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 14,
+          "endLine": 14
+        },
+        {
+          "name": "OTEL_EXPORTER_OTLP_ENDPOINT",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 15,
+          "endLine": 15
+        },
+        {
+          "name": "MODEL_DEFAULT_DEV",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "MODEL_DEFAULT_PROD",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 17,
+          "endLine": 17
+        },
+        {
+          "name": "PROJECT_MODELS_JSON",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "LANGFUSE_ENABLED",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 20,
+          "endLine": 20
+        },
+        {
+          "name": "LANGFUSE_SECRET_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 21,
+          "endLine": 21
+        },
+        {
+          "name": "LANGFUSE_PUBLIC_KEY",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 22,
+          "endLine": 22
+        },
+        {
+          "name": "LANGFUSE_HOST",
+          "kind": "variable",
+          "fields": [],
+          "startLine": 23,
+          "endLine": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "definitionCount": 17
+      }
+    },
+    {
+      "path": "ARCHITECTURE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 117,
+      "nonEmptyLines": 74,
+      "sections": [
+        {
+          "heading": "System Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "High-Level Flow",
+          "level": 2,
+          "line": 5
+        },
+        {
+          "heading": "System Structure",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Shared Components",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "LLM Wrapper",
+          "level": 3,
+          "line": 24
+        },
+        {
+          "heading": "Evaluation",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "Caching",
+          "level": 3,
+          "line": 32
+        },
+        {
+          "heading": "Logging",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Agent Paradigms",
+          "level": 2,
+          "line": 40
+        },
+        {
+          "heading": "LangGraph",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "CrewAI",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "Design Principles",
+          "level": 2,
+          "line": 50
+        },
+        {
+          "heading": "Separation of Concerns",
+          "level": 3,
+          "line": 52
+        },
+        {
+          "heading": "Deterministic + LLM Hybrid",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "Evaluation-First Design",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "Implementation Notes",
+          "level": 2,
+          "line": 64
+        },
+        {
+          "heading": "Persistence Strategy",
+          "level": 2,
+          "line": 71
+        },
+        {
+          "heading": "Benchmarking & Observability",
+          "level": 2,
+          "line": 84
+        },
+        {
+          "heading": "Layer 1 — Promptfoo (Offline Evals & Red-Teaming)",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "Layer 2 — Langfuse (Production Observability)",
+          "level": 3,
+          "line": 102
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 20
+      }
+    },
+    {
+      "path": "CHANGELOG.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 20,
+      "nonEmptyLines": 11,
+      "sections": [
+        {
+          "heading": "Changelog",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "[Unreleased]",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "Added",
+          "level": 3,
+          "line": 10
+        },
+        {
+          "heading": "Changed",
+          "level": 3,
+          "line": 12
+        },
+        {
+          "heading": "Fixed",
+          "level": 3,
+          "line": 14
+        },
+        {
+          "heading": "[2026-06-13]",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Added",
+          "level": 3,
+          "line": 18
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 38,
+      "nonEmptyLines": 23,
+      "sections": [
+        {
+          "heading": "Code of Conduct",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Our Pledge",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Our Standards",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Enforcement Responsibilities",
+          "level": 2,
+          "line": 21
+        },
+        {
+          "heading": "Scope",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "Reporting",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "Enforcement",
+          "level": 2,
+          "line": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 906,
+      "nonEmptyLines": 705,
+      "sections": [
+        {
+          "heading": "GenAI Systems Lab",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Why this design",
+          "level": 3,
+          "line": 42
+        },
+        {
+          "heading": "Core Features",
+          "level": 2,
+          "line": 48
+        },
+        {
+          "heading": "Multi-provider BYOK execution",
+          "level": 3,
+          "line": 50
+        },
+        {
+          "heading": "Authentication",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "Origin policy and abuse control",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "Input validation and sanitization",
+          "level": 3,
+          "line": 92
+        },
+        {
+          "heading": "Project auto-discovery and alias resolution",
+          "level": 3,
+          "line": 100
+        },
+        {
+          "heading": "Streaming execution (SSE)",
+          "level": 3,
+          "line": 106
+        },
+        {
+          "heading": "Confidence scoring",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "Session memory",
+          "level": 3,
+          "line": 128
+        },
+        {
+          "heading": "Run persistence and replay",
+          "level": 3,
+          "line": 136
+        },
+        {
+          "heading": "Explainability",
+          "level": 3,
+          "line": 140
+        },
+        {
+          "heading": "Evaluation",
+          "level": 3,
+          "line": 144
+        },
+        {
+          "heading": "In-memory metrics",
+          "level": 3,
+          "line": 149
+        },
+        {
+          "heading": "Tech Stack",
+          "level": 2,
+          "line": 155
+        },
+        {
+          "heading": "LLM dispatch architecture (`shared/llm/`)",
+          "level": 3,
+          "line": 173
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 208
+        },
+        {
+          "heading": "System overview",
+          "level": 3,
+          "line": 210
+        },
+        {
+          "heading": "Batch request lifecycle",
+          "level": 3,
+          "line": 285
+        },
+        {
+          "heading": "Streaming request lifecycle",
+          "level": 3,
+          "line": 309
+        },
+        {
+          "heading": "Persistence schema",
+          "level": 3,
+          "line": 327
+        },
+        {
+          "heading": "Key modules",
+          "level": 3,
+          "line": 354
+        },
+        {
+          "heading": "Project Structure",
+          "level": 2,
+          "line": 383
+        },
+        {
+          "heading": "Project Catalog",
+          "level": 2,
+          "line": 432
+        },
+        {
+          "heading": "Sequential / prompt-pipeline projects (9 projects)",
+          "level": 3,
+          "line": 434
+        },
+        {
+          "heading": "LangGraph workflows (6 projects)",
+          "level": 3,
+          "line": 450
+        },
+        {
+          "heading": "CrewAI multi-agent teams (5 projects)",
+          "level": 3,
+          "line": 463
+        },
+        {
+          "heading": "Setup and Installation",
+          "level": 2,
+          "line": 477
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 3,
+          "line": 479
+        },
+        {
+          "heading": "1. Clone",
+          "level": 3,
+          "line": 485
+        },
+        {
+          "heading": "2. Python environment",
+          "level": 3,
+          "line": 492
+        },
+        {
+          "heading": "3. Environment file",
+          "level": 3,
+          "line": 508
+        },
+        {
+          "heading": "4. Configuration",
+          "level": 3,
+          "line": 516
+        },
+        {
+          "heading": "5. Start services",
+          "level": 3,
+          "line": 549
+        },
+        {
+          "heading": "Docker",
+          "level": 3,
+          "line": 564
+        },
+        {
+          "heading": "Vercel",
+          "level": 3,
+          "line": 572
+        },
+        {
+          "heading": "Backend (Python serverless function)",
+          "level": 4,
+          "line": 576
+        },
+        {
+          "heading": "Frontend (Next.js)",
+          "level": 4,
+          "line": 591
+        },
+        {
+          "heading": "Deployment notes",
+          "level": 4,
+          "line": 601
+        },
+        {
+          "heading": "langgraph-data-analyst (standalone example)",
+          "level": 3,
+          "line": 607
+        },
+        {
+          "heading": "Usage",
+          "level": 2,
+          "line": 617
+        },
+        {
+          "heading": "API",
+          "level": 3,
+          "line": 619
+        },
+        {
+          "heading": "Authentication",
+          "level": 4,
+          "line": 621
+        },
+        {
+          "heading": "Batch execution",
+          "level": 4,
+          "line": 635
+        },
+        {
+          "heading": "Streaming (SSE)",
+          "level": 4,
+          "line": 681
+        },
+        {
+          "heading": "Session continuity",
+          "level": 4,
+          "line": 708
+        },
+        {
+          "heading": "Explain and share a run",
+          "level": 4,
+          "line": 720
+        },
+        {
+          "heading": "Metrics",
+          "level": 4,
+          "line": 740
+        },
+        {
+          "heading": "Portfolio",
+          "level": 3,
+          "line": 750
+        },
+        {
+          "heading": "Developer Workflow",
+          "level": 2,
+          "line": 787
+        },
+        {
+          "heading": "Adding a new project",
+          "level": 3,
+          "line": 789
+        },
+        {
+          "heading": "CI/CD",
+          "level": 3,
+          "line": 800
+        },
+        {
+          "heading": "API Reference",
+          "level": 2,
+          "line": 826
+        },
+        {
+          "heading": "Limitations and Future Improvements",
+          "level": 2,
+          "line": 857
+        },
+        {
+          "heading": "Current limitations",
+          "level": 3,
+          "line": 859
+        },
+        {
+          "heading": "Planned improvements",
+          "level": 3,
+          "line": 870
+        },
+        {
+          "heading": "Design Philosophy",
+          "level": 2,
+          "line": 879
+        },
+        {
+          "heading": "Further Reading",
+          "level": 2,
+          "line": 896
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 61
+      }
+    },
+    {
+      "path": "SECURITY.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 24,
+      "nonEmptyLines": 15,
+      "sections": [
+        {
+          "heading": "Security Policy",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Supported Versions",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Reporting a Vulnerability",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Response Process",
+          "level": 2,
+          "line": 21
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    },
+    {
+      "path": "pyproject.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 62,
+      "nonEmptyLines": 56,
+      "sections": [
+        {
+          "heading": "project",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "project.optional-dependencies",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "project.scripts",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "tool.ruff",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "tool.ruff.lint",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "tool.ruff.lint.per-file-ignores",
+          "level": 4,
+          "line": 56
+        },
+        {
+          "heading": "tool.bandit",
+          "level": 2,
+          "line": 60
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "nodes": [
+    {
+      "id": "file:.gitattributes",
+      "type": "file",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": ".gitattributes implements application behavior for the . component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.github/dependabot.yml",
+      "type": "config",
+      "name": "dependabot.yml",
+      "filePath": ".github/dependabot.yml",
+      "summary": "dependabot.yml provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.github/gitleaks.toml",
+      "type": "config",
+      "name": "gitleaks.toml",
+      "filePath": ".github/gitleaks.toml",
+      "summary": "gitleaks.toml provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.trivyignore",
+      "type": "file",
+      "name": ".trivyignore",
+      "filePath": ".trivyignore",
+      "summary": ".trivyignore implements application behavior for the . component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.trash-1786690380/tmp/analyze-assigned-batches.mjs",
+      "type": "file",
+      "name": "analyze-assigned-batches.mjs",
+      "filePath": ".ua/.trash-1786690380/tmp/analyze-assigned-batches.mjs",
+      "summary": "analyze-assigned-batches.mjs implements application behavior for the tmp component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.ua/.trash-1786690380/tmp/analyze-assigned-batches.mjs:fileTags",
+      "type": "function",
+      "name": "fileTags",
+      "filePath": ".ua/.trash-1786690380/tmp/analyze-assigned-batches.mjs",
+      "lineRange": [
+        18,
+        28
+      ],
+      "summary": "Implements fileTags as part of analyze-assigned-batches.mjs.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs",
+      "type": "file",
+      "name": "analyze-batches-1-19.mjs",
+      "filePath": ".ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs",
+      "summary": "analyze-batches-1-19.mjs implements application behavior for the tmp component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs:baseTags",
+      "type": "function",
+      "name": "baseTags",
+      "filePath": ".ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs",
+      "lineRange": [
+        23,
+        37
+      ],
+      "summary": "Implements baseTags as part of analyze-batches-1-19.mjs.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs:fileSummary",
+      "type": "function",
+      "name": "fileSummary",
+      "filePath": ".ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs",
+      "lineRange": [
+        38,
+        53
+      ],
+      "summary": "Implements fileSummary as part of analyze-batches-1-19.mjs.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.trash-1786690380/tmp/analyze-batches-39-56.mjs",
+      "type": "file",
+      "name": "analyze-batches-39-56.mjs",
+      "filePath": ".ua/.trash-1786690380/tmp/analyze-batches-39-56.mjs",
+      "summary": "analyze-batches-39-56.mjs implements application behavior for the tmp component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:.ua/.trash-1786690380/tmp/analyze-batches-39-56.mjs:summaryFor",
+      "type": "function",
+      "name": "summaryFor",
+      "filePath": ".ua/.trash-1786690380/tmp/analyze-batches-39-56.mjs",
+      "lineRange": [
+        28,
+        44
+      ],
+      "summary": "Implements summaryFor as part of analyze-batches-39-56.mjs.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.trash-1786690380/tmp/ua-arch-analyze.js",
+      "type": "file",
+      "name": "ua-arch-analyze.js",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-arch-analyze.js",
+      "summary": "ua-arch-analyze.js implements application behavior for the tmp component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.trash-1786690380/tmp/ua-inline-validate.cjs",
+      "type": "file",
+      "name": "ua-inline-validate.cjs",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-inline-validate.cjs",
+      "summary": "ua-inline-validate.cjs implements application behavior for the tmp component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.ua/.trash-1786690380/tmp/ua-tour-analyze.js",
+      "type": "file",
+      "name": "ua-tour-analyze.js",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-tour-analyze.js",
+      "summary": "ua-tour-analyze.js implements application behavior for the tmp component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.trash-1786690380/tmp/ua-write-layers.js",
+      "type": "file",
+      "name": "ua-write-layers.js",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-write-layers.js",
+      "summary": "ua-write-layers.js implements application behavior for the tmp component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:.ua/.trash-1786690380/tmp/ua-write-layers.js:assign",
+      "type": "function",
+      "name": "assign",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-write-layers.js",
+      "lineRange": [
+        17,
+        29
+      ],
+      "summary": "Implements assign as part of ua-write-layers.js.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".ua/.understandignore",
+      "summary": ".understandignore implements application behavior for the .ua component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/intermediate/scan-result.json",
+      "type": "config",
+      "name": "scan-result.json",
+      "filePath": ".ua/intermediate/scan-result.json",
+      "summary": "scan-result.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:crew-content-pipeline/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-content-pipeline/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-content-pipeline/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-content-pipeline/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-hiring-system/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-hiring-system/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-hiring-system/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-hiring-system/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-investment-analyst/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-investment-analyst/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-investment-analyst/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-investment-analyst/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-product-launch/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-product-launch/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-product-launch/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-product-launch/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-startup-simulator/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-startup-simulator/tests/.gitkeep",
+      "summary": ".gitkeep implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/tests/conftest.py",
+      "type": "file",
+      "name": "conftest.py",
+      "filePath": "crew-startup-simulator/tests/conftest.py",
+      "summary": "conftest.py implements application behavior for the tests component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-browser-agent/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-browser-agent/app/__init__.py",
+      "summary": "__init__.py implements application behavior for the app component.",
+      "tags": [
+        "entry-point",
+        "python",
+        "package"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:.ua/.trash-1786690380/tmp/analyze-assigned-batches.mjs",
+      "target": "function:.ua/.trash-1786690380/tmp/analyze-assigned-batches.mjs:fileTags",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs",
+      "target": "function:.ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs:baseTags",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs",
+      "target": "function:.ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs:fileSummary",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.ua/.trash-1786690380/tmp/analyze-batches-39-56.mjs",
+      "target": "function:.ua/.trash-1786690380/tmp/analyze-batches-39-56.mjs:summaryFor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:.ua/.trash-1786690380/tmp/ua-write-layers.js",
+      "target": "function:.ua/.trash-1786690380/tmp/ua-write-layers.js:assign",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

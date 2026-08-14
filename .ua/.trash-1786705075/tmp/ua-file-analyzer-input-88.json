@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "lg-workflow-agent/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "lg-workflow-agent/architecture.md",
+      "language": "markdown",
+      "sizeLines": 210,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "lg-workflow-agent/tasks.md",
+      "language": "markdown",
+      "sizeLines": 84,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "lg-workflow-agent/README.md": [],
+    "lg-workflow-agent/architecture.md": [],
+    "lg-workflow-agent/tasks.md": []
+  }
+}

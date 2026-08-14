@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-product-launch/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-product-launch/README.md",
+      "summary": "Introduces the CrewAI go-to-market workflow that develops market intelligence, positioning, messaging, and launch recommendations.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-product-launch/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-product-launch/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the CrewAI go-to-market workflow that develops market intelligence, positioning, messaging, and launch recommendations.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:crew-product-launch/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-product-launch/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the CrewAI go-to-market workflow that develops market intelligence, positioning, messaging, and launch recommendations.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

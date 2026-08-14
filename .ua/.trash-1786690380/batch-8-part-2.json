@@ -1,0 +1,1965 @@
+{
+  "nodes": [
+    {
+      "id": "file:shared/logging/otel.py",
+      "type": "file",
+      "name": "otel.py",
+      "filePath": "shared/logging/otel.py",
+      "summary": "Implements otel.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/logging/otel.py:_try_import",
+      "type": "function",
+      "name": "_try_import",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        35,
+        47
+      ],
+      "summary": "Implements the _try_import operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:_try_import_otlp",
+      "type": "function",
+      "name": "_try_import_otlp",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        50,
+        58
+      ],
+      "summary": "Implements the _try_import_otlp operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:setup_otel",
+      "type": "function",
+      "name": "setup_otel",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        64,
+        104
+      ],
+      "summary": "Implements the setup_otel operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:get_tracer",
+      "type": "function",
+      "name": "get_tracer",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        107,
+        114
+      ],
+      "summary": "Implements the get_tracer operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:span",
+      "type": "function",
+      "name": "span",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        118,
+        136
+      ],
+      "summary": "Implements the span operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:shutdown",
+      "type": "function",
+      "name": "shutdown",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        139,
+        142
+      ],
+      "summary": "Implements the shutdown operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/otel.py:_NoopSpan",
+      "type": "class",
+      "name": "_NoopSpan",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        148,
+        158
+      ],
+      "summary": "Represents the _NoopSpan abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/otel.py:_NoopTracer",
+      "type": "class",
+      "name": "_NoopTracer",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        161,
+        164
+      ],
+      "summary": "Represents the _NoopTracer abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/observability/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/observability/__init__.py",
+      "summary": "Implements __init__.py as part of the shared application.",
+      "tags": [
+        "entry-point",
+        "package",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/observability/langfuse.py",
+      "type": "file",
+      "name": "langfuse.py",
+      "filePath": "shared/observability/langfuse.py",
+      "summary": "Implements langfuse.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_is_enabled",
+      "type": "function",
+      "name": "_is_enabled",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        22,
+        23
+      ],
+      "summary": "Implements the _is_enabled operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_credentials_present",
+      "type": "function",
+      "name": "_credentials_present",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        26,
+        27
+      ],
+      "summary": "Implements the _credentials_present operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_base_url",
+      "type": "function",
+      "name": "_base_url",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        30,
+        35
+      ],
+      "summary": "Implements the _base_url operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_merge_metadata",
+      "type": "function",
+      "name": "_merge_metadata",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        38,
+        43
+      ],
+      "summary": "Implements the _merge_metadata operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_string_metadata",
+      "type": "function",
+      "name": "_string_metadata",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        46,
+        55
+      ],
+      "summary": "Implements the _string_metadata operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_ensure_client",
+      "type": "function",
+      "name": "_ensure_client",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        58,
+        85
+      ],
+      "summary": "Implements the _ensure_client operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:get_client",
+      "type": "function",
+      "name": "get_client",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        88,
+        89
+      ],
+      "summary": "Implements the get_client operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:flush",
+      "type": "function",
+      "name": "flush",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        92,
+        99
+      ],
+      "summary": "Implements the flush operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:shutdown",
+      "type": "function",
+      "name": "shutdown",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        102,
+        111
+      ],
+      "summary": "Implements the shutdown operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:create_trace",
+      "type": "function",
+      "name": "create_trace",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        114,
+        145
+      ],
+      "summary": "Builds the _trace structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:trace_llm_call",
+      "type": "function",
+      "name": "trace_llm_call",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        148,
+        213
+      ],
+      "summary": "Implements the trace_llm_call operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:trace_span",
+      "type": "function",
+      "name": "trace_span",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        216,
+        249
+      ],
+      "summary": "Implements the trace_span operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:score_trace",
+      "type": "function",
+      "name": "score_trace",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        252,
+        281
+      ],
+      "summary": "Implements the score_trace operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:observe",
+      "type": "function",
+      "name": "observe",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        284,
+        314
+      ],
+      "summary": "Implements the observe operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:trace_context",
+      "type": "function",
+      "name": "trace_context",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        318,
+        376
+      ],
+      "summary": "Implements the trace_context operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:shared/project_catalog.py",
+      "type": "file",
+      "name": "project_catalog.py",
+      "filePath": "shared/project_catalog.py",
+      "summary": "Implements project_catalog.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/project_catalog.py:_normalized_project_key",
+      "type": "function",
+      "name": "_normalized_project_key",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        67,
+        68
+      ],
+      "summary": "Implements the _normalized_project_key operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/project_catalog.py:project_api_name",
+      "type": "function",
+      "name": "project_api_name",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        71,
+        72
+      ],
+      "summary": "Implements the project_api_name operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/project_catalog.py:load_project_catalog",
+      "type": "function",
+      "name": "load_project_catalog",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        76,
+        78
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/project_catalog.py:list_project_manifest_entries",
+      "type": "function",
+      "name": "list_project_manifest_entries",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        81,
+        89
+      ],
+      "summary": "Implements the list_project_manifest_entries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/project_catalog.py:build_pipeline_nodes_index",
+      "type": "function",
+      "name": "build_pipeline_nodes_index",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        92,
+        107
+      ],
+      "summary": "Builds the _pipeline_nodes_index structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/project_catalog.py:GraphNode",
+      "type": "class",
+      "name": "GraphNode",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        18,
+        22
+      ],
+      "summary": "Represents the GraphNode abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/project_catalog.py:GraphEdge",
+      "type": "class",
+      "name": "GraphEdge",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        25,
+        30
+      ],
+      "summary": "Represents the GraphEdge abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/project_catalog.py:ProjectGraph",
+      "type": "class",
+      "name": "ProjectGraph",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        33,
+        37
+      ],
+      "summary": "Represents the ProjectGraph abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/project_catalog.py:ProjectDemoConfig",
+      "type": "class",
+      "name": "ProjectDemoConfig",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        40,
+        46
+      ],
+      "summary": "Represents the ProjectDemoConfig abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/project_catalog.py:ProjectCatalogEntry",
+      "type": "class",
+      "name": "ProjectCatalogEntry",
+      "filePath": "shared/project_catalog.py",
+      "lineRange": [
+        49,
+        64
+      ],
+      "summary": "Represents the ProjectCatalogEntry abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/schemas/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/schemas/__init__.py",
+      "summary": "Implements __init__.py as part of the shared application.",
+      "tags": [
+        "entry-point",
+        "package",
+        "barrel"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:shared/schemas/common.py",
+      "type": "file",
+      "name": "common.py",
+      "filePath": "shared/schemas/common.py",
+      "summary": "Implements common.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:shared/schemas/common.py:LLMRequest",
+      "type": "class",
+      "name": "LLMRequest",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        10,
+        20
+      ],
+      "summary": "Represents the LLMRequest abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:LLMResponse",
+      "type": "class",
+      "name": "LLMResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        23,
+        29
+      ],
+      "summary": "Represents the LLMResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:ErrorDetail",
+      "type": "class",
+      "name": "ErrorDetail",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        32,
+        37
+      ],
+      "summary": "Represents the ErrorDetail abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:StatusResponse",
+      "type": "class",
+      "name": "StatusResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        40,
+        45
+      ],
+      "summary": "Represents the StatusResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:BaseRequest",
+      "type": "class",
+      "name": "BaseRequest",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        48,
+        52
+      ],
+      "summary": "Represents the BaseRequest abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:RunMemoryEntryResponse",
+      "type": "class",
+      "name": "RunMemoryEntryResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        55,
+        60
+      ],
+      "summary": "Represents the RunMemoryEntryResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:RunTimelineEntryResponse",
+      "type": "class",
+      "name": "RunTimelineEntryResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        63,
+        69
+      ],
+      "summary": "Represents the RunTimelineEntryResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:RunExplanationStepResponse",
+      "type": "class",
+      "name": "RunExplanationStepResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        72,
+        77
+      ],
+      "summary": "Represents the RunExplanationStepResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:RunExplanationDecisionResponse",
+      "type": "class",
+      "name": "RunExplanationDecisionResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        80,
+        84
+      ],
+      "summary": "Represents the RunExplanationDecisionResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:BaseResponse",
+      "type": "class",
+      "name": "BaseResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        87,
+        98
+      ],
+      "summary": "Represents the BaseResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:AuthRequest",
+      "type": "class",
+      "name": "AuthRequest",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        101,
+        105
+      ],
+      "summary": "Represents the AuthRequest abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:AuthUserResponse",
+      "type": "class",
+      "name": "AuthUserResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        108,
+        112
+      ],
+      "summary": "Represents the AuthUserResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:AuthConfigResponse",
+      "type": "class",
+      "name": "AuthConfigResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        115,
+        118
+      ],
+      "summary": "Represents the AuthConfigResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:LLMModelOptionResponse",
+      "type": "class",
+      "name": "LLMModelOptionResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        121,
+        126
+      ],
+      "summary": "Represents the LLMModelOptionResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:LLMProviderResponse",
+      "type": "class",
+      "name": "LLMProviderResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        129,
+        140
+      ],
+      "summary": "Represents the LLMProviderResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:LLMCatalogResponse",
+      "type": "class",
+      "name": "LLMCatalogResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        143,
+        147
+      ],
+      "summary": "Represents the LLMCatalogResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:AuthResponse",
+      "type": "class",
+      "name": "AuthResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        150,
+        154
+      ],
+      "summary": "Represents the AuthResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:HistoryRunResponse",
+      "type": "class",
+      "name": "HistoryRunResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        157,
+        174
+      ],
+      "summary": "Represents the HistoryRunResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:RunExplanationResponse",
+      "type": "class",
+      "name": "RunExplanationResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        177,
+        183
+      ],
+      "summary": "Represents the RunExplanationResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:HistoryResponse",
+      "type": "class",
+      "name": "HistoryResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        186,
+        190
+      ],
+      "summary": "Represents the HistoryResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:SessionResponse",
+      "type": "class",
+      "name": "SessionResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        193,
+        200
+      ],
+      "summary": "Represents the SessionResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:ShareRunRequest",
+      "type": "class",
+      "name": "ShareRunRequest",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        203,
+        206
+      ],
+      "summary": "Represents the ShareRunRequest abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:ShareRunResponse",
+      "type": "class",
+      "name": "ShareRunResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        209,
+        214
+      ],
+      "summary": "Represents the ShareRunResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:SharedRunResponse",
+      "type": "class",
+      "name": "SharedRunResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        217,
+        228
+      ],
+      "summary": "Represents the SharedRunResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:ProjectMetricsResponse",
+      "type": "class",
+      "name": "ProjectMetricsResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        231,
+        236
+      ],
+      "summary": "Represents the ProjectMetricsResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:MetricsResponse",
+      "type": "class",
+      "name": "MetricsResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        239,
+        245
+      ],
+      "summary": "Represents the MetricsResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/schemas/common.py:TimeSeriesMetricPointResponse",
+      "type": "class",
+      "name": "TimeSeriesMetricPointResponse",
+      "filePath": "shared/schemas/common.py",
+      "lineRange": [
+        248,
+        254
+      ],
+      "summary": "Represents the TimeSeriesMetricPointResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import_otlp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import_otlp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:setup_otel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:setup_otel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:get_tracer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:get_tracer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:span",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:span",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:shutdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:shutdown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopSpan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopSpan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopTracer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopTracer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/__init__.py",
+      "target": "file:shared/observability/langfuse.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_is_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_is_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_credentials_present",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_credentials_present",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_base_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_base_url",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_merge_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_merge_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_string_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_string_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_ensure_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_ensure_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:get_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:get_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:flush",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:flush",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:shutdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:shutdown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:create_trace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:create_trace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_llm_call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_llm_call",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_span",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_span",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:score_trace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:score_trace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:observe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:observe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:_normalized_project_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:_normalized_project_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:project_api_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:project_api_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:load_project_catalog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:load_project_catalog",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:list_project_manifest_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:list_project_manifest_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:build_pipeline_nodes_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "function:shared/project_catalog.py:build_pipeline_nodes_index",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:GraphNode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:GraphNode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:GraphEdge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:GraphEdge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:ProjectGraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:ProjectGraph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:ProjectDemoConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:ProjectDemoConfig",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:ProjectCatalogEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/project_catalog.py",
+      "target": "class:shared/project_catalog.py:ProjectCatalogEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/__init__.py",
+      "target": "file:shared/schemas/common.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ErrorDetail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ErrorDetail",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:StatusResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:StatusResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:BaseRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:BaseRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunMemoryEntryResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunMemoryEntryResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunTimelineEntryResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunTimelineEntryResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunExplanationStepResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunExplanationStepResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunExplanationDecisionResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunExplanationDecisionResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:BaseResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:BaseResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthUserResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthUserResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthConfigResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthConfigResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMModelOptionResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMModelOptionResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMProviderResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMProviderResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMCatalogResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:LLMCatalogResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:AuthResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:HistoryRunResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:HistoryRunResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunExplanationResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:RunExplanationResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:HistoryResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:HistoryResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:SessionResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:SessionResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ShareRunRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ShareRunRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ShareRunResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ShareRunResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:SharedRunResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:SharedRunResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ProjectMetricsResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:ProjectMetricsResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:MetricsResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:MetricsResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:TimeSeriesMetricPointResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/schemas/common.py",
+      "target": "class:shared/schemas/common.py:TimeSeriesMetricPointResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

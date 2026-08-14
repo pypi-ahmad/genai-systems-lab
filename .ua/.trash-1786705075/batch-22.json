@@ -1,0 +1,18 @@
+{
+  "nodes": [
+    {
+      "id": "pipeline:.github/workflows/ci.yml",
+      "type": "pipeline",
+      "name": "ci.yml",
+      "filePath": ".github/workflows/ci.yml",
+      "summary": "ci.yml defines the repository's continuous-integration workflow and automated quality checks.",
+      "tags": [
+        "ci-cd",
+        "automation",
+        "build-system"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": []
+}

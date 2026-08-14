@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "document:portfolio/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "portfolio/README.md",
+      "summary": "Documents the project material contained in portfolio/README.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:portfolio/USAGE.md",
+      "type": "document",
+      "name": "USAGE.md",
+      "filePath": "portfolio/USAGE.md",
+      "summary": "Documents the project material contained in portfolio/USAGE.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:portfolio/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "portfolio/package.json",
+      "summary": "Defines project configuration stored in portfolio/package.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:portfolio/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "portfolio/tsconfig.json",
+      "summary": "Defines project configuration stored in portfolio/tsconfig.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

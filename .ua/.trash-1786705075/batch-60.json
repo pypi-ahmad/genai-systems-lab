@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-ui-builder/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-ui-builder/README.md",
+      "summary": "Documents README.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-ui-builder/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-ui-builder/architecture.md",
+      "summary": "Documents architecture.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-ui-builder/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-ui-builder/tasks.md",
+      "summary": "Documents tasks.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

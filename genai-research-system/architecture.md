@@ -1,5 +1,7 @@
 # Architecture
 
+The writer node uses the shared provider-native streaming dispatcher. Exact provider deltas are forwarded to SSE; downstream scenario generation remains structured and non-streaming.
+
 ## Overview
 
 The Multi-Agent Research System is a LangGraph-based directed graph where four specialized nodes collaborate to transform a user query into a polished research report. Each node is a pure function that receives the current graph state, performs one focused task, and returns a state update. LangGraph manages execution order, conditional branching, and the iterative critic loop — there is no custom orchestrator.
@@ -41,7 +43,7 @@ Decomposes `state["query"]` into a structured list of research sub-tasks.
 
 - **Reads:** `query`
 - **Writes:** `plan`
-- **Model:** `gemini-3.1-pro-preview` — requires strong reasoning to identify scope, prioritize sub-tasks, and detect implicit requirements.
+- **Model:** `gemini-3.7-flash` — requires strong reasoning to identify scope, prioritize sub-tasks, and detect implicit requirements.
 - **Output:** A list of 3–7 concrete, bounded research tasks.
 
 ### researcher
@@ -50,7 +52,7 @@ Executes the research plan (or addresses critique feedback on subsequent passes)
 
 - **Reads:** `query`, `plan`, `critiques` (if revision pass)
 - **Writes:** `findings`
-- **Model:** `gemini-3.1-pro-preview` — needs deep reasoning to synthesize evidence, compare sources, and incorporate critique.
+- **Model:** `gemini-3.7-flash` — needs deep reasoning to synthesize evidence, compare sources, and incorporate critique.
 - **Behavior on first pass:** Works through each sub-task in `plan` and produces detailed findings.
 - **Behavior on revision pass:** Reads `critiques`, identifies weak or missing areas in `findings`, and produces an improved version.
 
@@ -60,7 +62,7 @@ Reviews the current findings for accuracy, depth, evidence gaps, and coherence.
 
 - **Reads:** `query`, `plan`, `findings`
 - **Writes:** `critiques`, `revision_count`, `approved`
-- **Model:** `gemini-3.1-pro-preview` — evaluation and gap analysis require the strongest reasoning model.
+- **Model:** `gemini-3.7-flash` — evaluation and gap analysis require the strongest reasoning model.
 - **Logic:**
   1. Evaluate findings against the plan and original query.
   2. If all sub-tasks are adequately covered and no major issues remain, set `approved = True` and return empty critiques.
@@ -72,7 +74,7 @@ Synthesizes approved findings into a final structured report.
 
 - **Reads:** `query`, `plan`, `findings`, `critiques`
 - **Writes:** `final_output`
-- **Model:** `gemini-3-flash-preview` — optimized for fast, fluent text generation; reasoning work is already done.
+- **Model:** `gemini-3.5-flash-lite` — optimized for fast, fluent text generation; reasoning work is already done.
 - **Output:** A Markdown report with title, executive summary, sections per sub-task, and a conclusion.
 
 ## Graph Transitions
@@ -116,8 +118,8 @@ graph.add_conditional_edges("critic", route_after_critic, {
 
 | Model | Nodes | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | planner, researcher, critic | Planning, deep research synthesis, and critical evaluation all require strong reasoning |
-| `gemini-3-flash-preview` | writer | Report generation is a formatting and synthesis task; speed and fluency matter more than raw reasoning |
+| `gemini-3.7-flash` | planner, researcher, critic | Planning, deep research synthesis, and critical evaluation all require strong reasoning |
+| `gemini-3.5-flash-lite` | writer | Report generation is a formatting and synthesis task; speed and fluency matter more than raw reasoning |
 
 ### Cost and latency considerations
 
@@ -180,8 +182,8 @@ Key parameters should be externalized:
 | Parameter | Default | Purpose |
 |---|---|---|
 | `MAX_REVISIONS` | 3 | Cap on researcher ↔ critic iterations |
-| `REASONING_MODEL` | `gemini-3.1-pro-preview` | Model for planner, researcher, critic |
-| `WRITING_MODEL` | `gemini-3-flash-preview` | Model for writer |
+| `REASONING_MODEL` | `gemini-3.7-flash` | Model for planner, researcher, critic |
+| `WRITING_MODEL` | `gemini-3.5-flash-lite` | Model for writer |
 | `MAX_PLAN_TASKS` | 7 | Upper bound on planner sub-tasks |
 
 ### Testing

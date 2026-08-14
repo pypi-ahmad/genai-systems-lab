@@ -4,7 +4,7 @@ import importlib.util
 from pathlib import Path
 
 
-QA_MODEL = "gemini-3.1-pro-preview"
+QA_MODEL = "gemini-3.7-flash"
 
 
 def _load_symbol(module_name: str, symbol_name: str):

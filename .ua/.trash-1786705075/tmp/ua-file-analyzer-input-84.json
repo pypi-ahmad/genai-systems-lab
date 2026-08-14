@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "lg-data-agent/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "lg-data-agent/architecture.md",
+      "language": "markdown",
+      "sizeLines": 238,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "lg-data-agent/tasks.md",
+      "language": "markdown",
+      "sizeLines": 94,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "lg-data-agent/README.md": [],
+    "lg-data-agent/architecture.md": [],
+    "lg-data-agent/tasks.md": []
+  }
+}

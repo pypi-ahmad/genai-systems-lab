@@ -44,7 +44,7 @@ Decomposes the user's analytics question into a sequence of structured data oper
 
 - **Reads:** `query`, `execution_result` (on retry, to see what failed)
 - **Writes:** `plan`
-- **Model:** `gemini-3.1-pro-preview` — decomposing ambiguous natural-language questions into precise, ordered operations requires strong reasoning. The model must infer groupings, filters, aggregations, and joins from context.
+- **Model:** `gemini-3.7-flash` — decomposing ambiguous natural-language questions into precise, ordered operations requires strong reasoning. The model must infer groupings, filters, aggregations, and joins from context.
 - **Output:** A list of operation dicts. Each dict specifies the operation type, target columns, parameters, and expected output shape. Example:
   ```python
   [
@@ -75,7 +75,7 @@ Interprets the execution results and generates a human-readable explanation.
 
 - **Reads:** `query`, `plan`, `execution_result`
 - **Writes:** `explanation`
-- **Model:** `gemini-3-flash-preview` — explanation generation is a synthesis and formatting task. The heavy reasoning (planning, operation selection) is already done. Speed and fluency matter more than raw reasoning here.
+- **Model:** `gemini-3.5-flash-lite` — explanation generation is a synthesis and formatting task. The heavy reasoning (planning, operation selection) is already done. Speed and fluency matter more than raw reasoning here.
 - **Output:** A clear, structured explanation that answers the original query using the computed results. Includes key findings, notable patterns, and caveats about the data.
 - **Guard:** If `execution_result["error"]` is not None, the analyzer skips explanation and returns an empty string — the evaluator will handle the failure.
 
@@ -85,7 +85,7 @@ Decides whether the analysis is complete or another iteration is needed.
 
 - **Reads:** `query`, `plan`, `execution_result`, `explanation`, `iteration`
 - **Writes:** `success`, `iteration`
-- **Model:** `gemini-3.1-pro-preview` — judging whether results actually answer the user's question requires reasoning about completeness, correctness, and relevance.
+- **Model:** `gemini-3.7-flash` — judging whether results actually answer the user's question requires reasoning about completeness, correctness, and relevance.
 - **Logic:**
   1. If `execution_result["error"]` is not None and `iteration < MAX_ITERATIONS`, set `success = False`, increment `iteration`, and return — the planner will revise.
   2. If the explanation adequately answers `query` and the results are coherent, set `success = True`.
@@ -136,8 +136,8 @@ graph.add_conditional_edges("evaluator", route_after_evaluator, {
 
 | Model | Nodes | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | planner, evaluator | Query decomposition and completeness evaluation require strong reasoning about data operations and analytical correctness |
-| `gemini-3-flash-preview` | analyzer | Result explanation is a synthesis task; speed and fluency matter more than deep reasoning |
+| `gemini-3.7-flash` | planner, evaluator | Query decomposition and completeness evaluation require strong reasoning about data operations and analytical correctness |
+| `gemini-3.5-flash-lite` | analyzer | Result explanation is a synthesis task; speed and fluency matter more than deep reasoning |
 | None (deterministic) | executor | Pure Python/pandas execution — no LLM involved |
 
 ### Cost and latency considerations
@@ -221,8 +221,8 @@ Key parameters should be externalized:
 | Parameter | Default | Purpose |
 |---|---|---|
 | `MAX_ITERATIONS` | 3 | Cap on planner → executor → analyzer → evaluator retry cycles |
-| `REASONING_MODEL` | `gemini-3.1-pro-preview` | Model for planner, evaluator |
-| `EXPLANATION_MODEL` | `gemini-3-flash-preview` | Model for analyzer |
+| `REASONING_MODEL` | `gemini-3.7-flash` | Model for planner, evaluator |
+| `EXPLANATION_MODEL` | `gemini-3.5-flash-lite` | Model for analyzer |
 | `MAX_PLAN_STEPS` | 10 | Upper bound on operations in a single plan |
 | `SUPPORTED_FORMATS` | `["csv", "json", "parquet"]` | File formats accepted by data_loader |
 

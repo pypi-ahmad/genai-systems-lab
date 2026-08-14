@@ -1,0 +1,256 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-interviewer/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "AI Interviewer",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-interviewer/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 146,
+      "nonEmptyLines": 96,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Component Responsibilities",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Question Generator (`question_generator.py`)",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Evaluator (`evaluator.py`)",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "Difficulty Manager (`difficulty_manager.py`)",
+          "level": 3,
+          "line": 30
+        },
+        {
+          "heading": "Feedback Generator (`feedback.py`)",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "Session Manager (`session.py`)",
+          "level": 3,
+          "line": 49
+        },
+        {
+          "heading": "Interviewer (`interviewer.py`)",
+          "level": 3,
+          "line": 60
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "1. Session Initialization",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "2. Question Generation",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "3. Candidate Answer",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "4. Evaluation",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "5. Difficulty Adjustment",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "6. Feedback Delivery",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "7. Loop or Conclude",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 97
+        },
+        {
+          "heading": "`gemini-3.1-pro-preview`",
+          "level": 3,
+          "line": 99
+        },
+        {
+          "heading": "`gemini-3-flash-preview`",
+          "level": 3,
+          "line": 108
+        },
+        {
+          "heading": "Structured Evaluation Format",
+          "level": 2,
+          "line": 119
+        },
+        {
+          "heading": "Design Notes",
+          "level": 2,
+          "line": 135
+        },
+        {
+          "heading": "High-Level Architecture Summary",
+          "level": 2,
+          "line": 144
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "genai-interviewer/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 51,
+      "nonEmptyLines": 38,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Session State Design",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Question Generation",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "Answer Evaluation",
+          "level": 2,
+          "line": 20
+        },
+        {
+          "heading": "Difficulty Adjustment",
+          "level": 2,
+          "line": 28
+        },
+        {
+          "heading": "Feedback Generation",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "Interview Loop",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    }
+  ]
+}

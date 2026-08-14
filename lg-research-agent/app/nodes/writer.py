@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from app.state import ResearchState
 from shared.config import get_model
-from shared.llm import generate_text
+from shared.llm import generate_text_streaming as generate_text
 
 
 def writer_node(state: ResearchState) -> ResearchState:

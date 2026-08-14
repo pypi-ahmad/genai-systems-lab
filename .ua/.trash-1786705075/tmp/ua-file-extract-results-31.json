@@ -1,0 +1,664 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 19,
+  "filesSkipped": [
+    ".ua/.trash-1786690380/tmp/merge-warnings.txt"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 19,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 19
+    }
+  },
+  "results": [
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-arch-results.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 3983,
+      "nonEmptyLines": 3983,
+      "sections": [
+        {
+          "heading": "scriptCompleted",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "directoryGroups",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "nodeTypeGroups",
+          "level": 1,
+          "line": 908
+        },
+        {
+          "heading": "crossCategoryEdges",
+          "level": 1,
+          "line": 1733
+        },
+        {
+          "heading": "interGroupImports",
+          "level": 1,
+          "line": 1753
+        },
+        {
+          "heading": "intraGroupDensity",
+          "level": 1,
+          "line": 1870
+        },
+        {
+          "heading": "patternMatches",
+          "level": 1,
+          "line": 2097
+        },
+        {
+          "heading": "deploymentTopology",
+          "level": 1,
+          "line": 2144
+        },
+        {
+          "heading": "dataPipeline",
+          "level": 1,
+          "line": 2158
+        },
+        {
+          "heading": "docCoverage",
+          "level": 1,
+          "line": 2182
+        },
+        {
+          "heading": "dependencyDirection",
+          "level": 1,
+          "line": 2202
+        },
+        {
+          "heading": "fileStats",
+          "level": 1,
+          "line": 2296
+        },
+        {
+          "heading": "fileFanIn",
+          "level": 1,
+          "line": 2353
+        },
+        {
+          "heading": "fileFanOut",
+          "level": 1,
+          "line": 3168
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-1.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-10.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-11.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-12.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-13.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-14.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-15.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-16.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-17.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-18.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-19.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-2.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-20.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-21.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-22.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-23.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-24.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-25.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "projectRoot",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchFiles",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "batchImportData",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

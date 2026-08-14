@@ -5,7 +5,7 @@
 File: `app/agents.py`
 
 - [ ] Import `Agent` from `crewai`.
-- [ ] Define `REASONING_MODEL = "gemini-3.1-pro-preview"` and `SUMMARY_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Define `REASONING_MODEL = "gemini-3.7-flash"` and `SUMMARY_MODEL = "gemini-3.5-flash-lite"` constants.
 - [ ] Create `build_market_analyst() -> Agent` with role `"Senior Market Analyst"`, goal to assess industry trends, competitive landscape, market size, and growth drivers for the investment target, and backstory as an equity research analyst with 15 years covering multiple sectors. Use `REASONING_MODEL`.
 - [ ] Create `build_financial_analyst() -> Agent` with role `"Senior Financial Analyst"`, goal to analyze key financial metrics, valuation multiples, cash flow health, and profitability trends, and backstory as a CFA charterholder with deep experience in fundamental analysis. Use `REASONING_MODEL`.
 - [ ] Create `build_risk_analyst() -> Agent` with role `"Senior Risk Analyst"`, goal to identify material risks spanning market, financial, regulatory, and operational domains with probability and impact assessment, and backstory as a risk management professional from hedge funds and institutional investors. Use `REASONING_MODEL`.

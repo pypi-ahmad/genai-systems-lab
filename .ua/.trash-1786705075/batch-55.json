@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-interviewer/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-interviewer/README.md",
+      "summary": "Documents README for the genai-interviewer project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-interviewer/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-interviewer/architecture.md",
+      "summary": "Documents architecture for the genai-interviewer project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-interviewer/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-interviewer/tasks.md",
+      "summary": "Documents tasks for the genai-interviewer project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

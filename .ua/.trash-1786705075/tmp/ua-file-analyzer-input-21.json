@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": ".dockerignore",
+      "language": "unknown",
+      "sizeLines": 59,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "Dockerfile",
+      "language": "dockerfile",
+      "sizeLines": 87,
+      "fileCategory": "infra"
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "sizeLines": 68,
+      "fileCategory": "infra"
+    }
+  ],
+  "batchImportData": {
+    ".dockerignore": [],
+    "Dockerfile": [],
+    "docker-compose.yml": []
+  }
+}

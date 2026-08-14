@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-startup-simulator/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-startup-simulator/README.md",
+      "summary": "Introduces the CrewAI startup simulation that develops, evaluates, and peer-reviews a business idea and execution plan.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-startup-simulator/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-startup-simulator/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the CrewAI startup simulation that develops, evaluates, and peer-reviews a business idea and execution plan.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:crew-startup-simulator/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-startup-simulator/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the CrewAI startup simulation that develops, evaluates, and peer-reviews a business idea and execution plan.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

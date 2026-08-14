@@ -1,0 +1,1631 @@
+{
+  "nodes": [
+    {
+      "id": "file:langgraph-data-analyst/src/agents/executor.py",
+      "type": "file",
+      "name": "executor.py",
+      "filePath": "langgraph-data-analyst/src/agents/executor.py",
+      "summary": "Implements executor.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/agents/executor.py:execute_plan",
+      "type": "function",
+      "name": "execute_plan",
+      "filePath": "langgraph-data-analyst/src/agents/executor.py",
+      "lineRange": [
+        43,
+        108
+      ],
+      "summary": "Implements the execute_plan operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/agents/executor.py:_extract_code",
+      "type": "function",
+      "name": "_extract_code",
+      "filePath": "langgraph-data-analyst/src/agents/executor.py",
+      "lineRange": [
+        115,
+        123
+      ],
+      "summary": "Implements the _extract_code operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/agents/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "langgraph-data-analyst/src/agents/planner.py",
+      "summary": "Implements planner.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/agents/planner.py:plan_analysis",
+      "type": "function",
+      "name": "plan_analysis",
+      "filePath": "langgraph-data-analyst/src/agents/planner.py",
+      "lineRange": [
+        41,
+        71
+      ],
+      "summary": "Implements the plan_analysis operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/agents/planner.py:_parse_plan",
+      "type": "function",
+      "name": "_parse_plan",
+      "filePath": "langgraph-data-analyst/src/agents/planner.py",
+      "lineRange": [
+        74,
+        99
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/agents/reporter.py",
+      "type": "file",
+      "name": "reporter.py",
+      "filePath": "langgraph-data-analyst/src/agents/reporter.py",
+      "summary": "Implements reporter.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/agents/reporter.py:generate_report",
+      "type": "function",
+      "name": "generate_report",
+      "filePath": "langgraph-data-analyst/src/agents/reporter.py",
+      "lineRange": [
+        51,
+        83
+      ],
+      "summary": "Implements the generate_report operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/agents/validator.py",
+      "type": "file",
+      "name": "validator.py",
+      "filePath": "langgraph-data-analyst/src/agents/validator.py",
+      "summary": "Implements validator.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/agents/validator.py:validate_output",
+      "type": "function",
+      "name": "validate_output",
+      "filePath": "langgraph-data-analyst/src/agents/validator.py",
+      "lineRange": [
+        47,
+        114
+      ],
+      "summary": "Implements the validate_output operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/agents/validator.py:_parse_verdict",
+      "type": "function",
+      "name": "_parse_verdict",
+      "filePath": "langgraph-data-analyst/src/agents/validator.py",
+      "lineRange": [
+        121,
+        153
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/api/app.py",
+      "type": "file",
+      "name": "app.py",
+      "filePath": "langgraph-data-analyst/src/api/app.py",
+      "summary": "Implements app.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/api/app.py:analyze",
+      "type": "function",
+      "name": "analyze",
+      "filePath": "langgraph-data-analyst/src/api/app.py",
+      "lineRange": [
+        30,
+        46
+      ],
+      "summary": "Implements the analyze operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/api/app.py:_run_workflow",
+      "type": "function",
+      "name": "_run_workflow",
+      "filePath": "langgraph-data-analyst/src/api/app.py",
+      "lineRange": [
+        49,
+        56
+      ],
+      "summary": "Implements the _run_workflow operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:langgraph-data-analyst/src/api/app.py:AnalyzeRequest",
+      "type": "class",
+      "name": "AnalyzeRequest",
+      "filePath": "langgraph-data-analyst/src/api/app.py",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "Represents the AnalyzeRequest abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:langgraph-data-analyst/src/api/app.py:AnalyzeResponse",
+      "type": "class",
+      "name": "AnalyzeResponse",
+      "filePath": "langgraph-data-analyst/src/api/app.py",
+      "lineRange": [
+        25,
+        26
+      ],
+      "summary": "Represents the AnalyzeResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/config/settings.py",
+      "type": "file",
+      "name": "settings.py",
+      "filePath": "langgraph-data-analyst/src/config/settings.py",
+      "summary": "Implements settings.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/config/settings.py:setup_logging",
+      "type": "function",
+      "name": "setup_logging",
+      "filePath": "langgraph-data-analyst/src/config/settings.py",
+      "lineRange": [
+        65,
+        82
+      ],
+      "summary": "Implements the setup_logging operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/config/settings.py:ensure_directories",
+      "type": "function",
+      "name": "ensure_directories",
+      "filePath": "langgraph-data-analyst/src/config/settings.py",
+      "lineRange": [
+        85,
+        88
+      ],
+      "summary": "Implements the ensure_directories operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:langgraph-data-analyst/src/config/settings.py:Settings",
+      "type": "class",
+      "name": "Settings",
+      "filePath": "langgraph-data-analyst/src/config/settings.py",
+      "lineRange": [
+        23,
+        60
+      ],
+      "summary": "Represents the Settings abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "type": "file",
+      "name": "workflow.py",
+      "filePath": "langgraph-data-analyst/src/graph/workflow.py",
+      "summary": "Implements workflow.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/graph/workflow.py:_planner",
+      "type": "function",
+      "name": "_planner",
+      "filePath": "langgraph-data-analyst/src/graph/workflow.py",
+      "lineRange": [
+        33,
+        37
+      ],
+      "summary": "Implements the _planner operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/graph/workflow.py:_executor",
+      "type": "function",
+      "name": "_executor",
+      "filePath": "langgraph-data-analyst/src/graph/workflow.py",
+      "lineRange": [
+        40,
+        48
+      ],
+      "summary": "Implements the _executor operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/graph/workflow.py:_validator",
+      "type": "function",
+      "name": "_validator",
+      "filePath": "langgraph-data-analyst/src/graph/workflow.py",
+      "lineRange": [
+        51,
+        57
+      ],
+      "summary": "Implements the _validator operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/graph/workflow.py:_reporter",
+      "type": "function",
+      "name": "_reporter",
+      "filePath": "langgraph-data-analyst/src/graph/workflow.py",
+      "lineRange": [
+        60,
+        65
+      ],
+      "summary": "Implements the _reporter operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/graph/workflow.py:_after_validator",
+      "type": "function",
+      "name": "_after_validator",
+      "filePath": "langgraph-data-analyst/src/graph/workflow.py",
+      "lineRange": [
+        70,
+        81
+      ],
+      "summary": "Implements the _after_validator operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/graph/workflow.py:build_graph",
+      "type": "function",
+      "name": "build_graph",
+      "filePath": "langgraph-data-analyst/src/graph/workflow.py",
+      "lineRange": [
+        86,
+        106
+      ],
+      "summary": "Builds the _graph structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/llm/client.py",
+      "type": "file",
+      "name": "client.py",
+      "filePath": "langgraph-data-analyst/src/llm/client.py",
+      "summary": "Implements client.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/llm/client.py:_client",
+      "type": "function",
+      "name": "_client",
+      "filePath": "langgraph-data-analyst/src/llm/client.py",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "Implements the _client operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/llm/client.py:_generate",
+      "type": "function",
+      "name": "_generate",
+      "filePath": "langgraph-data-analyst/src/llm/client.py",
+      "lineRange": [
+        28,
+        87
+      ],
+      "summary": "Implements the _generate operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/llm/client.py:generate_fast",
+      "type": "function",
+      "name": "generate_fast",
+      "filePath": "langgraph-data-analyst/src/llm/client.py",
+      "lineRange": [
+        90,
+        92
+      ],
+      "summary": "Implements the generate_fast operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/llm/client.py:generate_pro",
+      "type": "function",
+      "name": "generate_pro",
+      "filePath": "langgraph-data-analyst/src/llm/client.py",
+      "lineRange": [
+        95,
+        97
+      ],
+      "summary": "Implements the generate_pro operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/schemas/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "langgraph-data-analyst/src/schemas/state.py",
+      "summary": "Defines shared workflow state and typed data exchanged between nodes.",
+      "tags": [
+        "state-management",
+        "type-definition",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:langgraph-data-analyst/src/schemas/state.py:AnalystState",
+      "type": "class",
+      "name": "AnalystState",
+      "filePath": "langgraph-data-analyst/src/schemas/state.py",
+      "lineRange": [
+        13,
+        40
+      ],
+      "summary": "Represents the AnalystState abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "type": "file",
+      "name": "dataframe_tools.py",
+      "filePath": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "summary": "Implements dataframe_tools.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:load_dataframe",
+      "type": "function",
+      "name": "load_dataframe",
+      "filePath": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "lineRange": [
+        23,
+        55
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:get_basic_info",
+      "type": "function",
+      "name": "get_basic_info",
+      "filePath": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "lineRange": [
+        58,
+        78
+      ],
+      "summary": "Implements the get_basic_info operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:get_summary_stats",
+      "type": "function",
+      "name": "get_summary_stats",
+      "filePath": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "lineRange": [
+        81,
+        106
+      ],
+      "summary": "Implements the get_summary_stats operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:profile_dataset",
+      "type": "function",
+      "name": "profile_dataset",
+      "filePath": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "lineRange": [
+        113,
+        155
+      ],
+      "summary": "Implements the profile_dataset operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "type": "file",
+      "name": "python_executor.py",
+      "filePath": "langgraph-data-analyst/src/tools/python_executor.py",
+      "summary": "Implements python_executor.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/python_executor.py:_check_dangerous",
+      "type": "function",
+      "name": "_check_dangerous",
+      "filePath": "langgraph-data-analyst/src/tools/python_executor.py",
+      "lineRange": [
+        62,
+        68
+      ],
+      "summary": "Implements the _check_dangerous operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/python_executor.py:execute_code",
+      "type": "function",
+      "name": "execute_code",
+      "filePath": "langgraph-data-analyst/src/tools/python_executor.py",
+      "lineRange": [
+        71,
+        151
+      ],
+      "summary": "Implements the execute_code operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:langgraph-data-analyst/src/tools/python_executor.py:CodeResult",
+      "type": "class",
+      "name": "CodeResult",
+      "filePath": "langgraph-data-analyst/src/tools/python_executor.py",
+      "lineRange": [
+        54,
+        59
+      ],
+      "summary": "Represents the CodeResult abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "type": "file",
+      "name": "visualization.py",
+      "filePath": "langgraph-data-analyst/src/tools/visualization.py",
+      "summary": "Implements visualization.py as part of the langgraph-data-analyst application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/visualization.py:_check_plot_code",
+      "type": "function",
+      "name": "_check_plot_code",
+      "filePath": "langgraph-data-analyst/src/tools/visualization.py",
+      "lineRange": [
+        48,
+        54
+      ],
+      "summary": "Implements the _check_plot_code operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/visualization.py:generate_plot",
+      "type": "function",
+      "name": "generate_plot",
+      "filePath": "langgraph-data-analyst/src/tools/visualization.py",
+      "lineRange": [
+        57,
+        114
+      ],
+      "summary": "Implements the generate_plot operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/visualization.py:save_open_figures",
+      "type": "function",
+      "name": "save_open_figures",
+      "filePath": "langgraph-data-analyst/src/tools/visualization.py",
+      "lineRange": [
+        117,
+        144
+      ],
+      "summary": "Implements the save_open_figures operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/visualization.py:apply_default_style",
+      "type": "function",
+      "name": "apply_default_style",
+      "filePath": "langgraph-data-analyst/src/tools/visualization.py",
+      "lineRange": [
+        147,
+        162
+      ],
+      "summary": "Implements the apply_default_style operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:langgraph-data-analyst/src/tools/visualization.py:generate_summary_charts",
+      "type": "function",
+      "name": "generate_summary_charts",
+      "filePath": "langgraph-data-analyst/src/tools/visualization.py",
+      "lineRange": [
+        165,
+        225
+      ],
+      "summary": "Implements the generate_summary_charts operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:langgraph-data-analyst/tests/test_core.py",
+      "type": "file",
+      "name": "test_core.py",
+      "filePath": "langgraph-data-analyst/tests/test_core.py",
+      "summary": "Tests behavior exposed by the corresponding application modules.",
+      "tags": [
+        "test",
+        "verification",
+        "automation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:langgraph-data-analyst/tests/test_core.py:TestLoadDataframe",
+      "type": "class",
+      "name": "TestLoadDataframe",
+      "filePath": "langgraph-data-analyst/tests/test_core.py",
+      "lineRange": [
+        38,
+        63
+      ],
+      "summary": "Represents the TestLoadDataframe abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:langgraph-data-analyst/tests/test_core.py:TestGetBasicInfo",
+      "type": "class",
+      "name": "TestGetBasicInfo",
+      "filePath": "langgraph-data-analyst/tests/test_core.py",
+      "lineRange": [
+        66,
+        93
+      ],
+      "summary": "Represents the TestGetBasicInfo abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:langgraph-data-analyst/tests/test_core.py:TestGetSummaryStats",
+      "type": "class",
+      "name": "TestGetSummaryStats",
+      "filePath": "langgraph-data-analyst/tests/test_core.py",
+      "lineRange": [
+        96,
+        123
+      ],
+      "summary": "Represents the TestGetSummaryStats abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:langgraph-data-analyst/tests/test_core.py:TestExecuteCode",
+      "type": "class",
+      "name": "TestExecuteCode",
+      "filePath": "langgraph-data-analyst/tests/test_core.py",
+      "lineRange": [
+        133,
+        216
+      ],
+      "summary": "Represents the TestExecuteCode abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:langgraph-data-analyst/tests/test_core.py:TestParsePlan",
+      "type": "class",
+      "name": "TestParsePlan",
+      "filePath": "langgraph-data-analyst/tests/test_core.py",
+      "lineRange": [
+        226,
+        285
+      ],
+      "summary": "Represents the TestParsePlan abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:langgraph-data-analyst/src/agents/executor.py",
+      "target": "function:langgraph-data-analyst/src/agents/executor.py:execute_plan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/executor.py",
+      "target": "function:langgraph-data-analyst/src/agents/executor.py:execute_plan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/executor.py",
+      "target": "function:langgraph-data-analyst/src/agents/executor.py:_extract_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/executor.py",
+      "target": "function:langgraph-data-analyst/src/agents/executor.py:_extract_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/executor.py",
+      "target": "file:langgraph-data-analyst/src/llm/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/executor.py",
+      "target": "file:langgraph-data-analyst/src/schemas/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/executor.py",
+      "target": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/planner.py",
+      "target": "function:langgraph-data-analyst/src/agents/planner.py:plan_analysis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/planner.py",
+      "target": "function:langgraph-data-analyst/src/agents/planner.py:plan_analysis",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/planner.py",
+      "target": "function:langgraph-data-analyst/src/agents/planner.py:_parse_plan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/planner.py",
+      "target": "function:langgraph-data-analyst/src/agents/planner.py:_parse_plan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/planner.py",
+      "target": "file:langgraph-data-analyst/src/llm/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/planner.py",
+      "target": "file:langgraph-data-analyst/src/schemas/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/reporter.py",
+      "target": "function:langgraph-data-analyst/src/agents/reporter.py:generate_report",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/reporter.py",
+      "target": "function:langgraph-data-analyst/src/agents/reporter.py:generate_report",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/reporter.py",
+      "target": "file:langgraph-data-analyst/src/llm/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/reporter.py",
+      "target": "file:langgraph-data-analyst/src/schemas/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/validator.py",
+      "target": "function:langgraph-data-analyst/src/agents/validator.py:validate_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/validator.py",
+      "target": "function:langgraph-data-analyst/src/agents/validator.py:validate_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/validator.py",
+      "target": "function:langgraph-data-analyst/src/agents/validator.py:_parse_verdict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/validator.py",
+      "target": "function:langgraph-data-analyst/src/agents/validator.py:_parse_verdict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/validator.py",
+      "target": "file:langgraph-data-analyst/src/llm/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/agents/validator.py",
+      "target": "file:langgraph-data-analyst/src/schemas/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "function:langgraph-data-analyst/src/api/app.py:analyze",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "function:langgraph-data-analyst/src/api/app.py:analyze",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "function:langgraph-data-analyst/src/api/app.py:_run_workflow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "function:langgraph-data-analyst/src/api/app.py:_run_workflow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "class:langgraph-data-analyst/src/api/app.py:AnalyzeRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "class:langgraph-data-analyst/src/api/app.py:AnalyzeRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "class:langgraph-data-analyst/src/api/app.py:AnalyzeResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "class:langgraph-data-analyst/src/api/app.py:AnalyzeResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/api/app.py",
+      "target": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/config/settings.py",
+      "target": "function:langgraph-data-analyst/src/config/settings.py:setup_logging",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/config/settings.py",
+      "target": "function:langgraph-data-analyst/src/config/settings.py:setup_logging",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/config/settings.py",
+      "target": "function:langgraph-data-analyst/src/config/settings.py:ensure_directories",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/config/settings.py",
+      "target": "function:langgraph-data-analyst/src/config/settings.py:ensure_directories",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/config/settings.py",
+      "target": "class:langgraph-data-analyst/src/config/settings.py:Settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/config/settings.py",
+      "target": "class:langgraph-data-analyst/src/config/settings.py:Settings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_planner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_planner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_executor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_executor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_validator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_validator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_reporter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_reporter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_after_validator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:_after_validator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:build_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "function:langgraph-data-analyst/src/graph/workflow.py:build_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "file:langgraph-data-analyst/src/agents/executor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "file:langgraph-data-analyst/src/agents/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "file:langgraph-data-analyst/src/agents/reporter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "file:langgraph-data-analyst/src/agents/validator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/graph/workflow.py",
+      "target": "file:langgraph-data-analyst/src/schemas/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:_generate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:_generate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:generate_fast",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:generate_fast",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:generate_pro",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "function:langgraph-data-analyst/src/llm/client.py:generate_pro",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "file:langgraph-data-analyst/src/config/settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/llm/client.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/schemas/state.py",
+      "target": "class:langgraph-data-analyst/src/schemas/state.py:AnalystState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/schemas/state.py",
+      "target": "class:langgraph-data-analyst/src/schemas/state.py:AnalystState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:load_dataframe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:load_dataframe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:get_basic_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:get_basic_info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:get_summary_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:get_summary_stats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:profile_dataset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "target": "function:langgraph-data-analyst/src/tools/dataframe_tools.py:profile_dataset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "target": "function:langgraph-data-analyst/src/tools/python_executor.py:_check_dangerous",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "target": "function:langgraph-data-analyst/src/tools/python_executor.py:_check_dangerous",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "target": "function:langgraph-data-analyst/src/tools/python_executor.py:execute_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "target": "function:langgraph-data-analyst/src/tools/python_executor.py:execute_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "target": "class:langgraph-data-analyst/src/tools/python_executor.py:CodeResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "target": "class:langgraph-data-analyst/src/tools/python_executor.py:CodeResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "target": "file:langgraph-data-analyst/src/config/settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:_check_plot_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:_check_plot_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:generate_plot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:generate_plot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:save_open_figures",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:save_open_figures",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:apply_default_style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:apply_default_style",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:generate_summary_charts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "function:langgraph-data-analyst/src/tools/visualization.py:generate_summary_charts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/src/tools/visualization.py",
+      "target": "file:langgraph-data-analyst/src/config/settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestLoadDataframe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestLoadDataframe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestGetBasicInfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestGetBasicInfo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestGetSummaryStats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestGetSummaryStats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestExecuteCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestExecuteCode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestParsePlan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "class:langgraph-data-analyst/tests/test_core.py:TestParsePlan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "file:langgraph-data-analyst/src/agents/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "file:langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:langgraph-data-analyst/tests/test_core.py",
+      "target": "file:langgraph-data-analyst/src/tools/python_executor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

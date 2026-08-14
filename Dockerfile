@@ -40,6 +40,8 @@ COPY --from=builder /install /usr/local
 # We now copy each project into its own sub-directory, preserving structure.
 COPY --chown=app:app shared/ ./shared/
 COPY --chown=app:app pyproject.toml requirements.txt ./
+COPY --chown=app:app alembic.ini ./
+COPY --chown=app:app migrations/ ./migrations/
 
 COPY --chown=app:app crew-content-pipeline/    ./crew-content-pipeline/
 COPY --chown=app:app crew-hiring-system/       ./crew-hiring-system/

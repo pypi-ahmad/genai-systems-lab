@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-financial-analyst/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-financial-analyst/README.md",
+      "summary": "Introduces the Financial-analysis pipeline that calculates metrics from CSV data, interprets trends, optionally forecasts, and produces reports.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-financial-analyst/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-financial-analyst/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the Financial-analysis pipeline that calculates metrics from CSV data, interprets trends, optionally forecasts, and produces reports.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-financial-analyst/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-financial-analyst/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the Financial-analysis pipeline that calculates metrics from CSV data, interprets trends, optionally forecasts, and produces reports.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

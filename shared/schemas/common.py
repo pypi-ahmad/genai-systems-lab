@@ -11,7 +11,7 @@ class LLMRequest(BaseModel):
     """Standard request envelope for LLM calls."""
 
     prompt: str = Field(..., min_length=1)
-    model: str = Field(default="gemini-3-flash-preview")
+    model: str = Field(default="gemini-3.7-flash")
     temperature: float = Field(default=0.0, ge=0.0, le=2.0)
     max_tokens: int | None = Field(default=None, ge=1)
     output_schema: dict[str, Any] | None = Field(
@@ -50,6 +50,41 @@ class BaseRequest(BaseModel):
 
     input: str = ""
     session_id: int | None = None
+
+
+class UsageCostBreakdownResponse(BaseModel):
+    model: str
+    pricing_tier: Literal["standard", "long_context"] = "standard"
+    input_tokens: int = 0
+    cached_input_tokens: int = 0
+    output_tokens: int = 0
+    input_rate_per_million_usd: float
+    cached_input_rate_per_million_usd: float | None = None
+    output_rate_per_million_usd: float
+    input_cost_usd: float = 0.0
+    output_cost_usd: float = 0.0
+    estimated_cost_usd: float = 0.0
+
+
+class UsageResponse(BaseModel):
+    input_tokens: int = 0
+    output_tokens: int = 0
+    total_tokens: int = 0
+    estimated_cost_usd: float | None = None
+    models_used: list[str] = Field(default_factory=list)
+    cost_breakdown: list[UsageCostBreakdownResponse] = Field(default_factory=list)
+
+
+class JobResponse(BaseModel):
+    id: str
+    project: str
+    status: Literal["queued", "running", "succeeded", "failed", "cancelled"]
+    output: str | None = None
+    error: str | None = None
+    usage: UsageResponse | None = None
+    created_at: str | None = None
+    started_at: str | None = None
+    finished_at: str | None = None
 
 
 class RunMemoryEntryResponse(BaseModel):
@@ -96,6 +131,7 @@ class BaseResponse(BaseModel):
     success: bool = True
     memory: list[RunMemoryEntryResponse] = Field(default_factory=list)
     timeline: list[RunTimelineEntryResponse] = Field(default_factory=list)
+    usage: UsageResponse | None = None
 
 
 class AuthRequest(BaseModel):
@@ -123,13 +159,15 @@ class LLMModelOptionResponse(BaseModel):
 
     id: str
     label: str
-    provider: Literal["gemini", "openai", "anthropic", "ollama"]
+    provider: Literal["gemini", "openai", "anthropic", "xai", "ollama"]
+    effort_options: list[str] = Field(default_factory=list)
+    pricing: dict[str, float | int | str] | None = None
 
 
 class LLMProviderResponse(BaseModel):
     """Provider-specific configuration surfaced to the frontend."""
 
-    id: Literal["gemini", "openai", "anthropic", "ollama"]
+    id: Literal["gemini", "openai", "anthropic", "xai", "ollama"]
     label: str
     requires_api_key: bool
     api_key_label: str
@@ -172,6 +210,11 @@ class HistoryRunResponse(BaseModel):
     share_token: str | None = None
     is_public: bool = False
     expires_at: str | None = None
+    prompt_tokens: int | None = None
+    completion_tokens: int | None = None
+    total_tokens: int | None = None
+    cost_usd: float | None = None
+    model_used: str | None = None
 
 
 class RunExplanationResponse(BaseModel):

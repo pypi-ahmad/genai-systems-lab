@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "benchmarks/promptfoo/tests/code_tests.yaml",
+      "language": "yaml",
+      "sizeLines": 50,
+      "fileCategory": "config"
+    },
+    {
+      "path": "benchmarks/promptfoo/tests/research_tests.yaml",
+      "language": "yaml",
+      "sizeLines": 60,
+      "fileCategory": "config"
+    },
+    {
+      "path": "benchmarks/promptfoo/tests/summarization_tests.yaml",
+      "language": "yaml",
+      "sizeLines": 62,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "benchmarks/promptfoo/tests/code_tests.yaml": [],
+    "benchmarks/promptfoo/tests/research_tests.yaml": [],
+    "benchmarks/promptfoo/tests/summarization_tests.yaml": []
+  }
+}

@@ -1,0 +1,301 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "language": "python",
+      "sizeLines": 74,
+      "fileCategory": "code"
+    },
+    {
+      "path": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "language": "python",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "benchmarks/promptfoo/providers/project_provider.py",
+      "language": "python",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "benchmarks/promptfoo/providers/project_utils.py",
+      "language": "python",
+      "sizeLines": 167,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-content-pipeline/app/agents.py",
+      "language": "python",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-content-pipeline/app/crew.py",
+      "language": "python",
+      "sizeLines": 36,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-content-pipeline/app/main.py",
+      "language": "python",
+      "sizeLines": 25,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-content-pipeline/app/tasks.py",
+      "language": "python",
+      "sizeLines": 73,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-nl2sql-agent/app/main.py",
+      "language": "python",
+      "sizeLines": 47,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/graph.py",
+      "language": "python",
+      "sizeLines": 27,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/main.py",
+      "language": "python",
+      "sizeLines": 37,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/nodes/__init__.py",
+      "language": "python",
+      "sizeLines": 1,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/nodes/critic.py",
+      "language": "python",
+      "sizeLines": 40,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/nodes/planner.py",
+      "language": "python",
+      "sizeLines": 35,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/nodes/researcher.py",
+      "language": "python",
+      "sizeLines": 50,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/nodes/writer.py",
+      "language": "python",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/app/state.py",
+      "language": "python",
+      "sizeLines": 23,
+      "fileCategory": "code"
+    },
+    {
+      "path": "lg-research-agent/tests/test_main.py",
+      "language": "python",
+      "sizeLines": 59,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/config.py",
+      "language": "python",
+      "sizeLines": 208,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/__init__.py",
+      "language": "python",
+      "sizeLines": 15,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/catalog.py",
+      "language": "python",
+      "sizeLines": 235,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/dispatch.py",
+      "language": "python",
+      "sizeLines": 333,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/exceptions.py",
+      "language": "python",
+      "sizeLines": 13,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/gemini_provider.py",
+      "language": "python",
+      "sizeLines": 305,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/providers.py",
+      "language": "python",
+      "sizeLines": 726,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/telemetry.py",
+      "language": "python",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "shared/llm/token_events.py",
+      "language": "python",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test_llm_usage.py",
+      "language": "python",
+      "sizeLines": 39,
+      "fileCategory": "code"
+    },
+    {
+      "path": "tests/test_native_streaming.py",
+      "language": "python",
+      "sizeLines": 28,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "benchmarks/promptfoo/providers/code_copilot_rag_provider.py": [
+      "benchmarks/promptfoo/providers/project_utils.py"
+    ],
+    "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py": [
+      "benchmarks/promptfoo/providers/project_utils.py"
+    ],
+    "benchmarks/promptfoo/providers/project_provider.py": [
+      "benchmarks/promptfoo/providers/project_utils.py",
+      "shared/api/runner.py"
+    ],
+    "benchmarks/promptfoo/providers/project_utils.py": [
+      "shared/config.py",
+      "shared/llm/catalog.py"
+    ],
+    "crew-content-pipeline/app/agents.py": [],
+    "crew-content-pipeline/app/crew.py": [
+      "crew-content-pipeline/app/agents.py",
+      "crew-content-pipeline/app/tasks.py"
+    ],
+    "crew-content-pipeline/app/main.py": [
+      "crew-content-pipeline/app/crew.py",
+      "shared/config.py"
+    ],
+    "crew-content-pipeline/app/tasks.py": [],
+    "genai-nl2sql-agent/app/main.py": [
+      "shared/config.py"
+    ],
+    "lg-research-agent/app/__init__.py": [],
+    "lg-research-agent/app/graph.py": [
+      "lg-research-agent/app/nodes/critic.py",
+      "lg-research-agent/app/nodes/planner.py",
+      "lg-research-agent/app/nodes/researcher.py",
+      "lg-research-agent/app/nodes/writer.py",
+      "lg-research-agent/app/state.py",
+      "shared/api/langgraph_events.py"
+    ],
+    "lg-research-agent/app/main.py": [
+      "lg-research-agent/app/graph.py",
+      "lg-research-agent/app/state.py",
+      "shared/config.py"
+    ],
+    "lg-research-agent/app/nodes/__init__.py": [],
+    "lg-research-agent/app/nodes/critic.py": [
+      "lg-research-agent/app/state.py",
+      "shared/config.py",
+      "shared/llm/__init__.py"
+    ],
+    "lg-research-agent/app/nodes/planner.py": [
+      "lg-research-agent/app/state.py",
+      "shared/config.py",
+      "shared/llm/__init__.py"
+    ],
+    "lg-research-agent/app/nodes/researcher.py": [
+      "lg-research-agent/app/state.py",
+      "shared/config.py",
+      "shared/llm/__init__.py"
+    ],
+    "lg-research-agent/app/nodes/writer.py": [
+      "lg-research-agent/app/state.py",
+      "shared/config.py",
+      "shared/llm/__init__.py"
+    ],
+    "lg-research-agent/app/state.py": [],
+    "lg-research-agent/tests/test_main.py": [
+      "lg-research-agent/app/__init__.py",
+      "lg-research-agent/app/nodes/__init__.py",
+      "lg-research-agent/app/nodes/critic.py",
+      "lg-research-agent/app/nodes/planner.py",
+      "lg-research-agent/app/nodes/researcher.py",
+      "lg-research-agent/app/nodes/writer.py"
+    ],
+    "shared/config.py": [],
+    "shared/llm/__init__.py": [
+      "shared/llm/dispatch.py",
+      "shared/llm/exceptions.py"
+    ],
+    "shared/llm/catalog.py": [],
+    "shared/llm/dispatch.py": [
+      "shared/config.py",
+      "shared/llm/catalog.py",
+      "shared/llm/exceptions.py",
+      "shared/llm/gemini_provider.py",
+      "shared/llm/providers.py",
+      "shared/llm/telemetry.py",
+      "shared/llm/token_events.py",
+      "shared/observability/langfuse.py"
+    ],
+    "shared/llm/exceptions.py": [],
+    "shared/llm/gemini_provider.py": [
+      "shared/config.py",
+      "shared/llm/exceptions.py",
+      "shared/llm/telemetry.py",
+      "shared/logging/__init__.py"
+    ],
+    "shared/llm/providers.py": [
+      "shared/config.py",
+      "shared/llm/catalog.py",
+      "shared/llm/exceptions.py",
+      "shared/llm/telemetry.py",
+      "shared/logging/__init__.py"
+    ],
+    "shared/llm/telemetry.py": [],
+    "shared/llm/token_events.py": [],
+    "tests/test_llm_usage.py": [
+      "shared/llm/catalog.py",
+      "shared/llm/telemetry.py"
+    ],
+    "tests/test_native_streaming.py": [
+      "shared/config.py",
+      "shared/llm/__init__.py",
+      "shared/llm/dispatch.py",
+      "shared/llm/telemetry.py",
+      "shared/llm/token_events.py"
+    ]
+  }
+}

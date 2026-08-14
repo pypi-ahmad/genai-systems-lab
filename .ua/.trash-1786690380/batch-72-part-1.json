@@ -1,0 +1,1136 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-code-copilot/app/indexer.py",
+      "type": "file",
+      "name": "indexer.py",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "summary": "Implements _load_local_symbol, _load_scan_directory, _load_generate_embeddings_batch, _make_chunk for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_load_local_symbol",
+      "type": "function",
+      "name": "_load_local_symbol",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        58,
+        73
+      ],
+      "summary": "Implements _load_local_symbol for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_load_scan_directory",
+      "type": "function",
+      "name": "_load_scan_directory",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        76,
+        77
+      ],
+      "summary": "Implements _load_scan_directory for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_load_generate_embeddings_batch",
+      "type": "function",
+      "name": "_load_generate_embeddings_batch",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        80,
+        81
+      ],
+      "summary": "Implements _load_generate_embeddings_batch for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_make_chunk",
+      "type": "function",
+      "name": "_make_chunk",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        84,
+        89
+      ],
+      "summary": "Implements _make_chunk for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_slice_lines",
+      "type": "function",
+      "name": "_slice_lines",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        92,
+        95
+      ],
+      "summary": "Implements _slice_lines for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_expand_python_context_start",
+      "type": "function",
+      "name": "_expand_python_context_start",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        98,
+        111
+      ],
+      "summary": "Implements _expand_python_context_start for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_python_node_start_line",
+      "type": "function",
+      "name": "_python_node_start_line",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        114,
+        122
+      ],
+      "summary": "Implements _python_node_start_line for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_collect_python_chunk_nodes",
+      "type": "function",
+      "name": "_collect_python_chunk_nodes",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        125,
+        159
+      ],
+      "summary": "Implements _collect_python_chunk_nodes for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_chunk_python",
+      "type": "function",
+      "name": "_chunk_python",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        162,
+        184
+      ],
+      "summary": "Implements _chunk_python for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_find_script_block_starts",
+      "type": "function",
+      "name": "_find_script_block_starts",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        187,
+        194
+      ],
+      "summary": "Implements _find_script_block_starts for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_chunk_script",
+      "type": "function",
+      "name": "_chunk_script",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        197,
+        215
+      ],
+      "summary": "Implements _chunk_script for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_fallback_chunks",
+      "type": "function",
+      "name": "_fallback_chunks",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        218,
+        238
+      ],
+      "summary": "Implements _fallback_chunks for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:chunk_code",
+      "type": "function",
+      "name": "chunk_code",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        241,
+        254
+      ],
+      "summary": "Implements chunk_code for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:chunk_files",
+      "type": "function",
+      "name": "chunk_files",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        257,
+        268
+      ],
+      "summary": "Implements chunk_files for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_build_document_metadata",
+      "type": "function",
+      "name": "_build_document_metadata",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        271,
+        275
+      ],
+      "summary": "Implements _build_document_metadata for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:_cosine_similarity",
+      "type": "function",
+      "name": "_cosine_similarity",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        278,
+        285
+      ],
+      "summary": "Implements _cosine_similarity for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:add_documents",
+      "type": "function",
+      "name": "add_documents",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        288,
+        310
+      ],
+      "summary": "Implements add_documents for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:index_codebase",
+      "type": "function",
+      "name": "index_codebase",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        313,
+        340
+      ],
+      "summary": "Implements index_codebase for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:search",
+      "type": "function",
+      "name": "search",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        343,
+        366
+      ],
+      "summary": "Implements search for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/indexer.py:index_directory",
+      "type": "function",
+      "name": "index_directory",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        369,
+        371
+      ],
+      "summary": "Implements index_directory for the indexer.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/indexer.py:CodeChunk",
+      "type": "class",
+      "name": "CodeChunk",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        24,
+        27
+      ],
+      "summary": "Encapsulates CodeChunk behavior for the indexer.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/indexer.py:DocumentMetadata",
+      "type": "class",
+      "name": "DocumentMetadata",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        30,
+        32
+      ],
+      "summary": "Encapsulates DocumentMetadata behavior for the indexer.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/indexer.py:VectorDocument",
+      "type": "class",
+      "name": "VectorDocument",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        35,
+        38
+      ],
+      "summary": "Encapsulates VectorDocument behavior for the indexer.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/indexer.py:SearchResult",
+      "type": "class",
+      "name": "SearchResult",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        41,
+        44
+      ],
+      "summary": "Encapsulates SearchResult behavior for the indexer.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/indexer.py:ParsedFile",
+      "type": "class",
+      "name": "ParsedFile",
+      "filePath": "genai-code-copilot/app/indexer.py",
+      "lineRange": [
+        53,
+        55
+      ],
+      "summary": "Encapsulates ParsedFile behavior for the indexer.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-code-copilot/app/qa_agent.py",
+      "type": "file",
+      "name": "qa_agent.py",
+      "filePath": "genai-code-copilot/app/qa_agent.py",
+      "summary": "Implements _load_symbol, _build_qa_prompt, answer_question for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/qa_agent.py:_load_symbol",
+      "type": "function",
+      "name": "_load_symbol",
+      "filePath": "genai-code-copilot/app/qa_agent.py",
+      "lineRange": [
+        10,
+        25
+      ],
+      "summary": "Implements _load_symbol for the qa_agent.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/qa_agent.py:_build_qa_prompt",
+      "type": "function",
+      "name": "_build_qa_prompt",
+      "filePath": "genai-code-copilot/app/qa_agent.py",
+      "lineRange": [
+        31,
+        50
+      ],
+      "summary": "Implements _build_qa_prompt for the qa_agent.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/qa_agent.py:answer_question",
+      "type": "function",
+      "name": "answer_question",
+      "filePath": "genai-code-copilot/app/qa_agent.py",
+      "lineRange": [
+        53,
+        65
+      ],
+      "summary": "Implements answer_question for the qa_agent.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-code-copilot/app/retriever.py",
+      "type": "file",
+      "name": "retriever.py",
+      "filePath": "genai-code-copilot/app/retriever.py",
+      "summary": "Implements _load_symbol, retrieve, RetrievedChunk for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/retriever.py:_load_symbol",
+      "type": "function",
+      "name": "_load_symbol",
+      "filePath": "genai-code-copilot/app/retriever.py",
+      "lineRange": [
+        16,
+        31
+      ],
+      "summary": "Implements _load_symbol for the retriever.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/retriever.py:retrieve",
+      "type": "function",
+      "name": "retrieve",
+      "filePath": "genai-code-copilot/app/retriever.py",
+      "lineRange": [
+        38,
+        52
+      ],
+      "summary": "Implements retrieve for the retriever.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/retriever.py:RetrievedChunk",
+      "type": "class",
+      "name": "RetrievedChunk",
+      "filePath": "genai-code-copilot/app/retriever.py",
+      "lineRange": [
+        11,
+        13
+      ],
+      "summary": "Encapsulates RetrievedChunk behavior for the retriever.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-doc-intelligence/app/__init__.py",
+      "summary": "Marks genai-doc-intelligence/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/data/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-doc-intelligence/data/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-doc-intelligence/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-financial-analyst/app/__init__.py",
+      "summary": "Marks genai-financial-analyst/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/data/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-financial-analyst/data/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/data/fintech_saas_financials.csv",
+      "type": "file",
+      "name": "fintech_saas_financials.csv",
+      "filePath": "genai-financial-analyst/data/fintech_saas_financials.csv",
+      "summary": "Stores structured csv used by the project.",
+      "tags": [
+        "data",
+        "dataset",
+        "csv"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-financial-analyst/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-financial-analyst/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-interviewer/app/__init__.py",
+      "summary": "Marks genai-interviewer/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-interviewer/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-knowledge-os/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-knowledge-os/app/__init__.py",
+      "summary": "Marks genai-knowledge-os/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_load_local_symbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_load_local_symbol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_load_scan_directory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_load_scan_directory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_load_generate_embeddings_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_load_generate_embeddings_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_make_chunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_make_chunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_slice_lines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_slice_lines",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_expand_python_context_start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_expand_python_context_start",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_python_node_start_line",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_python_node_start_line",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_collect_python_chunk_nodes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_collect_python_chunk_nodes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_chunk_python",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_chunk_python",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_find_script_block_starts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_find_script_block_starts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_chunk_script",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_chunk_script",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_fallback_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_fallback_chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:chunk_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:chunk_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:chunk_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:chunk_files",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_build_document_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_build_document_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_cosine_similarity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:_cosine_similarity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:add_documents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:add_documents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:index_codebase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:index_codebase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:search",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:search",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:index_directory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "function:genai-code-copilot/app/indexer.py:index_directory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:CodeChunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:CodeChunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:DocumentMetadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:DocumentMetadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:VectorDocument",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:VectorDocument",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:SearchResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:SearchResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:ParsedFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/indexer.py",
+      "target": "class:genai-code-copilot/app/indexer.py:ParsedFile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/qa_agent.py",
+      "target": "function:genai-code-copilot/app/qa_agent.py:_load_symbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/qa_agent.py",
+      "target": "function:genai-code-copilot/app/qa_agent.py:_load_symbol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/qa_agent.py",
+      "target": "function:genai-code-copilot/app/qa_agent.py:_build_qa_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/qa_agent.py",
+      "target": "function:genai-code-copilot/app/qa_agent.py:_build_qa_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/qa_agent.py",
+      "target": "function:genai-code-copilot/app/qa_agent.py:answer_question",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/qa_agent.py",
+      "target": "function:genai-code-copilot/app/qa_agent.py:answer_question",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/retriever.py",
+      "target": "function:genai-code-copilot/app/retriever.py:_load_symbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/retriever.py",
+      "target": "function:genai-code-copilot/app/retriever.py:_load_symbol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/retriever.py",
+      "target": "function:genai-code-copilot/app/retriever.py:retrieve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/retriever.py",
+      "target": "function:genai-code-copilot/app/retriever.py:retrieve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/retriever.py",
+      "target": "class:genai-code-copilot/app/retriever.py:RetrievedChunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/retriever.py",
+      "target": "class:genai-code-copilot/app/retriever.py:RetrievedChunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

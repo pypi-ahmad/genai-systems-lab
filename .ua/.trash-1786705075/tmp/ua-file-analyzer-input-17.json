@@ -1,0 +1,41 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "crew-hiring-system/app/agents.py",
+      "language": "python",
+      "sizeLines": 128,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-hiring-system/app/crew.py",
+      "language": "python",
+      "sizeLines": 136,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-hiring-system/app/main.py",
+      "language": "python",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-hiring-system/app/tasks.py",
+      "language": "python",
+      "sizeLines": 447,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "crew-hiring-system/app/agents.py": [],
+    "crew-hiring-system/app/crew.py": [
+      "crew-hiring-system/app/agents.py",
+      "crew-hiring-system/app/tasks.py"
+    ],
+    "crew-hiring-system/app/main.py": [
+      "crew-hiring-system/app/crew.py",
+      "shared/config.py"
+    ],
+    "crew-hiring-system/app/tasks.py": []
+  }
+}

@@ -1,0 +1,1408 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "crew-startup-simulator/app/agents.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 79,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "build_ceo",
+          "startLine": 9,
+          "endLine": 24,
+          "params": []
+        },
+        {
+          "name": "build_product_manager",
+          "startLine": 27,
+          "endLine": 42,
+          "params": []
+        },
+        {
+          "name": "build_cto",
+          "startLine": 45,
+          "endLine": 61,
+          "params": []
+        },
+        {
+          "name": "build_engineer",
+          "startLine": 64,
+          "endLine": 79,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_ceo",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "build_product_manager",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "build_cto",
+          "line": 45,
+          "isDefault": false
+        },
+        {
+          "name": "build_engineer",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_ceo",
+          "callee": "Agent",
+          "lineNumber": 10
+        },
+        {
+          "caller": "build_product_manager",
+          "callee": "Agent",
+          "lineNumber": 28
+        },
+        {
+          "caller": "build_cto",
+          "callee": "Agent",
+          "lineNumber": 46
+        },
+        {
+          "caller": "build_engineer",
+          "callee": "Agent",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/app/crew.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 59,
+      "functions": [
+        {
+          "name": "build_crew",
+          "startLine": 17,
+          "endLine": 61,
+          "params": [
+            "idea",
+            "verbose"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 64,
+          "endLine": 70,
+          "params": [
+            "idea",
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_crew",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_crew",
+          "callee": "build_ceo",
+          "lineNumber": 18
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_product_manager",
+          "lineNumber": 19
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_cto",
+          "lineNumber": 20
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_engineer",
+          "lineNumber": 21
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_proposal_task",
+          "lineNumber": 24
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_proposal_task",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_proposal_task",
+          "lineNumber": 26
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_selection_task",
+          "lineNumber": 29
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_product_task",
+          "lineNumber": 34
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_architecture_task",
+          "lineNumber": 35
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_execution_task",
+          "lineNumber": 36
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_review_task",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_review_task",
+          "lineNumber": 40
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_review_task",
+          "lineNumber": 41
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_review_task",
+          "lineNumber": 42
+        },
+        {
+          "caller": "build_crew",
+          "callee": "Crew",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 65
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run",
+          "callee": "RuntimeError",
+          "lineNumber": 69
+        },
+        {
+          "caller": "run",
+          "callee": "str",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "_parse_json",
+          "startLine": 23,
+          "endLine": 34,
+          "params": [
+            "raw"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 37,
+          "endLine": 52,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_parse_json",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 37,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_parse_json",
+          "callee": "raw.strip",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.startswith",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.splitlines",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip().startswith",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join(lines).strip",
+          "lineNumber": 30
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join",
+          "lineNumber": 30
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "json.loads",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 42
+        },
+        {
+          "caller": "run",
+          "callee": "hasattr",
+          "lineNumber": 43
+        },
+        {
+          "caller": "run",
+          "callee": "enumerate",
+          "lineNumber": 45
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run",
+          "callee": "_parse_json",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 52
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/app/tasks.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 206,
+      "nonEmptyLines": 183,
+      "functions": [
+        {
+          "name": "build_vision_task",
+          "startLine": 69,
+          "endLine": 83,
+          "params": [
+            "agent",
+            "idea"
+          ]
+        },
+        {
+          "name": "build_product_task",
+          "startLine": 86,
+          "endLine": 101,
+          "params": [
+            "agent",
+            "vision_task"
+          ]
+        },
+        {
+          "name": "build_architecture_task",
+          "startLine": 104,
+          "endLine": 120,
+          "params": [
+            "agent",
+            "product_task"
+          ]
+        },
+        {
+          "name": "build_execution_task",
+          "startLine": 123,
+          "endLine": 140,
+          "params": [
+            "agent",
+            "architecture_task"
+          ]
+        },
+        {
+          "name": "build_proposal_task",
+          "startLine": 143,
+          "endLine": 158,
+          "params": [
+            "agent",
+            "idea",
+            "perspective"
+          ]
+        },
+        {
+          "name": "build_selection_task",
+          "startLine": 161,
+          "endLine": 182,
+          "params": [
+            "agent",
+            "proposal_tasks"
+          ]
+        },
+        {
+          "name": "build_review_task",
+          "startLine": 185,
+          "endLine": 206,
+          "params": [
+            "reviewer",
+            "target_task",
+            "target_role"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_vision_task",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "build_product_task",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "build_architecture_task",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "build_execution_task",
+          "line": 123,
+          "isDefault": false
+        },
+        {
+          "name": "build_proposal_task",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "build_selection_task",
+          "line": 161,
+          "isDefault": false
+        },
+        {
+          "name": "build_review_task",
+          "line": 185,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_vision_task",
+          "callee": "Task",
+          "lineNumber": 70
+        },
+        {
+          "caller": "build_vision_task",
+          "callee": "json.dumps",
+          "lineNumber": 78
+        },
+        {
+          "caller": "build_product_task",
+          "callee": "Task",
+          "lineNumber": 87
+        },
+        {
+          "caller": "build_product_task",
+          "callee": "json.dumps",
+          "lineNumber": 95
+        },
+        {
+          "caller": "build_architecture_task",
+          "callee": "Task",
+          "lineNumber": 105
+        },
+        {
+          "caller": "build_architecture_task",
+          "callee": "json.dumps",
+          "lineNumber": 114
+        },
+        {
+          "caller": "build_execution_task",
+          "callee": "Task",
+          "lineNumber": 124
+        },
+        {
+          "caller": "build_execution_task",
+          "callee": "json.dumps",
+          "lineNumber": 134
+        },
+        {
+          "caller": "build_proposal_task",
+          "callee": "Task",
+          "lineNumber": 144
+        },
+        {
+          "caller": "build_proposal_task",
+          "callee": "json.dumps",
+          "lineNumber": 153
+        },
+        {
+          "caller": "build_selection_task",
+          "callee": "Task",
+          "lineNumber": 162
+        },
+        {
+          "caller": "build_selection_task",
+          "callee": "json.dumps",
+          "lineNumber": 176
+        },
+        {
+          "caller": "build_review_task",
+          "callee": "Task",
+          "lineNumber": 186
+        },
+        {
+          "caller": "build_review_task",
+          "callee": "json.dumps",
+          "lineNumber": 198
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/tests/test_all.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 312,
+      "nonEmptyLines": 228,
+      "functions": [
+        {
+          "name": "test_build_ceo",
+          "startLine": 90,
+          "endLine": 94,
+          "params": []
+        },
+        {
+          "name": "test_build_product_manager",
+          "startLine": 97,
+          "endLine": 100,
+          "params": []
+        },
+        {
+          "name": "test_build_cto",
+          "startLine": 103,
+          "endLine": 106,
+          "params": []
+        },
+        {
+          "name": "test_build_engineer",
+          "startLine": 109,
+          "endLine": 112,
+          "params": []
+        },
+        {
+          "name": "test_proposal_schema_keys",
+          "startLine": 117,
+          "endLine": 119,
+          "params": []
+        },
+        {
+          "name": "test_selection_schema_keys",
+          "startLine": 122,
+          "endLine": 128,
+          "params": []
+        },
+        {
+          "name": "test_product_schema_keys",
+          "startLine": 131,
+          "endLine": 133,
+          "params": []
+        },
+        {
+          "name": "test_review_schema_keys",
+          "startLine": 136,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "test_build_proposal_task",
+          "startLine": 143,
+          "endLine": 149,
+          "params": []
+        },
+        {
+          "name": "test_build_proposal_task_embeds_schema",
+          "startLine": 152,
+          "endLine": 156,
+          "params": []
+        },
+        {
+          "name": "test_build_selection_task",
+          "startLine": 159,
+          "endLine": 169,
+          "params": []
+        },
+        {
+          "name": "test_build_vision_task",
+          "startLine": 172,
+          "endLine": 176,
+          "params": []
+        },
+        {
+          "name": "test_build_product_task_has_context",
+          "startLine": 179,
+          "endLine": 184,
+          "params": []
+        },
+        {
+          "name": "test_build_architecture_task_has_context",
+          "startLine": 187,
+          "endLine": 193,
+          "params": []
+        },
+        {
+          "name": "test_build_execution_task_has_context",
+          "startLine": 196,
+          "endLine": 202,
+          "params": []
+        },
+        {
+          "name": "test_build_review_task",
+          "startLine": 205,
+          "endLine": 212,
+          "params": []
+        },
+        {
+          "name": "test_build_crew_returns_crew",
+          "startLine": 217,
+          "endLine": 219,
+          "params": []
+        },
+        {
+          "name": "test_build_crew_has_four_agents",
+          "startLine": 222,
+          "endLine": 224,
+          "params": []
+        },
+        {
+          "name": "test_build_crew_has_eleven_tasks",
+          "startLine": 227,
+          "endLine": 229,
+          "params": []
+        },
+        {
+          "name": "test_build_crew_task_order",
+          "startLine": 232,
+          "endLine": 250,
+          "params": []
+        },
+        {
+          "name": "test_build_crew_sequential_process",
+          "startLine": 253,
+          "endLine": 255,
+          "params": []
+        },
+        {
+          "name": "test_build_crew_proposal_agents",
+          "startLine": 258,
+          "endLine": 263,
+          "params": []
+        },
+        {
+          "name": "test_build_crew_selection_agent_is_ceo",
+          "startLine": 266,
+          "endLine": 268,
+          "params": []
+        },
+        {
+          "name": "test_step_labels_count",
+          "startLine": 273,
+          "endLine": 274,
+          "params": []
+        },
+        {
+          "name": "test_step_labels_has_proposals",
+          "startLine": 277,
+          "endLine": 280,
+          "params": []
+        },
+        {
+          "name": "test_step_labels_has_selection",
+          "startLine": 283,
+          "endLine": 284,
+          "params": []
+        },
+        {
+          "name": "test_step_labels_order",
+          "startLine": 287,
+          "endLine": 291,
+          "params": []
+        },
+        {
+          "name": "test_parse_json_valid",
+          "startLine": 294,
+          "endLine": 296,
+          "params": []
+        },
+        {
+          "name": "test_parse_json_markdown_fences",
+          "startLine": 299,
+          "endLine": 301,
+          "params": []
+        },
+        {
+          "name": "test_parse_json_invalid",
+          "startLine": 304,
+          "endLine": 305,
+          "params": []
+        },
+        {
+          "name": "test_run_returns_structured_steps",
+          "startLine": 308,
+          "endLine": 312,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "FakeAgent",
+          "startLine": 9,
+          "endLine": 15,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FakeTask",
+          "startLine": 18,
+          "endLine": 23,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FakeProcess",
+          "startLine": 26,
+          "endLine": 27,
+          "methods": [],
+          "properties": []
+        },
+        {
+          "name": "FakeTaskOutput",
+          "startLine": 30,
+          "endLine": 32,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FakeResult",
+          "startLine": 35,
+          "endLine": 39,
+          "methods": [
+            "__init__"
+          ],
+          "properties": []
+        },
+        {
+          "name": "FakeCrew",
+          "startLine": 42,
+          "endLine": 50,
+          "methods": [
+            "__init__",
+            "kickoff"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "FakeAgent",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "FakeTask",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "FakeProcess",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "FakeTaskOutput",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "FakeResult",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "FakeCrew",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_ceo",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_product_manager",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_cto",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_engineer",
+          "line": 109,
+          "isDefault": false
+        },
+        {
+          "name": "test_proposal_schema_keys",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "test_selection_schema_keys",
+          "line": 122,
+          "isDefault": false
+        },
+        {
+          "name": "test_product_schema_keys",
+          "line": 131,
+          "isDefault": false
+        },
+        {
+          "name": "test_review_schema_keys",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_proposal_task",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_proposal_task_embeds_schema",
+          "line": 152,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_selection_task",
+          "line": 159,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_vision_task",
+          "line": 172,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_product_task_has_context",
+          "line": 179,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_architecture_task_has_context",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_execution_task_has_context",
+          "line": 196,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_review_task",
+          "line": 205,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_crew_returns_crew",
+          "line": 217,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_crew_has_four_agents",
+          "line": 222,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_crew_has_eleven_tasks",
+          "line": 227,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_crew_task_order",
+          "line": 232,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_crew_sequential_process",
+          "line": 253,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_crew_proposal_agents",
+          "line": 258,
+          "isDefault": false
+        },
+        {
+          "name": "test_build_crew_selection_agent_is_ceo",
+          "line": 266,
+          "isDefault": false
+        },
+        {
+          "name": "test_step_labels_count",
+          "line": 273,
+          "isDefault": false
+        },
+        {
+          "name": "test_step_labels_has_proposals",
+          "line": 277,
+          "isDefault": false
+        },
+        {
+          "name": "test_step_labels_has_selection",
+          "line": 283,
+          "isDefault": false
+        },
+        {
+          "name": "test_step_labels_order",
+          "line": 287,
+          "isDefault": false
+        },
+        {
+          "name": "test_parse_json_valid",
+          "line": 294,
+          "isDefault": false
+        },
+        {
+          "name": "test_parse_json_markdown_fences",
+          "line": 299,
+          "isDefault": false
+        },
+        {
+          "name": "test_parse_json_invalid",
+          "line": 304,
+          "isDefault": false
+        },
+        {
+          "name": "test_run_returns_structured_steps",
+          "line": 308,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 11
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 12
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 13
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 14
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 20
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 21
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 22
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 23
+        },
+        {
+          "caller": "__init__",
+          "callee": "FakeTaskOutput",
+          "lineNumber": 38
+        },
+        {
+          "caller": "__init__",
+          "callee": "json.dumps",
+          "lineNumber": 38
+        },
+        {
+          "caller": "__init__",
+          "callee": "range",
+          "lineNumber": 38
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 44
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 45
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "__init__",
+          "callee": "kwargs.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "kickoff",
+          "callee": "FakeResult",
+          "lineNumber": 50
+        },
+        {
+          "caller": "kickoff",
+          "callee": "len",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_build_ceo",
+          "callee": "build_ceo",
+          "lineNumber": 91
+        },
+        {
+          "caller": "test_build_product_manager",
+          "callee": "build_product_manager",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_build_cto",
+          "callee": "build_cto",
+          "lineNumber": 104
+        },
+        {
+          "caller": "test_build_engineer",
+          "callee": "build_engineer",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_proposal_schema_keys",
+          "callee": "set",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_proposal_schema_keys",
+          "callee": "PROPOSAL_SCHEMA.keys",
+          "lineNumber": 119
+        },
+        {
+          "caller": "test_selection_schema_keys",
+          "callee": "set",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_selection_schema_keys",
+          "callee": "SELECTION_SCHEMA.keys",
+          "lineNumber": 128
+        },
+        {
+          "caller": "test_review_schema_keys",
+          "callee": "set",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_review_schema_keys",
+          "callee": "REVIEW_SCHEMA.keys",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_build_proposal_task",
+          "callee": "build_cto",
+          "lineNumber": 144
+        },
+        {
+          "caller": "test_build_proposal_task",
+          "callee": "build_proposal_task",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_build_proposal_task_embeds_schema",
+          "callee": "build_product_manager",
+          "lineNumber": 153
+        },
+        {
+          "caller": "test_build_proposal_task_embeds_schema",
+          "callee": "build_proposal_task",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_product_manager",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_cto",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_engineer",
+          "lineNumber": 160
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_proposal_task",
+          "lineNumber": 161
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_proposal_task",
+          "lineNumber": 162
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_proposal_task",
+          "lineNumber": 163
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_ceo",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "build_selection_task",
+          "lineNumber": 165
+        },
+        {
+          "caller": "test_build_selection_task",
+          "callee": "len",
+          "lineNumber": 167
+        },
+        {
+          "caller": "test_build_vision_task",
+          "callee": "build_ceo",
+          "lineNumber": 173
+        },
+        {
+          "caller": "test_build_vision_task",
+          "callee": "build_vision_task",
+          "lineNumber": 174
+        },
+        {
+          "caller": "test_build_product_task_has_context",
+          "callee": "build_ceo",
+          "lineNumber": 180
+        },
+        {
+          "caller": "test_build_product_task_has_context",
+          "callee": "build_product_manager",
+          "lineNumber": 181
+        },
+        {
+          "caller": "test_build_product_task_has_context",
+          "callee": "build_vision_task",
+          "lineNumber": 182
+        },
+        {
+          "caller": "test_build_product_task_has_context",
+          "callee": "build_product_task",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_build_architecture_task_has_context",
+          "callee": "build_product_manager",
+          "lineNumber": 188
+        },
+        {
+          "caller": "test_build_architecture_task_has_context",
+          "callee": "build_cto",
+          "lineNumber": 189
+        },
+        {
+          "caller": "test_build_architecture_task_has_context",
+          "callee": "build_vision_task",
+          "lineNumber": 190
+        },
+        {
+          "caller": "test_build_architecture_task_has_context",
+          "callee": "build_ceo",
+          "lineNumber": 190
+        },
+        {
+          "caller": "test_build_architecture_task_has_context",
+          "callee": "build_product_task",
+          "lineNumber": 191
+        },
+        {
+          "caller": "test_build_architecture_task_has_context",
+          "callee": "build_architecture_task",
+          "lineNumber": 192
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_cto",
+          "lineNumber": 197
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_engineer",
+          "lineNumber": 198
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_product_task",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_product_manager",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_vision_task",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_ceo",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_architecture_task",
+          "lineNumber": 200
+        },
+        {
+          "caller": "test_build_execution_task_has_context",
+          "callee": "build_execution_task",
+          "lineNumber": 201
+        },
+        {
+          "caller": "test_build_review_task",
+          "callee": "build_cto",
+          "lineNumber": 206
+        },
+        {
+          "caller": "test_build_review_task",
+          "callee": "build_vision_task",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_build_review_task",
+          "callee": "build_ceo",
+          "lineNumber": 207
+        },
+        {
+          "caller": "test_build_review_task",
+          "callee": "build_review_task",
+          "lineNumber": 208
+        },
+        {
+          "caller": "test_build_crew_returns_crew",
+          "callee": "build_crew",
+          "lineNumber": 218
+        },
+        {
+          "caller": "test_build_crew_returns_crew",
+          "callee": "isinstance",
+          "lineNumber": 219
+        },
+        {
+          "caller": "test_build_crew_has_four_agents",
+          "callee": "build_crew",
+          "lineNumber": 223
+        },
+        {
+          "caller": "test_build_crew_has_four_agents",
+          "callee": "len",
+          "lineNumber": 224
+        },
+        {
+          "caller": "test_build_crew_has_eleven_tasks",
+          "callee": "build_crew",
+          "lineNumber": 228
+        },
+        {
+          "caller": "test_build_crew_has_eleven_tasks",
+          "callee": "len",
+          "lineNumber": 229
+        },
+        {
+          "caller": "test_build_crew_task_order",
+          "callee": "build_crew",
+          "lineNumber": 233
+        },
+        {
+          "caller": "test_build_crew_sequential_process",
+          "callee": "build_crew",
+          "lineNumber": 254
+        },
+        {
+          "caller": "test_build_crew_proposal_agents",
+          "callee": "build_crew",
+          "lineNumber": 259
+        },
+        {
+          "caller": "test_build_crew_selection_agent_is_ceo",
+          "callee": "build_crew",
+          "lineNumber": 267
+        },
+        {
+          "caller": "test_step_labels_count",
+          "callee": "len",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_parse_json_valid",
+          "callee": "_parse_json",
+          "lineNumber": 296
+        },
+        {
+          "caller": "test_parse_json_markdown_fences",
+          "callee": "_parse_json",
+          "lineNumber": 301
+        },
+        {
+          "caller": "test_parse_json_invalid",
+          "callee": "_parse_json",
+          "lineNumber": 305
+        },
+        {
+          "caller": "test_run_returns_structured_steps",
+          "callee": "run",
+          "lineNumber": 309
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 37,
+        "functionCount": 31,
+        "classCount": 6
+      }
+    }
+  ]
+}

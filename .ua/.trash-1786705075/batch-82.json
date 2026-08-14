@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "config:graphify-out/cache/semantic/fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json",
+      "type": "config",
+      "name": "fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json",
+      "filePath": "graphify-out/cache/semantic/fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json",
+      "summary": "Defines fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json",
+      "type": "config",
+      "name": "faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json",
+      "filePath": "graphify-out/cache/semantic/faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json",
+      "summary": "Defines faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json",
+      "type": "config",
+      "name": "fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json",
+      "filePath": "graphify-out/cache/semantic/fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json",
+      "summary": "Defines fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json",
+      "type": "config",
+      "name": "ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json",
+      "filePath": "graphify-out/cache/semantic/ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json",
+      "summary": "Defines ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

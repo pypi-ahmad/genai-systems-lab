@@ -1,0 +1,265 @@
+{
+  "nodes": [
+    {
+      "id": "config:.ua/.trash-1786690380/assemble-review.json",
+      "type": "config",
+      "name": "assemble-review.json",
+      "filePath": ".ua/.trash-1786690380/assemble-review.json",
+      "summary": "Defines configuration data in assemble-review.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/assembled-graph.json",
+      "type": "config",
+      "name": "assembled-graph.json",
+      "filePath": ".ua/.trash-1786690380/assembled-graph.json",
+      "summary": "Defines configuration data in assembled-graph.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-1-part-1.json",
+      "type": "config",
+      "name": "batch-1-part-1.json",
+      "filePath": ".ua/.trash-1786690380/batch-1-part-1.json",
+      "summary": "Defines configuration data in batch-1-part-1.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-1-part-2.json",
+      "type": "config",
+      "name": "batch-1-part-2.json",
+      "filePath": ".ua/.trash-1786690380/batch-1-part-2.json",
+      "summary": "Defines configuration data in batch-1-part-2.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-1-part-3.json",
+      "type": "config",
+      "name": "batch-1-part-3.json",
+      "filePath": ".ua/.trash-1786690380/batch-1-part-3.json",
+      "summary": "Defines configuration data in batch-1-part-3.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-1-part-4.json",
+      "type": "config",
+      "name": "batch-1-part-4.json",
+      "filePath": ".ua/.trash-1786690380/batch-1-part-4.json",
+      "summary": "Defines configuration data in batch-1-part-4.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-10.json",
+      "type": "config",
+      "name": "batch-10.json",
+      "filePath": ".ua/.trash-1786690380/batch-10.json",
+      "summary": "Defines configuration data in batch-10.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-11.json",
+      "type": "config",
+      "name": "batch-11.json",
+      "filePath": ".ua/.trash-1786690380/batch-11.json",
+      "summary": "Defines configuration data in batch-11.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-12.json",
+      "type": "config",
+      "name": "batch-12.json",
+      "filePath": ".ua/.trash-1786690380/batch-12.json",
+      "summary": "Defines configuration data in batch-12.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-13.json",
+      "type": "config",
+      "name": "batch-13.json",
+      "filePath": ".ua/.trash-1786690380/batch-13.json",
+      "summary": "Defines configuration data in batch-13.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-14.json",
+      "type": "config",
+      "name": "batch-14.json",
+      "filePath": ".ua/.trash-1786690380/batch-14.json",
+      "summary": "Defines configuration data in batch-14.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-15.json",
+      "type": "config",
+      "name": "batch-15.json",
+      "filePath": ".ua/.trash-1786690380/batch-15.json",
+      "summary": "Defines configuration data in batch-15.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-16.json",
+      "type": "config",
+      "name": "batch-16.json",
+      "filePath": ".ua/.trash-1786690380/batch-16.json",
+      "summary": "Defines configuration data in batch-16.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-17.json",
+      "type": "config",
+      "name": "batch-17.json",
+      "filePath": ".ua/.trash-1786690380/batch-17.json",
+      "summary": "Defines configuration data in batch-17.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-18.json",
+      "type": "config",
+      "name": "batch-18.json",
+      "filePath": ".ua/.trash-1786690380/batch-18.json",
+      "summary": "Defines configuration data in batch-18.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-19.json",
+      "type": "config",
+      "name": "batch-19.json",
+      "filePath": ".ua/.trash-1786690380/batch-19.json",
+      "summary": "Defines configuration data in batch-19.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-2-part-1.json",
+      "type": "config",
+      "name": "batch-2-part-1.json",
+      "filePath": ".ua/.trash-1786690380/batch-2-part-1.json",
+      "summary": "Defines configuration data in batch-2-part-1.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-2-part-2.json",
+      "type": "config",
+      "name": "batch-2-part-2.json",
+      "filePath": ".ua/.trash-1786690380/batch-2-part-2.json",
+      "summary": "Defines configuration data in batch-2-part-2.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-20.json",
+      "type": "config",
+      "name": "batch-20.json",
+      "filePath": ".ua/.trash-1786690380/batch-20.json",
+      "summary": "Defines configuration data in batch-20.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-21.json",
+      "type": "config",
+      "name": "batch-21.json",
+      "filePath": ".ua/.trash-1786690380/batch-21.json",
+      "summary": "Defines configuration data in batch-21.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,102 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [
+    ".codex/better-harness/2026-08-14T0625-normal/report.html"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": ".codex/better-harness/2026-08-14T0625-normal/findings.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 63,
+      "nonEmptyLines": 63,
+      "sections": [
+        {
+          "heading": "summary",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "findings",
+          "level": 1,
+          "line": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".codex/better-harness/2026-08-14T0625-normal/report.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 32,
+      "sections": [
+        {
+          "heading": "Better Harness Task-Loop Report",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "At a Glance",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "What You Can Rely On Today",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "What You Gain Next",
+          "level": 2,
+          "line": 16
+        },
+        {
+          "heading": "Why these moves matter",
+          "level": 3,
+          "line": 22
+        },
+        {
+          "heading": "Five Lifecycle Dimensions",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "The 15 Small Checks",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "Evidence and Boundaries",
+          "level": 2,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

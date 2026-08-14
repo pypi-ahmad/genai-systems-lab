@@ -1,0 +1,344 @@
+{
+  "kind": "better-harness.harness-analysis-evidence",
+  "schemaVersion": 1,
+  "evidence": "HARNESS ANALYSIS EVIDENCE\n\nThis is a read-only evidence brief, not a report conclusion.\nProjected report conclusions are intentionally excluded; use the observations and boundaries below to make your own evidence-backed decisions.\nWorkspace: D:\\AI\\Github\\genai-systems-lab\nPlatform: codex\nLanguage: en\nBudget: at most 6000 estimated tokens; each evidence domain uses bounded representative rows and reports omissions.\n\nOBSERVATION SCOPE\nSource roots: 3 of 5 enabled roots exist; 6 roots were discovered.\nSession selection: analyzed 1 of 1 eligible sessions with all-eligible selection; confidence High; representative yes.\nScope: workspace; global capability metadata included no; since 2026-07-14T18:30:00.000Z; until 2026-08-14T18:29:59.000Z.\nPrivacy boundary: reader-safe; raw prompts included no; raw commands included no; absolute home paths included no.\nSource warnings: disabled-source-root, missing-optional-root.\n\nREPOSITORY FACTS\nProject label: genai-systems-lab.\n- Task understanding: 0 observed and 1 connected signal(s). Representative evidence: 44 architecture/readme and 0 spec file(s).\n- Controlled execution: 1 observed and 0 connected signal(s). Representative evidence: 2 workspace manifest(s).\n- Change validation: 1 observed and 0 connected signal(s). Representative evidence: 36 tracked test file(s).\n- Reliable delivery: 0 observed and 1 connected signal(s). Representative evidence: 1 CI workflow file(s).\n- Agent practice coverage: Custom Agents has 0 asset(s) in Project.\n- Reusable Skill evidence: scanned-empty; 0 candidate asset(s), 0 observed project Skill(s), and 0 unresolved name match(es).\n- Regression-test evidence: scanned-empty; inspected 50 commit(s) and retained 0 source/test co-change candidate(s).\n- Canonical planning evidence: scanned-empty; 0 candidate(s).\n- Sensitive-config scan coverage: complete; 18 of 18 candidate file(s) scanned, 0 skipped, 0 read error(s), truncated no.\n- Learning observation coverage: 0 episode record(s), 0 recurring candidate(s), 0 scoped Skill observation(s), and 9 unscoped Skill observation(s).\n  - Aggregated friction signals: source-warning:missing-optional-root: 2, source-warning:disabled-source-root: 1.\n  - Coverage boundary: Asset Coverage=not-evaluable-missing-asset-inventory, Capture=not-evaluable-missing-normalized-events, Pattern Detection=insufficient-episodes, Routing=checked-clean, Freshness=checked-clean, Application=not-evaluable-missing-application-events, Evolution=not-evaluable-missing-update-evidence, Effectiveness=pending-no-later-window, Memory Governance=checked-clean.\n- Workflow-demand observation: 0 current handoff(s) and 0 repeated candidate(s); candidate contents are not projected into this brief.\n  - Coverage boundary: Demand Signals=not-evaluable-missing-normalized-events, Current Handoff=checked-clean, Recurrence=insufficient-episodes, Skill Inventory=checked-clean, Skill Activation=checked-clean.\n\nSESSION AND TASK FACTS\nSession packet: 1 selected session(s), 0 retained candidate episode(s), and 1 discarded episode(s).\nUsage activity: 1 session(s) in the complete activity census; top bounded Skill observations: caveman: 4, i-have-adhd: 3, adhd: 1, caveman:caveman: 1, caveman:surgical-patch: 1.\nUsage census: analyzed 1 of 1 eligible sessions; complete yes; 0 active-long and 0 wall-only session(s); accounting effort-proxy.\n\nANALYZER OBSERVATIONS\n- Analyzed 1 of 1 sessions; 3/5 enabled source roots exist. Use this as the current workspace evidence boundary for final insight cards.\n- Validation was mentioned by the user, but no matching command execution was observed: npm test (4). Treat this as a validation execution gap until a matching tool command is found in bounded evidence. (3 bounded evidence reference(s))\n- No edit event was observed in the analyzed sample. Inspect more sessions before making claims about edit or validation habits.\n- No strong execution friction signal in the analyzed sample. Keep friction claims narrow unless additional failed commands, rejected actions, or warnings are inspected.\n- Most observed tool: exec (17). Use this as workflow evidence, then inspect bounded sessions before claiming user intent. (1 bounded evidence reference(s))\n- Observed codex plan-mode: plan-mode (1, workspace). Use this as workspace session evidence for Goal/Plan/Spec workflow behavior. (1 bounded evidence reference(s))\n- The analysis covered 1 sessions: none met the active-long threshold. This activity describes effort only; token or credit evidence is incomplete and does not establish model preference, quality, or savings.\n\nDELIVERY EVIDENCE\nNo bounded evidence observed.\n\nINTERVENTION HISTORY\nNo bounded evidence observed.\n\nREVIEW BOUNDARIES\n- Source candidate: requires-review.\n- Repository review: requires-review; 2 framework(s), 9 repository check(s), and 5 Software Fluency capability review(s) remain in scope.\n- Score review: requires-review; 5 dimension(s) await AI judgment.\n- Session observation review: candidate; 7 observation card(s) from 1 analyzed session(s).",
+  "summaryFacts": {
+    "evidenceMode": "session-limited",
+    "evidenceBoundary": {
+      "manifest": {
+        "schemaVersion": 2,
+        "sourceFingerprint": "0c920c9d9ef3ae36",
+        "adapterVersion": "codex-task-loop-source-v2",
+        "platform": "codex",
+        "selection": {
+          "strategy": "all-eligible",
+          "eligibleCount": 1,
+          "analyzedCount": 1,
+          "confidence": "High"
+        }
+      },
+      "episodeCoverage": {
+        "episodeCount": 0,
+        "editedEpisodeCount": 0,
+        "closedEpisodeCount": 0,
+        "recoveredEpisodeCount": 0
+      },
+      "deliveryEvidenceLevels": [],
+      "sourceGaps": []
+    },
+    "semanticFacets": {
+      "schemaVersion": 1,
+      "status": "supplementary",
+      "entries": [
+        {
+          "id": "session-insight:source-coverage",
+          "kind": "redacted-summary",
+          "episodeRef": null,
+          "status": "candidate",
+          "labels": [
+            "source-coverage",
+            "High"
+          ],
+          "summary": "Analyzed 1 of 1 sessions; 3/5 enabled source roots exist. Use this as the current workspace evidence boundary for final insight cards.",
+          "evidenceRefs": [],
+          "modelVersion": "session-insights-v1"
+        },
+        {
+          "id": "session-insight:validation-behavior",
+          "kind": "redacted-summary",
+          "episodeRef": null,
+          "status": "candidate",
+          "labels": [
+            "validation-behavior",
+            "Low"
+          ],
+          "summary": "Validation was mentioned by the user, but no matching command execution was observed: npm test (4). Treat this as a validation execution gap until a matching tool command is found in bounded evidence.",
+          "evidenceRefs": [
+            {
+              "kind": "codex-session-jsonl",
+              "id": "session-insight-2-1",
+              "type": "user",
+              "line": 73
+            },
+            {
+              "kind": "codex-session-jsonl",
+              "id": "session-insight-2-2",
+              "type": "user",
+              "line": 88
+            },
+            {
+              "kind": "codex-session-jsonl",
+              "id": "session-insight-2-3",
+              "type": "user",
+              "line": 98
+            }
+          ],
+          "modelVersion": "session-insights-v1"
+        },
+        {
+          "id": "session-insight:post-edit-validation",
+          "kind": "rework-correction",
+          "episodeRef": null,
+          "status": "candidate",
+          "labels": [
+            "post-edit-validation",
+            "Low"
+          ],
+          "summary": "No edit event was observed in the analyzed sample. Inspect more sessions before making claims about edit or validation habits.",
+          "evidenceRefs": [],
+          "modelVersion": "session-insights-v1"
+        },
+        {
+          "id": "session-insight:execution-friction",
+          "kind": "friction-taxonomy",
+          "episodeRef": null,
+          "status": "candidate",
+          "labels": [
+            "execution-friction",
+            "Low"
+          ],
+          "summary": "No strong execution friction signal in the analyzed sample. Keep friction claims narrow unless additional failed commands, rejected actions, or warnings are inspected.",
+          "evidenceRefs": [],
+          "modelVersion": "session-insights-v1"
+        },
+        {
+          "id": "session-insight:tool-mix",
+          "kind": "redacted-summary",
+          "episodeRef": null,
+          "status": "candidate",
+          "labels": [
+            "tool-mix",
+            "High"
+          ],
+          "summary": "Most observed tool: exec (17). Use this as workflow evidence, then inspect bounded sessions before claiming user intent.",
+          "evidenceRefs": [
+            {
+              "kind": "codex-session-jsonl",
+              "id": "session-insight-5-1",
+              "type": "tool.call",
+              "line": 50
+            }
+          ],
+          "modelVersion": "session-insights-v1"
+        },
+        {
+          "id": "session-insight:planning-workflow",
+          "kind": "goal-workflow",
+          "episodeRef": null,
+          "status": "candidate",
+          "labels": [
+            "planning-workflow",
+            "Medium"
+          ],
+          "summary": "Observed codex plan-mode: plan-mode (1, workspace). Use this as workspace session evidence for Goal/Plan/Spec workflow behavior.",
+          "evidenceRefs": [
+            {
+              "kind": "codex-session-jsonl",
+              "id": "session-insight-6-1",
+              "type": "assistant",
+              "line": 3
+            }
+          ],
+          "modelVersion": "session-insights-v1"
+        },
+        {
+          "id": "session-insight:session-usage-efficiency",
+          "kind": "redacted-summary",
+          "episodeRef": null,
+          "status": "candidate",
+          "labels": [
+            "session-usage-efficiency",
+            "High"
+          ],
+          "summary": "The analysis covered 1 sessions: none met the active-long threshold. This activity describes effort only; token or credit evidence is incomplete and does not establish model preference, quality, or savings.",
+          "evidenceRefs": [],
+          "modelVersion": "session-insights-v1"
+        }
+      ]
+    },
+    "learningCapture": {
+      "schemaVersion": 1,
+      "state": "N/A",
+      "summary": "N/A — requires two comparable observation windows and an intervention comparison.",
+      "interventions": []
+    },
+    "aiAgentPractice": {
+      "inspectedSurfaces": [],
+      "coverageRows": [
+        {
+          "surface": "Custom Agents",
+          "scopes": [
+            "Project"
+          ],
+          "count": 0
+        }
+      ]
+    },
+    "usageActivity": {
+      "schemaVersion": 2,
+      "dateBasis": "UTC",
+      "measurementBasis": "session-starts-active-estimate-model-active-session-days-skill-invocations-and-loads",
+      "truncated": false,
+      "dates": [
+        "2026-08-14"
+      ],
+      "sessions": {
+        "total": 1,
+        "starts": [
+          1
+        ],
+        "activeMinutes": [
+          3.8
+        ]
+      },
+      "models": [],
+      "skills": [
+        {
+          "name": "caveman",
+          "total": 4,
+          "daily": [
+            4
+          ]
+        },
+        {
+          "name": "i-have-adhd",
+          "total": 3,
+          "daily": [
+            3
+          ]
+        },
+        {
+          "name": "adhd",
+          "total": 1,
+          "daily": [
+            1
+          ]
+        },
+        {
+          "name": "caveman:caveman",
+          "total": 1,
+          "daily": [
+            1
+          ]
+        },
+        {
+          "name": "caveman:surgical-patch",
+          "total": 1,
+          "daily": [
+            1
+          ]
+        },
+        {
+          "name": "explore-codebase",
+          "total": 1,
+          "daily": [
+            1
+          ]
+        },
+        {
+          "name": "humanizer:humanizer",
+          "total": 1,
+          "daily": [
+            1
+          ]
+        },
+        {
+          "name": "i-have-adhd:i-have-adhd",
+          "total": 1,
+          "daily": [
+            1
+          ]
+        },
+        {
+          "name": "Other",
+          "total": 4,
+          "daily": [
+            4
+          ]
+        }
+      ]
+    },
+    "usageEfficiency": {
+      "schemaVersion": 2,
+      "selection": {
+        "strategy": "all-eligible",
+        "eligibleSessionCount": 1,
+        "analyzedSessionCount": 1,
+        "complete": true
+      },
+      "roles": {
+        "userThreadCandidateCount": 1,
+        "childAgentCandidateCount": 0
+      },
+      "longSessions": {
+        "activeCount": 0,
+        "wallOnlyCount": 0,
+        "longestActiveMinutes": 0,
+        "activeRatio": 0,
+        "estimate": {
+          "method": "capped-event-gap",
+          "activeThresholdMinutes": 45,
+          "gapCapMinutes": 5,
+          "idleGapMinutes": 30
+        },
+        "samples": []
+      },
+      "accounting": {
+        "mode": "effort-proxy",
+        "responseCount": 0,
+        "modelAttributedResponseCount": 0,
+        "unattributedResponseCount": 0,
+        "usageFieldObservedCount": 0,
+        "nonZeroUsageCount": 0,
+        "exactCreditsAvailable": false,
+        "pricingVersion": null
+      },
+      "modelUsage": [],
+      "outcomeReview": {
+        "status": "not-applicable",
+        "reviewedCandidateCount": 0,
+        "reviewedActiveLongCount": 0,
+        "comparableModelOutcomeEvidence": false,
+        "recommendation": "controlled-a-b-required"
+      }
+    }
+  },
+  "sessionBinding": {
+    "population": {
+      "schemaVersion": 1,
+      "kind": "session-population-binding",
+      "scopeFingerprint": "1b5a7e0ea9e34d21",
+      "policyFingerprint": "d17e946a33331d68",
+      "omission": {
+        "exactIdentityAvailable": true,
+        "activeSessions": 1,
+        "homeSessionOnly": 0,
+        "recencyInference": "disabled-frozen-until"
+      },
+      "eligible": {
+        "count": 1,
+        "fingerprint": "b6c45c143920b524"
+      }
+    },
+    "selection": {
+      "schemaVersion": 1,
+      "kind": "session-selection-binding",
+      "parentPopulationFingerprint": "b6c45c143920b524",
+      "strategy": "all-eligible",
+      "selected": {
+        "count": 1,
+        "fingerprint": "b6c45c143920b524"
+      },
+      "projectionPolicyFingerprint": "8bb4426daa034174"
+    },
+    "admission": {
+      "schemaVersion": 1,
+      "kind": "lead-admission-binding",
+      "projectionPolicyFingerprint": "8bb4426daa034174",
+      "projectedEpisodes": 1,
+      "admittedEpisodes": 0,
+      "zeroSignalDiscardedEpisodes": 1,
+      "retainedTaskEpisodes": 0
+    }
+  }
+}

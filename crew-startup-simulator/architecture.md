@@ -47,7 +47,7 @@ Defines the startup vision, market positioning, and strategic direction.
 - **Role:** Chief Executive Officer
 - **Goal:** Transform the raw idea into a clear vision statement with target market, value proposition, competitive positioning, and success metrics.
 - **Backstory:** Experienced startup founder who has built and scaled multiple companies. Thinks in terms of market opportunity, defensibility, and growth potential.
-- **Model:** `gemini-3.1-pro-preview` — strategic reasoning requires evaluating market dynamics, competitive landscape, and long-term viability.
+- **Model:** `gemini-3.7-flash` — strategic reasoning requires evaluating market dynamics, competitive landscape, and long-term viability.
 - **Output:** Vision document covering mission, target market, value proposition, competitive advantages, key success metrics, and go-to-market strategy.
 
 ### Product Manager
@@ -57,7 +57,7 @@ Translates the CEO's vision into a concrete product definition.
 - **Role:** Head of Product
 - **Goal:** Define the product scope, core features, user personas, and a prioritized roadmap based on the CEO's vision.
 - **Backstory:** Senior product manager with experience shipping B2B and B2C products. Skilled at turning abstract strategy into specific, buildable features with clear acceptance criteria.
-- **Model:** `gemini-3.1-pro-preview` — product scoping requires reasoning about user needs, feature dependencies, and prioritization tradeoffs.
+- **Model:** `gemini-3.7-flash` — product scoping requires reasoning about user needs, feature dependencies, and prioritization tradeoffs.
 - **Output:** Product specification covering user personas, core feature set (MVP), feature prioritization (MoSCoW or similar), user stories for top features, and a phased roadmap.
 
 ### CTO
@@ -67,7 +67,7 @@ Designs the technical architecture to support the product specification.
 - **Role:** Chief Technology Officer
 - **Goal:** Define the system architecture, technology stack, infrastructure requirements, and technical constraints based on the product specification.
 - **Backstory:** Senior engineering leader who has designed systems at scale. Balances technical excellence with pragmatic delivery, favoring proven technologies for MVPs and reserving cutting-edge choices for genuine technical differentiators.
-- **Model:** `gemini-3.1-pro-preview` — architecture decisions require reasoning about scalability, cost, team capabilities, and technical risk.
+- **Model:** `gemini-3.7-flash` — architecture decisions require reasoning about scalability, cost, team capabilities, and technical risk.
 - **Output:** Technical architecture document covering system diagram, technology stack with rationale, data model overview, API design approach, infrastructure requirements, scalability strategy, and identified technical risks.
 
 ### Engineer
@@ -77,7 +77,7 @@ Converts the technical architecture into an actionable implementation plan.
 - **Role:** Lead Engineer
 - **Goal:** Produce a detailed execution plan with sprint-level breakdown, task assignments, milestones, and delivery timeline based on the technical architecture.
 - **Backstory:** Staff engineer experienced in greenfield builds and team leadership. Focuses on incremental delivery, risk mitigation through early integration, and realistic time estimates.
-- **Model:** `gemini-3-flash-preview` — execution planning is a structured synthesis task; speed matters more than deep reasoning since the hard decisions are already made.
+- **Model:** `gemini-3.5-flash-lite` — execution planning is a structured synthesis task; speed matters more than deep reasoning since the hard decisions are already made.
 - **Output:** Implementation plan covering sprint breakdown (2-week sprints), task list per sprint with effort estimates, dependency graph, milestone definitions, risk mitigation actions, and definition of done for MVP.
 
 ## Tasks
@@ -142,8 +142,8 @@ Reviews are built using `build_review_task(reviewer, target_task, target_role)` 
 
 | Model | Agents | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | CEO, Product Manager, CTO | Strategic reasoning, product scoping, and architecture design all require strong analytical capabilities |
-| `gemini-3-flash-preview` | Engineer | Implementation planning is a structured synthesis task — speed and fluency matter more than deep reasoning |
+| `gemini-3.7-flash` | CEO, Product Manager, CTO | Strategic reasoning, product scoping, and architecture design all require strong analytical capabilities |
+| `gemini-3.5-flash-lite` | Engineer | Implementation planning is a structured synthesis task — speed and fluency matter more than deep reasoning |
 
 ### Cost and latency considerations
 
@@ -231,8 +231,8 @@ Key parameters should be externalized:
 
 | Parameter | Default | Purpose |
 |---|---|---|
-| `REASONING_MODEL` | `gemini-3.1-pro-preview` | Model for CEO, PM, CTO |
-| `SUMMARY_MODEL` | `gemini-3-flash-preview` | Model for Engineer |
+| `REASONING_MODEL` | `gemini-3.7-flash` | Model for CEO, PM, CTO |
+| `SUMMARY_MODEL` | `gemini-3.5-flash-lite` | Model for Engineer |
 | `VERBOSE` | `True` | Enable crew execution logging |
 | `MAX_RETRY_LIMIT` | `3` | Retry limit for failed LLM calls |
 

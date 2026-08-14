@@ -1,0 +1,1363 @@
+{
+  "nodes": [
+    {
+      "id": "file:lg-support-agent/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "lg-support-agent/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "lg-workflow-agent/app/__init__.py",
+      "summary": "Marks lg-workflow-agent/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/nodes/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "lg-workflow-agent/app/nodes/__init__.py",
+      "summary": "Marks lg-workflow-agent/app/nodes as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "lg-workflow-agent/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/eslint.config.mjs",
+      "type": "file",
+      "name": "eslint.config.mjs",
+      "filePath": "portfolio/eslint.config.mjs",
+      "summary": "Provides the javascript implementation for this project component.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/next.config.ts",
+      "type": "file",
+      "name": "next.config.ts",
+      "filePath": "portfolio/next.config.ts",
+      "summary": "Implements buildCsp for this project component.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "typescript"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/next.config.ts:buildCsp",
+      "type": "function",
+      "name": "buildCsp",
+      "filePath": "portfolio/next.config.ts",
+      "lineRange": [
+        25,
+        44
+      ],
+      "summary": "Implements buildCsp for the next.config.ts component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/postcss.config.mjs",
+      "type": "file",
+      "name": "postcss.config.mjs",
+      "filePath": "portfolio/postcss.config.mjs",
+      "summary": "Provides the javascript implementation for this project component.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/app/architecture/diagram.tsx",
+      "type": "file",
+      "name": "diagram.tsx",
+      "filePath": "portfolio/src/app/architecture/diagram.tsx",
+      "summary": "Implements stepIndex, ArchitectureDiagram for this project component.",
+      "tags": [
+        "code",
+        "typescript",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/app/architecture/diagram.tsx:ArchitectureDiagram",
+      "type": "function",
+      "name": "ArchitectureDiagram",
+      "filePath": "portfolio/src/app/architecture/diagram.tsx",
+      "lineRange": [
+        47,
+        166
+      ],
+      "summary": "Implements ArchitectureDiagram for the diagram.tsx component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/app/architecture/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "portfolio/src/app/architecture/page.tsx",
+      "summary": "Implements ArchitecturePage for this project component.",
+      "tags": [
+        "code",
+        "typescript",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/architecture/page.tsx:ArchitecturePage",
+      "type": "function",
+      "name": "ArchitecturePage",
+      "filePath": "portfolio/src/app/architecture/page.tsx",
+      "lineRange": [
+        9,
+        54
+      ],
+      "summary": "Implements ArchitecturePage for the page.tsx component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/app/globals.css",
+      "type": "file",
+      "name": "globals.css",
+      "filePath": "portfolio/src/app/globals.css",
+      "summary": "Provides frontend markup or styling rules for the application interface.",
+      "tags": [
+        "frontend",
+        "styling",
+        "ui"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:portfolio/src/data/project-catalog.json",
+      "type": "config",
+      "name": "project-catalog.json",
+      "filePath": "portfolio/src/data/project-catalog.json",
+      "summary": "Defines project configuration stored in portfolio/src/data/project-catalog.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:portfolio/tailwind.config.js",
+      "type": "file",
+      "name": "tailwind.config.js",
+      "filePath": "portfolio/tailwind.config.js",
+      "summary": "Provides the javascript implementation for this project component.",
+      "tags": [
+        "configuration",
+        "build-system",
+        "javascript"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/__init__.py",
+      "summary": "Marks shared as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/utils/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/utils/__init__.py",
+      "summary": "Marks shared/utils as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/utils/helpers.py",
+      "type": "file",
+      "name": "helpers.py",
+      "filePath": "shared/utils/helpers.py",
+      "summary": "Implements chunk_text, retry, Timer for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/utils/helpers.py:chunk_text",
+      "type": "function",
+      "name": "chunk_text",
+      "filePath": "shared/utils/helpers.py",
+      "lineRange": [
+        12,
+        33
+      ],
+      "summary": "Implements chunk_text for the helpers.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/utils/helpers.py:retry",
+      "type": "function",
+      "name": "retry",
+      "filePath": "shared/utils/helpers.py",
+      "lineRange": [
+        36,
+        66
+      ],
+      "summary": "Implements retry for the helpers.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/utils/helpers.py:Timer",
+      "type": "class",
+      "name": "Timer",
+      "filePath": "shared/utils/helpers.py",
+      "lineRange": [
+        69,
+        88
+      ],
+      "summary": "Encapsulates Timer behavior for the helpers.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_auth_hardening.py",
+      "type": "file",
+      "name": "test_auth_hardening.py",
+      "filePath": "tests/test_auth_hardening.py",
+      "summary": "Implements test_short_jwt_secret_is_rejected, test_minimum_length_jwt_secret_is_accepted, test_missing_secret_in_prod_raises, test_missing_secret_in_dev_returns_ephemeral for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_auth_hardening.py:test_short_jwt_secret_is_rejected",
+      "type": "function",
+      "name": "test_short_jwt_secret_is_rejected",
+      "filePath": "tests/test_auth_hardening.py",
+      "lineRange": [
+        8,
+        14
+      ],
+      "summary": "Implements test_short_jwt_secret_is_rejected for the test_auth_hardening.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_auth_hardening.py:test_minimum_length_jwt_secret_is_accepted",
+      "type": "function",
+      "name": "test_minimum_length_jwt_secret_is_accepted",
+      "filePath": "tests/test_auth_hardening.py",
+      "lineRange": [
+        17,
+        23
+      ],
+      "summary": "Implements test_minimum_length_jwt_secret_is_accepted for the test_auth_hardening.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_auth_hardening.py:test_missing_secret_in_prod_raises",
+      "type": "function",
+      "name": "test_missing_secret_in_prod_raises",
+      "filePath": "tests/test_auth_hardening.py",
+      "lineRange": [
+        26,
+        33
+      ],
+      "summary": "Implements test_missing_secret_in_prod_raises for the test_auth_hardening.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_auth_hardening.py:test_missing_secret_in_dev_returns_ephemeral",
+      "type": "function",
+      "name": "test_missing_secret_in_dev_returns_ephemeral",
+      "filePath": "tests/test_auth_hardening.py",
+      "lineRange": [
+        36,
+        44
+      ],
+      "summary": "Implements test_missing_secret_in_dev_returns_ephemeral for the test_auth_hardening.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_auth_hardening.py:test_missing_secret_in_dev_logs_ephemeral_warning",
+      "type": "function",
+      "name": "test_missing_secret_in_dev_logs_ephemeral_warning",
+      "filePath": "tests/test_auth_hardening.py",
+      "lineRange": [
+        47,
+        60
+      ],
+      "summary": "Implements test_missing_secret_in_dev_logs_ephemeral_warning for the test_auth_hardening.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_auth_hardening.py:test_whitespace_only_secret_treated_as_missing",
+      "type": "function",
+      "name": "test_whitespace_only_secret_treated_as_missing",
+      "filePath": "tests/test_auth_hardening.py",
+      "lineRange": [
+        63,
+        69
+      ],
+      "summary": "Implements test_whitespace_only_secret_treated_as_missing for the test_auth_hardening.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_ci_security_contract.py",
+      "type": "file",
+      "name": "test_ci_security_contract.py",
+      "filePath": "tests/test_ci_security_contract.py",
+      "summary": "Implements ci_text, dependabot_cfg, test_ci_has_pip_audit_strict, test_ci_has_bandit_static_analysis for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:ci_text",
+      "type": "function",
+      "name": "ci_text",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        28,
+        29
+      ],
+      "summary": "Implements ci_text for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:dependabot_cfg",
+      "type": "function",
+      "name": "dependabot_cfg",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "Implements dependabot_cfg for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_ci_has_pip_audit_strict",
+      "type": "function",
+      "name": "test_ci_has_pip_audit_strict",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        42,
+        44
+      ],
+      "summary": "Implements test_ci_has_pip_audit_strict for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_ci_has_bandit_static_analysis",
+      "type": "function",
+      "name": "test_ci_has_bandit_static_analysis",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        47,
+        48
+      ],
+      "summary": "Implements test_ci_has_bandit_static_analysis for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_ci_has_gitleaks_secret_scanner",
+      "type": "function",
+      "name": "test_ci_has_gitleaks_secret_scanner",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        51,
+        52
+      ],
+      "summary": "Implements test_ci_has_gitleaks_secret_scanner for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_ci_has_npm_audit_for_portfolio",
+      "type": "function",
+      "name": "test_ci_has_npm_audit_for_portfolio",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        55,
+        56
+      ],
+      "summary": "Implements test_ci_has_npm_audit_for_portfolio for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_ci_has_trivy_image_scan",
+      "type": "function",
+      "name": "test_ci_has_trivy_image_scan",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        59,
+        63
+      ],
+      "summary": "Implements test_ci_has_trivy_image_scan for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_ci_blocks_on_pip_audit_findings",
+      "type": "function",
+      "name": "test_ci_blocks_on_pip_audit_findings",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        66,
+        81
+      ],
+      "summary": "Implements test_ci_blocks_on_pip_audit_findings for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_ci_blocks_on_trivy_findings",
+      "type": "function",
+      "name": "test_ci_blocks_on_trivy_findings",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        84,
+        91
+      ],
+      "summary": "Implements test_ci_blocks_on_trivy_findings for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_gitleaks_config_file_exists_where_ci_expects_it",
+      "type": "function",
+      "name": "test_gitleaks_config_file_exists_where_ci_expects_it",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        97,
+        101
+      ],
+      "summary": "Implements test_gitleaks_config_file_exists_where_ci_expects_it for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_gitleaks_config_extends_default_ruleset",
+      "type": "function",
+      "name": "test_gitleaks_config_extends_default_ruleset",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        104,
+        108
+      ],
+      "summary": "Implements test_gitleaks_config_extends_default_ruleset for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_dependabot_covers_all_first_class_ecosystems",
+      "type": "function",
+      "name": "test_dependabot_covers_all_first_class_ecosystems",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        114,
+        122
+      ],
+      "summary": "Implements test_dependabot_covers_all_first_class_ecosystems for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_dependabot_covers_standalone_analyst",
+      "type": "function",
+      "name": "test_dependabot_covers_standalone_analyst",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        125,
+        133
+      ],
+      "summary": "Implements test_dependabot_covers_standalone_analyst for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_ci_security_contract.py:test_dependabot_weekly_cadence_is_sane",
+      "type": "function",
+      "name": "test_dependabot_weekly_cadence_is_sane",
+      "filePath": "tests/test_ci_security_contract.py",
+      "lineRange": [
+        136,
+        140
+      ],
+      "summary": "Implements test_dependabot_weekly_cadence_is_sane for the test_ci_security_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:tests/test_dockerfile_contract.py",
+      "type": "file",
+      "name": "test_dockerfile_contract.py",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "summary": "Implements dockerfile_text, dockerignore_text, _active_lines, test_dockerignore_excludes_env_files for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:dockerfile_text",
+      "type": "function",
+      "name": "dockerfile_text",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        25,
+        26
+      ],
+      "summary": "Implements dockerfile_text for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:dockerignore_text",
+      "type": "function",
+      "name": "dockerignore_text",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        30,
+        31
+      ],
+      "summary": "Implements dockerignore_text for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:_active_lines",
+      "type": "function",
+      "name": "_active_lines",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        34,
+        41
+      ],
+      "summary": "Implements _active_lines for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_env_files",
+      "type": "function",
+      "name": "test_dockerignore_excludes_env_files",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        47,
+        50
+      ],
+      "summary": "Implements test_dockerignore_excludes_env_files for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_sqlite_and_data_dir",
+      "type": "function",
+      "name": "test_dockerignore_excludes_sqlite_and_data_dir",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        53,
+        59
+      ],
+      "summary": "Implements test_dockerignore_excludes_sqlite_and_data_dir for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_git_and_venvs",
+      "type": "function",
+      "name": "test_dockerignore_excludes_git_and_venvs",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        62,
+        66
+      ],
+      "summary": "Implements test_dockerignore_excludes_git_and_venvs for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:test_dockerfile_does_not_copy_env_files",
+      "type": "function",
+      "name": "test_dockerfile_does_not_copy_env_files",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        72,
+        83
+      ],
+      "summary": "Implements test_dockerfile_does_not_copy_env_files for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:test_dockerfile_does_not_flatten_projects_via_globs",
+      "type": "function",
+      "name": "test_dockerfile_does_not_flatten_projects_via_globs",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        86,
+        102
+      ],
+      "summary": "Implements test_dockerfile_does_not_flatten_projects_via_globs for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:test_dockerfile_copies_each_project_into_its_own_subdir",
+      "type": "function",
+      "name": "test_dockerfile_copies_each_project_into_its_own_subdir",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        105,
+        126
+      ],
+      "summary": "Implements test_dockerfile_copies_each_project_into_its_own_subdir for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:tests/test_dockerfile_contract.py:test_dockerfile_runs_as_non_root",
+      "type": "function",
+      "name": "test_dockerfile_runs_as_non_root",
+      "filePath": "tests/test_dockerfile_contract.py",
+      "lineRange": [
+        129,
+        141
+      ],
+      "summary": "Implements test_dockerfile_runs_as_non_root for the test_dockerfile_contract.py component.",
+      "tags": [
+        "test",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:portfolio/next.config.ts",
+      "target": "function:portfolio/next.config.ts:buildCsp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/architecture/diagram.tsx",
+      "target": "function:portfolio/src/app/architecture/diagram.tsx:ArchitectureDiagram",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/architecture/diagram.tsx",
+      "target": "function:portfolio/src/app/architecture/diagram.tsx:ArchitectureDiagram",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/architecture/page.tsx",
+      "target": "function:portfolio/src/app/architecture/page.tsx:ArchitecturePage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/architecture/page.tsx",
+      "target": "function:portfolio/src/app/architecture/page.tsx:ArchitecturePage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/architecture/page.tsx",
+      "target": "file:portfolio/src/app/architecture/diagram.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/utils/__init__.py",
+      "target": "file:shared/utils/helpers.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/utils/helpers.py",
+      "target": "function:shared/utils/helpers.py:chunk_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/utils/helpers.py",
+      "target": "function:shared/utils/helpers.py:chunk_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/utils/helpers.py",
+      "target": "function:shared/utils/helpers.py:retry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/utils/helpers.py",
+      "target": "function:shared/utils/helpers.py:retry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/utils/helpers.py",
+      "target": "class:shared/utils/helpers.py:Timer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/utils/helpers.py",
+      "target": "class:shared/utils/helpers.py:Timer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_short_jwt_secret_is_rejected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_short_jwt_secret_is_rejected",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_minimum_length_jwt_secret_is_accepted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_minimum_length_jwt_secret_is_accepted",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_missing_secret_in_prod_raises",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_missing_secret_in_prod_raises",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_missing_secret_in_dev_returns_ephemeral",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_missing_secret_in_dev_returns_ephemeral",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_missing_secret_in_dev_logs_ephemeral_warning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_missing_secret_in_dev_logs_ephemeral_warning",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_whitespace_only_secret_treated_as_missing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_auth_hardening.py",
+      "target": "function:tests/test_auth_hardening.py:test_whitespace_only_secret_treated_as_missing",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:ci_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:ci_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:dependabot_cfg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:dependabot_cfg",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_pip_audit_strict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_pip_audit_strict",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_bandit_static_analysis",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_bandit_static_analysis",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_gitleaks_secret_scanner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_gitleaks_secret_scanner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_npm_audit_for_portfolio",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_npm_audit_for_portfolio",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_trivy_image_scan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_has_trivy_image_scan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_blocks_on_pip_audit_findings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_blocks_on_pip_audit_findings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_blocks_on_trivy_findings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_ci_blocks_on_trivy_findings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_gitleaks_config_file_exists_where_ci_expects_it",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_gitleaks_config_file_exists_where_ci_expects_it",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_gitleaks_config_extends_default_ruleset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_gitleaks_config_extends_default_ruleset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_dependabot_covers_all_first_class_ecosystems",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_dependabot_covers_all_first_class_ecosystems",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_dependabot_covers_standalone_analyst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_dependabot_covers_standalone_analyst",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_dependabot_weekly_cadence_is_sane",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_ci_security_contract.py",
+      "target": "function:tests/test_ci_security_contract.py:test_dependabot_weekly_cadence_is_sane",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:dockerfile_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:dockerfile_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:dockerignore_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:dockerignore_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:_active_lines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:_active_lines",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_env_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_env_files",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_sqlite_and_data_dir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_sqlite_and_data_dir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_git_and_venvs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerignore_excludes_git_and_venvs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_does_not_copy_env_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_does_not_copy_env_files",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_does_not_flatten_projects_via_globs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_does_not_flatten_projects_via_globs",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_copies_each_project_into_its_own_subdir",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_copies_each_project_into_its_own_subdir",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_runs_as_non_root",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:tests/test_dockerfile_contract.py",
+      "target": "function:tests/test_dockerfile_contract.py:test_dockerfile_runs_as_non_root",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

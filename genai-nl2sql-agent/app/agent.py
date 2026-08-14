@@ -14,7 +14,7 @@ from shared.llm.gemini import generate_text
 
 
 MAX_SQL_ATTEMPTS = 3
-SUMMARY_MODEL = "gemini-3-flash-preview"
+SUMMARY_MODEL = "gemini-3.5-flash-lite"
 LOGGER = logging.getLogger("nl2sql_agent.agent")
 
 

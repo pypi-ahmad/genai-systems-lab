@@ -1,0 +1,265 @@
+{
+  "nodes": [
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/58d574833fa38019504e282a7f7321121bb00ca87db5ed81f7850601cc7e4ab3.json",
+      "type": "config",
+      "name": "58d574833fa38019504e282a7f7321121bb00ca87db5ed81f7850601cc7e4ab3.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/58d574833fa38019504e282a7f7321121bb00ca87db5ed81f7850601cc7e4ab3.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/596fb2afcc062eb449c18b7ff93ad352d4ab20d41253a1861f08fe197be840bb.json",
+      "type": "config",
+      "name": "596fb2afcc062eb449c18b7ff93ad352d4ab20d41253a1861f08fe197be840bb.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/596fb2afcc062eb449c18b7ff93ad352d4ab20d41253a1861f08fe197be840bb.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5a229e7ecfbe22d52bb5fc602da1f7164147841625ab0f50de763fc48a2b87c7.json",
+      "type": "config",
+      "name": "5a229e7ecfbe22d52bb5fc602da1f7164147841625ab0f50de763fc48a2b87c7.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5a229e7ecfbe22d52bb5fc602da1f7164147841625ab0f50de763fc48a2b87c7.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5a47fc4552a01247ba28b77a2c8995444c54ece6cc9daa51b3106a1c8e8de2d5.json",
+      "type": "config",
+      "name": "5a47fc4552a01247ba28b77a2c8995444c54ece6cc9daa51b3106a1c8e8de2d5.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5a47fc4552a01247ba28b77a2c8995444c54ece6cc9daa51b3106a1c8e8de2d5.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5c52e0c3cca8a4a1a20b82e2bbd3b9838c11b06c2ac3b42b4ad14ffa8e912566.json",
+      "type": "config",
+      "name": "5c52e0c3cca8a4a1a20b82e2bbd3b9838c11b06c2ac3b42b4ad14ffa8e912566.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5c52e0c3cca8a4a1a20b82e2bbd3b9838c11b06c2ac3b42b4ad14ffa8e912566.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5cb102bc8dab979ae655f94c0f4f8275162e74139e1be742ca2b23751e9f3704.json",
+      "type": "config",
+      "name": "5cb102bc8dab979ae655f94c0f4f8275162e74139e1be742ca2b23751e9f3704.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5cb102bc8dab979ae655f94c0f4f8275162e74139e1be742ca2b23751e9f3704.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5cfbcb990be278bb0c5f6dd6ca06c5f6e2cdfa6db4284f2cc0beb530a9601ded.json",
+      "type": "config",
+      "name": "5cfbcb990be278bb0c5f6dd6ca06c5f6e2cdfa6db4284f2cc0beb530a9601ded.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5cfbcb990be278bb0c5f6dd6ca06c5f6e2cdfa6db4284f2cc0beb530a9601ded.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5cfe0ff5d4cb5b3e9fdd58daa9b6fc66050ea51bbc9d15a4ec6dffa7c99eb821.json",
+      "type": "config",
+      "name": "5cfe0ff5d4cb5b3e9fdd58daa9b6fc66050ea51bbc9d15a4ec6dffa7c99eb821.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5cfe0ff5d4cb5b3e9fdd58daa9b6fc66050ea51bbc9d15a4ec6dffa7c99eb821.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5df305ee4aeddfb18d5261c34ee30a446ac60d65e637f3a8758826ed8ab7cec1.json",
+      "type": "config",
+      "name": "5df305ee4aeddfb18d5261c34ee30a446ac60d65e637f3a8758826ed8ab7cec1.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5df305ee4aeddfb18d5261c34ee30a446ac60d65e637f3a8758826ed8ab7cec1.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5f0b8e7cc70cf57f1b6002a806518d01f4d7e3b4cc1113d5b2ece39cb9c554c0.json",
+      "type": "config",
+      "name": "5f0b8e7cc70cf57f1b6002a806518d01f4d7e3b4cc1113d5b2ece39cb9c554c0.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5f0b8e7cc70cf57f1b6002a806518d01f4d7e3b4cc1113d5b2ece39cb9c554c0.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5f253bb8f6fd92d128437d47e4dc7a62eaf1d82636b20d06a336099b0a6a647e.json",
+      "type": "config",
+      "name": "5f253bb8f6fd92d128437d47e4dc7a62eaf1d82636b20d06a336099b0a6a647e.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5f253bb8f6fd92d128437d47e4dc7a62eaf1d82636b20d06a336099b0a6a647e.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/5f85c0910f3fba43b823e762325de1666fd4a778891cef7fcca2e31be380e517.json",
+      "type": "config",
+      "name": "5f85c0910f3fba43b823e762325de1666fd4a778891cef7fcca2e31be380e517.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/5f85c0910f3fba43b823e762325de1666fd4a778891cef7fcca2e31be380e517.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/61ab8f94f67d277f83e722ed0deaf7e77b7a53459574ad1cf284a0de4f78c91c.json",
+      "type": "config",
+      "name": "61ab8f94f67d277f83e722ed0deaf7e77b7a53459574ad1cf284a0de4f78c91c.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/61ab8f94f67d277f83e722ed0deaf7e77b7a53459574ad1cf284a0de4f78c91c.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/6212a3ba5b696662a585fc9f7d59f20fa9d58b104e25a2e1d0044f9dbae105fe.json",
+      "type": "config",
+      "name": "6212a3ba5b696662a585fc9f7d59f20fa9d58b104e25a2e1d0044f9dbae105fe.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/6212a3ba5b696662a585fc9f7d59f20fa9d58b104e25a2e1d0044f9dbae105fe.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/62525dc5fca526a25223886fcc0f4b7f868a2ed93b3e969377efba372aed870e.json",
+      "type": "config",
+      "name": "62525dc5fca526a25223886fcc0f4b7f868a2ed93b3e969377efba372aed870e.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/62525dc5fca526a25223886fcc0f4b7f868a2ed93b3e969377efba372aed870e.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/6253c417cbbc4f83724a679b46ffadd0f283bcb8886164c339d39c75091510fd.json",
+      "type": "config",
+      "name": "6253c417cbbc4f83724a679b46ffadd0f283bcb8886164c339d39c75091510fd.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/6253c417cbbc4f83724a679b46ffadd0f283bcb8886164c339d39c75091510fd.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/634ec1f487f46fe1c11724e6001c9ae2d657242dc22b08a48802bd6e70ed6d7a.json",
+      "type": "config",
+      "name": "634ec1f487f46fe1c11724e6001c9ae2d657242dc22b08a48802bd6e70ed6d7a.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/634ec1f487f46fe1c11724e6001c9ae2d657242dc22b08a48802bd6e70ed6d7a.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/6357857c8579b27d580ec2163632eaf32e8a09ba526ebdda1bc52c6a3595c06d.json",
+      "type": "config",
+      "name": "6357857c8579b27d580ec2163632eaf32e8a09ba526ebdda1bc52c6a3595c06d.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/6357857c8579b27d580ec2163632eaf32e8a09ba526ebdda1bc52c6a3595c06d.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/655555d555e9cd3e02c815c96657d19137eee0c0c635fcd2fb7f24e4b8c3704d.json",
+      "type": "config",
+      "name": "655555d555e9cd3e02c815c96657d19137eee0c0c635fcd2fb7f24e4b8c3704d.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/655555d555e9cd3e02c815c96657d19137eee0c0c635fcd2fb7f24e4b8c3704d.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/ast/v0.9.35/656d1e4e57144eae577f618f91f491dc5d4fa3218af5de8dc4fa137791fd6201.json",
+      "type": "config",
+      "name": "656d1e4e57144eae577f618f91f491dc5d4fa3218af5de8dc4fa137791fd6201.json",
+      "filePath": "graphify-out/cache/ast/v0.9.35/656d1e4e57144eae577f618f91f491dc5d4fa3218af5de8dc4fa137791fd6201.json",
+      "summary": "Cached Graphify AST extraction artifact used to avoid recomputing source-file structural analysis.",
+      "tags": [
+        "configuration",
+        "cache",
+        "analysis-artifact"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

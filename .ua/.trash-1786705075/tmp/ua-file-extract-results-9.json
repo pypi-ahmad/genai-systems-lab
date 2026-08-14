@@ -1,0 +1,2908 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 13,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 13,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 13,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "langgraph-data-analyst/src/agents/executor.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 123,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "execute_plan",
+          "startLine": 43,
+          "endLine": 108,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_extract_code",
+          "startLine": 115,
+          "endLine": 123,
+          "params": [
+            "raw"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "execute_plan",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "_extract_code",
+          "line": 115,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute_plan",
+          "callee": "state.get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "state.get",
+          "lineNumber": 53
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "state.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "state.get",
+          "lineNumber": 55
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "logger.warning",
+          "lineNumber": 58
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "logger.info",
+          "lineNumber": 65
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "CODE_PROMPT.format",
+          "lineNumber": 68
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "dataframe_path.replace",
+          "lineNumber": 70
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "generate_fast",
+          "lineNumber": 79
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "_extract_code",
+          "lineNumber": 80
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "logger.warning",
+          "lineNumber": 83
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "logger.info",
+          "lineNumber": 90
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "len",
+          "lineNumber": 90
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "execute_code",
+          "lineNumber": 93
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "logger.info",
+          "lineNumber": 96
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "len",
+          "lineNumber": 96
+        },
+        {
+          "caller": "execute_plan",
+          "callee": "logger.warning",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "raw.strip",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "text.startswith",
+          "lineNumber": 120
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "text.split(\"\\n\", 1)[-1].rsplit(\"```\", 1)[0].strip",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "text.split(\"\\n\", 1)[-1].rsplit",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "text.split",
+          "lineNumber": 121
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/agents/planner.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 99,
+      "nonEmptyLines": 76,
+      "functions": [
+        {
+          "name": "plan_analysis",
+          "startLine": 41,
+          "endLine": 71,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_parse_plan",
+          "startLine": 74,
+          "endLine": 99,
+          "params": [
+            "raw",
+            "query"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "plan_analysis",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_plan",
+          "line": 74,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "plan_analysis",
+          "callee": "state.get",
+          "lineNumber": 50
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "state.get",
+          "lineNumber": 51
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "state.get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "logger.info",
+          "lineNumber": 54
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "generate_pro",
+          "lineNumber": 66
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "_parse_plan",
+          "lineNumber": 67
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "logger.info",
+          "lineNumber": 69
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "len",
+          "lineNumber": 69
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "\"\\n\".join",
+          "lineNumber": 71
+        },
+        {
+          "caller": "plan_analysis",
+          "callee": "enumerate",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "raw.strip",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "text.startswith",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "text.split(\"\\n\", 1)[-1].rsplit(\"```\", 1)[0].strip",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "text.split(\"\\n\", 1)[-1].rsplit",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "text.split",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "json.loads",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "isinstance",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "all",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "isinstance",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "s.strip",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "s.strip",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_parse_plan",
+          "callee": "logger.warning",
+          "lineNumber": 94
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/agents/reporter.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 58,
+      "functions": [
+        {
+          "name": "generate_report",
+          "startLine": 51,
+          "endLine": 83,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_report",
+          "line": 51,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_report",
+          "callee": "state.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "generate_report",
+          "callee": "state.get",
+          "lineNumber": 60
+        },
+        {
+          "caller": "generate_report",
+          "callee": "state.get",
+          "lineNumber": 61
+        },
+        {
+          "caller": "generate_report",
+          "callee": "state.get",
+          "lineNumber": 62
+        },
+        {
+          "caller": "generate_report",
+          "callee": "state.get",
+          "lineNumber": 63
+        },
+        {
+          "caller": "generate_report",
+          "callee": "state.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "generate_report",
+          "callee": "f\"{validation_result}\\nError: {error}\".strip",
+          "lineNumber": 67
+        },
+        {
+          "caller": "generate_report",
+          "callee": "REPORT_PROMPT.format",
+          "lineNumber": 69
+        },
+        {
+          "caller": "generate_report",
+          "callee": "logger.info",
+          "lineNumber": 77
+        },
+        {
+          "caller": "generate_report",
+          "callee": "generate_pro",
+          "lineNumber": 79
+        },
+        {
+          "caller": "generate_report",
+          "callee": "logger.info",
+          "lineNumber": 81
+        },
+        {
+          "caller": "generate_report",
+          "callee": "len",
+          "lineNumber": 81
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/agents/validator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 153,
+      "nonEmptyLines": 119,
+      "functions": [
+        {
+          "name": "validate_output",
+          "startLine": 47,
+          "endLine": 114,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_parse_verdict",
+          "startLine": 121,
+          "endLine": 153,
+          "params": [
+            "raw"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "validate_output",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_verdict",
+          "line": 121,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validate_output",
+          "callee": "state.get",
+          "lineNumber": 58
+        },
+        {
+          "caller": "validate_output",
+          "callee": "state.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "validate_output",
+          "callee": "logger.info",
+          "lineNumber": 63
+        },
+        {
+          "caller": "validate_output",
+          "callee": "state.get",
+          "lineNumber": 70
+        },
+        {
+          "caller": "validate_output",
+          "callee": "state.get",
+          "lineNumber": 71
+        },
+        {
+          "caller": "validate_output",
+          "callee": "state.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "validate_output",
+          "callee": "state.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "validate_output",
+          "callee": "execution_result.strip",
+          "lineNumber": 75
+        },
+        {
+          "caller": "validate_output",
+          "callee": "logger.info",
+          "lineNumber": 76
+        },
+        {
+          "caller": "validate_output",
+          "callee": "logger.info",
+          "lineNumber": 84
+        },
+        {
+          "caller": "validate_output",
+          "callee": "generate_pro",
+          "lineNumber": 94
+        },
+        {
+          "caller": "validate_output",
+          "callee": "_parse_verdict",
+          "lineNumber": 95
+        },
+        {
+          "caller": "validate_output",
+          "callee": "logger.info",
+          "lineNumber": 98
+        },
+        {
+          "caller": "validate_output",
+          "callee": "verdict.get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "validate_output",
+          "callee": "logger.info",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "raw.strip",
+          "lineNumber": 127
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "text.startswith",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "text.split(\"\\n\", 1)[-1].rsplit(\"```\", 1)[0].strip",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "text.split(\"\\n\", 1)[-1].rsplit",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "text.split",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "json.loads",
+          "lineNumber": 134
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "isinstance",
+          "lineNumber": 135
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "bool",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "str",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "obj.get",
+          "lineNumber": 138
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "str",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "obj.get",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "text.upper",
+          "lineNumber": 145
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "upper.startswith",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "upper.startswith",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "text.split(\":\", 1)[1].strip",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "text.split",
+          "lineNumber": 149
+        },
+        {
+          "caller": "_parse_verdict",
+          "callee": "logger.warning",
+          "lineNumber": 152
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/api/app.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "analyze",
+          "startLine": 30,
+          "endLine": 46,
+          "params": [
+            "request"
+          ]
+        },
+        {
+          "name": "_run_workflow",
+          "startLine": 49,
+          "endLine": 56,
+          "params": [
+            "query",
+            "file_path"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AnalyzeRequest",
+          "startLine": 20,
+          "endLine": 22,
+          "methods": [],
+          "properties": [
+            "query",
+            "file_path"
+          ]
+        },
+        {
+          "name": "AnalyzeResponse",
+          "startLine": 25,
+          "endLine": 26,
+          "methods": [],
+          "properties": [
+            "final_report"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AnalyzeRequest",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "AnalyzeResponse",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "analyze",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "_run_workflow",
+          "line": 49,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "analyze",
+          "callee": "logger.info",
+          "lineNumber": 32
+        },
+        {
+          "caller": "analyze",
+          "callee": "_run_workflow",
+          "lineNumber": 35
+        },
+        {
+          "caller": "analyze",
+          "callee": "logger.exception",
+          "lineNumber": 37
+        },
+        {
+          "caller": "analyze",
+          "callee": "HTTPException",
+          "lineNumber": 38
+        },
+        {
+          "caller": "analyze",
+          "callee": "result.get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "analyze",
+          "callee": "logger.warning",
+          "lineNumber": 42
+        },
+        {
+          "caller": "analyze",
+          "callee": "HTTPException",
+          "lineNumber": 43
+        },
+        {
+          "caller": "analyze",
+          "callee": "logger.info",
+          "lineNumber": 45
+        },
+        {
+          "caller": "analyze",
+          "callee": "len",
+          "lineNumber": 45
+        },
+        {
+          "caller": "analyze",
+          "callee": "AnalyzeResponse",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_run_workflow",
+          "callee": "workflow.invoke",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 2,
+        "classCount": 2
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/config/settings.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 66,
+      "functions": [
+        {
+          "name": "setup_logging",
+          "startLine": 65,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "ensure_directories",
+          "startLine": 85,
+          "endLine": 88,
+          "params": []
+        }
+      ],
+      "classes": [
+        {
+          "name": "Settings",
+          "startLine": 23,
+          "endLine": 60,
+          "methods": [],
+          "properties": [
+            "model_fast",
+            "model_pro",
+            "temperature",
+            "code_execution_timeout_seconds",
+            "max_retries",
+            "upload_dir",
+            "output_dir",
+            "max_upload_size_mb",
+            "api_host",
+            "api_port",
+            "log_level",
+            "log_format"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Settings",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "setup_logging",
+          "line": 65,
+          "isDefault": false
+        },
+        {
+          "name": "ensure_directories",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setup_logging",
+          "callee": "getattr",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "settings.log_level.upper",
+          "lineNumber": 71
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "logging.getLogger",
+          "lineNumber": 72
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "root.setLevel",
+          "lineNumber": 73
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "logging.StreamHandler",
+          "lineNumber": 76
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "handler.setLevel",
+          "lineNumber": 77
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "handler.setFormatter",
+          "lineNumber": 78
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "logging.Formatter",
+          "lineNumber": 78
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "root.addHandler",
+          "lineNumber": 79
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "logging.getLogger(name).setLevel",
+          "lineNumber": 82
+        },
+        {
+          "caller": "setup_logging",
+          "callee": "logging.getLogger",
+          "lineNumber": 82
+        },
+        {
+          "caller": "ensure_directories",
+          "callee": "settings.upload_dir.mkdir",
+          "lineNumber": 87
+        },
+        {
+          "caller": "ensure_directories",
+          "callee": "settings.output_dir.mkdir",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/graph/workflow.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 109,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "_planner",
+          "startLine": 33,
+          "endLine": 37,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_executor",
+          "startLine": 40,
+          "endLine": 48,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_validator",
+          "startLine": 51,
+          "endLine": 57,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_reporter",
+          "startLine": 60,
+          "endLine": 65,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_after_validator",
+          "startLine": 70,
+          "endLine": 81,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "build_graph",
+          "startLine": 86,
+          "endLine": 106,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_planner",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "_executor",
+          "line": 40,
+          "isDefault": false
+        },
+        {
+          "name": "_validator",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "_reporter",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "_after_validator",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "build_graph",
+          "line": 86,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_planner",
+          "callee": "logger.info",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_planner",
+          "callee": "state.get",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_planner",
+          "callee": "plan_analysis",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_planner",
+          "callee": "logger.info",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_planner",
+          "callee": "len",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_planner",
+          "callee": "result.get",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_executor",
+          "callee": "logger.info",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_executor",
+          "callee": "state.get",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_executor",
+          "callee": "execute_plan",
+          "lineNumber": 42
+        },
+        {
+          "caller": "_executor",
+          "callee": "result.get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_executor",
+          "callee": "logger.warning",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_executor",
+          "callee": "logger.info",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_executor",
+          "callee": "len",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_executor",
+          "callee": "result.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_validator",
+          "callee": "logger.info",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_validator",
+          "callee": "validate_output",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_validator",
+          "callee": "result.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_validator",
+          "callee": "logger.info",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_validator",
+          "callee": "result.get",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_validator",
+          "callee": "state.get",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_reporter",
+          "callee": "logger.info",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_reporter",
+          "callee": "generate_report",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_reporter",
+          "callee": "logger.info",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_reporter",
+          "callee": "len",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_reporter",
+          "callee": "result.get",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_after_validator",
+          "callee": "state.get",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_after_validator",
+          "callee": "state.get",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_after_validator",
+          "callee": "logger.warning",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_after_validator",
+          "callee": "logger.info",
+          "lineNumber": 80
+        },
+        {
+          "caller": "build_graph",
+          "callee": "StateGraph",
+          "lineNumber": 88
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 90
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 91
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 92
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 93
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 95
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 96
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 97
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_conditional_edges",
+          "lineNumber": 98
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 103
+        },
+        {
+          "caller": "build_graph",
+          "callee": "logger.info",
+          "lineNumber": 105
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.compile",
+          "lineNumber": 106
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/llm/client.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 76,
+      "functions": [
+        {
+          "name": "_client",
+          "startLine": 20,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "_generate",
+          "startLine": 28,
+          "endLine": 87,
+          "params": [
+            "prompt",
+            "model"
+          ]
+        },
+        {
+          "name": "generate_fast",
+          "startLine": 90,
+          "endLine": 92,
+          "params": [
+            "prompt"
+          ]
+        },
+        {
+          "name": "generate_pro",
+          "startLine": 95,
+          "endLine": 97,
+          "params": [
+            "prompt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_client",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "_generate",
+          "line": 28,
+          "isDefault": false
+        },
+        {
+          "name": "generate_fast",
+          "line": 90,
+          "isDefault": false
+        },
+        {
+          "name": "generate_pro",
+          "line": 95,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_client",
+          "callee": "_get_client",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_generate",
+          "callee": "range",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_generate",
+          "callee": "logger.debug",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_generate",
+          "callee": "len",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_generate",
+          "callee": "_client().models.generate_content",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_generate",
+          "callee": "_client",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_generate",
+          "callee": "types.GenerateContentConfig",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_generate",
+          "callee": "logger.debug",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_generate",
+          "callee": "len",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_generate",
+          "callee": "logger.warning",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_generate",
+          "callee": "logger.warning",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_generate",
+          "callee": "logger.info",
+          "lineNumber": 84
+        },
+        {
+          "caller": "_generate",
+          "callee": "time.sleep",
+          "lineNumber": 85
+        },
+        {
+          "caller": "generate_fast",
+          "callee": "_generate",
+          "lineNumber": 92
+        },
+        {
+          "caller": "generate_pro",
+          "callee": "_generate",
+          "lineNumber": 97
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/schemas/state.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 33,
+      "classes": [
+        {
+          "name": "AnalystState",
+          "startLine": 13,
+          "endLine": 40,
+          "methods": [],
+          "properties": [
+            "user_query",
+            "dataframe_path",
+            "plan",
+            "intermediate_steps",
+            "code",
+            "execution_result",
+            "validation_result",
+            "validation_passed",
+            "final_report",
+            "error",
+            "retry_count"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AnalystState",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 155,
+      "nonEmptyLines": 121,
+      "functions": [
+        {
+          "name": "load_dataframe",
+          "startLine": 23,
+          "endLine": 55,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "get_basic_info",
+          "startLine": 58,
+          "endLine": 78,
+          "params": [
+            "df"
+          ]
+        },
+        {
+          "name": "get_summary_stats",
+          "startLine": 81,
+          "endLine": 106,
+          "params": [
+            "df"
+          ]
+        },
+        {
+          "name": "profile_dataset",
+          "startLine": 113,
+          "endLine": 155,
+          "params": [
+            "df"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "load_dataframe",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "get_basic_info",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "get_summary_stats",
+          "line": 81,
+          "isDefault": false
+        },
+        {
+          "name": "profile_dataset",
+          "line": 113,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "load_dataframe",
+          "callee": "Path",
+          "lineNumber": 37
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "path.exists",
+          "lineNumber": 38
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "FileNotFoundError",
+          "lineNumber": 39
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "path.suffix.lower",
+          "lineNumber": 41
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "_LOADERS.get",
+          "lineNumber": 42
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "ValueError",
+          "lineNumber": 44
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "', '.join",
+          "lineNumber": 46
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "sorted",
+          "lineNumber": 46
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "loader",
+          "lineNumber": 50
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "RuntimeError",
+          "lineNumber": 52
+        },
+        {
+          "caller": "load_dataframe",
+          "callee": "logger.info",
+          "lineNumber": 54
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "int",
+          "lineNumber": 67
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "df[col].isna().sum",
+          "lineNumber": 67
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "df[col].isna",
+          "lineNumber": 67
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "len",
+          "lineNumber": 72
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "len",
+          "lineNumber": 73
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "list",
+          "lineNumber": 74
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "str",
+          "lineNumber": 75
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "round",
+          "lineNumber": 77
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "float",
+          "lineNumber": 77
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "df.memory_usage(deep=True).sum",
+          "lineNumber": 77
+        },
+        {
+          "caller": "get_basic_info",
+          "callee": "df.memory_usage",
+          "lineNumber": 77
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "df.select_dtypes",
+          "lineNumber": 90
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "df[col].dropna",
+          "lineNumber": 91
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "int",
+          "lineNumber": 93
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "s.count",
+          "lineNumber": 93
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "round",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "float",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "s.mean",
+          "lineNumber": 94
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "round",
+          "lineNumber": 95
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "float",
+          "lineNumber": 95
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "s.std",
+          "lineNumber": 95
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "len",
+          "lineNumber": 95
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "float",
+          "lineNumber": 96
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "s.min",
+          "lineNumber": 96
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "float",
+          "lineNumber": 97
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "s.max",
+          "lineNumber": 97
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "float",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "s.median",
+          "lineNumber": 98
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "df.select_dtypes",
+          "lineNumber": 102
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "df[col].value_counts().head",
+          "lineNumber": 103
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "df[col].value_counts",
+          "lineNumber": 103
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "str",
+          "lineNumber": 104
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "int",
+          "lineNumber": 104
+        },
+        {
+          "caller": "get_summary_stats",
+          "callee": "top.items",
+          "lineNumber": 104
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "get_basic_info",
+          "lineNumber": 119
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "get_summary_stats",
+          "lineNumber": 120
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 123
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 124
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 126
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "info[\"missing\"].get",
+          "lineNumber": 128
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 130
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 131
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 134
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "stats[\"numeric\"].items",
+          "lineNumber": 135
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 136
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 140
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 143
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "stats[\"categorical\"].items",
+          "lineNumber": 144
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "\", \".join",
+          "lineNumber": 145
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "counts.items",
+          "lineNumber": 145
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 146
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 147
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "min",
+          "lineNumber": 149
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 151
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "df.head(sample_n).to_string(max_colwidth=50).splitlines",
+          "lineNumber": 152
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "df.head(sample_n).to_string",
+          "lineNumber": 152
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "df.head",
+          "lineNumber": 152
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "lines.append",
+          "lineNumber": 153
+        },
+        {
+          "caller": "profile_dataset",
+          "callee": "\"\\n\".join",
+          "lineNumber": 155
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/tools/python_executor.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 151,
+      "nonEmptyLines": 123,
+      "functions": [
+        {
+          "name": "_check_dangerous",
+          "startLine": 62,
+          "endLine": 68,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "execute_code",
+          "startLine": 71,
+          "endLine": 151,
+          "params": [
+            "code",
+            "timeout_seconds"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CodeResult",
+          "startLine": 54,
+          "endLine": 59,
+          "methods": [],
+          "properties": [
+            "success",
+            "output",
+            "error"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CodeResult",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "_check_dangerous",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "execute_code",
+          "line": 71,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_check_dangerous",
+          "callee": "pattern.search",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_check_dangerous",
+          "callee": "match.group",
+          "lineNumber": 67
+        },
+        {
+          "caller": "execute_code",
+          "callee": "getattr",
+          "lineNumber": 89
+        },
+        {
+          "caller": "execute_code",
+          "callee": "code.strip",
+          "lineNumber": 93
+        },
+        {
+          "caller": "execute_code",
+          "callee": "logger.warning",
+          "lineNumber": 94
+        },
+        {
+          "caller": "execute_code",
+          "callee": "CodeResult",
+          "lineNumber": 95
+        },
+        {
+          "caller": "execute_code",
+          "callee": "_check_dangerous",
+          "lineNumber": 98
+        },
+        {
+          "caller": "execute_code",
+          "callee": "logger.warning",
+          "lineNumber": 100
+        },
+        {
+          "caller": "execute_code",
+          "callee": "CodeResult",
+          "lineNumber": 101
+        },
+        {
+          "caller": "execute_code",
+          "callee": "tempfile.NamedTemporaryFile",
+          "lineNumber": 105
+        },
+        {
+          "caller": "execute_code",
+          "callee": "tmp.write",
+          "lineNumber": 111
+        },
+        {
+          "caller": "execute_code",
+          "callee": "logger.debug",
+          "lineNumber": 114
+        },
+        {
+          "caller": "execute_code",
+          "callee": "len",
+          "lineNumber": 116
+        },
+        {
+          "caller": "execute_code",
+          "callee": "subprocess.run",
+          "lineNumber": 120
+        },
+        {
+          "caller": "execute_code",
+          "callee": "tempfile.gettempdir",
+          "lineNumber": 125
+        },
+        {
+          "caller": "execute_code",
+          "callee": "result.stdout.strip",
+          "lineNumber": 128
+        },
+        {
+          "caller": "execute_code",
+          "callee": "result.stderr.strip",
+          "lineNumber": 129
+        },
+        {
+          "caller": "execute_code",
+          "callee": "logger.info",
+          "lineNumber": 135
+        },
+        {
+          "caller": "execute_code",
+          "callee": "len",
+          "lineNumber": 135
+        },
+        {
+          "caller": "execute_code",
+          "callee": "CodeResult",
+          "lineNumber": 136
+        },
+        {
+          "caller": "execute_code",
+          "callee": "logger.error",
+          "lineNumber": 140
+        },
+        {
+          "caller": "execute_code",
+          "callee": "CodeResult",
+          "lineNumber": 141
+        },
+        {
+          "caller": "execute_code",
+          "callee": "logger.warning",
+          "lineNumber": 144
+        },
+        {
+          "caller": "execute_code",
+          "callee": "CodeResult",
+          "lineNumber": 145
+        },
+        {
+          "caller": "execute_code",
+          "callee": "logger.error",
+          "lineNumber": 150
+        },
+        {
+          "caller": "execute_code",
+          "callee": "CodeResult",
+          "lineNumber": 151
+        },
+        {
+          "caller": "execute_code",
+          "callee": "str",
+          "lineNumber": 151
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/src/tools/visualization.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 225,
+      "nonEmptyLines": 184,
+      "functions": [
+        {
+          "name": "_check_plot_code",
+          "startLine": 48,
+          "endLine": 54,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "generate_plot",
+          "startLine": 57,
+          "endLine": 114,
+          "params": [
+            "code",
+            "df"
+          ]
+        },
+        {
+          "name": "save_open_figures",
+          "startLine": 117,
+          "endLine": 144,
+          "params": [
+            "output_dir"
+          ]
+        },
+        {
+          "name": "apply_default_style",
+          "startLine": 147,
+          "endLine": 162,
+          "params": []
+        },
+        {
+          "name": "generate_summary_charts",
+          "startLine": 165,
+          "endLine": 225,
+          "params": [
+            "df",
+            "output_dir"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_check_plot_code",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "generate_plot",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "save_open_figures",
+          "line": 117,
+          "isDefault": false
+        },
+        {
+          "name": "apply_default_style",
+          "line": 147,
+          "isDefault": false
+        },
+        {
+          "name": "generate_summary_charts",
+          "line": 165,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_check_plot_code",
+          "callee": "pattern.search",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_check_plot_code",
+          "callee": "match.group",
+          "lineNumber": 53
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "code.strip",
+          "lineNumber": 75
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "ValueError",
+          "lineNumber": 76
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "_check_plot_code",
+          "lineNumber": 78
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "ValueError",
+          "lineNumber": 80
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "apply_default_style",
+          "lineNumber": 82
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "plt.close",
+          "lineNumber": 85
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "exec",
+          "lineNumber": 95
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "compile",
+          "lineNumber": 95
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "plt.close",
+          "lineNumber": 97
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "RuntimeError",
+          "lineNumber": 98
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "plt.get_fignums",
+          "lineNumber": 100
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "RuntimeError",
+          "lineNumber": 102
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "plt.figure",
+          "lineNumber": 105
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "tempfile.NamedTemporaryFile",
+          "lineNumber": 106
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "tmp.close",
+          "lineNumber": 109
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "fig.savefig",
+          "lineNumber": 110
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "plt.close",
+          "lineNumber": 111
+        },
+        {
+          "caller": "generate_plot",
+          "callee": "logger.info",
+          "lineNumber": 113
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "target.mkdir",
+          "lineNumber": 127
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "plt.get_fignums",
+          "lineNumber": 129
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "plt.figure",
+          "lineNumber": 135
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "uuid.uuid4",
+          "lineNumber": 136
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "fig.savefig",
+          "lineNumber": 138
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "str",
+          "lineNumber": 138
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "paths.append",
+          "lineNumber": 139
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "str",
+          "lineNumber": 139
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "logger.debug",
+          "lineNumber": 140
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "plt.close",
+          "lineNumber": 142
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "logger.info",
+          "lineNumber": 143
+        },
+        {
+          "caller": "save_open_figures",
+          "callee": "len",
+          "lineNumber": 143
+        },
+        {
+          "caller": "apply_default_style",
+          "callee": "plt.style.use",
+          "lineNumber": 152
+        },
+        {
+          "caller": "apply_default_style",
+          "callee": "plt.rcParams.update",
+          "lineNumber": 153
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "apply_default_style",
+          "lineNumber": 182
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "target.mkdir",
+          "lineNumber": 184
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df.select_dtypes(include=\"number\").columns.tolist",
+          "lineNumber": 188
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df.select_dtypes",
+          "lineNumber": 188
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "min",
+          "lineNumber": 190
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "len",
+          "lineNumber": 190
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "plt.subplots",
+          "lineNumber": 191
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "zip",
+          "lineNumber": 194
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df[col].dropna().hist",
+          "lineNumber": 195
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df[col].dropna",
+          "lineNumber": 195
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "ax.set_title",
+          "lineNumber": 196
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "ax.set_xlabel",
+          "lineNumber": 197
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "ax.set_ylabel",
+          "lineNumber": 198
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "fig.suptitle",
+          "lineNumber": 199
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "fig.tight_layout",
+          "lineNumber": 200
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "uuid.uuid4",
+          "lineNumber": 201
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "fig.savefig",
+          "lineNumber": 202
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "str",
+          "lineNumber": 202
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "paths.append",
+          "lineNumber": 203
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "str",
+          "lineNumber": 203
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "plt.close",
+          "lineNumber": 204
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df.select_dtypes",
+          "lineNumber": 209
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df[c].nunique",
+          "lineNumber": 210
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "plt.subplots",
+          "lineNumber": 213
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df[col].value_counts().head",
+          "lineNumber": 214
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "df[col].value_counts",
+          "lineNumber": 214
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "counts.plot",
+          "lineNumber": 215
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "ax.set_title",
+          "lineNumber": 216
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "ax.set_xlabel",
+          "lineNumber": 217
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "fig.tight_layout",
+          "lineNumber": 218
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "uuid.uuid4",
+          "lineNumber": 219
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "fig.savefig",
+          "lineNumber": 220
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "str",
+          "lineNumber": 220
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "paths.append",
+          "lineNumber": 221
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "str",
+          "lineNumber": 221
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "plt.close",
+          "lineNumber": 222
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "logger.info",
+          "lineNumber": 224
+        },
+        {
+          "caller": "generate_summary_charts",
+          "callee": "len",
+          "lineNumber": 224
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "langgraph-data-analyst/tests/test_core.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 285,
+      "nonEmptyLines": 221,
+      "classes": [
+        {
+          "name": "TestLoadDataframe",
+          "startLine": 38,
+          "endLine": 63,
+          "methods": [
+            "test_loads_csv",
+            "test_returns_correct_dtypes",
+            "test_missing_file_raises",
+            "test_unsupported_extension_raises",
+            "test_corrupt_csv_raises"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestGetBasicInfo",
+          "startLine": 66,
+          "endLine": 93,
+          "methods": [
+            "df",
+            "test_row_count",
+            "test_column_count",
+            "test_column_names",
+            "test_missing_values",
+            "test_memory_mb_positive",
+            "test_dtypes_are_strings"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestGetSummaryStats",
+          "startLine": 96,
+          "endLine": 123,
+          "methods": [
+            "df",
+            "test_numeric_columns",
+            "test_categorical_columns",
+            "test_revenue_stats",
+            "test_region_value_counts"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestExecuteCode",
+          "startLine": 133,
+          "endLine": 216,
+          "methods": [
+            "test_simple_print",
+            "test_arithmetic",
+            "test_multiline",
+            "test_syntax_error",
+            "test_runtime_error",
+            "test_empty_code",
+            "test_whitespace_only",
+            "test_blocked_subprocess",
+            "test_blocked_eval",
+            "test_blocked_os_system",
+            "test_timeout",
+            "test_pandas_available",
+            "test_reads_real_csv",
+            "test_code_result_dataclass"
+          ],
+          "properties": []
+        },
+        {
+          "name": "TestParsePlan",
+          "startLine": 226,
+          "endLine": 285,
+          "methods": [
+            "test_valid_json_array",
+            "test_json_with_markdown_fences",
+            "test_plain_fences",
+            "test_whitespace_around_json",
+            "test_empty_strings_filtered",
+            "test_fallback_on_invalid_json",
+            "test_fallback_on_non_array",
+            "test_fallback_on_mixed_types",
+            "test_fallback_on_empty_array",
+            "test_fallback_empty_query",
+            "test_single_step",
+            "test_strips_step_whitespace"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "TestLoadDataframe",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "TestGetBasicInfo",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "TestGetSummaryStats",
+          "line": 96,
+          "isDefault": false
+        },
+        {
+          "name": "TestExecuteCode",
+          "line": 133,
+          "isDefault": false
+        },
+        {
+          "name": "TestParsePlan",
+          "line": 226,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_loads_csv",
+          "callee": "load_dataframe",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_loads_csv",
+          "callee": "len",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_loads_csv",
+          "callee": "list",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_returns_correct_dtypes",
+          "callee": "load_dataframe",
+          "lineNumber": 45
+        },
+        {
+          "caller": "test_missing_file_raises",
+          "callee": "pytest.raises",
+          "lineNumber": 50
+        },
+        {
+          "caller": "test_missing_file_raises",
+          "callee": "load_dataframe",
+          "lineNumber": 51
+        },
+        {
+          "caller": "test_unsupported_extension_raises",
+          "callee": "bad.write_text",
+          "lineNumber": 55
+        },
+        {
+          "caller": "test_unsupported_extension_raises",
+          "callee": "pytest.raises",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_unsupported_extension_raises",
+          "callee": "load_dataframe",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_corrupt_csv_raises",
+          "callee": "bad.write_bytes",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_corrupt_csv_raises",
+          "callee": "load_dataframe",
+          "lineNumber": 63
+        },
+        {
+          "caller": "df",
+          "callee": "load_dataframe",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_row_count",
+          "callee": "get_basic_info",
+          "lineNumber": 72
+        },
+        {
+          "caller": "test_column_count",
+          "callee": "get_basic_info",
+          "lineNumber": 76
+        },
+        {
+          "caller": "test_column_names",
+          "callee": "get_basic_info",
+          "lineNumber": 80
+        },
+        {
+          "caller": "test_missing_values",
+          "callee": "get_basic_info",
+          "lineNumber": 84
+        },
+        {
+          "caller": "test_memory_mb_positive",
+          "callee": "get_basic_info",
+          "lineNumber": 88
+        },
+        {
+          "caller": "test_dtypes_are_strings",
+          "callee": "get_basic_info",
+          "lineNumber": 92
+        },
+        {
+          "caller": "test_dtypes_are_strings",
+          "callee": "all",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_dtypes_are_strings",
+          "callee": "isinstance",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_dtypes_are_strings",
+          "callee": "info[\"dtypes\"].values",
+          "lineNumber": 93
+        },
+        {
+          "caller": "df",
+          "callee": "load_dataframe",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_numeric_columns",
+          "callee": "get_summary_stats",
+          "lineNumber": 102
+        },
+        {
+          "caller": "test_categorical_columns",
+          "callee": "get_summary_stats",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_revenue_stats",
+          "callee": "get_summary_stats",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_revenue_stats",
+          "callee": "pytest.approx",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_region_value_counts",
+          "callee": "get_summary_stats",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_simple_print",
+          "callee": "execute_code",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_arithmetic",
+          "callee": "execute_code",
+          "lineNumber": 140
+        },
+        {
+          "caller": "test_multiline",
+          "callee": "textwrap.dedent",
+          "lineNumber": 145
+        },
+        {
+          "caller": "test_multiline",
+          "callee": "execute_code",
+          "lineNumber": 149
+        },
+        {
+          "caller": "test_syntax_error",
+          "callee": "execute_code",
+          "lineNumber": 154
+        },
+        {
+          "caller": "test_runtime_error",
+          "callee": "execute_code",
+          "lineNumber": 159
+        },
+        {
+          "caller": "test_empty_code",
+          "callee": "execute_code",
+          "lineNumber": 164
+        },
+        {
+          "caller": "test_whitespace_only",
+          "callee": "execute_code",
+          "lineNumber": 169
+        },
+        {
+          "caller": "test_blocked_subprocess",
+          "callee": "execute_code",
+          "lineNumber": 173
+        },
+        {
+          "caller": "test_blocked_eval",
+          "callee": "execute_code",
+          "lineNumber": 178
+        },
+        {
+          "caller": "test_blocked_os_system",
+          "callee": "execute_code",
+          "lineNumber": 183
+        },
+        {
+          "caller": "test_timeout",
+          "callee": "execute_code",
+          "lineNumber": 189
+        },
+        {
+          "caller": "test_timeout",
+          "callee": "result.error.lower",
+          "lineNumber": 191
+        },
+        {
+          "caller": "test_pandas_available",
+          "callee": "textwrap.dedent",
+          "lineNumber": 194
+        },
+        {
+          "caller": "test_pandas_available",
+          "callee": "execute_code",
+          "lineNumber": 199
+        },
+        {
+          "caller": "test_reads_real_csv",
+          "callee": "textwrap.dedent",
+          "lineNumber": 204
+        },
+        {
+          "caller": "test_reads_real_csv",
+          "callee": "execute_code",
+          "lineNumber": 209
+        },
+        {
+          "caller": "test_code_result_dataclass",
+          "callee": "CodeResult",
+          "lineNumber": 214
+        },
+        {
+          "caller": "test_valid_json_array",
+          "callee": "json.dumps",
+          "lineNumber": 230
+        },
+        {
+          "caller": "test_valid_json_array",
+          "callee": "_parse_plan",
+          "lineNumber": 231
+        },
+        {
+          "caller": "test_json_with_markdown_fences",
+          "callee": "_parse_plan",
+          "lineNumber": 236
+        },
+        {
+          "caller": "test_plain_fences",
+          "callee": "_parse_plan",
+          "lineNumber": 241
+        },
+        {
+          "caller": "test_whitespace_around_json",
+          "callee": "_parse_plan",
+          "lineNumber": 246
+        },
+        {
+          "caller": "test_empty_strings_filtered",
+          "callee": "json.dumps",
+          "lineNumber": 250
+        },
+        {
+          "caller": "test_empty_strings_filtered",
+          "callee": "_parse_plan",
+          "lineNumber": 251
+        },
+        {
+          "caller": "test_fallback_on_invalid_json",
+          "callee": "_parse_plan",
+          "lineNumber": 255
+        },
+        {
+          "caller": "test_fallback_on_invalid_json",
+          "callee": "len",
+          "lineNumber": 256
+        },
+        {
+          "caller": "test_fallback_on_non_array",
+          "callee": "json.dumps",
+          "lineNumber": 260
+        },
+        {
+          "caller": "test_fallback_on_non_array",
+          "callee": "_parse_plan",
+          "lineNumber": 261
+        },
+        {
+          "caller": "test_fallback_on_non_array",
+          "callee": "len",
+          "lineNumber": 262
+        },
+        {
+          "caller": "test_fallback_on_mixed_types",
+          "callee": "json.dumps",
+          "lineNumber": 265
+        },
+        {
+          "caller": "test_fallback_on_mixed_types",
+          "callee": "_parse_plan",
+          "lineNumber": 266
+        },
+        {
+          "caller": "test_fallback_on_mixed_types",
+          "callee": "len",
+          "lineNumber": 267
+        },
+        {
+          "caller": "test_fallback_on_empty_array",
+          "callee": "_parse_plan",
+          "lineNumber": 270
+        },
+        {
+          "caller": "test_fallback_on_empty_array",
+          "callee": "len",
+          "lineNumber": 271
+        },
+        {
+          "caller": "test_fallback_empty_query",
+          "callee": "_parse_plan",
+          "lineNumber": 274
+        },
+        {
+          "caller": "test_single_step",
+          "callee": "json.dumps",
+          "lineNumber": 278
+        },
+        {
+          "caller": "test_single_step",
+          "callee": "_parse_plan",
+          "lineNumber": 279
+        },
+        {
+          "caller": "test_strips_step_whitespace",
+          "callee": "json.dumps",
+          "lineNumber": 283
+        },
+        {
+          "caller": "test_strips_step_whitespace",
+          "callee": "_parse_plan",
+          "lineNumber": 284
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 5,
+        "functionCount": 0,
+        "classCount": 5
+      }
+    }
+  ]
+}

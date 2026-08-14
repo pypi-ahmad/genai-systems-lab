@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-content-pipeline/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-content-pipeline/README.md",
+      "summary": "Documents README.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-content-pipeline/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-content-pipeline/architecture.md",
+      "summary": "Documents architecture.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:crew-content-pipeline/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-content-pipeline/tasks.md",
+      "summary": "Documents tasks.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-code-copilot/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-code-copilot/README.md",
+      "summary": "Documents README.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-code-copilot/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-code-copilot/architecture.md",
+      "summary": "Documents architecture.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-code-copilot/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-code-copilot/tasks.md",
+      "summary": "Documents tasks.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

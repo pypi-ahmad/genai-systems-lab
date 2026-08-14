@@ -1,0 +1,35 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": ".ua/config.json",
+      "language": "json",
+      "sizeLines": 3,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/fingerprints.json",
+      "language": "json",
+      "sizeLines": 27178,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/knowledge-graph.json",
+      "language": "json",
+      "sizeLines": 48958,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".ua/meta.json",
+      "language": "json",
+      "sizeLines": 5,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    ".ua/config.json": [],
+    ".ua/fingerprints.json": [],
+    ".ua/knowledge-graph.json": [],
+    ".ua/meta.json": []
+  }
+}

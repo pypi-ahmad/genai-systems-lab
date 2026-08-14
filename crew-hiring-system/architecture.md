@@ -40,7 +40,7 @@ Performs initial resume analysis against job requirements.
 - **Role:** Senior Resume Analyst
 - **Goal:** Extract key qualifications, experience timeline, skill matches, and red flags from the candidate's resume relative to the job description.
 - **Backstory:** Experienced talent acquisition specialist with 10+ years screening technical resumes. Trained to identify both explicit qualifications and implicit signals — career progression patterns, project complexity, and gaps.
-- **Model:** `gemini-3-flash-preview` — resume extraction is a structured parsing task; speed matters more than deep reasoning.
+- **Model:** `gemini-3.5-flash-lite` — resume extraction is a structured parsing task; speed matters more than deep reasoning.
 - **Output:** JSON object with keys: `candidate_summary`, `experience_years`, `skill_matches`, `skill_gaps`, `red_flags`, `education_fit`, `overall_match_score` (0–100).
 
 ### Technical Interviewer
@@ -50,7 +50,7 @@ Assesses the candidate's technical depth and problem-solving ability.
 - **Role:** Senior Technical Interviewer
 - **Goal:** Evaluate the candidate's technical competence based on their resume, claimed skills, and typical proficiency expectations for the target role.
 - **Backstory:** Staff engineer with experience conducting 500+ technical interviews across multiple domains. Evaluates depth vs. breadth, practical experience vs. theoretical knowledge, and ability to operate at the seniority level required.
-- **Model:** `gemini-3.1-pro-preview` — technical evaluation requires reasoning about skill depth, technology tradeoffs, and seniority calibration.
+- **Model:** `gemini-3.7-flash` — technical evaluation requires reasoning about skill depth, technology tradeoffs, and seniority calibration.
 - **Output:** JSON object with keys: `technical_strengths`, `technical_concerns`, `skill_depth_assessment`, `seniority_calibration`, `recommended_interview_questions`, `technical_score` (0–100).
 
 ### Behavioral Interviewer
@@ -60,7 +60,7 @@ Assesses soft skills, culture fit, and collaboration patterns.
 - **Role:** Senior Behavioral Interviewer
 - **Goal:** Evaluate the candidate's teamwork, communication, leadership potential, and alignment with team culture based on resume signals and prior evaluation context.
 - **Backstory:** Organizational psychologist turned hiring specialist. Skilled at reading between the lines of career moves, role transitions, and project descriptions to assess collaboration style, ownership patterns, and growth mindset.
-- **Model:** `gemini-3.1-pro-preview` — behavioral assessment requires nuanced reasoning about interpersonal patterns, motivation signals, and culture alignment.
+- **Model:** `gemini-3.7-flash` — behavioral assessment requires nuanced reasoning about interpersonal patterns, motivation signals, and culture alignment.
 - **Output:** JSON object with keys: `collaboration_signals`, `leadership_indicators`, `communication_assessment`, `culture_fit_notes`, `growth_potential`, `behavioral_score` (0–100).
 
 ### Hiring Manager
@@ -70,7 +70,7 @@ Synthesizes all evaluations into a final hiring recommendation.
 - **Role:** Hiring Manager
 - **Goal:** Produce a final hiring decision by weighing technical evaluation, behavioral assessment, and resume screening results against the role's requirements and team needs.
 - **Backstory:** Engineering director who has built and scaled multiple teams. Makes hiring decisions balancing immediate team needs with long-term growth, considering both hard skills and team dynamics. Biased toward clear, defensible decisions with specific reasoning.
-- **Model:** `gemini-3.1-pro-preview` — final synthesis requires weighing competing signals, identifying decision-relevant patterns across evaluations, and producing calibrated recommendations.
+- **Model:** `gemini-3.7-flash` — final synthesis requires weighing competing signals, identifying decision-relevant patterns across evaluations, and producing calibrated recommendations.
 - **Output:** JSON object with keys: `decision` (hire / no_hire / strong_hire / further_evaluation), `confidence` (0–100), `key_strengths`, `key_concerns`, `compensation_guidance`, `onboarding_recommendations`, `dissenting_considerations`, `rationale`.
 
 ## Tasks
@@ -109,8 +109,8 @@ Each CrewAI `Task` binds an agent to a specific evaluation stage. Tasks execute 
 
 | Model | Agents | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | Technical Interviewer, Behavioral Interviewer, Hiring Manager | Evaluation and synthesis tasks require strong analytical reasoning and calibrated judgment |
-| `gemini-3-flash-preview` | Resume Screener | Resume extraction is a structured parsing task — speed and cost efficiency matter more than deep reasoning |
+| `gemini-3.7-flash` | Technical Interviewer, Behavioral Interviewer, Hiring Manager | Evaluation and synthesis tasks require strong analytical reasoning and calibrated judgment |
+| `gemini-3.5-flash-lite` | Resume Screener | Resume extraction is a structured parsing task — speed and cost efficiency matter more than deep reasoning |
 
 ### Cost and latency considerations
 
@@ -177,8 +177,8 @@ Each agent receives the full accumulated context — not just the immediately pr
 
 | Parameter | Default | Purpose |
 |---|---|---|
-| `EVALUATION_MODEL` | `gemini-3.1-pro-preview` | Model for Technical, Behavioral, and Hiring Manager |
-| `EXTRACTION_MODEL` | `gemini-3-flash-preview` | Model for Resume Screener |
+| `EVALUATION_MODEL` | `gemini-3.7-flash` | Model for Technical, Behavioral, and Hiring Manager |
+| `EXTRACTION_MODEL` | `gemini-3.5-flash-lite` | Model for Resume Screener |
 | `VERBOSE` | `True` | Enable crew execution logging |
 | `MAX_RETRY_LIMIT` | `3` | Retry limit for failed LLM calls |
 

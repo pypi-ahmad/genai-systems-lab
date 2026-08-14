@@ -5,7 +5,7 @@
 File: `app/agents.py`
 
 - [ ] Import `Agent` from `crewai`.
-- [ ] Define `RESEARCH_MODEL = "gemini-3.1-pro-preview"` and `FAST_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Define `RESEARCH_MODEL = "gemini-3.7-flash"` and `FAST_MODEL = "gemini-3.5-flash-lite"` constants.
 - [ ] Create `build_researcher() -> Agent` with role `"Senior Research Analyst"`, goal to produce a comprehensive research brief with verified facts, data points, and source references, and `llm=RESEARCH_MODEL`.
 - [ ] Create `build_writer() -> Agent` with role `"Content Writer"`, goal to create an engaging article from the research brief with clear structure and narrative, and `llm=RESEARCH_MODEL`.
 - [ ] Create `build_editor() -> Agent` with role `"Senior Editor"`, goal to polish the draft into publication-quality content — fix structure, tighten prose, ensure factual accuracy, and `llm=FAST_MODEL`.

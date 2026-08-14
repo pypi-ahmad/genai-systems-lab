@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-knowledge-os/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-knowledge-os/README.md",
+      "summary": "Documents README.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-knowledge-os/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-knowledge-os/architecture.md",
+      "summary": "Documents architecture.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-knowledge-os/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-knowledge-os/tasks.md",
+      "summary": "Documents tasks.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

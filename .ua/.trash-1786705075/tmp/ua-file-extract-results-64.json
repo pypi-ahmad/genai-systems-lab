@@ -1,0 +1,638 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 20,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 20
+    }
+  },
+  "results": [
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/2a4be9d30103317c0e39f75cca25d64ee62298b1ee0887da0cc8b3ebebabd535.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/2bbe1dc78c445aeb6a0cd389ec7609b119d2188f21602518acadaea4ac897a8b.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/2d1317ef1fe2197d0d765be2a55bab31da9cd25e7b5cba9b508b97c64628d2d2.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/2d31ca47d2e70322f7e943f870bb8782d54920b7457fef47cd4354135dff06c0.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/2db3bab7ab5baff42e44eb9083a9e9cc749f1ecaeb08aa0ad3d952555394268a.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/2dd8b15c2858e252b22014230637d319ebe637b749b83351f9032c727366a1d6.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/2ecc59a5db767841364f095fa628cf2450dac993cbafe590e732f0069b7534a6.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/305f339cf48fa509bcd2dfc38f32324c719334fe0fb9bc163a720518237b5896.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/30d84dbb87754ba0209d52916639d68e2097e4540a59b3dc498cb32069f0ba22.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/34417c2a338662e2d5107508ceaf99b8a1a473e32b2f4e45b98461d1eab6e9b9.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3450555fedd0cd9dc1df3d852e6ddaf1a7a8373e380c9eeca333ee401d4145ec.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3566892d84da2e43ef78ac4961442ecc41032545c8431556eabc5a58797eab1e.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/371642b3403cb61a8197a050f4d3679f1529af19155ea48d364703739e311287.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/373d207fdb0991751663c8aee67c6d9495e2bb1628b95d5983a59e61382ebc8a.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3b0da8b6eb32e4ff22116853fddbbd69acb9f71a8a1698ac4f33cfc31208b37b.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3baebe2f270150c745b04aa4f047e2737b64a669207f85c0490a02c84d324669.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3c4067aaea032b406b0a90e5a2b715e7d5b596b9d82a2b7c3682e6614053303d.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3c9338982dd8407607b480b83ebca707f744af3eb9722d72d0ccb32e94fba58a.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3cadac603937bef3c160bc22dcf11081af4d502b1e4f66f91f7f2f7e76aac123.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/cache/ast/v0.9.35/3d6b1af26cc32a959626171a8925e9be453545f6d61a5f7b5c6f36a2ddd55cd9.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "raw_calls",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

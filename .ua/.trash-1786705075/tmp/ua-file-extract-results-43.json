@@ -1,0 +1,201 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "crew-content-pipeline/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "Content Pipeline",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "crew-content-pipeline/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 126,
+      "nonEmptyLines": 89,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Agents",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Researcher",
+          "level": 3,
+          "line": 17
+        },
+        {
+          "heading": "Writer",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "Editor",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "SEO Expert",
+          "level": 3,
+          "line": 44
+        },
+        {
+          "heading": "Task Chain",
+          "level": 2,
+          "line": 53
+        },
+        {
+          "heading": "Why sequential",
+          "level": 3,
+          "line": 64
+        },
+        {
+          "heading": "Crew Construction",
+          "level": 2,
+          "line": 70
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 97
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "Key Design Principles",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "File Structure",
+          "level": 2,
+          "line": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 14
+      }
+    },
+    {
+      "path": "crew-content-pipeline/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 46,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define Agents",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Define Tasks",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "3 — Build Crew",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "4 — Execute Pipeline",
+          "level": 2,
+          "line": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

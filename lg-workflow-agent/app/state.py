@@ -4,8 +4,8 @@ from typing import TypedDict
 
 MAX_RETRIES = 3
 MAX_PLAN_STEPS = 10
-REASONING_MODEL = "gemini-3.1-pro-preview"
-SUMMARY_MODEL = "gemini-3-flash-preview"
+REASONING_MODEL = "gemini-3.7-flash"
+SUMMARY_MODEL = "gemini-3.5-flash-lite"
 
 
 class WorkflowState(TypedDict, total=False):

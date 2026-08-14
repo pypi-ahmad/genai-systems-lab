@@ -1,0 +1,122 @@
+{
+  "nodes": [
+    {
+      "id": "config:.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": ".env.example",
+      "summary": ".env.example provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:ARCHITECTURE.md",
+      "type": "document",
+      "name": "ARCHITECTURE.md",
+      "filePath": "ARCHITECTURE.md",
+      "summary": "ARCHITECTURE.md documents the repository component and its usage or design.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:CHANGELOG.md",
+      "type": "document",
+      "name": "CHANGELOG.md",
+      "filePath": "CHANGELOG.md",
+      "summary": "CHANGELOG.md documents the repository component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:CODE_OF_CONDUCT.md",
+      "type": "document",
+      "name": "CODE_OF_CONDUCT.md",
+      "filePath": "CODE_OF_CONDUCT.md",
+      "summary": "CODE_OF_CONDUCT.md documents the repository component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "README.md",
+      "summary": "README.md documents the repository component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:SECURITY.md",
+      "type": "document",
+      "name": "SECURITY.md",
+      "filePath": "SECURITY.md",
+      "summary": "SECURITY.md documents the repository component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:alembic.ini",
+      "type": "config",
+      "name": "alembic.ini",
+      "filePath": "alembic.ini",
+      "summary": "alembic.ini provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:pyproject.toml",
+      "type": "config",
+      "name": "pyproject.toml",
+      "filePath": "pyproject.toml",
+      "summary": "pyproject.toml provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "requirements.txt",
+      "summary": "requirements.txt documents the repository component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

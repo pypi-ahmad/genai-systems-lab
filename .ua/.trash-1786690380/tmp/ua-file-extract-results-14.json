@@ -1,0 +1,1065 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 8,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 8,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 8,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "lg-debugging-agent/app/graph.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 40,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "route_after_evaluator",
+          "startLine": 14,
+          "endLine": 17,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "build_graph",
+          "startLine": 20,
+          "endLine": 40,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "route_after_evaluator",
+          "line": 14,
+          "isDefault": false
+        },
+        {
+          "name": "build_graph",
+          "line": 20,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "route_after_evaluator",
+          "callee": "state.get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "route_after_evaluator",
+          "callee": "state.get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "build_graph",
+          "callee": "StateGraph",
+          "lineNumber": 21
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 24
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 24
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 26
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 26
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 27
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 27
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 29
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 30
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 31
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 32
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 33
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_conditional_edges",
+          "lineNumber": 35
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.compile",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 27,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 8,
+          "endLine": 32,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 14
+        },
+        {
+          "caller": "run",
+          "callee": "input.split",
+          "lineNumber": 18
+        },
+        {
+          "caller": "run",
+          "callee": "build_graph",
+          "lineNumber": 22
+        },
+        {
+          "caller": "run",
+          "callee": "graph.invoke",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run",
+          "callee": "initial_state",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run",
+          "callee": "code.strip",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run",
+          "callee": "error.strip",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 27
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/nodes/analyzer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 7,
+          "endLine": 22,
+          "params": [
+            "code",
+            "error",
+            "prev_result"
+          ]
+        },
+        {
+          "name": "analyzer_node",
+          "startLine": 25,
+          "endLine": 39,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "analyzer_node",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "analyzer_node",
+          "callee": "state.get",
+          "lineNumber": 26
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "state.get",
+          "lineNumber": 27
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "code.strip",
+          "lineNumber": 29
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "error.strip",
+          "lineNumber": 29
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "state.get",
+          "lineNumber": 32
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "generate_text",
+          "lineNumber": 34
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "_build_prompt",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/nodes/case_generator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 9,
+          "endLine": 22,
+          "params": [
+            "code",
+            "error",
+            "fixed_code"
+          ]
+        },
+        {
+          "name": "_extract_code",
+          "startLine": 25,
+          "endLine": 29,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "test_generator_node",
+          "startLine": 32,
+          "endLine": 45,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "_extract_code",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "test_generator_node",
+          "line": 32,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_extract_code",
+          "callee": "re.search",
+          "lineNumber": 26
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "match.group(1).strip",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "match.group",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_extract_code",
+          "callee": "response.strip",
+          "lineNumber": 29
+        },
+        {
+          "caller": "test_generator_node",
+          "callee": "state.get",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_generator_node",
+          "callee": "state.get",
+          "lineNumber": 34
+        },
+        {
+          "caller": "test_generator_node",
+          "callee": "state.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "test_generator_node",
+          "callee": "fixed_code.strip",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_generator_node",
+          "callee": "generate_text",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_generator_node",
+          "callee": "_build_prompt",
+          "lineNumber": 41
+        },
+        {
+          "caller": "test_generator_node",
+          "callee": "_extract_code",
+          "lineNumber": 45
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/nodes/evaluator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 20,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "_test_passed",
+          "startLine": 6,
+          "endLine": 7,
+          "params": [
+            "test_result"
+          ]
+        },
+        {
+          "name": "evaluator_node",
+          "startLine": 10,
+          "endLine": 20,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_test_passed",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "evaluator_node",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluator_node",
+          "callee": "state.get",
+          "lineNumber": 11
+        },
+        {
+          "caller": "evaluator_node",
+          "callee": "state.get",
+          "lineNumber": 12
+        },
+        {
+          "caller": "evaluator_node",
+          "callee": "_test_passed",
+          "lineNumber": 14
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/nodes/fixer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 131,
+      "nonEmptyLines": 108,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 10,
+          "endLine": 28,
+          "params": [
+            "code",
+            "error",
+            "analysis",
+            "test_result",
+            "iteration"
+          ]
+        },
+        {
+          "name": "_extract_block",
+          "startLine": 31,
+          "endLine": 35,
+          "params": [
+            "response"
+          ]
+        },
+        {
+          "name": "_apply_diff",
+          "startLine": 38,
+          "endLine": 91,
+          "params": [
+            "original",
+            "diff_text"
+          ]
+        },
+        {
+          "name": "_make_diff",
+          "startLine": 94,
+          "endLine": 103,
+          "params": [
+            "original",
+            "fixed"
+          ]
+        },
+        {
+          "name": "fixer_node",
+          "startLine": 106,
+          "endLine": 131,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "_extract_block",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_diff",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "_make_diff",
+          "line": 94,
+          "isDefault": false
+        },
+        {
+          "name": "fixer_node",
+          "line": 106,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_extract_block",
+          "callee": "re.search",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_extract_block",
+          "callee": "match.group(1).strip",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_extract_block",
+          "callee": "match.group",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_extract_block",
+          "callee": "response.strip",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "original.splitlines",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "orig_lines[-1].endswith",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "original.splitlines",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "diff_text.splitlines",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "raw.startswith",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "hunks.append",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "re.match",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "int",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "match.group",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "int",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "match.group",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "match.group",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "raw.startswith",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "raw.startswith",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "current_lines.append",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "hunks.append",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "result.extend",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "l.startswith",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "result.append",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "l.startswith",
+          "lineNumber": 83
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "l.startswith",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "result.append",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "result.append",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "result.extend",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "\"\".join(result).rstrip",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_apply_diff",
+          "callee": "\"\".join",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_make_diff",
+          "callee": "\"\".join",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_make_diff",
+          "callee": "difflib.unified_diff",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_make_diff",
+          "callee": "original.splitlines",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_make_diff",
+          "callee": "fixed.splitlines",
+          "lineNumber": 99
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "state.get",
+          "lineNumber": 107
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "state.get",
+          "lineNumber": 108
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "state.get",
+          "lineNumber": 109
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "state.get",
+          "lineNumber": 110
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "state.get",
+          "lineNumber": 111
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "code.strip",
+          "lineNumber": 113
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "generate_text",
+          "lineNumber": 116
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "_build_prompt",
+          "lineNumber": 117
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "_extract_block",
+          "lineNumber": 121
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "_apply_diff",
+          "lineNumber": 122
+        },
+        {
+          "caller": "fixer_node",
+          "callee": "_make_diff",
+          "lineNumber": 129
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/nodes/tester.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 97,
+      "nonEmptyLines": 81,
+      "functions": [
+        {
+          "name": "_check_blocked",
+          "startLine": 30,
+          "endLine": 36,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "_safe_exec",
+          "startLine": 39,
+          "endLine": 71,
+          "params": [
+            "code",
+            "timeout"
+          ]
+        },
+        {
+          "name": "_format_result",
+          "startLine": 74,
+          "endLine": 82,
+          "params": [
+            "result"
+          ]
+        },
+        {
+          "name": "tester_node",
+          "startLine": 85,
+          "endLine": 97,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_check_blocked",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "_safe_exec",
+          "line": 39,
+          "isDefault": false
+        },
+        {
+          "name": "_format_result",
+          "line": 74,
+          "isDefault": false
+        },
+        {
+          "name": "tester_node",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_check_blocked",
+          "callee": "pattern.search",
+          "lineNumber": 33
+        },
+        {
+          "caller": "_check_blocked",
+          "callee": "match.group",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_safe_exec",
+          "callee": "_check_blocked",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_safe_exec",
+          "callee": "tempfile.NamedTemporaryFile",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_safe_exec",
+          "callee": "tmp.write",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_safe_exec",
+          "callee": "subprocess.run",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_safe_exec",
+          "callee": "tempfile.gettempdir",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_safe_exec",
+          "callee": "str",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_format_result",
+          "callee": "parts.append",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_format_result",
+          "callee": "result['stdout'].rstrip",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_format_result",
+          "callee": "parts.append",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_format_result",
+          "callee": "result['stderr'].rstrip",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_format_result",
+          "callee": "parts.append",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_format_result",
+          "callee": "\"\\n\".join",
+          "lineNumber": 82
+        },
+        {
+          "caller": "tester_node",
+          "callee": "state.get",
+          "lineNumber": 86
+        },
+        {
+          "caller": "tester_node",
+          "callee": "state.get",
+          "lineNumber": 87
+        },
+        {
+          "caller": "tester_node",
+          "callee": "code.strip",
+          "lineNumber": 89
+        },
+        {
+          "caller": "tester_node",
+          "callee": "test_cases.strip",
+          "lineNumber": 93
+        },
+        {
+          "caller": "tester_node",
+          "callee": "_safe_exec",
+          "lineNumber": 96
+        },
+        {
+          "caller": "tester_node",
+          "callee": "_format_result",
+          "lineNumber": 97
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-debugging-agent/app/state.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "initial_state",
+          "startLine": 23,
+          "endLine": 34,
+          "params": [
+            "input_code",
+            "error_message"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "DebugState",
+          "startLine": 11,
+          "endLine": 20,
+          "methods": [],
+          "properties": [
+            "input_code",
+            "error_message",
+            "analysis",
+            "diff",
+            "fixed_code",
+            "test_cases",
+            "test_result",
+            "iteration",
+            "is_resolved"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DebugState",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "initial_state",
+          "line": 23,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initial_state",
+          "callee": "DebugState",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

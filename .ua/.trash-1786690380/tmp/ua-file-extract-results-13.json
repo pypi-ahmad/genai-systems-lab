@@ -1,0 +1,1748 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 9,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 9,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "lg-data-agent/app/data_loader.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 57,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "load_data",
+          "startLine": 19,
+          "endLine": 41,
+          "params": [
+            "file_path"
+          ]
+        },
+        {
+          "name": "get_metadata",
+          "startLine": 44,
+          "endLine": 51,
+          "params": [
+            "df"
+          ]
+        },
+        {
+          "name": "_load_sample",
+          "startLine": 54,
+          "endLine": 57,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "load_data",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "get_metadata",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "_load_sample",
+          "line": 54,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "load_data",
+          "callee": "_load_sample",
+          "lineNumber": 22
+        },
+        {
+          "caller": "load_data",
+          "callee": "os.path.splitext(file_path)[1].lower().lstrip",
+          "lineNumber": 24
+        },
+        {
+          "caller": "load_data",
+          "callee": "os.path.splitext(file_path)[1].lower",
+          "lineNumber": 24
+        },
+        {
+          "caller": "load_data",
+          "callee": "os.path.splitext",
+          "lineNumber": 24
+        },
+        {
+          "caller": "load_data",
+          "callee": "ValueError",
+          "lineNumber": 26
+        },
+        {
+          "caller": "load_data",
+          "callee": "', '.join",
+          "lineNumber": 27
+        },
+        {
+          "caller": "load_data",
+          "callee": "os.path.isfile",
+          "lineNumber": 30
+        },
+        {
+          "caller": "load_data",
+          "callee": "FileNotFoundError",
+          "lineNumber": 31
+        },
+        {
+          "caller": "load_data",
+          "callee": "pd.read_csv",
+          "lineNumber": 34
+        },
+        {
+          "caller": "load_data",
+          "callee": "pd.read_json",
+          "lineNumber": 36
+        },
+        {
+          "caller": "load_data",
+          "callee": "pd.read_parquet",
+          "lineNumber": 38
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.columns.str.strip().str.lower",
+          "lineNumber": 40
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.columns.str.strip",
+          "lineNumber": 40
+        },
+        {
+          "caller": "get_metadata",
+          "callee": "df.columns.tolist",
+          "lineNumber": 47
+        },
+        {
+          "caller": "get_metadata",
+          "callee": "str",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_metadata",
+          "callee": "df.dtypes.items",
+          "lineNumber": 48
+        },
+        {
+          "caller": "get_metadata",
+          "callee": "list",
+          "lineNumber": 49
+        },
+        {
+          "caller": "get_metadata",
+          "callee": "df.head(3).to_dict",
+          "lineNumber": 50
+        },
+        {
+          "caller": "get_metadata",
+          "callee": "df.head",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_load_sample",
+          "callee": "pd.DataFrame",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_load_sample",
+          "callee": "pd.to_datetime",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/graph.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "_route_after_evaluator",
+          "startLine": 16,
+          "endLine": 21,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "_route_after_planner",
+          "startLine": 24,
+          "endLine": 27,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "build_graph",
+          "startLine": 30,
+          "endLine": 46,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_route_after_evaluator",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "_route_after_planner",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "build_graph",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_route_after_evaluator",
+          "callee": "state.get",
+          "lineNumber": 17
+        },
+        {
+          "caller": "_route_after_evaluator",
+          "callee": "state.get",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_route_after_planner",
+          "callee": "state.get",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build_graph",
+          "callee": "StateGraph",
+          "lineNumber": 31
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 33
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 33
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 34
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 34
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 35
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 35
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 36
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 36
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_node",
+          "lineNumber": 37
+        },
+        {
+          "caller": "build_graph",
+          "callee": "instrument_node",
+          "lineNumber": 37
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_conditional_edges",
+          "lineNumber": 40
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 41
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 42
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_edge",
+          "lineNumber": 43
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.add_conditional_edges",
+          "lineNumber": 44
+        },
+        {
+          "caller": "build_graph",
+          "callee": "graph.compile",
+          "lineNumber": 46
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 50,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 11,
+          "endLine": 50,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 11,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 16
+        },
+        {
+          "caller": "run",
+          "callee": "input.split",
+          "lineNumber": 18
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run",
+          "callee": "query_parts.append",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "\" \".join(query_parts).strip",
+          "lineNumber": 35
+        },
+        {
+          "caller": "run",
+          "callee": "\" \".join",
+          "lineNumber": 35
+        },
+        {
+          "caller": "run",
+          "callee": "load_data",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "build_graph",
+          "lineNumber": 40
+        },
+        {
+          "caller": "run",
+          "callee": "graph.invoke",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "initial_state",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 45
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run",
+          "callee": "result.get",
+          "lineNumber": 47
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/nodes/analyzer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 52,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 7,
+          "endLine": 42,
+          "params": [
+            "query",
+            "plan",
+            "execution_result"
+          ]
+        },
+        {
+          "name": "analyzer_node",
+          "startLine": 45,
+          "endLine": 66,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "analyzer_node",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_build_prompt",
+          "callee": "enumerate",
+          "lineNumber": 9
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "step.get",
+          "lineNumber": 10
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "step.get",
+          "lineNumber": 11
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "parts.append",
+          "lineNumber": 15
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "ops.append",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "\"  \".join",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "\"\\n\".join",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "execution_result.get",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "execution_result.get",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "execution_result.get",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "isinstance",
+          "lineNumber": 24
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "state.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "execution_result.get",
+          "lineNumber": 48
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "state.get",
+          "lineNumber": 51
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "state.get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "query.strip",
+          "lineNumber": 54
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "generate_text",
+          "lineNumber": 58
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "_build_prompt",
+          "lineNumber": 59
+        },
+        {
+          "caller": "analyzer_node",
+          "callee": "response.strip",
+          "lineNumber": 65
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/nodes/duckdb_executor.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 144,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "_result",
+          "startLine": 18,
+          "endLine": 26,
+          "params": [
+            "con",
+            "sql"
+          ]
+        },
+        {
+          "name": "_error",
+          "startLine": 29,
+          "endLine": 30,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "_quote",
+          "startLine": 33,
+          "endLine": 35,
+          "params": [
+            "identifier"
+          ]
+        },
+        {
+          "name": "_step_to_sql",
+          "startLine": 38,
+          "endLine": 113,
+          "params": [
+            "prev",
+            "step"
+          ]
+        },
+        {
+          "name": "duckdb_executor_node",
+          "startLine": 116,
+          "endLine": 144,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_result",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "_error",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "_quote",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "_step_to_sql",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "duckdb_executor_node",
+          "line": 116,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_result",
+          "callee": "con.execute(sql).fetchdf",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_result",
+          "callee": "con.execute",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_result",
+          "callee": "df.to_dict",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_result",
+          "callee": "df.columns.tolist",
+          "lineNumber": 23
+        },
+        {
+          "caller": "_result",
+          "callee": "list",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_quote",
+          "callee": "identifier.replace",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 40
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "COMPARE_OPS.get",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "ValueError",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "float",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "str(value).replace",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "str",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 59
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 70
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "c.strip",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "col.split",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "', '.join",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "c.strip",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "col.split",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "', '.join",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 91
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "col.replace",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 100
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 100
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 104
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "step.get",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "_quote",
+          "lineNumber": 110
+        },
+        {
+          "caller": "_step_to_sql",
+          "callee": "ValueError",
+          "lineNumber": 113
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "state.get",
+          "lineNumber": 118
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "_error",
+          "lineNumber": 120
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "load_data",
+          "lineNumber": 123
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "_error",
+          "lineNumber": 125
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "duckdb.connect",
+          "lineNumber": 127
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "con.register",
+          "lineNumber": 129
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "enumerate",
+          "lineNumber": 132
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "step.get",
+          "lineNumber": 133
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "_step_to_sql",
+          "lineNumber": 135
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "_error",
+          "lineNumber": 137
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "_result",
+          "lineNumber": 140
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "_error",
+          "lineNumber": 142
+        },
+        {
+          "caller": "duckdb_executor_node",
+          "callee": "con.close",
+          "lineNumber": 144
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/nodes/evaluator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 16,
+      "nonEmptyLines": 10,
+      "functions": [
+        {
+          "name": "evaluator_node",
+          "startLine": 8,
+          "endLine": 16,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "evaluator_node",
+          "line": 8,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "evaluator_node",
+          "callee": "state.get",
+          "lineNumber": 9
+        },
+        {
+          "caller": "evaluator_node",
+          "callee": "state.get",
+          "lineNumber": 10
+        },
+        {
+          "caller": "evaluator_node",
+          "callee": "bool",
+          "lineNumber": 12
+        },
+        {
+          "caller": "evaluator_node",
+          "callee": "result.get",
+          "lineNumber": 12
+        },
+        {
+          "caller": "evaluator_node",
+          "callee": "result.get",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/nodes/executor.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 229,
+      "nonEmptyLines": 176,
+      "functions": [
+        {
+          "name": "_result",
+          "startLine": 22,
+          "endLine": 31,
+          "params": [
+            "df"
+          ]
+        },
+        {
+          "name": "_error",
+          "startLine": 34,
+          "endLine": 35,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "_check_column",
+          "startLine": 38,
+          "endLine": 42,
+          "params": [
+            "df",
+            "col"
+          ]
+        },
+        {
+          "name": "_apply_filter",
+          "startLine": 48,
+          "endLine": 72,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "_apply_group_by",
+          "startLine": 75,
+          "endLine": 100,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "_apply_sort",
+          "startLine": 103,
+          "endLine": 109,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "_apply_aggregate",
+          "startLine": 112,
+          "endLine": 133,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "_apply_select",
+          "startLine": 136,
+          "endLine": 142,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "_apply_drop",
+          "startLine": 145,
+          "endLine": 151,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "_apply_rename",
+          "startLine": 154,
+          "endLine": 160,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "_apply_pivot",
+          "startLine": 163,
+          "endLine": 185,
+          "params": [
+            "df",
+            "step"
+          ]
+        },
+        {
+          "name": "executor_node",
+          "startLine": 203,
+          "endLine": 229,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_result",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "_error",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "_check_column",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_filter",
+          "line": 48,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_group_by",
+          "line": 75,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_sort",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_aggregate",
+          "line": 112,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_select",
+          "line": 136,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_drop",
+          "line": 145,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_rename",
+          "line": 154,
+          "isDefault": false
+        },
+        {
+          "name": "_apply_pivot",
+          "line": 163,
+          "isDefault": false
+        },
+        {
+          "name": "executor_node",
+          "line": 203,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_result",
+          "callee": "isinstance",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_result",
+          "callee": "df.to_frame",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_result",
+          "callee": "df.to_dict",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_result",
+          "callee": "df.columns.tolist",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_result",
+          "callee": "list",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_check_column",
+          "callee": "df.columns.tolist",
+          "lineNumber": 41
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "_check_column",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "step.get",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "step.get",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "pd.api.types.is_numeric_dtype",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "float",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "pd.api.types.is_datetime64_any_dtype",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "pd.to_datetime",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "str",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_apply_filter",
+          "callee": "df.loc[mask].reset_index",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "_check_column",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "step.get",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "step.get",
+          "lineNumber": 82
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "_check_column",
+          "lineNumber": 85
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "df.groupby",
+          "lineNumber": 88
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "df.groupby",
+          "lineNumber": 90
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "getattr",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "isinstance",
+          "lineNumber": 96
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "result.reset_index",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_apply_group_by",
+          "callee": "result.reset_index",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_apply_sort",
+          "callee": "_check_column",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_apply_sort",
+          "callee": "step.get",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_apply_sort",
+          "callee": "df.sort_values(col, ascending=ascending).reset_index",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_apply_sort",
+          "callee": "df.sort_values",
+          "lineNumber": 109
+        },
+        {
+          "caller": "_apply_aggregate",
+          "callee": "step.get",
+          "lineNumber": 114
+        },
+        {
+          "caller": "_apply_aggregate",
+          "callee": "df.select_dtypes",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_apply_aggregate",
+          "callee": "_check_column",
+          "lineNumber": 119
+        },
+        {
+          "caller": "_apply_aggregate",
+          "callee": "target.describe",
+          "lineNumber": 125
+        },
+        {
+          "caller": "_apply_aggregate",
+          "callee": "getattr",
+          "lineNumber": 130
+        },
+        {
+          "caller": "_apply_aggregate",
+          "callee": "isinstance",
+          "lineNumber": 131
+        },
+        {
+          "caller": "_apply_aggregate",
+          "callee": "result.to_frame",
+          "lineNumber": 132
+        },
+        {
+          "caller": "_apply_select",
+          "callee": "c.strip",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_apply_select",
+          "callee": "step[\"column\"].split",
+          "lineNumber": 137
+        },
+        {
+          "caller": "_apply_select",
+          "callee": "_check_column",
+          "lineNumber": 139
+        },
+        {
+          "caller": "_apply_drop",
+          "callee": "c.strip",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_apply_drop",
+          "callee": "step[\"column\"].split",
+          "lineNumber": 146
+        },
+        {
+          "caller": "_apply_drop",
+          "callee": "_check_column",
+          "lineNumber": 148
+        },
+        {
+          "caller": "_apply_drop",
+          "callee": "df.drop",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_apply_rename",
+          "callee": "_check_column",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_apply_rename",
+          "callee": "step.get",
+          "lineNumber": 159
+        },
+        {
+          "caller": "_apply_rename",
+          "callee": "df.rename",
+          "lineNumber": 160
+        },
+        {
+          "caller": "_apply_pivot",
+          "callee": "_check_column",
+          "lineNumber": 165
+        },
+        {
+          "caller": "_apply_pivot",
+          "callee": "step.get",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_apply_pivot",
+          "callee": "_check_column",
+          "lineNumber": 170
+        },
+        {
+          "caller": "_apply_pivot",
+          "callee": "step.get",
+          "lineNumber": 173
+        },
+        {
+          "caller": "_apply_pivot",
+          "callee": "df.pivot_table",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_apply_pivot",
+          "callee": "result.reset_index",
+          "lineNumber": 183
+        },
+        {
+          "caller": "executor_node",
+          "callee": "state.get",
+          "lineNumber": 204
+        },
+        {
+          "caller": "executor_node",
+          "callee": "_error",
+          "lineNumber": 206
+        },
+        {
+          "caller": "executor_node",
+          "callee": "load_data",
+          "lineNumber": 209
+        },
+        {
+          "caller": "executor_node",
+          "callee": "_error",
+          "lineNumber": 211
+        },
+        {
+          "caller": "executor_node",
+          "callee": "enumerate",
+          "lineNumber": 213
+        },
+        {
+          "caller": "executor_node",
+          "callee": "step.get",
+          "lineNumber": 214
+        },
+        {
+          "caller": "executor_node",
+          "callee": "HANDLERS.get",
+          "lineNumber": 215
+        },
+        {
+          "caller": "executor_node",
+          "callee": "_error",
+          "lineNumber": 217
+        },
+        {
+          "caller": "executor_node",
+          "callee": "handler",
+          "lineNumber": 220
+        },
+        {
+          "caller": "executor_node",
+          "callee": "_error",
+          "lineNumber": 222
+        },
+        {
+          "caller": "executor_node",
+          "callee": "isinstance",
+          "lineNumber": 224
+        },
+        {
+          "caller": "executor_node",
+          "callee": "_error",
+          "lineNumber": 225
+        },
+        {
+          "caller": "executor_node",
+          "callee": "_result",
+          "lineNumber": 229
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 12,
+        "functionCount": 12,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/nodes/planner.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 133,
+      "nonEmptyLines": 116,
+      "functions": [
+        {
+          "name": "_build_prompt",
+          "startLine": 60,
+          "endLine": 102,
+          "params": [
+            "query",
+            "metadata",
+            "error"
+          ]
+        },
+        {
+          "name": "_validate_step",
+          "startLine": 105,
+          "endLine": 109,
+          "params": [
+            "step"
+          ]
+        },
+        {
+          "name": "planner_node",
+          "startLine": 112,
+          "endLine": 133,
+          "params": [
+            "state"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_build_prompt",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "_validate_step",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "planner_node",
+          "line": 112,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_build_prompt",
+          "callee": "\", \".join",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_build_prompt",
+          "callee": "\"\\n\".join",
+          "lineNumber": 102
+        },
+        {
+          "caller": "_validate_step",
+          "callee": "step.get",
+          "lineNumber": 107
+        },
+        {
+          "caller": "_validate_step",
+          "callee": "step.get",
+          "lineNumber": 108
+        },
+        {
+          "caller": "_validate_step",
+          "callee": "bool",
+          "lineNumber": 109
+        },
+        {
+          "caller": "planner_node",
+          "callee": "state.get",
+          "lineNumber": 113
+        },
+        {
+          "caller": "planner_node",
+          "callee": "query.strip",
+          "lineNumber": 114
+        },
+        {
+          "caller": "planner_node",
+          "callee": "list",
+          "lineNumber": 115
+        },
+        {
+          "caller": "planner_node",
+          "callee": "load_data",
+          "lineNumber": 117
+        },
+        {
+          "caller": "planner_node",
+          "callee": "get_metadata",
+          "lineNumber": 118
+        },
+        {
+          "caller": "planner_node",
+          "callee": "state.get(\"execution_result\", {}).get",
+          "lineNumber": 120
+        },
+        {
+          "caller": "planner_node",
+          "callee": "state.get",
+          "lineNumber": 120
+        },
+        {
+          "caller": "planner_node",
+          "callee": "generate_structured",
+          "lineNumber": 122
+        },
+        {
+          "caller": "planner_node",
+          "callee": "_build_prompt",
+          "lineNumber": 123
+        },
+        {
+          "caller": "planner_node",
+          "callee": "result.get",
+          "lineNumber": 128
+        },
+        {
+          "caller": "planner_node",
+          "callee": "_validate_step",
+          "lineNumber": 128
+        },
+        {
+          "caller": "planner_node",
+          "callee": "list",
+          "lineNumber": 131
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-data-agent/app/state.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 38,
+      "functions": [
+        {
+          "name": "initial_state",
+          "startLine": 36,
+          "endLine": 46,
+          "params": [
+            "query",
+            "engine"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "AnalysisState",
+          "startLine": 25,
+          "endLine": 33,
+          "methods": [],
+          "properties": [
+            "query",
+            "engine",
+            "plan",
+            "execution_result",
+            "explanation",
+            "chart_path",
+            "iteration",
+            "success"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AnalysisState",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "initial_state",
+          "line": 36,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "initial_state",
+          "callee": "AnalysisState",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

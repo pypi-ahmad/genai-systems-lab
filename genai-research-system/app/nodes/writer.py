@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from app.state import REASONING_MODEL, WRITING_MODEL, ResearchState
-from shared.llm.gemini import generate_structured, generate_text
+from shared.llm import generate_structured, generate_text_streaming as generate_text
 
 
 SCENARIO_SCHEMA = {

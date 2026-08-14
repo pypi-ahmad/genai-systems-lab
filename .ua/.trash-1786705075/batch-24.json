@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "config:.codex/better-harness/2026-08-14T0625-normal/findings.json",
+      "type": "config",
+      "name": "findings.json",
+      "filePath": ".codex/better-harness/2026-08-14T0625-normal/findings.json",
+      "summary": "Defines findings.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.codex/better-harness/2026-08-14T0625-normal/report.html",
+      "type": "file",
+      "name": "report.html",
+      "filePath": ".codex/better-harness/2026-08-14T0625-normal/report.html",
+      "summary": "Provides the report.html source module for this project.",
+      "tags": [
+        "frontend",
+        "styling",
+        "presentation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.codex/better-harness/2026-08-14T0625-normal/report.md",
+      "type": "document",
+      "name": "report.md",
+      "filePath": ".codex/better-harness/2026-08-14T0625-normal/report.md",
+      "summary": "Documents report.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

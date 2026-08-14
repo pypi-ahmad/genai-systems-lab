@@ -19,8 +19,8 @@ from shared.llm.gemini import _get_client
 
 LOG = logging.getLogger("ai_interviewer.voice")
 
-TTS_MODEL = "gemini-3-flash-preview"
-STT_MODEL = "gemini-3-flash-preview"
+TTS_MODEL = "gemini-3.5-flash-lite"
+STT_MODEL = "gemini-3.5-flash-lite"
 VOICE_NAME = "Kore"
 RECORD_SAMPLE_RATE = 24000
 RECORD_CHANNELS = 1

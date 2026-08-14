@@ -1,0 +1,265 @@
+{
+  "nodes": [
+    {
+      "id": "config:.ua/.trash-1786690380/batch-55.json",
+      "type": "config",
+      "name": "batch-55.json",
+      "filePath": ".ua/.trash-1786690380/batch-55.json",
+      "summary": "Defines batch-55.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-56.json",
+      "type": "config",
+      "name": "batch-56.json",
+      "filePath": ".ua/.trash-1786690380/batch-56.json",
+      "summary": "Defines batch-56.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-57.json",
+      "type": "config",
+      "name": "batch-57.json",
+      "filePath": ".ua/.trash-1786690380/batch-57.json",
+      "summary": "Defines batch-57.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-58.json",
+      "type": "config",
+      "name": "batch-58.json",
+      "filePath": ".ua/.trash-1786690380/batch-58.json",
+      "summary": "Defines batch-58.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-59.json",
+      "type": "config",
+      "name": "batch-59.json",
+      "filePath": ".ua/.trash-1786690380/batch-59.json",
+      "summary": "Defines batch-59.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-6-part-1.json",
+      "type": "config",
+      "name": "batch-6-part-1.json",
+      "filePath": ".ua/.trash-1786690380/batch-6-part-1.json",
+      "summary": "Defines batch-6-part-1.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-6-part-2.json",
+      "type": "config",
+      "name": "batch-6-part-2.json",
+      "filePath": ".ua/.trash-1786690380/batch-6-part-2.json",
+      "summary": "Defines batch-6-part-2.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-60.json",
+      "type": "config",
+      "name": "batch-60.json",
+      "filePath": ".ua/.trash-1786690380/batch-60.json",
+      "summary": "Defines batch-60.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-61.json",
+      "type": "config",
+      "name": "batch-61.json",
+      "filePath": ".ua/.trash-1786690380/batch-61.json",
+      "summary": "Defines batch-61.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-62.json",
+      "type": "config",
+      "name": "batch-62.json",
+      "filePath": ".ua/.trash-1786690380/batch-62.json",
+      "summary": "Defines batch-62.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-63.json",
+      "type": "config",
+      "name": "batch-63.json",
+      "filePath": ".ua/.trash-1786690380/batch-63.json",
+      "summary": "Defines batch-63.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-64.json",
+      "type": "config",
+      "name": "batch-64.json",
+      "filePath": ".ua/.trash-1786690380/batch-64.json",
+      "summary": "Defines batch-64.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-65.json",
+      "type": "config",
+      "name": "batch-65.json",
+      "filePath": ".ua/.trash-1786690380/batch-65.json",
+      "summary": "Defines batch-65.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-66.json",
+      "type": "config",
+      "name": "batch-66.json",
+      "filePath": ".ua/.trash-1786690380/batch-66.json",
+      "summary": "Defines batch-66.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-67.json",
+      "type": "config",
+      "name": "batch-67.json",
+      "filePath": ".ua/.trash-1786690380/batch-67.json",
+      "summary": "Defines batch-67.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-68.json",
+      "type": "config",
+      "name": "batch-68.json",
+      "filePath": ".ua/.trash-1786690380/batch-68.json",
+      "summary": "Defines batch-68.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-69.json",
+      "type": "config",
+      "name": "batch-69.json",
+      "filePath": ".ua/.trash-1786690380/batch-69.json",
+      "summary": "Defines batch-69.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-7-part-1.json",
+      "type": "config",
+      "name": "batch-7-part-1.json",
+      "filePath": ".ua/.trash-1786690380/batch-7-part-1.json",
+      "summary": "Defines batch-7-part-1.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-7-part-2.json",
+      "type": "config",
+      "name": "batch-7-part-2.json",
+      "filePath": ".ua/.trash-1786690380/batch-7-part-2.json",
+      "summary": "Defines batch-7-part-2.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-70.json",
+      "type": "config",
+      "name": "batch-70.json",
+      "filePath": ".ua/.trash-1786690380/batch-70.json",
+      "summary": "Defines batch-70.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

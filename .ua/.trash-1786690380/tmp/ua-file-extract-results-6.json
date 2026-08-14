@@ -1,0 +1,6163 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 19,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 19,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 19,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "portfolio/src/app/auth/auth-client.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 235,
+      "nonEmptyLines": 212,
+      "functions": [
+        {
+          "name": "ModeButton",
+          "startLine": 12,
+          "endLine": 34,
+          "params": [
+            "{\r\n  active,\r\n  label,\r\n  onClick,\r\n}"
+          ]
+        },
+        {
+          "name": "AuthClient",
+          "startLine": 36,
+          "endLine": 235,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AuthClient",
+          "line": 36,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AuthClient",
+          "callee": "useRouter",
+          "lineNumber": 37
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useState",
+          "lineNumber": 38
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useState",
+          "lineNumber": 39
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useState",
+          "lineNumber": 40
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useState",
+          "lineNumber": 41
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useState",
+          "lineNumber": 42
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useState",
+          "lineNumber": 43
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "Boolean",
+          "lineNumber": 43
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "getStoredAuthSession",
+          "lineNumber": 43
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useState",
+          "lineNumber": 44
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "useEffect",
+          "lineNumber": 46
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "fetchAuthConfig()\r\n      .then((config) => {\r\n        if (cancelled) {\r\n          return;\r\n        }\r\n        setPublicSignupEnabled(config.public_signup);\r\n        if (!config.public_signup) {\r\n          setMode((previous) => (previous === \"signup\" ? \"login\" : previous));\r\n        }\r\n      })\r\n      .catch",
+          "lineNumber": 49
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "fetchAuthConfig()\r\n      .then",
+          "lineNumber": 49
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "fetchAuthConfig",
+          "lineNumber": 49
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setPublicSignupEnabled",
+          "lineNumber": 54
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setMode",
+          "lineNumber": 56
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "fetchCurrentUser()\r\n      .then((user) => {\r\n        if (cancelled) {\r\n          return;\r\n        }\r\n\r\n        if (user) {\r\n          storeAuthSession();\r\n          setSessionExists(true);\r\n          return;\r\n        }\r\n\r\n        clearAuthSession();\r\n        setSessionExists(false);\r\n      })\r\n      .catch",
+          "lineNumber": 61
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "fetchCurrentUser()\r\n      .then",
+          "lineNumber": 61
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "fetchCurrentUser",
+          "lineNumber": 61
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "storeAuthSession",
+          "lineNumber": 68
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setSessionExists",
+          "lineNumber": 69
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "clearAuthSession",
+          "lineNumber": 73
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setSessionExists",
+          "lineNumber": 74
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "event.preventDefault",
+          "lineNumber": 84
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "setSubmitting",
+          "lineNumber": 85
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "setError",
+          "lineNumber": 86
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "action",
+          "lineNumber": 90
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "email.trim",
+          "lineNumber": 90
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "storeAuthSession",
+          "lineNumber": 91
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "setSessionExists",
+          "lineNumber": 92
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "router.push",
+          "lineNumber": 93
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "router.refresh",
+          "lineNumber": 94
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "setError",
+          "lineNumber": 96
+        },
+        {
+          "caller": "handleSubmit",
+          "callee": "setSubmitting",
+          "lineNumber": 98
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "logout",
+          "lineNumber": 104
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "clearAuthSession",
+          "lineNumber": 108
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setSessionExists",
+          "lineNumber": 109
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setMode",
+          "lineNumber": 152
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setMode",
+          "lineNumber": 154
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setEmail",
+          "lineNumber": 171
+        },
+        {
+          "caller": "AuthClient",
+          "callee": "setPassword",
+          "lineNumber": 183
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/auth/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 15,
+      "nonEmptyLines": 13,
+      "functions": [
+        {
+          "name": "AuthPage",
+          "startLine": 9,
+          "endLine": 15,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "AuthPage",
+          "line": 9,
+          "isDefault": true
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/compare/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 376,
+      "nonEmptyLines": 357,
+      "functions": [
+        {
+          "name": "ExampleColumn",
+          "startLine": 104,
+          "endLine": 168,
+          "params": [
+            "{\r\n  title,\r\n  tone,\r\n  items,\r\n}"
+          ]
+        },
+        {
+          "name": "ComparePage",
+          "startLine": 170,
+          "endLine": 376,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "ComparePage",
+          "line": 170,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ExampleColumn",
+          "callee": "items.map",
+          "lineNumber": 131
+        },
+        {
+          "caller": "ExampleColumn",
+          "callee": "projectMap.get",
+          "lineNumber": 132
+        },
+        {
+          "caller": "ComparePage",
+          "callee": "[\r\n              \"Choose LangGraph for explicit routing and stateful execution.\",\r\n              \"Choose CrewAI for role-based collaboration and faster multi-agent assembly.\",\r\n              \"Use repo examples below as implementation references, not abstractions.\",\r\n            ].map",
+          "lineNumber": 195
+        },
+        {
+          "caller": "ComparePage",
+          "callee": "overviewCards.map",
+          "lineNumber": 224
+        },
+        {
+          "caller": "ComparePage",
+          "callee": "String(index + 1).padStart",
+          "lineNumber": 231
+        },
+        {
+          "caller": "ComparePage",
+          "callee": "String",
+          "lineNumber": 231
+        },
+        {
+          "caller": "ComparePage",
+          "callee": "comparisonRows.map",
+          "lineNumber": 273
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/metrics/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 752,
+      "nonEmptyLines": 681,
+      "functions": [
+        {
+          "name": "formatLatency",
+          "startLine": 79,
+          "endLine": 81,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "formatConfidence",
+          "startLine": 83,
+          "endLine": 85,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "formatRate",
+          "startLine": 87,
+          "endLine": 89,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "fallbackProjectLabel",
+          "startLine": 91,
+          "endLine": 97,
+          "params": [
+            "project"
+          ]
+        },
+        {
+          "name": "projectLabel",
+          "startLine": 99,
+          "endLine": 101,
+          "params": [
+            "project"
+          ]
+        },
+        {
+          "name": "formatTimestamp",
+          "startLine": 103,
+          "endLine": 115,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "bucketLabels",
+          "startLine": 117,
+          "endLine": 146,
+          "params": [
+            "timestamp",
+            "range"
+          ]
+        },
+        {
+          "name": "average",
+          "startLine": 148,
+          "endLine": 158,
+          "params": [
+            "values"
+          ]
+        },
+        {
+          "name": "describeLatencyDelta",
+          "startLine": 160,
+          "endLine": 170,
+          "params": [
+            "delta"
+          ]
+        },
+        {
+          "name": "describePointDelta",
+          "startLine": 172,
+          "endLine": 178,
+          "params": [
+            "delta",
+            "label"
+          ]
+        },
+        {
+          "name": "buildChartSeries",
+          "startLine": 180,
+          "endLine": 230,
+          "params": [
+            "points",
+            "range"
+          ]
+        },
+        {
+          "name": "buildTrendSummary",
+          "startLine": 232,
+          "endLine": 299,
+          "params": [
+            "series"
+          ]
+        },
+        {
+          "name": "StatCard",
+          "startLine": 301,
+          "endLine": 330,
+          "params": [
+            "{\r\n  label,\r\n  value,\r\n  note,\r\n  badge,\r\n}"
+          ]
+        },
+        {
+          "name": "ChartCard",
+          "startLine": 332,
+          "endLine": 355,
+          "params": [
+            "{\r\n  eyebrow,\r\n  title,\r\n  description,\r\n  children,\r\n  className = \"\",\r\n}"
+          ]
+        },
+        {
+          "name": "EmptyState",
+          "startLine": 357,
+          "endLine": 369,
+          "params": [
+            "{ message }"
+          ]
+        },
+        {
+          "name": "downloadBlob",
+          "startLine": 371,
+          "endLine": 379,
+          "params": [
+            "content",
+            "filename",
+            "type"
+          ]
+        },
+        {
+          "name": "exportJSON",
+          "startLine": 381,
+          "endLine": 383,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "exportCSV",
+          "startLine": 385,
+          "endLine": 389,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "MetricsPage",
+          "startLine": 391,
+          "endLine": 752,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "MetricsPage",
+          "line": 391,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "formatLatency",
+          "callee": "Math.round",
+          "lineNumber": 80
+        },
+        {
+          "caller": "formatConfidence",
+          "callee": "(value * 100).toFixed",
+          "lineNumber": 84
+        },
+        {
+          "caller": "formatRate",
+          "callee": "value.toFixed",
+          "lineNumber": 88
+        },
+        {
+          "caller": "fallbackProjectLabel",
+          "callee": "project\r\n    .replace(/^(genai-|crew-|lg-)/, \"\")\r\n    .split(\"-\")\r\n    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))\r\n    .join",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fallbackProjectLabel",
+          "callee": "project\r\n    .replace(/^(genai-|crew-|lg-)/, \"\")\r\n    .split(\"-\")\r\n    .map",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fallbackProjectLabel",
+          "callee": "project\r\n    .replace(/^(genai-|crew-|lg-)/, \"\")\r\n    .split",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fallbackProjectLabel",
+          "callee": "project\r\n    .replace",
+          "lineNumber": 92
+        },
+        {
+          "caller": "fallbackProjectLabel",
+          "callee": "part.charAt(0).toUpperCase",
+          "lineNumber": 95
+        },
+        {
+          "caller": "fallbackProjectLabel",
+          "callee": "part.charAt",
+          "lineNumber": 95
+        },
+        {
+          "caller": "fallbackProjectLabel",
+          "callee": "part.slice",
+          "lineNumber": 95
+        },
+        {
+          "caller": "projectLabel",
+          "callee": "projectMeta.get",
+          "lineNumber": 100
+        },
+        {
+          "caller": "projectLabel",
+          "callee": "fallbackProjectLabel",
+          "lineNumber": 100
+        },
+        {
+          "caller": "formatTimestamp",
+          "callee": "Number.isNaN",
+          "lineNumber": 105
+        },
+        {
+          "caller": "formatTimestamp",
+          "callee": "date.getTime",
+          "lineNumber": 105
+        },
+        {
+          "caller": "formatTimestamp",
+          "callee": "date.toLocaleString",
+          "lineNumber": 109
+        },
+        {
+          "caller": "bucketLabels",
+          "callee": "date.toLocaleTimeString",
+          "lineNumber": 121
+        },
+        {
+          "caller": "bucketLabels",
+          "callee": "date.toLocaleString",
+          "lineNumber": 122
+        },
+        {
+          "caller": "bucketLabels",
+          "callee": "date.toLocaleTimeString",
+          "lineNumber": 133
+        },
+        {
+          "caller": "bucketLabels",
+          "callee": "date.toLocaleString",
+          "lineNumber": 134
+        },
+        {
+          "caller": "bucketLabels",
+          "callee": "date.toLocaleDateString",
+          "lineNumber": 143
+        },
+        {
+          "caller": "bucketLabels",
+          "callee": "date.toLocaleDateString",
+          "lineNumber": 144
+        },
+        {
+          "caller": "average",
+          "callee": "values.filter",
+          "lineNumber": 149
+        },
+        {
+          "caller": "average",
+          "callee": "Number.isFinite",
+          "lineNumber": 150
+        },
+        {
+          "caller": "average",
+          "callee": "numericValues.reduce",
+          "lineNumber": 157
+        },
+        {
+          "caller": "describeLatencyDelta",
+          "callee": "Math.abs",
+          "lineNumber": 161
+        },
+        {
+          "caller": "describeLatencyDelta",
+          "callee": "Math.abs(delta).toFixed",
+          "lineNumber": 166
+        },
+        {
+          "caller": "describeLatencyDelta",
+          "callee": "Math.abs",
+          "lineNumber": 166
+        },
+        {
+          "caller": "describeLatencyDelta",
+          "callee": "delta.toFixed",
+          "lineNumber": 169
+        },
+        {
+          "caller": "describePointDelta",
+          "callee": "Math.abs",
+          "lineNumber": 173
+        },
+        {
+          "caller": "describePointDelta",
+          "callee": "delta.toFixed",
+          "lineNumber": 177
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "new Date(point.timestamp).getTime",
+          "lineNumber": 190
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "Number.isNaN",
+          "lineNumber": 191
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "Math.floor",
+          "lineNumber": 195
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "grouped.get",
+          "lineNumber": 196
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "grouped.set",
+          "lineNumber": 207
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "Date.now",
+          "lineNumber": 210
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "Math.floor",
+          "lineNumber": 211
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "Math.floor",
+          "lineNumber": 212
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "bucketLabels",
+          "lineNumber": 216
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "grouped.get",
+          "lineNumber": 217
+        },
+        {
+          "caller": "buildChartSeries",
+          "callee": "series.push",
+          "lineNumber": 219
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "series.filter",
+          "lineNumber": 233
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "Math.max",
+          "lineNumber": 242
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "Math.floor",
+          "lineNumber": 242
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "populated.slice",
+          "lineNumber": 243
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "populated.slice",
+          "lineNumber": 244
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "average",
+          "lineNumber": 246
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "startSlice.map",
+          "lineNumber": 246
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "average",
+          "lineNumber": 247
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "endSlice.map",
+          "lineNumber": 247
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "average",
+          "lineNumber": 248
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "startSlice.map",
+          "lineNumber": 248
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "average",
+          "lineNumber": 249
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "endSlice.map",
+          "lineNumber": 249
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "average",
+          "lineNumber": 250
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "startSlice.map",
+          "lineNumber": 250
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "average",
+          "lineNumber": 251
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "endSlice.map",
+          "lineNumber": 251
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "describeLatencyDelta",
+          "lineNumber": 276
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "describePointDelta",
+          "lineNumber": 276
+        },
+        {
+          "caller": "buildTrendSummary",
+          "callee": "describePointDelta",
+          "lineNumber": 276
+        },
+        {
+          "caller": "ChartCard",
+          "callee": "`surface-card rounded-[1.5rem] p-6 sm:p-7 ${className}`.trim",
+          "lineNumber": 346
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "URL.createObjectURL",
+          "lineNumber": 373
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "document.createElement",
+          "lineNumber": 374
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "a.click",
+          "lineNumber": 377
+        },
+        {
+          "caller": "downloadBlob",
+          "callee": "URL.revokeObjectURL",
+          "lineNumber": 378
+        },
+        {
+          "caller": "exportJSON",
+          "callee": "downloadBlob",
+          "lineNumber": 382
+        },
+        {
+          "caller": "exportJSON",
+          "callee": "JSON.stringify",
+          "lineNumber": 382
+        },
+        {
+          "caller": "exportCSV",
+          "callee": "data.map",
+          "lineNumber": 387
+        },
+        {
+          "caller": "exportCSV",
+          "callee": "downloadBlob",
+          "lineNumber": 388
+        },
+        {
+          "caller": "exportCSV",
+          "callee": "[header, ...rows].join",
+          "lineNumber": 388
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "useState",
+          "lineNumber": 392
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "useState",
+          "lineNumber": 393
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "useState",
+          "lineNumber": 394
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "useState",
+          "lineNumber": 395
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "useState",
+          "lineNumber": 396
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "useEffect",
+          "lineNumber": 398
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "fetchMetricsTime({\r\n      project: selectedProject === \"all\" ? undefined : selectedProject,\r\n      range,\r\n    })\r\n      .then((response) => {\r\n        if (!cancelled) {\r\n          setPoints(response);\r\n        }\r\n      })\r\n      .catch((fetchError) => {\r\n        if (!cancelled) {\r\n          setError(fetchError instanceof Error ? fetchError.message : \"Failed to load metrics.\");\r\n        }\r\n      })\r\n      .finally",
+          "lineNumber": 401
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "fetchMetricsTime({\r\n      project: selectedProject === \"all\" ? undefined : selectedProject,\r\n      range,\r\n    })\r\n      .then((response) => {\r\n        if (!cancelled) {\r\n          setPoints(response);\r\n        }\r\n      })\r\n      .catch",
+          "lineNumber": 401
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "fetchMetricsTime({\r\n      project: selectedProject === \"all\" ? undefined : selectedProject,\r\n      range,\r\n    })\r\n      .then",
+          "lineNumber": 401
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "fetchMetricsTime",
+          "lineNumber": 401
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setPoints",
+          "lineNumber": 407
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setError",
+          "lineNumber": 412
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setLoading",
+          "lineNumber": 417
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "projectLabel",
+          "lineNumber": 463
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "buildChartSeries",
+          "lineNumber": 470
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "chartSeries.filter",
+          "lineNumber": 471
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "average",
+          "lineNumber": 472
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "populatedSeries.map",
+          "lineNumber": 472
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "average",
+          "lineNumber": 473
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "populatedSeries.map",
+          "lineNumber": 473
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "average",
+          "lineNumber": 474
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "populatedSeries.map",
+          "lineNumber": 474
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "buildTrendSummary",
+          "lineNumber": 476
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "projectLabel",
+          "lineNumber": 477
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setLoading",
+          "lineNumber": 515
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setError",
+          "lineNumber": 516
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setSelectedProject",
+          "lineNumber": 517
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "projectDetails.map",
+          "lineNumber": 522
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "rangeOptions.map",
+          "lineNumber": 535
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setLoading",
+          "lineNumber": 540
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setError",
+          "lineNumber": 541
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "setRange",
+          "lineNumber": 542
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "exportJSON",
+          "lineNumber": 566
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "exportCSV",
+          "lineNumber": 569
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "points.length.toLocaleString",
+          "lineNumber": 579
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "formatTimestamp",
+          "lineNumber": 580
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "formatLatency",
+          "lineNumber": 585
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "formatConfidence",
+          "lineNumber": 590
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "formatRate",
+          "lineNumber": 595
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "Math.round",
+          "lineNumber": 633
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "Number",
+          "lineNumber": 639
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "formatLatency",
+          "lineNumber": 640
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "Math.round",
+          "lineNumber": 679
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "Number",
+          "lineNumber": 685
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "formatConfidence",
+          "lineNumber": 686
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "Math.round",
+          "lineNumber": 726
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "Number",
+          "lineNumber": 732
+        },
+        {
+          "caller": "MetricsPage",
+          "callee": "formatRate",
+          "lineNumber": 733
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 19,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-client.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 447,
+      "nonEmptyLines": 421,
+      "functions": [
+        {
+          "name": "PlaygroundClient",
+          "startLine": 31,
+          "endLine": 447,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "PlaygroundClient",
+          "line": 31,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PlaygroundClient",
+          "callee": "usePlaygroundAccount",
+          "lineNumber": 32
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "usePlaygroundRun",
+          "lineNumber": 51
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 95
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 96
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 97
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 98
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 99
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "getStoredApiKeys",
+          "lineNumber": 99
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 100
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "getStoredLLMSelection",
+          "lineNumber": 100
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 101
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "getStoredLLMSelection",
+          "lineNumber": 101
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useState",
+          "lineNumber": 102
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "useEffect",
+          "lineNumber": 104
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "fetchLLMCatalog()\r\n      .then((catalog) => {\r\n        if (cancelled) {\r\n          return;\r\n        }\r\n\r\n        const knownModels = new Set(\r\n          catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),\r\n        );\r\n        const storedSelection = getStoredLLMSelection();\r\n        const preferredModel = storedSelection?.model ?? \"gemini-3-flash-preview\";\r\n        const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;\r\n        const nextProvider = findProviderForModel(catalog, nextModel);\r\n\r\n        setLlMCatalog(catalog);\r\n        setLlMCatalogError(null);\r\n        setSelectedModel(nextModel);\r\n        setSelectedProvider(nextProvider);\r\n        setStoredLLMSelection({ provider: nextProvider, model: nextModel });\r\n      })\r\n      .catch((error) => {\r\n        if (cancelled) {\r\n          return;\r\n        }\r\n        setLlMCatalogError(error instanceof Error ? error.message : \"Unable to load the model catalog.\");\r\n      })\r\n      .finally",
+          "lineNumber": 107
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "fetchLLMCatalog()\r\n      .then((catalog) => {\r\n        if (cancelled) {\r\n          return;\r\n        }\r\n\r\n        const knownModels = new Set(\r\n          catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),\r\n        );\r\n        const storedSelection = getStoredLLMSelection();\r\n        const preferredModel = storedSelection?.model ?? \"gemini-3-flash-preview\";\r\n        const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;\r\n        const nextProvider = findProviderForModel(catalog, nextModel);\r\n\r\n        setLlMCatalog(catalog);\r\n        setLlMCatalogError(null);\r\n        setSelectedModel(nextModel);\r\n        setSelectedProvider(nextProvider);\r\n        setStoredLLMSelection({ provider: nextProvider, model: nextModel });\r\n      })\r\n      .catch",
+          "lineNumber": 107
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "fetchLLMCatalog()\r\n      .then",
+          "lineNumber": 107
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "fetchLLMCatalog",
+          "lineNumber": 107
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "catalog.providers.flatMap",
+          "lineNumber": 114
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "provider.models.map",
+          "lineNumber": 114
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "getStoredLLMSelection",
+          "lineNumber": 116
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "knownModels.has",
+          "lineNumber": 118
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "findProviderForModel",
+          "lineNumber": 119
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setLlMCatalog",
+          "lineNumber": 121
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setLlMCatalogError",
+          "lineNumber": 122
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setSelectedModel",
+          "lineNumber": 123
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setSelectedProvider",
+          "lineNumber": 124
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setStoredLLMSelection",
+          "lineNumber": 125
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setLlMCatalogError",
+          "lineNumber": 131
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setLlMCatalogLoading",
+          "lineNumber": 135
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "findProviderInfo",
+          "lineNumber": 144
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "selectedApiKey.trim",
+          "lineNumber": 152
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "Boolean",
+          "lineNumber": 154
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "selectedApiKey.trim",
+          "lineNumber": 154
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "findProviderForModel",
+          "lineNumber": 157
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "setSelectedModel",
+          "lineNumber": 158
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "setSelectedProvider",
+          "lineNumber": 159
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "setStoredLLMSelection",
+          "lineNumber": 160
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "setKeyFocused",
+          "lineNumber": 161
+        },
+        {
+          "caller": "handleApiKeyChange",
+          "callee": "setApiKeys",
+          "lineNumber": 165
+        },
+        {
+          "caller": "handleApiKeyChange",
+          "callee": "setStoredApiKey",
+          "lineNumber": 169
+        },
+        {
+          "caller": "handleApiKeyChange",
+          "callee": "value.trim",
+          "lineNumber": 169
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "usePlaygroundHistory",
+          "lineNumber": 172
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "disconnect",
+          "lineNumber": 204
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "clearReplay",
+          "lineNumber": 205
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "clearExplanation",
+          "lineNumber": 206
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "setSelectedSlug",
+          "lineNumber": 207
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "projectDetails.find",
+          "lineNumber": 208
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "JSON.parse",
+          "lineNumber": 211
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "Object.keys",
+          "lineNumber": 212
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "setInputMode",
+          "lineNumber": 214
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "setInput",
+          "lineNumber": 215
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "setInputMode",
+          "lineNumber": 217
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "setInput",
+          "lineNumber": 218
+        },
+        {
+          "caller": "handleProjectChange",
+          "callee": "resetRunState",
+          "lineNumber": 220
+        },
+        {
+          "caller": "handleInputModeChange",
+          "callee": "JSON.parse",
+          "lineNumber": 228
+        },
+        {
+          "caller": "handleInputModeChange",
+          "callee": "setInput",
+          "lineNumber": 230
+        },
+        {
+          "caller": "handleInputModeChange",
+          "callee": "setInput",
+          "lineNumber": 235
+        },
+        {
+          "caller": "handleInputModeChange",
+          "callee": "JSON.stringify",
+          "lineNumber": 235
+        },
+        {
+          "caller": "handleInputModeChange",
+          "callee": "setInputMode",
+          "lineNumber": 237
+        },
+        {
+          "caller": "handleRun",
+          "callee": "clearReplay",
+          "lineNumber": 241
+        },
+        {
+          "caller": "handleRun",
+          "callee": "clearExplanation",
+          "lineNumber": 242
+        },
+        {
+          "caller": "handleRun",
+          "callee": "executeRun",
+          "lineNumber": 243
+        },
+        {
+          "caller": "handleClearSession",
+          "callee": "clearSession",
+          "lineNumber": 247
+        },
+        {
+          "caller": "handleClearSession",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 249
+        },
+        {
+          "caller": "handleClearSession",
+          "callee": "appendLog",
+          "lineNumber": 250
+        },
+        {
+          "caller": "handleClearSession",
+          "callee": "appendLog",
+          "lineNumber": 252
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "disconnect",
+          "lineNumber": 257
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "clearReplay",
+          "lineNumber": 258
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "clearExplanation",
+          "lineNumber": 259
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "clearLocalSession",
+          "lineNumber": 260
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 261
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "logoutSession().catch",
+          "lineNumber": 262
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "logoutSession",
+          "lineNumber": 262
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "clearAuthSession",
+          "lineNumber": 263
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setAuthToken",
+          "lineNumber": 264
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setHistoryRuns",
+          "lineNumber": 265
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setHistoryError",
+          "lineNumber": 266
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setRunExplanations",
+          "lineNumber": 267
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setConfidence",
+          "lineNumber": 268
+        },
+        {
+          "caller": "handleLogout",
+          "callee": "setStatus",
+          "lineNumber": 269
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "extractSteps",
+          "lineNumber": 273
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "extractKeyMetrics",
+          "lineNumber": 274
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "extractTextOutput",
+          "lineNumber": 275
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "[...sessionMemoryPreview].reverse",
+          "lineNumber": 276
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "projectDetails.find",
+          "lineNumber": 279
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "summarizeInputPayload",
+          "lineNumber": 283
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "Boolean",
+          "lineNumber": 284
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "Boolean",
+          "lineNumber": 284
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "Boolean",
+          "lineNumber": 284
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "formatRunTimestamp",
+          "lineNumber": 297
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "projectDetails.find",
+          "lineNumber": 301
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "formatRunTimestamp",
+          "lineNumber": 304
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "buildReplayLogLines",
+          "lineNumber": 307
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "Boolean",
+          "lineNumber": 309
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "handleClearSession",
+          "lineNumber": 349
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "handleHistoryExplain",
+          "lineNumber": 350
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "handleShare",
+          "lineNumber": 359
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "handleUnshare",
+          "lineNumber": 362
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "clearReplay",
+          "lineNumber": 405
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "resetMemoryEntries",
+          "lineNumber": 406
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setLogLines",
+          "lineNumber": 407
+        },
+        {
+          "caller": "PlaygroundClient",
+          "callee": "setLogLines",
+          "lineNumber": 438
+        }
+      ],
+      "metrics": {
+        "importCount": 14,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-conversation-panel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 243,
+      "nonEmptyLines": 228,
+      "functions": [
+        {
+          "name": "ErrorDisplay",
+          "startLine": 37,
+          "endLine": 62,
+          "params": [
+            "{ errorMsg, streamText }"
+          ]
+        },
+        {
+          "name": "PlaygroundConversationPanel",
+          "startLine": 64,
+          "endLine": 243,
+          "params": [
+            "{\r\n  confidence,\r\n  conversationStarted,\r\n  errorMsg,\r\n  inputMode,\r\n  inputPreview,\r\n  keyMetrics,\r\n  latency,\r\n  output,\r\n  selected,\r\n  status,\r\n  streamChunks,\r\n  streamMode,\r\n  streamPanelRef,\r\n  streamText,\r\n  textOutput,\r\n  usedSessionContext,\r\n  workspaceState,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PlaygroundConversationPanel",
+          "line": 64,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ErrorDisplay",
+          "callee": "useState",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ErrorDisplay",
+          "callee": "splitErrorDetail",
+          "lineNumber": 39
+        },
+        {
+          "caller": "ErrorDisplay",
+          "callee": "setShowDetail",
+          "lineNumber": 46
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "useState",
+          "lineNumber": 83
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "latency.toLocaleString",
+          "lineNumber": 111
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "setSystemDetailOpen",
+          "lineNumber": 138
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "selected.tags.slice(0, 3).map",
+          "lineNumber": 152
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "selected.tags.slice",
+          "lineNumber": 152
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "assistantCardTone",
+          "lineNumber": 182
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "assistantStateTitle",
+          "lineNumber": 188
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "keyMetrics.slice(0, 4).map",
+          "lineNumber": 222
+        },
+        {
+          "caller": "PlaygroundConversationPanel",
+          "callee": "keyMetrics.slice",
+          "lineNumber": 222
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-graph-panel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 282,
+      "nonEmptyLines": 271,
+      "functions": [
+        {
+          "name": "PlaygroundGraphPanel",
+          "startLine": 42,
+          "endLine": 282,
+          "params": [
+            "{\r\n  activeReplayRun,\r\n  graphProject,\r\n  memoryEntries,\r\n  onReplayClose,\r\n  onReplayFrameChange,\r\n  replayAutoplayKey,\r\n  replayFrame,\r\n  replaySourceLabel,\r\n  selected,\r\n  status,\r\n  stepStatuses,\r\n  steps,\r\n  streamMode,\r\n  workspaceState,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PlaygroundGraphPanel",
+          "line": 42,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "useState",
+          "lineNumber": 58
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "useState",
+          "lineNumber": 59
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "useState",
+          "lineNumber": 60
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "useState",
+          "lineNumber": 61
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "buildReplayNodeStatuses",
+          "lineNumber": 65
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "graphNodes.map",
+          "lineNumber": 68
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "replayRunStatus",
+          "lineNumber": 72
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "realtimeLifecycleState",
+          "lineNumber": 73
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "setLifecycleOpen",
+          "lineNumber": 82
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "lifecycleLabel",
+          "lineNumber": 100
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "Object.keys",
+          "lineNumber": 138
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "Object.keys",
+          "lineNumber": 139
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "lifecycleLabel",
+          "lineNumber": 162
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "formatMemoryStepName",
+          "lineNumber": 179
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "setStatsOpen",
+          "lineNumber": 189
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "String",
+          "lineNumber": 201
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "String",
+          "lineNumber": 202
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "setStepStatusOpen",
+          "lineNumber": 210
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "liveNodeItems.map",
+          "lineNumber": 221
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "statusTone",
+          "lineNumber": 224
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "statusLabel",
+          "lineNumber": 231
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "setParsedStepsOpen",
+          "lineNumber": 255
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "steps.slice(0, 5).map",
+          "lineNumber": 266
+        },
+        {
+          "caller": "PlaygroundGraphPanel",
+          "callee": "steps.slice",
+          "lineNumber": 266
+        }
+      ],
+      "metrics": {
+        "importCount": 9,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-icons.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 12,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "ChevronIcon",
+          "startLine": 1,
+          "endLine": 12,
+          "params": [
+            "{ open, className = \"h-4 w-4\" }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ChevronIcon",
+          "line": 1,
+          "isDefault": false
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-sidebar.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 711,
+      "nonEmptyLines": 664,
+      "functions": [
+        {
+          "name": "ConfirmModal",
+          "startLine": 28,
+          "endLine": 66,
+          "params": [
+            "{ request, onClose }"
+          ]
+        },
+        {
+          "name": "useConfirmModal",
+          "startLine": 68,
+          "endLine": 82,
+          "params": []
+        },
+        {
+          "name": "sortedProjects",
+          "startLine": 84,
+          "endLine": 100,
+          "params": [
+            "projects",
+            "search"
+          ]
+        },
+        {
+          "name": "PlaygroundGuide",
+          "startLine": 102,
+          "endLine": 138,
+          "params": []
+        },
+        {
+          "name": "Spinner",
+          "startLine": 140,
+          "endLine": 147,
+          "params": [
+            "{ className = \"h-4 w-4\" }"
+          ]
+        },
+        {
+          "name": "PlaygroundSidebar",
+          "startLine": 201,
+          "endLine": 711,
+          "params": [
+            "{\r\n  activeExplanationRunId,\r\n  activeReplayRunId,\r\n  activeSessionId,\r\n  authToken,\r\n  clearingSession,\r\n  canRun,\r\n  errorMsg,\r\n  explainingRunId,\r\n  hasSessionContext,\r\n  historyError,\r\n  historyLoading,\r\n  historyRuns,\r\n  input,\r\n  inputMode,\r\n  textModeAvailable,\r\n  onInputModeChange,\r\n  isActive,\r\n  keyFocused,\r\n  llmCatalog,\r\n  llmCatalogError,\r\n  llmCatalogLoading,\r\n  onApiKeyChange,\r\n  onClearSession,\r\n  onHistoryExplain,\r\n  onHistoryReplay,\r\n  onHistoryRerun,\r\n  onInputChange,\r\n  onKeyFocusedChange,\r\n  onLogout,\r\n  onModelChange,\r\n  onProjectChange,\r\n  onRun,\r\n  onShare,\r\n  onStop,\r\n  onStreamModeChange,\r\n  onUnshare,\r\n  providerAvailable,\r\n  providerUnavailableReason,\r\n  runExplanations,\r\n  selected,\r\n  selectedApiKey,\r\n  selectedModel,\r\n  selectedProvider,\r\n  selectedProviderInfo,\r\n  selectedSlug,\r\n  sessionEntries,\r\n  sessionLoading,\r\n  sharingRunId,\r\n  streamMode,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "PlaygroundSidebar",
+          "line": 201,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ConfirmModal",
+          "callee": "useState",
+          "lineNumber": 29
+        },
+        {
+          "caller": "handleConfirm",
+          "callee": "localStorage.setItem",
+          "lineNumber": 33
+        },
+        {
+          "caller": "handleConfirm",
+          "callee": "request.onConfirm",
+          "lineNumber": 35
+        },
+        {
+          "caller": "handleConfirm",
+          "callee": "onClose",
+          "lineNumber": 36
+        },
+        {
+          "caller": "ConfirmModal",
+          "callee": "setDontAskAgain",
+          "lineNumber": 49
+        },
+        {
+          "caller": "useConfirmModal",
+          "callee": "useState",
+          "lineNumber": 69
+        },
+        {
+          "caller": "useConfirmModal",
+          "callee": "useCallback",
+          "lineNumber": 71
+        },
+        {
+          "caller": "useConfirmModal",
+          "callee": "localStorage.getItem",
+          "lineNumber": 72
+        },
+        {
+          "caller": "useConfirmModal",
+          "callee": "req.onConfirm",
+          "lineNumber": 73
+        },
+        {
+          "caller": "useConfirmModal",
+          "callee": "setRequest",
+          "lineNumber": 76
+        },
+        {
+          "caller": "useConfirmModal",
+          "callee": "useCallback",
+          "lineNumber": 79
+        },
+        {
+          "caller": "useConfirmModal",
+          "callee": "setRequest",
+          "lineNumber": 79
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "search.trim",
+          "lineNumber": 86
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "search.toLowerCase().trim",
+          "lineNumber": 87
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "search.toLowerCase",
+          "lineNumber": 87
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "list.filter",
+          "lineNumber": 88
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "p.name.toLowerCase().includes",
+          "lineNumber": 89
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "p.name.toLowerCase",
+          "lineNumber": 89
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "p.category.toLowerCase().includes",
+          "lineNumber": 89
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "p.category.toLowerCase",
+          "lineNumber": 89
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "p.description.toLowerCase().includes",
+          "lineNumber": 89
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "p.description.toLowerCase",
+          "lineNumber": 89
+        },
+        {
+          "caller": "sortedProjects",
+          "callee": "[...list].sort",
+          "lineNumber": 93
+        },
+        {
+          "caller": "PlaygroundGuide",
+          "callee": "useState",
+          "lineNumber": 103
+        },
+        {
+          "caller": "PlaygroundGuide",
+          "callee": "localStorage.getItem",
+          "lineNumber": 105
+        },
+        {
+          "caller": "PlaygroundGuide",
+          "callee": "localStorage.removeItem",
+          "lineNumber": 111
+        },
+        {
+          "caller": "PlaygroundGuide",
+          "callee": "setDismissed",
+          "lineNumber": 111
+        },
+        {
+          "caller": "PlaygroundGuide",
+          "callee": "localStorage.setItem",
+          "lineNumber": 124
+        },
+        {
+          "caller": "PlaygroundGuide",
+          "callee": "setDismissed",
+          "lineNumber": 124
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "useState",
+          "lineNumber": 252
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "useState",
+          "lineNumber": 253
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "useState",
+          "lineNumber": 254
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "useState",
+          "lineNumber": 255
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "Boolean",
+          "lineNumber": 255
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "useConfirmModal",
+          "lineNumber": 256
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "historyRuns.slice",
+          "lineNumber": 257
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "Boolean",
+          "lineNumber": 258
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "/api.key|api key|x-api-key|missing x-api-key/i.test",
+          "lineNumber": 258
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "useMemo",
+          "lineNumber": 265
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "input.trim",
+          "lineNumber": 267
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "JSON.parse",
+          "lineNumber": 269
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onInputModeChange",
+          "lineNumber": 288
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onInputModeChange",
+          "lineNumber": 295
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onInputChange",
+          "lineNumber": 310
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onStreamModeChange",
+          "lineNumber": 328
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "setKeyTouched",
+          "lineNumber": 343
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onRun",
+          "lineNumber": 343
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "setModelOpen",
+          "lineNumber": 353
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onModelChange",
+          "lineNumber": 376
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "llmCatalog.providers.map",
+          "lineNumber": 381
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "provider.models.map",
+          "lineNumber": 387
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "maskApiKey",
+          "lineNumber": 434
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onApiKeyChange",
+          "lineNumber": 435
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onKeyFocusedChange",
+          "lineNumber": 436
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onKeyFocusedChange",
+          "lineNumber": 437
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "setKeyTouched",
+          "lineNumber": 437
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onApiKeyChange",
+          "lineNumber": 447
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "setProjectSearch",
+          "lineNumber": 491
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "sortedProjects(projectDetails, projectSearch).map",
+          "lineNumber": 498
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "sortedProjects",
+          "lineNumber": 498
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onProjectChange",
+          "lineNumber": 505
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "setAccountOpen",
+          "lineNumber": 536
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "requestConfirm",
+          "lineNumber": 574
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "sessionEntries.map",
+          "lineNumber": 599
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "recentRuns.map",
+          "lineNumber": 633
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "projectDetails.find",
+          "lineNumber": 634
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "Boolean",
+          "lineNumber": 638
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "formatRunTimestamp",
+          "lineNumber": 648
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onHistoryReplay",
+          "lineNumber": 657
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onHistoryExplain",
+          "lineNumber": 665
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "requestConfirm",
+          "lineNumber": 677
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onHistoryRerun",
+          "lineNumber": 677
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onUnshare",
+          "lineNumber": 682
+        },
+        {
+          "caller": "PlaygroundSidebar",
+          "callee": "onShare",
+          "lineNumber": 682
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-utils.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 56,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-utils.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 580,
+      "nonEmptyLines": 476,
+      "functions": [
+        {
+          "name": "projectApiName",
+          "startLine": 12,
+          "endLine": 14,
+          "params": [
+            "apiEndpoint"
+          ]
+        },
+        {
+          "name": "maskApiKey",
+          "startLine": 16,
+          "endLine": 27,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "tryParse",
+          "startLine": 29,
+          "endLine": 36,
+          "params": [
+            "raw"
+          ]
+        },
+        {
+          "name": "extractSteps",
+          "startLine": 38,
+          "endLine": 57,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "extractKeyMetrics",
+          "startLine": 59,
+          "endLine": 97,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "extractTextOutput",
+          "startLine": 99,
+          "endLine": 122,
+          "params": [
+            "data"
+          ]
+        },
+        {
+          "name": "summarizeInputPayload",
+          "startLine": 124,
+          "endLine": 141,
+          "params": [
+            "raw"
+          ]
+        },
+        {
+          "name": "formatRunTimestamp",
+          "startLine": 143,
+          "endLine": 154,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "isRunMemoryEntry",
+          "startLine": 156,
+          "endLine": 165,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "mapRunMemoryEntries",
+          "startLine": 167,
+          "endLine": 175,
+          "params": [
+            "entries"
+          ]
+        },
+        {
+          "name": "isRunTimelineEntry",
+          "startLine": 177,
+          "endLine": 187,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "normalizeStepKey",
+          "startLine": 189,
+          "endLine": 191,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "formatMemoryStepName",
+          "startLine": 193,
+          "endLine": 205,
+          "params": [
+            "stepId",
+            "graphNodes"
+          ]
+        },
+        {
+          "name": "formatTimelineTimestamp",
+          "startLine": 207,
+          "endLine": 209,
+          "params": [
+            "timestamp"
+          ]
+        },
+        {
+          "name": "formatTimelineEventLabel",
+          "startLine": 211,
+          "endLine": 218,
+          "params": [
+            "event"
+          ]
+        },
+        {
+          "name": "timelineEventToNodeStatus",
+          "startLine": 220,
+          "endLine": 225,
+          "params": [
+            "event"
+          ]
+        },
+        {
+          "name": "buildReplayNodeStatuses",
+          "startLine": 227,
+          "endLine": 256,
+          "params": [
+            "entries",
+            "graphNodes"
+          ]
+        },
+        {
+          "name": "buildReplayLogLines",
+          "startLine": 258,
+          "endLine": 262,
+          "params": [
+            "entries",
+            "graphNodes"
+          ]
+        },
+        {
+          "name": "replayRunStatus",
+          "startLine": 264,
+          "endLine": 278,
+          "params": [
+            "frame",
+            "totalEvents"
+          ]
+        },
+        {
+          "name": "statusTone",
+          "startLine": 296,
+          "endLine": 307,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "statusLabel",
+          "startLine": 309,
+          "endLine": 314,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "formatLogTimestamp",
+          "startLine": 316,
+          "endLine": 322,
+          "params": [
+            "date"
+          ]
+        },
+        {
+          "name": "matchesLifecycleKeyword",
+          "startLine": 326,
+          "endLine": 328,
+          "params": [
+            "label",
+            "keywords"
+          ]
+        },
+        {
+          "name": "inferLifecycleStep",
+          "startLine": 330,
+          "endLine": 374,
+          "params": [
+            "stepId",
+            "graphNodes"
+          ]
+        },
+        {
+          "name": "lifecycleState",
+          "startLine": 376,
+          "endLine": 400,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "realtimeLifecycleState",
+          "startLine": 402,
+          "endLine": 472,
+          "params": [
+            "status",
+            "graphNodes",
+            "stepStatuses"
+          ]
+        },
+        {
+          "name": "lifecycleLabel",
+          "startLine": 474,
+          "endLine": 480,
+          "params": [
+            "step"
+          ]
+        },
+        {
+          "name": "workspaceStateLabel",
+          "startLine": 486,
+          "endLine": 492,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "workspaceStateTone",
+          "startLine": 494,
+          "endLine": 508,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "assistantCardTone",
+          "startLine": 510,
+          "endLine": 524,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "assistantStateTitle",
+          "startLine": 526,
+          "endLine": 532,
+          "params": [
+            "state"
+          ]
+        },
+        {
+          "name": "inferMemoryEntryType",
+          "startLine": 536,
+          "endLine": 551,
+          "params": [
+            "stepId",
+            "graphNodes",
+            "status"
+          ]
+        },
+        {
+          "name": "memoryContentForStep",
+          "startLine": 553,
+          "endLine": 580,
+          "params": [
+            "stepName",
+            "lifecycle",
+            "status",
+            "error"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "projectApiName",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "maskApiKey",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "tryParse",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "extractSteps",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "extractKeyMetrics",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "extractTextOutput",
+          "line": 99,
+          "isDefault": false
+        },
+        {
+          "name": "summarizeInputPayload",
+          "line": 124,
+          "isDefault": false
+        },
+        {
+          "name": "formatRunTimestamp",
+          "line": 143,
+          "isDefault": false
+        },
+        {
+          "name": "isRunMemoryEntry",
+          "line": 156,
+          "isDefault": false
+        },
+        {
+          "name": "mapRunMemoryEntries",
+          "line": 167,
+          "isDefault": false
+        },
+        {
+          "name": "isRunTimelineEntry",
+          "line": 177,
+          "isDefault": false
+        },
+        {
+          "name": "formatMemoryStepName",
+          "line": 193,
+          "isDefault": false
+        },
+        {
+          "name": "buildReplayNodeStatuses",
+          "line": 227,
+          "isDefault": false
+        },
+        {
+          "name": "buildReplayLogLines",
+          "line": 258,
+          "isDefault": false
+        },
+        {
+          "name": "replayRunStatus",
+          "line": 264,
+          "isDefault": false
+        },
+        {
+          "name": "categoryColor",
+          "line": 282,
+          "isDefault": false
+        },
+        {
+          "name": "categoryBadgeTone",
+          "line": 288,
+          "isDefault": false
+        },
+        {
+          "name": "statusTone",
+          "line": 296,
+          "isDefault": false
+        },
+        {
+          "name": "statusLabel",
+          "line": 309,
+          "isDefault": false
+        },
+        {
+          "name": "formatLogTimestamp",
+          "line": 316,
+          "isDefault": false
+        },
+        {
+          "name": "inferLifecycleStep",
+          "line": 330,
+          "isDefault": false
+        },
+        {
+          "name": "realtimeLifecycleState",
+          "line": 402,
+          "isDefault": false
+        },
+        {
+          "name": "lifecycleLabel",
+          "line": 474,
+          "isDefault": false
+        },
+        {
+          "name": "workspaceStateLabel",
+          "line": 486,
+          "isDefault": false
+        },
+        {
+          "name": "workspaceStateTone",
+          "line": 494,
+          "isDefault": false
+        },
+        {
+          "name": "assistantCardTone",
+          "line": 510,
+          "isDefault": false
+        },
+        {
+          "name": "assistantStateTitle",
+          "line": 526,
+          "isDefault": false
+        },
+        {
+          "name": "inferMemoryEntryType",
+          "line": 536,
+          "isDefault": false
+        },
+        {
+          "name": "memoryContentForStep",
+          "line": 553,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "projectApiName",
+          "callee": "apiEndpoint.replace(/^\\//, \"\").replace",
+          "lineNumber": 13
+        },
+        {
+          "caller": "projectApiName",
+          "callee": "apiEndpoint.replace",
+          "lineNumber": 13
+        },
+        {
+          "caller": "maskApiKey",
+          "callee": "\"\\u2022\".repeat",
+          "lineNumber": 22
+        },
+        {
+          "caller": "maskApiKey",
+          "callee": "Math.max",
+          "lineNumber": 25
+        },
+        {
+          "caller": "maskApiKey",
+          "callee": "Math.min",
+          "lineNumber": 25
+        },
+        {
+          "caller": "maskApiKey",
+          "callee": "value.slice",
+          "lineNumber": 26
+        },
+        {
+          "caller": "maskApiKey",
+          "callee": "\"\\u2022\".repeat",
+          "lineNumber": 26
+        },
+        {
+          "caller": "maskApiKey",
+          "callee": "value.slice",
+          "lineNumber": 26
+        },
+        {
+          "caller": "tryParse",
+          "callee": "JSON.parse",
+          "lineNumber": 31
+        },
+        {
+          "caller": "extractSteps",
+          "callee": "Array.isArray",
+          "lineNumber": 51
+        },
+        {
+          "caller": "extractSteps",
+          "callee": "value.map",
+          "lineNumber": 52
+        },
+        {
+          "caller": "extractSteps",
+          "callee": "JSON.stringify",
+          "lineNumber": 52
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "Object.entries",
+          "lineNumber": 77
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "skip.has",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "Array.isArray",
+          "lineNumber": 78
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "Object.entries",
+          "lineNumber": 83
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "metrics.push",
+          "lineNumber": 85
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "String",
+          "lineNumber": 85
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "metrics.push",
+          "lineNumber": 92
+        },
+        {
+          "caller": "extractKeyMetrics",
+          "callee": "String",
+          "lineNumber": 92
+        },
+        {
+          "caller": "summarizeInputPayload",
+          "callee": "raw.trim",
+          "lineNumber": 125
+        },
+        {
+          "caller": "summarizeInputPayload",
+          "callee": "tryParse",
+          "lineNumber": 130
+        },
+        {
+          "caller": "summarizeInputPayload",
+          "callee": "trimmed.slice",
+          "lineNumber": 132
+        },
+        {
+          "caller": "summarizeInputPayload",
+          "callee": "parsed.input.trim",
+          "lineNumber": 135
+        },
+        {
+          "caller": "summarizeInputPayload",
+          "callee": "parsed.input.slice",
+          "lineNumber": 136
+        },
+        {
+          "caller": "summarizeInputPayload",
+          "callee": "JSON.stringify",
+          "lineNumber": 139
+        },
+        {
+          "caller": "summarizeInputPayload",
+          "callee": "serialized.slice",
+          "lineNumber": 140
+        },
+        {
+          "caller": "formatRunTimestamp",
+          "callee": "Number.isNaN",
+          "lineNumber": 149
+        },
+        {
+          "caller": "formatRunTimestamp",
+          "callee": "parsed.getTime",
+          "lineNumber": 149
+        },
+        {
+          "caller": "formatRunTimestamp",
+          "callee": "parsed.toLocaleString",
+          "lineNumber": 153
+        },
+        {
+          "caller": "mapRunMemoryEntries",
+          "callee": "entries.map",
+          "lineNumber": 168
+        },
+        {
+          "caller": "normalizeStepKey",
+          "callee": "value.toLowerCase().replace(/[^a-z0-9]+/g, \" \").trim",
+          "lineNumber": 190
+        },
+        {
+          "caller": "normalizeStepKey",
+          "callee": "value.toLowerCase().replace",
+          "lineNumber": 190
+        },
+        {
+          "caller": "normalizeStepKey",
+          "callee": "value.toLowerCase",
+          "lineNumber": 190
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "graphNodes.find",
+          "lineNumber": 194
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "normalizeStepKey",
+          "lineNumber": 195
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "normalizeStepKey",
+          "lineNumber": 195
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "normalizeStepKey",
+          "lineNumber": 196
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "normalizeStepKey",
+          "lineNumber": 196
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "stepId.replace(/[_-]+/g, \" \").replace(/\\s+/g, \" \").trim",
+          "lineNumber": 203
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "stepId.replace(/[_-]+/g, \" \").replace",
+          "lineNumber": 203
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "stepId.replace",
+          "lineNumber": 203
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "cleaned.replace",
+          "lineNumber": 204
+        },
+        {
+          "caller": "formatMemoryStepName",
+          "callee": "character.toUpperCase",
+          "lineNumber": 204
+        },
+        {
+          "caller": "formatTimelineTimestamp",
+          "callee": "timestamp.toFixed",
+          "lineNumber": 208
+        },
+        {
+          "caller": "formatTimelineEventLabel",
+          "callee": "event.replace(/[_-]+/g, \" \").replace",
+          "lineNumber": 217
+        },
+        {
+          "caller": "formatTimelineEventLabel",
+          "callee": "event.replace",
+          "lineNumber": 217
+        },
+        {
+          "caller": "formatTimelineEventLabel",
+          "callee": "character.toUpperCase",
+          "lineNumber": 217
+        },
+        {
+          "caller": "buildReplayNodeStatuses",
+          "callee": "graphNodes.find",
+          "lineNumber": 231
+        },
+        {
+          "caller": "buildReplayNodeStatuses",
+          "callee": "normalizeStepKey",
+          "lineNumber": 232
+        },
+        {
+          "caller": "buildReplayNodeStatuses",
+          "callee": "normalizeStepKey",
+          "lineNumber": 232
+        },
+        {
+          "caller": "buildReplayNodeStatuses",
+          "callee": "normalizeStepKey",
+          "lineNumber": 233
+        },
+        {
+          "caller": "buildReplayNodeStatuses",
+          "callee": "normalizeStepKey",
+          "lineNumber": 233
+        },
+        {
+          "caller": "buildReplayNodeStatuses",
+          "callee": "timelineEventToNodeStatus",
+          "lineNumber": 239
+        },
+        {
+          "caller": "buildReplayNodeStatuses",
+          "callee": "Object.entries",
+          "lineNumber": 245
+        },
+        {
+          "caller": "buildReplayLogLines",
+          "callee": "entries.map",
+          "lineNumber": 259
+        },
+        {
+          "caller": "buildReplayLogLines",
+          "callee": "formatTimelineTimestamp",
+          "lineNumber": 260
+        },
+        {
+          "caller": "buildReplayLogLines",
+          "callee": "formatMemoryStepName",
+          "lineNumber": 260
+        },
+        {
+          "caller": "buildReplayLogLines",
+          "callee": "formatTimelineEventLabel",
+          "lineNumber": 260
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "[\r\n    String(date.getHours()).padStart(2, \"0\"),\r\n    String(date.getMinutes()).padStart(2, \"0\"),\r\n    String(date.getSeconds()).padStart(2, \"0\"),\r\n  ].join",
+          "lineNumber": 317
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "String(date.getHours()).padStart",
+          "lineNumber": 318
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "String",
+          "lineNumber": 318
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "date.getHours",
+          "lineNumber": 318
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "String(date.getMinutes()).padStart",
+          "lineNumber": 319
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "String",
+          "lineNumber": 319
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "date.getMinutes",
+          "lineNumber": 319
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "String(date.getSeconds()).padStart",
+          "lineNumber": 320
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "String",
+          "lineNumber": 320
+        },
+        {
+          "caller": "formatLogTimestamp",
+          "callee": "date.getSeconds",
+          "lineNumber": 320
+        },
+        {
+          "caller": "matchesLifecycleKeyword",
+          "callee": "keywords.some",
+          "lineNumber": 327
+        },
+        {
+          "caller": "matchesLifecycleKeyword",
+          "callee": "label.includes",
+          "lineNumber": 327
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "normalizeStepKey",
+          "lineNumber": 331
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "graphNodes.find",
+          "lineNumber": 332
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "normalizeStepKey",
+          "lineNumber": 333
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "normalizeStepKey",
+          "lineNumber": 333
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "normalizeStepKey",
+          "lineNumber": 335
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "[matchedNode?.id, matchedNode?.label, stepId].filter(Boolean).join",
+          "lineNumber": 336
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "[matchedNode?.id, matchedNode?.label, stepId].filter",
+          "lineNumber": 336
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "matchesLifecycleKeyword",
+          "lineNumber": 339
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "matchesLifecycleKeyword",
+          "lineNumber": 343
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "matchesLifecycleKeyword",
+          "lineNumber": 347
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "graphNodes.findIndex",
+          "lineNumber": 352
+        },
+        {
+          "caller": "inferLifecycleStep",
+          "callee": "matchesLifecycleKeyword",
+          "lineNumber": 369
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "Object.entries",
+          "lineNumber": 419
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "inferLifecycleStep",
+          "lineNumber": 420
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "lifecycleState",
+          "lineNumber": 444
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "agentGraphSteps.filter",
+          "lineNumber": 447
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "[...agentGraphSteps]\r\n    .reverse()\r\n    .find",
+          "lineNumber": 448
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "[...agentGraphSteps]\r\n    .reverse",
+          "lineNumber": 448
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "[...agentGraphSteps]\r\n    .reverse()\r\n    .find",
+          "lineNumber": 455
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "[...agentGraphSteps]\r\n    .reverse",
+          "lineNumber": 455
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "completedSteps.includes",
+          "lineNumber": 459
+        },
+        {
+          "caller": "realtimeLifecycleState",
+          "callee": "completedSteps.includes",
+          "lineNumber": 463
+        },
+        {
+          "caller": "lifecycleLabel",
+          "callee": "step.charAt(0).toUpperCase",
+          "lineNumber": 479
+        },
+        {
+          "caller": "lifecycleLabel",
+          "callee": "step.charAt",
+          "lineNumber": 479
+        },
+        {
+          "caller": "lifecycleLabel",
+          "callee": "step.slice",
+          "lineNumber": 479
+        },
+        {
+          "caller": "inferMemoryEntryType",
+          "callee": "inferLifecycleStep",
+          "lineNumber": 545
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 29,
+        "functionCount": 33,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/playground-widgets.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 266,
+      "nonEmptyLines": 239,
+      "functions": [
+        {
+          "name": "Spinner",
+          "startLine": 9,
+          "endLine": 16,
+          "params": [
+            "{ className = \"h-4 w-4\" }"
+          ]
+        },
+        {
+          "name": "TypingDots",
+          "startLine": 18,
+          "endLine": 30,
+          "params": []
+        },
+        {
+          "name": "PlaygroundMotionStyles",
+          "startLine": 32,
+          "endLine": 40,
+          "params": []
+        },
+        {
+          "name": "ThinkingStateList",
+          "startLine": 44,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "DebugPanel",
+          "startLine": 63,
+          "endLine": 176,
+          "params": [
+            "{\r\n  logs,\r\n  title = \"Debug Panel\",\r\n  subtitle = \"Live execution log\",\r\n  onClear,\r\n}"
+          ]
+        },
+        {
+          "name": "StatCard",
+          "startLine": 180,
+          "endLine": 197,
+          "params": [
+            "{\r\n  label,\r\n  value,\r\n}"
+          ]
+        },
+        {
+          "name": "WorkspaceStateBadge",
+          "startLine": 201,
+          "endLine": 243,
+          "params": [
+            "{ state }"
+          ]
+        },
+        {
+          "name": "ReplayStateBadge",
+          "startLine": 245,
+          "endLine": 266,
+          "params": [
+            "{\r\n  frame,\r\n  totalEvents,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Spinner",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "TypingDots",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "PlaygroundMotionStyles",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "ThinkingStateList",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "DebugPanel",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "StatCard",
+          "line": 180,
+          "isDefault": false
+        },
+        {
+          "name": "WorkspaceStateBadge",
+          "line": 201,
+          "isDefault": false
+        },
+        {
+          "name": "ReplayStateBadge",
+          "line": 245,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "TypingDots",
+          "callee": "[0, 1, 2].map",
+          "lineNumber": 21
+        },
+        {
+          "caller": "ThinkingStateList",
+          "callee": "thinkingStates.map",
+          "lineNumber": 47
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "useRef",
+          "lineNumber": 74
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "useState",
+          "lineNumber": 75
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "useEffect",
+          "lineNumber": 77
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "useEffect",
+          "lineNumber": 83
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "window.setTimeout",
+          "lineNumber": 88
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "setCopyState",
+          "lineNumber": 89
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "window.clearTimeout",
+          "lineNumber": 92
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "useCallback",
+          "lineNumber": 95
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "navigator.clipboard.writeText",
+          "lineNumber": 101
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "logs.join",
+          "lineNumber": 101
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "setCopyState",
+          "lineNumber": 102
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "setCopyState",
+          "lineNumber": 104
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "copyLogs",
+          "lineNumber": 135
+        },
+        {
+          "caller": "DebugPanel",
+          "callee": "logs.map",
+          "lineNumber": 162
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateTone",
+          "lineNumber": 204
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateLabel",
+          "lineNumber": 206
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateTone",
+          "lineNumber": 213
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateLabel",
+          "lineNumber": 215
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateTone",
+          "lineNumber": 222
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateLabel",
+          "lineNumber": 224
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateTone",
+          "lineNumber": 231
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateLabel",
+          "lineNumber": 233
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateTone",
+          "lineNumber": 239
+        },
+        {
+          "caller": "WorkspaceStateBadge",
+          "callee": "workspaceStateLabel",
+          "lineNumber": 240
+        },
+        {
+          "caller": "ReplayStateBadge",
+          "callee": "Boolean",
+          "lineNumber": 253
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 8,
+        "functionCount": 8,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/use-playground-account.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 152,
+      "nonEmptyLines": 134,
+      "functions": [
+        {
+          "name": "usePlaygroundAccount",
+          "startLine": 10,
+          "endLine": 152,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "usePlaygroundAccount",
+          "line": 10,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 11
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 12
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 13
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 14
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 15
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 16
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 17
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useState",
+          "lineNumber": 18
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useCallback",
+          "lineNumber": 20
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setActiveSessionId",
+          "lineNumber": 21
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setSessionMemoryPreview",
+          "lineNumber": 22
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "clearStoredSessionId",
+          "lineNumber": 23
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useCallback",
+          "lineNumber": 26
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "clearLocalSession",
+          "lineNumber": 28
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setActiveSessionId",
+          "lineNumber": 32
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setSessionMemoryPreview",
+          "lineNumber": 33
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "memory.slice",
+          "lineNumber": 33
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "storeSessionId",
+          "lineNumber": 34
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useCallback",
+          "lineNumber": 37
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setSessionLoading",
+          "lineNumber": 38
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "fetchRunSession",
+          "lineNumber": 40
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "applySessionState",
+          "lineNumber": 41
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "message.startsWith",
+          "lineNumber": 44
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "message.startsWith",
+          "lineNumber": 44
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "clearLocalSession",
+          "lineNumber": 45
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setSessionLoading",
+          "lineNumber": 48
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useCallback",
+          "lineNumber": 52
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setHistoryLoading",
+          "lineNumber": 53
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setHistoryError",
+          "lineNumber": 54
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "fetchHistory",
+          "lineNumber": 56
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setHistoryRuns",
+          "lineNumber": 57
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "response.runs.map",
+          "lineNumber": 58
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "Array.isArray",
+          "lineNumber": 60
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "run.memory.filter",
+          "lineNumber": 60
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "Array.isArray",
+          "lineNumber": 61
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "run.timeline.filter",
+          "lineNumber": 61
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setHistoryError",
+          "lineNumber": 66
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "message.startsWith",
+          "lineNumber": 67
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "clearAuthSession",
+          "lineNumber": 68
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setAuthToken",
+          "lineNumber": 69
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setHistoryRuns",
+          "lineNumber": 70
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "clearLocalSession",
+          "lineNumber": 71
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setHistoryLoading",
+          "lineNumber": 74
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useCallback",
+          "lineNumber": 78
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setClearingSession",
+          "lineNumber": 83
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "clearRunSession",
+          "lineNumber": 85
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "applySessionState",
+          "lineNumber": 86
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "setClearingSession",
+          "lineNumber": 91
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "useEffect",
+          "lineNumber": 95
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "getStoredAuthSession",
+          "lineNumber": 99
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "fetchCurrentUser().catch",
+          "lineNumber": 102
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "fetchCurrentUser",
+          "lineNumber": 102
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "storeAuthSession",
+          "lineNumber": 104
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "getStoredAuthSession",
+          "lineNumber": 105
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "clearAuthSession",
+          "lineNumber": 107
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "setAuthToken",
+          "lineNumber": 115
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "clearLocalSession",
+          "lineNumber": 117
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "refreshHistory",
+          "lineNumber": 121
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "getStoredSessionId",
+          "lineNumber": 122
+        },
+        {
+          "caller": "hydrateAuthState",
+          "callee": "loadSession",
+          "lineNumber": 124
+        },
+        {
+          "caller": "usePlaygroundAccount",
+          "callee": "hydrateAuthState",
+          "lineNumber": 128
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/use-playground-history.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 167,
+      "nonEmptyLines": 147,
+      "functions": [
+        {
+          "name": "usePlaygroundHistory",
+          "startLine": 21,
+          "endLine": 167,
+          "params": [
+            "{\r\n  authToken,\r\n  llm,\r\n  appendLog,\r\n  disconnect,\r\n  executeRun,\r\n  hydrateSavedRun,\r\n  scrollOutputIntoView,\r\n  setHistoryRuns,\r\n  streamMode,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "usePlaygroundHistory",
+          "line": 21,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 32
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 33
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 34
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 35
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 36
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 37
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 38
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useState",
+          "lineNumber": 39
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useCallback",
+          "lineNumber": 41
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setActiveReplayRun",
+          "lineNumber": 42
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setReplayFrame",
+          "lineNumber": 43
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useCallback",
+          "lineNumber": 46
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setActiveExplanationRun",
+          "lineNumber": 47
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setExplainingRunId",
+          "lineNumber": 48
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setExplanationError",
+          "lineNumber": 49
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useCallback",
+          "lineNumber": 52
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "disconnect",
+          "lineNumber": 53
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "clearReplay",
+          "lineNumber": 54
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "hydrateSavedRun",
+          "lineNumber": 55
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setActiveReplayRun",
+          "lineNumber": 56
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setReplayFrame",
+          "lineNumber": 57
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setReplayAutoplayKey",
+          "lineNumber": 58
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "scrollOutputIntoView",
+          "lineNumber": 59
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useCallback",
+          "lineNumber": 62
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setExplanationError",
+          "lineNumber": 64
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "Boolean",
+          "lineNumber": 68
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "clearExplanation",
+          "lineNumber": 69
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setActiveExplanationRun",
+          "lineNumber": 73
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setExplanationError",
+          "lineNumber": 74
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setExplainingRunId",
+          "lineNumber": 80
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "explainRun",
+          "lineNumber": 83
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setRunExplanations",
+          "lineNumber": 84
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setExplanationError",
+          "lineNumber": 90
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setExplainingRunId",
+          "lineNumber": 92
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useCallback",
+          "lineNumber": 96
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "clearReplay",
+          "lineNumber": 97
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "clearExplanation",
+          "lineNumber": 98
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "executeRun",
+          "lineNumber": 99
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useCallback",
+          "lineNumber": 102
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setSharingRunId",
+          "lineNumber": 107
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "shareRun",
+          "lineNumber": 110
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setHistoryRuns",
+          "lineNumber": 111
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "previous.map",
+          "lineNumber": 111
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "navigator.clipboard.writeText",
+          "lineNumber": 117
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "appendLog",
+          "lineNumber": 118
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "appendLog",
+          "lineNumber": 120
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setSharingRunId",
+          "lineNumber": 122
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "useCallback",
+          "lineNumber": 126
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setSharingRunId",
+          "lineNumber": 131
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "unshareRun",
+          "lineNumber": 134
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setHistoryRuns",
+          "lineNumber": 135
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "previous.map",
+          "lineNumber": 135
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "appendLog",
+          "lineNumber": 140
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "appendLog",
+          "lineNumber": 142
+        },
+        {
+          "caller": "usePlaygroundHistory",
+          "callee": "setSharingRunId",
+          "lineNumber": 144
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/playground/use-playground-run.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 606,
+      "nonEmptyLines": 552,
+      "functions": [
+        {
+          "name": "isTextModeEligible",
+          "startLine": 45,
+          "endLine": 51,
+          "params": [
+            "project"
+          ]
+        },
+        {
+          "name": "usePlaygroundRun",
+          "startLine": 53,
+          "endLine": 606,
+          "params": [
+            "deps"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "usePlaygroundRun",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "isTextModeEligible",
+          "callee": "JSON.parse",
+          "lineNumber": 47
+        },
+        {
+          "caller": "isTextModeEligible",
+          "callee": "Object.keys",
+          "lineNumber": 48
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 64
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 65
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "isTextModeEligible",
+          "lineNumber": 66
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "JSON.parse",
+          "lineNumber": 67
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 71
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "isTextModeEligible",
+          "lineNumber": 72
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 74
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 75
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 76
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 77
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 78
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 79
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 80
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 81
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 82
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 83
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 86
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useState",
+          "lineNumber": 87
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useRef",
+          "lineNumber": 88
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useRef",
+          "lineNumber": 91
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useRef",
+          "lineNumber": 92
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useRef",
+          "lineNumber": 93
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "projectDetails.find",
+          "lineNumber": 96
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "isTextModeEligible",
+          "lineNumber": 97
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 101
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLogLines",
+          "lineNumber": 102
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "formatLogTimestamp",
+          "lineNumber": 102
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 105
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setMemoryEntries",
+          "lineNumber": 107
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 110
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setMemoryEntries",
+          "lineNumber": 112
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "formatLogTimestamp",
+          "lineNumber": 116
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 122
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setMemoryEntries",
+          "lineNumber": 124
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "mapRunMemoryEntries",
+          "lineNumber": 124
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useEffect",
+          "lineNumber": 130
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 138
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "abortRef.current",
+          "lineNumber": 140
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 145
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "window.setTimeout",
+          "lineNumber": 146
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "outputRef.current?.scrollIntoView",
+          "lineNumber": 147
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 153
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 154
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 155
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLatency",
+          "lineNumber": 156
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 157
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 158
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 159
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 160
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamText",
+          "lineNumber": 161
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStepStatuses",
+          "lineNumber": 162
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamChunks",
+          "lineNumber": 163
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLogLines",
+          "lineNumber": 164
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "resetMemoryEntries",
+          "lineNumber": 165
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 170
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "disconnect",
+          "lineNumber": 171
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 172
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 173
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 179
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 180
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 181
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 187
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "projectDetails.find",
+          "lineNumber": 188
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setSelectedSlug",
+          "lineNumber": 191
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "isTextModeEligible",
+          "lineNumber": 195
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "JSON.parse",
+          "lineNumber": 198
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInput",
+          "lineNumber": 200
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInputMode",
+          "lineNumber": 201
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInput",
+          "lineNumber": 203
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInputMode",
+          "lineNumber": 204
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInput",
+          "lineNumber": 207
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInputMode",
+          "lineNumber": 208
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInput",
+          "lineNumber": 211
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInputMode",
+          "lineNumber": 212
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 214
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 215
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLatency",
+          "lineNumber": 216
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 217
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 218
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 219
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 220
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamText",
+          "lineNumber": 221
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStepStatuses",
+          "lineNumber": 222
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamChunks",
+          "lineNumber": 223
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLogLines",
+          "lineNumber": 224
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "replaceMemoryEntries",
+          "lineNumber": 227
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "resetMemoryEntries",
+          "lineNumber": 229
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "useCallback",
+          "lineNumber": 235
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "disconnect",
+          "lineNumber": 241
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "projectDetails.find",
+          "lineNumber": 243
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setSelectedSlug",
+          "lineNumber": 246
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setInput",
+          "lineNumber": 247
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 248
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 249
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 250
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLatency",
+          "lineNumber": 251
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 252
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 253
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamText",
+          "lineNumber": 254
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStepStatuses",
+          "lineNumber": 255
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamChunks",
+          "lineNumber": 256
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLogLines",
+          "lineNumber": 257
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "resetMemoryEntries",
+          "lineNumber": 258
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "clearLocalSession",
+          "lineNumber": 261
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 262
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "JSON.parse",
+          "lineNumber": 271
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 273
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 274
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 275
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 289
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Boolean",
+          "lineNumber": 289
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "JSON.stringify",
+          "lineNumber": 291
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 292
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 293
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "projectApiName",
+          "lineNumber": 293
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 295
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 297
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 306
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 307
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "streamProject",
+          "lineNumber": 310
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "projectApiName",
+          "lineNumber": 311
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 315
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 316
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 322
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "token.trim",
+          "lineNumber": 325
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 327
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamText",
+          "lineNumber": 334
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamChunks",
+          "lineNumber": 335
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "formatMemoryStepName",
+          "lineNumber": 343
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "inferLifecycleStep",
+          "lineNumber": 344
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 345
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 346
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "inferMemoryEntryType",
+          "lineNumber": 348
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "memoryContentForStep",
+          "lineNumber": 349
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStepStatuses",
+          "lineNumber": 352
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Object.entries",
+          "lineNumber": 356
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 374
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Math.round",
+          "lineNumber": 374
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 375
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Math.round",
+          "lineNumber": 378
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLatency",
+          "lineNumber": 381
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Math.round",
+          "lineNumber": 381
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 382
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "applySessionState",
+          "lineNumber": 383
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 384
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 386
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 388
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "refreshHistory",
+          "lineNumber": 390
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStreamText",
+          "lineNumber": 393
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "tryParse",
+          "lineNumber": 395
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 397
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 398
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "JSON.stringify",
+          "lineNumber": 398
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 400
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 401
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 407
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 408
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 414
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 415
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 416
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 417
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 427
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 428
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 429
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "(async () => {\r\n          try {\r\n            const result = await runProject(projectApiName(targetProject.apiEndpoint), body, authToken ?? undefined, llm);\r\n\r\n            if (result.ok) {\r\n              const data = result.data;\r\n              const responseMemory = Array.isArray(data?.memory)\r\n                ? data.memory.filter(isRunMemoryEntry)\r\n                : [];\r\n              const runSucceeded = data?.success !== false;\r\n\r\n              setStatus(runSucceeded ? \"success\" : \"error\");\r\n              setLatency(typeof data?.latency === \"number\" ? Math.round(data.latency) : null);\r\n              setConfidence(typeof data?.confidence === \"number\" ? data.confidence : null);\r\n              applySessionState(\r\n                typeof data?.session_id === \"number\" ? data.session_id : null,\r\n                Array.isArray(data?.session_memory)\r\n                  ? data.session_memory.filter((entry): entry is string => typeof entry === \"string\")\r\n                  : [],\r\n              );\r\n              setUsedSessionContext(data?.used_session_context === true);\r\n              if (data?.used_session_context === true) {\r\n                appendLog(\"Using previous context from this session\");\r\n              }\r\n              appendLog(\r\n                `${runSucceeded ? \"Execution completed\" : \"Execution finished with an error\"}${typeof data?.latency === \"number\" ? ` in ${Math.round(data.latency)} ms` : \"\"}`,\r\n              );\r\n              if (responseMemory.length > 0) {\r\n                replaceMemoryEntries(responseMemory);\r\n              } else {\r\n                appendMemoryEntry({\r\n                  stepName: runSucceeded ? \"Completion\" : \"Failure\",\r\n                  type: \"observation\",\r\n                  content: typeof data?.latency === \"number\"\r\n                    ? `${runSucceeded ? \"Response returned\" : \"Run failed\"} in ${Math.round(data.latency)} ms.`\r\n                    : runSucceeded\r\n                      ? \"Response returned successfully.\"\r\n                      : \"Run failed.\",\r\n                  initiallyExpanded: true,\r\n                });\r\n              }\r\n              const innerRaw = typeof data?.output === \"string\" ? data.output : null;\r\n              const inner = innerRaw ? tryParse(innerRaw) : null;\r\n              if (inner) {\r\n                setRawData(inner);\r\n                setOutput(JSON.stringify(inner, null, 2));\r\n              } else if (innerRaw) {\r\n                setRawData({ output: innerRaw });\r\n                setOutput(innerRaw);\r\n              } else {\r\n                setRawData(data as unknown as AnyObj);\r\n                setOutput(JSON.stringify(data, null, 2));\r\n              }\r\n              if (!runSucceeded) {\r\n                setErrorMsg(typeof data?.output === \"string\" ? data.output : \"Execution failed.\");\r\n              }\r\n              if (authToken) {\r\n                void refreshHistory(authToken);\r\n              }\r\n            } else {\r\n              setStatus(\"error\");\r\n              setUsedSessionContext(false);\r\n              setConfidence(null);\r\n              appendLog(`Execution failed: ${result.error}`);\r\n              appendMemoryEntry({\r\n                stepName: \"Failure\",\r\n                type: \"observation\",\r\n                content: `Execution failed: ${result.error}`,\r\n                initiallyExpanded: true,\r\n              });\r\n              setErrorMsg(result.error);\r\n            }\r\n          } catch (err) {\r\n            setStatus(\"error\");\r\n            setUsedSessionContext(false);\r\n            setConfidence(null);\r\n            const message = err instanceof Error ? err.message : \"Network error — is the API running?\";\r\n            appendLog(`Execution failed: ${message}`);\r\n            appendMemoryEntry({\r\n              stepName: \"Failure\",\r\n              type: \"observation\",\r\n              content: `Execution failed: ${message}`,\r\n              initiallyExpanded: true,\r\n            });\r\n            setErrorMsg(message);\r\n          }\r\n        })",
+          "lineNumber": 436
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "runProject",
+          "lineNumber": 438
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "projectApiName",
+          "lineNumber": 438
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Array.isArray",
+          "lineNumber": 442
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "data.memory.filter",
+          "lineNumber": 443
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 447
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setLatency",
+          "lineNumber": 448
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Math.round",
+          "lineNumber": 448
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 449
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "applySessionState",
+          "lineNumber": 450
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Array.isArray",
+          "lineNumber": 452
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "data.session_memory.filter",
+          "lineNumber": 453
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 456
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 458
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 460
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Math.round",
+          "lineNumber": 461
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "replaceMemoryEntries",
+          "lineNumber": 464
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 466
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "Math.round",
+          "lineNumber": 470
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "tryParse",
+          "lineNumber": 478
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 480
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 481
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "JSON.stringify",
+          "lineNumber": 481
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 483
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 484
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setRawData",
+          "lineNumber": 486
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setOutput",
+          "lineNumber": 487
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "JSON.stringify",
+          "lineNumber": 487
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 490
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "refreshHistory",
+          "lineNumber": 493
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 496
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 497
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 498
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 499
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 500
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 506
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setStatus",
+          "lineNumber": 509
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setUsedSessionContext",
+          "lineNumber": 510
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setConfidence",
+          "lineNumber": 511
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendLog",
+          "lineNumber": 513
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "appendMemoryEntry",
+          "lineNumber": 514
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "setErrorMsg",
+          "lineNumber": 520
+        },
+        {
+          "caller": "usePlaygroundRun",
+          "callee": "scrollOutputIntoView",
+          "lineNumber": 525
+        }
+      ],
+      "metrics": {
+        "importCount": 5,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/projects/[slug]/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 270,
+      "nonEmptyLines": 248,
+      "functions": [
+        {
+          "name": "generateStaticParams",
+          "startLine": 13,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "generateMetadata",
+          "startLine": 17,
+          "endLine": 21,
+          "params": [
+            "{ params }"
+          ]
+        },
+        {
+          "name": "formatJson",
+          "startLine": 35,
+          "endLine": 41,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "ProjectDetailPage",
+          "startLine": 43,
+          "endLine": 270,
+          "params": [
+            "{ params }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "generateStaticParams",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "generateMetadata",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "ProjectDetailPage",
+          "line": 43,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generateStaticParams",
+          "callee": "projects.map",
+          "lineNumber": 14
+        },
+        {
+          "caller": "generateMetadata",
+          "callee": "getProject",
+          "lineNumber": 19
+        },
+        {
+          "caller": "formatJson",
+          "callee": "JSON.stringify",
+          "lineNumber": 37
+        },
+        {
+          "caller": "formatJson",
+          "callee": "JSON.parse",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "getProject",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "notFound",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "project.features.map",
+          "lineNumber": 145
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "formatJson",
+          "lineNumber": 179
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "formatJson",
+          "lineNumber": 182
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "formatJson",
+          "lineNumber": 188
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "formatJson",
+          "lineNumber": 191
+        },
+        {
+          "caller": "ProjectDetailPage",
+          "callee": "project.tags.map",
+          "lineNumber": 215
+        }
+      ],
+      "metrics": {
+        "importCount": 4,
+        "exportCount": 3,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 387,
+      "nonEmptyLines": 354,
+      "functions": [
+        {
+          "name": "formatResult",
+          "startLine": 22,
+          "endLine": 28,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "ProjectDemo",
+          "startLine": 30,
+          "endLine": 387,
+          "params": [
+            "{\r\n  apiEndpoint,\r\n  exampleInput,\r\n  title,\r\n  description,\r\n  ctaLabel,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProjectDemo",
+          "line": 30,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "formatResult",
+          "callee": "JSON.stringify",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 38
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useMemo",
+          "lineNumber": 41
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "JSON.parse",
+          "lineNumber": 43
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "Object.keys",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "JSON.parse",
+          "lineNumber": 55
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 59
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "getStoredAuthSession",
+          "lineNumber": 59
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 60
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "getStoredApiKeys",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "getStoredLLMSelection",
+          "lineNumber": 63
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useState",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "getStoredLLMSelection",
+          "lineNumber": 64
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "projectApiName",
+          "lineNumber": 65
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useEffect",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "fetchCurrentUser()\r\n      .then((user) => {\r\n        if (cancelled || !user) {\r\n          return;\r\n        }\r\n        storeAuthSession();\r\n        setAuthToken(getStoredAuthSession());\r\n      })\r\n      .catch",
+          "lineNumber": 73
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "fetchCurrentUser()\r\n      .then",
+          "lineNumber": 73
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "fetchCurrentUser",
+          "lineNumber": 73
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "storeAuthSession",
+          "lineNumber": 78
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setAuthToken",
+          "lineNumber": 79
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "getStoredAuthSession",
+          "lineNumber": 79
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "useEffect",
+          "lineNumber": 88
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "fetchLLMCatalog()\r\n      .then((catalog) => {\r\n        if (cancelled) {\r\n          return;\r\n        }\r\n\r\n        const knownModels = new Set(\r\n          catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),\r\n        );\r\n        const storedSelection = getStoredLLMSelection();\r\n        const preferredModel = storedSelection?.model ?? \"gemini-3-flash-preview\";\r\n        const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;\r\n        const nextProvider = findProviderForModel(catalog, nextModel);\r\n\r\n        setLlMCatalog(catalog);\r\n        setLlMCatalogError(null);\r\n        setSelectedModel(nextModel);\r\n        setSelectedProvider(nextProvider);\r\n        setStoredLLMSelection({ provider: nextProvider, model: nextModel });\r\n      })\r\n      .catch",
+          "lineNumber": 91
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "fetchLLMCatalog()\r\n      .then",
+          "lineNumber": 91
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "fetchLLMCatalog",
+          "lineNumber": 91
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "catalog.providers.flatMap",
+          "lineNumber": 98
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "provider.models.map",
+          "lineNumber": 98
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "getStoredLLMSelection",
+          "lineNumber": 100
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "knownModels.has",
+          "lineNumber": 102
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "findProviderForModel",
+          "lineNumber": 103
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setLlMCatalog",
+          "lineNumber": 105
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setLlMCatalogError",
+          "lineNumber": 106
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setSelectedModel",
+          "lineNumber": 107
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setSelectedProvider",
+          "lineNumber": 108
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setStoredLLMSelection",
+          "lineNumber": 109
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setLlMCatalogError",
+          "lineNumber": 113
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "findProviderInfo",
+          "lineNumber": 122
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "selectedApiKey.trim",
+          "lineNumber": 133
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "findProviderForModel",
+          "lineNumber": 137
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "setSelectedModel",
+          "lineNumber": 138
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "setSelectedProvider",
+          "lineNumber": 139
+        },
+        {
+          "caller": "handleModelChange",
+          "callee": "setStoredLLMSelection",
+          "lineNumber": 140
+        },
+        {
+          "caller": "handleApiKeyChange",
+          "callee": "setApiKeys",
+          "lineNumber": 144
+        },
+        {
+          "caller": "handleApiKeyChange",
+          "callee": "setStoredApiKey",
+          "lineNumber": 145
+        },
+        {
+          "caller": "handleApiKeyChange",
+          "callee": "value.trim",
+          "lineNumber": 145
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setStatus",
+          "lineNumber": 149
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setResult",
+          "lineNumber": 150
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setStatus",
+          "lineNumber": 153
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setResult",
+          "lineNumber": 154
+        },
+        {
+          "caller": "handleRun",
+          "callee": "selectedApiKey.trim",
+          "lineNumber": 158
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setStatus",
+          "lineNumber": 160
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setResult",
+          "lineNumber": 161
+        },
+        {
+          "caller": "handleRun",
+          "callee": "apiKeyLabel.toLowerCase",
+          "lineNumber": 161
+        },
+        {
+          "caller": "handleRun",
+          "callee": "JSON.parse",
+          "lineNumber": 170
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setStatus",
+          "lineNumber": 172
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setResult",
+          "lineNumber": 173
+        },
+        {
+          "caller": "handleRun",
+          "callee": "runProject",
+          "lineNumber": 179
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setStatus",
+          "lineNumber": 182
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setResult",
+          "lineNumber": 183
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setStatus",
+          "lineNumber": 187
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setResult",
+          "lineNumber": 188
+        },
+        {
+          "caller": "handleRun",
+          "callee": "formatResult",
+          "lineNumber": 188
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setStatus",
+          "lineNumber": 190
+        },
+        {
+          "caller": "handleRun",
+          "callee": "setResult",
+          "lineNumber": 191
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "handleModelChange",
+          "lineNumber": 218
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "llmCatalog.providers.map",
+          "lineNumber": 222
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "provider.models.map",
+          "lineNumber": 225
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "handleApiKeyChange",
+          "lineNumber": 242
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "apiKeyLabel.toLowerCase",
+          "lineNumber": 278
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "JSON.parse",
+          "lineNumber": 302
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setInput",
+          "lineNumber": 303
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setInputMode",
+          "lineNumber": 305
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setInput",
+          "lineNumber": 315
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "JSON.stringify",
+          "lineNumber": 315
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setInputMode",
+          "lineNumber": 316
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "setInput",
+          "lineNumber": 328
+        },
+        {
+          "caller": "ProjectDemo",
+          "callee": "selectedApiKey.trim",
+          "lineNumber": 339
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/projects/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 114,
+      "nonEmptyLines": 104,
+      "functions": [
+        {
+          "name": "ProjectsPage",
+          "startLine": 17,
+          "endLine": 114,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "ProjectsPage",
+          "line": 17,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ProjectsPage",
+          "callee": "groups.map",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ProjectsPage",
+          "callee": "projects.filter",
+          "lineNumber": 36
+        },
+        {
+          "caller": "ProjectsPage",
+          "callee": "groups.map",
+          "lineNumber": 51
+        },
+        {
+          "caller": "ProjectsPage",
+          "callee": "projects.filter",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ProjectsPage",
+          "callee": "items.map",
+          "lineNumber": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/run/[id]/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 246,
+      "nonEmptyLines": 226,
+      "functions": [
+        {
+          "name": "Spinner",
+          "startLine": 9,
+          "endLine": 16,
+          "params": [
+            "{ className }"
+          ]
+        },
+        {
+          "name": "formatTimestamp",
+          "startLine": 18,
+          "endLine": 25,
+          "params": [
+            "ts"
+          ]
+        },
+        {
+          "name": "MemoryItem",
+          "startLine": 27,
+          "endLine": 45,
+          "params": [
+            "{ entry }"
+          ]
+        },
+        {
+          "name": "TimelineItem",
+          "startLine": 47,
+          "endLine": 63,
+          "params": [
+            "{ entry }"
+          ]
+        },
+        {
+          "name": "SharedRunPage",
+          "startLine": 65,
+          "endLine": 246,
+          "params": [
+            "{ params }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "SharedRunPage",
+          "line": 65,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "formatTimestamp",
+          "callee": "new Date(ts).toLocaleString",
+          "lineNumber": 21
+        },
+        {
+          "caller": "TimelineItem",
+          "callee": "entry.timestamp.toFixed",
+          "lineNumber": 51
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "use",
+          "lineNumber": 66
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "useState",
+          "lineNumber": 67
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "useState",
+          "lineNumber": 68
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "useState",
+          "lineNumber": 69
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "useState",
+          "lineNumber": 70
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "useState",
+          "lineNumber": 71
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "useEffect",
+          "lineNumber": 73
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "fetchSharedRun(shareToken)\r\n      .then(setRun)\r\n      .catch((err) => {\r\n        setError(err instanceof Error ? err.message : \"Failed to load shared run.\");\r\n      })\r\n      .finally",
+          "lineNumber": 74
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "fetchSharedRun(shareToken)\r\n      .then(setRun)\r\n      .catch",
+          "lineNumber": 74
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "fetchSharedRun(shareToken)\r\n      .then",
+          "lineNumber": 74
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "fetchSharedRun",
+          "lineNumber": 74
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "setError",
+          "lineNumber": 77
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "setLoading",
+          "lineNumber": 79
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "error?.includes",
+          "lineNumber": 98
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "error?.includes",
+          "lineNumber": 98
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "projectDetails.find",
+          "lineNumber": 108
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "formatTimestamp",
+          "lineNumber": 135
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "run.latency.toFixed",
+          "lineNumber": 148
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "(run.confidence * 100).toFixed",
+          "lineNumber": 151
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "setInputOpen",
+          "lineNumber": 169
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "tabs.map",
+          "lineNumber": 186
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "setActiveTab",
+          "lineNumber": 190
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "run.memory.map",
+          "lineNumber": 228
+        },
+        {
+          "caller": "SharedRunPage",
+          "callee": "run.timeline.map",
+          "lineNumber": 238
+        }
+      ],
+      "metrics": {
+        "importCount": 3,
+        "exportCount": 1,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    }
+  ]
+}

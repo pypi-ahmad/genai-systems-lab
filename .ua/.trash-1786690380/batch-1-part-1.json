@@ -1,0 +1,1110 @@
+{
+  "nodes": [
+    {
+      "id": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "type": "file",
+      "name": "code_copilot_rag_provider.py",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "summary": "Implements code_copilot_rag_provider.py as part of the benchmarks application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_index_state",
+      "type": "function",
+      "name": "_index_state",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "lineRange": [
+        16,
+        23
+      ],
+      "summary": "Implements the _index_state operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_ensure_indexed",
+      "type": "function",
+      "name": "_ensure_indexed",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "lineRange": [
+        26,
+        32
+      ],
+      "summary": "Implements the _ensure_indexed operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_normalize_chunks",
+      "type": "function",
+      "name": "_normalize_chunks",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "lineRange": [
+        35,
+        42
+      ],
+      "summary": "Implements the _normalize_chunks operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:call_api",
+      "type": "function",
+      "name": "call_api",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "lineRange": [
+        45,
+        75
+      ],
+      "summary": "Implements the call_api operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "type": "file",
+      "name": "code_copilot_retrieval_provider.py",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "summary": "Implements code_copilot_retrieval_provider.py as part of the benchmarks application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_index_state",
+      "type": "function",
+      "name": "_index_state",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "lineRange": [
+        16,
+        23
+      ],
+      "summary": "Implements the _index_state operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_ensure_indexed",
+      "type": "function",
+      "name": "_ensure_indexed",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "lineRange": [
+        26,
+        32
+      ],
+      "summary": "Implements the _ensure_indexed operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_normalize_chunks",
+      "type": "function",
+      "name": "_normalize_chunks",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "lineRange": [
+        35,
+        42
+      ],
+      "summary": "Implements the _normalize_chunks operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:call_api",
+      "type": "function",
+      "name": "call_api",
+      "filePath": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "lineRange": [
+        45,
+        72
+      ],
+      "summary": "Implements the call_api operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:benchmarks/promptfoo/providers/project_provider.py",
+      "type": "file",
+      "name": "project_provider.py",
+      "filePath": "benchmarks/promptfoo/providers/project_provider.py",
+      "summary": "Implements project_provider.py as part of the benchmarks application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_provider.py:call_api",
+      "type": "function",
+      "name": "call_api",
+      "filePath": "benchmarks/promptfoo/providers/project_provider.py",
+      "lineRange": [
+        19,
+        46
+      ],
+      "summary": "Implements the call_api operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "type": "file",
+      "name": "project_utils.py",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "summary": "Implements project_utils.py as part of the benchmarks application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:repository_root",
+      "type": "function",
+      "name": "repository_root",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        30,
+        31
+      ],
+      "summary": "Implements the repository_root operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:resolve_path",
+      "type": "function",
+      "name": "resolve_path",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        34,
+        41
+      ],
+      "summary": "Implements the resolve_path operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:repo_relative_path",
+      "type": "function",
+      "name": "repo_relative_path",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        44,
+        48
+      ],
+      "summary": "Implements the repo_relative_path operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:_clear_project_imports",
+      "type": "function",
+      "name": "_clear_project_imports",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        51,
+        54
+      ],
+      "summary": "Implements the _clear_project_imports operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:load_project_module",
+      "type": "function",
+      "name": "load_project_module",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        57,
+        77
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:normalize_provider",
+      "type": "function",
+      "name": "normalize_provider",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        80,
+        88
+      ],
+      "summary": "Implements the normalize_provider operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:resolve_api_key",
+      "type": "function",
+      "name": "resolve_api_key",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        91,
+        112
+      ],
+      "summary": "Implements the resolve_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:request_overrides",
+      "type": "function",
+      "name": "request_overrides",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        116,
+        133
+      ],
+      "summary": "Implements the request_overrides operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:parse_output_payload",
+      "type": "function",
+      "name": "parse_output_payload",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        136,
+        140
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:benchmarks/promptfoo/providers/project_utils.py:extract_primary_text",
+      "type": "function",
+      "name": "extract_primary_text",
+      "filePath": "benchmarks/promptfoo/providers/project_utils.py",
+      "lineRange": [
+        143,
+        168
+      ],
+      "summary": "Implements the extract_primary_text operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-content-pipeline/app/agents.py",
+      "type": "file",
+      "name": "agents.py",
+      "filePath": "crew-content-pipeline/app/agents.py",
+      "summary": "Creates the specialized AI agents used by this application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/agents.py:build_researcher",
+      "type": "function",
+      "name": "build_researcher",
+      "filePath": "crew-content-pipeline/app/agents.py",
+      "lineRange": [
+        9,
+        24
+      ],
+      "summary": "Builds the _researcher structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/agents.py:build_writer",
+      "type": "function",
+      "name": "build_writer",
+      "filePath": "crew-content-pipeline/app/agents.py",
+      "lineRange": [
+        27,
+        43
+      ],
+      "summary": "Builds the _writer structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/agents.py:build_editor",
+      "type": "function",
+      "name": "build_editor",
+      "filePath": "crew-content-pipeline/app/agents.py",
+      "lineRange": [
+        46,
+        62
+      ],
+      "summary": "Builds the _editor structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/agents.py:build_seo_expert",
+      "type": "function",
+      "name": "build_seo_expert",
+      "filePath": "crew-content-pipeline/app/agents.py",
+      "lineRange": [
+        65,
+        80
+      ],
+      "summary": "Builds the _seo_expert structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-content-pipeline/app/crew.py",
+      "type": "file",
+      "name": "crew.py",
+      "filePath": "crew-content-pipeline/app/crew.py",
+      "summary": "Composes agents and tasks into the application crew workflow.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/crew.py:build_crew",
+      "type": "function",
+      "name": "build_crew",
+      "filePath": "crew-content-pipeline/app/crew.py",
+      "lineRange": [
+        14,
+        30
+      ],
+      "summary": "Builds the _crew structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/crew.py:run_pipeline",
+      "type": "function",
+      "name": "run_pipeline",
+      "filePath": "crew-content-pipeline/app/crew.py",
+      "lineRange": [
+        33,
+        36
+      ],
+      "summary": "Implements the run_pipeline operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-content-pipeline/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "crew-content-pipeline/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "crew-content-pipeline/app/main.py",
+      "lineRange": [
+        12,
+        25
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-content-pipeline/app/tasks.py",
+      "type": "file",
+      "name": "tasks.py",
+      "filePath": "crew-content-pipeline/app/tasks.py",
+      "summary": "Defines task prompts and task objects coordinated by the application crew.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/tasks.py:build_research_task",
+      "type": "function",
+      "name": "build_research_task",
+      "filePath": "crew-content-pipeline/app/tasks.py",
+      "lineRange": [
+        6,
+        18
+      ],
+      "summary": "Builds the _research_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/tasks.py:build_writing_task",
+      "type": "function",
+      "name": "build_writing_task",
+      "filePath": "crew-content-pipeline/app/tasks.py",
+      "lineRange": [
+        21,
+        36
+      ],
+      "summary": "Builds the _writing_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/tasks.py:build_editing_task",
+      "type": "function",
+      "name": "build_editing_task",
+      "filePath": "crew-content-pipeline/app/tasks.py",
+      "lineRange": [
+        39,
+        54
+      ],
+      "summary": "Builds the _editing_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-content-pipeline/app/tasks.py:build_seo_task",
+      "type": "function",
+      "name": "build_seo_task",
+      "filePath": "crew-content-pipeline/app/tasks.py",
+      "lineRange": [
+        57,
+        73
+      ],
+      "summary": "Builds the _seo_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_index_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_index_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_ensure_indexed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_ensure_indexed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_normalize_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:_normalize_chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:call_api",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_rag_provider.py:call_api",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+      "target": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_index_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_index_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_ensure_indexed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_ensure_indexed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_normalize_chunks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:_normalize_chunks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:call_api",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py:call_api",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+      "target": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/project_provider.py:call_api",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_provider.py",
+      "target": "function:benchmarks/promptfoo/providers/project_provider.py:call_api",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_provider.py",
+      "target": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_provider.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:repository_root",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:repository_root",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:resolve_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:resolve_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:repo_relative_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:repo_relative_path",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:_clear_project_imports",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:_clear_project_imports",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:load_project_module",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:load_project_module",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:normalize_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:normalize_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:resolve_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:resolve_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:request_overrides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:request_overrides",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:parse_output_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:parse_output_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:extract_primary_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "function:benchmarks/promptfoo/providers/project_utils.py:extract_primary_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:benchmarks/promptfoo/providers/project_utils.py",
+      "target": "file:shared/llm/catalog.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_researcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_researcher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_writer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_writer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_editor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_editor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_seo_expert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/agents.py",
+      "target": "function:crew-content-pipeline/app/agents.py:build_seo_expert",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/crew.py",
+      "target": "function:crew-content-pipeline/app/crew.py:build_crew",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/crew.py",
+      "target": "function:crew-content-pipeline/app/crew.py:build_crew",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/crew.py",
+      "target": "function:crew-content-pipeline/app/crew.py:run_pipeline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/crew.py",
+      "target": "function:crew-content-pipeline/app/crew.py:run_pipeline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/crew.py",
+      "target": "file:crew-content-pipeline/app/agents.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-content-pipeline/app/crew.py",
+      "target": "file:crew-content-pipeline/app/tasks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-content-pipeline/app/main.py",
+      "target": "function:crew-content-pipeline/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/main.py",
+      "target": "function:crew-content-pipeline/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/main.py",
+      "target": "file:crew-content-pipeline/app/crew.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-content-pipeline/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_research_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_research_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_writing_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_writing_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_editing_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_editing_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_seo_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-content-pipeline/app/tasks.py",
+      "target": "function:crew-content-pipeline/app/tasks.py:build_seo_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,3790 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [
+    "graphify-out/graph.html"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 5
+    }
+  },
+  "results": [
+    {
+      "path": "graphify-out/.graphify_labels.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "sections": [
+        {
+          "heading": "0",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "2",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "3",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "4",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "5",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "6",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "7",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "8",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "9",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "10",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "11",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "12",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "13",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "14",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "15",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "16",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "17",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "18",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "19",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "20",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "21",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "22",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "23",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "24",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "25",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "26",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "27",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "28",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "29",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "30",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "31",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "32",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "33",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "34",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "35",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "36",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "37",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "38",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "39",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "40",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "41",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "42",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "43",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "44",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "45",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "46",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "47",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "48",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "49",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "50",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "51",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "52",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "53",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "54",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "55",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "56",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "57",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "58",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "59",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "60",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "61",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "62",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "63",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "64",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "65",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "66",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "67",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "68",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "69",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "70",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "71",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "72",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "73",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "74",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "75",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "76",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "77",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "78",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "79",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "80",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "81",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "82",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "83",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "84",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "85",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "86",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "87",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "88",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "89",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "90",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "91",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "92",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "93",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "94",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "95",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "96",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "97",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "98",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "99",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "100",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "101",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "102",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "103",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "104",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "105",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "106",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "107",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "108",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "109",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "110",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "111",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "112",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "113",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "114",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "115",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "116",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "117",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "118",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "119",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "120",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "121",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "122",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "123",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "124",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "125",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "126",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "127",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "128",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "129",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "130",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "131",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "132",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "133",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "134",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "135",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "136",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "137",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "138",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "139",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "140",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "141",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "142",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "143",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "144",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "145",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "146",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "147",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "148",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "149",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "150",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "151",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "152",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "153",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "154",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "155",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "156",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "157",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "158",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "159",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "160",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "161",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "162",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "163",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "164",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "165",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "166",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "167",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "168",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "169",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "170",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "171",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "172",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "173",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "174",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "175",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "176",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "177",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "178",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "179",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "180",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "181",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "182",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "183",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "184",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "185",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "186",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "187",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "188",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "189",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "190",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "191",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "192",
+          "level": 1,
+          "line": 1
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 193
+      }
+    },
+    {
+      "path": "graphify-out/GRAPH_REPORT.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 684,
+      "nonEmptyLines": 562,
+      "sections": [
+        {
+          "heading": "Graph Report - .  (2026-08-14)",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Corpus Check",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Community Hubs (Navigation)",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "God Nodes (most connected - your core abstractions)",
+          "level": 2,
+          "line": 180
+        },
+        {
+          "heading": "Surprising Connections (you probably didn't know these)",
+          "level": 2,
+          "line": 192
+        },
+        {
+          "heading": "Import Cycles",
+          "level": 2,
+          "line": 204
+        },
+        {
+          "heading": "Hyperedges (group relationships)",
+          "level": 2,
+          "line": 207
+        },
+        {
+          "heading": "Communities (193 total, 56 thin omitted)",
+          "level": 2,
+          "line": 217
+        },
+        {
+          "heading": "Community 0 - \"Dispatch Py\"",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "Community 1 - \"Crew Startup Simulator\"",
+          "level": 3,
+          "line": 223
+        },
+        {
+          "heading": "Community 2 - \"Genai Research System\"",
+          "level": 3,
+          "line": 227
+        },
+        {
+          "heading": "Community 3 - \"Shared Schemas Common\"",
+          "level": 3,
+          "line": 231
+        },
+        {
+          "heading": "Community 4 - \"Interviewer Py\"",
+          "level": 3,
+          "line": 235
+        },
+        {
+          "heading": "Community 5 - \"Lg Data Agent\"",
+          "level": 3,
+          "line": 239
+        },
+        {
+          "heading": "Community 6 - \"Shared Api Auth\"",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "Community 7 - \"Portfolio Lib Api\"",
+          "level": 3,
+          "line": 247
+        },
+        {
+          "heading": "Community 8 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 251
+        },
+        {
+          "heading": "Community 9 - \"Genai Knowledge Os\"",
+          "level": 3,
+          "line": 255
+        },
+        {
+          "heading": "Community 10 - \"Genai Doc Intelligence\"",
+          "level": 3,
+          "line": 259
+        },
+        {
+          "heading": "Community 11 - \"Playground Client Tsx\"",
+          "level": 3,
+          "line": 263
+        },
+        {
+          "heading": "Community 12 - \"Portfolio Playground Playground\"",
+          "level": 3,
+          "line": 267
+        },
+        {
+          "heading": "Community 13 - \"Reset Byok Api Key\"",
+          "level": 3,
+          "line": 271
+        },
+        {
+          "heading": "Community 14 - \"Genai Code Copilot\"",
+          "level": 3,
+          "line": 275
+        },
+        {
+          "heading": "Community 15 - \"Run Module\"",
+          "level": 3,
+          "line": 279
+        },
+        {
+          "heading": "Community 16 - \"Benchmarks Promptfoo Providers\"",
+          "level": 3,
+          "line": 283
+        },
+        {
+          "heading": "Community 17 - \"Test Shared Api App Py\"",
+          "level": 3,
+          "line": 287
+        },
+        {
+          "heading": "Community 18 - \"Devdependencies Module\"",
+          "level": 3,
+          "line": 291
+        },
+        {
+          "heading": "Community 19 - \"Lg Research Agent\"",
+          "level": 3,
+          "line": 295
+        },
+        {
+          "heading": "Community 20 - \"Genai Clinical Assistant\"",
+          "level": 3,
+          "line": 299
+        },
+        {
+          "heading": "Community 21 - \"Genai Ui Builder\"",
+          "level": 3,
+          "line": 303
+        },
+        {
+          "heading": "Community 22 - \"Shared Eval Benchmarks\"",
+          "level": 3,
+          "line": 307
+        },
+        {
+          "heading": "Community 23 - \"Investment Analysis Crew\"",
+          "level": 3,
+          "line": 311
+        },
+        {
+          "heading": "Community 24 - \"Shared Api App Py\"",
+          "level": 3,
+          "line": 315
+        },
+        {
+          "heading": "Community 25 - \"Portfolio Components Animated\"",
+          "level": 3,
+          "line": 319
+        },
+        {
+          "heading": "Community 26 - \"Lg Debugging Agent\"",
+          "level": 3,
+          "line": 323
+        },
+        {
+          "heading": "Community 27 - \"Shared Logging Logger\"",
+          "level": 3,
+          "line": 327
+        },
+        {
+          "heading": "Community 28 - \"Genai Browser Agent\"",
+          "level": 3,
+          "line": 331
+        },
+        {
+          "heading": "Community 29 - \"Crew Hiring System\"",
+          "level": 3,
+          "line": 335
+        },
+        {
+          "heading": "Community 30 - \"Portfolio Tsconfig Compileroptions\"",
+          "level": 3,
+          "line": 339
+        },
+        {
+          "heading": "Community 31 - \"Genai Research System\"",
+          "level": 3,
+          "line": 343
+        },
+        {
+          "heading": "Community 32 - \"Layout Tsx\"",
+          "level": 3,
+          "line": 347
+        },
+        {
+          "heading": "Community 33 - \"Lg Workflow Agent\"",
+          "level": 3,
+          "line": 351
+        },
+        {
+          "heading": "Community 34 - \"Portfolio Metrics Page\"",
+          "level": 3,
+          "line": 355
+        },
+        {
+          "heading": "Community 35 - \"Portfolio Components Timelinereplay\"",
+          "level": 3,
+          "line": 359
+        },
+        {
+          "heading": "Community 36 - \"Shared Cache Cache\"",
+          "level": 3,
+          "line": 363
+        },
+        {
+          "heading": "Community 37 - \"Genai Financial Analyst\"",
+          "level": 3,
+          "line": 367
+        },
+        {
+          "heading": "Community 38 - \"Lg Support Agent\"",
+          "level": 3,
+          "line": 371
+        },
+        {
+          "heading": "Community 39 - \"Portfolio Compare Page\"",
+          "level": 3,
+          "line": 375
+        },
+        {
+          "heading": "Community 40 - \"Test Project Catalog Py\"",
+          "level": 3,
+          "line": 379
+        },
+        {
+          "heading": "Community 41 - \"Portfolio Playground Playground\"",
+          "level": 3,
+          "line": 383
+        },
+        {
+          "heading": "Community 42 - \"Decode Access Token\"",
+          "level": 3,
+          "line": 387
+        },
+        {
+          "heading": "Community 43 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 391
+        },
+        {
+          "heading": "Community 44 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 395
+        },
+        {
+          "heading": "Community 45 - \"Runner Module Cache\"",
+          "level": 3,
+          "line": 399
+        },
+        {
+          "heading": "Community 46 - \"Crew Investment Analyst\"",
+          "level": 3,
+          "line": 403
+        },
+        {
+          "heading": "Community 47 - \"Shared Observability Langfuse\"",
+          "level": 3,
+          "line": 407
+        },
+        {
+          "heading": "Community 48 - \"Model Comparison Evaluation\"",
+          "level": 3,
+          "line": 411
+        },
+        {
+          "heading": "Community 49 - \"Crew Content Pipeline\"",
+          "level": 3,
+          "line": 415
+        },
+        {
+          "heading": "Community 50 - \"Crew Product Launch\"",
+          "level": 3,
+          "line": 419
+        },
+        {
+          "heading": "Community 51 - \"Genai Research System\"",
+          "level": 3,
+          "line": 423
+        },
+        {
+          "heading": "Community 52 - \"Shared Logging Otel\"",
+          "level": 3,
+          "line": 427
+        },
+        {
+          "heading": "Community 53 - \"Ci Security Contract\"",
+          "level": 3,
+          "line": 431
+        },
+        {
+          "heading": "Community 54 - \"Shared Api Session\"",
+          "level": 3,
+          "line": 435
+        },
+        {
+          "heading": "Community 55 - \"Genai Research System\"",
+          "level": 3,
+          "line": 439
+        },
+        {
+          "heading": "Community 56 - \"Shared Api Runner\"",
+          "level": 3,
+          "line": 443
+        },
+        {
+          "heading": "Community 57 - \"Project Contracts Rationale\"",
+          "level": 3,
+          "line": 447
+        },
+        {
+          "heading": "Community 58 - \"Shared Eval Stress\"",
+          "level": 3,
+          "line": 451
+        },
+        {
+          "heading": "Community 59 - \"Genai Nl2sql Agent\"",
+          "level": 3,
+          "line": 455
+        },
+        {
+          "heading": "Community 60 - \"Genai Research System\"",
+          "level": 3,
+          "line": 459
+        },
+        {
+          "heading": "Community 61 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 463
+        },
+        {
+          "heading": "Community 62 - \"Shared Api Confidence\"",
+          "level": 3,
+          "line": 467
+        },
+        {
+          "heading": "Community 63 - \"Shared Utils Helpers\"",
+          "level": 3,
+          "line": 471
+        },
+        {
+          "heading": "Community 64 - \"Dockerfile Contract Dockerfile\"",
+          "level": 3,
+          "line": 475
+        },
+        {
+          "heading": "Community 65 - \"Genai Ui Builder\"",
+          "level": 3,
+          "line": 479
+        },
+        {
+          "heading": "Community 66 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 483
+        },
+        {
+          "heading": "Community 67 - \"Portfolio Components Agent\"",
+          "level": 3,
+          "line": 487
+        },
+        {
+          "heading": "Community 68 - \"Genai Knowledge Os\"",
+          "level": 3,
+          "line": 491
+        },
+        {
+          "heading": "Community 69 - \"Genai Nl2sql Agent\"",
+          "level": 3,
+          "line": 495
+        },
+        {
+          "heading": "Community 70 - \"Portfolio About Page\"",
+          "level": 3,
+          "line": 499
+        },
+        {
+          "heading": "Community 71 - \"Genai Knowledge Os\"",
+          "level": 3,
+          "line": 503
+        },
+        {
+          "heading": "Community 72 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 507
+        },
+        {
+          "heading": "Community 73 - \"Lg Support Agent\"",
+          "level": 3,
+          "line": 511
+        },
+        {
+          "heading": "Community 74 - \"Portfolio Playground Playground\"",
+          "level": 3,
+          "line": 515
+        },
+        {
+          "heading": "Community 75 - \"Shared Api Run\"",
+          "level": 3,
+          "line": 519
+        },
+        {
+          "heading": "Community 76 - \"Test Sqlite Pragmas Py\"",
+          "level": 3,
+          "line": 523
+        },
+        {
+          "heading": "Community 77 - \"Auth Hardening Missing\"",
+          "level": 3,
+          "line": 527
+        },
+        {
+          "heading": "Community 79 - \"Genai Ui Builder\"",
+          "level": 3,
+          "line": 531
+        },
+        {
+          "heading": "Community 80 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 535
+        },
+        {
+          "heading": "Community 81 - \"Portfolio Run Id\"",
+          "level": 3,
+          "line": 539
+        },
+        {
+          "heading": "Community 82 - \"Langgraph Data Analyst\"",
+          "level": 3,
+          "line": 543
+        },
+        {
+          "heading": "Community 83 - \"Lg Workflow Agent\"",
+          "level": 3,
+          "line": 547
+        },
+        {
+          "heading": "Community 84 - \"Shared Project Catalog\"",
+          "level": 3,
+          "line": 551
+        },
+        {
+          "heading": "Community 85 - \"Genai Nl2sql Agent\"",
+          "level": 3,
+          "line": 555
+        },
+        {
+          "heading": "Community 86 - \"Genai Research System\"",
+          "level": 3,
+          "line": 559
+        },
+        {
+          "heading": "Community 87 - \"Portfolio Architecture Diagram\"",
+          "level": 3,
+          "line": 563
+        },
+        {
+          "heading": "Community 88 - \"Crew Content Pipeline\"",
+          "level": 3,
+          "line": 567
+        },
+        {
+          "heading": "Community 89 - \"Genai Doc Intelligence\"",
+          "level": 3,
+          "line": 571
+        },
+        {
+          "heading": "Community 90 - \"Shared Eval Evaluator\"",
+          "level": 3,
+          "line": 575
+        },
+        {
+          "heading": "Community 91 - \"Genai Code Copilot\"",
+          "level": 3,
+          "line": 579
+        },
+        {
+          "heading": "Community 92 - \"Genai Research System\"",
+          "level": 3,
+          "line": 583
+        },
+        {
+          "heading": "Community 93 - \"Shared Api Auth\"",
+          "level": 3,
+          "line": 587
+        },
+        {
+          "heading": "Community 94 - \"Lg Data Agent\"",
+          "level": 3,
+          "line": 591
+        },
+        {
+          "heading": "Community 95 - \"Genai Financial Analyst\"",
+          "level": 3,
+          "line": 595
+        },
+        {
+          "heading": "Community 96 - \"Portfolio Next Config\"",
+          "level": 3,
+          "line": 599
+        },
+        {
+          "heading": "Community 97 - \"Fastapi Api\"",
+          "level": 3,
+          "line": 603
+        },
+        {
+          "heading": "Community 98 - \"Langgraph Vs Crewai Implementation Comparison\"",
+          "level": 3,
+          "line": 607
+        },
+        {
+          "heading": "Community 100 - \"Genai Doc Intelligence\"",
+          "level": 3,
+          "line": 611
+        },
+        {
+          "heading": "Community 101 - \"Genai Interviewer Architecture\"",
+          "level": 3,
+          "line": 615
+        },
+        {
+          "heading": "Community 102 - \"Lg Workflow Agent\"",
+          "level": 3,
+          "line": 619
+        },
+        {
+          "heading": "Community 103 - \"Platform Architecture\"",
+          "level": 3,
+          "line": 623
+        },
+        {
+          "heading": "Community 104 - \"Genai Doc Intelligence\"",
+          "level": 3,
+          "line": 627
+        },
+        {
+          "heading": "Community 105 - \"Genai Doc Intelligence\"",
+          "level": 3,
+          "line": 631
+        },
+        {
+          "heading": "Community 106 - \"Lg Data Agent\"",
+          "level": 3,
+          "line": 635
+        },
+        {
+          "heading": "Community 107 - \"Lg Debugging Agent\"",
+          "level": 3,
+          "line": 639
+        },
+        {
+          "heading": "Community 108 - \"Lg Research Agent\"",
+          "level": 3,
+          "line": 643
+        },
+        {
+          "heading": "Community 109 - \"Lg Support Agent\"",
+          "level": 3,
+          "line": 647
+        },
+        {
+          "heading": "Community 110 - \"Lg Workflow Agent\"",
+          "level": 3,
+          "line": 651
+        },
+        {
+          "heading": "Community 111 - \"Genai Systems Lab Portfolio\"",
+          "level": 3,
+          "line": 655
+        },
+        {
+          "heading": "Ambiguous Edges - Review These",
+          "level": 2,
+          "line": 659
+        },
+        {
+          "heading": "Knowledge Gaps",
+          "level": 2,
+          "line": 663
+        },
+        {
+          "heading": "Suggested Questions",
+          "level": 2,
+          "line": 668
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 122
+      }
+    },
+    {
+      "path": "graphify-out/cost.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 18,
+      "nonEmptyLines": 18,
+      "sections": [
+        {
+          "heading": "runs",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "total_input_tokens",
+          "level": 1,
+          "line": 16
+        },
+        {
+          "heading": "total_output_tokens",
+          "level": 1,
+          "line": 17
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    },
+    {
+      "path": "graphify-out/graph.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 88553,
+      "nonEmptyLines": 88553,
+      "sections": [
+        {
+          "heading": "directed",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "multigraph",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "graph",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "links",
+          "level": 1,
+          "line": 28185
+        },
+        {
+          "heading": "hyperedges",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "built_at_commit",
+          "level": 1,
+          "line": 88552
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": "graphify-out/manifest.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 2067,
+      "nonEmptyLines": 2067,
+      "sections": [
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json",
+          "level": 1,
+          "line": 17
+        },
+        {
+          "heading": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json",
+          "level": 1,
+          "line": 22
+        },
+        {
+          "heading": ".codex/better-harness/2026-08-14T0625-normal/findings.json",
+          "level": 1,
+          "line": 27
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/code_copilot_rag_provider.py",
+          "level": 1,
+          "line": 32
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/code_copilot_retrieval_provider.py",
+          "level": 1,
+          "line": 37
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/project_provider.py",
+          "level": 1,
+          "line": 42
+        },
+        {
+          "heading": "benchmarks/promptfoo/providers/project_utils.py",
+          "level": 1,
+          "line": 47
+        },
+        {
+          "heading": "crew-content-pipeline/app/__init__.py",
+          "level": 1,
+          "line": 52
+        },
+        {
+          "heading": "crew-content-pipeline/app/agents.py",
+          "level": 1,
+          "line": 57
+        },
+        {
+          "heading": "crew-content-pipeline/app/crew.py",
+          "level": 1,
+          "line": 62
+        },
+        {
+          "heading": "crew-content-pipeline/app/main.py",
+          "level": 1,
+          "line": 67
+        },
+        {
+          "heading": "crew-content-pipeline/app/tasks.py",
+          "level": 1,
+          "line": 72
+        },
+        {
+          "heading": "crew-hiring-system/app/__init__.py",
+          "level": 1,
+          "line": 77
+        },
+        {
+          "heading": "crew-hiring-system/app/agents.py",
+          "level": 1,
+          "line": 82
+        },
+        {
+          "heading": "crew-hiring-system/app/crew.py",
+          "level": 1,
+          "line": 87
+        },
+        {
+          "heading": "crew-hiring-system/app/main.py",
+          "level": 1,
+          "line": 92
+        },
+        {
+          "heading": "crew-hiring-system/app/tasks.py",
+          "level": 1,
+          "line": 97
+        },
+        {
+          "heading": "crew-investment-analyst/app/__init__.py",
+          "level": 1,
+          "line": 102
+        },
+        {
+          "heading": "crew-investment-analyst/app/agents.py",
+          "level": 1,
+          "line": 107
+        },
+        {
+          "heading": "crew-investment-analyst/app/crew.py",
+          "level": 1,
+          "line": 112
+        },
+        {
+          "heading": "crew-investment-analyst/app/main.py",
+          "level": 1,
+          "line": 117
+        },
+        {
+          "heading": "crew-investment-analyst/app/tasks.py",
+          "level": 1,
+          "line": 122
+        },
+        {
+          "heading": "crew-product-launch/app/__init__.py",
+          "level": 1,
+          "line": 127
+        },
+        {
+          "heading": "crew-product-launch/app/agents.py",
+          "level": 1,
+          "line": 132
+        },
+        {
+          "heading": "crew-product-launch/app/crew.py",
+          "level": 1,
+          "line": 137
+        },
+        {
+          "heading": "crew-product-launch/app/main.py",
+          "level": 1,
+          "line": 142
+        },
+        {
+          "heading": "crew-product-launch/app/tasks.py",
+          "level": 1,
+          "line": 147
+        },
+        {
+          "heading": "crew-startup-simulator/app/__init__.py",
+          "level": 1,
+          "line": 152
+        },
+        {
+          "heading": "crew-startup-simulator/app/agents.py",
+          "level": 1,
+          "line": 157
+        },
+        {
+          "heading": "crew-startup-simulator/app/crew.py",
+          "level": 1,
+          "line": 162
+        },
+        {
+          "heading": "crew-startup-simulator/app/main.py",
+          "level": 1,
+          "line": 167
+        },
+        {
+          "heading": "crew-startup-simulator/app/tasks.py",
+          "level": 1,
+          "line": 172
+        },
+        {
+          "heading": "crew-startup-simulator/tests/conftest.py",
+          "level": 1,
+          "line": 177
+        },
+        {
+          "heading": "crew-startup-simulator/tests/test_all.py",
+          "level": 1,
+          "line": 182
+        },
+        {
+          "heading": "genai-browser-agent/app/__init__.py",
+          "level": 1,
+          "line": 187
+        },
+        {
+          "heading": "genai-browser-agent/app/actions.py",
+          "level": 1,
+          "line": 192
+        },
+        {
+          "heading": "genai-browser-agent/app/agent.py",
+          "level": 1,
+          "line": 197
+        },
+        {
+          "heading": "genai-browser-agent/app/browser.py",
+          "level": 1,
+          "line": 202
+        },
+        {
+          "heading": "genai-browser-agent/app/main.py",
+          "level": 1,
+          "line": 207
+        },
+        {
+          "heading": "genai-browser-agent/app/memory.py",
+          "level": 1,
+          "line": 212
+        },
+        {
+          "heading": "genai-browser-agent/app/perception.py",
+          "level": 1,
+          "line": 217
+        },
+        {
+          "heading": "genai-browser-agent/app/planner.py",
+          "level": 1,
+          "line": 222
+        },
+        {
+          "heading": "genai-clinical-assistant/app/__init__.py",
+          "level": 1,
+          "line": 227
+        },
+        {
+          "heading": "genai-clinical-assistant/app/extractor.py",
+          "level": 1,
+          "line": 232
+        },
+        {
+          "heading": "genai-clinical-assistant/app/formatter.py",
+          "level": 1,
+          "line": 237
+        },
+        {
+          "heading": "genai-clinical-assistant/app/knowledge_base.py",
+          "level": 1,
+          "line": 242
+        },
+        {
+          "heading": "genai-clinical-assistant/app/main.py",
+          "level": 1,
+          "line": 247
+        },
+        {
+          "heading": "genai-clinical-assistant/app/reasoner.py",
+          "level": 1,
+          "line": 252
+        },
+        {
+          "heading": "genai-clinical-assistant/app/retriever.py",
+          "level": 1,
+          "line": 257
+        },
+        {
+          "heading": "genai-clinical-assistant/app/risk_evaluator.py",
+          "level": 1,
+          "line": 262
+        },
+        {
+          "heading": "genai-code-copilot/app/__init__.py",
+          "level": 1,
+          "line": 267
+        },
+        {
+          "heading": "genai-code-copilot/app/context_builder.py",
+          "level": 1,
+          "line": 272
+        },
+        {
+          "heading": "genai-code-copilot/app/embedder.py",
+          "level": 1,
+          "line": 277
+        },
+        {
+          "heading": "genai-code-copilot/app/file_parser.py",
+          "level": 1,
+          "line": 282
+        },
+        {
+          "heading": "genai-code-copilot/app/indexer.py",
+          "level": 1,
+          "line": 287
+        },
+        {
+          "heading": "genai-code-copilot/app/main.py",
+          "level": 1,
+          "line": 292
+        },
+        {
+          "heading": "genai-code-copilot/app/qa_agent.py",
+          "level": 1,
+          "line": 297
+        },
+        {
+          "heading": "genai-code-copilot/app/retriever.py",
+          "level": 1,
+          "line": 302
+        },
+        {
+          "heading": "genai-doc-intelligence/app/__init__.py",
+          "level": 1,
+          "line": 307
+        },
+        {
+          "heading": "genai-doc-intelligence/app/chunker.py",
+          "level": 1,
+          "line": 312
+        },
+        {
+          "heading": "genai-doc-intelligence/app/citation.py",
+          "level": 1,
+          "line": 317
+        },
+        {
+          "heading": "genai-doc-intelligence/app/embedder.py",
+          "level": 1,
+          "line": 322
+        },
+        {
+          "heading": "genai-doc-intelligence/app/extractor.py",
+          "level": 1,
+          "line": 327
+        },
+        {
+          "heading": "genai-doc-intelligence/app/ingest.py",
+          "level": 1,
+          "line": 332
+        },
+        {
+          "heading": "genai-doc-intelligence/app/main.py",
+          "level": 1,
+          "line": 337
+        },
+        {
+          "heading": "genai-doc-intelligence/app/qa_engine.py",
+          "level": 1,
+          "line": 342
+        },
+        {
+          "heading": "genai-doc-intelligence/app/retriever.py",
+          "level": 1,
+          "line": 347
+        },
+        {
+          "heading": "genai-doc-intelligence/app/vector_store.py",
+          "level": 1,
+          "line": 352
+        },
+        {
+          "heading": "genai-financial-analyst/app/__init__.py",
+          "level": 1,
+          "line": 357
+        },
+        {
+          "heading": "genai-financial-analyst/app/analyzer.py",
+          "level": 1,
+          "line": 362
+        },
+        {
+          "heading": "genai-financial-analyst/app/data_loader.py",
+          "level": 1,
+          "line": 367
+        },
+        {
+          "heading": "genai-financial-analyst/app/forecaster.py",
+          "level": 1,
+          "line": 372
+        },
+        {
+          "heading": "genai-financial-analyst/app/main.py",
+          "level": 1,
+          "line": 377
+        },
+        {
+          "heading": "genai-financial-analyst/app/metrics.py",
+          "level": 1,
+          "line": 382
+        },
+        {
+          "heading": "genai-financial-analyst/app/reporter.py",
+          "level": 1,
+          "line": 387
+        },
+        {
+          "heading": "genai-interviewer/app/__init__.py",
+          "level": 1,
+          "line": 392
+        },
+        {
+          "heading": "genai-interviewer/app/difficulty_manager.py",
+          "level": 1,
+          "line": 397
+        },
+        {
+          "heading": "genai-interviewer/app/evaluator.py",
+          "level": 1,
+          "line": 402
+        },
+        {
+          "heading": "genai-interviewer/app/feedback.py",
+          "level": 1,
+          "line": 407
+        },
+        {
+          "heading": "genai-interviewer/app/interviewer.py",
+          "level": 1,
+          "line": 412
+        },
+        {
+          "heading": "genai-interviewer/app/main.py",
+          "level": 1,
+          "line": 417
+        },
+        {
+          "heading": "genai-interviewer/app/question_generator.py",
+          "level": 1,
+          "line": 422
+        },
+        {
+          "heading": "genai-interviewer/app/session.py",
+          "level": 1,
+          "line": 427
+        },
+        {
+          "heading": "genai-interviewer/app/voice.py",
+          "level": 1,
+          "line": 432
+        },
+        {
+          "heading": "genai-knowledge-os/app/__init__.py",
+          "level": 1,
+          "line": 437
+        },
+        {
+          "heading": "genai-knowledge-os/app/chunker.py",
+          "level": 1,
+          "line": 442
+        },
+        {
+          "heading": "genai-knowledge-os/app/embedder.py",
+          "level": 1,
+          "line": 447
+        },
+        {
+          "heading": "genai-knowledge-os/app/ingest.py",
+          "level": 1,
+          "line": 452
+        },
+        {
+          "heading": "genai-knowledge-os/app/insight_engine.py",
+          "level": 1,
+          "line": 457
+        },
+        {
+          "heading": "genai-knowledge-os/app/knowledge_graph.py",
+          "level": 1,
+          "line": 462
+        },
+        {
+          "heading": "genai-knowledge-os/app/main.py",
+          "level": 1,
+          "line": 467
+        },
+        {
+          "heading": "genai-knowledge-os/app/memory.py",
+          "level": 1,
+          "line": 472
+        },
+        {
+          "heading": "genai-knowledge-os/app/retriever.py",
+          "level": 1,
+          "line": 477
+        },
+        {
+          "heading": "genai-knowledge-os/app/summarizer.py",
+          "level": 1,
+          "line": 482
+        },
+        {
+          "heading": "genai-knowledge-os/app/vector_store.py",
+          "level": 1,
+          "line": 487
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/__init__.py",
+          "level": 1,
+          "line": 492
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/agent.py",
+          "level": 1,
+          "line": 497
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/executor.py",
+          "level": 1,
+          "line": 502
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/main.py",
+          "level": 1,
+          "line": 507
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/schema.py",
+          "level": 1,
+          "line": 512
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/sql_generator.py",
+          "level": 1,
+          "line": 517
+        },
+        {
+          "heading": "genai-nl2sql-agent/app/validator.py",
+          "level": 1,
+          "line": 522
+        },
+        {
+          "heading": "genai-research-system/app/__init__.py",
+          "level": 1,
+          "line": 527
+        },
+        {
+          "heading": "genai-research-system/app/api.py",
+          "level": 1,
+          "line": 532
+        },
+        {
+          "heading": "genai-research-system/app/critic.py",
+          "level": 1,
+          "line": 537
+        },
+        {
+          "heading": "genai-research-system/app/graph.py",
+          "level": 1,
+          "line": 542
+        },
+        {
+          "heading": "genai-research-system/app/main.py",
+          "level": 1,
+          "line": 547
+        },
+        {
+          "heading": "genai-research-system/app/memory.py",
+          "level": 1,
+          "line": 552
+        },
+        {
+          "heading": "genai-research-system/app/metrics.py",
+          "level": 1,
+          "line": 557
+        },
+        {
+          "heading": "genai-research-system/app/nodes/__init__.py",
+          "level": 1,
+          "line": 562
+        },
+        {
+          "heading": "genai-research-system/app/nodes/critic.py",
+          "level": 1,
+          "line": 567
+        },
+        {
+          "heading": "genai-research-system/app/nodes/editor.py",
+          "level": 1,
+          "line": 572
+        },
+        {
+          "heading": "genai-research-system/app/nodes/formatter.py",
+          "level": 1,
+          "line": 577
+        },
+        {
+          "heading": "genai-research-system/app/nodes/originality_checker.py",
+          "level": 1,
+          "line": 582
+        },
+        {
+          "heading": "genai-research-system/app/nodes/planner.py",
+          "level": 1,
+          "line": 587
+        },
+        {
+          "heading": "genai-research-system/app/nodes/researcher.py",
+          "level": 1,
+          "line": 592
+        },
+        {
+          "heading": "genai-research-system/app/nodes/writer.py",
+          "level": 1,
+          "line": 597
+        },
+        {
+          "heading": "genai-research-system/app/orchestrator.py",
+          "level": 1,
+          "line": 602
+        },
+        {
+          "heading": "genai-research-system/app/planner.py",
+          "level": 1,
+          "line": 607
+        },
+        {
+          "heading": "genai-research-system/app/researcher.py",
+          "level": 1,
+          "line": 612
+        },
+        {
+          "heading": "genai-research-system/app/service.py",
+          "level": 1,
+          "line": 617
+        },
+        {
+          "heading": "genai-research-system/app/state.py",
+          "level": 1,
+          "line": 622
+        },
+        {
+          "heading": "genai-research-system/app/tools.py",
+          "level": 1,
+          "line": 627
+        },
+        {
+          "heading": "genai-research-system/app/writer.py",
+          "level": 1,
+          "line": 632
+        },
+        {
+          "heading": "genai-research-system/eval.py",
+          "level": 1,
+          "line": 637
+        },
+        {
+          "heading": "genai-ui-builder/app/__init__.py",
+          "level": 1,
+          "line": 642
+        },
+        {
+          "heading": "genai-ui-builder/app/code_generator.py",
+          "level": 1,
+          "line": 647
+        },
+        {
+          "heading": "genai-ui-builder/app/fixer.py",
+          "level": 1,
+          "line": 652
+        },
+        {
+          "heading": "genai-ui-builder/app/main.py",
+          "level": 1,
+          "line": 657
+        },
+        {
+          "heading": "genai-ui-builder/app/preview.py",
+          "level": 1,
+          "line": 662
+        },
+        {
+          "heading": "genai-ui-builder/app/spec_generator.py",
+          "level": 1,
+          "line": 667
+        },
+        {
+          "heading": "genai-ui-builder/app/validator.py",
+          "level": 1,
+          "line": 672
+        },
+        {
+          "heading": "langgraph-data-analyst/src/__init__.py",
+          "level": 1,
+          "line": 677
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/__init__.py",
+          "level": 1,
+          "line": 682
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/executor.py",
+          "level": 1,
+          "line": 687
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/planner.py",
+          "level": 1,
+          "line": 692
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/reporter.py",
+          "level": 1,
+          "line": 697
+        },
+        {
+          "heading": "langgraph-data-analyst/src/agents/validator.py",
+          "level": 1,
+          "line": 702
+        },
+        {
+          "heading": "langgraph-data-analyst/src/api/__init__.py",
+          "level": 1,
+          "line": 707
+        },
+        {
+          "heading": "langgraph-data-analyst/src/api/app.py",
+          "level": 1,
+          "line": 712
+        },
+        {
+          "heading": "langgraph-data-analyst/src/config/__init__.py",
+          "level": 1,
+          "line": 717
+        },
+        {
+          "heading": "langgraph-data-analyst/src/config/settings.py",
+          "level": 1,
+          "line": 722
+        },
+        {
+          "heading": "langgraph-data-analyst/src/graph/__init__.py",
+          "level": 1,
+          "line": 727
+        },
+        {
+          "heading": "langgraph-data-analyst/src/graph/workflow.py",
+          "level": 1,
+          "line": 732
+        },
+        {
+          "heading": "langgraph-data-analyst/src/llm/__init__.py",
+          "level": 1,
+          "line": 737
+        },
+        {
+          "heading": "langgraph-data-analyst/src/llm/client.py",
+          "level": 1,
+          "line": 742
+        },
+        {
+          "heading": "langgraph-data-analyst/src/schemas/__init__.py",
+          "level": 1,
+          "line": 747
+        },
+        {
+          "heading": "langgraph-data-analyst/src/schemas/state.py",
+          "level": 1,
+          "line": 752
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/__init__.py",
+          "level": 1,
+          "line": 757
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/dataframe_tools.py",
+          "level": 1,
+          "line": 762
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/python_executor.py",
+          "level": 1,
+          "line": 767
+        },
+        {
+          "heading": "langgraph-data-analyst/src/tools/visualization.py",
+          "level": 1,
+          "line": 772
+        },
+        {
+          "heading": "langgraph-data-analyst/tests/__init__.py",
+          "level": 1,
+          "line": 777
+        },
+        {
+          "heading": "langgraph-data-analyst/tests/test_core.py",
+          "level": 1,
+          "line": 782
+        },
+        {
+          "heading": "lg-data-agent/app/__init__.py",
+          "level": 1,
+          "line": 787
+        },
+        {
+          "heading": "lg-data-agent/app/chart.py",
+          "level": 1,
+          "line": 792
+        },
+        {
+          "heading": "lg-data-agent/app/data_loader.py",
+          "level": 1,
+          "line": 797
+        },
+        {
+          "heading": "lg-data-agent/app/graph.py",
+          "level": 1,
+          "line": 802
+        },
+        {
+          "heading": "lg-data-agent/app/main.py",
+          "level": 1,
+          "line": 807
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/__init__.py",
+          "level": 1,
+          "line": 812
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/analyzer.py",
+          "level": 1,
+          "line": 817
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/duckdb_executor.py",
+          "level": 1,
+          "line": 822
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/evaluator.py",
+          "level": 1,
+          "line": 827
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/executor.py",
+          "level": 1,
+          "line": 832
+        },
+        {
+          "heading": "lg-data-agent/app/nodes/planner.py",
+          "level": 1,
+          "line": 837
+        },
+        {
+          "heading": "lg-data-agent/app/state.py",
+          "level": 1,
+          "line": 842
+        },
+        {
+          "heading": "lg-debugging-agent/app/__init__.py",
+          "level": 1,
+          "line": 847
+        },
+        {
+          "heading": "lg-debugging-agent/app/graph.py",
+          "level": 1,
+          "line": 852
+        },
+        {
+          "heading": "lg-debugging-agent/app/main.py",
+          "level": 1,
+          "line": 857
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/analyzer.py",
+          "level": 1,
+          "line": 862
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/case_generator.py",
+          "level": 1,
+          "line": 867
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/evaluator.py",
+          "level": 1,
+          "line": 872
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/fixer.py",
+          "level": 1,
+          "line": 877
+        },
+        {
+          "heading": "lg-debugging-agent/app/nodes/tester.py",
+          "level": 1,
+          "line": 882
+        },
+        {
+          "heading": "lg-debugging-agent/app/state.py",
+          "level": 1,
+          "line": 887
+        },
+        {
+          "heading": "lg-research-agent/app/__init__.py",
+          "level": 1,
+          "line": 892
+        },
+        {
+          "heading": "lg-research-agent/app/graph.py",
+          "level": 1,
+          "line": 897
+        },
+        {
+          "heading": "lg-research-agent/app/main.py",
+          "level": 1,
+          "line": 902
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/__init__.py",
+          "level": 1,
+          "line": 907
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/critic.py",
+          "level": 1,
+          "line": 912
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/planner.py",
+          "level": 1,
+          "line": 917
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/researcher.py",
+          "level": 1,
+          "line": 922
+        },
+        {
+          "heading": "lg-research-agent/app/nodes/writer.py",
+          "level": 1,
+          "line": 927
+        },
+        {
+          "heading": "lg-research-agent/app/state.py",
+          "level": 1,
+          "line": 932
+        },
+        {
+          "heading": "lg-research-agent/tests/test_main.py",
+          "level": 1,
+          "line": 937
+        },
+        {
+          "heading": "lg-support-agent/app/__init__.py",
+          "level": 1,
+          "line": 942
+        },
+        {
+          "heading": "lg-support-agent/app/graph.py",
+          "level": 1,
+          "line": 947
+        },
+        {
+          "heading": "lg-support-agent/app/knowledge_base.py",
+          "level": 1,
+          "line": 952
+        },
+        {
+          "heading": "lg-support-agent/app/main.py",
+          "level": 1,
+          "line": 957
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/classifier.py",
+          "level": 1,
+          "line": 962
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/escalation.py",
+          "level": 1,
+          "line": 967
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/evaluator.py",
+          "level": 1,
+          "line": 972
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/responder.py",
+          "level": 1,
+          "line": 977
+        },
+        {
+          "heading": "lg-support-agent/app/nodes/retriever.py",
+          "level": 1,
+          "line": 982
+        },
+        {
+          "heading": "lg-support-agent/app/state.py",
+          "level": 1,
+          "line": 987
+        },
+        {
+          "heading": "lg-workflow-agent/app/__init__.py",
+          "level": 1,
+          "line": 992
+        },
+        {
+          "heading": "lg-workflow-agent/app/graph.py",
+          "level": 1,
+          "line": 997
+        },
+        {
+          "heading": "lg-workflow-agent/app/main.py",
+          "level": 1,
+          "line": 1002
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/__init__.py",
+          "level": 1,
+          "line": 1007
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/checkpoint.py",
+          "level": 1,
+          "line": 1012
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/executor.py",
+          "level": 1,
+          "line": 1017
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/finalizer.py",
+          "level": 1,
+          "line": 1022
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/planner.py",
+          "level": 1,
+          "line": 1027
+        },
+        {
+          "heading": "lg-workflow-agent/app/nodes/validator.py",
+          "level": 1,
+          "line": 1032
+        },
+        {
+          "heading": "lg-workflow-agent/app/state.py",
+          "level": 1,
+          "line": 1037
+        },
+        {
+          "heading": "lg-workflow-agent/app/tools/__init__.py",
+          "level": 1,
+          "line": 1042
+        },
+        {
+          "heading": "lg-workflow-agent/app/tools/analysis_tool.py",
+          "level": 1,
+          "line": 1047
+        },
+        {
+          "heading": "lg-workflow-agent/app/tools/file_tool.py",
+          "level": 1,
+          "line": 1052
+        },
+        {
+          "heading": "portfolio/eslint.config.mjs",
+          "level": 1,
+          "line": 1057
+        },
+        {
+          "heading": "portfolio/next.config.ts",
+          "level": 1,
+          "line": 1062
+        },
+        {
+          "heading": "portfolio/package.json",
+          "level": 1,
+          "line": 1067
+        },
+        {
+          "heading": "portfolio/postcss.config.mjs",
+          "level": 1,
+          "line": 1072
+        },
+        {
+          "heading": "portfolio/src/app/about/page.tsx",
+          "level": 1,
+          "line": 1077
+        },
+        {
+          "heading": "portfolio/src/app/architecture/diagram.tsx",
+          "level": 1,
+          "line": 1082
+        },
+        {
+          "heading": "portfolio/src/app/architecture/page.tsx",
+          "level": 1,
+          "line": 1087
+        },
+        {
+          "heading": "portfolio/src/app/auth/auth-client.tsx",
+          "level": 1,
+          "line": 1092
+        },
+        {
+          "heading": "portfolio/src/app/auth/page.tsx",
+          "level": 1,
+          "line": 1097
+        },
+        {
+          "heading": "portfolio/src/app/compare/page.tsx",
+          "level": 1,
+          "line": 1102
+        },
+        {
+          "heading": "portfolio/src/app/layout.tsx",
+          "level": 1,
+          "line": 1107
+        },
+        {
+          "heading": "portfolio/src/app/metrics/page.tsx",
+          "level": 1,
+          "line": 1112
+        },
+        {
+          "heading": "portfolio/src/app/page.tsx",
+          "level": 1,
+          "line": 1117
+        },
+        {
+          "heading": "portfolio/src/app/playground/page.tsx",
+          "level": 1,
+          "line": 1122
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-client.tsx",
+          "level": 1,
+          "line": 1127
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-conversation-panel.tsx",
+          "level": 1,
+          "line": 1132
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-graph-panel.tsx",
+          "level": 1,
+          "line": 1137
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-icons.tsx",
+          "level": 1,
+          "line": 1142
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-sidebar.tsx",
+          "level": 1,
+          "line": 1147
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-utils.test.ts",
+          "level": 1,
+          "line": 1152
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-utils.ts",
+          "level": 1,
+          "line": 1157
+        },
+        {
+          "heading": "portfolio/src/app/playground/playground-widgets.tsx",
+          "level": 1,
+          "line": 1162
+        },
+        {
+          "heading": "portfolio/src/app/playground/use-playground-account.ts",
+          "level": 1,
+          "line": 1167
+        },
+        {
+          "heading": "portfolio/src/app/playground/use-playground-history.ts",
+          "level": 1,
+          "line": 1172
+        },
+        {
+          "heading": "portfolio/src/app/playground/use-playground-run.ts",
+          "level": 1,
+          "line": 1177
+        },
+        {
+          "heading": "portfolio/src/app/projects/[slug]/page.tsx",
+          "level": 1,
+          "line": 1182
+        },
+        {
+          "heading": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+          "level": 1,
+          "line": 1187
+        },
+        {
+          "heading": "portfolio/src/app/projects/page.tsx",
+          "level": 1,
+          "line": 1192
+        },
+        {
+          "heading": "portfolio/src/app/run/[id]/page.tsx",
+          "level": 1,
+          "line": 1197
+        },
+        {
+          "heading": "portfolio/src/app/theme-provider.tsx",
+          "level": 1,
+          "line": 1202
+        },
+        {
+          "heading": "portfolio/src/components/RunExplanation.tsx",
+          "level": 1,
+          "line": 1207
+        },
+        {
+          "heading": "portfolio/src/components/TimelineReplay.tsx",
+          "level": 1,
+          "line": 1212
+        },
+        {
+          "heading": "portfolio/src/components/agent-graph.tsx",
+          "level": 1,
+          "line": 1217
+        },
+        {
+          "heading": "portfolio/src/components/animated-graph.tsx",
+          "level": 1,
+          "line": 1222
+        },
+        {
+          "heading": "portfolio/src/components/card.tsx",
+          "level": 1,
+          "line": 1227
+        },
+        {
+          "heading": "portfolio/src/components/confidence-indicator.tsx",
+          "level": 1,
+          "line": 1232
+        },
+        {
+          "heading": "portfolio/src/components/copy-button.tsx",
+          "level": 1,
+          "line": 1237
+        },
+        {
+          "heading": "portfolio/src/components/dismissible-tip.tsx",
+          "level": 1,
+          "line": 1242
+        },
+        {
+          "heading": "portfolio/src/components/flow-diagram.tsx",
+          "level": 1,
+          "line": 1247
+        },
+        {
+          "heading": "portfolio/src/components/help-reset.tsx",
+          "level": 1,
+          "line": 1252
+        },
+        {
+          "heading": "portfolio/src/components/memory-panel.tsx",
+          "level": 1,
+          "line": 1257
+        },
+        {
+          "heading": "portfolio/src/components/nav-links.tsx",
+          "level": 1,
+          "line": 1262
+        },
+        {
+          "heading": "portfolio/src/components/onboarding-modal.tsx",
+          "level": 1,
+          "line": 1267
+        },
+        {
+          "heading": "portfolio/src/components/project-card-preview.tsx",
+          "level": 1,
+          "line": 1272
+        },
+        {
+          "heading": "portfolio/src/components/project-run-badge.tsx",
+          "level": 1,
+          "line": 1277
+        },
+        {
+          "heading": "portfolio/src/components/theme-toggle.tsx",
+          "level": 1,
+          "line": 1282
+        },
+        {
+          "heading": "portfolio/src/data/project-catalog.json",
+          "level": 1,
+          "line": 1287
+        },
+        {
+          "heading": "portfolio/src/data/projects.ts",
+          "level": 1,
+          "line": 1292
+        },
+        {
+          "heading": "portfolio/src/lib/api.ts",
+          "level": 1,
+          "line": 1297
+        },
+        {
+          "heading": "portfolio/src/lib/apikey.test.ts",
+          "level": 1,
+          "line": 1302
+        },
+        {
+          "heading": "portfolio/src/lib/apikey.ts",
+          "level": 1,
+          "line": 1307
+        },
+        {
+          "heading": "portfolio/src/lib/auth.ts",
+          "level": 1,
+          "line": 1312
+        },
+        {
+          "heading": "portfolio/src/lib/llm-catalog.ts",
+          "level": 1,
+          "line": 1317
+        },
+        {
+          "heading": "portfolio/src/lib/session.ts",
+          "level": 1,
+          "line": 1322
+        },
+        {
+          "heading": "portfolio/tailwind.config.js",
+          "level": 1,
+          "line": 1327
+        },
+        {
+          "heading": "portfolio/tsconfig.json",
+          "level": 1,
+          "line": 1332
+        },
+        {
+          "heading": "pyproject.toml",
+          "level": 1,
+          "line": 1337
+        },
+        {
+          "heading": "shared/__init__.py",
+          "level": 1,
+          "line": 1342
+        },
+        {
+          "heading": "shared/api/__init__.py",
+          "level": 1,
+          "line": 1347
+        },
+        {
+          "heading": "shared/api/app.py",
+          "level": 1,
+          "line": 1352
+        },
+        {
+          "heading": "shared/api/auth.py",
+          "level": 1,
+          "line": 1357
+        },
+        {
+          "heading": "shared/api/confidence.py",
+          "level": 1,
+          "line": 1362
+        },
+        {
+          "heading": "shared/api/db.py",
+          "level": 1,
+          "line": 1367
+        },
+        {
+          "heading": "shared/api/dependencies.py",
+          "level": 1,
+          "line": 1372
+        },
+        {
+          "heading": "shared/api/eval_runner.py",
+          "level": 1,
+          "line": 1377
+        },
+        {
+          "heading": "shared/api/langgraph_events.py",
+          "level": 1,
+          "line": 1382
+        },
+        {
+          "heading": "shared/api/models.py",
+          "level": 1,
+          "line": 1387
+        },
+        {
+          "heading": "shared/api/run_explainer.py",
+          "level": 1,
+          "line": 1392
+        },
+        {
+          "heading": "shared/api/runner.py",
+          "level": 1,
+          "line": 1397
+        },
+        {
+          "heading": "shared/api/session_memory.py",
+          "level": 1,
+          "line": 1402
+        },
+        {
+          "heading": "shared/api/step_events.py",
+          "level": 1,
+          "line": 1407
+        },
+        {
+          "heading": "shared/cache/__init__.py",
+          "level": 1,
+          "line": 1412
+        },
+        {
+          "heading": "shared/cache/cache.py",
+          "level": 1,
+          "line": 1417
+        },
+        {
+          "heading": "shared/config.py",
+          "level": 1,
+          "line": 1422
+        },
+        {
+          "heading": "shared/eval/__init__.py",
+          "level": 1,
+          "line": 1427
+        },
+        {
+          "heading": "shared/eval/benchmarks.py",
+          "level": 1,
+          "line": 1432
+        },
+        {
+          "heading": "shared/eval/evaluator.py",
+          "level": 1,
+          "line": 1437
+        },
+        {
+          "heading": "shared/eval/metrics.py",
+          "level": 1,
+          "line": 1442
+        },
+        {
+          "heading": "shared/eval/stress.py",
+          "level": 1,
+          "line": 1447
+        },
+        {
+          "heading": "shared/llm/__init__.py",
+          "level": 1,
+          "line": 1452
+        },
+        {
+          "heading": "shared/llm/catalog.py",
+          "level": 1,
+          "line": 1457
+        },
+        {
+          "heading": "shared/llm/dispatch.py",
+          "level": 1,
+          "line": 1462
+        },
+        {
+          "heading": "shared/llm/exceptions.py",
+          "level": 1,
+          "line": 1467
+        },
+        {
+          "heading": "shared/llm/gemini.py",
+          "level": 1,
+          "line": 1472
+        },
+        {
+          "heading": "shared/llm/gemini_provider.py",
+          "level": 1,
+          "line": 1477
+        },
+        {
+          "heading": "shared/llm/providers.py",
+          "level": 1,
+          "line": 1482
+        },
+        {
+          "heading": "shared/llm/telemetry.py",
+          "level": 1,
+          "line": 1487
+        },
+        {
+          "heading": "shared/logging/__init__.py",
+          "level": 1,
+          "line": 1492
+        },
+        {
+          "heading": "shared/logging/logger.py",
+          "level": 1,
+          "line": 1497
+        },
+        {
+          "heading": "shared/logging/otel.py",
+          "level": 1,
+          "line": 1502
+        },
+        {
+          "heading": "shared/observability/__init__.py",
+          "level": 1,
+          "line": 1507
+        },
+        {
+          "heading": "shared/observability/langfuse.py",
+          "level": 1,
+          "line": 1512
+        },
+        {
+          "heading": "shared/project_catalog.py",
+          "level": 1,
+          "line": 1517
+        },
+        {
+          "heading": "shared/schemas/__init__.py",
+          "level": 1,
+          "line": 1522
+        },
+        {
+          "heading": "shared/schemas/common.py",
+          "level": 1,
+          "line": 1527
+        },
+        {
+          "heading": "shared/utils/__init__.py",
+          "level": 1,
+          "line": 1532
+        },
+        {
+          "heading": "shared/utils/helpers.py",
+          "level": 1,
+          "line": 1537
+        },
+        {
+          "heading": "tests/test_auth_hardening.py",
+          "level": 1,
+          "line": 1542
+        },
+        {
+          "heading": "tests/test_ci_security_contract.py",
+          "level": 1,
+          "line": 1547
+        },
+        {
+          "heading": "tests/test_dockerfile_contract.py",
+          "level": 1,
+          "line": 1552
+        },
+        {
+          "heading": "tests/test_jwt_roundtrip.py",
+          "level": 1,
+          "line": 1557
+        },
+        {
+          "heading": "tests/test_project_catalog.py",
+          "level": 1,
+          "line": 1562
+        },
+        {
+          "heading": "tests/test_project_contracts.py",
+          "level": 1,
+          "line": 1567
+        },
+        {
+          "heading": "tests/test_runner_module_cache.py",
+          "level": 1,
+          "line": 1572
+        },
+        {
+          "heading": "tests/test_shared_api_app.py",
+          "level": 1,
+          "line": 1577
+        },
+        {
+          "heading": "tests/test_sqlite_pragmas.py",
+          "level": 1,
+          "line": 1582
+        },
+        {
+          "heading": ".codex/better-harness/2026-08-14T0625-normal/report.html",
+          "level": 1,
+          "line": 1587
+        },
+        {
+          "heading": ".codex/better-harness/2026-08-14T0625-normal/report.md",
+          "level": 1,
+          "line": 1592
+        },
+        {
+          "heading": ".github/dependabot.yml",
+          "level": 1,
+          "line": 1597
+        },
+        {
+          "heading": ".github/workflows/ci.yml",
+          "level": 1,
+          "line": 1602
+        },
+        {
+          "heading": "ARCHITECTURE.md",
+          "level": 1,
+          "line": 1607
+        },
+        {
+          "heading": "CHANGELOG.md",
+          "level": 1,
+          "line": 1612
+        },
+        {
+          "heading": "CODE_OF_CONDUCT.md",
+          "level": 1,
+          "line": 1617
+        },
+        {
+          "heading": "README.md",
+          "level": 1,
+          "line": 1622
+        },
+        {
+          "heading": "SECURITY.md",
+          "level": 1,
+          "line": 1627
+        },
+        {
+          "heading": "benchmarks/promptfoo/agent_eval.yaml",
+          "level": 1,
+          "line": 1632
+        },
+        {
+          "heading": "benchmarks/promptfoo/promptfooconfig.yaml",
+          "level": 1,
+          "line": 1637
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/code_generation.txt",
+          "level": 1,
+          "line": 1642
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/rag_prompt.txt",
+          "level": 1,
+          "line": 1647
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/research_query.txt",
+          "level": 1,
+          "line": 1652
+        },
+        {
+          "heading": "benchmarks/promptfoo/prompts/summarization.txt",
+          "level": 1,
+          "line": 1657
+        },
+        {
+          "heading": "benchmarks/promptfoo/rag_eval.yaml",
+          "level": 1,
+          "line": 1662
+        },
+        {
+          "heading": "benchmarks/promptfoo/rag_retrieval_eval.yaml",
+          "level": 1,
+          "line": 1667
+        },
+        {
+          "heading": "benchmarks/promptfoo/redteam.yaml",
+          "level": 1,
+          "line": 1672
+        },
+        {
+          "heading": "benchmarks/promptfoo/tests/code_tests.yaml",
+          "level": 1,
+          "line": 1677
+        },
+        {
+          "heading": "benchmarks/promptfoo/tests/research_tests.yaml",
+          "level": 1,
+          "line": 1682
+        },
+        {
+          "heading": "benchmarks/promptfoo/tests/summarization_tests.yaml",
+          "level": 1,
+          "line": 1687
+        },
+        {
+          "heading": "crew-content-pipeline/README.md",
+          "level": 1,
+          "line": 1692
+        },
+        {
+          "heading": "crew-content-pipeline/architecture.md",
+          "level": 1,
+          "line": 1697
+        },
+        {
+          "heading": "crew-content-pipeline/tasks.md",
+          "level": 1,
+          "line": 1702
+        },
+        {
+          "heading": "crew-hiring-system/README.md",
+          "level": 1,
+          "line": 1707
+        },
+        {
+          "heading": "crew-hiring-system/architecture.md",
+          "level": 1,
+          "line": 1712
+        },
+        {
+          "heading": "crew-hiring-system/tasks.md",
+          "level": 1,
+          "line": 1717
+        },
+        {
+          "heading": "crew-investment-analyst/README.md",
+          "level": 1,
+          "line": 1722
+        },
+        {
+          "heading": "crew-investment-analyst/architecture.md",
+          "level": 1,
+          "line": 1727
+        },
+        {
+          "heading": "crew-investment-analyst/tasks.md",
+          "level": 1,
+          "line": 1732
+        },
+        {
+          "heading": "crew-product-launch/README.md",
+          "level": 1,
+          "line": 1737
+        },
+        {
+          "heading": "crew-product-launch/architecture.md",
+          "level": 1,
+          "line": 1742
+        },
+        {
+          "heading": "crew-product-launch/tasks.md",
+          "level": 1,
+          "line": 1747
+        },
+        {
+          "heading": "crew-startup-simulator/README.md",
+          "level": 1,
+          "line": 1752
+        },
+        {
+          "heading": "crew-startup-simulator/architecture.md",
+          "level": 1,
+          "line": 1757
+        },
+        {
+          "heading": "crew-startup-simulator/tasks.md",
+          "level": 1,
+          "line": 1762
+        },
+        {
+          "heading": "docker-compose.yml",
+          "level": 1,
+          "line": 1767
+        },
+        {
+          "heading": "docs/comparison.md",
+          "level": 1,
+          "line": 1772
+        },
+        {
+          "heading": "genai-browser-agent/README.md",
+          "level": 1,
+          "line": 1777
+        },
+        {
+          "heading": "genai-browser-agent/architecture.md",
+          "level": 1,
+          "line": 1782
+        },
+        {
+          "heading": "genai-browser-agent/tasks.md",
+          "level": 1,
+          "line": 1787
+        },
+        {
+          "heading": "genai-clinical-assistant/README.md",
+          "level": 1,
+          "line": 1792
+        },
+        {
+          "heading": "genai-clinical-assistant/architecture.md",
+          "level": 1,
+          "line": 1797
+        },
+        {
+          "heading": "genai-clinical-assistant/tasks.md",
+          "level": 1,
+          "line": 1802
+        },
+        {
+          "heading": "genai-code-copilot/README.md",
+          "level": 1,
+          "line": 1807
+        },
+        {
+          "heading": "genai-code-copilot/architecture.md",
+          "level": 1,
+          "line": 1812
+        },
+        {
+          "heading": "genai-code-copilot/tasks.md",
+          "level": 1,
+          "line": 1817
+        },
+        {
+          "heading": "genai-doc-intelligence/README.md",
+          "level": 1,
+          "line": 1822
+        },
+        {
+          "heading": "genai-doc-intelligence/architecture.md",
+          "level": 1,
+          "line": 1827
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/april_invoice.txt",
+          "level": 1,
+          "line": 1832
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/incident_report.txt",
+          "level": 1,
+          "line": 1837
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/security_policy_update.md",
+          "level": 1,
+          "line": 1842
+        },
+        {
+          "heading": "genai-doc-intelligence/data/docs/vendor_msa.md",
+          "level": 1,
+          "line": 1847
+        },
+        {
+          "heading": "genai-doc-intelligence/tasks.md",
+          "level": 1,
+          "line": 1852
+        },
+        {
+          "heading": "genai-financial-analyst/README.md",
+          "level": 1,
+          "line": 1857
+        },
+        {
+          "heading": "genai-financial-analyst/architecture.md",
+          "level": 1,
+          "line": 1862
+        },
+        {
+          "heading": "genai-financial-analyst/tasks.md",
+          "level": 1,
+          "line": 1867
+        },
+        {
+          "heading": "genai-interviewer/README.md",
+          "level": 1,
+          "line": 1872
+        },
+        {
+          "heading": "genai-interviewer/architecture.md",
+          "level": 1,
+          "line": 1877
+        },
+        {
+          "heading": "genai-interviewer/tasks.md",
+          "level": 1,
+          "line": 1882
+        },
+        {
+          "heading": "genai-knowledge-os/README.md",
+          "level": 1,
+          "line": 1887
+        },
+        {
+          "heading": "genai-knowledge-os/architecture.md",
+          "level": 1,
+          "line": 1892
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/ai-ops-retrospective.md",
+          "level": 1,
+          "line": 1897
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/personal-research-roadmap.md",
+          "level": 1,
+          "line": 1902
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/vendor-evaluation.txt",
+          "level": 1,
+          "line": 1907
+        },
+        {
+          "heading": "genai-knowledge-os/data/notes/weekly-learning-log.md",
+          "level": 1,
+          "line": 1912
+        },
+        {
+          "heading": "genai-knowledge-os/tasks.md",
+          "level": 1,
+          "line": 1917
+        },
+        {
+          "heading": "genai-nl2sql-agent/README.md",
+          "level": 1,
+          "line": 1922
+        },
+        {
+          "heading": "genai-nl2sql-agent/architecture.md",
+          "level": 1,
+          "line": 1927
+        },
+        {
+          "heading": "genai-nl2sql-agent/tasks.md",
+          "level": 1,
+          "line": 1932
+        },
+        {
+          "heading": "genai-research-system/README.md",
+          "level": 1,
+          "line": 1937
+        },
+        {
+          "heading": "genai-research-system/architecture.md",
+          "level": 1,
+          "line": 1942
+        },
+        {
+          "heading": "genai-research-system/tasks.md",
+          "level": 1,
+          "line": 1947
+        },
+        {
+          "heading": "genai-ui-builder/README.md",
+          "level": 1,
+          "line": 1952
+        },
+        {
+          "heading": "genai-ui-builder/architecture.md",
+          "level": 1,
+          "line": 1957
+        },
+        {
+          "heading": "genai-ui-builder/tasks.md",
+          "level": 1,
+          "line": 1962
+        },
+        {
+          "heading": "langgraph-data-analyst/README.md",
+          "level": 1,
+          "line": 1967
+        },
+        {
+          "heading": "langgraph-data-analyst/requirements.txt",
+          "level": 1,
+          "line": 1972
+        },
+        {
+          "heading": "lg-data-agent/README.md",
+          "level": 1,
+          "line": 1977
+        },
+        {
+          "heading": "lg-data-agent/architecture.md",
+          "level": 1,
+          "line": 1982
+        },
+        {
+          "heading": "lg-data-agent/tasks.md",
+          "level": 1,
+          "line": 1987
+        },
+        {
+          "heading": "lg-debugging-agent/README.md",
+          "level": 1,
+          "line": 1992
+        },
+        {
+          "heading": "lg-debugging-agent/architecture.md",
+          "level": 1,
+          "line": 1997
+        },
+        {
+          "heading": "lg-debugging-agent/tasks.md",
+          "level": 1,
+          "line": 2002
+        },
+        {
+          "heading": "lg-research-agent/README.md",
+          "level": 1,
+          "line": 2007
+        },
+        {
+          "heading": "lg-research-agent/architecture.md",
+          "level": 1,
+          "line": 2012
+        },
+        {
+          "heading": "lg-research-agent/tasks.md",
+          "level": 1,
+          "line": 2017
+        },
+        {
+          "heading": "lg-support-agent/README.md",
+          "level": 1,
+          "line": 2022
+        },
+        {
+          "heading": "lg-support-agent/architecture.md",
+          "level": 1,
+          "line": 2027
+        },
+        {
+          "heading": "lg-support-agent/tasks.md",
+          "level": 1,
+          "line": 2032
+        },
+        {
+          "heading": "lg-workflow-agent/README.md",
+          "level": 1,
+          "line": 2037
+        },
+        {
+          "heading": "lg-workflow-agent/architecture.md",
+          "level": 1,
+          "line": 2042
+        },
+        {
+          "heading": "lg-workflow-agent/tasks.md",
+          "level": 1,
+          "line": 2047
+        },
+        {
+          "heading": "portfolio/README.md",
+          "level": 1,
+          "line": 2052
+        },
+        {
+          "heading": "portfolio/USAGE.md",
+          "level": 1,
+          "line": 2057
+        },
+        {
+          "heading": "requirements.txt",
+          "level": 1,
+          "line": 2062
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 413
+      }
+    }
+  ]
+}

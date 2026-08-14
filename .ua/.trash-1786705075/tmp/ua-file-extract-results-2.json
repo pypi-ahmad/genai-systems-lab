@@ -1,0 +1,3051 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 23,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 23,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 23,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "genai-browser-agent/app/actions.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 39,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "make_action",
+          "startLine": 13,
+          "endLine": 14,
+          "params": [
+            "action"
+          ]
+        },
+        {
+          "name": "execute",
+          "startLine": 17,
+          "endLine": 39,
+          "params": [
+            "action",
+            "browser"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "make_action",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "execute",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "execute",
+          "callee": "action.get",
+          "lineNumber": 18
+        },
+        {
+          "caller": "execute",
+          "callee": "action.get",
+          "lineNumber": 19
+        },
+        {
+          "caller": "execute",
+          "callee": "browser.open_url",
+          "lineNumber": 29
+        },
+        {
+          "caller": "execute",
+          "callee": "browser.click",
+          "lineNumber": 31
+        },
+        {
+          "caller": "execute",
+          "callee": "browser.type",
+          "lineNumber": 33
+        },
+        {
+          "caller": "execute",
+          "callee": "str",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/agent.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 51,
+      "functions": [
+        {
+          "name": "run_agent",
+          "startLine": 17,
+          "endLine": 64,
+          "params": [
+            "goal"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run_agent",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run_agent",
+          "callee": "BrowserController",
+          "lineNumber": 18
+        },
+        {
+          "caller": "run_agent",
+          "callee": "BrowserMemory",
+          "lineNumber": 19
+        },
+        {
+          "caller": "run_agent",
+          "callee": "range",
+          "lineNumber": 22
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run_agent",
+          "callee": "get_observation",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run_agent",
+          "callee": "logger.info",
+          "lineNumber": 26
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run_agent",
+          "callee": "decide_next_action",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run_agent",
+          "callee": "memory.get_history",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 34
+        },
+        {
+          "caller": "run_agent",
+          "callee": "logger.info",
+          "lineNumber": 35
+        },
+        {
+          "caller": "run_agent",
+          "callee": "action.get",
+          "lineNumber": 35
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run_agent",
+          "callee": "memory.add_step",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 40
+        },
+        {
+          "caller": "run_agent",
+          "callee": "logger.info",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run_agent",
+          "callee": "execute",
+          "lineNumber": 45
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 48
+        },
+        {
+          "caller": "run_agent",
+          "callee": "memory.add_step",
+          "lineNumber": 49
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 50
+        },
+        {
+          "caller": "run_agent",
+          "callee": "logger.info",
+          "lineNumber": 51
+        },
+        {
+          "caller": "run_agent",
+          "callee": "logger.warning",
+          "lineNumber": 54
+        },
+        {
+          "caller": "run_agent",
+          "callee": "logger.warning",
+          "lineNumber": 56
+        },
+        {
+          "caller": "run_agent",
+          "callee": "browser.close",
+          "lineNumber": 58
+        },
+        {
+          "caller": "run_agent",
+          "callee": "memory.step_count",
+          "lineNumber": 62
+        },
+        {
+          "caller": "run_agent",
+          "callee": "memory.get_history",
+          "lineNumber": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/browser.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 52,
+      "classes": [
+        {
+          "name": "BrowserController",
+          "startLine": 6,
+          "endLine": 69,
+          "methods": [
+            "__init__",
+            "open_url",
+            "get_page_text",
+            "click",
+            "type",
+            "close",
+            "screenshot",
+            "_first_visible",
+            "_resolve_clickable",
+            "_resolve_input"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BrowserController",
+          "line": 6,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "sync_playwright().start",
+          "lineNumber": 8
+        },
+        {
+          "caller": "__init__",
+          "callee": "sync_playwright",
+          "lineNumber": 8
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._playwright.chromium.launch",
+          "lineNumber": 9
+        },
+        {
+          "caller": "__init__",
+          "callee": "self._browser.new_page",
+          "lineNumber": 10
+        },
+        {
+          "caller": "open_url",
+          "callee": "self._page.goto",
+          "lineNumber": 13
+        },
+        {
+          "caller": "get_page_text",
+          "callee": "self._page.inner_text",
+          "lineNumber": 16
+        },
+        {
+          "caller": "click",
+          "callee": "self._resolve_clickable",
+          "lineNumber": 19
+        },
+        {
+          "caller": "click",
+          "callee": "locator.click",
+          "lineNumber": 20
+        },
+        {
+          "caller": "type",
+          "callee": "self._resolve_input",
+          "lineNumber": 23
+        },
+        {
+          "caller": "type",
+          "callee": "locator.fill",
+          "lineNumber": 24
+        },
+        {
+          "caller": "close",
+          "callee": "self._browser.close",
+          "lineNumber": 27
+        },
+        {
+          "caller": "close",
+          "callee": "self._playwright.stop",
+          "lineNumber": 28
+        },
+        {
+          "caller": "screenshot",
+          "callee": "self._page.screenshot",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_first_visible",
+          "callee": "locator.count",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_first_visible",
+          "callee": "locator.first.is_visible",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_resolve_clickable",
+          "callee": "page.get_by_role",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_resolve_clickable",
+          "callee": "page.get_by_role",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_resolve_clickable",
+          "callee": "page.get_by_text",
+          "lineNumber": 48
+        },
+        {
+          "caller": "_resolve_clickable",
+          "callee": "self._first_visible",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_resolve_clickable",
+          "callee": "page.locator",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_resolve_input",
+          "callee": "page.get_by_label",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_resolve_input",
+          "callee": "page.get_by_placeholder",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_resolve_input",
+          "callee": "page.get_by_role",
+          "lineNumber": 62
+        },
+        {
+          "caller": "_resolve_input",
+          "callee": "page.get_by_role",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_resolve_input",
+          "callee": "self._first_visible",
+          "lineNumber": 65
+        },
+        {
+          "caller": "_resolve_input",
+          "callee": "page.locator",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 13,
+      "nonEmptyLines": 10,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 7,
+          "endLine": 13,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 9
+        },
+        {
+          "caller": "run",
+          "callee": "run_agent",
+          "lineNumber": 11
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/memory.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 24,
+      "classes": [
+        {
+          "name": "BrowserMemory",
+          "startLine": 4,
+          "endLine": 29,
+          "methods": [
+            "__init__",
+            "add_step",
+            "get_history",
+            "step_count"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "BrowserMemory",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "add_step",
+          "callee": "self._steps.append",
+          "lineNumber": 10
+        },
+        {
+          "caller": "add_step",
+          "callee": "len",
+          "lineNumber": 11
+        },
+        {
+          "caller": "get_history",
+          "callee": "lines.append",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_history",
+          "callee": "act.get",
+          "lineNumber": 24
+        },
+        {
+          "caller": "get_history",
+          "callee": "\"\\n\".join",
+          "lineNumber": 26
+        },
+        {
+          "caller": "step_count",
+          "callee": "len",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/perception.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 59,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "get_observation",
+          "startLine": 22,
+          "endLine": 31,
+          "params": [
+            "browser",
+            "use_vision"
+          ]
+        },
+        {
+          "name": "_get_text_observation",
+          "startLine": 34,
+          "endLine": 39,
+          "params": [
+            "browser"
+          ]
+        },
+        {
+          "name": "_get_vision_observation",
+          "startLine": 42,
+          "endLine": 52,
+          "params": [
+            "browser"
+          ]
+        },
+        {
+          "name": "_clean",
+          "startLine": 55,
+          "endLine": 59,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "get_observation",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "_get_text_observation",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "_get_vision_observation",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "_clean",
+          "line": 55,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "get_observation",
+          "callee": "_get_text_observation",
+          "lineNumber": 23
+        },
+        {
+          "caller": "get_observation",
+          "callee": "_get_vision_observation",
+          "lineNumber": 28
+        },
+        {
+          "caller": "_get_text_observation",
+          "callee": "browser.get_page_text",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_get_text_observation",
+          "callee": "_clean",
+          "lineNumber": 36
+        },
+        {
+          "caller": "_get_text_observation",
+          "callee": "len",
+          "lineNumber": 37
+        },
+        {
+          "caller": "_get_vision_observation",
+          "callee": "browser.screenshot",
+          "lineNumber": 44
+        },
+        {
+          "caller": "_get_vision_observation",
+          "callee": "generate_text_from_image",
+          "lineNumber": 45
+        },
+        {
+          "caller": "_get_vision_observation",
+          "callee": "logger.warning",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_clean",
+          "callee": "text.replace",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_clean",
+          "callee": "re.sub",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_clean",
+          "callee": "re.sub",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_clean",
+          "callee": "text.strip",
+          "lineNumber": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/planner.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 56,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "decide_next_action",
+          "startLine": 47,
+          "endLine": 56,
+          "params": [
+            "goal",
+            "observation",
+            "history"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "decide_next_action",
+          "line": 47,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "decide_next_action",
+          "callee": "generate_structured",
+          "lineNumber": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-code-copilot/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 72,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "_load_symbol",
+          "startLine": 10,
+          "endLine": 25,
+          "params": [
+            "module_name",
+            "symbol_name"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 34,
+          "endLine": 72,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_load_symbol",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 34,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_load_symbol",
+          "callee": "__import__",
+          "lineNumber": 12
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 13
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path(__file__).with_name",
+          "lineNumber": 15
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path",
+          "lineNumber": 15
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.spec_from_file_location",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "RuntimeError",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.module_from_spec",
+          "lineNumber": 23
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "spec.loader.exec_module",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "input.split",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "codebase_path.strip",
+          "lineNumber": 48
+        },
+        {
+          "caller": "run",
+          "callee": "question.strip",
+          "lineNumber": 49
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 53
+        },
+        {
+          "caller": "run",
+          "callee": "index_codebase",
+          "lineNumber": 54
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 55
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 57
+        },
+        {
+          "caller": "run",
+          "callee": "retrieve",
+          "lineNumber": 58
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 59
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 61
+        },
+        {
+          "caller": "run",
+          "callee": "build_context",
+          "lineNumber": 62
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 63
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 65
+        },
+        {
+          "caller": "run",
+          "callee": "answer_question",
+          "lineNumber": 66
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 67
+        },
+        {
+          "caller": "run",
+          "callee": "list",
+          "lineNumber": 69
+        },
+        {
+          "caller": "run",
+          "callee": "dict.fromkeys",
+          "lineNumber": 69
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 72
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-financial-analyst/app/analyzer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "analyze_metrics",
+          "startLine": 12,
+          "endLine": 37,
+          "params": [
+            "metrics",
+            "df"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "analyze_metrics",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "analyze_metrics",
+          "callee": "json.dumps",
+          "lineNumber": 13
+        },
+        {
+          "caller": "analyze_metrics",
+          "callee": "df.head(SAMPLE_ROWS).to_string",
+          "lineNumber": 15
+        },
+        {
+          "caller": "analyze_metrics",
+          "callee": "df.head",
+          "lineNumber": 15
+        },
+        {
+          "caller": "analyze_metrics",
+          "callee": "min",
+          "lineNumber": 22
+        },
+        {
+          "caller": "analyze_metrics",
+          "callee": "len",
+          "lineNumber": 22
+        },
+        {
+          "caller": "analyze_metrics",
+          "callee": "len",
+          "lineNumber": 22
+        },
+        {
+          "caller": "analyze_metrics",
+          "callee": "generate_text",
+          "lineNumber": 37
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-financial-analyst/app/data_loader.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "load_data",
+          "startLine": 9,
+          "endLine": 42,
+          "params": [
+            "file_path"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "load_data",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "load_data",
+          "callee": "os.path.isfile",
+          "lineNumber": 10
+        },
+        {
+          "caller": "load_data",
+          "callee": "ValueError",
+          "lineNumber": 11
+        },
+        {
+          "caller": "load_data",
+          "callee": "pd.read_csv",
+          "lineNumber": 13
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.columns.str.strip().str.lower",
+          "lineNumber": 16
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.columns.str.strip",
+          "lineNumber": 16
+        },
+        {
+          "caller": "load_data",
+          "callee": "set",
+          "lineNumber": 19
+        },
+        {
+          "caller": "load_data",
+          "callee": "ValueError",
+          "lineNumber": 21
+        },
+        {
+          "caller": "load_data",
+          "callee": "', '.join",
+          "lineNumber": 21
+        },
+        {
+          "caller": "load_data",
+          "callee": "sorted",
+          "lineNumber": 21
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.select_dtypes",
+          "lineNumber": 24
+        },
+        {
+          "caller": "load_data",
+          "callee": "df[str_cols].apply",
+          "lineNumber": 25
+        },
+        {
+          "caller": "load_data",
+          "callee": "col.str.strip",
+          "lineNumber": 25
+        },
+        {
+          "caller": "load_data",
+          "callee": "pd.to_numeric",
+          "lineNumber": 29
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.select_dtypes",
+          "lineNumber": 32
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.dropna",
+          "lineNumber": 33
+        },
+        {
+          "caller": "load_data",
+          "callee": "ValueError",
+          "lineNumber": 36
+        },
+        {
+          "caller": "load_data",
+          "callee": "pd.to_datetime",
+          "lineNumber": 39
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.sort_values(\"date\").reset_index",
+          "lineNumber": 40
+        },
+        {
+          "caller": "load_data",
+          "callee": "df.sort_values",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-financial-analyst/app/forecaster.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 45,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "forecast",
+          "startLine": 5,
+          "endLine": 45,
+          "params": [
+            "df",
+            "periods",
+            "window"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "forecast",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "forecast",
+          "callee": "len",
+          "lineNumber": 6
+        },
+        {
+          "caller": "forecast",
+          "callee": "ValueError",
+          "lineNumber": 7
+        },
+        {
+          "caller": "forecast",
+          "callee": "df[col].dropna().values.astype",
+          "lineNumber": 11
+        },
+        {
+          "caller": "forecast",
+          "callee": "df[col].dropna",
+          "lineNumber": 11
+        },
+        {
+          "caller": "forecast",
+          "callee": "len",
+          "lineNumber": 12
+        },
+        {
+          "caller": "forecast",
+          "callee": "np.arange",
+          "lineNumber": 16
+        },
+        {
+          "caller": "forecast",
+          "callee": "len",
+          "lineNumber": 16
+        },
+        {
+          "caller": "forecast",
+          "callee": "np.polyfit",
+          "lineNumber": 17
+        },
+        {
+          "caller": "forecast",
+          "callee": "round",
+          "lineNumber": 20
+        },
+        {
+          "caller": "forecast",
+          "callee": "float",
+          "lineNumber": 20
+        },
+        {
+          "caller": "forecast",
+          "callee": "len",
+          "lineNumber": 20
+        },
+        {
+          "caller": "forecast",
+          "callee": "range",
+          "lineNumber": 21
+        },
+        {
+          "caller": "forecast",
+          "callee": "min",
+          "lineNumber": 25
+        },
+        {
+          "caller": "forecast",
+          "callee": "len",
+          "lineNumber": 25
+        },
+        {
+          "caller": "forecast",
+          "callee": "round",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forecast",
+          "callee": "float",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forecast",
+          "callee": "np.mean",
+          "lineNumber": 26
+        },
+        {
+          "caller": "forecast",
+          "callee": "abs",
+          "lineNumber": 29
+        },
+        {
+          "caller": "forecast",
+          "callee": "round",
+          "lineNumber": 39
+        },
+        {
+          "caller": "forecast",
+          "callee": "float",
+          "lineNumber": 39
+        },
+        {
+          "caller": "forecast",
+          "callee": "round",
+          "lineNumber": 42
+        },
+        {
+          "caller": "forecast",
+          "callee": "float",
+          "lineNumber": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-financial-analyst/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 53,
+      "nonEmptyLines": 44,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 12,
+          "endLine": 53,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 12,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 19
+        },
+        {
+          "caller": "run",
+          "callee": "input.split",
+          "lineNumber": 21
+        },
+        {
+          "caller": "run",
+          "callee": "parts.index",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 26
+        },
+        {
+          "caller": "run",
+          "callee": "parts[idx + 1].isdigit",
+          "lineNumber": 26
+        },
+        {
+          "caller": "run",
+          "callee": "int",
+          "lineNumber": 27
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "load_data",
+          "lineNumber": 30
+        },
+        {
+          "caller": "run",
+          "callee": "compute_metrics",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 36
+        },
+        {
+          "caller": "run",
+          "callee": "forecast",
+          "lineNumber": 37
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 40
+        },
+        {
+          "caller": "run",
+          "callee": "analyze_metrics",
+          "lineNumber": 41
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 42
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run",
+          "callee": "generate_report",
+          "lineNumber": 45
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 46
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 53
+        }
+      ],
+      "metrics": {
+        "importCount": 7,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-financial-analyst/app/metrics.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "compute_metrics",
+          "startLine": 4,
+          "endLine": 44,
+          "params": [
+            "df",
+            "rolling_window"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "compute_metrics",
+          "line": 4,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "compute_metrics",
+          "callee": "ValueError",
+          "lineNumber": 6
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 11
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.sum",
+          "lineNumber": 11
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 12
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "expenses.sum",
+          "lineNumber": 12
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "round",
+          "lineNumber": 19
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "round",
+          "lineNumber": 20
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 20
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.mean",
+          "lineNumber": 20
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "round",
+          "lineNumber": 21
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 21
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "expenses.mean",
+          "lineNumber": 21
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 22
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.min",
+          "lineNumber": 22
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 23
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.max",
+          "lineNumber": 23
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 24
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "expenses.min",
+          "lineNumber": 24
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "float",
+          "lineNumber": 25
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "expenses.max",
+          "lineNumber": 25
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "len",
+          "lineNumber": 26
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "len",
+          "lineNumber": 30
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.shift",
+          "lineNumber": 31
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "((revenue - shifted) / shifted * 100).dropna",
+          "lineNumber": 32
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "round",
+          "lineNumber": 33
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "growth.tolist",
+          "lineNumber": 33
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "len",
+          "lineNumber": 38
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.rolling(window=rolling_window).mean().dropna",
+          "lineNumber": 39
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.rolling(window=rolling_window).mean",
+          "lineNumber": 39
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "revenue.rolling",
+          "lineNumber": 39
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "round",
+          "lineNumber": 40
+        },
+        {
+          "caller": "compute_metrics",
+          "callee": "rolling.tolist",
+          "lineNumber": 40
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-financial-analyst/app/reporter.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 29,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "generate_report",
+          "startLine": 7,
+          "endLine": 29,
+          "params": [
+            "analysis"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_report",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_report",
+          "callee": "generate_text",
+          "lineNumber": 29
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-interviewer/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 35,
+      "nonEmptyLines": 26,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 9,
+          "endLine": 35,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 16
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 18
+        },
+        {
+          "caller": "run",
+          "callee": "generate_question",
+          "lineNumber": 20
+        },
+        {
+          "caller": "run",
+          "callee": "range",
+          "lineNumber": 21
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 23
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 26
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 32
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-nl2sql-agent/app/agent.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 130,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "_load_symbol",
+          "startLine": 21,
+          "endLine": 33,
+          "params": [
+            "module_name",
+            "symbol_name"
+          ]
+        },
+        {
+          "name": "_build_summary_prompt",
+          "startLine": 42,
+          "endLine": 60,
+          "params": [
+            "nl_query",
+            "sql",
+            "result"
+          ]
+        },
+        {
+          "name": "run_agent",
+          "startLine": 63,
+          "endLine": 127,
+          "params": [
+            "nl_query"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_load_symbol",
+          "line": 21,
+          "isDefault": false
+        },
+        {
+          "name": "_build_summary_prompt",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "run_agent",
+          "line": 63,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_load_symbol",
+          "callee": "__import__",
+          "lineNumber": 23
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path(__file__).with_name",
+          "lineNumber": 26
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path",
+          "lineNumber": 26
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.spec_from_file_location",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "RuntimeError",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.module_from_spec",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "spec.loader.exec_module",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 33
+        },
+        {
+          "caller": "_build_summary_prompt",
+          "callee": "result.to_dict",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_build_summary_prompt",
+          "callee": "f\"\"\"\r\nYou are summarizing the result of a DuckDB query for a user.\r\n\r\nUser question:\r\n{nl_query}\r\n\r\nExecuted SQL:\r\n{sql}\r\n\r\nResult rows:\r\n{preview_records}\r\n\r\nRules:\r\n- Write a concise factual summary grounded only in the result rows.\r\n- Do not mention information that is not present in the data.\r\n- If the result is empty, say that no matching records were found.\r\n\"\"\".strip",
+          "lineNumber": 44
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.info",
+          "lineNumber": 70
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 72
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 73
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 75
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.info",
+          "lineNumber": 76
+        },
+        {
+          "caller": "run_agent",
+          "callee": "get_schema_description",
+          "lineNumber": 77
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 78
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 80
+        },
+        {
+          "caller": "run_agent",
+          "callee": "range",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.info",
+          "lineNumber": 83
+        },
+        {
+          "caller": "run_agent",
+          "callee": "generate_sql",
+          "lineNumber": 85
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.warning",
+          "lineNumber": 87
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 89
+        },
+        {
+          "caller": "run_agent",
+          "callee": "RuntimeError",
+          "lineNumber": 90
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 93
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 94
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.info",
+          "lineNumber": 95
+        },
+        {
+          "caller": "run_agent",
+          "callee": "validate_sql",
+          "lineNumber": 96
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 97
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 100
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.warning",
+          "lineNumber": 101
+        },
+        {
+          "caller": "run_agent",
+          "callee": "RuntimeError",
+          "lineNumber": 103
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 104
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 106
+        },
+        {
+          "caller": "run_agent",
+          "callee": "RuntimeError",
+          "lineNumber": 107
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 109
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.info",
+          "lineNumber": 110
+        },
+        {
+          "caller": "run_agent",
+          "callee": "execute_sql",
+          "lineNumber": 111
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 112
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 114
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.info",
+          "lineNumber": 115
+        },
+        {
+          "caller": "run_agent",
+          "callee": "generate_text",
+          "lineNumber": 116
+        },
+        {
+          "caller": "run_agent",
+          "callee": "_build_summary_prompt",
+          "lineNumber": 117
+        },
+        {
+          "caller": "run_agent",
+          "callee": "emit_step",
+          "lineNumber": 120
+        },
+        {
+          "caller": "run_agent",
+          "callee": "LOGGER.info",
+          "lineNumber": 122
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-ui-builder/app/code_generator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 188,
+      "nonEmptyLines": 149,
+      "functions": [
+        {
+          "name": "_render_css",
+          "startLine": 15,
+          "endLine": 23,
+          "params": [
+            "styles"
+          ]
+        },
+        {
+          "name": "_camel_to_kebab",
+          "startLine": 26,
+          "endLine": 35,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "_render_style",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "style"
+          ]
+        },
+        {
+          "name": "_render_props",
+          "startLine": 43,
+          "endLine": 60,
+          "params": [
+            "component"
+          ]
+        },
+        {
+          "name": "_render_component",
+          "startLine": 63,
+          "endLine": 79,
+          "params": [
+            "component",
+            "depth"
+          ]
+        },
+        {
+          "name": "_collect_component_names",
+          "startLine": 82,
+          "endLine": 90,
+          "params": [
+            "components"
+          ]
+        },
+        {
+          "name": "_render_subcomponent",
+          "startLine": 93,
+          "endLine": 113,
+          "params": [
+            "component"
+          ]
+        },
+        {
+          "name": "generate_files",
+          "startLine": 116,
+          "endLine": 180,
+          "params": [
+            "spec"
+          ]
+        },
+        {
+          "name": "generate_react_code",
+          "startLine": 183,
+          "endLine": 188,
+          "params": [
+            "spec"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_render_css",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "_camel_to_kebab",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "_render_style",
+          "line": 38,
+          "isDefault": false
+        },
+        {
+          "name": "_render_props",
+          "line": 43,
+          "isDefault": false
+        },
+        {
+          "name": "_render_component",
+          "line": 63,
+          "isDefault": false
+        },
+        {
+          "name": "_collect_component_names",
+          "line": 82,
+          "isDefault": false
+        },
+        {
+          "name": "_render_subcomponent",
+          "line": 93,
+          "isDefault": false
+        },
+        {
+          "name": "generate_files",
+          "line": 116,
+          "isDefault": false
+        },
+        {
+          "name": "generate_react_code",
+          "line": 183,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_render_css",
+          "callee": "styles.items",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_render_css",
+          "callee": "\"\\n\".join",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_render_css",
+          "callee": "_camel_to_kebab",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_render_css",
+          "callee": "rules.items",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_render_css",
+          "callee": "lines.append",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_render_css",
+          "callee": "\"\\n\\n\".join",
+          "lineNumber": 23
+        },
+        {
+          "caller": "_camel_to_kebab",
+          "callee": "ch.isupper",
+          "lineNumber": 30
+        },
+        {
+          "caller": "_camel_to_kebab",
+          "callee": "result.append",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_camel_to_kebab",
+          "callee": "result.append",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_camel_to_kebab",
+          "callee": "ch.lower",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_camel_to_kebab",
+          "callee": "result.append",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_camel_to_kebab",
+          "callee": "\"\".join",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_render_style",
+          "callee": "\", \".join",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_render_style",
+          "callee": "style.items",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_render_props",
+          "callee": "component.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "_render_props",
+          "callee": "parts.append",
+          "lineNumber": 47
+        },
+        {
+          "caller": "_render_props",
+          "callee": "component.get",
+          "lineNumber": 49
+        },
+        {
+          "caller": "_render_props",
+          "callee": "parts.append",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_render_props",
+          "callee": "_render_style",
+          "lineNumber": 50
+        },
+        {
+          "caller": "_render_props",
+          "callee": "component.get(\"props\", {}).items",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_render_props",
+          "callee": "component.get",
+          "lineNumber": 52
+        },
+        {
+          "caller": "_render_props",
+          "callee": "isinstance",
+          "lineNumber": 53
+        },
+        {
+          "caller": "_render_props",
+          "callee": "parts.append",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_render_props",
+          "callee": "isinstance",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_render_props",
+          "callee": "parts.append",
+          "lineNumber": 56
+        },
+        {
+          "caller": "_render_props",
+          "callee": "parts.append",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_render_props",
+          "callee": "\" \".join",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_render_component",
+          "callee": "_render_props",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_render_component",
+          "callee": "component.get",
+          "lineNumber": 67
+        },
+        {
+          "caller": "_render_component",
+          "callee": "lines.append",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_render_component",
+          "callee": "_render_component",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_render_component",
+          "callee": "lines.append",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_render_component",
+          "callee": "\"\\n\".join",
+          "lineNumber": 79
+        },
+        {
+          "caller": "_collect_component_names",
+          "callee": "comp.get",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_collect_component_names",
+          "callee": "comp[\"label\"].replace",
+          "lineNumber": 87
+        },
+        {
+          "caller": "_collect_component_names",
+          "callee": "names.append",
+          "lineNumber": 89
+        },
+        {
+          "caller": "_render_subcomponent",
+          "callee": "component[\"label\"].replace",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_render_subcomponent",
+          "callee": "component.get",
+          "lineNumber": 97
+        },
+        {
+          "caller": "_render_subcomponent",
+          "callee": "body_lines.append",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_render_subcomponent",
+          "callee": "_render_component",
+          "lineNumber": 98
+        },
+        {
+          "caller": "_render_subcomponent",
+          "callee": "\"\\n\".join",
+          "lineNumber": 99
+        },
+        {
+          "caller": "_render_subcomponent",
+          "callee": "_render_props",
+          "lineNumber": 101
+        },
+        {
+          "caller": "generate_files",
+          "callee": "spec.get",
+          "lineNumber": 126
+        },
+        {
+          "caller": "generate_files",
+          "callee": "spec.get",
+          "lineNumber": 127
+        },
+        {
+          "caller": "generate_files",
+          "callee": "comp.get",
+          "lineNumber": 134
+        },
+        {
+          "caller": "generate_files",
+          "callee": "sub_components.append",
+          "lineNumber": 135
+        },
+        {
+          "caller": "generate_files",
+          "callee": "flat_components.append",
+          "lineNumber": 137
+        },
+        {
+          "caller": "generate_files",
+          "callee": "comp[\"label\"].replace",
+          "lineNumber": 141
+        },
+        {
+          "caller": "generate_files",
+          "callee": "_render_subcomponent",
+          "lineNumber": 142
+        },
+        {
+          "caller": "generate_files",
+          "callee": "_render_css",
+          "lineNumber": 145
+        },
+        {
+          "caller": "generate_files",
+          "callee": "imports.append",
+          "lineNumber": 152
+        },
+        {
+          "caller": "generate_files",
+          "callee": "comp[\"label\"].replace",
+          "lineNumber": 154
+        },
+        {
+          "caller": "generate_files",
+          "callee": "imports.append",
+          "lineNumber": 155
+        },
+        {
+          "caller": "generate_files",
+          "callee": "comp[\"label\"].replace",
+          "lineNumber": 160
+        },
+        {
+          "caller": "generate_files",
+          "callee": "body_lines.append",
+          "lineNumber": 161
+        },
+        {
+          "caller": "generate_files",
+          "callee": "body_lines.append",
+          "lineNumber": 163
+        },
+        {
+          "caller": "generate_files",
+          "callee": "_render_component",
+          "lineNumber": 163
+        },
+        {
+          "caller": "generate_files",
+          "callee": "\"\\n\".join",
+          "lineNumber": 165
+        },
+        {
+          "caller": "generate_files",
+          "callee": "\"\\n\".join",
+          "lineNumber": 166
+        },
+        {
+          "caller": "generate_react_code",
+          "callee": "generate_files",
+          "lineNumber": 188
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 9,
+        "functionCount": 9,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-ui-builder/app/fixer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "fix_code",
+          "startLine": 25,
+          "endLine": 28,
+          "params": [
+            "code",
+            "error"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "fix_code",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fix_code",
+          "callee": "PROMPT_TEMPLATE.format",
+          "lineNumber": 27
+        },
+        {
+          "caller": "fix_code",
+          "callee": "generate_text",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-ui-builder/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 84,
+      "nonEmptyLines": 69,
+      "functions": [
+        {
+          "name": "build",
+          "startLine": 18,
+          "endLine": 75,
+          "params": [
+            "prompt"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 78,
+          "endLine": 84,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 78,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 22
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 23
+        },
+        {
+          "caller": "build",
+          "callee": "generate_spec",
+          "lineNumber": 24
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 25
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 27
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 28
+        },
+        {
+          "caller": "build",
+          "callee": "json.dumps",
+          "lineNumber": 28
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 29
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 32
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 33
+        },
+        {
+          "caller": "build",
+          "callee": "validate_spec",
+          "lineNumber": 34
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 35
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 36
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 38
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 42
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 43
+        },
+        {
+          "caller": "build",
+          "callee": "generate_files",
+          "lineNumber": 44
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 45
+        },
+        {
+          "caller": "build",
+          "callee": "files.get",
+          "lineNumber": 46
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 50
+        },
+        {
+          "caller": "build",
+          "callee": "range",
+          "lineNumber": 52
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 53
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 54
+        },
+        {
+          "caller": "build",
+          "callee": "fix_code",
+          "lineNumber": 55
+        },
+        {
+          "caller": "build",
+          "callee": "emit_step",
+          "lineNumber": 57
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 62
+        },
+        {
+          "caller": "build",
+          "callee": "os.makedirs",
+          "lineNumber": 63
+        },
+        {
+          "caller": "build",
+          "callee": "files.items",
+          "lineNumber": 65
+        },
+        {
+          "caller": "build",
+          "callee": "os.path.join",
+          "lineNumber": 66
+        },
+        {
+          "caller": "build",
+          "callee": "os.makedirs",
+          "lineNumber": 67
+        },
+        {
+          "caller": "build",
+          "callee": "os.path.dirname",
+          "lineNumber": 67
+        },
+        {
+          "caller": "build",
+          "callee": "open",
+          "lineNumber": 68
+        },
+        {
+          "caller": "build",
+          "callee": "f.write",
+          "lineNumber": 69
+        },
+        {
+          "caller": "build",
+          "callee": "saved_paths.append",
+          "lineNumber": 70
+        },
+        {
+          "caller": "build",
+          "callee": "os.path.abspath",
+          "lineNumber": 70
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 72
+        },
+        {
+          "caller": "build",
+          "callee": "os.path.abspath",
+          "lineNumber": 72
+        },
+        {
+          "caller": "build",
+          "callee": "print",
+          "lineNumber": 74
+        },
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 80
+        },
+        {
+          "caller": "run",
+          "callee": "build",
+          "lineNumber": 82
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 84
+        }
+      ],
+      "metrics": {
+        "importCount": 6,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-ui-builder/app/spec_generator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "generate_spec",
+          "startLine": 83,
+          "endLine": 86,
+          "params": [
+            "prompt"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_spec",
+          "line": 83,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_spec",
+          "callee": "generate_structured",
+          "lineNumber": 86
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-ui-builder/app/validator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 76,
+      "nonEmptyLines": 53,
+      "functions": [
+        {
+          "name": "_validate_component",
+          "startLine": 13,
+          "endLine": 45,
+          "params": [
+            "component"
+          ]
+        },
+        {
+          "name": "validate_spec",
+          "startLine": 48,
+          "endLine": 76,
+          "params": [
+            "spec"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_validate_component",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "validate_spec",
+          "line": 48,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_validate_component",
+          "callee": "isinstance",
+          "lineNumber": 14
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "REQUIRED_COMPONENT.issubset",
+          "lineNumber": 17
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "component.keys",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "isinstance",
+          "lineNumber": 26
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "isinstance",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "isinstance",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "isinstance",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "isinstance",
+          "lineNumber": 39
+        },
+        {
+          "caller": "_validate_component",
+          "callee": "_validate_component",
+          "lineNumber": 42
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "isinstance",
+          "lineNumber": 50
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "REQUIRED_TOP_LEVEL.issubset",
+          "lineNumber": 53
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "spec.keys",
+          "lineNumber": 56
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "isinstance",
+          "lineNumber": 59
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "spec[\"app_name\"].strip",
+          "lineNumber": 59
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "isinstance",
+          "lineNumber": 62
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "isinstance",
+          "lineNumber": 66
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "spec[\"styles\"].items",
+          "lineNumber": 68
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "isinstance",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "isinstance",
+          "lineNumber": 69
+        },
+        {
+          "caller": "validate_spec",
+          "callee": "_validate_component",
+          "lineNumber": 73
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "shared/api/langgraph_events.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "instrument_node",
+          "startLine": 14,
+          "endLine": 28,
+          "params": [
+            "name",
+            "node_fn"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "instrument_node",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "wrapped",
+          "callee": "emit_step",
+          "lineNumber": 18
+        },
+        {
+          "caller": "wrapped",
+          "callee": "node_fn",
+          "lineNumber": 20
+        },
+        {
+          "caller": "wrapped",
+          "callee": "emit_step",
+          "lineNumber": 22
+        },
+        {
+          "caller": "wrapped",
+          "callee": "emit_step",
+          "lineNumber": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "shared/api/step_events.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 18,
+      "functions": [
+        {
+          "name": "bind_step_emitter",
+          "startLine": 13,
+          "endLine": 15,
+          "params": [
+            "emitter"
+          ]
+        },
+        {
+          "name": "reset_step_emitter",
+          "startLine": 19,
+          "endLine": 21,
+          "params": [
+            "token"
+          ]
+        },
+        {
+          "name": "emit_step",
+          "startLine": 25,
+          "endLine": 30,
+          "params": [
+            "step",
+            "status"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "bind_step_emitter",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "reset_step_emitter",
+          "line": 19,
+          "isDefault": false
+        },
+        {
+          "name": "emit_step",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "bind_step_emitter",
+          "callee": "_STEP_EMITTER.set",
+          "lineNumber": 15
+        },
+        {
+          "caller": "reset_step_emitter",
+          "callee": "_STEP_EMITTER.reset",
+          "lineNumber": 21
+        },
+        {
+          "caller": "emit_step",
+          "callee": "_STEP_EMITTER.get",
+          "lineNumber": 27
+        },
+        {
+          "caller": "emit_step",
+          "callee": "emitter",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

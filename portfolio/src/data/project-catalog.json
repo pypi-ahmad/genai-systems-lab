@@ -785,7 +785,7 @@
     "name": "Debugging Agent",
     "slug": "lg-debugging-agent",
     "category": "LangGraph",
-    "description": "Analyzes faulty code, proposes a fix, runs tests, and loops through evaluation until the issue is resolved or the retry budget is exhausted.",
+    "description": "Trusted-local experiment that analyzes faulty code, proposes a fix, executes generated Python tests, and loops through evaluation until the retry budget is exhausted.",
     "tags": [
       "Debugging",
       "Testing",
@@ -794,20 +794,25 @@
     "highlights": [
       "Graph-controlled fix-test-evaluate loop",
       "Bounded retry budget",
-      "Sandbox-based test execution"
+      "Trusted-local subprocess test execution"
     ],
-    "architecture": "The LangGraph loop connects Analyzer → Fixer → Test Generator → Tester → Evaluator. The Analyzer identifies the root cause. The Fixer generates a patch. The Test Generator produces test cases. The Tester runs them in a sandboxed environment. The Evaluator checks pass/fail and routes back to the Fixer or exits. A bounded retry budget prevents infinite loops.",
+    "architecture": "The LangGraph loop connects Analyzer → Fixer → Test Generator → Tester → Evaluator. The Tester executes generated Python in an ordinary subprocess with the current user's permissions; this is not a security sandbox, so shared API access is disabled by default and always disabled in production. The Evaluator checks pass/fail and routes back to the Fixer or exits.",
     "features": [
       "Automated root cause analysis",
       "LLM-generated code patches",
       "Test case generation",
-      "Sandbox test execution",
+      "Trusted-local subprocess execution",
       "Evaluator-controlled fix loop",
       "Bounded retry budget (max iterations)"
     ],
     "exampleInput": "{\"input\": \"Function crashes on empty input and should return an empty list\"}",
     "exampleOutput": "{\"fixed\": true, \"patch\": \"def process(items):\\n    if not items:\\n        return []\\n    ...\", \"attempts\": 2, \"tests_passed\": 4}",
     "apiEndpoint": "/debugging-agent/run",
+    "demo": {
+      "enabled": false,
+      "title": "Trusted local execution only",
+      "description": "Disabled in the public portfolio because generated Python runs with the local process permissions."
+    },
     "graph": {
       "nodes": [
         {

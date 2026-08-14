@@ -1,0 +1,538 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 20,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 20,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 20
+    }
+  },
+  "results": [
+    {
+      "path": ".ua/.trash-1786690380/batch-22.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 70,
+      "nonEmptyLines": 70,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-23.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-24.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 109,
+      "nonEmptyLines": 109,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 108
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-25.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 70,
+      "nonEmptyLines": 70,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-26.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 57,
+      "nonEmptyLines": 57,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-27.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-28.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-29.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-3-part-1.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1153,
+      "nonEmptyLines": 1153,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 640
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-3-part-2.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1437,
+      "nonEmptyLines": 1437,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 763
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-30.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-31.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-32.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-33.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-34.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-35.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-36.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-37.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 57,
+      "nonEmptyLines": 57,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 56
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-38.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/batch-39.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 44,
+      "nonEmptyLines": 44,
+      "sections": [
+        {
+          "heading": "nodes",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "edges",
+          "level": 1,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

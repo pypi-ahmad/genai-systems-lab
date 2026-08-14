@@ -5,7 +5,7 @@ import pandas as pd
 from shared.llm.gemini import generate_text
 
 
-MODEL = "gemini-3.1-pro-preview"
+MODEL = "gemini-3.7-flash"
 SAMPLE_ROWS = 5
 
 
