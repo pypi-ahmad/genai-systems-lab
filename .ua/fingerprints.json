@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
-  "gitCommitHash": "b3f6268546cea5a3851f8f23ee144c51e43e9545",
-  "generatedAt": "2026-08-14T10:57:47.393Z",
+  "gitCommitHash": "e14d6c49eac1b0ec4059775a3d191f5e1eff7fa0",
+  "generatedAt": "2026-08-14T12:59:30.623Z",
   "files": {
     ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json": {
       "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
@@ -65,7 +65,7 @@
     },
     ".codex/better-harness/2026-08-14T0625-normal/report.html": {
       "filePath": ".codex/better-harness/2026-08-14T0625-normal/report.html",
-      "contentHash": "11f15486b7bb127d4925ba568b00397813fbaecc5fa2e0e71625a5ffe5f10aab",
+      "contentHash": "15d4520f4d84db3496bbefa2026c43c649afc9a7549b025b169ba79106e1269b",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -95,7 +95,7 @@
     },
     ".env.example": {
       "filePath": ".env.example",
-      "contentHash": "778bb3f15f19b793dec800a59768029bf2445effa4fa0714d2d74ad02ab6087a",
+      "contentHash": "f567a71bd734ebf96322396e1ffe61d4c60679fb3942a14c2d7abeedb45e60ae",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -125,33 +125,23 @@
     },
     ".github/gitleaks.toml": {
       "filePath": ".github/gitleaks.toml",
-      "contentHash": "0e007ed79293b47dad3be3e6f29ef1bda005461114e4e2b139f616c8c35c3123",
+      "contentHash": "632c170038293b89f74854d6c3e4c8f010a48a4dc3b981866e92ec2ab994c225",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 41,
+      "totalLines": 44,
       "hasStructuralAnalysis": true
     },
     ".github/workflows/ci.yml": {
       "filePath": ".github/workflows/ci.yml",
-      "contentHash": "6d1f0e016a3b36da9079649604d8f509b56535655b8b05a2d983004c9221a181",
+      "contentHash": "67b49256c4c1df83dc707d7cd1af4e7c30871935e49c7f8b237fbbe9578ab424",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 275,
+      "totalLines": 268,
       "hasStructuralAnalysis": true
-    },
-    ".trivyignore": {
-      "filePath": ".trivyignore",
-      "contentHash": "f91992d85e069b97d1585e1405f7954c7da2ed1eb3191dde344e6e342be9ddb1",
-      "functions": [],
-      "classes": [],
-      "imports": [],
-      "exports": [],
-      "totalLines": 4,
-      "hasStructuralAnalysis": false
     },
     ".ua/.trash-1786690380/assemble-review.json": {
       "filePath": ".ua/.trash-1786690380/assemble-review.json",
@@ -2989,12 +2979,12 @@
     },
     ".ua/fingerprints.json": {
       "filePath": ".ua/fingerprints.json",
-      "contentHash": "3802a7f6604db535cecbd277f7ee2af1d918841398419db039ab4590aa5bfc07",
+      "contentHash": "091978d1b4da0aed612752e8dd2069fbd0183a6c7aec4ff4bbe1c4284e19cbaf",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 27179,
+      "totalLines": 31537,
       "hasStructuralAnalysis": true
     },
     ".ua/intermediate/scan-result.json": {
@@ -3009,17 +2999,17 @@
     },
     ".ua/knowledge-graph.json": {
       "filePath": ".ua/knowledge-graph.json",
-      "contentHash": "6d794b32832cc15b87fa851afd883a983a3b13ac5130454dd38564739315cc78",
+      "contentHash": "77694d04b05e40971c54eca0712767957ffd3332be16f228e57746413afce660",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 55262,
+      "totalLines": 54863,
       "hasStructuralAnalysis": true
     },
     ".ua/meta.json": {
       "filePath": ".ua/meta.json",
-      "contentHash": "4080514ad298dbb85e5704db6b6f9869d75f8417856d80506e56ea4e38b5dd84",
+      "contentHash": "5e1df0d04b55eb0c7f0a39423c14ef77788071408984f4961ab96b69c81e9055",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3029,7 +3019,7 @@
     },
     "ARCHITECTURE.md": {
       "filePath": "ARCHITECTURE.md",
-      "contentHash": "2168d7c9912c95831426ea8f91fb720b05d5c73752927c0a530c117f746eed09",
+      "contentHash": "ddf6209b337252642ca18a3e65b92c21a4352f064b328c3d7adf54b77d122de5",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3039,12 +3029,12 @@
     },
     "CHANGELOG.md": {
       "filePath": "CHANGELOG.md",
-      "contentHash": "778c22e5ee306e1ef370635d337adbb7a72febe664c0bd1350b9e71f9d96d5ee",
+      "contentHash": "caadfa93f13ab40db8b58aed013441c244d2675a3942e2fd6ee9007f3d1654fb",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 40,
+      "totalLines": 58,
       "hasStructuralAnalysis": true
     },
     "CODE_OF_CONDUCT.md": {
@@ -3059,32 +3049,32 @@
     },
     "Dockerfile": {
       "filePath": "Dockerfile",
-      "contentHash": "8bab31fd100397afac8678ba1baf81f7c01792b8c70c34789fb425ab7f15cb42",
+      "contentHash": "713f8fb46ef39bed164e75e961c2b4b822de7a67e6fbfe89d347a371aefb51ae",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 88,
+      "totalLines": 94,
       "hasStructuralAnalysis": true
     },
     "README.md": {
       "filePath": "README.md",
-      "contentHash": "61f73e0b1a29aadd7ea27ea9f2b23bb4726b6c8ffd0f03ccfc0d72b8b23482f9",
+      "contentHash": "d9eccc61f83b9fd2040544f30b3bc6989f0f25a09f00eda847787fdabbfcc99e",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 920,
+      "totalLines": 933,
       "hasStructuralAnalysis": true
     },
     "SECURITY.md": {
       "filePath": "SECURITY.md",
-      "contentHash": "6ec6199cfa0e1cef4c921585bf0196f123d52bc9c6821fd578eb0013ded7241e",
+      "contentHash": "01f1abc9b08691d67d0e427e6a4510091d38e1414ba5326e34f547ae8dd3e1f7",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 39,
+      "totalLines": 43,
       "hasStructuralAnalysis": true
     },
     "alembic.ini": {
@@ -3099,7 +3089,7 @@
     },
     "benchmarks/promptfoo/agent_eval.yaml": {
       "filePath": "benchmarks/promptfoo/agent_eval.yaml",
-      "contentHash": "61287db63fb5660840825acd961e3cd9a9122b81657ad6dab22477652693d0c7",
+      "contentHash": "bdbce266489f213fd78b013660864d7581e3069d808587e372048d676a3e705a",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3109,7 +3099,7 @@
     },
     "benchmarks/promptfoo/promptfooconfig.yaml": {
       "filePath": "benchmarks/promptfoo/promptfooconfig.yaml",
-      "contentHash": "249c1d2e508b38f25e0fc00a41b9a26b7b42b1624aaa33dbb43ba2f80c8c3c9b",
+      "contentHash": "f019908c42e8f6fbd425b330b117faffba0bcfe78e43e7ff21de90774060bdc8",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3565,7 +3555,7 @@
     },
     "benchmarks/promptfoo/rag_eval.yaml": {
       "filePath": "benchmarks/promptfoo/rag_eval.yaml",
-      "contentHash": "510e0f5aeef9db2f865a0a9100030c30a6416d4b92d96c4c3414867f3fe33ec8",
+      "contentHash": "a67749b78b193a9120ed870bc1a1034d0beb65aa4e378c70cf7e8b0ac15b0574",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3585,7 +3575,7 @@
     },
     "benchmarks/promptfoo/redteam.yaml": {
       "filePath": "benchmarks/promptfoo/redteam.yaml",
-      "contentHash": "13c9e95c9a049a0df2967ece253b09b0775d363768ae6565db6af6484d52fba3",
+      "contentHash": "e4ca38527318300e325c4c1a74fcc4ad2c6f20862ab778f3a89f2c362a2400fd",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3645,7 +3635,7 @@
     },
     "crew-content-pipeline/app/agents.py": {
       "filePath": "crew-content-pipeline/app/agents.py",
-      "contentHash": "56d5d392ea91c89e88f7a04ae48d48d2afef04018e0c9a869ab007851c1a75a3",
+      "contentHash": "7122dee38181f82d6198857a4cca2aec3750b8678ad65ae1c62ba7b7ea4e59c1",
       "functions": [
         {
           "name": "build_researcher",
@@ -3855,7 +3845,7 @@
     },
     "crew-content-pipeline/architecture.md": {
       "filePath": "crew-content-pipeline/architecture.md",
-      "contentHash": "b206a202986fd1b94bf0eb2763d1f60630a3946aad76b02cd34c2e53f69910e8",
+      "contentHash": "d792801896acfd61cfcc0213f8426a78827f14fb78e70cc83707070c1372bbcc",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3865,7 +3855,7 @@
     },
     "crew-content-pipeline/tasks.md": {
       "filePath": "crew-content-pipeline/tasks.md",
-      "contentHash": "b0b71d87f8e08b580d9ad2e4ede3f1f60a5b2595fc6a71d06b822c89250769dd",
+      "contentHash": "737427785ded1477c95ce17634b8a6a6d4fdae106dd2367d9cc2a610cf32d4a8",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -3905,7 +3895,7 @@
     },
     "crew-hiring-system/app/agents.py": {
       "filePath": "crew-hiring-system/app/agents.py",
-      "contentHash": "fb0e3649aa24dc66c862de084e14e544fbf85fe14901a39640b25ac1f9bbb4b6",
+      "contentHash": "5b8f1f2afd1dc3af5dcba1f9e82c40bdffd006d9c19d41698e5627da2c7524a1",
       "functions": [
         {
           "name": "build_resume_screener",
@@ -4239,7 +4229,7 @@
     },
     "crew-hiring-system/architecture.md": {
       "filePath": "crew-hiring-system/architecture.md",
-      "contentHash": "38e5e885b55a578c5148e4bdba34b39d14632b19fa806f94cabfcbeac6f59360",
+      "contentHash": "afde4d27019aea57105e05775977364f206691da4f2fe0fcdf74c9ea101740eb",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -4249,7 +4239,7 @@
     },
     "crew-hiring-system/tasks.md": {
       "filePath": "crew-hiring-system/tasks.md",
-      "contentHash": "f396b399963a000505021b95eaefba5332b2ed5234bb8b6944bb6f2e2258de88",
+      "contentHash": "b951f43bd64f0f27b84cb0835dce991087300b879b0253c874ffe604c2ca98dd",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -4289,7 +4279,7 @@
     },
     "crew-investment-analyst/app/agents.py": {
       "filePath": "crew-investment-analyst/app/agents.py",
-      "contentHash": "83bf41d10d88fedcfa281e2e7f5fddf4ed58937dae2103e318c7d4fb347a4cba",
+      "contentHash": "dd3c96d74ec1ea0171d1f1898bfc6d77beb9249298b6959819dee09a3399f878",
       "functions": [
         {
           "name": "build_market_analyst",
@@ -4541,7 +4531,7 @@
     },
     "crew-investment-analyst/architecture.md": {
       "filePath": "crew-investment-analyst/architecture.md",
-      "contentHash": "5894846069b488f1eb8656b84f847a7972db3359d8dd7d80ba676cf704438dad",
+      "contentHash": "6a904d5c5e6457043fa006870efd59cc49f6f52641d5c31788d5afc3db85f62c",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -4551,7 +4541,7 @@
     },
     "crew-investment-analyst/tasks.md": {
       "filePath": "crew-investment-analyst/tasks.md",
-      "contentHash": "75b409e52ccd9295b919d7ee9bcd397d1aa5103ab19cacf6f00d92a54958fa24",
+      "contentHash": "1270b772b9a31db65195b2ddbab53c3e598166c5a45e88b8fdcb284ea34ccdbf",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -4591,7 +4581,7 @@
     },
     "crew-product-launch/app/agents.py": {
       "filePath": "crew-product-launch/app/agents.py",
-      "contentHash": "023486fe9e3fa4bdc18779403e97f38ab3deff30c253757b9267b8187808b880",
+      "contentHash": "62568ee17073418550ae8bec955400dc3932166ce09f477a8fc583baa3f45b18",
       "functions": [
         {
           "name": "build_market_researcher",
@@ -4828,7 +4818,7 @@
     },
     "crew-product-launch/architecture.md": {
       "filePath": "crew-product-launch/architecture.md",
-      "contentHash": "2d0405a782d7bf28572b95126de34cc1a080b2f0e3afff05d84fad6ddf6bc787",
+      "contentHash": "67589e09630fa612f0c93eb8831a4c700485cfdb8edfa9633b4a17d5e41f2c68",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -4838,7 +4828,7 @@
     },
     "crew-product-launch/tasks.md": {
       "filePath": "crew-product-launch/tasks.md",
-      "contentHash": "4568aa701926bfa11e899bc6538451a6c7f181ff2cdec309ca8aa7223996023f",
+      "contentHash": "500f1c6fe26e6ff5cb655cd10abc2f5936159cc0b49d5c94ca16d9857c97296b",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -4878,7 +4868,7 @@
     },
     "crew-startup-simulator/app/agents.py": {
       "filePath": "crew-startup-simulator/app/agents.py",
-      "contentHash": "b8d0caae5e7294ae23e567fe03115cb5dde477b39a326c29ff7ab067b2d0ae05",
+      "contentHash": "00011c08bb1ddb418dd9f7999e24d110298cfb088a8f01a81fc568ec2d03c3dd",
       "functions": [
         {
           "name": "build_ceo",
@@ -5150,7 +5140,7 @@
     },
     "crew-startup-simulator/architecture.md": {
       "filePath": "crew-startup-simulator/architecture.md",
-      "contentHash": "09808554ff530e10abf62beef57c022f947a514353b15e2c32fa68086ab9b162",
+      "contentHash": "0ea19516bb6fc7bab40a71bf736f52bbb2896eb9ced1865b5f7db9e1a85e72aa",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -5160,7 +5150,7 @@
     },
     "crew-startup-simulator/tasks.md": {
       "filePath": "crew-startup-simulator/tasks.md",
-      "contentHash": "d9701a81c6f1462e9954b97aa2202103cbf7dba32358d170457286adec5753cb",
+      "contentHash": "f855015d5b99afefef7ec4c561afa8965f70bed0816c362f55e25386271c27af",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -5823,7 +5813,7 @@
     },
     "genai-browser-agent/app/perception.py": {
       "filePath": "genai-browser-agent/app/perception.py",
-      "contentHash": "8d93be4230b3981e05e2b759fa18c9834878289b5076752fd072bb0e7756e44d",
+      "contentHash": "18bab6337b3c425b64c11d3675b4279455f7da7afc385c5a1632ee7734eb854a",
       "functions": [
         {
           "name": "get_observation",
@@ -5901,7 +5891,7 @@
     },
     "genai-browser-agent/app/planner.py": {
       "filePath": "genai-browser-agent/app/planner.py",
-      "contentHash": "64a8fa72e45d91fd0ec839a7792b51a281a106c7a84d83b829946d1deaae981f",
+      "contentHash": "c77d46af31b4965490d4936af76bd9a5d9c2f715da16f64a786e51fed06c1724",
       "functions": [
         {
           "name": "decide_next_action",
@@ -5932,7 +5922,7 @@
     },
     "genai-browser-agent/architecture.md": {
       "filePath": "genai-browser-agent/architecture.md",
-      "contentHash": "cc34c8ce257c1df30cc93e31353ec5fe6a9380e05d622a84f1aac4e3f30761c4",
+      "contentHash": "a0814dd5cfa3ee8b8b79eee30971837a5a9ebd2cbc80702cffbc6c0996c6c5d6",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -5942,7 +5932,7 @@
     },
     "genai-browser-agent/tasks.md": {
       "filePath": "genai-browser-agent/tasks.md",
-      "contentHash": "169ec2320088d26c29556b5cb35dd75425e42141f150320fca0a8cbfeb7ff34c",
+      "contentHash": "4e5944240ad86b8ac30a98044857933b291b3ef5f8273aa9dd6d0b801d2ccdfe",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -5972,7 +5962,7 @@
     },
     "genai-clinical-assistant/app/extractor.py": {
       "filePath": "genai-clinical-assistant/app/extractor.py",
-      "contentHash": "175a7c2f4ae9a1f333e35ce8136a3d1ae15f779d3871eadfc4a949e7f7810ada",
+      "contentHash": "1b5a1e05842767cdccf91c563b1cce669c950755e8cc89b3831e3ceba821c543",
       "functions": [
         {
           "name": "extract_patient_info",
@@ -6001,7 +5991,7 @@
     },
     "genai-clinical-assistant/app/formatter.py": {
       "filePath": "genai-clinical-assistant/app/formatter.py",
-      "contentHash": "4dedb83524e2a6b02eda716aa972526ed8c3e848219a7e0e6ddb3a405db08912",
+      "contentHash": "a97016b378887336e51d0308f61bb1dfd1be3668681eb97cc35f31d735a083e4",
       "functions": [
         {
           "name": "_format_condition_block",
@@ -6139,7 +6129,7 @@
     },
     "genai-clinical-assistant/app/reasoner.py": {
       "filePath": "genai-clinical-assistant/app/reasoner.py",
-      "contentHash": "5ae44429167868719ee74e8926c3784fec0b5f2927336646f2f4509254d3c0cf",
+      "contentHash": "346d7bb619489cb6200bbb97847592c8013170cdd6236963f017bac770732e94",
       "functions": [
         {
           "name": "_format_patient",
@@ -7014,7 +7004,7 @@
     },
     "genai-code-copilot/app/qa_agent.py": {
       "filePath": "genai-code-copilot/app/qa_agent.py",
-      "contentHash": "5d4121086558e661b19bc66d8b0491b3c6b1de2df0b48b2d27d13d415f1236d2",
+      "contentHash": "e9fd2040a66fdd16571dccb0787aabae975c683c1e546619be665b998464a23c",
       "functions": [
         {
           "name": "_load_symbol",
@@ -7134,7 +7124,7 @@
     },
     "genai-code-copilot/architecture.md": {
       "filePath": "genai-code-copilot/architecture.md",
-      "contentHash": "a7b5e1c1e3a2aae55415a27fdb2ae20d7d74cd6a14557dd1d35e480938c16e2d",
+      "contentHash": "22f989dba68e2b3d58546cbeffc1c47f350c7520fd876229b4cd96ee552e67e6",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -7144,7 +7134,7 @@
     },
     "genai-code-copilot/tasks.md": {
       "filePath": "genai-code-copilot/tasks.md",
-      "contentHash": "90d9865c38727d846d6fa49f6e69df32f900028f00b6791eda6b053ebb2b82e1",
+      "contentHash": "297f4ac3edd5f07c20012310416b491a3d170ea8f1f4670c7dff421ed65088ce",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -7355,7 +7345,7 @@
     },
     "genai-doc-intelligence/app/extractor.py": {
       "filePath": "genai-doc-intelligence/app/extractor.py",
-      "contentHash": "17961c65fc26b134ce5f516028a67e846742392070ea4b1a8d53744f2234fd78",
+      "contentHash": "edf5cbedcead2ce8a04a37d8e36ec55174cfd8d42e5dd82912715691a67bf6c2",
       "functions": [
         {
           "name": "extract_key_information",
@@ -7536,7 +7526,7 @@
     },
     "genai-doc-intelligence/app/qa_engine.py": {
       "filePath": "genai-doc-intelligence/app/qa_engine.py",
-      "contentHash": "aa0021741fe4d911fbdb312ca9227e3a78c3c1dd922f938d323ed3da96c6b43d",
+      "contentHash": "c9e30cb3e5e353a00379dd2e7003032031a3fa1346f8eb7d41e97eae46e83d13",
       "functions": [
         {
           "name": "_build_prompt",
@@ -7577,7 +7567,7 @@
     },
     "genai-doc-intelligence/app/retriever.py": {
       "filePath": "genai-doc-intelligence/app/retriever.py",
-      "contentHash": "15fa3a31915ad3208addcf438e24e49feed60d6e6076526a5bf6cc14b74c2c7a",
+      "contentHash": "21ecb1b33c201ed51b83422fb9163af3d49709edfdec96157663a62d99e7aab7",
       "functions": [
         {
           "name": "init_store",
@@ -7796,7 +7786,7 @@
     },
     "genai-doc-intelligence/tasks.md": {
       "filePath": "genai-doc-intelligence/tasks.md",
-      "contentHash": "59d0787f5f05bf225e088af43bd7dc4dcbb54b9ca00de952615da04459ce5523",
+      "contentHash": "95e8b0ecc572c1edc1d930580682124bfaee790bd7d5d74bf9d8543238af08f1",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -7836,7 +7826,7 @@
     },
     "genai-financial-analyst/app/analyzer.py": {
       "filePath": "genai-financial-analyst/app/analyzer.py",
-      "contentHash": "7f0a52bcd474d9d2cf435765d68b7f85303850c0d371f3fef609449799d813cb",
+      "contentHash": "8713712fe2c823957e45e7a783ccc6083c312ad46f110d9c5b3ec5a1c23d05e8",
       "functions": [
         {
           "name": "analyze_metrics",
@@ -8047,7 +8037,7 @@
     },
     "genai-financial-analyst/app/reporter.py": {
       "filePath": "genai-financial-analyst/app/reporter.py",
-      "contentHash": "12c2edd30a3113219d1059bb9d288f2eba2357ecc06e5fc9cea3c63fba46d734",
+      "contentHash": "89a0432d3493102db8e165bfc58d5d67959c7a2da634d3027d3fb2c176990ce2",
       "functions": [
         {
           "name": "generate_report",
@@ -8076,7 +8066,7 @@
     },
     "genai-financial-analyst/architecture.md": {
       "filePath": "genai-financial-analyst/architecture.md",
-      "contentHash": "c72d657a71821997e83d70248fce137499842e3971b5850534b8b8caac144cf4",
+      "contentHash": "81cee5f3e8e59eb533545b28cfe8969825010f57b98a41a93736c01b70e8dadc",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -8106,7 +8096,7 @@
     },
     "genai-financial-analyst/tasks.md": {
       "filePath": "genai-financial-analyst/tasks.md",
-      "contentHash": "f966a86e51b270fb0206920dd891accc4677bbf89dd67535d69f49e749af4133",
+      "contentHash": "01782e184ddfabbdafe0addd05131cf8c7f16656558ea5081b80a86cdda24edd",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -8169,7 +8159,7 @@
     },
     "genai-interviewer/app/evaluator.py": {
       "filePath": "genai-interviewer/app/evaluator.py",
-      "contentHash": "0259be70bd10ed7a32fce1c886e9777e7e78fa388b1822391532d4e405b5ea7b",
+      "contentHash": "d330bba9d804fb68fdc00336c875c5070719ba56c2e62509d39cbfe6f1c64a08",
       "functions": [
         {
           "name": "_get_rubric",
@@ -8210,7 +8200,7 @@
     },
     "genai-interviewer/app/feedback.py": {
       "filePath": "genai-interviewer/app/feedback.py",
-      "contentHash": "425316f92b0b1350bab1391238562bef01df7b7bf5d0f940f6baed1cbad6ac99",
+      "contentHash": "2b30b368abe73e910ab780b211ce0da72967cccc5f78832f4405482e5ceb1fd7",
       "functions": [
         {
           "name": "generate_feedback",
@@ -8417,7 +8407,7 @@
     },
     "genai-interviewer/app/question_generator.py": {
       "filePath": "genai-interviewer/app/question_generator.py",
-      "contentHash": "4eb00301c29edbc534c2bbaa368c757406561437ea78f5ad536fa673260c7f67",
+      "contentHash": "9b41a02ce1e685c32c0b44bd26368762a490b872107b49597d0fbeb39ca1c50f",
       "functions": [
         {
           "name": "_build_history_block",
@@ -8523,7 +8513,7 @@
     },
     "genai-interviewer/app/voice.py": {
       "filePath": "genai-interviewer/app/voice.py",
-      "contentHash": "9c0627b37d69f577344b9e35050521c6d88736cb42074b73ec5261154e09909d",
+      "contentHash": "37c394cabc04db2c86b567d85c1b41c692dbb1921bf78d42ef7e3ca4d4e2f634",
       "functions": [
         {
           "name": "_require_sounddevice",
@@ -8664,7 +8654,7 @@
     },
     "genai-interviewer/architecture.md": {
       "filePath": "genai-interviewer/architecture.md",
-      "contentHash": "7f492d17bfcbd7489800f25b39d36e13068ae61b791ef8ffafd58998ad301f60",
+      "contentHash": "253015c53916aadc5e8bc56d0b7800bf34496506b2a46ef909a8ca9e69aabd6c",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -8674,7 +8664,7 @@
     },
     "genai-interviewer/tasks.md": {
       "filePath": "genai-interviewer/tasks.md",
-      "contentHash": "84ab2334c9661c32b8cc68d08da49fd971d79856bc78531cd12eed9af0e88389",
+      "contentHash": "b36029a81b8d85297ff8e0663e56ffc2beacea37cd920b93db35816d4c670953",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -8845,7 +8835,7 @@
     },
     "genai-knowledge-os/app/insight_engine.py": {
       "filePath": "genai-knowledge-os/app/insight_engine.py",
-      "contentHash": "bbde8974785c7b7d5e79070a289aec60359cc280c76fc7691ba905f9a863725f",
+      "contentHash": "ce5998b4050b3192d3e7c6d659476adcbbd57e62bddc56907532bf3bfe93e4c7",
       "functions": [
         {
           "name": "generate_insights",
@@ -8874,7 +8864,7 @@
     },
     "genai-knowledge-os/app/knowledge_graph.py": {
       "filePath": "genai-knowledge-os/app/knowledge_graph.py",
-      "contentHash": "528042afb0c19ba2397b5bfbb3a98f4b24135eec1b61e0fe5f06ea0f4866c9d1",
+      "contentHash": "89f997ee75d59af79230c4e0eb6ba81da11fa2ea6bd0b0d3d4822a933bd0e7fb",
       "functions": [],
       "classes": [
         {
@@ -9169,7 +9159,7 @@
     },
     "genai-knowledge-os/app/summarizer.py": {
       "filePath": "genai-knowledge-os/app/summarizer.py",
-      "contentHash": "572d6a73baf3a3b5c14785044a698270fbfff2d2bec2ff92dd443d98bf72e7ea",
+      "contentHash": "d9fd30222d10890e70abc5ba8869ace4b047a324dd88934fdd44c8917747f678",
       "functions": [
         {
           "name": "summarize",
@@ -9256,7 +9246,7 @@
     },
     "genai-knowledge-os/architecture.md": {
       "filePath": "genai-knowledge-os/architecture.md",
-      "contentHash": "ed96944be2f0c3c87ae6e122678722c88e37e384e433a16197bbdc8e56a23093",
+      "contentHash": "683dadf7567f3a4801ab0f40bc8ef9eb2d763fc2b9b2ed9362a41934aac674b0",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -9316,7 +9306,7 @@
     },
     "genai-knowledge-os/tasks.md": {
       "filePath": "genai-knowledge-os/tasks.md",
-      "contentHash": "a95d31cc62389a9569ffd1413922a85b68a5f1b530f58c5b6d1607b121d48949",
+      "contentHash": "34183af2225092c1689ac41aab8585e4b44bc999be4f51be07a01d6cc4e86de2",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -9356,7 +9346,7 @@
     },
     "genai-nl2sql-agent/app/agent.py": {
       "filePath": "genai-nl2sql-agent/app/agent.py",
-      "contentHash": "6401a48e77a70bfb704b0561551aeabfd00e5623faedd539371c7dfcc2603788",
+      "contentHash": "14ae9bb5ce89147cce0c9130873b8436cfdea0b4d3226d14197a855bbddc454b",
       "functions": [
         {
           "name": "_load_symbol",
@@ -9627,7 +9617,7 @@
     },
     "genai-nl2sql-agent/app/sql_generator.py": {
       "filePath": "genai-nl2sql-agent/app/sql_generator.py",
-      "contentHash": "dfa21f089c5a991967b11699ade0ec8cd323e9123772a7ce31736572abc7a377",
+      "contentHash": "70160298777e73906e4bbae302b0d744300144c59e4d0657194c35cabfddab1f",
       "functions": [
         {
           "name": "_build_prompt",
@@ -9746,7 +9736,7 @@
     },
     "genai-nl2sql-agent/architecture.md": {
       "filePath": "genai-nl2sql-agent/architecture.md",
-      "contentHash": "b63f9ce10b03b7c4bfd6c4bfc0c640c0167bba099ae87af8a3f576d155152887",
+      "contentHash": "062071681e7a1ddbb7b0c017921e6ceb4e2a4224408c5150b9011dde2fb5a53b",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -9756,7 +9746,7 @@
     },
     "genai-nl2sql-agent/tasks.md": {
       "filePath": "genai-nl2sql-agent/tasks.md",
-      "contentHash": "c57abff60f0b5e15e40745e3cada7472804252e50c3f817336d8625677cdc84b",
+      "contentHash": "6a7de3d643270e6688d52cff69933ce0feed54519bd1bbc020dc5d8387d90f4c",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -9885,7 +9875,7 @@
     },
     "genai-research-system/app/critic.py": {
       "filePath": "genai-research-system/app/critic.py",
-      "contentHash": "8d830dda9b7182ce5adee3c4602aab0d3eb33f589ac1c50298ce1c7a486f777b",
+      "contentHash": "e8fcf6d4d8f7f44c400c5cd70dfe59e670829f4d722f9e1759bfc73b87b3183c",
       "functions": [
         {
           "name": "critique",
@@ -10781,7 +10771,7 @@
     },
     "genai-research-system/app/planner.py": {
       "filePath": "genai-research-system/app/planner.py",
-      "contentHash": "c5b00c7d43b9e9bc6e056d1f4579ace38650839d86ec736246d17e6558cccd4e",
+      "contentHash": "8437735017f6136535ff0a2d158a1c69a2d3642d0c87143a06888851a11fa905",
       "functions": [
         {
           "name": "create_plan",
@@ -10842,7 +10832,7 @@
     },
     "genai-research-system/app/researcher.py": {
       "filePath": "genai-research-system/app/researcher.py",
-      "contentHash": "735634dd4a900c59eb9f7df2126c0e173547af31c962fe3b2904bf4938996169",
+      "contentHash": "79de943a84e4766a90863e5f315d83f0c21bcd7599ac98dc4dd8d9ade8fe93f6",
       "functions": [
         {
           "name": "research_task",
@@ -10984,7 +10974,7 @@
     },
     "genai-research-system/app/state.py": {
       "filePath": "genai-research-system/app/state.py",
-      "contentHash": "977cc62e02af6c78496a836effb6ea95aedb2f3448865895abc86aed50c64149",
+      "contentHash": "b5b179d03d8daf3fe72460e1a9e9e7416e3e0898c9d825efbecc270a4616a50b",
       "functions": [
         {
           "name": "initial_state",
@@ -11063,7 +11053,7 @@
     },
     "genai-research-system/app/writer.py": {
       "filePath": "genai-research-system/app/writer.py",
-      "contentHash": "ee93d214631f1a1a729430a535652dbfb6542acbbed5458707f397be78891f49",
+      "contentHash": "50e279c0075ddd44867366a5e896c553927dcf9f274d5a93eb79fead2d397e94",
       "functions": [
         {
           "name": "write_report",
@@ -11116,7 +11106,7 @@
     },
     "genai-research-system/architecture.md": {
       "filePath": "genai-research-system/architecture.md",
-      "contentHash": "be47645c89a17fefd0807417f7ee0f9ee61ed5090bbf488fd748e4ce05a51778",
+      "contentHash": "ce125a169bdb4ad0111716ff6da643a81d30317060c76c6943d9bf70643623d6",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -11227,7 +11217,7 @@
     },
     "genai-research-system/tasks.md": {
       "filePath": "genai-research-system/tasks.md",
-      "contentHash": "d91f5418098d17004137179f0ea577aa806dd02827799d84b51f4fb2c587b3c3",
+      "contentHash": "052b071a83f8c4cd8a7e064792cb2e8a451527ee1687d931ec04aa338a46842c",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -11360,7 +11350,7 @@
     },
     "genai-ui-builder/app/fixer.py": {
       "filePath": "genai-ui-builder/app/fixer.py",
-      "contentHash": "a8b3c4b95d71dc3464d33ee16058f8ff4a2d3007cc6aa4ed67a0461457994224",
+      "contentHash": "b55702c797135f24776f6136c152f05aec7b1553d4f8222110a097517ad229ad",
       "functions": [
         {
           "name": "fix_code",
@@ -11568,7 +11558,7 @@
     },
     "genai-ui-builder/app/spec_generator.py": {
       "filePath": "genai-ui-builder/app/spec_generator.py",
-      "contentHash": "37b22a6fd0568a60787da58826ca1d0667ef51656c8f7d68f26bc400ceef81b3",
+      "contentHash": "7e3cffa3cb3442e8420df7ce9c0bcd6abfd5364b010759b5a59e91f80a44bf68",
       "functions": [
         {
           "name": "generate_spec",
@@ -11646,7 +11636,7 @@
     },
     "genai-ui-builder/architecture.md": {
       "filePath": "genai-ui-builder/architecture.md",
-      "contentHash": "c93c5dc52185fc195c8fdead420852ae06f6b0cd256dc1df33ff80b9c9bcca87",
+      "contentHash": "1c939e6e3f06f9dc373cfd08042cd969bdc3ebc850518efec1c7a551018bd681",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -11666,7 +11656,7 @@
     },
     "genai-ui-builder/tasks.md": {
       "filePath": "genai-ui-builder/tasks.md",
-      "contentHash": "38a4134803ec8e606211905d4e13a88b5a4b9e135eb1e8e00f6c5d339b1d0f3c",
+      "contentHash": "b0e638113a4284ee8664ac204223996e942e400e2156fdcb6cb5e491863e310d",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -11696,12 +11686,12 @@
     },
     "graphify-out/.graphify_labels.json": {
       "filePath": "graphify-out/.graphify_labels.json",
-      "contentHash": "605cd391dfd4e910eec7fd5473b14268128b41ac0196422bd91ff41d86dbe961",
+      "contentHash": "362aaf11f1e1aed35059293dfd56ae94260d826b0ce9f3c20ed7d8727b9163d3",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 1,
+      "totalLines": 262,
       "hasStructuralAnalysis": true
     },
     "graphify-out/.graphify_python": {
@@ -11716,7 +11706,7 @@
     },
     "graphify-out/.graphify_root": {
       "filePath": "graphify-out/.graphify_root",
-      "contentHash": "b26125cc203fd8b6774e643476e4a15fd9f63955b286b0a5d7a5ef53fd8d9101",
+      "contentHash": "cdb4ee2aea69cc6a83331bbe96dc2caa9a299d21329efb0336fc02a82e1839a8",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -11726,12 +11716,12 @@
     },
     "graphify-out/GRAPH_REPORT.md": {
       "filePath": "graphify-out/GRAPH_REPORT.md",
-      "contentHash": "2615c91056c0a35e87570312f734a9db8c8abc501b4b380f26e2eb483a9d4cf5",
+      "contentHash": "7928d37cd5f3445e46356cb23038f42f9f419904eb399858face0be8ceecc161",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 759,
+      "totalLines": 957,
       "hasStructuralAnalysis": true
     },
     "graphify-out/cache/ast/v0.9.35/001fcccd54191cb272c613805d4d88a7b686642061b13a4f2c9b16820d15d9b0.json": {
@@ -15636,7 +15626,7 @@
     },
     "graphify-out/cache/stat-index.json": {
       "filePath": "graphify-out/cache/stat-index.json",
-      "contentHash": "16ea7443035ce1f048fd8e190d9b73a7c979aa8c9b25e5ec968f3068c4522ec4",
+      "contentHash": "969944e14a4ea75da8ff0b491c4574bff14665675b24eca2337e5ebb38ba9243",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -15656,7 +15646,7 @@
     },
     "graphify-out/graph.html": {
       "filePath": "graphify-out/graph.html",
-      "contentHash": "982b8a9637707f9a6f2b14603987f93e0db38787add048e8945eb782f03a1faf",
+      "contentHash": "23772c4215e563ed599fc797342efc4a258b0026aecb892dc71fbe50b4bf42a6",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -15666,27 +15656,27 @@
     },
     "graphify-out/graph.json": {
       "filePath": "graphify-out/graph.json",
-      "contentHash": "d9cac702843202d7e2474e8e204358e94ebd9b9a48317d768d707e4cdb427845",
+      "contentHash": "a9064cd6fef93242efa979e9100386ede8b0acce82064d458bdb18e01e179fc6",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 93710,
+      "totalLines": 102616,
       "hasStructuralAnalysis": true
     },
     "graphify-out/manifest.json": {
       "filePath": "graphify-out/manifest.json",
-      "contentHash": "7951128480749eb9d65595cf89015c2ed4de79f3d60bc4fa576ae2d03d4f407e",
+      "contentHash": "8b2788bab3716fc0d41228259eeaafe2f19fe262acf3f2828e70d71b9baf4754",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 3447,
+      "totalLines": 5092,
       "hasStructuralAnalysis": true
     },
     "langgraph-data-analyst/.env.example": {
       "filePath": "langgraph-data-analyst/.env.example",
-      "contentHash": "5a00b775355c8c812e965ed1bf137a66d24f5b74eea5e50dbf6acb936f58b9e9",
+      "contentHash": "a110d38ca0fbe4a76275dd97857c1a894d636aa7a9a0e3b91513ff703a68c564",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -15716,7 +15706,7 @@
     },
     "langgraph-data-analyst/requirements.txt": {
       "filePath": "langgraph-data-analyst/requirements.txt",
-      "contentHash": "84cf0e68542b12bfe6fd525095e0f91f3ae7f40f4a596a4134be68f254a494cd",
+      "contentHash": "7cd1524625b57022c4c9da97cf6e899d678bea42697fd948f788499023e931e6",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -15969,7 +15959,7 @@
     },
     "langgraph-data-analyst/src/api/app.py": {
       "filePath": "langgraph-data-analyst/src/api/app.py",
-      "contentHash": "89e883dab7d48b26eea356cf1de711384ca1387a3a8fbb91716b224b39f104ac",
+      "contentHash": "8bcab56aa6317598abe5037a1e7453c9b571bed091130c14db72db85210fd1eb",
       "functions": [
         {
           "name": "analyze",
@@ -16061,7 +16051,7 @@
     },
     "langgraph-data-analyst/src/config/settings.py": {
       "filePath": "langgraph-data-analyst/src/config/settings.py",
-      "contentHash": "98d29248a24833f707cfa05d58eb12aed71779d26fb4253113aa68d47eaae676",
+      "contentHash": "7f7999ac39e7834d2efb62aeabf5eb85af82c6482bc3cd6a7a1c9f8caad88ddc",
       "functions": [
         {
           "name": "setup_logging",
@@ -16284,7 +16274,7 @@
     },
     "langgraph-data-analyst/src/llm/client.py": {
       "filePath": "langgraph-data-analyst/src/llm/client.py",
-      "contentHash": "20ed30d145ed13906652988385dbe369b57e29cfe04dafc57d7561d348ebb005",
+      "contentHash": "23e2d380cb8ea92e5e8c4d0ef256975fd4e50719bb2ee52a6758dfd2e9a3a7c9",
       "functions": [
         {
           "name": "_client",
@@ -17574,7 +17564,7 @@
     },
     "lg-data-agent/app/state.py": {
       "filePath": "lg-data-agent/app/state.py",
-      "contentHash": "05d619d3bd475f14dbc7d9441e301b75575c4cd85fa61d0305cfd536e8ea39c6",
+      "contentHash": "9680d211679123e5cd7e982e6848323c3cd4e631bd578ab22181a7f5ed0320e4",
       "functions": [
         {
           "name": "initial_state",
@@ -17622,7 +17612,7 @@
     },
     "lg-data-agent/architecture.md": {
       "filePath": "lg-data-agent/architecture.md",
-      "contentHash": "154bfc89eff6cf3e9c0e30b114be36df1fd236fb22065c8634c37bc072304962",
+      "contentHash": "c47eead0ee247a2bf9e1d2d1eb0d867883a5fdff875c05942cafe22b37867b15",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -17642,7 +17632,7 @@
     },
     "lg-data-agent/tasks.md": {
       "filePath": "lg-data-agent/tasks.md",
-      "contentHash": "983fa2b07084e81f7dbdbde6486e6cfd58a747ab6b4586d9833e1c1a5ea6aece",
+      "contentHash": "7e8e858c521c46e219d7fe70c38a0aa372f68240a1677af8d3990b3bca2d0943",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -18137,7 +18127,7 @@
     },
     "lg-debugging-agent/app/state.py": {
       "filePath": "lg-debugging-agent/app/state.py",
-      "contentHash": "4e3540319852e260c616da1c7b85ec24415165a4c486d8c587dbff60f795da17",
+      "contentHash": "da54b7e7c8b93472760d14f4cbb4f1d572bbf23f5ea112d92b70a1cd305609c7",
       "functions": [
         {
           "name": "initial_state",
@@ -18186,7 +18176,7 @@
     },
     "lg-debugging-agent/architecture.md": {
       "filePath": "lg-debugging-agent/architecture.md",
-      "contentHash": "eac6e3704a87814573f7a59d45dc32c7a90a1fe4d3f2ea644f029d6e611cf31c",
+      "contentHash": "5066cb3b10fff033dc1ce6f259bf346b5ca1ff74292aa813996938dfd0f84942",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -18196,7 +18186,7 @@
     },
     "lg-debugging-agent/tasks.md": {
       "filePath": "lg-debugging-agent/tasks.md",
-      "contentHash": "e17d4b85a3a321b8ef1dd80b42af8c18cf641c70f9c858e822897a4a0fcf4389",
+      "contentHash": "5dabe18ac3c644ee80db95163359087a73e3c2cd63cceef700ad889e8d866194",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -19174,7 +19164,7 @@
     },
     "lg-support-agent/app/state.py": {
       "filePath": "lg-support-agent/app/state.py",
-      "contentHash": "e518d5525ab1204c389150cdfb2140c7d3e44f895790eeac5a3172fe63f91c0a",
+      "contentHash": "138bab4a87607f53ebb284219daeb5290637f7192164b7caa08a75fe48b2cf3d",
       "functions": [
         {
           "name": "initial_state",
@@ -19222,7 +19212,7 @@
     },
     "lg-support-agent/architecture.md": {
       "filePath": "lg-support-agent/architecture.md",
-      "contentHash": "dc6d7306fa076df81cd2ba699551efa15d5b468be241ffab5fc4bfb8a9c60770",
+      "contentHash": "4acaf24f6cbdc84253bc32105961d822780f2424de7a9bb164462e3f70978596",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -19232,7 +19222,7 @@
     },
     "lg-support-agent/tasks.md": {
       "filePath": "lg-support-agent/tasks.md",
-      "contentHash": "f0e3ff07b2e2a05107294c4ad64b9e01d61cf491d8239354e1eca7c417e43f30",
+      "contentHash": "54ae7f12993d438df4a908c15f32001de0e203fcc3cc597b1074fe8b3de49977",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -19662,7 +19652,7 @@
     },
     "lg-workflow-agent/app/state.py": {
       "filePath": "lg-workflow-agent/app/state.py",
-      "contentHash": "6f5fe9d592e6780242c65d2407ded9ab995df9c98cd660fc70c3091a619f7755",
+      "contentHash": "b9eb16d52e4ac3bfe7eab1278a70f1a5c6dbac25b0f3b2793a14243e6231cdca",
       "functions": [
         {
           "name": "initial_state",
@@ -19899,7 +19889,7 @@
     },
     "lg-workflow-agent/architecture.md": {
       "filePath": "lg-workflow-agent/architecture.md",
-      "contentHash": "c362c7e4de0990d66983068a18aac225fcebcb42f47f45d57eec09e32b0ea2a5",
+      "contentHash": "9ad6b12b21d2b97530ca2d362114185474c7b92c824549c56f9530a8ccca7772",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -19909,7 +19899,7 @@
     },
     "lg-workflow-agent/tasks.md": {
       "filePath": "lg-workflow-agent/tasks.md",
-      "contentHash": "e980045d1cc8f32067e02e2daef20dfdb4cd5c150938d2b4cee3d200d1e299b1",
+      "contentHash": "514975b79aed829249e68d28dae24f887c6f5a75febb5738b0fec8b977259677",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -20034,22 +20024,22 @@
     },
     "portfolio/README.md": {
       "filePath": "portfolio/README.md",
-      "contentHash": "d56c3eb472fcde66e60b8cf7bac305a28b2e2190754cb3c6608142762c524ab5",
+      "contentHash": "45837393b1b7394a7d07e08181a5436ec512f04a46569b839f03678fe0d691e5",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 343,
+      "totalLines": 346,
       "hasStructuralAnalysis": true
     },
     "portfolio/USAGE.md": {
       "filePath": "portfolio/USAGE.md",
-      "contentHash": "c63162fb301872878d68452c7755d191b5f2106b559a62e511519d0e5e80fd57",
+      "contentHash": "2377a92c1b5264a43f2dbd980160e2c7f0d276621178d00115c26f4e05c9fbc4",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 647,
+      "totalLines": 655,
       "hasStructuralAnalysis": true
     },
     "portfolio/eslint.config.mjs": {
@@ -20115,7 +20105,7 @@
     },
     "portfolio/package.json": {
       "filePath": "portfolio/package.json",
-      "contentHash": "7ac43828b6a854fa92db8fc2841a8a62aaf483f6b9647d1eb38d2ead7464ab3a",
+      "contentHash": "7118ac189ee594763be5debdaa77c51f6a80c41834a9ffeccbaab06eeac32222",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -20729,13 +20719,13 @@
     },
     "portfolio/src/app/model-compare/page.tsx": {
       "filePath": "portfolio/src/app/model-compare/page.tsx",
-      "contentHash": "a6f049321c37cd4d2f25cb06f59e0a40e7c35d35058edb397f25ed036a9d545c",
+      "contentHash": "c39cbc8cbf2b38bc21c2c17fd153bdb9d3de4d01cdaef56b993a05dfd7e664d8",
       "functions": [
         {
           "name": "ModelComparePage",
           "params": [],
           "exported": true,
-          "lineCount": 32
+          "lineCount": 112
         }
       ],
       "classes": [],
@@ -20743,13 +20733,23 @@
         {
           "source": "react",
           "specifiers": [
+            "useEffect",
             "useState"
+          ]
+        },
+        {
+          "source": "@/components/llm-cost",
+          "specifiers": [
+            "ModelPricingSummary",
+            "UsageCostSummary"
           ]
         },
         {
           "source": "@/lib/api",
           "specifiers": [
+            "fetchLLMCatalog",
             "runProject",
+            "LLMCatalogResponse",
             "ProjectRunResponse"
           ]
         },
@@ -20758,12 +20758,18 @@
           "specifiers": [
             "LLMProviderId"
           ]
+        },
+        {
+          "source": "@/lib/llm-catalog",
+          "specifiers": [
+            "findProviderInfo"
+          ]
         }
       ],
       "exports": [
         "ModelComparePage"
       ],
-      "totalLines": 46,
+      "totalLines": 122,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/app/not-found.tsx": {
@@ -20865,13 +20871,13 @@
     },
     "portfolio/src/app/playground/playground-client.tsx": {
       "filePath": "portfolio/src/app/playground/playground-client.tsx",
-      "contentHash": "684fb7ccc11439327515f4178601ca9852f1e5c61f80ec1fcdd220d2c964c458",
+      "contentHash": "3045d2f93802d07838681f413b95d920b8607eb585b3f12a4172c0df7db0a518",
       "functions": [
         {
           "name": "PlaygroundClient",
           "params": [],
           "exported": true,
-          "lineCount": 419
+          "lineCount": 435
         }
       ],
       "classes": [],
@@ -20927,8 +20933,10 @@
         {
           "source": "@/lib/llm-catalog",
           "specifiers": [
+            "findModelInfo",
             "findProviderForModel",
-            "findProviderInfo"
+            "findProviderInfo",
+            "normalizeModelEffort"
           ]
         },
         {
@@ -20996,12 +21004,12 @@
       "exports": [
         "PlaygroundClient"
       ],
-      "totalLines": 450,
+      "totalLines": 466,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/app/playground/playground-conversation-panel.tsx": {
       "filePath": "portfolio/src/app/playground/playground-conversation-panel.tsx",
-      "contentHash": "20df22048d4c542ec032c4f43f1c173f773feded3a8e54d7cc3b48333db3b723",
+      "contentHash": "07bb7c6fa3c8e643c5b2667d8769b88e967b16ca172a85a71b58f451692f04aa",
       "functions": [
         {
           "name": "ErrorDisplay",
@@ -21017,7 +21025,7 @@
             "{\r\n  confidence,\r\n  conversationStarted,\r\n  errorMsg,\r\n  inputMode,\r\n  inputPreview,\r\n  keyMetrics,\r\n  latency,\n  usage,\n  output,\r\n  selected,\r\n  status,\r\n  streamChunks,\r\n  streamMode,\r\n  streamPanelRef,\r\n  streamText,\r\n  textOutput,\r\n  usedSessionContext,\r\n  workspaceState,\r\n}"
           ],
           "exported": true,
-          "lineCount": 186
+          "lineCount": 192
         }
       ],
       "classes": [],
@@ -21033,6 +21041,12 @@
           "source": "@/components/confidence-indicator",
           "specifiers": [
             "ConfidenceIndicator"
+          ]
+        },
+        {
+          "source": "@/components/llm-cost",
+          "specifiers": [
+            "UsageCostSummary"
           ]
         },
         {
@@ -21075,7 +21089,7 @@
       "exports": [
         "PlaygroundConversationPanel"
       ],
-      "totalLines": 251,
+      "totalLines": 258,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/app/playground/playground-graph-panel.tsx": {
@@ -21197,7 +21211,7 @@
     },
     "portfolio/src/app/playground/playground-sidebar.tsx": {
       "filePath": "portfolio/src/app/playground/playground-sidebar.tsx",
-      "contentHash": "98f4edb1cca5832eb6b3f7c1fb2f1295aec99997414603d37f99f9fd95c2da9e",
+      "contentHash": "79f0cb1db8d32dbca31a07bd4805a5e7366383d99d231378d608a2ab28575deb",
       "functions": [
         {
           "name": "ConfirmModal",
@@ -21240,10 +21254,10 @@
         {
           "name": "PlaygroundSidebar",
           "params": [
-            "{\r\n  activeExplanationRunId,\r\n  activeReplayRunId,\r\n  activeSessionId,\r\n  authToken,\r\n  clearingSession,\r\n  canRun,\r\n  errorMsg,\r\n  explainingRunId,\r\n  hasSessionContext,\r\n  historyError,\r\n  historyLoading,\r\n  historyRuns,\r\n  input,\r\n  inputMode,\r\n  textModeAvailable,\r\n  onInputModeChange,\r\n  isActive,\r\n  keyFocused,\r\n  llmCatalog,\r\n  llmCatalogError,\r\n  llmCatalogLoading,\r\n  onApiKeyChange,\r\n  onClearSession,\r\n  onHistoryExplain,\r\n  onHistoryReplay,\r\n  onHistoryRerun,\r\n  onInputChange,\r\n  onKeyFocusedChange,\r\n  onLogout,\r\n  onModelChange,\r\n  onProjectChange,\r\n  onRun,\r\n  onShare,\r\n  onStop,\r\n  onStreamModeChange,\r\n  onUnshare,\r\n  providerAvailable,\r\n  providerUnavailableReason,\r\n  runExplanations,\r\n  selected,\r\n  selectedApiKey,\r\n  selectedModel,\r\n  selectedProvider,\r\n  selectedProviderInfo,\r\n  selectedSlug,\r\n  sessionEntries,\r\n  sessionLoading,\r\n  sharingRunId,\r\n  streamMode,\r\n}"
+            "{\r\n  activeExplanationRunId,\r\n  activeReplayRunId,\r\n  activeSessionId,\r\n  authToken,\r\n  clearingSession,\r\n  canRun,\r\n  errorMsg,\r\n  explainingRunId,\r\n  hasSessionContext,\r\n  historyError,\r\n  historyLoading,\r\n  historyRuns,\r\n  input,\r\n  inputMode,\r\n  textModeAvailable,\r\n  onInputModeChange,\r\n  isActive,\r\n  keyFocused,\r\n  llmCatalog,\r\n  llmCatalogError,\r\n  llmCatalogLoading,\r\n  onApiKeyChange,\r\n  onClearSession,\r\n  onHistoryExplain,\r\n  onHistoryReplay,\r\n  onHistoryRerun,\r\n  onInputChange,\r\n  onKeyFocusedChange,\r\n  onLogout,\r\n  onModelChange,\n  onEffortChange,\n  onProjectChange,\r\n  onRun,\r\n  onShare,\r\n  onStop,\r\n  onStreamModeChange,\r\n  onUnshare,\r\n  providerAvailable,\r\n  providerUnavailableReason,\r\n  runExplanations,\r\n  selected,\r\n  selectedApiKey,\r\n  selectedModel,\n  selectedEffort,\n  selectedProvider,\r\n  selectedProviderInfo,\r\n  selectedSlug,\r\n  sessionEntries,\r\n  sessionLoading,\r\n  sharingRunId,\r\n  streamMode,\r\n}"
           ],
           "exported": true,
-          "lineCount": 511
+          "lineCount": 538
         }
       ],
       "classes": [],
@@ -21266,6 +21280,13 @@
           "source": "@/components/confidence-indicator",
           "specifiers": [
             "ConfidenceIndicator"
+          ]
+        },
+        {
+          "source": "@/components/llm-cost",
+          "specifiers": [
+            "formatUsd",
+            "ModelPricingSummary"
           ]
         },
         {
@@ -21296,6 +21317,12 @@
           ]
         },
         {
+          "source": "@/lib/llm-catalog",
+          "specifiers": [
+            "findModelInfo"
+          ]
+        },
+        {
           "source": "./playground-utils",
           "specifiers": [
             "categoryBadgeTone",
@@ -21313,7 +21340,7 @@
       "exports": [
         "PlaygroundSidebar"
       ],
-      "totalLines": 711,
+      "totalLines": 743,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/app/playground/playground-utils.test.ts": {
@@ -21958,7 +21985,7 @@
     },
     "portfolio/src/app/playground/use-playground-run.ts": {
       "filePath": "portfolio/src/app/playground/use-playground-run.ts",
-      "contentHash": "b7db961f42704d47727896b75c9b2fbac7b689708338161e33fb7ffb8c873018",
+      "contentHash": "65e868a70af3c6979555a07c76402097199f5fb285c563759a5cc97b4b11638b",
       "functions": [
         {
           "name": "isTextModeEligible",
@@ -21975,7 +22002,7 @@
             "deps"
           ],
           "exported": true,
-          "lineCount": 567
+          "lineCount": 568
         }
       ],
       "classes": [],
@@ -22050,7 +22077,7 @@
       "exports": [
         "usePlaygroundRun"
       ],
-      "totalLines": 620,
+      "totalLines": 621,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/app/projects/[slug]/page.tsx": {
@@ -22145,7 +22172,7 @@
     },
     "portfolio/src/app/projects/[slug]/project-demo.tsx": {
       "filePath": "portfolio/src/app/projects/[slug]/project-demo.tsx",
-      "contentHash": "31c8300ecef076eb04a09052aefd798cbf9a49eee9d23a4ed531709db42927ea",
+      "contentHash": "b45c55ff63554a93c27be470101ab61962c4ed586e7df34c1c751bed5083431b",
       "functions": [
         {
           "name": "formatResult",
@@ -22161,7 +22188,7 @@
             "{\r\n  apiEndpoint,\r\n  exampleInput,\r\n  title,\r\n  description,\r\n  ctaLabel,\r\n}"
           ],
           "exported": true,
-          "lineCount": 358
+          "lineCount": 393
         }
       ],
       "classes": [],
@@ -22192,7 +22219,8 @@
           "source": "@/lib/api",
           "specifiers": [
             "LLMCatalogResponse",
-            "LLMRequestOptions"
+            "LLMRequestOptions",
+            "RunUsage"
           ]
         },
         {
@@ -22224,10 +22252,19 @@
           ]
         },
         {
+          "source": "@/components/llm-cost",
+          "specifiers": [
+            "ModelPricingSummary",
+            "UsageCostSummary"
+          ]
+        },
+        {
           "source": "@/lib/llm-catalog",
           "specifiers": [
+            "findModelInfo",
             "findProviderForModel",
-            "findProviderInfo"
+            "findProviderInfo",
+            "normalizeModelEffort"
           ]
         },
         {
@@ -22240,7 +22277,7 @@
       "exports": [
         "ProjectDemo"
       ],
-      "totalLines": 387,
+      "totalLines": 424,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/app/projects/page.tsx": {
@@ -23083,7 +23120,7 @@
     },
     "portfolio/src/components/onboarding-modal.tsx": {
       "filePath": "portfolio/src/components/onboarding-modal.tsx",
-      "contentHash": "d57a5a47f29fadb4394742ea5f7e8d0e4e48cfbb5283d6adbc2c50a184781ba2",
+      "contentHash": "b5bcac52370452aa5f852f491195864e945a37bc080c8872026d3bd185d1be5a",
       "functions": [
         {
           "name": "OnboardingModal",
@@ -23273,7 +23310,7 @@
     },
     "portfolio/src/lib/api.ts": {
       "filePath": "portfolio/src/lib/api.ts",
-      "contentHash": "70e00488b6987736cc025f2c276a6765dd7d7af79ddf28aba684301df17329fb",
+      "contentHash": "c031ef39d078d3ccaf5f15a331afd59fd0dcf6cb5ff7b4be423172229eb353bc",
       "functions": [
         {
           "name": "normalizeApiBase",
@@ -23338,7 +23375,7 @@
           ],
           "returnType": "HeadersInit",
           "exported": false,
-          "lineCount": 23
+          "lineCount": 27
         },
         {
           "name": "parseErrorMessage",
@@ -23586,7 +23623,7 @@
         "fetchSharedRun",
         "streamProject"
       ],
-      "totalLines": 841,
+      "totalLines": 878,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/lib/apikey.test.ts": {
@@ -23633,7 +23670,7 @@
     },
     "portfolio/src/lib/apikey.ts": {
       "filePath": "portfolio/src/lib/apikey.ts",
-      "contentHash": "3853ae22a3f038ccf8bf8443459df4a91867dd40f9613f3cca9f9858aa34c34c",
+      "contentHash": "65b4c6525c5e3040fd5ed82de450fbe7e7c2d0c6e1b797179765c221069e7ee7",
       "functions": [
         {
           "name": "getStoredApiKeys",
@@ -23682,7 +23719,7 @@
           ],
           "returnType": "void",
           "exported": true,
-          "lineCount": 6
+          "lineCount": 7
         }
       ],
       "classes": [],
@@ -23695,7 +23732,7 @@
         "getStoredLLMSelection",
         "setStoredLLMSelection"
       ],
-      "totalLines": 67,
+      "totalLines": 70,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/lib/auth.ts": {
@@ -23744,7 +23781,7 @@
     },
     "portfolio/src/lib/llm-catalog.ts": {
       "filePath": "portfolio/src/lib/llm-catalog.ts",
-      "contentHash": "a59d4c2a2ef9b08bfa6bc9ec15c91e2b24820cb48c02c1f5e5241c65ce1277ca",
+      "contentHash": "b083502d0664110a6371d305918bd16377ab6821a81eb376d14ac3732475dedf",
       "functions": [
         {
           "name": "findProviderForModel",
@@ -23765,6 +23802,26 @@
           "returnType": "LLMProviderInfo | null",
           "exported": true,
           "lineCount": 6
+        },
+        {
+          "name": "findModelInfo",
+          "params": [
+            "catalog",
+            "modelId"
+          ],
+          "returnType": "LLMModelOption | null",
+          "exported": true,
+          "lineCount": 10
+        },
+        {
+          "name": "normalizeModelEffort",
+          "params": [
+            "model",
+            "effort"
+          ],
+          "returnType": "string",
+          "exported": true,
+          "lineCount": 3
         }
       ],
       "classes": [],
@@ -23773,6 +23830,7 @@
           "source": "@/lib/api",
           "specifiers": [
             "LLMCatalogResponse",
+            "LLMModelOption",
             "LLMProviderInfo"
           ]
         },
@@ -23785,9 +23843,11 @@
       ],
       "exports": [
         "findProviderForModel",
-        "findProviderInfo"
+        "findProviderInfo",
+        "findModelInfo",
+        "normalizeModelEffort"
       ],
-      "totalLines": 22,
+      "totalLines": 39,
       "hasStructuralAnalysis": true
     },
     "portfolio/src/lib/session.ts": {
@@ -23850,7 +23910,7 @@
     },
     "pyproject.toml": {
       "filePath": "pyproject.toml",
-      "contentHash": "c82fce93ab07f8ac7aa4d406a15f9c40d7c0c3cc9ad561e32f07ed89e31c2e79",
+      "contentHash": "573197fcdcaf0508f32da9a51c83e04ae5f7c0d39fc7d1177ed79b065e53520b",
       "functions": [],
       "classes": [],
       "imports": [],
@@ -23860,12 +23920,12 @@
     },
     "requirements.txt": {
       "filePath": "requirements.txt",
-      "contentHash": "d0c410577580a203bf8442a93057ac70fd30a5761ba8ed6b797973d2a4db7df4",
+      "contentHash": "6898ad80a840fa536bfab3f7807775fada57384e3d4f695d6b832a298382fcd7",
       "functions": [],
       "classes": [],
       "imports": [],
       "exports": [],
-      "totalLines": 33,
+      "totalLines": 34,
       "hasStructuralAnalysis": false
     },
     "shared/__init__.py": {
@@ -23901,7 +23961,7 @@
     },
     "shared/api/app.py": {
       "filePath": "shared/api/app.py",
-      "contentHash": "1666ca59dd994831f6adec3006db59fe53dae84468d9d91d578291eefc2eb91a",
+      "contentHash": "32322b4ca81ccb6b0f639365295574310e2c9497842f8a1b24eb509a66caa96c",
       "functions": [
         {
           "name": "_env_flag",
@@ -24228,7 +24288,7 @@
           ],
           "returnType": "FastAPI",
           "exported": true,
-          "lineCount": 847
+          "lineCount": 854
         }
       ],
       "classes": [
@@ -24311,7 +24371,7 @@
           ],
           "properties": [],
           "exported": true,
-          "lineCount": 101
+          "lineCount": 122
         }
       ],
       "imports": [
@@ -24547,12 +24607,15 @@
           "source": "shared.config",
           "specifiers": [
             "get_effective_api_key",
+            "get_request_effort",
             "get_request_model",
             "get_request_provider",
             "reset_byok_api_key",
+            "reset_request_effort",
             "reset_request_model",
             "reset_request_provider",
             "set_byok_api_key",
+            "set_request_effort",
             "set_request_model",
             "set_request_provider"
           ]
@@ -24570,7 +24633,8 @@
             "build_provider_catalog",
             "get_model_spec",
             "infer_provider",
-            "provider_requires_api_key"
+            "provider_requires_api_key",
+            "validate_model_effort"
           ]
         },
         {
@@ -24670,7 +24734,7 @@
         "BYOKMiddleware",
         "create_app"
       ],
-      "totalLines": 1899,
+      "totalLines": 1927,
       "hasStructuralAnalysis": true
     },
     "shared/api/auth.py": {
@@ -25490,7 +25554,7 @@
     },
     "shared/api/jobs.py": {
       "filePath": "shared/api/jobs.py",
-      "contentHash": "c02fefdf4ecd916f4da3519f7ef76a3f3c8753dd1d03f40f51890d0926c7fed8",
+      "contentHash": "3a7ca1c0895c8515ba72828c18cf2e97d25745126888bcc8d64977d76f11900f",
       "functions": [
         {
           "name": "redis_connection",
@@ -25532,11 +25596,12 @@
             "project",
             "model",
             "provider",
+            "effort",
             "api_key"
           ],
           "returnType": "None",
           "exported": true,
-          "lineCount": 5
+          "lineCount": 13
         },
         {
           "name": "execute_job",
@@ -25544,11 +25609,12 @@
             "job_id",
             "project",
             "model",
-            "provider"
+            "provider",
+            "effort"
           ],
           "returnType": "None",
           "exported": true,
-          "lineCount": 28
+          "lineCount": 30
         },
         {
           "name": "cancel_job",
@@ -25622,9 +25688,11 @@
           "source": "shared.config",
           "specifiers": [
             "reset_byok_api_key",
+            "reset_request_effort",
             "reset_request_model",
             "reset_request_provider",
             "set_byok_api_key",
+            "set_request_effort",
             "set_request_model",
             "set_request_provider"
           ]
@@ -25657,7 +25725,7 @@
         "execute_job",
         "cancel_job"
       ],
-      "totalLines": 106,
+      "totalLines": 118,
       "hasStructuralAnalysis": true
     },
     "shared/api/langgraph_events.py": {
@@ -25843,7 +25911,7 @@
     },
     "shared/api/run_explainer.py": {
       "filePath": "shared/api/run_explainer.py",
-      "contentHash": "b2910340333cd32464a10fa8ec035421350983fe8267f707e109d8a6a4601ddb",
+      "contentHash": "f6e5fa2192a42f9e7971a8c21a53bbbc52e293abcb52b9441ada7a686adcb1d5",
       "functions": [
         {
           "name": "_strip_tag_markers",
@@ -25950,7 +26018,7 @@
         "_format_timeline",
         "build_run_explanation"
       ],
-      "totalLines": 172,
+      "totalLines": 173,
       "hasStructuralAnalysis": true
     },
     "shared/api/runner.py": {
@@ -26549,7 +26617,7 @@
     },
     "shared/config.py": {
       "filePath": "shared/config.py",
-      "contentHash": "9d02a9b0d81308e1f69b3f6f67477ae046eca485b7ef04b0c171ad1b489e53f5",
+      "contentHash": "346a3b526f8ee82d944a32d3947a1b1fa80a1ab6993d8362d7fa0f4d030411e5",
       "functions": [
         {
           "name": "set_byok_api_key",
@@ -26614,6 +26682,31 @@
         },
         {
           "name": "get_request_provider",
+          "params": [],
+          "returnType": "str | None",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "set_request_effort",
+          "params": [
+            "effort"
+          ],
+          "returnType": "Token[str | None]",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "reset_request_effort",
+          "params": [
+            "token"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 3
+        },
+        {
+          "name": "get_request_effort",
           "params": [],
           "returnType": "str | None",
           "exported": true,
@@ -26706,7 +26799,7 @@
             "project_models"
           ],
           "exported": true,
-          "lineCount": 48
+          "lineCount": 45
         }
       ],
       "imports": [
@@ -26773,6 +26866,9 @@
         "set_request_provider",
         "reset_request_provider",
         "get_request_provider",
+        "set_request_effort",
+        "reset_request_effort",
+        "get_request_effort",
         "get_effective_api_key",
         "get_effective_model",
         "Settings",
@@ -26783,7 +26879,7 @@
         "get_environment",
         "get_model"
       ],
-      "totalLines": 209,
+      "totalLines": 223,
       "hasStructuralAnalysis": true
     },
     "shared/eval/__init__.py": {
@@ -26831,7 +26927,7 @@
     },
     "shared/eval/benchmarks.py": {
       "filePath": "shared/eval/benchmarks.py",
-      "contentHash": "73fb6f0be49a5c03af470c45d1e37d4eabdca7e75f6c622a9a1a4ccb534d2f48",
+      "contentHash": "048032049bdce956f127a5eaf0715fc5cefb5060835f68f2e0af18e0e4f694b6",
       "functions": [
         {
           "name": "_contains_any",
@@ -27244,7 +27340,7 @@
     },
     "shared/llm/catalog.py": {
       "filePath": "shared/llm/catalog.py",
-      "contentHash": "53c235fccbd4cc13bffdba22cd092d400f8d229e3514acf9b463eb032f6e984f",
+      "contentHash": "9da7827fe71982c246221c337f8db1c479fd4103f3ff0322c6b7221c4cba7bca",
       "functions": [
         {
           "name": "default_model",
@@ -27297,7 +27393,7 @@
           ],
           "returnType": "ProviderId",
           "exported": true,
-          "lineCount": 15
+          "lineCount": 17
         },
         {
           "name": "get_model_spec",
@@ -27306,18 +27402,41 @@
           ],
           "returnType": "ModelSpec",
           "exported": true,
-          "lineCount": 11
+          "lineCount": 12
+        },
+        {
+          "name": "validate_model_effort",
+          "params": [
+            "model",
+            "effort"
+          ],
+          "returnType": "str | None",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
+          "name": "calculate_model_cost",
+          "params": [
+            "model",
+            "input_tokens",
+            "output_tokens",
+            "cached_input_tokens"
+          ],
+          "returnType": "dict[str, Any] | None",
+          "exported": true,
+          "lineCount": 50
         },
         {
           "name": "estimate_model_cost",
           "params": [
             "model",
             "input_tokens",
-            "output_tokens"
+            "output_tokens",
+            "cached_input_tokens"
           ],
           "returnType": "float | None",
           "exported": true,
-          "lineCount": 9
+          "lineCount": 14
         },
         {
           "name": "provider_requires_api_key",
@@ -27344,7 +27463,7 @@
           ],
           "returnType": "tuple[list[ModelSpec], str | None]",
           "exported": true,
-          "lineCount": 34
+          "lineCount": 35
         },
         {
           "name": "build_provider_catalog",
@@ -27356,16 +27475,38 @@
       ],
       "classes": [
         {
+          "name": "PricingSpec",
+          "methods": [],
+          "properties": [
+            "input_per_million_usd",
+            "output_per_million_usd",
+            "as_of",
+            "details",
+            "cached_input_per_million_usd",
+            "batch_input_per_million_usd",
+            "batch_output_per_million_usd",
+            "long_context_threshold_tokens",
+            "long_context_input_per_million_usd",
+            "long_context_output_per_million_usd",
+            "fast_input_per_million_usd",
+            "fast_output_per_million_usd",
+            "promotion_ends_on"
+          ],
+          "exported": true,
+          "lineCount": 14
+        },
+        {
           "name": "ModelSpec",
           "methods": [],
           "properties": [
             "id",
             "label",
             "provider",
+            "effort_options",
             "pricing"
           ],
           "exported": true,
-          "lineCount": 5
+          "lineCount": 6
         },
         {
           "name": "ProviderSpec",
@@ -27403,6 +27544,7 @@
           "specifiers": [
             "Any",
             "Literal",
+            "NotRequired",
             "TypedDict",
             "cast"
           ]
@@ -27421,6 +27563,7 @@
         }
       ],
       "exports": [
+        "PricingSpec",
         "ModelSpec",
         "ProviderSpec",
         "default_model",
@@ -27431,18 +27574,20 @@
         "ollama_embedding_model",
         "infer_provider",
         "get_model_spec",
+        "validate_model_effort",
+        "calculate_model_cost",
         "estimate_model_cost",
         "provider_requires_api_key",
         "_fetch_ollama_tags",
         "list_ollama_models",
         "build_provider_catalog"
       ],
-      "totalLines": 236,
+      "totalLines": 415,
       "hasStructuralAnalysis": true
     },
     "shared/llm/dispatch.py": {
       "filePath": "shared/llm/dispatch.py",
-      "contentHash": "1071c610bd17fa3ec0513a964816d733f9bd58b31efd4dab5569d7077831731c",
+      "contentHash": "ec42fb99fa2785b9c1f4a1fd4e8f5c29024f7d4b23bd3fac20b9f4189715eb3d",
       "functions": [
         {
           "name": "_resolved_model",
@@ -27481,6 +27626,16 @@
           "lineCount": 10
         },
         {
+          "name": "_requests_audio",
+          "params": [
+            "config",
+            "unsupported_kind"
+          ],
+          "returnType": "bool",
+          "exported": true,
+          "lineCount": 9
+        },
+        {
           "name": "_normalize_contents",
           "params": [
             "contents"
@@ -27506,7 +27661,7 @@
           ],
           "returnType": "None",
           "exported": true,
-          "lineCount": 15
+          "lineCount": 23
         },
         {
           "name": "generate_text",
@@ -27517,7 +27672,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 27
+          "lineCount": 29
         },
         {
           "name": "generate_text_streaming",
@@ -27527,7 +27682,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 23
+          "lineCount": 25
         },
         {
           "name": "generate_structured",
@@ -27538,7 +27693,7 @@
           ],
           "returnType": "dict[str, Any]",
           "exported": true,
-          "lineCount": 27
+          "lineCount": 29
         },
         {
           "name": "generate_text_from_image",
@@ -27549,7 +27704,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 27
+          "lineCount": 29
         },
         {
           "name": "generate_embeddings",
@@ -27566,7 +27721,7 @@
           "params": [],
           "returnType": "Any",
           "exported": true,
-          "lineCount": 5
+          "lineCount": 2
         }
       ],
       "classes": [
@@ -27606,7 +27761,7 @@
           ],
           "properties": [],
           "exported": true,
-          "lineCount": 37
+          "lineCount": 40
         },
         {
           "name": "CompatClient",
@@ -27665,8 +27820,8 @@
         {
           "source": ".catalog",
           "specifiers": [
+            "calculate_model_cost",
             "default_model",
-            "estimate_model_cost",
             "gemini_embedding_model",
             "infer_provider"
           ]
@@ -27694,7 +27849,11 @@
             "openai_generate_structured",
             "openai_generate_text",
             "openai_generate_text_from_image",
-            "openai_stream_text"
+            "openai_stream_text",
+            "xai_generate_structured",
+            "xai_generate_text",
+            "xai_generate_text_from_image",
+            "xai_stream_text"
           ]
         },
         {
@@ -27720,6 +27879,7 @@
         "_resolved_provider",
         "_extract_temperature",
         "_extract_schema",
+        "_requests_audio",
         "_normalize_contents",
         "_consume_trace_details",
         "_record_run_usage",
@@ -27732,7 +27892,7 @@
         "CompatClient",
         "get_client_adapter"
       ],
-      "totalLines": 334,
+      "totalLines": 365,
       "hasStructuralAnalysis": true
     },
     "shared/llm/exceptions.py": {
@@ -27858,7 +28018,7 @@
     },
     "shared/llm/gemini_provider.py": {
       "filePath": "shared/llm/gemini_provider.py",
-      "contentHash": "87ddfdcb870b20b9608aab317d3d511621a4799e9f58077ba967437f26844ff1",
+      "contentHash": "417ba34401f6d8672b0eee44c75c4c49764336d86f57c915ef4ba8ab8035955c",
       "functions": [
         {
           "name": "_record_usage_metadata",
@@ -27886,13 +28046,20 @@
           "lineCount": 5
         },
         {
+          "name": "_thinking_config",
+          "params": [],
+          "returnType": "types.ThinkingConfig | None",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
           "name": "_should_retry",
           "params": [
             "exc"
           ],
           "returnType": "bool",
           "exported": true,
-          "lineCount": 8
+          "lineCount": 6
         },
         {
           "name": "_sleep_for_attempt",
@@ -27933,7 +28100,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 7
+          "lineCount": 9
         },
         {
           "name": "stream_text",
@@ -27944,7 +28111,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 15
+          "lineCount": 17
         },
         {
           "name": "generate_structured",
@@ -27955,7 +28122,7 @@
           ],
           "returnType": "dict[str, Any]",
           "exported": true,
-          "lineCount": 23
+          "lineCount": 24
         },
         {
           "name": "_vision_request_single",
@@ -27966,7 +28133,7 @@
           ],
           "returnType": "types.GenerateContentResponse",
           "exported": true,
-          "lineCount": 62
+          "lineCount": 68
         },
         {
           "name": "generate_text_from_image",
@@ -28022,7 +28189,8 @@
         {
           "source": "shared.config",
           "specifiers": [
-            "get_effective_api_key"
+            "get_effective_api_key",
+            "get_request_effort"
           ]
         },
         {
@@ -28049,6 +28217,7 @@
         "_record_usage_metadata",
         "_get_client",
         "_validate_model",
+        "_thinking_config",
         "_should_retry",
         "_sleep_for_attempt",
         "_request_content_single",
@@ -28059,12 +28228,12 @@
         "_vision_request_single",
         "generate_text_from_image"
       ],
-      "totalLines": 306,
+      "totalLines": 320,
       "hasStructuralAnalysis": true
     },
     "shared/llm/providers.py": {
       "filePath": "shared/llm/providers.py",
-      "contentHash": "6d82652eecd07716adbe1a2cdd95287fd21c39625d005aaeec9bd1dbc8d11d5b",
+      "contentHash": "805b3025a185e4162b4b969ad0c8be531118568c1a3acf85f642ffdfdbbe0b1d",
       "functions": [
         {
           "name": "_http_client",
@@ -28206,11 +28375,41 @@
         {
           "name": "_extract_openai_text",
           "params": [
-            "payload"
+            "payload",
+            "provider_label"
           ],
           "returnType": "str",
           "exported": true,
           "lineCount": 26
+        },
+        {
+          "name": "_responses_headers",
+          "params": [],
+          "returnType": "dict[str, str]",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
+          "name": "_apply_responses_effort",
+          "params": [
+            "payload"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 4
+        },
+        {
+          "name": "_responses_generate_text",
+          "params": [
+            "prompt",
+            "model",
+            "url",
+            "provider_label",
+            "temperature"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 15
         },
         {
           "name": "openai_generate_text",
@@ -28221,7 +28420,30 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 14
+          "lineCount": 8
+        },
+        {
+          "name": "xai_generate_text",
+          "params": [
+            "prompt",
+            "model",
+            "temperature"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "_responses_stream_text",
+          "params": [
+            "prompt",
+            "model",
+            "emit",
+            "url"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 21
         },
         {
           "name": "openai_stream_text",
@@ -28232,7 +28454,31 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 21
+          "lineCount": 2
+        },
+        {
+          "name": "xai_stream_text",
+          "params": [
+            "prompt",
+            "model",
+            "emit"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "_responses_generate_structured",
+          "params": [
+            "prompt",
+            "model",
+            "schema",
+            "url",
+            "provider_label"
+          ],
+          "returnType": "dict[str, Any]",
+          "exported": true,
+          "lineCount": 31
         },
         {
           "name": "openai_generate_structured",
@@ -28243,7 +28489,31 @@
           ],
           "returnType": "dict[str, Any]",
           "exported": true,
-          "lineCount": 27
+          "lineCount": 8
+        },
+        {
+          "name": "xai_generate_structured",
+          "params": [
+            "prompt",
+            "model",
+            "schema"
+          ],
+          "returnType": "dict[str, Any]",
+          "exported": true,
+          "lineCount": 8
+        },
+        {
+          "name": "_responses_generate_text_from_image",
+          "params": [
+            "prompt",
+            "image",
+            "model",
+            "url",
+            "provider_label"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 24
         },
         {
           "name": "openai_generate_text_from_image",
@@ -28254,7 +28524,18 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 20
+          "lineCount": 8
+        },
+        {
+          "name": "xai_generate_text_from_image",
+          "params": [
+            "prompt",
+            "image",
+            "model"
+          ],
+          "returnType": "str",
+          "exported": true,
+          "lineCount": 8
         },
         {
           "name": "openai_embed_texts",
@@ -28275,6 +28556,15 @@
           "lineCount": 17
         },
         {
+          "name": "_apply_anthropic_effort",
+          "params": [
+            "payload"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 5
+        },
+        {
           "name": "anthropic_generate_text",
           "params": [
             "prompt",
@@ -28283,7 +28573,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 16
+          "lineCount": 17
         },
         {
           "name": "anthropic_stream_text",
@@ -28294,7 +28584,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 23
+          "lineCount": 30
         },
         {
           "name": "anthropic_generate_structured",
@@ -28305,7 +28595,7 @@
           ],
           "returnType": "dict[str, Any]",
           "exported": true,
-          "lineCount": 27
+          "lineCount": 28
         },
         {
           "name": "anthropic_generate_text_from_image",
@@ -28316,7 +28606,7 @@
           ],
           "returnType": "str",
           "exported": true,
-          "lineCount": 29
+          "lineCount": 30
         },
         {
           "name": "ollama_generate_text",
@@ -28454,7 +28744,8 @@
         {
           "source": "shared.config",
           "specifiers": [
-            "get_effective_api_key"
+            "get_effective_api_key",
+            "get_request_effort"
           ]
         },
         {
@@ -28495,12 +28786,23 @@
         "_normalize_schema",
         "_data_url",
         "_extract_openai_text",
+        "_responses_headers",
+        "_apply_responses_effort",
+        "_responses_generate_text",
         "openai_generate_text",
+        "xai_generate_text",
+        "_responses_stream_text",
         "openai_stream_text",
+        "xai_stream_text",
+        "_responses_generate_structured",
         "openai_generate_structured",
+        "xai_generate_structured",
+        "_responses_generate_text_from_image",
         "openai_generate_text_from_image",
+        "xai_generate_text_from_image",
         "openai_embed_texts",
         "_extract_anthropic_text",
+        "_apply_anthropic_effort",
         "anthropic_generate_text",
         "anthropic_stream_text",
         "anthropic_generate_structured",
@@ -28512,12 +28814,12 @@
         "ollama_embed_texts",
         "local_hash_embeddings"
       ],
-      "totalLines": 727,
+      "totalLines": 836,
       "hasStructuralAnalysis": true
     },
     "shared/llm/telemetry.py": {
       "filePath": "shared/llm/telemetry.py",
-      "contentHash": "e242cc298dfe63d9e786c2596ece63cb7c3f8cbd507e60b4f9d7ac8cf075f1d3",
+      "contentHash": "d59ce5f3a8cc58b9ea3de584aa7ba22ce7b65136552f4c9cb4e2845dfc2094a0",
       "functions": [
         {
           "name": "clear_llm_call_metadata",
@@ -28563,7 +28865,7 @@
           "params": [],
           "returnType": "dict[str, Any] | None",
           "exported": true,
-          "lineCount": 19
+          "lineCount": 45
         }
       ],
       "classes": [],
@@ -28589,7 +28891,7 @@
         "record_llm_run_call",
         "consume_llm_run_usage"
       ],
-      "totalLines": 69,
+      "totalLines": 95,
       "hasStructuralAnalysis": true
     },
     "shared/llm/token_events.py": {
@@ -29435,7 +29737,7 @@
     },
     "shared/schemas/common.py": {
       "filePath": "shared/schemas/common.py",
-      "contentHash": "75d6b91714d7997fbae658d054af621ec872a8da163dcb09b24b3e78287510e6",
+      "contentHash": "ee18b43fbe9dedd73cfa09269adef0b3a7591ddcf5da6f92ecb9d52c2d16fd51",
       "functions": [],
       "classes": [
         {
@@ -29496,6 +29798,25 @@
           "lineCount": 5
         },
         {
+          "name": "UsageCostBreakdownResponse",
+          "methods": [],
+          "properties": [
+            "model",
+            "pricing_tier",
+            "input_tokens",
+            "cached_input_tokens",
+            "output_tokens",
+            "input_rate_per_million_usd",
+            "cached_input_rate_per_million_usd",
+            "output_rate_per_million_usd",
+            "input_cost_usd",
+            "output_cost_usd",
+            "estimated_cost_usd"
+          ],
+          "exported": true,
+          "lineCount": 12
+        },
+        {
           "name": "UsageResponse",
           "methods": [],
           "properties": [
@@ -29503,10 +29824,11 @@
             "output_tokens",
             "total_tokens",
             "estimated_cost_usd",
-            "models_used"
+            "models_used",
+            "cost_breakdown"
           ],
           "exported": true,
-          "lineCount": 6
+          "lineCount": 7
         },
         {
           "name": "JobResponse",
@@ -29623,10 +29945,11 @@
             "id",
             "label",
             "provider",
+            "effort_options",
             "pricing"
           ],
           "exported": true,
-          "lineCount": 7
+          "lineCount": 8
         },
         {
           "name": "LLMProviderResponse",
@@ -29823,6 +30146,7 @@
         "ErrorDetail",
         "StatusResponse",
         "BaseRequest",
+        "UsageCostBreakdownResponse",
         "UsageResponse",
         "JobResponse",
         "RunMemoryEntryResponse",
@@ -29848,7 +30172,7 @@
         "MetricsResponse",
         "TimeSeriesMetricPointResponse"
       ],
-      "totalLines": 285,
+      "totalLines": 301,
       "hasStructuralAnalysis": true
     },
     "shared/utils/__init__.py": {
@@ -30180,7 +30504,7 @@
     },
     "tests/test_dockerfile_contract.py": {
       "filePath": "tests/test_dockerfile_contract.py",
-      "contentHash": "88ac3ba7f81dc4b8d6de9fc9b55b78bdc40face95b290037e3d1569cb11f410c",
+      "contentHash": "55519a32ed0cb33e9dd0469ce31f6390f280e6edc5f05b9cd08230dc94619098",
       "functions": [
         {
           "name": "dockerfile_text",
@@ -30267,6 +30591,15 @@
           "returnType": "None",
           "exported": true,
           "lineCount": 13
+        },
+        {
+          "name": "test_dockerfile_copies_shared_project_catalog",
+          "params": [
+            "dockerfile_text"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 5
         }
       ],
       "classes": [],
@@ -30300,9 +30633,10 @@
         "test_dockerfile_does_not_copy_env_files",
         "test_dockerfile_does_not_flatten_projects_via_globs",
         "test_dockerfile_copies_each_project_into_its_own_subdir",
-        "test_dockerfile_runs_as_non_root"
+        "test_dockerfile_runs_as_non_root",
+        "test_dockerfile_copies_shared_project_catalog"
       ],
-      "totalLines": 142,
+      "totalLines": 149,
       "hasStructuralAnalysis": true
     },
     "tests/test_jwt_roundtrip.py": {
@@ -30460,7 +30794,7 @@
     },
     "tests/test_llm_usage.py": {
       "filePath": "tests/test_llm_usage.py",
-      "contentHash": "5d800b0f94ada0c737b553b33cbbe999226a126ff7adc399c2ff5577f380ba8b",
+      "contentHash": "02c6e40094edb614021a23770c8752f12db119169c64d0147aa37d832ee81811",
       "functions": [
         {
           "name": "test_call_metadata_merges_model_and_usage",
@@ -30474,14 +30808,51 @@
           "params": [],
           "returnType": "None",
           "exported": true,
-          "lineCount": 15
+          "lineCount": 16
         },
         {
-          "name": "test_cost_is_unknown_without_verified_pricing",
+          "name": "test_catalog_contains_only_approved_hosted_models",
+          "params": [
+            "monkeypatch"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 16
+        },
+        {
+          "name": "test_model_effort_validation",
           "params": [],
           "returnType": "None",
           "exported": true,
-          "lineCount": 3
+          "lineCount": 10
+        },
+        {
+          "name": "test_luna_cost_uses_cached_input_rate",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 12
+        },
+        {
+          "name": "test_long_context_thresholds_apply_only_when_exceeded",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 11
+        },
+        {
+          "name": "test_cost_is_unknown_for_local_models",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 2
+        },
+        {
+          "name": "test_run_usage_groups_matching_cost_rows",
+          "params": [],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 26
         }
       ],
       "classes": [],
@@ -30489,7 +30860,12 @@
         {
           "source": "shared.llm.catalog",
           "specifiers": [
-            "estimate_model_cost"
+            "build_provider_catalog",
+            "calculate_model_cost",
+            "default_model",
+            "estimate_model_cost",
+            "infer_provider",
+            "validate_model_effort"
           ]
         },
         {
@@ -30506,14 +30882,19 @@
       "exports": [
         "test_call_metadata_merges_model_and_usage",
         "test_run_usage_aggregates_calls",
-        "test_cost_is_unknown_without_verified_pricing"
+        "test_catalog_contains_only_approved_hosted_models",
+        "test_model_effort_validation",
+        "test_luna_cost_uses_cached_input_rate",
+        "test_long_context_thresholds_apply_only_when_exceeded",
+        "test_cost_is_unknown_for_local_models",
+        "test_run_usage_groups_matching_cost_rows"
       ],
-      "totalLines": 40,
+      "totalLines": 132,
       "hasStructuralAnalysis": true
     },
     "tests/test_native_streaming.py": {
       "filePath": "tests/test_native_streaming.py",
-      "contentHash": "0e74faaf15ad63b0f0eb434d83c2ae0d386b22f8fc2ae279110b925e591911d0",
+      "contentHash": "c395b0be6f274341c877eb41b9f28e049969b0dcdfbc90d52ebb6447fa679a08",
       "functions": [
         {
           "name": "test_final_text_stream_forwards_native_chunks_and_records_usage",
@@ -31045,14 +31426,14 @@
     },
     "tests/test_shared_api_app.py": {
       "filePath": "tests/test_shared_api_app.py",
-      "contentHash": "dfdff11f3c2bb78ff3f238e69d2c57a55480c3753e52df08b2ca8513536bfcee",
+      "contentHash": "89f89ff7cfa7913bcdcac7a19b553ae0f31f74ee0c80cff92791b77709ef7895",
       "functions": [
         {
           "name": "client",
           "params": [
             "monkeypatch"
           ],
-          "returnType": "Generator[TestClient, None, None]",
+          "returnType": "Generator[TestClient]",
           "exported": true,
           "lineCount": 75
         },
@@ -31084,6 +31465,26 @@
           "returnType": "None",
           "exported": true,
           "lineCount": 7
+        },
+        {
+          "name": "test_model_effort_is_validated_and_bound_to_run_context",
+          "params": [
+            "client",
+            "monkeypatch"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 30
+        },
+        {
+          "name": "test_queued_job_receives_selected_effort",
+          "params": [
+            "client",
+            "monkeypatch"
+          ],
+          "returnType": "None",
+          "exported": true,
+          "lineCount": 15
         },
         {
           "name": "test_jobs_require_authentication_before_provider_credentials",
@@ -31388,6 +31789,12 @@
             "ProjectUnavailableError",
             "RunResult"
           ]
+        },
+        {
+          "source": "shared.config",
+          "specifiers": [
+            "get_request_effort"
+          ]
         }
       ],
       "exports": [
@@ -31395,6 +31802,8 @@
         "_signup_and_headers",
         "_extract_done_event",
         "test_run_requires_x_api_key",
+        "test_model_effort_is_validated_and_bound_to_run_context",
+        "test_queued_job_receives_selected_effort",
         "test_jobs_require_authentication_before_provider_credentials",
         "test_jobs_require_provider_credentials_after_authentication",
         "test_job_status_and_cancellation_are_owner_scoped",
@@ -31422,7 +31831,7 @@
         "test_stream_rejects_query_string_token",
         "test_batch_run_offloads_project_execution_to_thread"
       ],
-      "totalLines": 769,
+      "totalLines": 818,
       "hasStructuralAnalysis": true
     },
     "tests/test_sqlite_pragmas.py": {
