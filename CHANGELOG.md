@@ -1,10 +1,5 @@
 # Changelog
 
-## Unreleased
-
-- Added Agnes AI `agnes-2.5-flash` through the OpenAI-compatible Chat Completions API, including streaming, structured JSON, image understanding, BYOK key handling, and zero-cost usage estimates.
-- Changed the local Next.js frontend port to `8513` and the host-facing FastAPI port to `8514`; Docker continues to use port `8000` inside the API container.
-
 All notable changes to this project will be documented in this file.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
@@ -17,6 +12,16 @@ and aims to follow [Semantic Versioning](https://semver.org/).
 ### Changed
 
 ### Fixed
+
+## [1.2.0] - 2026-08-14
+
+### Added
+
+- Added Agnes AI `agnes-2.5-flash` through the OpenAI-compatible Chat Completions API, including streaming, structured JSON, image understanding, BYOK key handling, and zero-cost usage estimates.
+
+### Changed
+
+- Changed the local Next.js frontend port to `8513` and the host-facing FastAPI port to `8514`; Docker continues to use port `8000` inside the API container.
 
 ## [1.1.1] - 2026-08-14
 
