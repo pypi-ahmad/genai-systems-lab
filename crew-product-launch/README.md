@@ -35,7 +35,7 @@ The workflow is implemented as a sequential CrewAI crew with role-specific tasks
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/product-launch-crew/run \
+curl -X POST http://127.0.0.1:8514/product-launch-crew/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Launch a workflow automation product for mid-market operations teams"}'
 ```

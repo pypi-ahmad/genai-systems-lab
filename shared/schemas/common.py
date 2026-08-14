@@ -159,7 +159,7 @@ class LLMModelOptionResponse(BaseModel):
 
     id: str
     label: str
-    provider: Literal["gemini", "openai", "anthropic", "xai", "ollama"]
+    provider: Literal["gemini", "openai", "anthropic", "xai", "agnes", "ollama"]
     effort_options: list[str] = Field(default_factory=list)
     pricing: dict[str, float | int | str] | None = None
 
@@ -167,7 +167,7 @@ class LLMModelOptionResponse(BaseModel):
 class LLMProviderResponse(BaseModel):
     """Provider-specific configuration surfaced to the frontend."""
 
-    id: Literal["gemini", "openai", "anthropic", "xai", "ollama"]
+    id: Literal["gemini", "openai", "anthropic", "xai", "agnes", "ollama"]
     label: str
     requires_api_key: bool
     api_key_label: str

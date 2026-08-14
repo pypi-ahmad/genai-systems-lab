@@ -37,7 +37,7 @@ The implementation isolates schema loading, SQL generation, validation, executio
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/nl2sql-agent/run \
+curl -X POST http://127.0.0.1:8514/nl2sql-agent/run \
   -H "Content-Type: application/json" \
   -d '{"input": "top customers by revenue"}'
 ```

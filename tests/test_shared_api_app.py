@@ -572,13 +572,13 @@ def test_cors_allows_local_frontend_origin_only(client: TestClient) -> None:
     allowed = client.options(
         "/auth/login",
         headers={
-            "Origin": "http://localhost:3000",
+            "Origin": "http://localhost:8513",
             "Access-Control-Request-Method": "POST",
             "Access-Control-Request-Headers": "content-type",
         },
     )
     assert allowed.status_code == 200
-    assert allowed.headers.get("access-control-allow-origin") == "http://localhost:3000"
+    assert allowed.headers.get("access-control-allow-origin") == "http://localhost:8513"
 
     blocked = client.options(
         "/auth/login",

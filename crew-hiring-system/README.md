@@ -35,7 +35,7 @@ The codebase uses specialized CrewAI roles with structured task outputs so each 
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/hiring-crew/run \
+curl -X POST http://127.0.0.1:8514/hiring-crew/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Senior backend engineer with Python, FastAPI, and distributed systems experience"}'
 ```

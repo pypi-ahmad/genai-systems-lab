@@ -16,7 +16,7 @@ Every project belongs to one of three paradigms:
 | **LangGraph** | 5 | Stateful graph-based orchestration with conditional routing |
 | **CrewAI** | 5 | Role-based multi-agent collaboration with staged handoffs |
 
-Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, Anthropic, xAI, or no key for local Ollama. The key is held in module-level browser memory for the current page session and is sent per-request via the `X-API-Key` header — the server never persists it.
+Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, Anthropic, xAI, Agnes AI, or no key for local Ollama. The key is held in module-level browser memory for the current page session and is sent per-request via the `X-API-Key` header — the server never persists it.
 
 ---
 
@@ -106,7 +106,7 @@ Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, An
                        │  HTTP / SSE
                        ▼
 ┌──────────────────────────────────────────────────────────────────┐
-│                     FastAPI Backend (:8000)                       │
+│                     FastAPI Backend (:8514)                       │
 │                                                                  │
 │  POST /{project}/run          — standard execution                  │
 │  GET  /stream/{project}       — SSE steps + completed output     │
@@ -208,7 +208,7 @@ portfolio/
 
 - **Node.js** ≥ 18
 - **npm** (or pnpm / yarn)
-- A running instance of the GenAI Systems Lab FastAPI backend on `http://localhost:8000` (required for live features)
+- A running instance of the GenAI Systems Lab FastAPI backend on `http://localhost:8514` (required for live features)
 
 ### Install
 
@@ -223,7 +223,7 @@ npm install
 npm run dev
 ```
 
-Opens at [http://localhost:3000](http://localhost:3000). Hot-reloads via Turbopack.
+Opens at [http://localhost:8513](http://localhost:8513). Hot-reloads via Turbopack.
 
 ### Production Build
 
@@ -240,7 +240,7 @@ npm run lint
 
 ### Environment
 
-No `.env` file is required. The BYOK API key is kept in memory for the active tab, the browser auth marker lives in `sessionStorage`, the raw JWT stays server-managed via an HttpOnly cookie, and the backend URL defaults to `http://localhost:8000` unless `NEXT_PUBLIC_API_BASE_URL` is set.
+No `.env` file is required. The BYOK API key is kept in memory for the active tab, the browser auth marker lives in `sessionStorage`, the raw JWT stays server-managed via an HttpOnly cookie, and the backend URL defaults to `http://localhost:8514` unless `NEXT_PUBLIC_API_BASE_URL` is set.
 
 ---
 

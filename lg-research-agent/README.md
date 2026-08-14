@@ -23,7 +23,7 @@ Query -> Planner -> Researcher -> Critic -> Writer -> Final Report
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/research-graph/run \
+curl -X POST http://127.0.0.1:8514/research-graph/run \
   -H "Authorization: Bearer <jwt>" \
   -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \

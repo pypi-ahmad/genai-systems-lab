@@ -40,7 +40,7 @@ This project executes generated Python with the current process user's environme
 To opt in for trusted development only, set `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS=true` while `APP_ENV` is not `prod`, then call:
 
 ```bash
-curl -X POST http://127.0.0.1:8000/debugging-agent/run \
+curl -X POST http://127.0.0.1:8514/debugging-agent/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Function crashes on empty input and should return an empty list"}'
 ```

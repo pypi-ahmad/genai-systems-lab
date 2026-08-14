@@ -36,7 +36,7 @@ The codebase separates question generation, answer evaluation, difficulty contro
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/ai-interviewer/run \
+curl -X POST http://127.0.0.1:8514/ai-interviewer/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Python backend development"}'
 ```

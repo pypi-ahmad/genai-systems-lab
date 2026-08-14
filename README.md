@@ -37,7 +37,7 @@ The three paradigms:
 | **LangGraph** | Typed state machine with `graph.invoke()` and conditional edges | Iterative debugging, workflow planning, support routing |
 | **CrewAI** | Role-based agent team with `crew.kickoff()` and sequential handoff | Content pipelines, hiring evaluation, investment analysis |
 
-All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT plus HttpOnly-cookie authentication, request validation and sanitization, per-request API key binding via `ContextVar`, multi-provider LLM dispatch (Gemini, OpenAI, Anthropic, xAI, Ollama), synchronous and SSE streaming execution, configurable persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
+All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT plus HttpOnly-cookie authentication, request validation and sanitization, per-request API key binding via `ContextVar`, multi-provider LLM dispatch (Gemini, OpenAI, Anthropic, xAI, Agnes AI, Ollama), synchronous and SSE streaming execution, configurable persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
 
 ### Why this design
 
@@ -54,7 +54,7 @@ Interactive requests keep API keys request-scoped. Queued requests encrypt the k
 | Header | Purpose | Required |
 |---|---|---|
 | `X-API-Key` | Provider API key (not needed for Ollama) | Yes (except Ollama) |
-| `X-LLM-Provider` | Force a provider (`gemini`, `openai`, `anthropic`, `xai`, `ollama`) | No — inferred from model |
+| `X-LLM-Provider` | Force a provider (`gemini`, `openai`, `anthropic`, `xai`, `agnes`, `ollama`) | No — inferred from model |
 | `X-LLM-Model` | Override the default model | No — falls back to config |
 | `X-LLM-Effort` | Set a model-supported reasoning effort | No — provider default when omitted |
 
@@ -68,6 +68,7 @@ Interactive requests keep API keys request-scoped. Queued requests encrypt the k
 | **OpenAI** | `gpt-5.6-luna`, `gpt-5.6-terra` | `sk-...` |
 | **Anthropic Claude** | `claude-sonnet-5` | `sk-ant-...` |
 | **xAI** | `grok-4.6` | `xai-...` |
+| **Agnes AI** | `agnes-2.5-flash` | Agnes API key |
 | **Ollama** (local) | Any model available on the local Ollama server | None required |
 
 `GET /llm/catalog` returns the full provider catalog at runtime, including dynamically discovered Ollama models. If the provider is not specified, `infer_provider()` resolves it from the model name — any unknown model ID routes to Ollama.
@@ -220,7 +221,7 @@ Project calls generate_text() / generate_structured() / embed()
 - **Structured output**: `application/json` MIME type with Pydantic-derived JSON schema.
 - **Vision**: `generate_text_from_image()` wraps image bytes as a multipart `Part`.
 
-**OpenAI / Anthropic / xAI / Ollama:**
+**OpenAI / Anthropic / xAI / Agnes AI / Ollama:**
 
 - Implemented via raw `urllib.request` — zero SDK dependencies.
 - OpenAI and Ollama support provider embeddings; Anthropic and xAI use deterministic local embeddings.
@@ -393,7 +394,7 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key  +  X-LLM-Provider?  
 | `shared/api/langgraph_events.py` | `instrument_node` wrapper — emits step events from LangGraph node functions |
 | `shared/observability/langfuse.py` | Langfuse tracing integration: decorator, context manager, and manual trace APIs; no-ops when disabled |
 | `shared/llm/dispatch.py` | Unified provider dispatch: routes calls to Gemini, OpenAI, Anthropic, or Ollama |
-| `shared/llm/catalog.py` | Provider catalog: static definitions for Gemini/OpenAI/Anthropic/xAI, dynamic Ollama discovery, effort options, and pricing rules |
+| `shared/llm/catalog.py` | Provider catalog: static definitions for Gemini/OpenAI/Anthropic/xAI/Agnes AI, dynamic Ollama discovery, effort options, and pricing rules |
 | `shared/llm/gemini.py` | Backward-compatible facade delegating to the dispatch layer |
 | `shared/llm/gemini_provider.py` | Gemini-specific client: `google-genai` SDK, retry/backoff/fallback, client caching |
 | `shared/llm/providers.py` | HTTP-based implementations for OpenAI, Anthropic, and Ollama (zero SDK deps) |
@@ -445,7 +446,7 @@ genai-systems-lab/
 ├── langgraph-data-analyst/  Standalone reference project (own deps;
 │                            deliberately outside the platform runner)
 ├── ARCHITECTURE.md       Platform design principles
-├── docker-compose.yml    api (8000) service for the shared backend
+├── docker-compose.yml    api (host 8514 → container 8000) service for the shared backend
 ├── Dockerfile            python:3.13-slim; installs deps; runs uvicorn
 ├── pyproject.toml        Primary dependency manifest with optional project extras
 ├── requirements.txt      Shared API deps (local development and Docker builds)
@@ -542,7 +543,7 @@ All variables below are optional. The defaults shown are suitable for local deve
 | `APP_ENV` | `dev` | Selects development or production runtime behavior |
 | `GENAI_SYSTEMS_LAB_JWT_SECRET` | — | Required in production for JWT signing; local dev falls back to an ephemeral secret |
 | `GENAI_SYSTEMS_LAB_JWT_TTL_SECONDS` | `604800` (7 days) | JWT token lifetime |
-| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001` | Explicit CORS allowlist for browser clients |
+| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | `http://localhost:8513,http://127.0.0.1:8513` | Explicit CORS allowlist for browser clients |
 | `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP` | `true` in dev, `false` in prod | Controls whether `/auth/signup` is exposed publicly |
 | `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS` | `false` | Enables trusted-local shared-runner access to unsafe agents in development only; ignored in production |
 | `GENAI_SYSTEMS_LAB_DATABASE_URL` | local SQLite file | Override the default local SQLite database for deployed environments |
@@ -583,8 +584,8 @@ cd portfolio && npm install && npm run dev
 
 | Service | Default URL |
 |---|---|
-| FastAPI API | `http://localhost:8000` |
-| Next.js portfolio | `http://localhost:3000` |
+| FastAPI API | `http://localhost:8514` |
+| Next.js portfolio | `http://localhost:8513` |
 
 ### Docker
 
@@ -592,7 +593,7 @@ cd portfolio && npm install && npm run dev
 docker compose up --build
 ```
 
-Starts PostgreSQL, Redis, the API on port 8000, and the RQ worker. The Next.js portfolio can be run separately with `npm run dev` inside `portfolio/`, or all services can be launched with `launch.cmd` on Windows.
+Starts PostgreSQL, Redis, the API on host port 8514, and the RQ worker. The Next.js portfolio can be run separately with `npm run dev` inside `portfolio/`, or all services can be launched with `launch.cmd` on Windows.
 
 ### Vercel
 
@@ -647,12 +648,12 @@ pip install -r langgraph-data-analyst/requirements.txt
 
 ```bash
 # Create an account
-curl -X POST http://localhost:8000/auth/signup \
+curl -X POST http://localhost:8514/auth/signup \
   -H "Content-Type: application/json" \
   -d '{"email":"user@example.com","password":"example-password"}'
 
 # Login — returns a 7-day JWT for API clients and sets an HttpOnly cookie for browsers
-curl -X POST http://localhost:8000/auth/login \
+curl -X POST http://localhost:8514/auth/login \
   -H "Content-Type: application/json" \
   -d '{"email":"user@example.com","password":"example-password"}'
 ```
@@ -663,14 +664,14 @@ Execution routes require `X-API-Key` (provider-appropriate). Authentication is o
 
 ```bash
 # Default (Gemini)
-curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
+curl -X POST http://localhost:8514/genai-nl2sql-agent/run \
   -H "Authorization: Bearer <jwt>" \
   -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \
   -d '{"input":"top customers by revenue"}'
 
 # OpenAI
-curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
+curl -X POST http://localhost:8514/genai-nl2sql-agent/run \
   -H "Authorization: Bearer <jwt>" \
   -H "X-API-Key: <your_api_key_here>" \
   -H "X-LLM-Provider: openai" \
@@ -680,7 +681,7 @@ curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
   -d '{"input":"top customers by revenue"}'
 
 # Ollama (local, no API key)
-curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
+curl -X POST http://localhost:8514/genai-nl2sql-agent/run \
   -H "Authorization: Bearer <jwt>" \
   -H "X-LLM-Provider: ollama" \
   -H "X-LLM-Model: llama3" \
@@ -707,7 +708,7 @@ Response:
 #### Streaming (SSE)
 
 ```bash
-curl -N -G "http://localhost:8000/stream/genai-research-system" \
+curl -N -G "http://localhost:8514/stream/genai-research-system" \
   -H "X-API-Key: <your_api_key_here>" \
   -H "Authorization: Bearer <jwt>" \
   --data-urlencode "input=Compare transformer architectures for code generation"
@@ -736,7 +737,7 @@ data: {"output": "...", "latency": 4210.5, "confidence": 0.91, ...}
 Pass a `session_id` from a prior response to inject the last 4 memory entries as context:
 
 ```bash
-curl -X POST http://localhost:8000/genai-research-system/run \
+curl -X POST http://localhost:8514/genai-research-system/run \
   -H "Authorization: Bearer <jwt>" \
   -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \
@@ -747,35 +748,35 @@ curl -X POST http://localhost:8000/genai-research-system/run \
 
 ```bash
 # Generate a structured explanation from stored artifacts
-curl -X POST http://localhost:8000/explain/42 \
+curl -X POST http://localhost:8514/explain/42 \
   -H "Authorization: Bearer <jwt>" \
   -H "X-API-Key: <your_api_key_here>" \
   -H "Content-Type: application/json" \
   -d '{}'
 
 # Create a 24-hour public share link
-curl -X POST http://localhost:8000/run/42/share \
+curl -X POST http://localhost:8514/run/42/share \
   -H "Authorization: Bearer <jwt>" \
   -H "Content-Type: application/json" \
   -d '{"expires_in_hours":24}'
 
 # Public access (no auth required)
-curl http://localhost:8000/shared/<share_token>
+curl http://localhost:8514/shared/<share_token>
 ```
 
 #### Metrics
 
 ```bash
 # Live aggregate counters (resets on process restart)
-curl http://localhost:8000/metrics
+curl http://localhost:8514/metrics
 
 # Historical time-series from SQLite (per-project, bucketed)
-curl "http://localhost:8000/metrics/time?project=genai-research-system&range=week"
+curl "http://localhost:8514/metrics/time?project=genai-research-system&range=week"
 ```
 
 ### Portfolio
 
-The Next.js frontend at `http://localhost:3000` provides:
+The Next.js frontend at `http://localhost:8513` provides:
 
 | Route | Feature |
 |---|---|
@@ -887,7 +888,7 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key` (excep
 | Area | Limitation |
 |---|---|
 | Optional runtimes | CrewAI and Playwright are excluded from shared Docker/serverless deployments; install `crew` or `browser` extras for those local projects |
-| API base URL | Defaults to `http://localhost:8000`; override with `NEXT_PUBLIC_API_BASE_URL` for deployed frontends |
+| API base URL | Defaults to `http://localhost:8514`; override with `NEXT_PUBLIC_API_BASE_URL` for deployed frontends |
 | Rate limiting | Abuse control is in-memory and process-local; use an upstream proxy or WAF for multi-instance enforcement |
 | Provider eval coverage | Provider-backed evaluations run only when the corresponding CI secrets are configured |
 | Persistence | SQLite remains the default for local and demo use; deployed environments should set `GENAI_SYSTEMS_LAB_DATABASE_URL`. The SQLite engine applies `foreign_keys=ON`, `journal_mode=WAL` (file-backed), `synchronous=NORMAL`, `busy_timeout=5000`, and `temp_store=MEMORY` on every connection. Schema changes are applied via idempotent `ALTER TABLE` guards in `db.py`; adopt Alembic if the schema grows beyond single-column additions. |
@@ -896,7 +897,7 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key` (excep
 ### Planned improvements
 
 - ~~Generate the public project catalog from a shared source.~~ Done — `portfolio/src/data/project-catalog.json` is the single source of truth, read by both the Python backend and the Next.js frontend.
-- ~~Multi-provider BYOK support.~~ Done — Gemini, OpenAI, Anthropic, xAI, and Ollama are supported via request-scoped provider/model/effort headers.
+- ~~Multi-provider BYOK support.~~ Done — Gemini, OpenAI, Anthropic, xAI, Agnes AI, and Ollama are supported via request-scoped provider/model/effort headers.
 - Expand CI to cover all project modules and shared platform paths.
 - Adopt Alembic for schema migrations if the data model expands beyond the current column-level additions.
 
@@ -910,7 +911,7 @@ GenAI Systems Lab is a **portfolio-optimized showcase** — it prioritizes demo 
 |---|---|
 | **Runtime** | Single shared FastAPI process discovers all 20 projects automatically; no per-project deployment overhead |
 | **Auth** | HS256 JWT + HttpOnly cookies — simple, auditable, sufficient for single-operator use |
-| **BYOK** | Hosted LLM calls require a per-request API key; dispatch routes to Gemini, OpenAI, Anthropic, xAI, or Ollama |
+| **BYOK** | Hosted LLM calls require a per-request API key; dispatch routes to Gemini, OpenAI, Anthropic, xAI, Agnes AI, or Ollama |
 | **Persistence** | SQLite by default for zero-config local demos; `GENAI_SYSTEMS_LAB_DATABASE_URL` for deployed environments |
 | **Frontend** | One Next.js app with playground, metrics, compare, and per-project pages |
 | **Testing** | Contract-level API tests plus per-project smoke tests; catalog integrity tests guard the shared manifest |

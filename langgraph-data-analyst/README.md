@@ -40,7 +40,7 @@ The implementation uses a LangGraph state machine to coordinate a multi-agent da
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/data-analyst/run \
+curl -X POST http://127.0.0.1:8514/data-analyst/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Show revenue breakdown by region and identify anomalies", "file_path": "data/sample.csv"}'
 ```

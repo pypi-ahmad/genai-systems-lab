@@ -27,7 +27,7 @@ LLM output is treated as untrusted at capability boundaries. In particular, the 
 
 ### LLM Wrapper
 
-The shared LLM layer centralizes provider routing, model-specific effort validation, timeout handling, token telemetry, conditional cost calculation, and structured JSON generation. Gemini uses the Google SDK; OpenAI, Anthropic, xAI, and Ollama use shared HTTP providers.
+The shared LLM layer centralizes provider routing, model-specific effort validation, timeout handling, token telemetry, conditional cost calculation, and structured JSON generation. Gemini uses the Google SDK; OpenAI, Anthropic, xAI, Agnes AI, and Ollama use shared HTTP providers. Hosted Agnes requests use the OpenAI-compatible Chat Completions API with request-scoped BYOK credentials.
 
 ### Evaluation
 

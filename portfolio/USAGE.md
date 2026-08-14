@@ -66,7 +66,7 @@ Users can browse all 20 systems, inspect their architectures, and **run any syst
 | Requirement | Details |
 | --- | --- |
 | **Browser** | Any modern browser (Chrome, Firefox, Edge, Safari) |
-| **API key** | An LLM provider key — Google Gemini, OpenAI, Anthropic, xAI, or no key for Ollama (local) |
+| **API key** | An LLM provider key — Google Gemini, OpenAI, Anthropic, xAI, Agnes AI, or no key for Ollama (local) |
 | **Backend** | The FastAPI backend running locally or at a configured URL |
 | **Node.js** | Required to build/run the frontend (`npm` available) |
 | **Python 3.13+** | Required to run the backend |
@@ -77,7 +77,7 @@ Users can browse all 20 systems, inspect their architectures, and **run any syst
 
 ### Windows one-click launch
 
-Double-click `launch.cmd` in the repository root. It installs missing Docker Desktop and Node.js LTS through `winget`, creates a persistent local queue-encryption key in `.data/launcher.env`, starts PostgreSQL/Redis/API/worker plus the Next.js frontend, waits for both health checks, and opens `http://localhost:3000`. If Windows requests UAC approval, WSL setup, or a restart, complete it and rerun the same file. The launcher never kills unrelated processes using ports 8000 or 3000.
+Double-click `launch.cmd` in the repository root. It installs missing Docker Desktop and Node.js LTS through `winget`, creates a persistent local queue-encryption key in `.data/launcher.env`, starts PostgreSQL/Redis/API/worker plus the Next.js frontend, waits for both health checks, and opens `http://localhost:8513`. If Windows requests UAC approval, WSL setup, or a restart, complete it and rerun the same file. The launcher never kills unrelated processes using host ports 8514 or 8513.
 
 ### 1. Start the backend
 
@@ -87,7 +87,7 @@ From the repository root:
 uvicorn shared.api.app:app --reload
 ```
 
-This starts the FastAPI server on `http://localhost:8000`.
+This starts the FastAPI server on `http://localhost:8514`.
 
 ### 2. Start the frontend
 
@@ -97,7 +97,7 @@ npm install
 npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) in your browser.
+Open [http://localhost:8513](http://localhost:8513) in your browser.
 
 ### Available npm scripts
 
@@ -548,8 +548,8 @@ Click the **sun/moon icon** in the top-right corner of the navigation bar to swi
 
 | Variable | Scope | Default | Purpose |
 | --- | --- | --- | --- |
-| `NEXT_PUBLIC_API_BASE_URL` | Frontend | `http://localhost:8000` | Backend API URL. When unset, the frontend tries `localhost:8000` then falls back to `127.0.0.1:8001` |
-| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | Backend | `localhost:3000, localhost:3001` variants | Comma-separated CORS origins. Defaults to localhost ports 3000 and 3001 |
+| `NEXT_PUBLIC_API_BASE_URL` | Frontend | `http://localhost:8514` | Backend API URL. When unset, the frontend uses `localhost:8514` |
+| `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | Backend | `localhost:8513` variants | Comma-separated CORS origins. Defaults to localhost port 8513 |
 | `APP_ENV` | Backend | `dev` | When set to `prod`, logs a warning if `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` is not explicitly configured |
 
 ---
@@ -581,7 +581,7 @@ services:
   api:
     build: .
     ports:
-      - "8000:8000"
+      - "8514:8000"
     env_file:
       - .env
     command: ["uvicorn", "shared.api.app:app", "--host", "0.0.0.0", "--port", "8000"]
@@ -601,9 +601,9 @@ The frontend is not included in the Docker image — run it separately with `npm
 
 ### "API unreachable" or connection errors
 
-- Confirm the FastAPI backend is running on `http://localhost:8000`
+- Confirm the FastAPI backend is running on `http://localhost:8514`
 - If using a custom URL, set `NEXT_PUBLIC_API_BASE_URL` before starting the frontend
-- On CORS errors, ensure `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` includes the frontend origin (defaults cover `localhost:3000` and `localhost:3001`)
+- On CORS errors, ensure `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` includes the frontend origin (defaults cover `localhost:8513`)
 
 ### No output after clicking Run
 
