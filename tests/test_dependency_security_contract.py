@@ -42,6 +42,15 @@ def test_security_scans_do_not_suppress_dependency_advisories() -> None:
     assert "--ignore-vuln" not in workflow
 
 
+def test_secret_scan_loads_the_repository_configuration() -> None:
+    workflow = (REPO_ROOT / ".github" / "workflows" / "ci.yml").read_text(
+        encoding="utf-8"
+    )
+
+    assert "GITLEAKS_CONFIG: .github/gitleaks.toml" in workflow
+    assert "config-path:" not in workflow
+
+
 def test_runtime_image_removes_build_only_package_managers() -> None:
     dockerfile = (REPO_ROOT / "Dockerfile").read_text(encoding="utf-8")
 
