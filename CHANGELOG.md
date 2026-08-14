@@ -13,6 +13,18 @@ and aims to follow [Semantic Versioning](https://semver.org/).
 
 ### Fixed
 
+## [1.1.1] - 2026-08-14
+
+### Security
+
+- Upgraded Starlette, PyJWT, python-dotenv, and the standalone LangChain stack to patched releases and removed dependency-advisory suppressions from CI.
+- Removed the optional CrewAI dependency tree and build-only pip/setuptools tooling from the production image.
+- Extended blocking Python dependency audits to the standalone data analyst environment.
+
+### Fixed
+
+- Included the shared project catalog in the Docker image so the API can start successfully.
+
 ## [1.1.0] - 2026-08-14
 
 - Restricted the hosted model catalog to Gemini 3.7 Flash / 3.5 Flash Lite, GPT-5.6 Luna / Terra, Claude Sonnet 5, and Grok 4.6 while retaining dynamic Ollama discovery.

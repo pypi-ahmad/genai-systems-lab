@@ -33,12 +33,18 @@ WORKDIR /app
 # Bring in the pre-built Python deps.
 COPY --from=builder /install /usr/local
 
+# Build tooling is not needed at runtime. Removing pip and setuptools also
+# removes pip's vendored third-party SBOM, which describes build-only packages
+# that are not importable application dependencies.
+RUN python -m pip uninstall --yes pip setuptools
+
 # NOTE: the old Dockerfile used `COPY crew-*/ ./`, `COPY genai-*/ ./`, and
 # `COPY lg-*/ ./`, which flattened every project's contents into the root
 # `/app` directory — last writer wins for every identically-named file
 # (e.g. `app/__init__.py`), silently corrupting most of the 20 projects.
 # We now copy each project into its own sub-directory, preserving structure.
 COPY --chown=app:app shared/ ./shared/
+COPY --chown=app:app portfolio/src/data/project-catalog.json ./portfolio/src/data/project-catalog.json
 COPY --chown=app:app pyproject.toml requirements.txt ./
 COPY --chown=app:app alembic.ini ./
 COPY --chown=app:app migrations/ ./migrations/

@@ -1070,7 +1070,7 @@ class BYOKMiddleware:
 def create_app(
     *,
     title: str = "GenAI Systems Lab",
-    version: str = "1.1.0",
+    version: str = "1.1.1",
     description: str = "",
     allowed_origins: list[str] | None = None,
 ) -> FastAPI:

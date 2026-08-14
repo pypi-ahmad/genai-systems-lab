@@ -29,6 +29,8 @@ Synchronous keys are request-scoped and never persisted. Queued-job keys are Fer
 
 Gitleaks scans repository content in CI. Its only generated-graph exception is Graphify's exact `cache/stat-index.json` path, which contains repository file-content hashes rather than credentials; other graph artifacts remain subject to the default secret rules.
 
+Python dependency audits are blocking and cover both the shared platform and the standalone data analyst. The production image installs only the shared runtime and removes build-only pip/setuptools tooling; optional CrewAI and browser runtimes must be installed explicitly for their corresponding local projects. CI does not suppress Python or container advisories.
+
 Every queued-job route requires authentication. Job creation records the authenticated owner, and status/cancellation queries match both the random job UUID and that owner. Cross-user lookups return the same `404` as missing jobs. Provider credentials are required only when creating work, not when reading or cancelling owned jobs.
 
 ## Generated-code execution

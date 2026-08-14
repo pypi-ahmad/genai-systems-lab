@@ -447,8 +447,8 @@ genai-systems-lab/
 ├── ARCHITECTURE.md       Platform design principles
 ├── docker-compose.yml    api (8000) service for the shared backend
 ├── Dockerfile            python:3.13-slim; installs deps; runs uvicorn
-├── pyproject.toml        Primary dependency manifest (slim, for serverless deployment)
-├── requirements.txt      Full Python deps (local development and Docker builds)
+├── pyproject.toml        Primary dependency manifest with optional project extras
+├── requirements.txt      Shared API deps (local development and Docker builds)
 └── .env.example          Model/config examples only; BYOK required at runtime
 ```
 
@@ -517,18 +517,13 @@ cd genai-systems-lab
 ### 2. Python environment
 
 ```bash
-python -m venv .venv
+uv sync
 
-# macOS / Linux
-source .venv/bin/activate
-
-# Windows PowerShell
-.venv\Scripts\Activate.ps1
-
-pip install -r requirements.txt
+# Include CrewAI-backed projects when needed
+uv sync --extra crew
 ```
 
-> **Note:** `requirements.txt` includes the full set of framework packages for local development and Docker builds. `pyproject.toml` is the primary dependency manifest for deployed environments (e.g., Vercel) and excludes heavyweight packages like `crewai` and `playwright` that exceed serverless bundle limits. Browser binaries for Playwright may still need `playwright install` in environments that execute the browser agent.
+> **Note:** The default environment and Docker image contain the shared API runtime only. CrewAI and Playwright remain explicit `crew` and `browser` extras because their large dependency trees are unnecessary for most projects. A missing optional runtime produces a descriptive `503 Service Unavailable` instead of crashing the API. Browser binaries still require `playwright install` when the browser agent is enabled.
 
 ### 3. Environment file
 
@@ -605,7 +600,7 @@ The repository supports deployment as two separate Vercel projects — one for t
 
 #### Backend (Python serverless function)
 
-Vercel auto-detects `pyproject.toml` and uses it as the dependency manifest. The slim dependency list in `pyproject.toml` intentionally excludes `crewai` and `playwright` to stay under the 500 MB uncompressed bundle limit. Projects that depend on these packages return a graceful `503 Service Unavailable` with an explanatory message instead of crashing.
+Vercel auto-detects `pyproject.toml` and installs its default dependency set. Optional `crewai` and `playwright` extras are not installed, keeping the serverless bundle below the 500 MB uncompressed limit. Projects that depend on these packages return a graceful `503 Service Unavailable` with an explanatory message instead of crashing.
 
 Required environment variables on the backend Vercel project:
 
@@ -834,12 +829,12 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull
 
 | Job | What it does |
 |---|---|
-| **backend-platform** | Installs the root Python environment, runs `compileall` on `shared/` + `tests/`, runs the platform suite (`tests/`), runs the `crew-startup-simulator` and `lg-research-agent` project suites, and optionally runs Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
+| **backend-platform** | Installs the shared root environment, runs `compileall`, the platform suite, every discovered `crew-*`, `genai-*`, and `lg-*` project test, and optional Gemini-backed evaluation when `GOOGLE_API_KEY` is set |
 | **promptfoo-eval** | Runs Promptfoo offline evaluation suites (`benchmarks/promptfoo/`): model comparison, agent evaluation, RAG retrieval, and RAG end-to-end — when provider API keys are available |
 | **backend-standalone-analyst** | Installs `langgraph-data-analyst/requirements.txt` in its own isolated environment and runs that standalone project suite separately to avoid dependency conflicts with the shared platform runtime |
 | **frontend** | `npm run lint`, `npm run test` (playground utility + API-key storage tests), `npm run build` (Next.js production build) |
 | **docker** | Builds the backend Docker image and runs a Trivy vulnerability scan (CRITICAL/HIGH, blocking) on the resulting image |
-| **security** | `pip-audit --strict` for Python CVEs (blocking), Bandit static analysis, Gitleaks secret scanning with `.github/gitleaks.toml`, and `npm audit` for the portfolio |
+| **security** | Blocking `pip-audit --strict` checks for the shared and standalone Python environments, Bandit static analysis, Gitleaks secret scanning with `.github/gitleaks.toml`, and `npm audit` for the portfolio |
 
 ```text
 push / PR → ┬─ backend-platform          ─── install root env → compile → tests → eval
@@ -891,10 +886,10 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key` (excep
 
 | Area | Limitation |
 |---|---|
-| `requirements.txt` | Includes the full framework set for local/Docker use; `pyproject.toml` is the slim manifest for serverless deployment |
+| Optional runtimes | CrewAI and Playwright are excluded from shared Docker/serverless deployments; install `crew` or `browser` extras for those local projects |
 | API base URL | Defaults to `http://localhost:8000`; override with `NEXT_PUBLIC_API_BASE_URL` for deployed frontends |
 | Rate limiting | Abuse control is in-memory and process-local; use an upstream proxy or WAF for multi-instance enforcement |
-| CI coverage | CI still validates only a subset of runnable projects directly |
+| Provider eval coverage | Provider-backed evaluations run only when the corresponding CI secrets are configured |
 | Persistence | SQLite remains the default for local and demo use; deployed environments should set `GENAI_SYSTEMS_LAB_DATABASE_URL`. The SQLite engine applies `foreign_keys=ON`, `journal_mode=WAL` (file-backed), `synchronous=NORMAL`, `busy_timeout=5000`, and `temp_store=MEMORY` on every connection. Schema changes are applied via idempotent `ALTER TABLE` guards in `db.py`; adopt Alembic if the schema grows beyond single-column additions. |
 | BYOK | All LLM calls require per-request API key headers; Ollama is the exception (local, no key). No server-side key storage. |
 
