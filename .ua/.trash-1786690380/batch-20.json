@@ -1,0 +1,83 @@
+{
+  "nodes": [
+    {
+      "id": "service:.dockerignore",
+      "type": "service",
+      "name": ".dockerignore",
+      "filePath": ".dockerignore",
+      "summary": "Defines files excluded from the Docker build context to reduce image input size and prevent secrets or local artifacts from being copied into images.",
+      "tags": [
+        "infrastructure",
+        "containerization",
+        "deployment"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:Dockerfile",
+      "type": "service",
+      "name": "Dockerfile",
+      "filePath": "Dockerfile",
+      "summary": "Builds a production Python container in separate dependency-install and runtime stages, then runs the application under an unprivileged user.",
+      "tags": [
+        "containerization",
+        "infrastructure",
+        "deployment"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:docker-compose.yml",
+      "type": "service",
+      "name": "docker-compose.yml",
+      "filePath": "docker-compose.yml",
+      "summary": "Defines the local API service and its container configuration for running the platform with Docker Compose.",
+      "tags": [
+        "infrastructure",
+        "containerization",
+        "deployment"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "service:Dockerfile:builder",
+      "type": "service",
+      "name": "builder",
+      "summary": "Build stage that installs Python dependencies into a relocatable prefix.",
+      "tags": [
+        "containerization",
+        "build-stage",
+        "deployment"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "service:Dockerfile:python",
+      "type": "service",
+      "name": "python",
+      "summary": "Runtime stage that copies the installed dependencies and application code into the production image.",
+      "tags": [
+        "containerization",
+        "build-stage",
+        "deployment"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "service:Dockerfile",
+      "target": "service:Dockerfile:builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "service:Dockerfile",
+      "target": "service:Dockerfile:python",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

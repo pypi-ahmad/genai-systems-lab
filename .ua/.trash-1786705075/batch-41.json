@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "document:benchmarks/promptfoo/prompts/code_generation.txt",
+      "type": "document",
+      "name": "code_generation.txt",
+      "filePath": "benchmarks/promptfoo/prompts/code_generation.txt",
+      "summary": "Documents code generation for the benchmarks project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:benchmarks/promptfoo/prompts/rag_prompt.txt",
+      "type": "document",
+      "name": "rag_prompt.txt",
+      "filePath": "benchmarks/promptfoo/prompts/rag_prompt.txt",
+      "summary": "Documents rag prompt for the benchmarks project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:benchmarks/promptfoo/prompts/research_query.txt",
+      "type": "document",
+      "name": "research_query.txt",
+      "filePath": "benchmarks/promptfoo/prompts/research_query.txt",
+      "summary": "Documents research query for the benchmarks project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:benchmarks/promptfoo/prompts/summarization.txt",
+      "type": "document",
+      "name": "summarization.txt",
+      "filePath": "benchmarks/promptfoo/prompts/summarization.txt",
+      "summary": "Documents summarization for the benchmarks project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

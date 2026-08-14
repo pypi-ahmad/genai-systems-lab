@@ -1,5 +1,7 @@
 # Multi-Agent Research System
 
+The shared SSE runtime streams provider-native tokens only from the final report writer. Planning, findings, critiques, and structured scenario generation remain private non-streaming stages.
+
 ## Overview
 
 A LangGraph-based research workflow that decomposes a query into tasks, gathers findings, critiques the draft, rewrites when needed, and produces multi-format outputs with quality metrics. It is the flagship project in the repository for graph-based iterative reasoning.

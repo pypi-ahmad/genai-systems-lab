@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-nl2sql-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-nl2sql-agent/README.md",
+      "summary": "Documents README.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-nl2sql-agent/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-nl2sql-agent/architecture.md",
+      "summary": "Documents architecture.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-nl2sql-agent/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-nl2sql-agent/tasks.md",
+      "summary": "Documents tasks.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

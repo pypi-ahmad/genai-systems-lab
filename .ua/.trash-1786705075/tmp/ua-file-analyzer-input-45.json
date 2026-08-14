@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "crew-investment-analyst/README.md",
+      "language": "markdown",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "crew-investment-analyst/architecture.md",
+      "language": "markdown",
+      "sizeLines": 179,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "crew-investment-analyst/tasks.md",
+      "language": "markdown",
+      "sizeLines": 46,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "crew-investment-analyst/README.md": [],
+    "crew-investment-analyst/architecture.md": [],
+    "crew-investment-analyst/tasks.md": []
+  }
+}

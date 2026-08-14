@@ -1,0 +1,1081 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 17,
+  "filesSkipped": [
+    ".gitattributes",
+    ".trivyignore",
+    ".ua/.understandignore",
+    "crew-content-pipeline/tests/.gitkeep",
+    "crew-hiring-system/tests/.gitkeep",
+    "crew-investment-analyst/tests/.gitkeep",
+    "crew-product-launch/tests/.gitkeep",
+    "crew-startup-simulator/tests/.gitkeep"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 17,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 14,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": ".github/dependabot.yml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 50,
+      "nonEmptyLines": 45,
+      "sections": [
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "updates",
+          "level": 1,
+          "line": 12
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".github/gitleaks.toml",
+      "language": "toml",
+      "fileCategory": "config",
+      "totalLines": 40,
+      "nonEmptyLines": 35,
+      "sections": [
+        {
+          "heading": "extend",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "allowlist",
+          "level": 1,
+          "line": 13
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/analyze-assigned-batches.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 96,
+      "nonEmptyLines": 94,
+      "functions": [
+        {
+          "name": "fileType",
+          "startLine": 11,
+          "endLine": 17,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "fileTags",
+          "startLine": 18,
+          "endLine": 28,
+          "params": [
+            "f"
+          ]
+        },
+        {
+          "name": "complexity",
+          "startLine": 29,
+          "endLine": 29,
+          "params": [
+            "lines"
+          ]
+        },
+        {
+          "name": "fileSummary",
+          "startLine": 30,
+          "endLine": 38,
+          "params": [
+            "f",
+            "r"
+          ]
+        },
+        {
+          "name": "functionNode",
+          "startLine": 39,
+          "endLine": 41,
+          "params": [
+            "f",
+            "x"
+          ]
+        },
+        {
+          "name": "classNode",
+          "startLine": 42,
+          "endLine": 45,
+          "params": [
+            "f",
+            "x"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "fileType",
+          "callee": "/(^|\\/)(Dockerfile|docker-compose)/i.test",
+          "lineNumber": 14
+        },
+        {
+          "caller": "fileType",
+          "callee": "/\\.github\\/workflows|gitlab-ci|Jenkinsfile|circleci/i.test",
+          "lineNumber": 14
+        },
+        {
+          "caller": "fileType",
+          "callee": "/\\.(graphql|proto|prisma)$/i.test",
+          "lineNumber": 15
+        },
+        {
+          "caller": "fileType",
+          "callee": "/openapi|swagger/i.test",
+          "lineNumber": 15
+        },
+        {
+          "caller": "fileType",
+          "callee": "/\\.sql$/i.test",
+          "lineNumber": 15
+        },
+        {
+          "caller": "fileTags",
+          "callee": "/test|spec/i.test",
+          "lineNumber": 19
+        },
+        {
+          "caller": "fileTags",
+          "callee": "/__init__\\.py$/.test",
+          "lineNumber": 25
+        },
+        {
+          "caller": "fileTags",
+          "callee": "/config|\\.config\\./i.test",
+          "lineNumber": 26
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "[...(r.functions || []).map(x => x.name), ...(r.classes || []).map(x => x.name)].slice",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "(r.functions || []).map",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "(r.classes || []).map",
+          "lineNumber": 31
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "/__init__\\.py$/.test",
+          "lineNumber": 36
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "path.dirname",
+          "lineNumber": 36
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "names.join",
+          "lineNumber": 37
+        },
+        {
+          "caller": "functionNode",
+          "callee": "path.basename",
+          "lineNumber": 40
+        },
+        {
+          "caller": "functionNode",
+          "callee": "/test|spec/i.test",
+          "lineNumber": 40
+        },
+        {
+          "caller": "functionNode",
+          "callee": "complexity",
+          "lineNumber": 40
+        },
+        {
+          "caller": "classNode",
+          "callee": "path.basename",
+          "lineNumber": 44
+        },
+        {
+          "caller": "classNode",
+          "callee": "complexity",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/analyze-batches-1-19.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 103,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "complexity",
+          "startLine": 11,
+          "endLine": 13,
+          "params": [
+            "lines"
+          ]
+        },
+        {
+          "name": "typeFor",
+          "startLine": 14,
+          "endLine": 21,
+          "params": [
+            "file"
+          ]
+        },
+        {
+          "name": "idFor",
+          "startLine": 22,
+          "endLine": 22,
+          "params": [
+            "file"
+          ]
+        },
+        {
+          "name": "baseTags",
+          "startLine": 23,
+          "endLine": 37,
+          "params": [
+            "file",
+            "result"
+          ]
+        },
+        {
+          "name": "fileSummary",
+          "startLine": 38,
+          "endLine": 53,
+          "params": [
+            "file",
+            "result"
+          ]
+        },
+        {
+          "name": "fnSummary",
+          "startLine": 54,
+          "endLine": 60,
+          "params": [
+            "name",
+            "file"
+          ]
+        },
+        {
+          "name": "nodeForFunction",
+          "startLine": 61,
+          "endLine": 61,
+          "params": [
+            "file",
+            "f"
+          ]
+        },
+        {
+          "name": "nodeForClass",
+          "startLine": 62,
+          "endLine": 62,
+          "params": [
+            "file",
+            "c"
+          ]
+        },
+        {
+          "name": "edge",
+          "startLine": 63,
+          "endLine": 63,
+          "params": [
+            "source",
+            "target",
+            "type",
+            "weight"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "typeFor",
+          "callee": "file.path.toLowerCase",
+          "lineNumber": 15
+        },
+        {
+          "caller": "typeFor",
+          "callee": "p.includes",
+          "lineNumber": 18
+        },
+        {
+          "caller": "typeFor",
+          "callee": "p.includes",
+          "lineNumber": 18
+        },
+        {
+          "caller": "typeFor",
+          "callee": "p.includes",
+          "lineNumber": 18
+        },
+        {
+          "caller": "typeFor",
+          "callee": "p.endsWith",
+          "lineNumber": 18
+        },
+        {
+          "caller": "typeFor",
+          "callee": "p.endsWith",
+          "lineNumber": 19
+        },
+        {
+          "caller": "typeFor",
+          "callee": "p.includes",
+          "lineNumber": 19
+        },
+        {
+          "caller": "typeFor",
+          "callee": "p.includes",
+          "lineNumber": 19
+        },
+        {
+          "caller": "idFor",
+          "callee": "typeFor",
+          "lineNumber": 22
+        },
+        {
+          "caller": "baseTags",
+          "callee": "file.path.toLowerCase",
+          "lineNumber": 24
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.includes",
+          "lineNumber": 27
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.includes",
+          "lineNumber": 29
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.includes",
+          "lineNumber": 30
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.endsWith",
+          "lineNumber": 31
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.endsWith",
+          "lineNumber": 31
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.endsWith",
+          "lineNumber": 31
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.includes",
+          "lineNumber": 32
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.includes",
+          "lineNumber": 33
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.endsWith",
+          "lineNumber": 34
+        },
+        {
+          "caller": "baseTags",
+          "callee": "p.endsWith",
+          "lineNumber": 35
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "path.basename",
+          "lineNumber": 39
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "p.includes",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "name.replace",
+          "lineNumber": 44
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "p.includes",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "p.includes",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "p.includes",
+          "lineNumber": 45
+        },
+        {
+          "caller": "fileSummary",
+          "callee": "p.split",
+          "lineNumber": 52
+        },
+        {
+          "caller": "fnSummary",
+          "callee": "/build|create|make/i.test",
+          "lineNumber": 56
+        },
+        {
+          "caller": "fnSummary",
+          "callee": "name.replace(/^(build|create|make)/i, '').replace(/([A-Z])/g, ' $1').trim",
+          "lineNumber": 56
+        },
+        {
+          "caller": "fnSummary",
+          "callee": "name.replace(/^(build|create|make)/i, '').replace",
+          "lineNumber": 56
+        },
+        {
+          "caller": "fnSummary",
+          "callee": "name.replace",
+          "lineNumber": 56
+        },
+        {
+          "caller": "fnSummary",
+          "callee": "/load|read|parse/i.test",
+          "lineNumber": 57
+        },
+        {
+          "caller": "fnSummary",
+          "callee": "/test/i.test",
+          "lineNumber": 58
+        },
+        {
+          "caller": "nodeForFunction",
+          "callee": "fnSummary",
+          "lineNumber": 61
+        },
+        {
+          "caller": "nodeForFunction",
+          "callee": "complexity",
+          "lineNumber": 61
+        },
+        {
+          "caller": "nodeForClass",
+          "callee": "complexity",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 9,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/analyze-batches-39-56.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 64,
+      "functions": [
+        {
+          "name": "complexity",
+          "startLine": 11,
+          "endLine": 14,
+          "params": [
+            "result",
+            "file"
+          ]
+        },
+        {
+          "name": "typeFor",
+          "startLine": 15,
+          "endLine": 20,
+          "params": [
+            "file"
+          ]
+        },
+        {
+          "name": "tagsFor",
+          "startLine": 21,
+          "endLine": 27,
+          "params": [
+            "file"
+          ]
+        },
+        {
+          "name": "summaryFor",
+          "startLine": 28,
+          "endLine": 44,
+          "params": [
+            "file",
+            "result"
+          ]
+        },
+        {
+          "name": "nodeFor",
+          "startLine": 45,
+          "endLine": 49,
+          "params": [
+            "file",
+            "result"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "tagsFor",
+          "callee": "file.path.toLowerCase",
+          "lineNumber": 22
+        },
+        {
+          "caller": "tagsFor",
+          "callee": "p.endsWith",
+          "lineNumber": 23
+        },
+        {
+          "caller": "tagsFor",
+          "callee": "p.includes",
+          "lineNumber": 24
+        },
+        {
+          "caller": "tagsFor",
+          "callee": "p.includes",
+          "lineNumber": 25
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "path.basename",
+          "lineNumber": 29
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "result?.sections?.map((s) => s.name || s.title || s.key).filter",
+          "lineNumber": 30
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "result?.sections?.map",
+          "lineNumber": 30
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "sections.slice(0, 3).join",
+          "lineNumber": 31
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "sections.slice",
+          "lineNumber": 31
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 32
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.split",
+          "lineNumber": 32
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 33
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.split",
+          "lineNumber": 33
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 34
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.split",
+          "lineNumber": 34
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.includes",
+          "lineNumber": 35
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "name.replace(/\\.[^.]+$/, '').replaceAll",
+          "lineNumber": 35
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "name.replace",
+          "lineNumber": 35
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 36
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 37
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 38
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 39
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 40
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.endsWith",
+          "lineNumber": 41
+        },
+        {
+          "caller": "summaryFor",
+          "callee": "p.includes",
+          "lineNumber": 42
+        },
+        {
+          "caller": "nodeFor",
+          "callee": "typeFor",
+          "lineNumber": 46
+        },
+        {
+          "caller": "nodeFor",
+          "callee": "path.basename",
+          "lineNumber": 47
+        },
+        {
+          "caller": "nodeFor",
+          "callee": "summaryFor",
+          "lineNumber": 48
+        },
+        {
+          "caller": "nodeFor",
+          "callee": "tagsFor",
+          "lineNumber": 48
+        },
+        {
+          "caller": "nodeFor",
+          "callee": "complexity",
+          "lineNumber": 48
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-arch-analyze.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 46,
+      "nonEmptyLines": 45,
+      "functions": [
+        {
+          "name": "group",
+          "startLine": 11,
+          "endLine": 14,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "typeOf",
+          "startLine": 35,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "pathOf",
+          "startLine": 39,
+          "endLine": 39,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "group",
+          "callee": "(n.filePath || n.name || 'root').replace(/\\\\/g, '/').split",
+          "lineNumber": 12
+        },
+        {
+          "caller": "group",
+          "callee": "(n.filePath || n.name || 'root').replace",
+          "lineNumber": 12
+        },
+        {
+          "caller": "typeOf",
+          "callee": "byId.get",
+          "lineNumber": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-inline-validate.cjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 54,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-tour-analyze.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 30,
+      "callGraph": [
+        {
+          "caller": "ranked",
+          "callee": "[...nodes].sort((a,b) => degree.get(b.id) - degree.get(a.id) || a.id.localeCompare(b.id)).slice(0,20).map",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ranked",
+          "callee": "[...nodes].sort((a,b) => degree.get(b.id) - degree.get(a.id) || a.id.localeCompare(b.id)).slice",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ranked",
+          "callee": "[...nodes].sort",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ranked",
+          "callee": "degree.get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ranked",
+          "callee": "degree.get",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ranked",
+          "callee": "a.id.localeCompare",
+          "lineNumber": 15
+        },
+        {
+          "caller": "ranked",
+          "callee": "degree.get",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/.trash-1786690380/tmp/ua-write-layers.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 34,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "assign",
+          "startLine": 17,
+          "endLine": 29,
+          "params": [
+            "n"
+          ]
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 22
+        },
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 23
+        },
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 24
+        },
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 25
+        },
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 26
+        },
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 26
+        },
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 26
+        },
+        {
+          "caller": "assign",
+          "callee": "p.startsWith",
+          "lineNumber": 26
+        },
+        {
+          "caller": "assign",
+          "callee": "p.includes",
+          "lineNumber": 27
+        },
+        {
+          "caller": "assign",
+          "callee": "/(^|\\/)test_[^/]+\\.py$/i.test",
+          "lineNumber": 27
+        },
+        {
+          "caller": "assign",
+          "callee": "/_test\\.[^.]+$/i.test",
+          "lineNumber": 27
+        },
+        {
+          "caller": "assign",
+          "callee": "p.includes",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": ".ua/intermediate/scan-result.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 8627,
+      "nonEmptyLines": 8627,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "languages",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "frameworks",
+          "level": 1,
+          "line": 21
+        },
+        {
+          "heading": "files",
+          "level": 1,
+          "line": 30
+        },
+        {
+          "heading": "totalFiles",
+          "level": 1,
+          "line": 6788
+        },
+        {
+          "heading": "filteredByIgnore",
+          "level": 1,
+          "line": 6789
+        },
+        {
+          "heading": "estimatedComplexity",
+          "level": 1,
+          "line": 6790
+        },
+        {
+          "heading": "importMap",
+          "level": 1,
+          "line": 6791
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    },
+    {
+      "path": "crew-content-pipeline/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-hiring-system/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-investment-analyst/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-product-launch/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-startup-simulator/tests/conftest.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 10,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-browser-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    }
+  ]
+}

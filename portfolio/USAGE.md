@@ -66,7 +66,7 @@ Users can browse all 20 systems, inspect their architectures, and **run any syst
 | Requirement | Details |
 | --- | --- |
 | **Browser** | Any modern browser (Chrome, Firefox, Edge, Safari) |
-| **API key** | An LLM provider key — Google Gemini, OpenAI, Anthropic, or no key for Ollama (local) |
+| **API key** | An LLM provider key — Google Gemini, OpenAI, Anthropic, xAI, or no key for Ollama (local) |
 | **Backend** | The FastAPI backend running locally or at a configured URL |
 | **Node.js** | Required to build/run the frontend (`npm` available) |
 | **Python 3.13+** | Required to run the backend |
@@ -74,6 +74,10 @@ Users can browse all 20 systems, inspect their architectures, and **run any syst
 ---
 
 ## Setup & Local Development
+
+### Windows one-click launch
+
+Double-click `launch.cmd` in the repository root. It installs missing Docker Desktop and Node.js LTS through `winget`, creates a persistent local queue-encryption key in `.data/launcher.env`, starts PostgreSQL/Redis/API/worker plus the Next.js frontend, waits for both health checks, and opens `http://localhost:3000`. If Windows requests UAC approval, WSL setup, or a restart, complete it and rerun the same file. The launcher never kills unrelated processes using ports 8000 or 3000.
 
 ### 1. Start the backend
 
@@ -103,7 +107,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 | `npm run build` | `next build` | Production build |
 | `npm start` | `next start` | Serve production build |
 | `npm run lint` | `eslint` | Run ESLint checks |
-| `npm test` | `tsx --test src/app/playground/playground-utils.test.ts src/lib/apikey.test.ts` | Run playground utility and BYOK API-key tests |
+| `npm test` | `tsx --test ...` | Run playground utility, model-catalog, and BYOK API-key tests |
 
 ---
 
@@ -234,10 +238,14 @@ The playground is the primary interactive surface. It uses a three-column layout
 
 The **Model** section of the sidebar is collapsible (open by default).
 
-- **Provider and model dropdown** — loaded from the backend's `/llm/catalog` endpoint. Models are grouped by provider (Google Gemini, OpenAI, Anthropic, Ollama). Unavailable providers show an amber warning
+- **Provider and model dropdown** — loaded from `/llm/catalog`. Hosted choices are Gemini 3.7 Flash / 3.5 Flash Lite, GPT-5.6 Luna / Terra, Claude Sonnet 5, and Grok 4.6; locally discovered Ollama models remain available
+- **Reasoning effort dropdown** — starts at **Provider default**, which omits an API override. Explicit options change with the selected model; Grok and Ollama currently expose provider default only
+- **Pricing summary** — displays input/output rates and cache, batch, promotional, fast-mode, or long-context notes supplied by the catalog
 - **API key input** — paste your key into the field for the selected provider. The field is masked when not focused (shows only the last 3 characters). A validation error appears only **after** you interact with the field (deferred validation)
-- **BYOK model** — your key is held in **browser memory only**, in a module-level variable. It is never written to `localStorage`, `sessionStorage`, or the server. The key is lost when you reload or close the page
+- **BYOK model** — your key is held in **browser memory only**, in a module-level variable. It is never written to `localStorage` or `sessionStorage`; the backend receives it for the active request but does not persist or log it. The key is lost when you reload or close the page
 - A **"Get API key"** link is shown for providers that expose one
+
+After a run, the result shows provider-reported input/output tokens and an estimated USD calculation. GPT-5.6 Luna uses reported cached-input tokens at its cache-read rate. GPT-5.6 Terra and Grok 4.6 switch automatically to their long-context rates above 272k and 200k input tokens. Batch and Grok fast-mode rates are informational because those modes are not used by the interactive runner. Saved history shows the stored total; older runs do not gain a reconstructed breakdown.
 
 ### Writing Input
 
@@ -548,7 +556,7 @@ Click the **sun/moon icon** in the top-right corner of the navigation bar to swi
 
 ## Docker Deployment
 
-The repository includes a `Dockerfile` and `docker-compose.yml` for the **backend only**.
+The repository includes a `Dockerfile` and `docker-compose.yml` for PostgreSQL, Redis, the API, and the RQ worker. The frontend runs as a local Node.js process; `launch.cmd` coordinates both layers on Windows.
 
 ### Dockerfile
 
@@ -585,7 +593,7 @@ Start with:
 docker compose up --build
 ```
 
-The frontend is not included in the Docker image — run it separately with `npm run dev` or `npm run build && npm start` from the `portfolio/` directory.
+The frontend is not included in the Docker image — run it separately with `npm run dev` or `npm run build && npm start` from the `portfolio/` directory, or use root `launch.cmd` on Windows.
 
 ---
 

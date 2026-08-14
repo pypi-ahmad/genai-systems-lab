@@ -1,4 +1,4 @@
-import type { LLMCatalogResponse, LLMProviderInfo } from "@/lib/api";
+import type { LLMCatalogResponse, LLMModelOption, LLMProviderInfo } from "@/lib/api";
 import type { LLMProviderId } from "@/lib/apikey";
 
 
@@ -18,4 +18,21 @@ export function findProviderInfo(
   providerId: LLMProviderId,
 ): LLMProviderInfo | null {
   return catalog?.providers.find((provider) => provider.id === providerId) ?? null;
+}
+
+
+export function findModelInfo(
+  catalog: LLMCatalogResponse | null,
+  modelId: string,
+): LLMModelOption | null {
+  for (const provider of catalog?.providers ?? []) {
+    const model = provider.models.find((candidate) => candidate.id === modelId);
+    if (model) return model;
+  }
+  return null;
+}
+
+
+export function normalizeModelEffort(model: LLMModelOption | null, effort?: string): string {
+  return effort && model?.effort_options.includes(effort) ? effort : "";
 }

@@ -1,0 +1,887 @@
+{
+  "nodes": [
+    {
+      "id": "file:lg-debugging-agent/app/graph.py",
+      "type": "file",
+      "name": "graph.py",
+      "filePath": "lg-debugging-agent/app/graph.py",
+      "summary": "graph.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/graph.py:route_after_evaluator",
+      "type": "function",
+      "name": "route_after_evaluator",
+      "filePath": "lg-debugging-agent/app/graph.py",
+      "lineRange": [
+        14,
+        17
+      ],
+      "summary": "Implements route_after_evaluator as part of graph.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/graph.py:build_graph",
+      "type": "function",
+      "name": "build_graph",
+      "filePath": "lg-debugging-agent/app/graph.py",
+      "lineRange": [
+        20,
+        40
+      ],
+      "summary": "Implements build_graph as part of graph.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-debugging-agent/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "lg-debugging-agent/app/main.py",
+      "summary": "main.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "lg-debugging-agent/app/main.py",
+      "lineRange": [
+        8,
+        32
+      ],
+      "summary": "Implements run as part of main.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "type": "file",
+      "name": "analyzer.py",
+      "filePath": "lg-debugging-agent/app/nodes/analyzer.py",
+      "summary": "analyzer.py implements application behavior for the nodes component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/analyzer.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-debugging-agent/app/nodes/analyzer.py",
+      "lineRange": [
+        7,
+        22
+      ],
+      "summary": "Implements _build_prompt as part of analyzer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/analyzer.py:analyzer_node",
+      "type": "function",
+      "name": "analyzer_node",
+      "filePath": "lg-debugging-agent/app/nodes/analyzer.py",
+      "lineRange": [
+        25,
+        39
+      ],
+      "summary": "Implements analyzer_node as part of analyzer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "type": "file",
+      "name": "case_generator.py",
+      "filePath": "lg-debugging-agent/app/nodes/case_generator.py",
+      "summary": "case_generator.py implements application behavior for the nodes component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/case_generator.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-debugging-agent/app/nodes/case_generator.py",
+      "lineRange": [
+        9,
+        22
+      ],
+      "summary": "Implements _build_prompt as part of case_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/case_generator.py:_extract_code",
+      "type": "function",
+      "name": "_extract_code",
+      "filePath": "lg-debugging-agent/app/nodes/case_generator.py",
+      "lineRange": [
+        25,
+        29
+      ],
+      "summary": "Implements _extract_code as part of case_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/case_generator.py:test_generator_node",
+      "type": "function",
+      "name": "test_generator_node",
+      "filePath": "lg-debugging-agent/app/nodes/case_generator.py",
+      "lineRange": [
+        32,
+        45
+      ],
+      "summary": "Implements test_generator_node as part of case_generator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-debugging-agent/app/nodes/evaluator.py",
+      "type": "file",
+      "name": "evaluator.py",
+      "filePath": "lg-debugging-agent/app/nodes/evaluator.py",
+      "summary": "evaluator.py implements application behavior for the nodes component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/evaluator.py:_test_passed",
+      "type": "function",
+      "name": "_test_passed",
+      "filePath": "lg-debugging-agent/app/nodes/evaluator.py",
+      "lineRange": [
+        6,
+        7
+      ],
+      "summary": "Implements _test_passed as part of evaluator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "function",
+      "name": "evaluator_node",
+      "filePath": "lg-debugging-agent/app/nodes/evaluator.py",
+      "lineRange": [
+        10,
+        20
+      ],
+      "summary": "Implements evaluator_node as part of evaluator.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "type": "file",
+      "name": "fixer.py",
+      "filePath": "lg-debugging-agent/app/nodes/fixer.py",
+      "summary": "fixer.py implements application behavior for the nodes component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/fixer.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-debugging-agent/app/nodes/fixer.py",
+      "lineRange": [
+        10,
+        28
+      ],
+      "summary": "Implements _build_prompt as part of fixer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/fixer.py:_extract_block",
+      "type": "function",
+      "name": "_extract_block",
+      "filePath": "lg-debugging-agent/app/nodes/fixer.py",
+      "lineRange": [
+        31,
+        35
+      ],
+      "summary": "Implements _extract_block as part of fixer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/fixer.py:_apply_diff",
+      "type": "function",
+      "name": "_apply_diff",
+      "filePath": "lg-debugging-agent/app/nodes/fixer.py",
+      "lineRange": [
+        38,
+        91
+      ],
+      "summary": "Implements _apply_diff as part of fixer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/fixer.py:_make_diff",
+      "type": "function",
+      "name": "_make_diff",
+      "filePath": "lg-debugging-agent/app/nodes/fixer.py",
+      "lineRange": [
+        94,
+        103
+      ],
+      "summary": "Implements _make_diff as part of fixer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/fixer.py:fixer_node",
+      "type": "function",
+      "name": "fixer_node",
+      "filePath": "lg-debugging-agent/app/nodes/fixer.py",
+      "lineRange": [
+        106,
+        131
+      ],
+      "summary": "Implements fixer_node as part of fixer.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-debugging-agent/app/nodes/tester.py",
+      "type": "file",
+      "name": "tester.py",
+      "filePath": "lg-debugging-agent/app/nodes/tester.py",
+      "summary": "tester.py implements application behavior for the nodes component.",
+      "tags": [
+        "test",
+        "python",
+        "quality-assurance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/tester.py:_check_blocked",
+      "type": "function",
+      "name": "_check_blocked",
+      "filePath": "lg-debugging-agent/app/nodes/tester.py",
+      "lineRange": [
+        30,
+        36
+      ],
+      "summary": "Implements _check_blocked as part of tester.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/tester.py:_safe_exec",
+      "type": "function",
+      "name": "_safe_exec",
+      "filePath": "lg-debugging-agent/app/nodes/tester.py",
+      "lineRange": [
+        39,
+        71
+      ],
+      "summary": "Implements _safe_exec as part of tester.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/tester.py:_format_result",
+      "type": "function",
+      "name": "_format_result",
+      "filePath": "lg-debugging-agent/app/nodes/tester.py",
+      "lineRange": [
+        74,
+        82
+      ],
+      "summary": "Implements _format_result as part of tester.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/nodes/tester.py:tester_node",
+      "type": "function",
+      "name": "tester_node",
+      "filePath": "lg-debugging-agent/app/nodes/tester.py",
+      "lineRange": [
+        85,
+        97
+      ],
+      "summary": "Implements tester_node as part of tester.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-debugging-agent/app/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "lg-debugging-agent/app/state.py",
+      "summary": "state.py implements application behavior for the app component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-debugging-agent/app/state.py:initial_state",
+      "type": "function",
+      "name": "initial_state",
+      "filePath": "lg-debugging-agent/app/state.py",
+      "lineRange": [
+        23,
+        34
+      ],
+      "summary": "Implements initial_state as part of state.py.",
+      "tags": [
+        "python",
+        "function",
+        "application"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lg-debugging-agent/app/state.py:DebugState",
+      "type": "class",
+      "name": "DebugState",
+      "filePath": "lg-debugging-agent/app/state.py",
+      "lineRange": [
+        11,
+        20
+      ],
+      "summary": "Defines DebugState, a structured component used by state.py.",
+      "tags": [
+        "python",
+        "class",
+        "application"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "function:lg-debugging-agent/app/graph.py:route_after_evaluator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "function:lg-debugging-agent/app/graph.py:route_after_evaluator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "function:lg-debugging-agent/app/graph.py:build_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "function:lg-debugging-agent/app/graph.py:build_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/main.py",
+      "target": "function:lg-debugging-agent/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/main.py",
+      "target": "function:lg-debugging-agent/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "target": "function:lg-debugging-agent/app/nodes/analyzer.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "target": "function:lg-debugging-agent/app/nodes/analyzer.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "target": "function:lg-debugging-agent/app/nodes/analyzer.py:analyzer_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "target": "function:lg-debugging-agent/app/nodes/analyzer.py:analyzer_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "function:lg-debugging-agent/app/nodes/case_generator.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "function:lg-debugging-agent/app/nodes/case_generator.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "function:lg-debugging-agent/app/nodes/case_generator.py:_extract_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "function:lg-debugging-agent/app/nodes/case_generator.py:_extract_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "function:lg-debugging-agent/app/nodes/case_generator.py:test_generator_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "function:lg-debugging-agent/app/nodes/case_generator.py:test_generator_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/evaluator.py",
+      "target": "function:lg-debugging-agent/app/nodes/evaluator.py:_test_passed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/evaluator.py",
+      "target": "function:lg-debugging-agent/app/nodes/evaluator.py:_test_passed",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/evaluator.py",
+      "target": "function:lg-debugging-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/evaluator.py",
+      "target": "function:lg-debugging-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_extract_block",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_extract_block",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_apply_diff",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_apply_diff",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_make_diff",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:_make_diff",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:fixer_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "function:lg-debugging-agent/app/nodes/fixer.py:fixer_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:_check_blocked",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:_check_blocked",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:_safe_exec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:_safe_exec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:_format_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:_format_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:tester_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "function:lg-debugging-agent/app/nodes/tester.py:tester_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/state.py",
+      "target": "function:lg-debugging-agent/app/state.py:initial_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/state.py",
+      "target": "function:lg-debugging-agent/app/state.py:initial_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/state.py",
+      "target": "class:lg-debugging-agent/app/state.py:DebugState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-debugging-agent/app/state.py",
+      "target": "class:lg-debugging-agent/app/state.py:DebugState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "file:lg-debugging-agent/app/nodes/evaluator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "file:lg-debugging-agent/app/nodes/tester.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "file:lg-debugging-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/graph.py",
+      "target": "file:shared/api/langgraph_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/main.py",
+      "target": "file:lg-debugging-agent/app/graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/main.py",
+      "target": "file:lg-debugging-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "target": "file:lg-debugging-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/analyzer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "file:lg-debugging-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/case_generator.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/evaluator.py",
+      "target": "file:lg-debugging-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "file:lg-debugging-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/fixer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-debugging-agent/app/nodes/tester.py",
+      "target": "file:lg-debugging-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 # GenAI Systems Lab — Portfolio
 
-An interactive portfolio and live execution environment for 20 production-grade AI systems, built with Next.js 16, React 19, and Tailwind CSS v4.
+An interactive portfolio and live execution environment for 20 production-grade AI systems, built with Next.js 16.3, React 19, and Tailwind CSS v4.
 
 ---
 
 ## Overview
 
-This is not a static project gallery. The portfolio is a full-featured frontend that connects to a shared FastAPI backend and lets users **run any of the 20 AI systems directly from the browser**. It streams execution output token-by-token via SSE, visualizes agent state as an animated directed graph, records memory traces and timeline events, and displays performance metrics for every system.
+This is not a static project gallery. The portfolio connects to a shared FastAPI backend and lets users **run any of the 20 AI systems directly from the browser**. SSE carries live execution steps and the completed output, while the UI visualizes agent state, memory traces, timelines, usage, and performance metrics.
 
 Every project belongs to one of three paradigms:
 
@@ -16,7 +16,7 @@ Every project belongs to one of three paradigms:
 | **LangGraph** | 5 | Stateful graph-based orchestration with conditional routing |
 | **CrewAI** | 5 | Role-based multi-agent collaboration with staged handoffs |
 
-Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, Anthropic, or no key for local Ollama. The key is held in module-level browser memory for the current page session and is sent per-request via the `X-API-Key` header — the server never persists it.
+Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, Anthropic, xAI, or no key for local Ollama. The key is held in module-level browser memory for the current page session and is sent per-request via the `X-API-Key` header — the server never persists it.
 
 ---
 
@@ -24,7 +24,7 @@ Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, An
 
 ### Interactive Playground
 
-- **SSE streaming** — tokens arrive in real time via `text/event-stream`; a standard (non-streaming) mode is available via a toggle for environments where SSE is unreliable
+- **SSE progress** — steps arrive in real time; the two research flagships also stream provider-native final-writer tokens, while other systems return one honest completed-output event and CrewAI remains step-only
 - **Animated execution graph** — a topologically-sorted DAG renders node status (`idle` → `running` → `done` / `error`) and active edges as the system executes
 - **Memory trace panel** — displays `thought`, `action`, and `observation` entries emitted by the agent during a run
 - **Timeline replay** — frame-by-frame scrubbing through timestamped execution events with play/pause controls
@@ -42,11 +42,17 @@ Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, An
 - Time-series charts (Recharts) for latency, confidence, and success rate
 - Three time ranges: last hour (5-min buckets), last day (hourly), last week (daily)
 - Per-project filtering with trend analysis and automated summary generation backed by persisted execution metrics
+- Run responses expose input/output/total tokens, actual models, applied pricing tiers, and estimated USD component costs; saved history retains the aggregate cost
+- Model selectors show current catalog rates and discount/conditional-rate notes before execution; Ollama reports cost unavailable
 
 ### LangGraph vs CrewAI Comparison
 
 - Side-by-side technical comparison across control flow, determinism, flexibility, and use cases
 - Linked to concrete implementations from the repository (e.g., `lg-debugging-agent` for evaluator-driven retry loops)
+
+### Live model comparison
+
+- `/model-compare` loads the selected provider's catalog models dynamically and compares output, latency, token use, effort settings, and estimated costs side by side
 
 ### Authentication & Sessions
 
@@ -61,6 +67,7 @@ Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, An
 - Button system: `primary`, `secondary`, `ghost`, `danger` × `sm`, `base`, `lg` × `pill`, `icon`
 - Typography: Manrope (headings/body), IBM Plex Mono (code/data)
 - Glassmorphic backgrounds: gradient orbs, grid overlay, backdrop blur
+- App-level loading, error, and not-found states plus generated `robots.txt` and project-aware sitemap metadata
 
 ---
 
@@ -68,7 +75,7 @@ Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, An
 
 | Layer | Technology | Version |
 | --- | --- | --- |
-| Framework | Next.js (App Router, Turbopack) | 16.2.1 |
+| Framework | Next.js (App Router, Turbopack) | 16.3.1 |
 | UI | React | 19.2.4 |
 | Language | TypeScript (strict mode) | 5.x |
 | Styling | Tailwind CSS v4 + PostCSS | 4.x |
@@ -102,7 +109,8 @@ Users supply their own LLM provider API key (BYOK) — Google Gemini, OpenAI, An
 │                     FastAPI Backend (:8000)                       │
 │                                                                  │
 │  POST /{project}/run          — standard execution                  │
-│  GET  /stream/{project}       — SSE token streaming              │
+│  GET  /stream/{project}       — SSE steps + completed output     │
+│  POST /jobs/{project}         — authenticated, owner-scoped queue │
 │  GET  /metrics, /metrics/time — aggregate + time-series metrics  │
 │  POST /auth/signup, /login    — authentication                   │
 │  GET  /history                — per-user run history             │
@@ -242,11 +250,14 @@ For the complete operational reference, see **[USAGE.md](USAGE.md)**.
 
 ### Quick Start
 
+On Windows 11, double-click the repository-root `launch.cmd` to install missing Docker Desktop/Node.js prerequisites, start the backend stack and frontend, wait for readiness, and open the browser.
+
 1. Navigate to **Playground** (`/playground`)
 2. Select a project from the sidebar dropdown (e.g., `genai-research-system`)
 3. Enter your API key — it stays in memory for the current tab and is sent as `X-API-Key`
-4. Type an input prompt and press **Run**
-5. Watch tokens stream in, the agent graph animate node-by-node, and memory entries accumulate
+4. Optionally choose a model-supported reasoning effort; “Provider default” sends no override
+5. Review the model's per-million-token rates, type an input prompt, and press **Run**
+6. Watch tokens stream in, the agent graph animate node-by-node, and the calculated cost appear with the result
 
 ### Viewing Project Details
 

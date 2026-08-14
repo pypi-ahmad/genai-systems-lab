@@ -5,7 +5,7 @@
 File: `app/agents.py`
 
 - [ ] Import `Agent` from `crewai`.
-- [ ] Define `REASONING_MODEL = "gemini/gemini-3.1-pro-preview"` and `SUMMARY_MODEL = "gemini/gemini-3-flash-preview"` constants.
+- [ ] Define `REASONING_MODEL = "gemini/gemini-3.7-flash"` and `SUMMARY_MODEL = "gemini/gemini-3.5-flash-lite"` constants.
 - [ ] Create `build_market_researcher() -> Agent` with role `"Senior Market Researcher"`, goal to produce a structured market analysis covering industry landscape, competitor mapping, market sizing, growth trends, and key opportunities/threats for the product launch, and backstory as a market intelligence professional with 12 years in product-led companies specializing in competitive analysis and TAM/SAM/SOM estimation. Use `REASONING_MODEL`.
 - [ ] Create `build_customer_analyst() -> Agent` with role `"Senior Customer Analyst"`, goal to define target customer segments with detailed personas, pain points, buying behavior, and decision criteria based on market research findings, and backstory as a customer research specialist who builds personas from behavioral data focusing on jobs-to-be-done and purchase triggers. Use `REASONING_MODEL`.
 - [ ] Create `build_product_strategist() -> Agent` with role `"Head of Product Strategy"`, goal to define clear product positioning, core messaging, value propositions per segment, and competitive differentiation based on market analysis and customer personas, and backstory as a product strategist who has launched products from zero-to-one across SaaS, consumer, and platform businesses. Use `REASONING_MODEL`.

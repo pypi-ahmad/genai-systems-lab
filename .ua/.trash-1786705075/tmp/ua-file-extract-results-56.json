@@ -1,0 +1,276 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-knowledge-os/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Personal Knowledge OS",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-knowledge-os/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 131,
+      "nonEmptyLines": 79,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Core Components",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "1. Ingestion Pipeline (`ingest.py`)",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "2. Chunker (`chunker.py`)",
+          "level": 3,
+          "line": 19
+        },
+        {
+          "heading": "3. Embedder (`embedder.py`)",
+          "level": 3,
+          "line": 25
+        },
+        {
+          "heading": "4. Vector Store (`vector_store.py`)",
+          "level": 3,
+          "line": 31
+        },
+        {
+          "heading": "5. Retriever (`retriever.py`)",
+          "level": 3,
+          "line": 38
+        },
+        {
+          "heading": "6. Memory System (`memory.py`)",
+          "level": 3,
+          "line": 44
+        },
+        {
+          "heading": "7. Summarizer (`summarizer.py`)",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "8. Insight Engine (`insight_engine.py`)",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 63
+        },
+        {
+          "heading": "1. Document Ingestion",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "2. Chunking",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "3. Embedding and Storage",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "4. Query and Retrieval",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "5. Summarization",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "6. Insight Generation",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "7. Memory Update",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 93
+        },
+        {
+          "heading": "`gemini-3.1-pro-preview`",
+          "level": 3,
+          "line": 95
+        },
+        {
+          "heading": "`gemini-3-flash-preview`",
+          "level": 3,
+          "line": 104
+        },
+        {
+          "heading": "Design Principles",
+          "level": 2,
+          "line": 115
+        },
+        {
+          "heading": "Entry Point (`main.py`)",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "High-Level Architecture Summary",
+          "level": 2,
+          "line": 129
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 25
+      }
+    },
+    {
+      "path": "genai-knowledge-os/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 66,
+      "nonEmptyLines": 49,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Document Ingestion",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Chunking System",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Embedding Generation",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Vector Store Implementation",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Retrieval Logic",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Memory Storage",
+          "level": 2,
+          "line": 43
+        },
+        {
+          "heading": "Summarization",
+          "level": 2,
+          "line": 51
+        },
+        {
+          "heading": "Insight Generation",
+          "level": 2,
+          "line": 59
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 9
+      }
+    }
+  ]
+}

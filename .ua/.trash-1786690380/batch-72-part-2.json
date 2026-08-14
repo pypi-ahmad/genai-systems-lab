@@ -1,0 +1,565 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-knowledge-os/data/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-knowledge-os/data/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-knowledge-os/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-knowledge-os/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-nl2sql-agent/app/__init__.py",
+      "summary": "Marks genai-nl2sql-agent/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/executor.py",
+      "type": "file",
+      "name": "executor.py",
+      "filePath": "genai-nl2sql-agent/app/executor.py",
+      "summary": "Implements _load_get_connection, execute_sql for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/executor.py:_load_get_connection",
+      "type": "function",
+      "name": "_load_get_connection",
+      "filePath": "genai-nl2sql-agent/app/executor.py",
+      "lineRange": [
+        13,
+        26
+      ],
+      "summary": "Implements _load_get_connection for the executor.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/executor.py:execute_sql",
+      "type": "function",
+      "name": "execute_sql",
+      "filePath": "genai-nl2sql-agent/app/executor.py",
+      "lineRange": [
+        33,
+        38
+      ],
+      "summary": "Implements execute_sql for the executor.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/schema.py",
+      "type": "file",
+      "name": "schema.py",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "summary": "Implements _create_tables, _seed_data, _initialize_database, get_connection for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:_create_tables",
+      "type": "function",
+      "name": "_create_tables",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        33,
+        53
+      ],
+      "summary": "Implements _create_tables for the schema.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:_seed_data",
+      "type": "function",
+      "name": "_seed_data",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        56,
+        64
+      ],
+      "summary": "Implements _seed_data for the schema.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:_initialize_database",
+      "type": "function",
+      "name": "_initialize_database",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        67,
+        70
+      ],
+      "summary": "Implements _initialize_database for the schema.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:get_connection",
+      "type": "function",
+      "name": "get_connection",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        74,
+        75
+      ],
+      "summary": "Implements get_connection for the schema.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/schema.py:get_schema_description",
+      "type": "function",
+      "name": "get_schema_description",
+      "filePath": "genai-nl2sql-agent/app/schema.py",
+      "lineRange": [
+        78,
+        115
+      ],
+      "summary": "Implements get_schema_description for the schema.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/validator.py",
+      "type": "file",
+      "name": "validator.py",
+      "filePath": "genai-nl2sql-agent/app/validator.py",
+      "summary": "Implements validate_sql for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/validator.py:validate_sql",
+      "type": "function",
+      "name": "validate_sql",
+      "filePath": "genai-nl2sql-agent/app/validator.py",
+      "lineRange": [
+        17,
+        33
+      ],
+      "summary": "Implements validate_sql for the validator.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-research-system/app/__init__.py",
+      "summary": "Marks genai-research-system/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/nodes/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-research-system/app/nodes/__init__.py",
+      "summary": "Marks genai-research-system/app/nodes as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/tools.py",
+      "type": "file",
+      "name": "tools.py",
+      "filePath": "genai-research-system/app/tools.py",
+      "summary": "Provides the python implementation for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-ui-builder/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-ui-builder/app/__init__.py",
+      "summary": "Marks genai-ui-builder/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-ui-builder/app/preview.py",
+      "type": "file",
+      "name": "preview.py",
+      "filePath": "genai-ui-builder/app/preview.py",
+      "summary": "Implements _strip_imports, _css_to_style_block, build_preview_html, start_preview for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-ui-builder/app/preview.py:_strip_imports",
+      "type": "function",
+      "name": "_strip_imports",
+      "filePath": "genai-ui-builder/app/preview.py",
+      "lineRange": [
+        49,
+        61
+      ],
+      "summary": "Implements _strip_imports for the preview.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-ui-builder/app/preview.py:_css_to_style_block",
+      "type": "function",
+      "name": "_css_to_style_block",
+      "filePath": "genai-ui-builder/app/preview.py",
+      "lineRange": [
+        64,
+        66
+      ],
+      "summary": "Implements _css_to_style_block for the preview.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-ui-builder/app/preview.py:build_preview_html",
+      "type": "function",
+      "name": "build_preview_html",
+      "filePath": "genai-ui-builder/app/preview.py",
+      "lineRange": [
+        69,
+        100
+      ],
+      "summary": "Implements build_preview_html for the preview.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-ui-builder/app/preview.py:start_preview",
+      "type": "function",
+      "name": "start_preview",
+      "filePath": "genai-ui-builder/app/preview.py",
+      "lineRange": [
+        119,
+        133
+      ],
+      "summary": "Implements start_preview for the preview.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-ui-builder/app/preview.py:_PreviewHandler",
+      "type": "class",
+      "name": "_PreviewHandler",
+      "filePath": "genai-ui-builder/app/preview.py",
+      "lineRange": [
+        103,
+        116
+      ],
+      "summary": "Encapsulates _PreviewHandler behavior for the preview.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-ui-builder/app/templates/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-ui-builder/app/templates/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:_load_get_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:_load_get_connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:execute_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/executor.py",
+      "target": "function:genai-nl2sql-agent/app/executor.py:execute_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_create_tables",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_create_tables",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_seed_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_seed_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_initialize_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:_initialize_database",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_schema_description",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/schema.py",
+      "target": "function:genai-nl2sql-agent/app/schema.py:get_schema_description",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/validator.py",
+      "target": "function:genai-nl2sql-agent/app/validator.py:validate_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/validator.py",
+      "target": "function:genai-nl2sql-agent/app/validator.py:validate_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:_strip_imports",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:_strip_imports",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:_css_to_style_block",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:_css_to_style_block",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:build_preview_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:build_preview_html",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:start_preview",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "function:genai-ui-builder/app/preview.py:start_preview",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "class:genai-ui-builder/app/preview.py:_PreviewHandler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/preview.py",
+      "target": "class:genai-ui-builder/app/preview.py:_PreviewHandler",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

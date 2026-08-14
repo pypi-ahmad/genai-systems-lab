@@ -5,7 +5,7 @@
 File: `app/agents.py`
 
 - [ ] Import `Agent` from `crewai`.
-- [ ] Define `REASONING_MODEL = "gemini-3.1-pro-preview"` and `SUMMARY_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Define `REASONING_MODEL = "gemini-3.7-flash"` and `SUMMARY_MODEL = "gemini-3.5-flash-lite"` constants.
 - [ ] Create `build_ceo() -> Agent` with role `"Chief Executive Officer"`, goal to transform a raw idea into a vision with target market, value proposition, competitive positioning, and success metrics, and backstory as an experienced startup founder. Use `REASONING_MODEL`.
 - [ ] Create `build_product_manager() -> Agent` with role `"Head of Product"`, goal to define product scope, core features, user personas, and a prioritized roadmap from the CEO's vision, and backstory as a senior PM who ships B2B/B2C products. Use `REASONING_MODEL`.
 - [ ] Create `build_cto() -> Agent` with role `"Chief Technology Officer"`, goal to design system architecture, technology stack, and infrastructure requirements from the product spec, and backstory as a senior engineering leader who balances excellence with pragmatic delivery. Use `REASONING_MODEL`.

@@ -4,17 +4,20 @@ from __future__ import annotations
 
 import json
 
+import pytest
+
+from shared.api.runner import (
+    LEGACY_PROJECT_API_NAMES,
+    _project_aliases,
+    list_available,
+    resolve_project_name,
+)
 from shared.project_catalog import (
     CATALOG_PATH,
     build_pipeline_nodes_index,
     list_project_manifest_entries,
     load_project_catalog,
     project_api_name,
-)
-from shared.api.runner import (
-    LEGACY_PROJECT_API_NAMES,
-    _project_aliases,
-    resolve_project_name,
 )
 
 
@@ -81,6 +84,25 @@ def test_legacy_project_api_names_still_resolve():
     assert resolve_project_name("generative-ui-builder") == "genai-ui-builder"
     assert resolve_project_name("product-launch-crew") == "crew-product-launch"
     assert resolve_project_name("research-graph") == "lg-research-agent"
+
+
+def test_debugging_agent_is_not_publicly_runnable_by_default(monkeypatch):
+    monkeypatch.delenv("GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS", raising=False)
+    monkeypatch.setenv("APP_ENV", "dev")
+
+    assert "lg-debugging-agent" not in list_available()
+    with pytest.raises(ValueError):
+        resolve_project_name("debugging-agent")
+
+
+def test_debugging_agent_requires_explicit_non_production_opt_in(monkeypatch):
+    monkeypatch.setenv("GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS", "true")
+    monkeypatch.setenv("APP_ENV", "dev")
+    assert resolve_project_name("debugging-agent") == "lg-debugging-agent"
+
+    monkeypatch.setenv("APP_ENV", "prod")
+    with pytest.raises(ValueError):
+        resolve_project_name("debugging-agent")
 
 
 def test_catalog_aliases_cover_every_api_endpoint():

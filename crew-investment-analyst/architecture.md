@@ -41,7 +41,7 @@ Evaluates macro and industry-level conditions surrounding the investment target.
 - **Role:** Senior Market Analyst
 - **Goal:** Assess industry trends, competitive landscape, market size, and growth drivers relevant to the investment target.
 - **Backstory:** Equity research analyst with 15 years covering multiple sectors. Specialized in identifying inflection points, secular trends, and competitive moats. Evaluates markets through both top-down macro and bottom-up industry lens.
-- **Model:** `gemini-3.1-pro-preview` — market analysis requires reasoning across macro indicators, competitive dynamics, and trend extrapolation.
+- **Model:** `gemini-3.7-flash` — market analysis requires reasoning across macro indicators, competitive dynamics, and trend extrapolation.
 - **Output:** Market report covering industry overview, growth drivers, competitive positioning, addressable market size, headwinds/tailwinds, and sector outlook.
 
 ### Financial Analyst
@@ -51,7 +51,7 @@ Evaluates quantitative financial health and valuation of the target.
 - **Role:** Senior Financial Analyst
 - **Goal:** Analyze key financial metrics, valuation multiples, cash flow health, and profitability trends to determine financial strength.
 - **Backstory:** CFA charterholder with deep experience in fundamental analysis. Reads financial statements the way a mechanic reads engine diagnostics — identifying stress points, efficiency patterns, and sustainability of earnings.
-- **Model:** `gemini-3.1-pro-preview` — financial evaluation requires multi-step reasoning across income statements, balance sheets, and cash flow dynamics.
+- **Model:** `gemini-3.7-flash` — financial evaluation requires multi-step reasoning across income statements, balance sheets, and cash flow dynamics.
 - **Output:** Financial assessment covering revenue trends, profitability margins, debt/equity structure, cash flow analysis, valuation multiples (P/E, EV/EBITDA, P/FCF), and peer comparison.
 
 ### Risk Analyst
@@ -61,7 +61,7 @@ Identifies and quantifies risk factors across market, financial, and operational
 - **Role:** Senior Risk Analyst
 - **Goal:** Identify material risks spanning market, financial, regulatory, and operational domains, and assess their probability and potential impact.
 - **Backstory:** Risk management professional who has worked across hedge funds and institutional investors. Thinks in terms of downside scenarios, tail risks, and correlation exposures. Skeptical by disposition — the job is to find what can go wrong.
-- **Model:** `gemini-3.1-pro-preview` — risk identification requires nuanced reasoning about dependencies, edge cases, and second-order effects.
+- **Model:** `gemini-3.7-flash` — risk identification requires nuanced reasoning about dependencies, edge cases, and second-order effects.
 - **Output:** Risk report covering identified risks (categorized by type), probability/impact assessment for each, concentration risks, regulatory exposure, and suggested mitigations.
 
 ### Strategist
@@ -71,7 +71,7 @@ Synthesizes all prior analyses into a final investment recommendation.
 - **Role:** Chief Investment Strategist
 - **Goal:** Integrate market, financial, and risk analyses into a clear investment recommendation with conviction level, position sizing guidance, and entry/exit criteria.
 - **Backstory:** Portfolio manager who has allocated capital across cycles. Balances quantitative rigor with qualitative judgment. Focuses on asymmetric risk/reward and catalysts that drive re-rating.
-- **Model:** `gemini-3.1-pro-preview` — the synthesis step is the highest-stakes reasoning task, integrating three separate analytical perspectives into a coherent decision.
+- **Model:** `gemini-3.7-flash` — the synthesis step is the highest-stakes reasoning task, integrating three separate analytical perspectives into a coherent decision.
 - **Output:** Investment recommendation covering thesis summary, conviction level (high/medium/low), recommended action (buy/hold/sell/avoid), key catalysts, position sizing rationale, entry/exit criteria, and time horizon.
 
 ## Tasks
@@ -110,8 +110,8 @@ Each CrewAI `Task` binds an agent to a specific deliverable. Tasks execute in or
 
 | Model | Agents | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | Market Analyst, Financial Analyst, Risk Analyst, Strategist | All four tasks require analytical reasoning — market dynamics, financial modeling, risk assessment, and investment synthesis are high-stakes cognitive tasks |
-| `gemini-3-flash-preview` | (used for summaries within agents if needed) | Quick condensation of lengthy context windows before passing to downstream tasks |
+| `gemini-3.7-flash` | Market Analyst, Financial Analyst, Risk Analyst, Strategist | All four tasks require analytical reasoning — market dynamics, financial modeling, risk assessment, and investment synthesis are high-stakes cognitive tasks |
+| `gemini-3.5-flash-lite` | (used for summaries within agents if needed) | Quick condensation of lengthy context windows before passing to downstream tasks |
 
 ### Cost and latency considerations
 
@@ -119,7 +119,7 @@ Each CrewAI `Task` binds an agent to a specific deliverable. Tasks execute in or
 - The Risk Analyst task is moderately sized but requires processing two prior reports as context.
 - The Strategist task produces the shortest output but reasons across the largest context window (three prior reports).
 - Total pipeline runs four LLM calls in sequence. Expect 40–80 seconds end-to-end depending on output length.
-- `gemini-3-flash-preview` can be used as an optional summarization step if upstream outputs exceed context limits, but the default pipeline passes full outputs.
+- `gemini-3.5-flash-lite` can be used as an optional summarization step if upstream outputs exceed context limits, but the default pipeline passes full outputs.
 
 ## Data Flow
 
@@ -170,7 +170,7 @@ User Input (ticker / company)
 
 - **LLM failure:** CrewAI retries failed LLM calls with exponential backoff. If a task fails after retries, the crew raises and `main.py` reports the error.
 - **Empty output:** If an agent returns an empty or malformed response, downstream agents receive it as-is. The Strategist should note incomplete inputs in its recommendation.
-- **Context overflow:** If accumulated context exceeds model limits, use `gemini-3-flash-preview` to summarize prior outputs before passing to the next task.
+- **Context overflow:** If accumulated context exceeds model limits, use `gemini-3.5-flash-lite` to summarize prior outputs before passing to the next task.
 
 ## Extension Points
 

@@ -1,0 +1,579 @@
+{
+  "nodes": [
+    {
+      "id": "file:.gitattributes",
+      "type": "file",
+      "name": ".gitattributes",
+      "filePath": ".gitattributes",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.github/dependabot.yml",
+      "type": "config",
+      "name": "dependabot.yml",
+      "filePath": ".github/dependabot.yml",
+      "summary": "Defines project configuration stored in .github/dependabot.yml.",
+      "tags": [
+        "configuration",
+        "yaml",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.github/gitleaks.toml",
+      "type": "config",
+      "name": "gitleaks.toml",
+      "filePath": ".github/gitleaks.toml",
+      "summary": "Defines project configuration stored in .github/gitleaks.toml.",
+      "tags": [
+        "configuration",
+        "toml",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.trivyignore",
+      "type": "file",
+      "name": ".trivyignore",
+      "filePath": ".trivyignore",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:.ua/.understandignore",
+      "type": "file",
+      "name": ".understandignore",
+      "filePath": ".ua/.understandignore",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".ua/config.json",
+      "summary": "Defines project configuration stored in .ua/config.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-content-pipeline/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-content-pipeline/app/__init__.py",
+      "summary": "Marks crew-content-pipeline/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-content-pipeline/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-content-pipeline/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-hiring-system/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-hiring-system/app/__init__.py",
+      "summary": "Marks crew-hiring-system/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-hiring-system/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-hiring-system/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-investment-analyst/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-investment-analyst/app/__init__.py",
+      "summary": "Marks crew-investment-analyst/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-investment-analyst/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-investment-analyst/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-product-launch/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-product-launch/app/__init__.py",
+      "summary": "Marks crew-product-launch/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-product-launch/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-product-launch/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "crew-startup-simulator/app/__init__.py",
+      "summary": "Marks crew-startup-simulator/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "crew-startup-simulator/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/tests/conftest.py",
+      "type": "file",
+      "name": "conftest.py",
+      "filePath": "crew-startup-simulator/tests/conftest.py",
+      "summary": "Provides the python implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:docs/comparison.md",
+      "type": "document",
+      "name": "comparison.md",
+      "filePath": "docs/comparison.md",
+      "summary": "Documents the project material contained in docs/comparison.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:genai-browser-agent/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-browser-agent/app/__init__.py",
+      "summary": "Marks genai-browser-agent/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-clinical-assistant/app/__init__.py",
+      "summary": "Marks genai-clinical-assistant/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/data/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-clinical-assistant/data/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "code",
+        "unknown",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/tests/.gitkeep",
+      "type": "file",
+      "name": ".gitkeep",
+      "filePath": "genai-clinical-assistant/tests/.gitkeep",
+      "summary": "Provides the unknown implementation for this project component.",
+      "tags": [
+        "test",
+        "verification",
+        "python"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-code-copilot/app/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "genai-code-copilot/app/__init__.py",
+      "summary": "Marks genai-code-copilot/app as a Python package.",
+      "tags": [
+        "python",
+        "package",
+        "entry-point"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-code-copilot/app/context_builder.py",
+      "type": "file",
+      "name": "context_builder.py",
+      "filePath": "genai-code-copilot/app/context_builder.py",
+      "summary": "Implements _normalize_chunk_text, _format_chunk, build_context, ContextChunk for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/context_builder.py:_normalize_chunk_text",
+      "type": "function",
+      "name": "_normalize_chunk_text",
+      "filePath": "genai-code-copilot/app/context_builder.py",
+      "lineRange": [
+        15,
+        23
+      ],
+      "summary": "Implements _normalize_chunk_text for the context_builder.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/context_builder.py:_format_chunk",
+      "type": "function",
+      "name": "_format_chunk",
+      "filePath": "genai-code-copilot/app/context_builder.py",
+      "lineRange": [
+        26,
+        27
+      ],
+      "summary": "Implements _format_chunk for the context_builder.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/context_builder.py:build_context",
+      "type": "function",
+      "name": "build_context",
+      "filePath": "genai-code-copilot/app/context_builder.py",
+      "lineRange": [
+        30,
+        68
+      ],
+      "summary": "Implements build_context for the context_builder.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/context_builder.py:ContextChunk",
+      "type": "class",
+      "name": "ContextChunk",
+      "filePath": "genai-code-copilot/app/context_builder.py",
+      "lineRange": [
+        10,
+        12
+      ],
+      "summary": "Encapsulates ContextChunk behavior for the context_builder.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-code-copilot/app/file_parser.py",
+      "type": "file",
+      "name": "file_parser.py",
+      "filePath": "genai-code-copilot/app/file_parser.py",
+      "summary": "Implements _should_ignore_directory, _read_text_file, scan_directory, ParsedFile for this project component.",
+      "tags": [
+        "code",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/file_parser.py:_should_ignore_directory",
+      "type": "function",
+      "name": "_should_ignore_directory",
+      "filePath": "genai-code-copilot/app/file_parser.py",
+      "lineRange": [
+        17,
+        18
+      ],
+      "summary": "Implements _should_ignore_directory for the file_parser.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/file_parser.py:_read_text_file",
+      "type": "function",
+      "name": "_read_text_file",
+      "filePath": "genai-code-copilot/app/file_parser.py",
+      "lineRange": [
+        21,
+        22
+      ],
+      "summary": "Implements _read_text_file for the file_parser.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/file_parser.py:scan_directory",
+      "type": "function",
+      "name": "scan_directory",
+      "filePath": "genai-code-copilot/app/file_parser.py",
+      "lineRange": [
+        25,
+        57
+      ],
+      "summary": "Implements scan_directory for the file_parser.py component.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/file_parser.py:ParsedFile",
+      "type": "class",
+      "name": "ParsedFile",
+      "filePath": "genai-code-copilot/app/file_parser.py",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "Encapsulates ParsedFile behavior for the file_parser.py component.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "function:genai-code-copilot/app/context_builder.py:_normalize_chunk_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "function:genai-code-copilot/app/context_builder.py:_normalize_chunk_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "function:genai-code-copilot/app/context_builder.py:_format_chunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "function:genai-code-copilot/app/context_builder.py:_format_chunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "function:genai-code-copilot/app/context_builder.py:build_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "function:genai-code-copilot/app/context_builder.py:build_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "class:genai-code-copilot/app/context_builder.py:ContextChunk",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/context_builder.py",
+      "target": "class:genai-code-copilot/app/context_builder.py:ContextChunk",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "function:genai-code-copilot/app/file_parser.py:_should_ignore_directory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "function:genai-code-copilot/app/file_parser.py:_should_ignore_directory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "function:genai-code-copilot/app/file_parser.py:_read_text_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "function:genai-code-copilot/app/file_parser.py:_read_text_file",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "function:genai-code-copilot/app/file_parser.py:scan_directory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "function:genai-code-copilot/app/file_parser.py:scan_directory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "class:genai-code-copilot/app/file_parser.py:ParsedFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/file_parser.py",
+      "target": "class:genai-code-copilot/app/file_parser.py:ParsedFile",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

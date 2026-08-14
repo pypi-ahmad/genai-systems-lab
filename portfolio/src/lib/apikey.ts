@@ -1,8 +1,9 @@
-export type LLMProviderId = "gemini" | "openai" | "anthropic" | "ollama";
+export type LLMProviderId = "gemini" | "openai" | "anthropic" | "xai" | "ollama";
 
 export interface StoredLLMSelection {
   provider: LLMProviderId;
   model: string;
+  effort?: string;
 }
 
 // ---------------------------------------------------------------------------
@@ -23,6 +24,7 @@ const EMPTY_KEYS: Record<LLMProviderId, string> = {
   gemini: "",
   openai: "",
   anthropic: "",
+  xai: "",
   ollama: "",
 };
 
@@ -62,5 +64,6 @@ export function setStoredLLMSelection(selection: StoredLLMSelection): void {
   activeSelection = {
     provider: selection.provider,
     model: selection.model,
+    effort: selection.effort,
   };
 }

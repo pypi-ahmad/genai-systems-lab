@@ -1,7 +1,7 @@
 from shared.llm.gemini import generate_text
 
 
-MODEL = "gemini-3.1-pro-preview"
+MODEL = "gemini-3.7-flash"
 
 PROMPT_TEMPLATE = """You are an insight engine analyzing a personal knowledge base. You are given multiple text chunks from different documents.
 

@@ -1,0 +1,271 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 2,
+  "filesSkipped": [
+    ".dockerignore"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 2,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 2
+    }
+  },
+  "results": [
+    {
+      "path": "Dockerfile",
+      "language": "dockerfile",
+      "fileCategory": "infra",
+      "totalLines": 87,
+      "nonEmptyLines": 70,
+      "services": [
+        {
+          "name": "builder",
+          "image": "python:3.13-slim",
+          "ports": [],
+          "startLine": 4,
+          "endLine": 15
+        },
+        {
+          "name": "python",
+          "image": "python:3.13-slim",
+          "ports": [
+            8000
+          ],
+          "startLine": 16,
+          "endLine": 88
+        }
+      ],
+      "steps": [
+        {
+          "name": "FROM python:3.13-slim AS builder",
+          "startLine": 4,
+          "endLine": 4
+        },
+        {
+          "name": "ENV PIP_DISABLE_PIP_VERSION_CHECK=1 \\",
+          "startLine": 6,
+          "endLine": 6
+        },
+        {
+          "name": "WORKDIR /build",
+          "startLine": 10,
+          "endLine": 10
+        },
+        {
+          "name": "COPY requirements.txt .",
+          "startLine": 12,
+          "endLine": 12
+        },
+        {
+          "name": "RUN pip install --prefix=/install -r requirements.txt",
+          "startLine": 13,
+          "endLine": 13
+        },
+        {
+          "name": "FROM python:3.13-slim",
+          "startLine": 16,
+          "endLine": 16
+        },
+        {
+          "name": "ENV PYTHONDONTWRITEBYTECODE=1 \\",
+          "startLine": 18,
+          "endLine": 18
+        },
+        {
+          "name": "RUN apt-get update \\",
+          "startLine": 24,
+          "endLine": 24
+        },
+        {
+          "name": "WORKDIR /app",
+          "startLine": 31,
+          "endLine": 31
+        },
+        {
+          "name": "COPY --from=builder /install /usr/local",
+          "startLine": 34,
+          "endLine": 34
+        },
+        {
+          "name": "COPY --chown=app:app shared/ ./shared/",
+          "startLine": 41,
+          "endLine": 41
+        },
+        {
+          "name": "COPY --chown=app:app pyproject.toml requirements.txt ./",
+          "startLine": 42,
+          "endLine": 42
+        },
+        {
+          "name": "COPY --chown=app:app alembic.ini ./",
+          "startLine": 43,
+          "endLine": 43
+        },
+        {
+          "name": "COPY --chown=app:app migrations/ ./migrations/",
+          "startLine": 44,
+          "endLine": 44
+        },
+        {
+          "name": "COPY --chown=app:app crew-content-pipeline/    ./crew-content-pip",
+          "startLine": 46,
+          "endLine": 46
+        },
+        {
+          "name": "COPY --chown=app:app crew-hiring-system/       ./crew-hiring-syst",
+          "startLine": 47,
+          "endLine": 47
+        },
+        {
+          "name": "COPY --chown=app:app crew-investment-analyst/  ./crew-investment-",
+          "startLine": 48,
+          "endLine": 48
+        },
+        {
+          "name": "COPY --chown=app:app crew-product-launch/      ./crew-product-lau",
+          "startLine": 49,
+          "endLine": 49
+        },
+        {
+          "name": "COPY --chown=app:app crew-startup-simulator/   ./crew-startup-sim",
+          "startLine": 50,
+          "endLine": 50
+        },
+        {
+          "name": "COPY --chown=app:app genai-browser-agent/      ./genai-browser-ag",
+          "startLine": 52,
+          "endLine": 52
+        },
+        {
+          "name": "COPY --chown=app:app genai-clinical-assistant/ ./genai-clinical-a",
+          "startLine": 53,
+          "endLine": 53
+        },
+        {
+          "name": "COPY --chown=app:app genai-code-copilot/       ./genai-code-copil",
+          "startLine": 54,
+          "endLine": 54
+        },
+        {
+          "name": "COPY --chown=app:app genai-doc-intelligence/   ./genai-doc-intell",
+          "startLine": 55,
+          "endLine": 55
+        },
+        {
+          "name": "COPY --chown=app:app genai-financial-analyst/  ./genai-financial-",
+          "startLine": 56,
+          "endLine": 56
+        },
+        {
+          "name": "COPY --chown=app:app genai-interviewer/        ./genai-interviewe",
+          "startLine": 57,
+          "endLine": 57
+        },
+        {
+          "name": "COPY --chown=app:app genai-knowledge-os/       ./genai-knowledge-",
+          "startLine": 58,
+          "endLine": 58
+        },
+        {
+          "name": "COPY --chown=app:app genai-nl2sql-agent/       ./genai-nl2sql-age",
+          "startLine": 59,
+          "endLine": 59
+        },
+        {
+          "name": "COPY --chown=app:app genai-research-system/    ./genai-research-s",
+          "startLine": 60,
+          "endLine": 60
+        },
+        {
+          "name": "COPY --chown=app:app genai-ui-builder/         ./genai-ui-builder",
+          "startLine": 61,
+          "endLine": 61
+        },
+        {
+          "name": "COPY --chown=app:app lg-data-agent/            ./lg-data-agent/",
+          "startLine": 63,
+          "endLine": 63
+        },
+        {
+          "name": "COPY --chown=app:app lg-debugging-agent/       ./lg-debugging-age",
+          "startLine": 64,
+          "endLine": 64
+        },
+        {
+          "name": "COPY --chown=app:app lg-research-agent/        ./lg-research-agen",
+          "startLine": 65,
+          "endLine": 65
+        },
+        {
+          "name": "COPY --chown=app:app lg-support-agent/         ./lg-support-agent",
+          "startLine": 66,
+          "endLine": 66
+        },
+        {
+          "name": "COPY --chown=app:app lg-workflow-agent/        ./lg-workflow-agen",
+          "startLine": 67,
+          "endLine": 67
+        },
+        {
+          "name": "USER app",
+          "startLine": 72,
+          "endLine": 72
+        },
+        {
+          "name": "EXPOSE 8000",
+          "startLine": 74,
+          "endLine": 74
+        },
+        {
+          "name": "HEALTHCHECK --interval=30s --timeout=3s --start-period=20s --retries=3 \\",
+          "startLine": 76,
+          "endLine": 76
+        },
+        {
+          "name": "CMD [\"uvicorn\", \"shared.api.app:app\", \"--host\", \"0.0.0.0\", \"--po",
+          "startLine": 87,
+          "endLine": 87
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "serviceCount": 2,
+        "stepCount": 38
+      }
+    },
+    {
+      "path": "docker-compose.yml",
+      "language": "yaml",
+      "fileCategory": "infra",
+      "totalLines": 68,
+      "nonEmptyLines": 64,
+      "sections": [
+        {
+          "heading": "services",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "volumes",
+          "level": 1,
+          "line": 66
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 2
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-browser-agent/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-browser-agent/architecture.md",
+      "language": "markdown",
+      "sizeLines": 162,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-browser-agent/tasks.md",
+      "language": "markdown",
+      "sizeLines": 62,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "genai-browser-agent/README.md": [],
+    "genai-browser-agent/architecture.md": [],
+    "genai-browser-agent/tasks.md": []
+  }
+}

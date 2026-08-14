@@ -1,6 +1,6 @@
 from shared.llm.gemini import generate_text
 
-QA_MODEL = "gemini-3.1-pro-preview"
+QA_MODEL = "gemini-3.7-flash"
 
 
 def _build_prompt(query: str, chunks: list[dict]) -> str:

@@ -1,0 +1,458 @@
+{
+  "nodes": [
+    {
+      "id": "file:crew-product-launch/app/agents.py",
+      "type": "file",
+      "name": "agents.py",
+      "filePath": "crew-product-launch/app/agents.py",
+      "summary": "Creates the specialized AI agents used by this application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-product-launch/app/agents.py:build_market_researcher",
+      "type": "function",
+      "name": "build_market_researcher",
+      "filePath": "crew-product-launch/app/agents.py",
+      "lineRange": [
+        9,
+        26
+      ],
+      "summary": "Builds the _market_researcher structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/agents.py:build_customer_analyst",
+      "type": "function",
+      "name": "build_customer_analyst",
+      "filePath": "crew-product-launch/app/agents.py",
+      "lineRange": [
+        29,
+        45
+      ],
+      "summary": "Builds the _customer_analyst structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/agents.py:build_product_strategist",
+      "type": "function",
+      "name": "build_product_strategist",
+      "filePath": "crew-product-launch/app/agents.py",
+      "lineRange": [
+        48,
+        65
+      ],
+      "summary": "Builds the _product_strategist structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/agents.py:build_marketing_strategist",
+      "type": "function",
+      "name": "build_marketing_strategist",
+      "filePath": "crew-product-launch/app/agents.py",
+      "lineRange": [
+        68,
+        88
+      ],
+      "summary": "Builds the _marketing_strategist structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-product-launch/app/crew.py",
+      "type": "file",
+      "name": "crew.py",
+      "filePath": "crew-product-launch/app/crew.py",
+      "summary": "Composes agents and tasks into the application crew workflow.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/crew.py:build_crew",
+      "type": "function",
+      "name": "build_crew",
+      "filePath": "crew-product-launch/app/crew.py",
+      "lineRange": [
+        19,
+        39
+      ],
+      "summary": "Builds the _crew structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/crew.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "crew-product-launch/app/crew.py",
+      "lineRange": [
+        42,
+        48
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-product-launch/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "crew-product-launch/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/main.py:_parse_json",
+      "type": "function",
+      "name": "_parse_json",
+      "filePath": "crew-product-launch/app/main.py",
+      "lineRange": [
+        11,
+        20
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "crew-product-launch/app/main.py",
+      "lineRange": [
+        23,
+        39
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-product-launch/app/tasks.py",
+      "type": "file",
+      "name": "tasks.py",
+      "filePath": "crew-product-launch/app/tasks.py",
+      "summary": "Defines task prompts and task objects coordinated by the application crew.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:crew-product-launch/app/tasks.py:build_market_task",
+      "type": "function",
+      "name": "build_market_task",
+      "filePath": "crew-product-launch/app/tasks.py",
+      "lineRange": [
+        123,
+        144
+      ],
+      "summary": "Builds the _market_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/tasks.py:build_customer_task",
+      "type": "function",
+      "name": "build_customer_task",
+      "filePath": "crew-product-launch/app/tasks.py",
+      "lineRange": [
+        147,
+        163
+      ],
+      "summary": "Builds the _customer_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/tasks.py:build_positioning_task",
+      "type": "function",
+      "name": "build_positioning_task",
+      "filePath": "crew-product-launch/app/tasks.py",
+      "lineRange": [
+        166,
+        185
+      ],
+      "summary": "Builds the _positioning_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-product-launch/app/tasks.py:build_gtm_task",
+      "type": "function",
+      "name": "build_gtm_task",
+      "filePath": "crew-product-launch/app/tasks.py",
+      "lineRange": [
+        188,
+        222
+      ],
+      "summary": "Builds the _gtm_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_market_researcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_market_researcher",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_customer_analyst",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_customer_analyst",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_product_strategist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_product_strategist",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_marketing_strategist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/agents.py",
+      "target": "function:crew-product-launch/app/agents.py:build_marketing_strategist",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/crew.py",
+      "target": "function:crew-product-launch/app/crew.py:build_crew",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/crew.py",
+      "target": "function:crew-product-launch/app/crew.py:build_crew",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/crew.py",
+      "target": "function:crew-product-launch/app/crew.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/crew.py",
+      "target": "function:crew-product-launch/app/crew.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/crew.py",
+      "target": "file:crew-product-launch/app/agents.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-product-launch/app/crew.py",
+      "target": "file:crew-product-launch/app/tasks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-product-launch/app/main.py",
+      "target": "function:crew-product-launch/app/main.py:_parse_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/main.py",
+      "target": "function:crew-product-launch/app/main.py:_parse_json",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/main.py",
+      "target": "function:crew-product-launch/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/main.py",
+      "target": "function:crew-product-launch/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/main.py",
+      "target": "file:crew-product-launch/app/crew.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-product-launch/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_market_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_market_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_customer_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_customer_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_positioning_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_positioning_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_gtm_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-product-launch/app/tasks.py",
+      "target": "function:crew-product-launch/app/tasks.py:build_gtm_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

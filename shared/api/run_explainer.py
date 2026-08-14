@@ -8,7 +8,7 @@ from typing import Any
 
 from shared.llm import generate_structured
 
-MODEL = "gemini-3.1-pro-preview"
+MODEL = "gemini-3.7-flash"
 MAX_INPUT_CHARS = 2_500
 MAX_OUTPUT_CHARS = 5_000
 MAX_MEMORY_ENTRIES = 60

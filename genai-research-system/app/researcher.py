@@ -7,7 +7,7 @@ from google.genai import types
 from shared.llm.gemini import _get_client
 
 
-RESEARCH_MODEL = "gemini-3.1-pro-preview"
+RESEARCH_MODEL = "gemini-3.7-flash"
 
 
 def research_task(task: str, context: str) -> str:

@@ -1,0 +1,70 @@
+{
+  "nodes": [
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
+      "type": "config",
+      "name": "customize-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
+      "summary": "Contains the structured customize brief generated as temporary evidence for the Better Harness analysis run.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json",
+      "type": "config",
+      "name": "evidence-bundle.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json",
+      "summary": "Contains the structured evidence bundle generated as temporary evidence for the Better Harness analysis run.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json",
+      "type": "config",
+      "name": "lead-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json",
+      "summary": "Contains the structured lead brief generated as temporary evidence for the Better Harness analysis run.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json",
+      "type": "config",
+      "name": "project-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json",
+      "summary": "Contains the structured project brief generated as temporary evidence for the Better Harness analysis run.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json",
+      "type": "config",
+      "name": "session-brief.json",
+      "filePath": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json",
+      "summary": "Contains the structured session brief generated as temporary evidence for the Better Harness analysis run.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": []
+}

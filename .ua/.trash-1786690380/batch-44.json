@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-ui-builder/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-ui-builder/README.md",
+      "summary": "Provides the overview and setup guide for the genai-ui-builder example application.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "project-guide"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-ui-builder/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-ui-builder/architecture.md",
+      "summary": "Describes the architecture, component responsibilities, and execution flow for the genai-ui-builder application.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-ui-builder/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-ui-builder/tasks.md",
+      "summary": "Lists the implementation tasks and delivery scope for the genai-ui-builder application.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

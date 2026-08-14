@@ -1,0 +1,1029 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-financial-analyst/app/metrics.py",
+      "type": "file",
+      "name": "metrics.py",
+      "filePath": "genai-financial-analyst/app/metrics.py",
+      "summary": "Implements compute_metrics for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-financial-analyst/app/metrics.py:compute_metrics",
+      "type": "function",
+      "name": "compute_metrics",
+      "filePath": "genai-financial-analyst/app/metrics.py",
+      "summary": "Implements the compute_metrics routine in metrics.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        4,
+        44
+      ]
+    },
+    {
+      "id": "file:genai-financial-analyst/app/reporter.py",
+      "type": "file",
+      "name": "reporter.py",
+      "filePath": "genai-financial-analyst/app/reporter.py",
+      "summary": "Implements generate_report for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-financial-analyst/app/reporter.py:generate_report",
+      "type": "function",
+      "name": "generate_report",
+      "filePath": "genai-financial-analyst/app/reporter.py",
+      "summary": "Implements the generate_report routine in reporter.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        7,
+        29
+      ]
+    },
+    {
+      "id": "file:genai-interviewer/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-interviewer/app/main.py",
+      "summary": "Implements run for this project module.",
+      "tags": [
+        "application",
+        "entry-point",
+        "project-module"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-interviewer/app/main.py",
+      "summary": "Implements the run routine in main.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        9,
+        35
+      ]
+    },
+    {
+      "id": "file:genai-nl2sql-agent/app/agent.py",
+      "type": "file",
+      "name": "agent.py",
+      "filePath": "genai-nl2sql-agent/app/agent.py",
+      "summary": "Implements _load_symbol, _build_summary_prompt, run_agent for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/agent.py:_load_symbol",
+      "type": "function",
+      "name": "_load_symbol",
+      "filePath": "genai-nl2sql-agent/app/agent.py",
+      "summary": "Implements the _load_symbol routine in agent.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        21,
+        33
+      ]
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/agent.py:_build_summary_prompt",
+      "type": "function",
+      "name": "_build_summary_prompt",
+      "filePath": "genai-nl2sql-agent/app/agent.py",
+      "summary": "Implements the _build_summary_prompt routine in agent.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        42,
+        60
+      ]
+    },
+    {
+      "id": "function:genai-nl2sql-agent/app/agent.py:run_agent",
+      "type": "function",
+      "name": "run_agent",
+      "filePath": "genai-nl2sql-agent/app/agent.py",
+      "summary": "Implements the run_agent routine in agent.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "moderate",
+      "lineRange": [
+        63,
+        127
+      ]
+    },
+    {
+      "id": "file:genai-ui-builder/app/code_generator.py",
+      "type": "file",
+      "name": "code_generator.py",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements _render_css, _camel_to_kebab, _render_style and related helpers for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:_render_css",
+      "type": "function",
+      "name": "_render_css",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the _render_css routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        15,
+        23
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:_camel_to_kebab",
+      "type": "function",
+      "name": "_camel_to_kebab",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the _camel_to_kebab routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        26,
+        35
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:_render_style",
+      "type": "function",
+      "name": "_render_style",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the _render_style routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        38,
+        40
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:_render_props",
+      "type": "function",
+      "name": "_render_props",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the _render_props routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        43,
+        60
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:_render_component",
+      "type": "function",
+      "name": "_render_component",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the _render_component routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        63,
+        79
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:_collect_component_names",
+      "type": "function",
+      "name": "_collect_component_names",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the _collect_component_names routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        82,
+        90
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:_render_subcomponent",
+      "type": "function",
+      "name": "_render_subcomponent",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the _render_subcomponent routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        93,
+        113
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:generate_files",
+      "type": "function",
+      "name": "generate_files",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the generate_files routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "moderate",
+      "lineRange": [
+        116,
+        180
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/code_generator.py:generate_react_code",
+      "type": "function",
+      "name": "generate_react_code",
+      "filePath": "genai-ui-builder/app/code_generator.py",
+      "summary": "Implements the generate_react_code routine in code_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        183,
+        188
+      ]
+    },
+    {
+      "id": "file:genai-ui-builder/app/fixer.py",
+      "type": "file",
+      "name": "fixer.py",
+      "filePath": "genai-ui-builder/app/fixer.py",
+      "summary": "Implements fix_code for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-ui-builder/app/fixer.py:fix_code",
+      "type": "function",
+      "name": "fix_code",
+      "filePath": "genai-ui-builder/app/fixer.py",
+      "summary": "Implements the fix_code routine in fixer.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        25,
+        28
+      ]
+    },
+    {
+      "id": "file:genai-ui-builder/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-ui-builder/app/main.py",
+      "summary": "Implements build, run for this project module.",
+      "tags": [
+        "application",
+        "entry-point",
+        "project-module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-ui-builder/app/main.py:build",
+      "type": "function",
+      "name": "build",
+      "filePath": "genai-ui-builder/app/main.py",
+      "summary": "Implements the build routine in main.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "moderate",
+      "lineRange": [
+        18,
+        75
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-ui-builder/app/main.py",
+      "summary": "Implements the run routine in main.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        78,
+        84
+      ]
+    },
+    {
+      "id": "file:genai-ui-builder/app/spec_generator.py",
+      "type": "file",
+      "name": "spec_generator.py",
+      "filePath": "genai-ui-builder/app/spec_generator.py",
+      "summary": "Implements generate_spec for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-ui-builder/app/spec_generator.py:generate_spec",
+      "type": "function",
+      "name": "generate_spec",
+      "filePath": "genai-ui-builder/app/spec_generator.py",
+      "summary": "Implements the generate_spec routine in spec_generator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        83,
+        86
+      ]
+    },
+    {
+      "id": "file:genai-ui-builder/app/validator.py",
+      "type": "file",
+      "name": "validator.py",
+      "filePath": "genai-ui-builder/app/validator.py",
+      "summary": "Implements _validate_component, validate_spec for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-ui-builder/app/validator.py:_validate_component",
+      "type": "function",
+      "name": "_validate_component",
+      "filePath": "genai-ui-builder/app/validator.py",
+      "summary": "Implements the _validate_component routine in validator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        13,
+        45
+      ]
+    },
+    {
+      "id": "function:genai-ui-builder/app/validator.py:validate_spec",
+      "type": "function",
+      "name": "validate_spec",
+      "filePath": "genai-ui-builder/app/validator.py",
+      "summary": "Implements the validate_spec routine in validator.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        48,
+        76
+      ]
+    },
+    {
+      "id": "file:shared/api/langgraph_events.py",
+      "type": "file",
+      "name": "langgraph_events.py",
+      "filePath": "shared/api/langgraph_events.py",
+      "summary": "Implements instrument_node for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/langgraph_events.py:instrument_node",
+      "type": "function",
+      "name": "instrument_node",
+      "filePath": "shared/api/langgraph_events.py",
+      "summary": "Implements the instrument_node routine in langgraph_events.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        14,
+        28
+      ]
+    },
+    {
+      "id": "file:shared/api/step_events.py",
+      "type": "file",
+      "name": "step_events.py",
+      "filePath": "shared/api/step_events.py",
+      "summary": "Implements bind_step_emitter, reset_step_emitter, emit_step for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/step_events.py:bind_step_emitter",
+      "type": "function",
+      "name": "bind_step_emitter",
+      "filePath": "shared/api/step_events.py",
+      "summary": "Implements the bind_step_emitter routine in step_events.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        13,
+        15
+      ]
+    },
+    {
+      "id": "function:shared/api/step_events.py:reset_step_emitter",
+      "type": "function",
+      "name": "reset_step_emitter",
+      "filePath": "shared/api/step_events.py",
+      "summary": "Implements the reset_step_emitter routine in step_events.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        19,
+        21
+      ]
+    },
+    {
+      "id": "function:shared/api/step_events.py:emit_step",
+      "type": "function",
+      "name": "emit_step",
+      "filePath": "shared/api/step_events.py",
+      "summary": "Implements the emit_step routine in step_events.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        25,
+        30
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-financial-analyst/app/metrics.py",
+      "target": "function:genai-financial-analyst/app/metrics.py:compute_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-financial-analyst/app/metrics.py",
+      "target": "function:genai-financial-analyst/app/metrics.py:compute_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-financial-analyst/app/reporter.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-financial-analyst/app/reporter.py",
+      "target": "function:genai-financial-analyst/app/reporter.py:generate_report",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-financial-analyst/app/reporter.py",
+      "target": "function:genai-financial-analyst/app/reporter.py:generate_report",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/main.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/main.py",
+      "target": "function:genai-interviewer/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/main.py",
+      "target": "function:genai-interviewer/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "function:genai-nl2sql-agent/app/agent.py:_load_symbol",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "function:genai-nl2sql-agent/app/agent.py:_load_symbol",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "function:genai-nl2sql-agent/app/agent.py:_build_summary_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "function:genai-nl2sql-agent/app/agent.py:_build_summary_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "function:genai-nl2sql-agent/app/agent.py:run_agent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-nl2sql-agent/app/agent.py",
+      "target": "function:genai-nl2sql-agent/app/agent.py:run_agent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_css",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_css",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_camel_to_kebab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_camel_to_kebab",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_style",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_props",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_props",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_component",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_component",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_collect_component_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_collect_component_names",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_subcomponent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:_render_subcomponent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:generate_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:generate_files",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:generate_react_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/code_generator.py",
+      "target": "function:genai-ui-builder/app/code_generator.py:generate_react_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/fixer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/fixer.py",
+      "target": "function:genai-ui-builder/app/fixer.py:fix_code",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/fixer.py",
+      "target": "function:genai-ui-builder/app/fixer.py:fix_code",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "file:genai-ui-builder/app/code_generator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "file:genai-ui-builder/app/fixer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "file:genai-ui-builder/app/spec_generator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "file:genai-ui-builder/app/validator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "function:genai-ui-builder/app/main.py:build",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "function:genai-ui-builder/app/main.py:build",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "function:genai-ui-builder/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/main.py",
+      "target": "function:genai-ui-builder/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/spec_generator.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/spec_generator.py",
+      "target": "function:genai-ui-builder/app/spec_generator.py:generate_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/spec_generator.py",
+      "target": "function:genai-ui-builder/app/spec_generator.py:generate_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/validator.py",
+      "target": "file:genai-ui-builder/app/spec_generator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-ui-builder/app/validator.py",
+      "target": "function:genai-ui-builder/app/validator.py:_validate_component",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/validator.py",
+      "target": "function:genai-ui-builder/app/validator.py:_validate_component",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-ui-builder/app/validator.py",
+      "target": "function:genai-ui-builder/app/validator.py:validate_spec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-ui-builder/app/validator.py",
+      "target": "function:genai-ui-builder/app/validator.py:validate_spec",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/langgraph_events.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/langgraph_events.py",
+      "target": "function:shared/api/langgraph_events.py:instrument_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/langgraph_events.py",
+      "target": "function:shared/api/langgraph_events.py:instrument_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/step_events.py",
+      "target": "function:shared/api/step_events.py:bind_step_emitter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/step_events.py",
+      "target": "function:shared/api/step_events.py:bind_step_emitter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/step_events.py",
+      "target": "function:shared/api/step_events.py:reset_step_emitter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/step_events.py",
+      "target": "function:shared/api/step_events.py:reset_step_emitter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/step_events.py",
+      "target": "function:shared/api/step_events.py:emit_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/step_events.py",
+      "target": "function:shared/api/step_events.py:emit_step",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

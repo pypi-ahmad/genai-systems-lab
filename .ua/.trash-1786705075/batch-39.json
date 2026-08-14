@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "config:.ua/config.json",
+      "type": "config",
+      "name": "config.json",
+      "filePath": ".ua/config.json",
+      "summary": "config.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/fingerprints.json",
+      "type": "config",
+      "name": "fingerprints.json",
+      "filePath": ".ua/fingerprints.json",
+      "summary": "fingerprints.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/knowledge-graph.json",
+      "type": "config",
+      "name": "knowledge-graph.json",
+      "filePath": ".ua/knowledge-graph.json",
+      "summary": "knowledge-graph.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/meta.json",
+      "type": "config",
+      "name": "meta.json",
+      "filePath": ".ua/meta.json",
+      "summary": "meta.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

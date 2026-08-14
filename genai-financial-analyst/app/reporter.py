@@ -1,7 +1,7 @@
 from shared.llm.gemini import generate_text
 
 
-MODEL = "gemini-3-flash-preview"
+MODEL = "gemini-3.5-flash-lite"
 
 
 def generate_report(analysis: str) -> str:

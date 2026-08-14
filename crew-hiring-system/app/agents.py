@@ -2,8 +2,8 @@
 
 from crewai import Agent
 
-EVALUATION_MODEL = "gemini/gemini-3.1-pro-preview"
-EXTRACTION_MODEL = "gemini/gemini-3-flash-preview"
+EVALUATION_MODEL = "gemini/gemini-3.7-flash"
+EXTRACTION_MODEL = "gemini/gemini-3.5-flash-lite"
 
 
 def build_resume_screener() -> Agent:

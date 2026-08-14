@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "document:benchmarks/promptfoo/prompts/code_generation.txt",
+      "type": "document",
+      "name": "code_generation.txt",
+      "filePath": "benchmarks/promptfoo/prompts/code_generation.txt",
+      "summary": "Prompt template that directs a model to produce clean production-ready code for a supplied task.",
+      "tags": [
+        "documentation",
+        "prompt-template",
+        "evaluation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:benchmarks/promptfoo/prompts/rag_prompt.txt",
+      "type": "document",
+      "name": "rag_prompt.txt",
+      "filePath": "benchmarks/promptfoo/prompts/rag_prompt.txt",
+      "summary": "Prompt template that constrains answers to supplied retrieval context and requires uncertainty when evidence is insufficient.",
+      "tags": [
+        "documentation",
+        "prompt-template",
+        "evaluation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:benchmarks/promptfoo/prompts/research_query.txt",
+      "type": "document",
+      "name": "research_query.txt",
+      "filePath": "benchmarks/promptfoo/prompts/research_query.txt",
+      "summary": "Prompt template for producing a structured research report from a user-supplied topic.",
+      "tags": [
+        "documentation",
+        "prompt-template",
+        "evaluation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:benchmarks/promptfoo/prompts/summarization.txt",
+      "type": "document",
+      "name": "summarization.txt",
+      "filePath": "benchmarks/promptfoo/prompts/summarization.txt",
+      "summary": "Prompt template for concise, structured summarization at a requested target length.",
+      "tags": [
+        "documentation",
+        "prompt-template",
+        "evaluation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

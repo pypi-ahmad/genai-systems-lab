@@ -37,7 +37,7 @@ The three paradigms:
 | **LangGraph** | Typed state machine with `graph.invoke()` and conditional edges | Iterative debugging, workflow planning, support routing |
 | **CrewAI** | Role-based agent team with `crew.kickoff()` and sequential handoff | Content pipelines, hiring evaluation, investment analysis |
 
-All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT plus HttpOnly-cookie authentication, request validation and sanitization, per-request API key binding via `ContextVar`, multi-provider LLM dispatch (Gemini, OpenAI, Anthropic, Ollama), synchronous and SSE streaming execution, configurable persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
+All 20 project modules implement a single contract: `run(input: str, api_key: str) -> dict`. The platform handles everything outside that domain boundary: JWT plus HttpOnly-cookie authentication, request validation and sanitization, per-request API key binding via `ContextVar`, multi-provider LLM dispatch (Gemini, OpenAI, Anthropic, xAI, Ollama), synchronous and SSE streaming execution, configurable persistence, cross-run session memory, confidence scoring, LLM-backed explainability, public share links, in-memory metrics, and benchmark evaluation.
 
 ### Why this design
 
@@ -49,26 +49,39 @@ Without a shared runtime, every new AI project rebuilds the same infrastructure:
 
 ### Multi-provider BYOK execution
 
-The platform is **stateless with respect to API keys**. Every LLM-calling route requires an `X-API-Key` header. Two optional companion headers select the provider and model:
+Interactive requests keep API keys request-scoped. Queued requests encrypt the key with Fernet, store it in Redis for at most one hour, and delete it when a worker starts. Every hosted-provider LLM route requires an `X-API-Key` header. Optional companion headers select the provider, model, and reasoning effort:
 
 | Header | Purpose | Required |
 |---|---|---|
 | `X-API-Key` | Provider API key (not needed for Ollama) | Yes (except Ollama) |
-| `X-LLM-Provider` | Force a provider (`gemini`, `openai`, `anthropic`, `ollama`) | No — inferred from model |
+| `X-LLM-Provider` | Force a provider (`gemini`, `openai`, `anthropic`, `xai`, `ollama`) | No — inferred from model |
 | `X-LLM-Model` | Override the default model | No — falls back to config |
+| `X-LLM-Effort` | Set a model-supported reasoning effort | No — provider default when omitted |
 
-`BYOKMiddleware` (pure ASGI) binds all three values to `ContextVar` instances for the duration of each request. `get_effective_api_key()` retrieves the key anywhere in the call stack without argument threading. Keys are never logged, stored, or echoed in responses. Routes that don't invoke an LLM (`/`, `/health`, `/projects`, `/auth/*`, `/metrics`, `/history`, `/session/*`, `/shared/*`, `/run/*`, `/llm/catalog`) are exempt.
+`BYOKMiddleware` (pure ASGI) binds the key, provider, model, and effort to `ContextVar` instances for the duration of each request. Keys are never logged or echoed. Only queued jobs store an encrypted, expiring Redis value; database rows never contain credentials.
 
 **Supported providers and models:**
 
 | Provider | Models | API key format |
 |---|---|---|
-| **Google Gemini** (default) | `gemini-3-flash-preview`, `gemini-3.1-pro-preview` | `AIza...` |
-| **OpenAI** | `gpt-5.4`, `gpt-5.4-mini` | `sk-...` |
-| **Anthropic Claude** | `claude-sonnet-4-6`, `claude-opus-4-6` | `sk-ant-...` |
+| **Google Gemini** (default) | `gemini-3.7-flash`, `gemini-3.5-flash-lite` | `AIza...` |
+| **OpenAI** | `gpt-5.6-luna`, `gpt-5.6-terra` | `sk-...` |
+| **Anthropic Claude** | `claude-sonnet-5` | `sk-ant-...` |
+| **xAI** | `grok-4.6` | `xai-...` |
 | **Ollama** (local) | Any model available on the local Ollama server | None required |
 
 `GET /llm/catalog` returns the full provider catalog at runtime, including dynamically discovered Ollama models. If the provider is not specified, `infer_provider()` resolves it from the model name — any unknown model ID routes to Ollama.
+
+The catalog also supplies model-specific effort options and USD token rates to every UI model selector. Cost estimates are calculated from provider-reported usage per call, then aggregated across the run. GPT-5.6 Luna applies its cached-input rate when cached tokens are reported; GPT-5.6 Terra and Grok 4.6 automatically apply their long-context tiers above 272k and 200k input tokens respectively. Batch and Grok fast-mode prices are displayed as reference notes but are not applied because this app does not use those modes.
+
+| Model | Input / 1M | Output / 1M | Pricing note |
+|---|---:|---:|---|
+| Claude Sonnet 5 | $2.00 | $10.00 | Batch: $1.00 / $5.00 |
+| Gemini Flash 3.7 | $0.75 | $3.75 | Promotional rate labelled through 2026-12-31 |
+| Gemini 3.5 Flash Lite | $0.30 | $2.50 | Batch: $0.15 / $1.25 |
+| GPT-5.6 Luna | $0.20 | $1.20 | Cached input: $0.02 |
+| GPT-5.6 Terra | $2.00 | $12.00 | Above 272k input: $4.00 / $24.00 |
+| Grok 4.6 | $2.00 | $6.00 | Above 200k input or fast mode: $4.00 / $12.00 |
 
 ### Authentication
 
@@ -76,6 +89,7 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 - **Browser sessions**: `/auth/signup` and `/auth/login` also set an HttpOnly session cookie so the Next.js frontend does not persist raw JWTs in browser storage.
 - **Password hashing**: PBKDF2-HMAC-SHA256 with 310,000 iterations and a 16-byte random salt. Verification uses `hmac.compare_digest()` to prevent timing attacks.
 - **Signup posture**: Public signup remains enabled in local development and defaults off when `APP_ENV=prod` unless `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP=true` is set explicitly.
+- **Unsafe agent posture**: The debugging agent executes generated Python and is excluded from every shared API/evaluation surface by default. Trusted local development may opt in with `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS=true`; production always ignores that flag.
 - Execution, history, session, sharing, and explainability routes accept `Authorization: Bearer <token>` for API clients and the HttpOnly session cookie for browser clients. Query-string JWTs are not accepted on any route, including the SSE stream.
 
 ### Origin policy and abuse control
@@ -86,7 +100,7 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 ### Observability
 
 - **OpenTelemetry**: Bootstrapped automatically at API startup when `OTEL_ENABLED=true`. If the optional packages are unavailable, startup logs a warning instead of failing silently.
-- **Langfuse**: Opt-in production observability via `LANGFUSE_ENABLED=true`. Traces every LLM call and project execution with latency, token usage, and cost tracking. When disabled or when the SDK is not installed, all tracing degrades to no-ops.
+- **Langfuse**: Opt-in production observability via `LANGFUSE_ENABLED=true`. Traces every LLM call and project execution with latency, token usage, and cost tracking. Trace events are flushed by a bounded background worker after each project execution, keeping telemetry network latency off the request path. When disabled or when the SDK is not installed, all tracing degrades to no-ops.
 - **Durable metrics**: Project execution metrics are persisted to the `operational_metrics` table, so `/metrics` and `/metrics/time` survive process restarts and include guest as well as authenticated runs.
 
 ### Input validation and sanitization
@@ -99,18 +113,24 @@ The platform is **stateless with respect to API keys**. Every LLM-calling route 
 
 ### Project auto-discovery and alias resolution
 
-`shared/api/runner.py` scans the repository root at startup for any directory containing `app/main.py`. No registration is needed. The runner resolves 29 aliases — 20 from the project catalog and 9 legacy names (e.g., `nl2sql-agent` → `genai-nl2sql-agent`, `hiring-crew` → `crew-hiring-system`) — and supports prefix-stripped lookups so projects are addressable by short or full name.
+`shared/api/runner.py` scans the repository root at startup for directories containing `app/main.py`, then removes security-restricted projects from the shared execution surface. No registration is needed for ordinary projects. The runner resolves 29 aliases — 20 from the project catalog and 9 legacy names (e.g., `nl2sql-agent` → `genai-nl2sql-agent`, `hiring-crew` → `crew-hiring-system`) — and supports prefix-stripped lookups so projects are addressable by short or full name.
 
-Every discovered project is dynamically imported with `importlib`. The runner clears cached `app.*` imports between loads to prevent cross-project module leakage.
+Every discovered project is dynamically imported with `importlib`. The runner uses one import-path helper and clears cached `app.*` imports under a shared lock to prevent cross-project module leakage.
 
 ### Streaming execution (SSE)
 
 `GET /stream/{project}` launches the project in a background thread and emits Server-Sent Events:
 
 1. `event: step` — `{"step": "<node>", "status": "running|done|error"}` as pipeline nodes execute. Projects that call `emit_step()` natively stream real step events; when a project emits none, the backend synthesises one running/done pair per node from the shared project catalog (`portfolio/src/data/project-catalog.json`, compiled into `PIPELINE_NODES` at startup).
-2. `event: output` — a single frame carrying `{"output": "<full output>"}` once the run completes. This is **not** token-level streaming: the project runs to completion in a background thread and the full output is emitted as soon as it is ready. Provider-native token streaming would require threading each project's SDK streaming API through the runtime and is intentionally not implemented.
+2. `event: token` — provider-native text deltas from the final writer stage of `genai-research-system` and `lg-research-agent`. Intermediate prompts never stream. Other projects emit one honest `event: output` after completion; CrewAI remains step-only.
 3. `event: done` — full response payload (latency, confidence, session metadata, memory, timeline).
 4. `event: error` — scrubbed error payload on failure (internal detail never reaches the browser).
+
+### Durable queued execution
+
+Queued execution is authenticated and owner-scoped. `POST /jobs/{project}` creates an RQ job owned by the current user and returns `202`; `GET /jobs/{id}` reports that owner's durable PostgreSQL-backed state, output, and usage, while `DELETE /jobs/{id}` cancels that owner's queued or running work. Requests for another user's UUID return `404`. Only POST requires a provider credential; status and cancellation do not.
+
+Set `GENAI_SYSTEMS_LAB_REDIS_URL` and a Fernet key in `GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY`; `.env.example` includes safe generation instructions. `docker compose up --build` provisions PostgreSQL, Redis, the API, and an RQ worker and applies Alembic migrations before serving.
 
 ### Confidence scoring
 
@@ -145,6 +165,8 @@ Every execution is written to SQLite (`.data/genai_systems_lab.db`) with: projec
 
 - Benchmark datasets are registered per project in `shared/eval/benchmarks.py` (all 20 projects).
 - `POST /eval/{project}` runs the benchmark suite and returns per-case pass/fail, accuracy, and latency percentiles (mean, p50, p95, p99). Requires `X-API-Key`.
+- CI discovers and executes every `test_*.py` under all `crew-*`, `genai-*`, and `lg-*` project test directories instead of maintaining a partial allowlist.
+- Usage tests cover metadata merging across fallback calls, multi-call aggregation, and unknown-price behavior.
 
 ### In-memory metrics
 
@@ -157,14 +179,15 @@ A thread-safe `_MetricsStore` accumulates per-project request count, total laten
 | Layer | Technology | Version |
 |---|---|---|
 | LLM (default) | Google Gemini via `google-genai` | 1.69.0 |
-| LLM providers | OpenAI (HTTP), Anthropic Claude (HTTP), Ollama (local HTTP) | — |
-| LLM models | Gemini 3 Flash / 3.1 Pro, GPT-5.4 / 5.4 mini, Claude Sonnet 4.6 / Opus 4.6, any Ollama model | — |
+| LLM providers | OpenAI (HTTP), Anthropic Claude (HTTP), xAI (HTTP), Ollama (local HTTP) | — |
+| LLM models | Gemini 3.7 Flash / 3.5 Flash Lite, GPT-5.6 Luna / Terra, Claude Sonnet 5, Grok 4.6, any Ollama model | — |
 | Backend | Python, FastAPI, Uvicorn | 3.13 |
-| ORM / DB | SQLAlchemy + SQLite | 2.0.48 |
+| ORM / DB | SQLAlchemy + SQLite (local) / PostgreSQL (production) | 2.0.48 |
+| Queue | Redis + RQ | 8.1.0 / 2.10.0 |
 | Validation | Pydantic | 2.11.10 |
 | Agent frameworks | LangGraph, CrewAI | — |
 | Data | DuckDB, Pandas, NumPy | 1.5.1, 3.0.1, 2.3.3 |
-| Frontend | Next.js, React, TypeScript | 16.2.1, 19.2.4 |
+| Frontend | Next.js, React, TypeScript | 16.3.1, 19.2.4 |
 | UI styling | Tailwind CSS | v4 |
 | Charts | Recharts | 3.8.1 |
 | Observability | `rich` structured logging, OpenTelemetry spans | 14.3.3 |
@@ -181,6 +204,7 @@ Project calls generate_text() / generate_structured() / embed()
        ├─ gemini_provider.py — google-genai SDK (text, structured, vision, embeddings)
        ├─ providers.py       — OpenAI HTTP (text, structured, vision, embeddings)
        ├─ providers.py       — Anthropic HTTP (text, structured, vision)
+       ├─ providers.py       — xAI Responses API (text, structured, vision)
        └─ providers.py       — Ollama HTTP (text, structured, vision, embeddings)
 ```
 
@@ -193,19 +217,20 @@ Project calls generate_text() / generate_structured() / embed()
 **Gemini-specific:**
 
 - **Client caching**: `genai.Client` instances are cached per API key in a thread-safe dict, preventing httpx connection-pool exhaustion.
-- **Model fallback**: `gemini-3.1-pro-preview` → `gemini-3-flash-preview` on generation or timeout failure.
 - **Structured output**: `application/json` MIME type with Pydantic-derived JSON schema.
 - **Vision**: `generate_text_from_image()` wraps image bytes as a multipart `Part`.
 
-**OpenAI / Anthropic / Ollama:**
+**OpenAI / Anthropic / xAI / Ollama:**
 
 - Implemented via raw `urllib.request` — zero SDK dependencies.
-- OpenAI and Ollama support text embeddings; Anthropic does not.
+- OpenAI and Ollama support provider embeddings; Anthropic and xAI use deterministic local embeddings.
 - Ollama models are discovered dynamically from the local server.
 
 ---
 
 ## Architecture
+
+Explore the [interactive system architecture](docs/genai-systems-lab-architecture.html) for the secured request path, queued execution, persistence, observability, and model-provider boundaries.
 
 ### System overview
 
@@ -226,7 +251,7 @@ Project calls generate_text() / generate_structured() / embed()
 │    GZipMiddleware             — compress responses ≥ 1 KB (SSE skipped)│
 │    CORSMiddleware             — explicit allowlist, credentials on     │
 │    RequestRateLimitMiddleware — in-memory abuse throttling             │
-│    BYOKMiddleware             — X-API-Key / X-LLM-Provider / X-LLM-Model → ContextVars │
+│    BYOKMiddleware             — key / provider / model / effort headers → ContextVars   │
 │    InputValidationMiddleware  — length, injection, sanitize            │
 │    SecurityHeadersMiddleware  — HSTS / no-sniff / Referrer-Policy      │
 │    RequestLoggingMiddleware   — request_id, project_name, status log   │
@@ -290,7 +315,7 @@ POST /{project}/run  (Authorization: Bearer <jwt>  +  X-API-Key  +  X-LLM-Provid
   ├─ InputValidationMiddleware:  reject/sanitize body
   ├─ RequestLoggingMiddleware:   assign request_id, log method + path
   ├─ RequestTimingMiddleware:    start timer, open OTel span
-  ├─ BYOKMiddleware:             bind X-API-Key, X-LLM-Provider, X-LLM-Model to ContextVars
+  ├─ BYOKMiddleware:             bind key, provider, model, and effort headers to ContextVars
   │
   └─ Route handler:
       ├─ Decode JWT → load User from SQLite
@@ -368,12 +393,12 @@ GET /stream/{project}?token=<jwt>&input=<text>  (X-API-Key  +  X-LLM-Provider?  
 | `shared/api/langgraph_events.py` | `instrument_node` wrapper — emits step events from LangGraph node functions |
 | `shared/observability/langfuse.py` | Langfuse tracing integration: decorator, context manager, and manual trace APIs; no-ops when disabled |
 | `shared/llm/dispatch.py` | Unified provider dispatch: routes calls to Gemini, OpenAI, Anthropic, or Ollama |
-| `shared/llm/catalog.py` | Provider catalog: static definitions for Gemini/OpenAI/Anthropic, dynamic Ollama discovery |
+| `shared/llm/catalog.py` | Provider catalog: static definitions for Gemini/OpenAI/Anthropic/xAI, dynamic Ollama discovery, effort options, and pricing rules |
 | `shared/llm/gemini.py` | Backward-compatible facade delegating to the dispatch layer |
 | `shared/llm/gemini_provider.py` | Gemini-specific client: `google-genai` SDK, retry/backoff/fallback, client caching |
 | `shared/llm/providers.py` | HTTP-based implementations for OpenAI, Anthropic, and Ollama (zero SDK deps) |
 | `shared/project_catalog.py` | Loads `project-catalog.json` manifest; Pydantic models for graph nodes/edges |
-| `shared/config.py` | BYOK `ContextVar`, request-scoped model/provider overrides, `Settings` (Pydantic), model resolution |
+| `shared/config.py` | BYOK `ContextVar`, request-scoped model/provider/effort overrides, `Settings` (Pydantic), model resolution |
 | `shared/eval/benchmarks.py` | Rule-based benchmark datasets for all 20 projects; `BenchmarkSuite` latency harness |
 | `shared/eval/stress.py` | Asyncio-based stress testing for throughput and error-rate analysis |
 | `portfolio/src/lib/api.ts` | TypeScript API client: batch run, SSE streaming, auth, history, metrics, sharing, BYOK headers |
@@ -396,7 +421,7 @@ genai-systems-lab/
 │   ├── logging/          Structured logging + OpenTelemetry spans
 │   ├── schemas/          Pydantic request/response models
 │   ├── utils/            Generic helpers (text chunking, timing)
-│   ├── config.py         BYOK ContextVar, request-scoped model/provider, Settings
+│   ├── config.py         BYOK ContextVar, request-scoped model/provider/effort, Settings
 │   └── project_catalog.py  Portfolio manifest loader + graph node models
 │
 ├── genai-*/              10 project directories with the `genai-` prefix
@@ -437,7 +462,7 @@ All emit native SSE step events via `emit_step()`.
 
 | Project folder | Pipeline nodes | Description |
 |---|---|---|
-| `genai-nl2sql-agent` | planner → schema → generator → validator → executor → summarizer | Natural language → validated DuckDB SQL → execution → plain-language result summary. |
+| `genai-nl2sql-agent` | planner → schema → generator → validator → executor → summarizer | Natural language → DuckDB-parsed, schema-allowlisted SQL → externally isolated execution → plain-language result summary. |
 | `genai-clinical-assistant` | extractor → retriever → reasoner → formatter | Extracts patient data, retrieves matching conditions, reasons over differential, outputs structured clinical report with confidence. |
 | `genai-browser-agent` | perception → planner → executor → memory | Observe-plan-act loop using Playwright for browser automation tasks. |
 | `genai-financial-analyst` | metrics → trends → forecaster → writer | Loads CSV data, computes financial KPIs, optional time-series forecast, trend analysis, narrative report. |
@@ -455,7 +480,7 @@ Use `graph.invoke()` with typed state objects. All workflows emit native step ev
 |---|---|---|
 | `genai-research-system` | planner → researcher → critic → writer → editor → originality_checker → formatter | LangGraph research workflow with conditional revision loops, editorial/originality checks, and report-oriented output with quality metrics. |
 | `lg-data-agent` | planner → executor / duckdb_executor → analyzer → evaluator | Plans tabular analysis, routes to pandas or DuckDB execution, analyzes results, evaluates output quality with bounded retries. |
-| `lg-debugging-agent` | analyzer → fixer → test_generator → tester → evaluator | Analyzes buggy code, generates a patch, produces test cases, runs them, evaluates resolution with bounded retries. |
+| `lg-debugging-agent` | analyzer → fixer → test_generator → tester → evaluator | Trusted-local debugging experiment. Shared runner/API access is disabled by default because it executes generated Python. |
 | `lg-research-agent` | planner → researcher → critic → writer | Plans research sub-tasks, gathers findings per task, critiques the results, and produces a synthesized report. |
 | `lg-support-agent` | classifier → retriever → responder → evaluator → escalation | Classifies customer intent, retrieves context, drafts a response, evaluates quality, and conditionally escalates. |
 | `lg-workflow-agent` | planner → executor → validator → checkpoint → finalizer | Decomposes tasks into step plans, executes them, validates results, checkpoints progress, and produces a final summary. |
@@ -480,7 +505,7 @@ Use `crew.kickoff()` with role-based agents. Synthetic step events during stream
 
 - Python 3.13+
 - Node.js 20+ (portfolio frontend only)
-- A Google, OpenAI, or Anthropic API key (supplied per request — never stored server-side), or a local Ollama server
+- A Google, OpenAI, Anthropic, or xAI API key (request-scoped for interactive runs; encrypted in Redis with a one-hour TTL for queued runs), or a local Ollama server
 
 ### 1. Clone
 
@@ -519,11 +544,12 @@ All variables below are optional. The defaults shown are suitable for local deve
 
 | Variable | Default | Purpose |
 |---|---|---|
-| `APP_ENV` | `dev` | Controls the default model (`dev` → flash, `prod` → pro) |
+| `APP_ENV` | `dev` | Selects development or production runtime behavior |
 | `GENAI_SYSTEMS_LAB_JWT_SECRET` | — | Required in production for JWT signing; local dev falls back to an ephemeral secret |
 | `GENAI_SYSTEMS_LAB_JWT_TTL_SECONDS` | `604800` (7 days) | JWT token lifetime |
 | `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` | `http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001` | Explicit CORS allowlist for browser clients |
 | `GENAI_SYSTEMS_LAB_ENABLE_PUBLIC_SIGNUP` | `true` in dev, `false` in prod | Controls whether `/auth/signup` is exposed publicly |
+| `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS` | `false` | Enables trusted-local shared-runner access to unsafe agents in development only; ignored in production |
 | `GENAI_SYSTEMS_LAB_DATABASE_URL` | local SQLite file | Override the default local SQLite database for deployed environments |
 | `DATABASE_URL` | — | Fallback if `GENAI_SYSTEMS_LAB_DATABASE_URL` is not set |
 | `GENAI_SYSTEMS_LAB_AUTH_COOKIE_SAMESITE` | `lax` | SameSite policy for the HttpOnly browser session cookie |
@@ -542,11 +568,15 @@ All variables below are optional. The defaults shown are suitable for local deve
 | `LANGFUSE_SECRET_KEY` | — | Langfuse secret key (required when Langfuse is enabled) |
 | `LANGFUSE_PUBLIC_KEY` | — | Langfuse public key (required when Langfuse is enabled) |
 | `LANGFUSE_HOST` | `https://cloud.langfuse.com` | Langfuse server URL (cloud or self-hosted) |
-| `MODEL_DEFAULT_DEV` | `gemini-3-flash-preview` | Default model in dev |
-| `MODEL_DEFAULT_PROD` | `gemini-3.1-pro-preview` | Default model in prod |
+| `MODEL_DEFAULT_DEV` | `gemini-3.7-flash` | Default model in dev |
+| `MODEL_DEFAULT_PROD` | `gemini-3.7-flash` | Default model in prod |
 | `PROJECT_MODELS_JSON` | `{}` | JSON object mapping project names to model overrides |
 
 ### 5. Start services
+
+On Windows 11, double-click `launch.cmd`. It can install Docker Desktop and Node.js LTS through `winget`, creates a persistent local Fernet key under ignored `.data/launcher.env`, starts PostgreSQL/Redis/API/worker, starts the frontend, waits for health checks, and opens the browser. Rerunning it reuses healthy services and never terminates unrelated port occupants.
+
+For manual development:
 
 ```bash
 # Terminal 1: FastAPI backend (auto-reloads on code changes)
@@ -567,7 +597,7 @@ cd portfolio && npm install && npm run dev
 docker compose up --build
 ```
 
-Starts the API on port 8000. The Next.js portfolio is the supported frontend and can be run separately with `npm run dev` inside `portfolio/`.
+Starts PostgreSQL, Redis, the API on port 8000, and the RQ worker. The Next.js portfolio can be run separately with `npm run dev` inside `portfolio/`, or all services can be launched with `launch.cmd` on Windows.
 
 ### Vercel
 
@@ -649,7 +679,8 @@ curl -X POST http://localhost:8000/genai-nl2sql-agent/run \
   -H "Authorization: Bearer <jwt>" \
   -H "X-API-Key: <your_api_key_here>" \
   -H "X-LLM-Provider: openai" \
-  -H "X-LLM-Model: gpt-5.4" \
+  -H "X-LLM-Model: gpt-5.6-luna" \
+  -H "X-LLM-Effort: low" \
   -H "Content-Type: application/json" \
   -d '{"input":"top customers by revenue"}'
 
@@ -870,7 +901,7 @@ Execution routes (`run`, `stream`, `explain`, `eval`) require `X-API-Key` (excep
 ### Planned improvements
 
 - ~~Generate the public project catalog from a shared source.~~ Done — `portfolio/src/data/project-catalog.json` is the single source of truth, read by both the Python backend and the Next.js frontend.
-- ~~Multi-provider BYOK support.~~ Done — Gemini, OpenAI, Anthropic, and Ollama are all supported via `X-API-Key` / `X-LLM-Provider` / `X-LLM-Model` headers.
+- ~~Multi-provider BYOK support.~~ Done — Gemini, OpenAI, Anthropic, xAI, and Ollama are supported via request-scoped provider/model/effort headers.
 - Expand CI to cover all project modules and shared platform paths.
 - Adopt Alembic for schema migrations if the data model expands beyond the current column-level additions.
 
@@ -884,7 +915,7 @@ GenAI Systems Lab is a **portfolio-optimized showcase** — it prioritizes demo 
 |---|---|
 | **Runtime** | Single shared FastAPI process discovers all 20 projects automatically; no per-project deployment overhead |
 | **Auth** | HS256 JWT + HttpOnly cookies — simple, auditable, sufficient for single-operator use |
-| **BYOK** | All LLM calls require a per-request API key via headers; multi-provider dispatch routes to Gemini, OpenAI, Anthropic, or Ollama |
+| **BYOK** | Hosted LLM calls require a per-request API key; dispatch routes to Gemini, OpenAI, Anthropic, xAI, or Ollama |
 | **Persistence** | SQLite by default for zero-config local demos; `GENAI_SYSTEMS_LAB_DATABASE_URL` for deployed environments |
 | **Frontend** | One Next.js app with playground, metrics, compare, and per-project pages |
 | **Testing** | Contract-level API tests plus per-project smoke tests; catalog integrity tests guard the shared manifest |

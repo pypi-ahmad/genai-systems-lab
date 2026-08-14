@@ -1,0 +1,200 @@
+{
+  "nodes": [
+    {
+      "id": "config:graphify-out/cache/semantic/e7a3177e3ed276ab51be6c1c55dd7e96845186d1e224627b1aadee883da12031.json",
+      "type": "config",
+      "name": "e7a3177e3ed276ab51be6c1c55dd7e96845186d1e224627b1aadee883da12031.json",
+      "filePath": "graphify-out/cache/semantic/e7a3177e3ed276ab51be6c1c55dd7e96845186d1e224627b1aadee883da12031.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/e7a3177e3ed276ab51be6c1c55dd7e96845186d1e224627b1aadee883da12031.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/e7e7863e152563b89b6eb96177d030b7ece8d007eeb838df22abf2f5f3bb29f7.json",
+      "type": "config",
+      "name": "e7e7863e152563b89b6eb96177d030b7ece8d007eeb838df22abf2f5f3bb29f7.json",
+      "filePath": "graphify-out/cache/semantic/e7e7863e152563b89b6eb96177d030b7ece8d007eeb838df22abf2f5f3bb29f7.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/e7e7863e152563b89b6eb96177d030b7ece8d007eeb838df22abf2f5f3bb29f7.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/e94069dee44f1dcc52eaaeaedb3daed804cdc0981894dcb648b624c1deba4582.json",
+      "type": "config",
+      "name": "e94069dee44f1dcc52eaaeaedb3daed804cdc0981894dcb648b624c1deba4582.json",
+      "filePath": "graphify-out/cache/semantic/e94069dee44f1dcc52eaaeaedb3daed804cdc0981894dcb648b624c1deba4582.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/e94069dee44f1dcc52eaaeaedb3daed804cdc0981894dcb648b624c1deba4582.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/ee1b3b3470fe2e3abe7fc42a0c584fdacd391a99932353c88ad127aab8ad60f9.json",
+      "type": "config",
+      "name": "ee1b3b3470fe2e3abe7fc42a0c584fdacd391a99932353c88ad127aab8ad60f9.json",
+      "filePath": "graphify-out/cache/semantic/ee1b3b3470fe2e3abe7fc42a0c584fdacd391a99932353c88ad127aab8ad60f9.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/ee1b3b3470fe2e3abe7fc42a0c584fdacd391a99932353c88ad127aab8ad60f9.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/f1b10f196b5de7192776f97bf887c44987a5d3fcf535a4627e710df20b95f28f.json",
+      "type": "config",
+      "name": "f1b10f196b5de7192776f97bf887c44987a5d3fcf535a4627e710df20b95f28f.json",
+      "filePath": "graphify-out/cache/semantic/f1b10f196b5de7192776f97bf887c44987a5d3fcf535a4627e710df20b95f28f.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/f1b10f196b5de7192776f97bf887c44987a5d3fcf535a4627e710df20b95f28f.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/f3c932f40608bf1125df25a52fc3e009f8f8735a9a40e2662e86e7d7b46ebbb1.json",
+      "type": "config",
+      "name": "f3c932f40608bf1125df25a52fc3e009f8f8735a9a40e2662e86e7d7b46ebbb1.json",
+      "filePath": "graphify-out/cache/semantic/f3c932f40608bf1125df25a52fc3e009f8f8735a9a40e2662e86e7d7b46ebbb1.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/f3c932f40608bf1125df25a52fc3e009f8f8735a9a40e2662e86e7d7b46ebbb1.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/f45b568b7e10502d7aa249334e9cb6e7a02964cc68ec9f779062fd37f2c41343.json",
+      "type": "config",
+      "name": "f45b568b7e10502d7aa249334e9cb6e7a02964cc68ec9f779062fd37f2c41343.json",
+      "filePath": "graphify-out/cache/semantic/f45b568b7e10502d7aa249334e9cb6e7a02964cc68ec9f779062fd37f2c41343.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/f45b568b7e10502d7aa249334e9cb6e7a02964cc68ec9f779062fd37f2c41343.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json",
+      "type": "config",
+      "name": "f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json",
+      "filePath": "graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/f5e649f347265954ed8e5493438e21bb3891dfc5e2ca6ba0336b95f103b731f7.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/f64f475c773db14cf1a53983c736fdd1f6c0c02fa6fc66fd6d949de018c1a5a2.json",
+      "type": "config",
+      "name": "f64f475c773db14cf1a53983c736fdd1f6c0c02fa6fc66fd6d949de018c1a5a2.json",
+      "filePath": "graphify-out/cache/semantic/f64f475c773db14cf1a53983c736fdd1f6c0c02fa6fc66fd6d949de018c1a5a2.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/f64f475c773db14cf1a53983c736fdd1f6c0c02fa6fc66fd6d949de018c1a5a2.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/f907944b7b3f9648de8ef41666a8c35211fbe9e00038fc5297cdf6c5a29ff162.json",
+      "type": "config",
+      "name": "f907944b7b3f9648de8ef41666a8c35211fbe9e00038fc5297cdf6c5a29ff162.json",
+      "filePath": "graphify-out/cache/semantic/f907944b7b3f9648de8ef41666a8c35211fbe9e00038fc5297cdf6c5a29ff162.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/f907944b7b3f9648de8ef41666a8c35211fbe9e00038fc5297cdf6c5a29ff162.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/fa11e2b41dc1212d10ecc61dfb5e82345675e7f91a25f61886765d9a78129c99.json",
+      "type": "config",
+      "name": "fa11e2b41dc1212d10ecc61dfb5e82345675e7f91a25f61886765d9a78129c99.json",
+      "filePath": "graphify-out/cache/semantic/fa11e2b41dc1212d10ecc61dfb5e82345675e7f91a25f61886765d9a78129c99.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/fa11e2b41dc1212d10ecc61dfb5e82345675e7f91a25f61886765d9a78129c99.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json",
+      "type": "config",
+      "name": "fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json",
+      "filePath": "graphify-out/cache/semantic/fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/fa68416706c8f7d34d17fee4deb94f89c8f1ee6561ebfcca8528480d875bcb0e.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json",
+      "type": "config",
+      "name": "faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json",
+      "filePath": "graphify-out/cache/semantic/faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/faa1bd67115ed533e32853824fd673d864ea3c18efea15bcc4e7745280d521df.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json",
+      "type": "config",
+      "name": "fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json",
+      "filePath": "graphify-out/cache/semantic/fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/fedf360e29a0ec896a9aec234f2043c89a348de90bfbe27d289672f75416d634.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:graphify-out/cache/semantic/ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json",
+      "type": "config",
+      "name": "ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json",
+      "filePath": "graphify-out/cache/semantic/ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json",
+      "summary": "Defines project configuration stored in graphify-out/cache/semantic/ffdfb0b13c1a46463bf99422f16c46c633dc02e5b01c25dc9aad196407b12bb9.json.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

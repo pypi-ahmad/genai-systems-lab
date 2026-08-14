@@ -1,24 +1,40 @@
 services:
+  postgres:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_DB: genai_systems_lab
+      POSTGRES_USER: genai
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-local-dev-only}
+    volumes: [postgres-data:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U genai -d genai_systems_lab"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  redis:
+    image: redis:8-alpine
+    command: ["redis-server", "--save", "60", "1", "--appendonly", "yes"]
+    volumes: [redis-data:/data]
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
   api:
     build: .
     image: genai-systems-lab:latest
-    ports:
-      - "8000:8000"
-    env_file:
-      - .env
+    ports: ["8000:8000"]
     environment:
-      # Default to dev in local Compose so the ephemeral JWT secret path is
-      # allowed.  Override in prod via your CI/deployment tooling.
       APP_ENV: ${APP_ENV:-dev}
-    command:
-      [
-        "uvicorn",
-        "shared.api.app:app",
-        "--host", "0.0.0.0",
-        "--port", "8000",
-        "--workers", "2",
-        "--proxy-headers",
-      ]
+      GENAI_SYSTEMS_LAB_DATABASE_URL: postgresql+psycopg://genai:${POSTGRES_PASSWORD:-local-dev-only}@postgres:5432/genai_systems_lab
+      GENAI_SYSTEMS_LAB_REDIS_URL: redis://redis:6379/0
+      GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY: ${GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY:-}
+    depends_on:
+      postgres: {condition: service_healthy}
+      redis: {condition: service_healthy}
+    command: ["sh", "-c", "alembic upgrade head && uvicorn shared.api.app:app --host 0.0.0.0 --port 8000 --workers 2 --proxy-headers"]
     healthcheck:
       test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/health"]
       interval: 30s
@@ -28,18 +44,25 @@ services:
     restart: unless-stopped
     deploy:
       resources:
-        limits:
-          memory: 1G
-    read_only: false
-    tmpfs:
-      - /tmp:size=64M
-    security_opt:
-      - no-new-privileges:true
-    cap_drop:
-      - ALL
-    volumes:
-      # Persist the local SQLite database across restarts.
-      - api-data:/app/.data
+        limits: {memory: 1G}
+    tmpfs: [/tmp:size=64M]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+
+  worker:
+    image: genai-systems-lab:latest
+    environment:
+      APP_ENV: ${APP_ENV:-dev}
+      GENAI_SYSTEMS_LAB_DATABASE_URL: postgresql+psycopg://genai:${POSTGRES_PASSWORD:-local-dev-only}@postgres:5432/genai_systems_lab
+      GENAI_SYSTEMS_LAB_REDIS_URL: redis://redis:6379/0
+      GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY: ${GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY:-}
+    depends_on:
+      api: {condition: service_healthy}
+    command: ["rq", "worker", "--url", "redis://redis:6379/0", "--serializer", "rq.serializers.JSONSerializer", "projects"]
+    restart: unless-stopped
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
 
 volumes:
-  api-data:
+  postgres-data:
+  redis-data:

@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-doc-intelligence/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-doc-intelligence/README.md",
+      "summary": "Documents README.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-doc-intelligence/architecture.md",
+      "summary": "Documents architecture.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-doc-intelligence/tasks.md",
+      "summary": "Documents tasks.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

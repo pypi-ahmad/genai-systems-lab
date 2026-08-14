@@ -1,0 +1,251 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "crew-hiring-system/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "Hiring Decision Crew",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "crew-hiring-system/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 193,
+      "nonEmptyLines": 140,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Crew Configuration",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Why sequential",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "Agents",
+          "level": 2,
+          "line": 32
+        },
+        {
+          "heading": "Resume Screener",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Technical Interviewer",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "Behavioral Interviewer",
+          "level": 3,
+          "line": 56
+        },
+        {
+          "heading": "Hiring Manager",
+          "level": 3,
+          "line": 66
+        },
+        {
+          "heading": "Tasks",
+          "level": 2,
+          "line": 76
+        },
+        {
+          "heading": "screening_task",
+          "level": 3,
+          "line": 80
+        },
+        {
+          "heading": "technical_task",
+          "level": 3,
+          "line": 87
+        },
+        {
+          "heading": "behavioral_task",
+          "level": 3,
+          "line": 94
+        },
+        {
+          "heading": "decision_task",
+          "level": 3,
+          "line": 101
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 108
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 115
+        },
+        {
+          "heading": "Data Flow",
+          "level": 2,
+          "line": 122
+        },
+        {
+          "heading": "Production Design Notes",
+          "level": 2,
+          "line": 155
+        },
+        {
+          "heading": "Output structure",
+          "level": 3,
+          "line": 157
+        },
+        {
+          "heading": "Error handling",
+          "level": 3,
+          "line": 164
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 170
+        },
+        {
+          "heading": "Configuration",
+          "level": 3,
+          "line": 176
+        },
+        {
+          "heading": "Testing",
+          "level": 3,
+          "line": 185
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 191
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 24
+      }
+    },
+    {
+      "path": "crew-hiring-system/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 37,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define Agents",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Define Tasks",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "3 — Build Crew",
+          "level": 2,
+          "line": 30
+        },
+        {
+          "heading": "4 — Execute Workflow",
+          "level": 2,
+          "line": 42
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

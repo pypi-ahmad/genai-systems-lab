@@ -1,0 +1,1126 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 5,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "shared/utils/helpers.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "chunk_text",
+          "startLine": 12,
+          "endLine": 33,
+          "params": [
+            "text",
+            "max_chars",
+            "overlap"
+          ]
+        },
+        {
+          "name": "retry",
+          "startLine": 36,
+          "endLine": 66,
+          "params": [
+            "attempts",
+            "delay",
+            "backoff",
+            "exceptions"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Timer",
+          "startLine": 69,
+          "endLine": 88,
+          "methods": [
+            "__init__",
+            "__enter__",
+            "__exit__"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "chunk_text",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "retry",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "Timer",
+          "line": 69,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 17
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 22
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 24
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "text.rfind",
+          "lineNumber": 27
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 29
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "chunks.append",
+          "lineNumber": 31
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 32
+        },
+        {
+          "caller": "decorator",
+          "callee": "functools.wraps",
+          "lineNumber": 52
+        },
+        {
+          "caller": "wrapper",
+          "callee": "range",
+          "lineNumber": 55
+        },
+        {
+          "caller": "wrapper",
+          "callee": "fn",
+          "lineNumber": 57
+        },
+        {
+          "caller": "wrapper",
+          "callee": "time.sleep",
+          "lineNumber": 61
+        },
+        {
+          "caller": "__enter__",
+          "callee": "time.perf_counter",
+          "lineNumber": 84
+        },
+        {
+          "caller": "__exit__",
+          "callee": "time.perf_counter",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/test_auth_hardening.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "test_short_jwt_secret_is_rejected",
+          "startLine": 8,
+          "endLine": 14,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_minimum_length_jwt_secret_is_accepted",
+          "startLine": 17,
+          "endLine": 23,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_missing_secret_in_prod_raises",
+          "startLine": 26,
+          "endLine": 33,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_missing_secret_in_dev_returns_ephemeral",
+          "startLine": 36,
+          "endLine": 44,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "startLine": 47,
+          "endLine": 60,
+          "params": [
+            "monkeypatch",
+            "caplog"
+          ]
+        },
+        {
+          "name": "test_whitespace_only_secret_treated_as_missing",
+          "startLine": 63,
+          "endLine": 69,
+          "params": [
+            "monkeypatch"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "test_short_jwt_secret_is_rejected",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "test_minimum_length_jwt_secret_is_accepted",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "test_missing_secret_in_prod_raises",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "test_missing_secret_in_dev_returns_ephemeral",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "test_whitespace_only_secret_treated_as_missing",
+          "line": 63,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_short_jwt_secret_is_rejected",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 9
+        },
+        {
+          "caller": "test_short_jwt_secret_is_rejected",
+          "callee": "pytest.raises",
+          "lineNumber": 13
+        },
+        {
+          "caller": "test_short_jwt_secret_is_rejected",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 14
+        },
+        {
+          "caller": "test_minimum_length_jwt_secret_is_accepted",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 19
+        },
+        {
+          "caller": "test_minimum_length_jwt_secret_is_accepted",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "monkeypatch.delenv",
+          "lineNumber": 27
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "pytest.raises",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "monkeypatch.delenv",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "len",
+          "lineNumber": 44
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "monkeypatch.delenv",
+          "lineNumber": 51
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 52
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "caplog.at_level",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_whitespace_only_secret_treated_as_missing",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_whitespace_only_secret_treated_as_missing",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_whitespace_only_secret_treated_as_missing",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_ci_security_contract.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 140,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "ci_text",
+          "startLine": 28,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "dependabot_cfg",
+          "startLine": 33,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "test_ci_has_pip_audit_strict",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_bandit_static_analysis",
+          "startLine": 47,
+          "endLine": 48,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_gitleaks_secret_scanner",
+          "startLine": 51,
+          "endLine": 52,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_npm_audit_for_portfolio",
+          "startLine": 55,
+          "endLine": 56,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_trivy_image_scan",
+          "startLine": 59,
+          "endLine": 63,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_blocks_on_pip_audit_findings",
+          "startLine": 66,
+          "endLine": 81,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_blocks_on_trivy_findings",
+          "startLine": 84,
+          "endLine": 91,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_gitleaks_config_file_exists_where_ci_expects_it",
+          "startLine": 97,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "test_gitleaks_config_extends_default_ruleset",
+          "startLine": 104,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "test_dependabot_covers_all_first_class_ecosystems",
+          "startLine": 114,
+          "endLine": 122,
+          "params": [
+            "dependabot_cfg"
+          ]
+        },
+        {
+          "name": "test_dependabot_covers_standalone_analyst",
+          "startLine": 125,
+          "endLine": 133,
+          "params": [
+            "dependabot_cfg"
+          ]
+        },
+        {
+          "name": "test_dependabot_weekly_cadence_is_sane",
+          "startLine": 136,
+          "endLine": 140,
+          "params": [
+            "dependabot_cfg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ci_text",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "dependabot_cfg",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_pip_audit_strict",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_bandit_static_analysis",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_gitleaks_secret_scanner",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_npm_audit_for_portfolio",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_trivy_image_scan",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_blocks_on_pip_audit_findings",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_blocks_on_trivy_findings",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "test_gitleaks_config_file_exists_where_ci_expects_it",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "test_gitleaks_config_extends_default_ruleset",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "test_dependabot_covers_all_first_class_ecosystems",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "test_dependabot_covers_standalone_analyst",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "test_dependabot_weekly_cadence_is_sane",
+          "line": 136,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ci_text",
+          "callee": "CI_YAML.read_text",
+          "lineNumber": 29
+        },
+        {
+          "caller": "dependabot_cfg",
+          "callee": "pytest.skip",
+          "lineNumber": 35
+        },
+        {
+          "caller": "dependabot_cfg",
+          "callee": "yaml.safe_load",
+          "lineNumber": 36
+        },
+        {
+          "caller": "dependabot_cfg",
+          "callee": "DEPENDABOT_YAML.read_text",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_ci_has_bandit_static_analysis",
+          "callee": "ci_text.lower",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "ci_text.splitlines",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "enumerate",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "follow.lstrip().startswith",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "follow.lstrip",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "step_lines.append",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "\"\\n\".join",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_ci_blocks_on_trivy_findings",
+          "callee": "ci_text.find",
+          "lineNumber": 88
+        },
+        {
+          "caller": "test_gitleaks_config_file_exists_where_ci_expects_it",
+          "callee": "GITLEAKS_CONFIG.is_file",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_gitleaks_config_extends_default_ruleset",
+          "callee": "GITLEAKS_CONFIG.read_text",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_dependabot_covers_all_first_class_ecosystems",
+          "callee": "dependabot_cfg.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_dependabot_covers_standalone_analyst",
+          "callee": "entry.get",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_dependabot_covers_standalone_analyst",
+          "callee": "dependabot_cfg.get",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_dependabot_covers_standalone_analyst",
+          "callee": "entry.get",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_dependabot_weekly_cadence_is_sane",
+          "callee": "dependabot_cfg.get",
+          "lineNumber": 137
+        },
+        {
+          "caller": "test_dependabot_weekly_cadence_is_sane",
+          "callee": "entry.get",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_dependabot_weekly_cadence_is_sane",
+          "callee": "schedule.get",
+          "lineNumber": 140
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 14,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_dockerfile_contract.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 109,
+      "functions": [
+        {
+          "name": "dockerfile_text",
+          "startLine": 25,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "dockerignore_text",
+          "startLine": 30,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "_active_lines",
+          "startLine": 34,
+          "endLine": 41,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "test_dockerignore_excludes_env_files",
+          "startLine": 47,
+          "endLine": 50,
+          "params": [
+            "dockerignore_text"
+          ]
+        },
+        {
+          "name": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "startLine": 53,
+          "endLine": 59,
+          "params": [
+            "dockerignore_text"
+          ]
+        },
+        {
+          "name": "test_dockerignore_excludes_git_and_venvs",
+          "startLine": 62,
+          "endLine": 66,
+          "params": [
+            "dockerignore_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_does_not_copy_env_files",
+          "startLine": 72,
+          "endLine": 83,
+          "params": [
+            "dockerfile_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "startLine": 86,
+          "endLine": 102,
+          "params": [
+            "dockerfile_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "startLine": 105,
+          "endLine": 126,
+          "params": [
+            "dockerfile_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_runs_as_non_root",
+          "startLine": 129,
+          "endLine": 141,
+          "params": [
+            "dockerfile_text"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "dockerfile_text",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "dockerignore_text",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "_active_lines",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerignore_excludes_env_files",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerignore_excludes_git_and_venvs",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_does_not_copy_env_files",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_runs_as_non_root",
+          "line": 129,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "dockerfile_text",
+          "callee": "DOCKERFILE.read_text",
+          "lineNumber": 26
+        },
+        {
+          "caller": "dockerignore_text",
+          "callee": "DOCKERIGNORE.read_text",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "text.splitlines",
+          "lineNumber": 37
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "raw.split(\"#\", 1)[0].strip",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "raw.split",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "out.append",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_dockerignore_excludes_env_files",
+          "callee": "set",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_dockerignore_excludes_env_files",
+          "callee": "_active_lines",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "callee": "set",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "callee": "_active_lines",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_dockerignore_excludes_git_and_venvs",
+          "callee": "set",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_dockerignore_excludes_git_and_venvs",
+          "callee": "_active_lines",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 73
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "raw.split(\"#\", 1)[0].strip",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "raw.split",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "line.upper().startswith",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "line.upper",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "line.lower",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "re.compile",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "raw.split",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "offending.match",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "sorted",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "REPO_ROOT.iterdir",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "child.is_dir",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "child.name.startswith",
+          "lineNumber": 111
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "(child / \"app\" / \"main.py\").is_file",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "len",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "len",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "re.compile",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "re.escape",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "re.escape",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "any",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "pattern.match",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.split(\"#\", 1)[0].strip",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.split",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.strip().upper().startswith",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.strip().upper",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.strip",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "user_lines[-1].split",
+          "lineNumber": 139
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 10,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_nl2sql_security.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 70,
+      "nonEmptyLines": 56,
+      "functions": [
+        {
+          "name": "_load_module",
+          "startLine": 13,
+          "endLine": 18,
+          "params": [
+            "name"
+          ]
+        },
+        {
+          "name": "test_valid_analytics_queries_remain_allowed",
+          "startLine": 37,
+          "endLine": 39,
+          "params": [
+            "sql"
+          ]
+        },
+        {
+          "name": "test_unsafe_queries_are_rejected_at_validator_and_sink",
+          "startLine": 60,
+          "endLine": 63,
+          "params": [
+            "sql"
+          ]
+        },
+        {
+          "name": "test_executor_caps_result_rows",
+          "startLine": 66,
+          "endLine": 70,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_load_module",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "test_valid_analytics_queries_remain_allowed",
+          "line": 25,
+          "isDefault": false
+        },
+        {
+          "name": "test_unsafe_queries_are_rejected_at_validator_and_sink",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "test_executor_caps_result_rows",
+          "line": 66,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_load_module",
+          "callee": "importlib.util.spec_from_file_location",
+          "lineNumber": 14
+        },
+        {
+          "caller": "_load_module",
+          "callee": "importlib.util.module_from_spec",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_load_module",
+          "callee": "spec.loader.exec_module",
+          "lineNumber": 17
+        },
+        {
+          "caller": "test_valid_analytics_queries_remain_allowed",
+          "callee": "validator.validate_sql",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_valid_analytics_queries_remain_allowed",
+          "callee": "len",
+          "lineNumber": 39
+        },
+        {
+          "caller": "test_valid_analytics_queries_remain_allowed",
+          "callee": "executor.execute_sql",
+          "lineNumber": 39
+        },
+        {
+          "caller": "test_unsafe_queries_are_rejected_at_validator_and_sink",
+          "callee": "validator.validate_sql",
+          "lineNumber": 61
+        },
+        {
+          "caller": "test_unsafe_queries_are_rejected_at_validator_and_sink",
+          "callee": "pytest.raises",
+          "lineNumber": 62
+        },
+        {
+          "caller": "test_unsafe_queries_are_rejected_at_validator_and_sink",
+          "callee": "executor.execute_sql",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_executor_caps_result_rows",
+          "callee": "executor.execute_sql",
+          "lineNumber": 67
+        },
+        {
+          "caller": "test_executor_caps_result_rows",
+          "callee": "len",
+          "lineNumber": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    }
+  ]
+}

@@ -1,0 +1,2036 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-research-system/app/api.py",
+      "type": "file",
+      "name": "api.py",
+      "filePath": "genai-research-system/app/api.py",
+      "summary": "Implements api.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/api.py:health",
+      "type": "function",
+      "name": "health",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        38,
+        39
+      ],
+      "summary": "Implements the health operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/api.py:run_research",
+      "type": "function",
+      "name": "run_research",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        43,
+        49
+      ],
+      "summary": "Implements the run_research operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-research-system/app/api.py:ResearchRunRequest",
+      "type": "class",
+      "name": "ResearchRunRequest",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        12,
+        15
+      ],
+      "summary": "Represents the ResearchRunRequest abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-research-system/app/api.py:ResearchRunResponse",
+      "type": "class",
+      "name": "ResearchRunResponse",
+      "filePath": "genai-research-system/app/api.py",
+      "lineRange": [
+        18,
+        31
+      ],
+      "summary": "Represents the ResearchRunResponse abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-research-system/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-research-system/app/main.py",
+      "lineRange": [
+        9,
+        25
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/metrics.py",
+      "type": "file",
+      "name": "metrics.py",
+      "filePath": "genai-research-system/app/metrics.py",
+      "summary": "Implements metrics.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/metrics.py:collect_research_metrics",
+      "type": "function",
+      "name": "collect_research_metrics",
+      "filePath": "genai-research-system/app/metrics.py",
+      "lineRange": [
+        8,
+        72
+      ],
+      "summary": "Implements the collect_research_metrics operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/metrics.py:aggregate_quality_metrics",
+      "type": "function",
+      "name": "aggregate_quality_metrics",
+      "filePath": "genai-research-system/app/metrics.py",
+      "lineRange": [
+        75,
+        95
+      ],
+      "summary": "Implements the aggregate_quality_metrics operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-research-system/app/service.py",
+      "type": "file",
+      "name": "service.py",
+      "filePath": "genai-research-system/app/service.py",
+      "summary": "Implements service.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/app/service.py:normalize_formats",
+      "type": "function",
+      "name": "normalize_formats",
+      "filePath": "genai-research-system/app/service.py",
+      "lineRange": [
+        17,
+        31
+      ],
+      "summary": "Implements the normalize_formats operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/service.py:normalize_tone",
+      "type": "function",
+      "name": "normalize_tone",
+      "filePath": "genai-research-system/app/service.py",
+      "lineRange": [
+        34,
+        38
+      ],
+      "summary": "Implements the normalize_tone operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/app/service.py:run_research_workflow",
+      "type": "function",
+      "name": "run_research_workflow",
+      "filePath": "genai-research-system/app/service.py",
+      "lineRange": [
+        41,
+        104
+      ],
+      "summary": "Implements the run_research_workflow operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:genai-research-system/eval.py",
+      "type": "file",
+      "name": "eval.py",
+      "filePath": "genai-research-system/eval.py",
+      "summary": "Implements eval.py as part of the genai-research-system application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:_contains_keywords",
+      "type": "function",
+      "name": "_contains_keywords",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        29,
+        30
+      ],
+      "summary": "Implements the _contains_keywords operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:_run_research_query",
+      "type": "function",
+      "name": "_run_research_query",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        87,
+        94
+      ],
+      "summary": "Implements the _run_research_query operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:run_project_eval",
+      "type": "function",
+      "name": "run_project_eval",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        97,
+        169
+      ],
+      "summary": "Implements the run_project_eval operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-research-system/eval.py:run_project_eval_with_api_key",
+      "type": "function",
+      "name": "run_project_eval_with_api_key",
+      "filePath": "genai-research-system/eval.py",
+      "lineRange": [
+        172,
+        178
+      ],
+      "summary": "Implements the run_project_eval_with_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/api/__init__.py",
+      "summary": "Implements __init__.py as part of the shared application.",
+      "tags": [
+        "entry-point",
+        "package",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/__init__.py:__getattr__",
+      "type": "function",
+      "name": "__getattr__",
+      "filePath": "shared/api/__init__.py",
+      "lineRange": [
+        12,
+        29
+      ],
+      "summary": "Implements the __getattr__ operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/app.py",
+      "type": "file",
+      "name": "app.py",
+      "filePath": "shared/api/app.py",
+      "summary": "Implements app.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/api/app.py:_env_flag",
+      "type": "function",
+      "name": "_env_flag",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        136,
+        140
+      ],
+      "summary": "Implements the _env_flag operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_resolve_allowed_origins",
+      "type": "function",
+      "name": "_resolve_allowed_origins",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        143,
+        156
+      ],
+      "summary": "Implements the _resolve_allowed_origins operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_public_signup_enabled",
+      "type": "function",
+      "name": "_public_signup_enabled",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        159,
+        161
+      ],
+      "summary": "Implements the _public_signup_enabled operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_auth_cookie_samesite",
+      "type": "function",
+      "name": "_auth_cookie_samesite",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        164,
+        168
+      ],
+      "summary": "Implements the _auth_cookie_samesite operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_auth_cookie_secure",
+      "type": "function",
+      "name": "_auth_cookie_secure",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        171,
+        173
+      ],
+      "summary": "Implements the _auth_cookie_secure operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_set_auth_cookie",
+      "type": "function",
+      "name": "_set_auth_cookie",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        176,
+        187
+      ],
+      "summary": "Implements the _set_auth_cookie operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_clear_auth_cookie",
+      "type": "function",
+      "name": "_clear_auth_cookie",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        190,
+        199
+      ],
+      "summary": "Implements the _clear_auth_cookie operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_metrics_time_cutoff",
+      "type": "function",
+      "name": "_metrics_time_cutoff",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        202,
+        208
+      ],
+      "summary": "Implements the _metrics_time_cutoff operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_serialize_metric_point",
+      "type": "function",
+      "name": "_serialize_metric_point",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        211,
+        217
+      ],
+      "summary": "Implements the _serialize_metric_point operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_serialize_operational_metric_point",
+      "type": "function",
+      "name": "_serialize_operational_metric_point",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        220,
+        226
+      ],
+      "summary": "Implements the _serialize_operational_metric_point operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_record_operational_metric",
+      "type": "function",
+      "name": "_record_operational_metric",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        229,
+        252
+      ],
+      "summary": "Implements the _record_operational_metric operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_score_langfuse_confidence",
+      "type": "function",
+      "name": "_score_langfuse_confidence",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        255,
+        264
+      ],
+      "summary": "Implements the _score_langfuse_confidence operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_snapshot_persisted_metrics",
+      "type": "function",
+      "name": "_snapshot_persisted_metrics",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        267,
+        312
+      ],
+      "summary": "Implements the _snapshot_persisted_metrics operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_get_pipeline_nodes",
+      "type": "function",
+      "name": "_get_pipeline_nodes",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        320,
+        337
+      ],
+      "summary": "Implements the _get_pipeline_nodes operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_format_memory_step",
+      "type": "function",
+      "name": "_format_memory_step",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        340,
+        342
+      ],
+      "summary": "Implements the _format_memory_step operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_memory_entry_type",
+      "type": "function",
+      "name": "_memory_entry_type",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        345,
+        368
+      ],
+      "summary": "Implements the _memory_entry_type operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_memory_content",
+      "type": "function",
+      "name": "_memory_content",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        371,
+        382
+      ],
+      "summary": "Implements the _memory_content operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_build_memory_entry",
+      "type": "function",
+      "name": "_build_memory_entry",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        385,
+        395
+      ],
+      "summary": "Builds the _build_memory_entry structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_append_memory_entry",
+      "type": "function",
+      "name": "_append_memory_entry",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        398,
+        405
+      ],
+      "summary": "Implements the _append_memory_entry operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_append_timeline_entry",
+      "type": "function",
+      "name": "_append_timeline_entry",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        408,
+        421
+      ],
+      "summary": "Implements the _append_timeline_entry operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_append_execution_trace",
+      "type": "function",
+      "name": "_append_execution_trace",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        424,
+        441
+      ],
+      "summary": "Implements the _append_execution_trace operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_append_result_memory_entry",
+      "type": "function",
+      "name": "_append_result_memory_entry",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        444,
+        463
+      ],
+      "summary": "Implements the _append_result_memory_entry operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_append_result_timeline_entry",
+      "type": "function",
+      "name": "_append_result_timeline_entry",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        466,
+        488
+      ],
+      "summary": "Implements the _append_result_timeline_entry operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_append_fallback_memory_entries",
+      "type": "function",
+      "name": "_append_fallback_memory_entries",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        491,
+        496
+      ],
+      "summary": "Implements the _append_fallback_memory_entries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_append_fallback_timeline_entries",
+      "type": "function",
+      "name": "_append_fallback_timeline_entries",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        499,
+        523
+      ],
+      "summary": "Implements the _append_fallback_timeline_entries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_discover_projects",
+      "type": "function",
+      "name": "_discover_projects",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        526,
+        539
+      ],
+      "summary": "Implements the _discover_projects operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_serialize_session_payload",
+      "type": "function",
+      "name": "_serialize_session_payload",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        542,
+        551
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_resolve_run_session",
+      "type": "function",
+      "name": "_resolve_run_session",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        554,
+        575
+      ],
+      "summary": "Implements the _resolve_run_session operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_validate_stream_input",
+      "type": "function",
+      "name": "_validate_stream_input",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        831,
+        844
+      ],
+      "summary": "Implements the _validate_stream_input operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_validate_api_key_format",
+      "type": "function",
+      "name": "_validate_api_key_format",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        857,
+        865
+      ],
+      "summary": "Implements the _validate_api_key_format operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_safe_sse_error_payload",
+      "type": "function",
+      "name": "_safe_sse_error_payload",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        868,
+        883
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:_current_request_provider",
+      "type": "function",
+      "name": "_current_request_provider",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        917,
+        921
+      ],
+      "summary": "Implements the _current_request_provider operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/app.py:create_app",
+      "type": "function",
+      "name": "create_app",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        1045,
+        1805
+      ],
+      "summary": "Builds the _app structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:shared/api/app.py:_MetricsStore",
+      "type": "class",
+      "name": "_MetricsStore",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        82,
+        128
+      ],
+      "summary": "Represents the _MetricsStore abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/app.py:RequestLoggingMiddleware",
+      "type": "class",
+      "name": "RequestLoggingMiddleware",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        580,
+        606
+      ],
+      "summary": "Represents the RequestLoggingMiddleware abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/app.py:RequestTimingMiddleware",
+      "type": "class",
+      "name": "RequestTimingMiddleware",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        609,
+        631
+      ],
+      "summary": "Represents the RequestTimingMiddleware abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/app.py:ErrorHandlingMiddleware",
+      "type": "class",
+      "name": "ErrorHandlingMiddleware",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        634,
+        660
+      ],
+      "summary": "Represents the ErrorHandlingMiddleware abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/app.py:RequestRateLimitMiddleware",
+      "type": "class",
+      "name": "RequestRateLimitMiddleware",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        663,
+        753
+      ],
+      "summary": "Represents the RequestRateLimitMiddleware abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:shared/api/app.py:InputValidationMiddleware",
+      "type": "class",
+      "name": "InputValidationMiddleware",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        782,
+        828
+      ],
+      "summary": "Represents the InputValidationMiddleware abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/app.py:SecurityHeadersMiddleware",
+      "type": "class",
+      "name": "SecurityHeadersMiddleware",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        886,
+        914
+      ],
+      "summary": "Represents the SecurityHeadersMiddleware abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/app.py:BYOKMiddleware",
+      "type": "class",
+      "name": "BYOKMiddleware",
+      "filePath": "shared/api/app.py",
+      "lineRange": [
+        940,
+        1040
+      ],
+      "summary": "Represents the BYOKMiddleware abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:health",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:health",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:run_research",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "function:genai-research-system/app/api.py:run_research",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunRequest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunResponse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "class:genai-research-system/app/api.py:ResearchRunResponse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "file:genai-research-system/app/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/api.py",
+      "target": "file:shared/api/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "function:genai-research-system/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "function:genai-research-system/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "file:genai-research-system/app/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:collect_research_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:collect_research_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:aggregate_quality_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "function:genai-research-system/app/metrics.py:aggregate_quality_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/metrics.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_formats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_formats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_tone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:normalize_tone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:run_research_workflow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "function:genai-research-system/app/service.py:run_research_workflow",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:genai-research-system/app/graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:genai-research-system/app/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:genai-research-system/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/app/service.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_contains_keywords",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_contains_keywords",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_run_research_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:_run_research_query",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval_with_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "function:genai-research-system/eval.py:run_project_eval_with_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:genai-research-system/app/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:genai-research-system/app/service.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-research-system/eval.py",
+      "target": "file:shared/eval/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/__init__.py",
+      "target": "function:shared/api/__init__.py:__getattr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/__init__.py",
+      "target": "function:shared/api/__init__.py:__getattr__",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_env_flag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_env_flag",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_resolve_allowed_origins",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_resolve_allowed_origins",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_public_signup_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_public_signup_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_auth_cookie_samesite",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_auth_cookie_samesite",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_auth_cookie_secure",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_auth_cookie_secure",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_set_auth_cookie",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_set_auth_cookie",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_clear_auth_cookie",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_clear_auth_cookie",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_metrics_time_cutoff",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_metrics_time_cutoff",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_serialize_metric_point",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_serialize_metric_point",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_serialize_operational_metric_point",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_serialize_operational_metric_point",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_record_operational_metric",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_record_operational_metric",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_score_langfuse_confidence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_score_langfuse_confidence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_snapshot_persisted_metrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_snapshot_persisted_metrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_get_pipeline_nodes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_get_pipeline_nodes",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_format_memory_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_format_memory_step",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_memory_entry_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_memory_entry_type",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_memory_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_memory_content",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_build_memory_entry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_build_memory_entry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_memory_entry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_memory_entry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_timeline_entry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_timeline_entry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_execution_trace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_execution_trace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_result_memory_entry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_result_memory_entry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_result_timeline_entry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_result_timeline_entry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_fallback_memory_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_fallback_memory_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_fallback_timeline_entries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_append_fallback_timeline_entries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_discover_projects",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_discover_projects",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_serialize_session_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_serialize_session_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_resolve_run_session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_resolve_run_session",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_validate_stream_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_validate_stream_input",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_validate_api_key_format",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_validate_api_key_format",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_safe_sse_error_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_safe_sse_error_payload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_current_request_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:_current_request_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:create_app",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "function:shared/api/app.py:create_app",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:_MetricsStore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:_MetricsStore",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:RequestLoggingMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:RequestLoggingMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:RequestTimingMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:RequestTimingMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:ErrorHandlingMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:ErrorHandlingMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:RequestRateLimitMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:RequestRateLimitMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:InputValidationMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:InputValidationMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:SecurityHeadersMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:SecurityHeadersMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:BYOKMiddleware",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "class:shared/api/app.py:BYOKMiddleware",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/auth.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/confidence.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/eval_runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/run_explainer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/api/session_memory.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/llm/catalog.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/logging/otel.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/observability/langfuse.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/project_catalog.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/app.py",
+      "target": "file:shared/schemas/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

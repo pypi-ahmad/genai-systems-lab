@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": ".codex/better-harness/2026-08-14T0625-normal/findings.json",
+      "language": "json",
+      "sizeLines": 63,
+      "fileCategory": "config"
+    },
+    {
+      "path": ".codex/better-harness/2026-08-14T0625-normal/report.html",
+      "language": "html",
+      "sizeLines": 414,
+      "fileCategory": "markup"
+    },
+    {
+      "path": ".codex/better-harness/2026-08-14T0625-normal/report.md",
+      "language": "markdown",
+      "sizeLines": 49,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    ".codex/better-harness/2026-08-14T0625-normal/findings.json": [],
+    ".codex/better-harness/2026-08-14T0625-normal/report.html": [],
+    ".codex/better-harness/2026-08-14T0625-normal/report.md": []
+  }
+}

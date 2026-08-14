@@ -12,14 +12,14 @@ providers:
     config:
       codebase_path: shared
       provider: gemini
-      model: gemini-3.1-pro-preview
+      model: gemini-3.7-flash
 
   - id: "file://providers/code_copilot_rag_provider.py"
     label: "Code Copilot | GPT-4.1 Mini"
     config:
       codebase_path: shared
       provider: openai
-      model: gpt-4.1-mini
+      model: gpt-5.6-luna
 
   - id: "file://providers/code_copilot_rag_provider.py"
     label: "Code Copilot | Claude Sonnet"

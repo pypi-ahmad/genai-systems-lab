@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:docs/comparison.md",
+      "type": "document",
+      "name": "comparison.md",
+      "filePath": "docs/comparison.md",
+      "summary": "comparison.md documents the docs component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:docs/genai-systems-lab-architecture.html",
+      "type": "file",
+      "name": "genai-systems-lab-architecture.html",
+      "filePath": "docs/genai-systems-lab-architecture.html",
+      "summary": "genai-systems-lab-architecture.html implements application behavior for the docs component.",
+      "tags": [
+        "python",
+        "application",
+        "implementation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:docs/genai-systems-lab-architecture.json",
+      "type": "config",
+      "name": "genai-systems-lab-architecture.json",
+      "filePath": "docs/genai-systems-lab-architecture.json",
+      "summary": "genai-systems-lab-architecture.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "complex"
+    }
+  ],
+  "edges": []
+}

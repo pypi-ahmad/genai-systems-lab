@@ -1,0 +1,204 @@
+{
+  "node_count": 2735,
+  "unverified_node_count": 0,
+  "raw_edge_count": 6498,
+  "non_object_edges": 0,
+  "missing_endpoint_edges": 0,
+  "dangling_endpoint_edges": 718,
+  "self_loop_edges": 0,
+  "valid_candidate_edges": 5780,
+  "exact_duplicate_edges": 62,
+  "directed_unique_endpoint_pairs": 5526,
+  "directed_same_endpoint_collapsed_edges": 254,
+  "undirected_unique_endpoint_pairs": 5521,
+  "undirected_same_endpoint_collapsed_edges": 259,
+  "same_endpoint_group_count": 199,
+  "relation_variant_groups": 125,
+  "source_file_variant_groups": 0,
+  "source_location_variant_groups": 13,
+  "context_variant_groups": 49,
+  "post_build_graph_type": "Graph",
+  "post_build_node_count": 2735,
+  "post_build_edge_count": 5524,
+  "post_build_error": "",
+  "producer_suppression": {
+    "path": "C:\\Users\\ahmad\\AppData\\Roaming\\uv\\tools\\graphifyy\\Lib\\site-packages\\graphify\\extract.py",
+    "total_sites": 11,
+    "sites": [
+      {
+        "line": 1099,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids = {n[\"id\"] for n in nodes}"
+      },
+      {
+        "line": 1253,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids = {n[\"id\"] for n in nodes}"
+      },
+      {
+        "line": 1255,
+        "name": "seen_doc_refs",
+        "tuple_arity": 0,
+        "sample": "seen_doc_refs: set[str] = set()"
+      },
+      {
+        "line": 1600,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = {n[\"id\"] for n in nodes}"
+      },
+      {
+        "line": 2069,
+        "name": "seen_keys",
+        "tuple_arity": 0,
+        "sample": "seen_keys: set[tuple] = set()"
+      },
+      {
+        "line": 2228,
+        "name": "seen_keys",
+        "tuple_arity": 0,
+        "sample": "seen_keys: set[tuple] = set()"
+      },
+      {
+        "line": 3272,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 3380,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 3459,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 3974,
+        "name": "seen_ids",
+        "tuple_arity": 0,
+        "sample": "seen_ids: set[str] = set()"
+      },
+      {
+        "line": 3975,
+        "name": "seen_edges",
+        "tuple_arity": 4,
+        "sample": "seen_edges: set[tuple[str, str, str, str | None]] = set()"
+      }
+    ],
+    "error": ""
+  },
+  "examples": [
+    {
+      "source": "crew_hiring_system_app_tasks_build_bias_audit_task",
+      "target": "crew_hiring_system_app_tasks_py_task",
+      "edge_count": 6,
+      "relations": [
+        "calls",
+        "references"
+      ],
+      "source_files": [
+        "crew-hiring-system/app/tasks.py"
+      ],
+      "source_locations": [
+        "L371",
+        "L378"
+      ],
+      "contexts": [
+        "call",
+        "parameter_type",
+        "return_type"
+      ]
+    },
+    {
+      "source": "crew_investment_analyst_app_tasks_build_risk_challenge_task",
+      "target": "crew_investment_analyst_app_tasks_py_task",
+      "edge_count": 6,
+      "relations": [
+        "calls",
+        "references"
+      ],
+      "source_files": [
+        "crew-investment-analyst/app/tasks.py"
+      ],
+      "source_locations": [
+        "L168",
+        "L175"
+      ],
+      "contexts": [
+        "call",
+        "parameter_type",
+        "return_type"
+      ]
+    },
+    {
+      "source": "crew_hiring_system_app_tasks_build_decision_task",
+      "target": "crew_hiring_system_app_tasks_py_task",
+      "edge_count": 5,
+      "relations": [
+        "calls",
+        "references"
+      ],
+      "source_files": [
+        "crew-hiring-system/app/tasks.py"
+      ],
+      "source_locations": [
+        "L332",
+        "L345"
+      ],
+      "contexts": [
+        "call",
+        "parameter_type",
+        "return_type"
+      ]
+    },
+    {
+      "source": "crew_investment_analyst_app_tasks_build_strategy_task",
+      "target": "crew_investment_analyst_app_tasks_py_task",
+      "edge_count": 5,
+      "relations": [
+        "calls",
+        "references"
+      ],
+      "source_files": [
+        "crew-investment-analyst/app/tasks.py"
+      ],
+      "source_locations": [
+        "L136",
+        "L142"
+      ],
+      "contexts": [
+        "call",
+        "parameter_type",
+        "return_type"
+      ]
+    },
+    {
+      "source": "crew_product_launch_app_tasks_build_gtm_task",
+      "target": "crew_product_launch_app_tasks_py_task",
+      "edge_count": 5,
+      "relations": [
+        "calls",
+        "references"
+      ],
+      "source_files": [
+        "crew-product-launch/app/tasks.py"
+      ],
+      "source_locations": [
+        "L188",
+        "L194"
+      ],
+      "contexts": [
+        "call",
+        "parameter_type",
+        "return_type"
+      ]
+    }
+  ]
+}

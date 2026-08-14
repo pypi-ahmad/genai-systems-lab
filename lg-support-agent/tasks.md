@@ -7,7 +7,7 @@ File: `app/state.py`
 - [ ] Define `SupportState` as a `TypedDict` with `total=False` and fields: `query` (str), `intent` (str), `retrieved_docs` (list[dict]), `response` (str), `confidence` (float), `escalate` (bool).
 - [ ] Create `initial_state(query: str) -> SupportState` factory that sets `intent=""`, `retrieved_docs=[]`, `response=""`, `confidence=0.0`, `escalate=False`.
 - [ ] Add module-level constants: `CONFIDENCE_THRESHOLD = 0.7`, `RETRIEVAL_TOP_K = 5`, `RELEVANCE_THRESHOLD = 0.3`.
-- [ ] Add `CLASSIFICATION_MODEL = "gemini-3.1-pro-preview"` and `RESPONSE_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Add `CLASSIFICATION_MODEL = "gemini-3.7-flash"` and `RESPONSE_MODEL = "gemini-3.5-flash-lite"` constants.
 - [ ] Define `INTENT_LABELS = ["billing", "technical", "account", "returns", "general", "unknown"]` constant.
 
 ## 2 — Create Knowledge Base

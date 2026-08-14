@@ -1,0 +1,1262 @@
+{
+  "nodes": [
+    {
+      "id": "file:lg-data-agent/app/data_loader.py",
+      "type": "file",
+      "name": "data_loader.py",
+      "filePath": "lg-data-agent/app/data_loader.py",
+      "summary": "Implements data_loader.py as part of the lg-data-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/data_loader.py:load_data",
+      "type": "function",
+      "name": "load_data",
+      "filePath": "lg-data-agent/app/data_loader.py",
+      "lineRange": [
+        19,
+        41
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/data_loader.py:get_metadata",
+      "type": "function",
+      "name": "get_metadata",
+      "filePath": "lg-data-agent/app/data_loader.py",
+      "lineRange": [
+        44,
+        51
+      ],
+      "summary": "Implements the get_metadata operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/data_loader.py:_load_sample",
+      "type": "function",
+      "name": "_load_sample",
+      "filePath": "lg-data-agent/app/data_loader.py",
+      "lineRange": [
+        54,
+        57
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/graph.py",
+      "type": "file",
+      "name": "graph.py",
+      "filePath": "lg-data-agent/app/graph.py",
+      "summary": "Builds the application workflow graph and connects its processing nodes.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/graph.py:_route_after_evaluator",
+      "type": "function",
+      "name": "_route_after_evaluator",
+      "filePath": "lg-data-agent/app/graph.py",
+      "lineRange": [
+        16,
+        21
+      ],
+      "summary": "Implements the _route_after_evaluator operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/graph.py:_route_after_planner",
+      "type": "function",
+      "name": "_route_after_planner",
+      "filePath": "lg-data-agent/app/graph.py",
+      "lineRange": [
+        24,
+        27
+      ],
+      "summary": "Implements the _route_after_planner operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/graph.py:build_graph",
+      "type": "function",
+      "name": "build_graph",
+      "filePath": "lg-data-agent/app/graph.py",
+      "lineRange": [
+        30,
+        46
+      ],
+      "summary": "Builds the _graph structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "lg-data-agent/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "lg-data-agent/app/main.py",
+      "lineRange": [
+        11,
+        50
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/nodes/analyzer.py",
+      "type": "file",
+      "name": "analyzer.py",
+      "filePath": "lg-data-agent/app/nodes/analyzer.py",
+      "summary": "Implements the analyzer workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/analyzer.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-data-agent/app/nodes/analyzer.py",
+      "lineRange": [
+        7,
+        42
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/analyzer.py:analyzer_node",
+      "type": "function",
+      "name": "analyzer_node",
+      "filePath": "lg-data-agent/app/nodes/analyzer.py",
+      "lineRange": [
+        45,
+        66
+      ],
+      "summary": "Implements the analyzer_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "type": "file",
+      "name": "duckdb_executor.py",
+      "filePath": "lg-data-agent/app/nodes/duckdb_executor.py",
+      "summary": "Implements the duckdb_executor workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/duckdb_executor.py:_result",
+      "type": "function",
+      "name": "_result",
+      "filePath": "lg-data-agent/app/nodes/duckdb_executor.py",
+      "lineRange": [
+        18,
+        26
+      ],
+      "summary": "Implements the _result operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/duckdb_executor.py:_error",
+      "type": "function",
+      "name": "_error",
+      "filePath": "lg-data-agent/app/nodes/duckdb_executor.py",
+      "lineRange": [
+        29,
+        30
+      ],
+      "summary": "Implements the _error operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/duckdb_executor.py:_quote",
+      "type": "function",
+      "name": "_quote",
+      "filePath": "lg-data-agent/app/nodes/duckdb_executor.py",
+      "lineRange": [
+        33,
+        35
+      ],
+      "summary": "Implements the _quote operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/duckdb_executor.py:_step_to_sql",
+      "type": "function",
+      "name": "_step_to_sql",
+      "filePath": "lg-data-agent/app/nodes/duckdb_executor.py",
+      "lineRange": [
+        38,
+        113
+      ],
+      "summary": "Implements the _step_to_sql operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/duckdb_executor.py:duckdb_executor_node",
+      "type": "function",
+      "name": "duckdb_executor_node",
+      "filePath": "lg-data-agent/app/nodes/duckdb_executor.py",
+      "lineRange": [
+        116,
+        144
+      ],
+      "summary": "Implements the duckdb_executor_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/nodes/evaluator.py",
+      "type": "file",
+      "name": "evaluator.py",
+      "filePath": "lg-data-agent/app/nodes/evaluator.py",
+      "summary": "Implements the evaluator workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "function",
+      "name": "evaluator_node",
+      "filePath": "lg-data-agent/app/nodes/evaluator.py",
+      "lineRange": [
+        8,
+        16
+      ],
+      "summary": "Implements the evaluator_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/nodes/executor.py",
+      "type": "file",
+      "name": "executor.py",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "summary": "Implements the executor workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_result",
+      "type": "function",
+      "name": "_result",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        22,
+        31
+      ],
+      "summary": "Implements the _result operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_error",
+      "type": "function",
+      "name": "_error",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        34,
+        35
+      ],
+      "summary": "Implements the _error operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_check_column",
+      "type": "function",
+      "name": "_check_column",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        38,
+        42
+      ],
+      "summary": "Implements the _check_column operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_filter",
+      "type": "function",
+      "name": "_apply_filter",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        48,
+        72
+      ],
+      "summary": "Implements the _apply_filter operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_group_by",
+      "type": "function",
+      "name": "_apply_group_by",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        75,
+        100
+      ],
+      "summary": "Implements the _apply_group_by operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_sort",
+      "type": "function",
+      "name": "_apply_sort",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        103,
+        109
+      ],
+      "summary": "Implements the _apply_sort operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_aggregate",
+      "type": "function",
+      "name": "_apply_aggregate",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        112,
+        133
+      ],
+      "summary": "Implements the _apply_aggregate operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_select",
+      "type": "function",
+      "name": "_apply_select",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        136,
+        142
+      ],
+      "summary": "Implements the _apply_select operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_drop",
+      "type": "function",
+      "name": "_apply_drop",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        145,
+        151
+      ],
+      "summary": "Implements the _apply_drop operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_rename",
+      "type": "function",
+      "name": "_apply_rename",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        154,
+        160
+      ],
+      "summary": "Implements the _apply_rename operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:_apply_pivot",
+      "type": "function",
+      "name": "_apply_pivot",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        163,
+        185
+      ],
+      "summary": "Implements the _apply_pivot operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/executor.py:executor_node",
+      "type": "function",
+      "name": "executor_node",
+      "filePath": "lg-data-agent/app/nodes/executor.py",
+      "lineRange": [
+        203,
+        229
+      ],
+      "summary": "Implements the executor_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/nodes/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "lg-data-agent/app/nodes/planner.py",
+      "summary": "Implements the planner workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/planner.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-data-agent/app/nodes/planner.py",
+      "lineRange": [
+        60,
+        102
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/planner.py:_validate_step",
+      "type": "function",
+      "name": "_validate_step",
+      "filePath": "lg-data-agent/app/nodes/planner.py",
+      "lineRange": [
+        105,
+        109
+      ],
+      "summary": "Implements the _validate_step operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/nodes/planner.py:planner_node",
+      "type": "function",
+      "name": "planner_node",
+      "filePath": "lg-data-agent/app/nodes/planner.py",
+      "lineRange": [
+        112,
+        133
+      ],
+      "summary": "Implements the planner_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-data-agent/app/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "lg-data-agent/app/state.py",
+      "summary": "Defines shared workflow state and typed data exchanged between nodes.",
+      "tags": [
+        "state-management",
+        "type-definition",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-data-agent/app/state.py:initial_state",
+      "type": "function",
+      "name": "initial_state",
+      "filePath": "lg-data-agent/app/state.py",
+      "lineRange": [
+        36,
+        46
+      ],
+      "summary": "Implements the initial_state operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lg-data-agent/app/state.py:AnalysisState",
+      "type": "class",
+      "name": "AnalysisState",
+      "filePath": "lg-data-agent/app/state.py",
+      "lineRange": [
+        25,
+        33
+      ],
+      "summary": "Represents the AnalysisState abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:lg-data-agent/app/data_loader.py",
+      "target": "function:lg-data-agent/app/data_loader.py:load_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/data_loader.py",
+      "target": "function:lg-data-agent/app/data_loader.py:load_data",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/data_loader.py",
+      "target": "function:lg-data-agent/app/data_loader.py:get_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/data_loader.py",
+      "target": "function:lg-data-agent/app/data_loader.py:get_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/data_loader.py",
+      "target": "function:lg-data-agent/app/data_loader.py:_load_sample",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/data_loader.py",
+      "target": "function:lg-data-agent/app/data_loader.py:_load_sample",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "function:lg-data-agent/app/graph.py:_route_after_evaluator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "function:lg-data-agent/app/graph.py:_route_after_evaluator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "function:lg-data-agent/app/graph.py:_route_after_planner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "function:lg-data-agent/app/graph.py:_route_after_planner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "function:lg-data-agent/app/graph.py:build_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "function:lg-data-agent/app/graph.py:build_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "file:lg-data-agent/app/nodes/analyzer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "file:lg-data-agent/app/nodes/evaluator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "file:lg-data-agent/app/nodes/executor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "file:lg-data-agent/app/nodes/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "file:lg-data-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/graph.py",
+      "target": "file:shared/api/langgraph_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/main.py",
+      "target": "function:lg-data-agent/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/main.py",
+      "target": "function:lg-data-agent/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/main.py",
+      "target": "file:lg-data-agent/app/data_loader.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/main.py",
+      "target": "file:lg-data-agent/app/graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/main.py",
+      "target": "file:lg-data-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/analyzer.py",
+      "target": "function:lg-data-agent/app/nodes/analyzer.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/analyzer.py",
+      "target": "function:lg-data-agent/app/nodes/analyzer.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/analyzer.py",
+      "target": "function:lg-data-agent/app/nodes/analyzer.py:analyzer_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/analyzer.py",
+      "target": "function:lg-data-agent/app/nodes/analyzer.py:analyzer_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/analyzer.py",
+      "target": "file:lg-data-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/analyzer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_quote",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_quote",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_step_to_sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:_step_to_sql",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:duckdb_executor_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "function:lg-data-agent/app/nodes/duckdb_executor.py:duckdb_executor_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "file:lg-data-agent/app/data_loader.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/duckdb_executor.py",
+      "target": "file:lg-data-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/evaluator.py",
+      "target": "function:lg-data-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/evaluator.py",
+      "target": "function:lg-data-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/evaluator.py",
+      "target": "file:lg-data-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_result",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_check_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_check_column",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_filter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_group_by",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_group_by",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_sort",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_sort",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_aggregate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_aggregate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_select",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_select",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_drop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_drop",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_rename",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_pivot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:_apply_pivot",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:executor_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "function:lg-data-agent/app/nodes/executor.py:executor_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "file:lg-data-agent/app/data_loader.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/executor.py",
+      "target": "file:lg-data-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "function:lg-data-agent/app/nodes/planner.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "function:lg-data-agent/app/nodes/planner.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "function:lg-data-agent/app/nodes/planner.py:_validate_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "function:lg-data-agent/app/nodes/planner.py:_validate_step",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "function:lg-data-agent/app/nodes/planner.py:planner_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "function:lg-data-agent/app/nodes/planner.py:planner_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "file:lg-data-agent/app/data_loader.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "file:lg-data-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/nodes/planner.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-data-agent/app/state.py",
+      "target": "function:lg-data-agent/app/state.py:initial_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/state.py",
+      "target": "function:lg-data-agent/app/state.py:initial_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-data-agent/app/state.py",
+      "target": "class:lg-data-agent/app/state.py:AnalysisState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-data-agent/app/state.py",
+      "target": "class:lg-data-agent/app/state.py:AnalysisState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

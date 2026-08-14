@@ -1,0 +1,251 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "genai-ui-builder/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Generative UI Builder",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "genai-ui-builder/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 135,
+      "nonEmptyLines": 84,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Core Components",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Spec Generator",
+          "level": 3,
+          "line": 13
+        },
+        {
+          "heading": "Validator",
+          "level": 3,
+          "line": 20
+        },
+        {
+          "heading": "Code Generator",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Fixer Loop",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "JSON UI Spec Schema",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "1. Prompt Intake",
+          "level": 3,
+          "line": 69
+        },
+        {
+          "heading": "2. Spec Generation",
+          "level": 3,
+          "line": 73
+        },
+        {
+          "heading": "3. Spec Validation",
+          "level": 3,
+          "line": 77
+        },
+        {
+          "heading": "4. Spec Fixing (if needed)",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "5. Code Generation",
+          "level": 3,
+          "line": 85
+        },
+        {
+          "heading": "6. Code Validation",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "7. Code Fixing (if needed)",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "8. Final Output",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 101
+        },
+        {
+          "heading": "`gemini-3.1-pro-preview`",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "`gemini-3-flash-preview`",
+          "level": 3,
+          "line": 112
+        },
+        {
+          "heading": "Production-Oriented Design Notes",
+          "level": 2,
+          "line": 123
+        },
+        {
+          "heading": "High-Level Architecture Summary",
+          "level": 2,
+          "line": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 22
+      }
+    },
+    {
+      "path": "genai-ui-builder/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 37,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Define UI JSON Schema",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Generate UI Spec",
+          "level": 2,
+          "line": 11
+        },
+        {
+          "heading": "Validate Spec",
+          "level": 2,
+          "line": 19
+        },
+        {
+          "heading": "Build Code Generator",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Implement Fix Loop",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "Save Output Files",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    }
+  ]
+}

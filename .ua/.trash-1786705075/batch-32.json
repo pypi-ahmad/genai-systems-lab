@@ -1,0 +1,265 @@
+{
+  "nodes": [
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-26.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-26.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-26.json",
+      "summary": "Defines ua-file-analyzer-input-26.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-27.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-27.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-27.json",
+      "summary": "Defines ua-file-analyzer-input-27.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-28.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-28.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-28.json",
+      "summary": "Defines ua-file-analyzer-input-28.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-29.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-29.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-29.json",
+      "summary": "Defines ua-file-analyzer-input-29.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-3.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-3.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-3.json",
+      "summary": "Defines ua-file-analyzer-input-3.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-30.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-30.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-30.json",
+      "summary": "Defines ua-file-analyzer-input-30.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-31.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-31.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-31.json",
+      "summary": "Defines ua-file-analyzer-input-31.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-32.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-32.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-32.json",
+      "summary": "Defines ua-file-analyzer-input-32.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-33.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-33.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-33.json",
+      "summary": "Defines ua-file-analyzer-input-33.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-34.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-34.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-34.json",
+      "summary": "Defines ua-file-analyzer-input-34.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-35.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-35.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-35.json",
+      "summary": "Defines ua-file-analyzer-input-35.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-36.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-36.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-36.json",
+      "summary": "Defines ua-file-analyzer-input-36.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-37.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-37.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-37.json",
+      "summary": "Defines ua-file-analyzer-input-37.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-38.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-38.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-38.json",
+      "summary": "Defines ua-file-analyzer-input-38.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-39.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-39.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-39.json",
+      "summary": "Defines ua-file-analyzer-input-39.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-4.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-4.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-4.json",
+      "summary": "Defines ua-file-analyzer-input-4.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-40.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-40.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-40.json",
+      "summary": "Defines ua-file-analyzer-input-40.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-41.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-41.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-41.json",
+      "summary": "Defines ua-file-analyzer-input-41.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-42.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-42.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-42.json",
+      "summary": "Defines ua-file-analyzer-input-42.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tmp/ua-file-analyzer-input-43.json",
+      "type": "config",
+      "name": "ua-file-analyzer-input-43.json",
+      "filePath": ".ua/.trash-1786690380/tmp/ua-file-analyzer-input-43.json",
+      "summary": "Defines ua-file-analyzer-input-43.json configuration used by this project.",
+      "tags": [
+        "configuration",
+        "json",
+        "build-system"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -7,7 +7,7 @@ import re
 from shared.llm.gemini import generate_text
 
 
-MODEL_NAME = "gemini-3.1-pro-preview"
+MODEL_NAME = "gemini-3.7-flash"
 DISALLOWED_SQL_PATTERNS = (
 	r"\bINSERT\b",
 	r"\bUPDATE\b",

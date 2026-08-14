@@ -4,7 +4,7 @@ from __future__ import annotations
 
 from shared.llm.gemini import generate_structured
 
-MODEL = "gemini-3.1-pro-preview"
+MODEL = "gemini-3.7-flash"
 
 SYSTEM_PROMPT = """\
 You are a UI specification generator. Given a user description of a UI, produce a JSON object \

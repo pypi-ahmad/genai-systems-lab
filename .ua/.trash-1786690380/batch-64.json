@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "config:langgraph-data-analyst/.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": "langgraph-data-analyst/.env.example",
+      "summary": "Defines project configuration stored in langgraph-data-analyst/.env.example.",
+      "tags": [
+        "configuration",
+        "config",
+        "project-settings"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:langgraph-data-analyst/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "langgraph-data-analyst/README.md",
+      "summary": "Documents the project material contained in langgraph-data-analyst/README.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:langgraph-data-analyst/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "langgraph-data-analyst/requirements.txt",
+      "summary": "Documents the project material contained in langgraph-data-analyst/requirements.txt.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:lg-workflow-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "lg-workflow-agent/README.md",
+      "summary": "Documents the project material contained in lg-workflow-agent/README.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:lg-workflow-agent/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "lg-workflow-agent/architecture.md",
+      "summary": "Documents the project material contained in lg-workflow-agent/architecture.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:lg-workflow-agent/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "lg-workflow-agent/tasks.md",
+      "summary": "Documents the project material contained in lg-workflow-agent/tasks.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

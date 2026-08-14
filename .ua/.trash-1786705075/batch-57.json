@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-knowledge-os/data/notes/ai-ops-retrospective.md",
+      "type": "document",
+      "name": "ai-ops-retrospective.md",
+      "filePath": "genai-knowledge-os/data/notes/ai-ops-retrospective.md",
+      "summary": "ai-ops-retrospective.md documents the notes component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-knowledge-os/data/notes/personal-research-roadmap.md",
+      "type": "document",
+      "name": "personal-research-roadmap.md",
+      "filePath": "genai-knowledge-os/data/notes/personal-research-roadmap.md",
+      "summary": "personal-research-roadmap.md documents the notes component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-knowledge-os/data/notes/vendor-evaluation.txt",
+      "type": "document",
+      "name": "vendor-evaluation.txt",
+      "filePath": "genai-knowledge-os/data/notes/vendor-evaluation.txt",
+      "summary": "vendor-evaluation.txt documents the notes component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-knowledge-os/data/notes/weekly-learning-log.md",
+      "type": "document",
+      "name": "weekly-learning-log.md",
+      "filePath": "genai-knowledge-os/data/notes/weekly-learning-log.md",
+      "summary": "weekly-learning-log.md documents the notes component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

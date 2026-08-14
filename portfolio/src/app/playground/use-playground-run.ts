@@ -4,7 +4,7 @@ import { useState, useRef, useCallback, useEffect } from "react";
 import { projectDetails } from "@/data/projects";
 import type { ProjectDetail } from "@/data/projects";
 import { runProject, streamProject } from "@/lib/api";
-import type { HistoryRun, LLMRequestOptions, RunMemoryEntry, StepEvent } from "@/lib/api";
+import type { HistoryRun, LLMRequestOptions, RunMemoryEntry, RunUsage, StepEvent } from "@/lib/api";
 import type { NodeStatusMap } from "@/components/animated-graph";
 import type { MemoryEntry } from "@/components/memory-panel";
 import {
@@ -75,6 +75,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
   const [output, setOutput] = useState<string | null>(null);
   const [latency, setLatency] = useState<number | null>(null);
   const [confidence, setConfidence] = useState<number | null>(null);
+  const [usage, setUsage] = useState<RunUsage | null>(null);
   const [status, setStatus] = useState<RunStatus>("idle");
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [streamText, setStreamText] = useState("");
@@ -155,6 +156,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
     setRawData(null);
     setLatency(null);
     setConfidence(null);
+    setUsage(null);
     setUsedSessionContext(false);
     setStatus("idle");
     setErrorMsg(null);
@@ -215,6 +217,14 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
     setRawData(null);
     setLatency(null);
     setConfidence(historyRun.confidence);
+    setUsage(historyRun.total_tokens === null ? null : {
+      input_tokens: historyRun.prompt_tokens ?? 0,
+      output_tokens: historyRun.completion_tokens ?? 0,
+      total_tokens: historyRun.total_tokens,
+      estimated_cost_usd: historyRun.cost_usd,
+      models_used: historyRun.model_used ? [historyRun.model_used] : [],
+      cost_breakdown: [],
+    });
     setUsedSessionContext(false);
     setStatus("idle");
     setErrorMsg(null);
@@ -250,6 +260,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
       setRawData(null);
       setLatency(null);
       setConfidence(null);
+      setUsage(null);
       setUsedSessionContext(false);
       setStreamText("");
       setStepStatuses({});
@@ -380,6 +391,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
               });
               setLatency(Math.round(meta.latency));
               setConfidence(typeof meta.confidence === "number" ? meta.confidence : null);
+              setUsage(meta.usage);
               applySessionState(meta.sessionId, meta.sessionMemory);
               setUsedSessionContext(meta.usedSessionContext);
               if (meta.usedSessionContext) {
@@ -447,6 +459,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
               setStatus(runSucceeded ? "success" : "error");
               setLatency(typeof data?.latency === "number" ? Math.round(data.latency) : null);
               setConfidence(typeof data?.confidence === "number" ? data.confidence : null);
+              setUsage(data.usage ?? null);
               applySessionState(
                 typeof data?.session_id === "number" ? data.session_id : null,
                 Array.isArray(data?.session_memory)
@@ -561,6 +574,7 @@ export function usePlaygroundRun(deps: PlaygroundRunDeps) {
     errorMsg,
     latency,
     confidence,
+    usage,
     usedSessionContext: effectiveUsedSessionContext,
     logLines,
     memoryEntries,

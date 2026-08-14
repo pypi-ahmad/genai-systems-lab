@@ -1,0 +1,188 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 3,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "portfolio/src/app/about/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 139,
+      "nonEmptyLines": 131,
+      "functions": [
+        {
+          "name": "AboutPage",
+          "startLine": 18,
+          "endLine": 139,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "AboutPage",
+          "line": 18,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "AboutPage",
+          "callee": "[\r\n              { label: \"Primary focus\", value: \"AI systems engineering\" },\r\n              { label: \"Delivery style\", value: \"Typed, minimal, measurable\" },\r\n              { label: \"Front-end stack\", value: \"Next.js + Tailwind\" },\r\n            ].map",
+          "lineNumber": 50
+        },
+        {
+          "caller": "AboutPage",
+          "callee": "skills.map",
+          "lineNumber": 78
+        },
+        {
+          "caller": "AboutPage",
+          "callee": "s.items.map",
+          "lineNumber": 87
+        },
+        {
+          "caller": "AboutPage",
+          "callee": "[\r\n            {\r\n              title: \"Ship, don\\u2019t demo\",\r\n              text: \"Every project includes runnable structure, tests, and evaluation instead of isolated prototypes.\",\r\n            },\r\n            {\r\n              title: \"Observe everything\",\r\n              text: \"Logs, traces, and metrics matter because debugging AI systems without visibility is mostly guesswork.\",\r\n            },\r\n            {\r\n              title: \"Keep it legible\",\r\n              text: \"The implementation should stay understandable for the next engineer, not just impressive in a screenshot.\",\r\n            },\r\n          ].map",
+          "lineNumber": 111
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 203,
+      "nonEmptyLines": 190,
+      "functions": [
+        {
+          "name": "Home",
+          "startLine": 39,
+          "endLine": 203,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "Home",
+          "line": 39,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "Home",
+          "callee": "highlights.map",
+          "lineNumber": 78
+        },
+        {
+          "caller": "Home",
+          "callee": "stats.map",
+          "lineNumber": 103
+        },
+        {
+          "caller": "Home",
+          "callee": "capabilities.map",
+          "lineNumber": 126
+        },
+        {
+          "caller": "Home",
+          "callee": "String(i + 1).padStart",
+          "lineNumber": 130
+        },
+        {
+          "caller": "Home",
+          "callee": "String",
+          "lineNumber": 130
+        },
+        {
+          "caller": "Home",
+          "callee": "[\"Python\", \"FastAPI\", \"LangChain\", \"LangGraph\", \"CrewAI\", \"Next.js\", \"TypeScript\", \"Tailwind CSS\", \"Docker\"].map",
+          "lineNumber": 152
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/card.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 32,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "joinClasses",
+          "startLine": 9,
+          "endLine": 11,
+          "params": [
+            "...classes"
+          ]
+        },
+        {
+          "name": "Card",
+          "startLine": 13,
+          "endLine": 32,
+          "params": [
+            "{\r\n  as,\r\n  children,\r\n  className,\r\n  ...props\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "Card",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "joinClasses",
+          "callee": "classes.filter(Boolean).join",
+          "lineNumber": 10
+        },
+        {
+          "caller": "joinClasses",
+          "callee": "classes.filter",
+          "lineNumber": 10
+        },
+        {
+          "caller": "Card",
+          "callee": "joinClasses",
+          "lineNumber": 23
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    }
+  ]
+}

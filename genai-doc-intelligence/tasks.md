@@ -50,7 +50,7 @@
 
 - Implement `answer_question()` in `app/qa_engine.py` that takes a question and retrieved context.
 - Build a prompt that includes retrieved chunks as grounding evidence.
-- Route reasoning requests to `gemini-3.1-pro-preview`.
+- Route reasoning requests to `gemini-3.7-flash`.
 - Instruct the model to answer strictly from provided context and flag when evidence is insufficient.
 - Return a structured response with the answer text and a list of source references used.
 - Add a fallback response when retrieval returns no relevant chunks.
@@ -68,7 +68,7 @@
 - Implement `extract_fields()` in `app/extractor.py` that pulls structured data from document text.
 - Accept a document or chunk text and a list of target field names as input.
 - Build a prompt instructing the LLM to extract values for the requested fields.
-- Use `gemini-3-flash-preview` for extraction calls.
+- Use `gemini-3.5-flash-lite` for extraction calls.
 - Return a dict mapping each field name to its extracted value or `null` if not found.
 - Handle multi-value fields by returning a list of values.
 

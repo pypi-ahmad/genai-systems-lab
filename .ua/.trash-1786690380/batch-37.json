@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-doc-intelligence/data/docs/april_invoice.txt",
+      "type": "document",
+      "name": "april_invoice.txt",
+      "filePath": "genai-doc-intelligence/data/docs/april_invoice.txt",
+      "summary": "Sample April 2026 vendor invoice used as input data for document-ingestion and extraction workflows.",
+      "tags": [
+        "sample-data",
+        "document-intelligence",
+        "retrieval"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/data/docs/incident_report.txt",
+      "type": "document",
+      "name": "incident_report.txt",
+      "filePath": "genai-doc-intelligence/data/docs/incident_report.txt",
+      "summary": "Sample high-severity incident report used as input data for document-intelligence workflows.",
+      "tags": [
+        "sample-data",
+        "document-intelligence",
+        "retrieval"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/data/docs/security_policy_update.md",
+      "type": "document",
+      "name": "security_policy_update.md",
+      "filePath": "genai-doc-intelligence/data/docs/security_policy_update.md",
+      "summary": "Sample security-policy update document used for retrieval and structured information extraction.",
+      "tags": [
+        "sample-data",
+        "document-intelligence",
+        "retrieval"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-doc-intelligence/data/docs/vendor_msa.md",
+      "type": "document",
+      "name": "vendor_msa.md",
+      "filePath": "genai-doc-intelligence/data/docs/vendor_msa.md",
+      "summary": "Sample master services agreement used for document retrieval and contract-information extraction.",
+      "tags": [
+        "sample-data",
+        "document-intelligence",
+        "retrieval"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

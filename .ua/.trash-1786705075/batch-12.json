@@ -1,0 +1,800 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-knowledge-os/app/chunker.py",
+      "type": "file",
+      "name": "chunker.py",
+      "filePath": "genai-knowledge-os/app/chunker.py",
+      "summary": "Implements chunk_text for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/chunker.py:chunk_text",
+      "type": "function",
+      "name": "chunk_text",
+      "filePath": "genai-knowledge-os/app/chunker.py",
+      "summary": "Implements the chunk_text routine in chunker.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        1,
+        28
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/embedder.py",
+      "type": "file",
+      "name": "embedder.py",
+      "filePath": "genai-knowledge-os/app/embedder.py",
+      "summary": "Implements _should_retry, _embed_batch, generate_embedding and related helpers for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/embedder.py:_should_retry",
+      "type": "function",
+      "name": "_should_retry",
+      "filePath": "genai-knowledge-os/app/embedder.py",
+      "summary": "Implements the _should_retry routine in embedder.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        15,
+        20
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/embedder.py:_embed_batch",
+      "type": "function",
+      "name": "_embed_batch",
+      "filePath": "genai-knowledge-os/app/embedder.py",
+      "summary": "Implements the _embed_batch routine in embedder.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        23,
+        38
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/embedder.py:generate_embedding",
+      "type": "function",
+      "name": "generate_embedding",
+      "filePath": "genai-knowledge-os/app/embedder.py",
+      "summary": "Implements the generate_embedding routine in embedder.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        41,
+        42
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/embedder.py:batch_embeddings",
+      "type": "function",
+      "name": "batch_embeddings",
+      "filePath": "genai-knowledge-os/app/embedder.py",
+      "summary": "Implements the batch_embeddings routine in embedder.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        45,
+        51
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/ingest.py",
+      "type": "file",
+      "name": "ingest.py",
+      "filePath": "genai-knowledge-os/app/ingest.py",
+      "summary": "Implements load_documents for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/ingest.py:load_documents",
+      "type": "function",
+      "name": "load_documents",
+      "filePath": "genai-knowledge-os/app/ingest.py",
+      "summary": "Implements the load_documents routine in ingest.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        7,
+        23
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/insight_engine.py",
+      "type": "file",
+      "name": "insight_engine.py",
+      "filePath": "genai-knowledge-os/app/insight_engine.py",
+      "summary": "Implements generate_insights for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/insight_engine.py:generate_insights",
+      "type": "function",
+      "name": "generate_insights",
+      "filePath": "genai-knowledge-os/app/insight_engine.py",
+      "summary": "Implements the generate_insights routine in insight_engine.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        22,
+        30
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-knowledge-os/app/main.py",
+      "summary": "Implements run, ingest, query for this project module.",
+      "tags": [
+        "application",
+        "entry-point",
+        "project-module"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-knowledge-os/app/main.py",
+      "summary": "Implements the run routine in main.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        20,
+        31
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/main.py:ingest",
+      "type": "function",
+      "name": "ingest",
+      "filePath": "genai-knowledge-os/app/main.py",
+      "summary": "Implements the ingest routine in main.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        34,
+        63
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/main.py:query",
+      "type": "function",
+      "name": "query",
+      "filePath": "genai-knowledge-os/app/main.py",
+      "summary": "Implements the query routine in main.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        66,
+        91
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/memory.py",
+      "type": "file",
+      "name": "memory.py",
+      "filePath": "genai-knowledge-os/app/memory.py",
+      "summary": "Provides the memory.py source module for this project.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:genai-knowledge-os/app/memory.py:KnowledgeMemory",
+      "type": "class",
+      "name": "KnowledgeMemory",
+      "filePath": "genai-knowledge-os/app/memory.py",
+      "summary": "Defines the KnowledgeMemory type and its project behavior.",
+      "tags": [
+        "class",
+        "data-model",
+        "project-logic"
+      ],
+      "complexity": "moderate",
+      "lineRange": [
+        9,
+        68
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/retriever.py",
+      "type": "file",
+      "name": "retriever.py",
+      "filePath": "genai-knowledge-os/app/retriever.py",
+      "summary": "Implements init_store, _tokenize, _keyword_score and related helpers for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/retriever.py:init_store",
+      "type": "function",
+      "name": "init_store",
+      "filePath": "genai-knowledge-os/app/retriever.py",
+      "summary": "Implements the init_store routine in retriever.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        13,
+        15
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/retriever.py:_tokenize",
+      "type": "function",
+      "name": "_tokenize",
+      "filePath": "genai-knowledge-os/app/retriever.py",
+      "summary": "Implements the _tokenize routine in retriever.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        18,
+        19
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/retriever.py:_keyword_score",
+      "type": "function",
+      "name": "_keyword_score",
+      "filePath": "genai-knowledge-os/app/retriever.py",
+      "summary": "Implements the _keyword_score routine in retriever.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        22,
+        27
+      ]
+    },
+    {
+      "id": "function:genai-knowledge-os/app/retriever.py:retrieve",
+      "type": "function",
+      "name": "retrieve",
+      "filePath": "genai-knowledge-os/app/retriever.py",
+      "summary": "Implements the retrieve routine in retriever.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        30,
+        51
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/summarizer.py",
+      "type": "file",
+      "name": "summarizer.py",
+      "filePath": "genai-knowledge-os/app/summarizer.py",
+      "summary": "Implements summarize for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/summarizer.py:summarize",
+      "type": "function",
+      "name": "summarize",
+      "filePath": "genai-knowledge-os/app/summarizer.py",
+      "summary": "Implements the summarize routine in summarizer.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        14,
+        19
+      ]
+    },
+    {
+      "id": "file:genai-knowledge-os/app/vector_store.py",
+      "type": "file",
+      "name": "vector_store.py",
+      "filePath": "genai-knowledge-os/app/vector_store.py",
+      "summary": "Implements _cosine_similarity for this project module.",
+      "tags": [
+        "project-module",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-knowledge-os/app/vector_store.py:_cosine_similarity",
+      "type": "function",
+      "name": "_cosine_similarity",
+      "filePath": "genai-knowledge-os/app/vector_store.py",
+      "summary": "Implements the _cosine_similarity routine in vector_store.py.",
+      "tags": [
+        "function",
+        "implementation",
+        "project-logic"
+      ],
+      "complexity": "simple",
+      "lineRange": [
+        7,
+        12
+      ]
+    },
+    {
+      "id": "class:genai-knowledge-os/app/vector_store.py:VectorStore",
+      "type": "class",
+      "name": "VectorStore",
+      "filePath": "genai-knowledge-os/app/vector_store.py",
+      "summary": "Defines the VectorStore type and its project behavior.",
+      "tags": [
+        "class",
+        "data-model",
+        "project-logic"
+      ],
+      "complexity": "moderate",
+      "lineRange": [
+        15,
+        64
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-knowledge-os/app/chunker.py",
+      "target": "function:genai-knowledge-os/app/chunker.py:chunk_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/chunker.py",
+      "target": "function:genai-knowledge-os/app/chunker.py:chunk_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:_should_retry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:_should_retry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:_embed_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:_embed_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:generate_embedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:generate_embedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:batch_embeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/embedder.py",
+      "target": "function:genai-knowledge-os/app/embedder.py:batch_embeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/ingest.py",
+      "target": "function:genai-knowledge-os/app/ingest.py:load_documents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/ingest.py",
+      "target": "function:genai-knowledge-os/app/ingest.py:load_documents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/insight_engine.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/insight_engine.py",
+      "target": "function:genai-knowledge-os/app/insight_engine.py:generate_insights",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/insight_engine.py",
+      "target": "function:genai-knowledge-os/app/insight_engine.py:generate_insights",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/chunker.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/embedder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/ingest.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/insight_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/memory.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/retriever.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/summarizer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:genai-knowledge-os/app/vector_store.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "function:genai-knowledge-os/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "function:genai-knowledge-os/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "function:genai-knowledge-os/app/main.py:ingest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "function:genai-knowledge-os/app/main.py:ingest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "function:genai-knowledge-os/app/main.py:query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/main.py",
+      "target": "function:genai-knowledge-os/app/main.py:query",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/memory.py",
+      "target": "file:genai-knowledge-os/app/embedder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/memory.py",
+      "target": "file:genai-knowledge-os/app/vector_store.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/memory.py",
+      "target": "class:genai-knowledge-os/app/memory.py:KnowledgeMemory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/memory.py",
+      "target": "class:genai-knowledge-os/app/memory.py:KnowledgeMemory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "file:genai-knowledge-os/app/embedder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "file:genai-knowledge-os/app/vector_store.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:init_store",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:init_store",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:_tokenize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:_tokenize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:_keyword_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:_keyword_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:retrieve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/retriever.py",
+      "target": "function:genai-knowledge-os/app/retriever.py:retrieve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/summarizer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-knowledge-os/app/summarizer.py",
+      "target": "function:genai-knowledge-os/app/summarizer.py:summarize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/summarizer.py",
+      "target": "function:genai-knowledge-os/app/summarizer.py:summarize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/vector_store.py",
+      "target": "function:genai-knowledge-os/app/vector_store.py:_cosine_similarity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/vector_store.py",
+      "target": "function:genai-knowledge-os/app/vector_store.py:_cosine_similarity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-knowledge-os/app/vector_store.py",
+      "target": "class:genai-knowledge-os/app/vector_store.py:VectorStore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-knowledge-os/app/vector_store.py",
+      "target": "class:genai-knowledge-os/app/vector_store.py:VectorStore",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

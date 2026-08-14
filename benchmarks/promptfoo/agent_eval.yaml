@@ -13,7 +13,7 @@ providers:
     config:
       project: genai-financial-analyst
       provider: gemini
-      model: gemini-3.1-pro-preview
+      model: gemini-3.7-flash
 
   - id: "file://providers/project_provider.py"
     label: "Financial Analyst | GPT-4.1 Mini"
@@ -21,7 +21,7 @@ providers:
     config:
       project: genai-financial-analyst
       provider: openai
-      model: gpt-4.1-mini
+      model: gpt-5.6-luna
 
   - id: "file://providers/project_provider.py"
     label: "Financial Analyst | Claude Sonnet"
@@ -37,7 +37,7 @@ providers:
     config:
       project: lg-workflow-agent
       provider: gemini
-      model: gemini-3.1-pro-preview
+      model: gemini-3.7-flash
 
   - id: "file://providers/project_provider.py"
     label: "Workflow Agent | GPT-4.1 Mini"
@@ -45,7 +45,7 @@ providers:
     config:
       project: lg-workflow-agent
       provider: openai
-      model: gpt-4.1-mini
+      model: gpt-5.6-luna
 
   - id: "file://providers/project_provider.py"
     label: "Workflow Agent | Claude Sonnet"

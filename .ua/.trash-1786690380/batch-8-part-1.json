@@ -1,0 +1,1080 @@
+{
+  "nodes": [
+    {
+      "id": "file:shared/eval/benchmarks.py",
+      "type": "file",
+      "name": "benchmarks.py",
+      "filePath": "shared/eval/benchmarks.py",
+      "summary": "Implements benchmarks.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_contains_any",
+      "type": "function",
+      "name": "_contains_any",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        109,
+        112
+      ],
+      "summary": "Implements the _contains_any operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_contains_all",
+      "type": "function",
+      "name": "_contains_all",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        115,
+        118
+      ],
+      "summary": "Implements the _contains_all operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_matches",
+      "type": "function",
+      "name": "_matches",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        121,
+        123
+      ],
+      "summary": "Implements the _matches operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_min_length",
+      "type": "function",
+      "name": "_min_length",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        126,
+        128
+      ],
+      "summary": "Implements the _min_length operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_is_valid_json",
+      "type": "function",
+      "name": "_is_valid_json",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        131,
+        138
+      ],
+      "summary": "Implements the _is_valid_json operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_no_error",
+      "type": "function",
+      "name": "_no_error",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        141,
+        146
+      ],
+      "summary": "Implements the _no_error operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:get_dataset",
+      "type": "function",
+      "name": "get_dataset",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        517,
+        522
+      ],
+      "summary": "Implements the get_dataset operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:list_projects",
+      "type": "function",
+      "name": "list_projects",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        525,
+        527
+      ],
+      "summary": "Implements the list_projects operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/benchmarks.py:BenchmarkCase",
+      "type": "class",
+      "name": "BenchmarkCase",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        33,
+        40
+      ],
+      "summary": "Represents the BenchmarkCase abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/benchmarks.py:BenchmarkResult",
+      "type": "class",
+      "name": "BenchmarkResult",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        44,
+        51
+      ],
+      "summary": "Represents the BenchmarkResult abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/benchmarks.py:BenchmarkSuite",
+      "type": "class",
+      "name": "BenchmarkSuite",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        54,
+        102
+      ],
+      "summary": "Represents the BenchmarkSuite abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/eval/evaluator.py",
+      "type": "file",
+      "name": "evaluator.py",
+      "filePath": "shared/eval/evaluator.py",
+      "summary": "Implements evaluator.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/eval/evaluator.py:run_evaluation",
+      "type": "function",
+      "name": "run_evaluation",
+      "filePath": "shared/eval/evaluator.py",
+      "lineRange": [
+        10,
+        62
+      ],
+      "summary": "Implements the run_evaluation operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/eval/evaluator.py:_prepare_case",
+      "type": "function",
+      "name": "_prepare_case",
+      "filePath": "shared/eval/evaluator.py",
+      "lineRange": [
+        65,
+        85
+      ],
+      "summary": "Implements the _prepare_case operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/evaluator.py:_run_case",
+      "type": "function",
+      "name": "_run_case",
+      "filePath": "shared/eval/evaluator.py",
+      "lineRange": [
+        88,
+        123
+      ],
+      "summary": "Implements the _run_case operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/eval/metrics.py",
+      "type": "file",
+      "name": "metrics.py",
+      "filePath": "shared/eval/metrics.py",
+      "summary": "Implements metrics.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/metrics.py:keyword_accuracy",
+      "type": "function",
+      "name": "keyword_accuracy",
+      "filePath": "shared/eval/metrics.py",
+      "lineRange": [
+        9,
+        26
+      ],
+      "summary": "Implements the keyword_accuracy operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/metrics.py:structural_match",
+      "type": "function",
+      "name": "structural_match",
+      "filePath": "shared/eval/metrics.py",
+      "lineRange": [
+        29,
+        38
+      ],
+      "summary": "Implements the structural_match operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/metrics.py:latency_stats",
+      "type": "function",
+      "name": "latency_stats",
+      "filePath": "shared/eval/metrics.py",
+      "lineRange": [
+        41,
+        52
+      ],
+      "summary": "Implements the latency_stats operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/eval/stress.py",
+      "type": "file",
+      "name": "stress.py",
+      "filePath": "shared/eval/stress.py",
+      "summary": "Implements stress.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/eval/stress.py:run_stress_test",
+      "type": "function",
+      "name": "run_stress_test",
+      "filePath": "shared/eval/stress.py",
+      "lineRange": [
+        37,
+        105
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:shared/eval/stress.py:StressResult",
+      "type": "class",
+      "name": "StressResult",
+      "filePath": "shared/eval/stress.py",
+      "lineRange": [
+        19,
+        30
+      ],
+      "summary": "Represents the StressResult abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/stress.py:StressRunner",
+      "type": "class",
+      "name": "StressRunner",
+      "filePath": "shared/eval/stress.py",
+      "lineRange": [
+        112,
+        146
+      ],
+      "summary": "Represents the StressRunner abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/logging/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/logging/__init__.py",
+      "summary": "Implements __init__.py as part of the shared application.",
+      "tags": [
+        "entry-point",
+        "package",
+        "barrel"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/logging/logger.py",
+      "type": "file",
+      "name": "logger.py",
+      "filePath": "shared/logging/logger.py",
+      "summary": "Implements logger.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/logging/logger.py:_otel_trace_context",
+      "type": "function",
+      "name": "_otel_trace_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        52,
+        70
+      ],
+      "summary": "Implements the _otel_trace_context operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:_build_formatter",
+      "type": "function",
+      "name": "_build_formatter",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        101,
+        106
+      ],
+      "summary": "Builds the _build_formatter structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:_configure_root_logger",
+      "type": "function",
+      "name": "_configure_root_logger",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        137,
+        171
+      ],
+      "summary": "Implements the _configure_root_logger operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:new_request_id",
+      "type": "function",
+      "name": "new_request_id",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        177,
+        178
+      ],
+      "summary": "Implements the new_request_id operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:set_log_context",
+      "type": "function",
+      "name": "set_log_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        181,
+        194
+      ],
+      "summary": "Implements the set_log_context operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:reset_log_context",
+      "type": "function",
+      "name": "reset_log_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        197,
+        205
+      ],
+      "summary": "Implements the reset_log_context operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:log_context",
+      "type": "function",
+      "name": "log_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        209,
+        223
+      ],
+      "summary": "Implements the log_context operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:get_logger",
+      "type": "function",
+      "name": "get_logger",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        245,
+        268
+      ],
+      "summary": "Implements the get_logger operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/logger.py:_ContextFilter",
+      "type": "class",
+      "name": "_ContextFilter",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        76,
+        95
+      ],
+      "summary": "Represents the _ContextFilter abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/logger.py:_JSONFormatter",
+      "type": "class",
+      "name": "_JSONFormatter",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        109,
+        131
+      ],
+      "summary": "Represents the _JSONFormatter abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/logger.py:LatencyTimer",
+      "type": "class",
+      "name": "LatencyTimer",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        226,
+        242
+      ],
+      "summary": "Represents the LatencyTimer abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_any",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_any",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_all",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_matches",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_matches",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_min_length",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_min_length",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_is_valid_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_is_valid_json",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_no_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_no_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:get_dataset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:get_dataset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:list_projects",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:list_projects",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkCase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkCase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkSuite",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkSuite",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:run_evaluation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:run_evaluation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_prepare_case",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_prepare_case",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_run_case",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_run_case",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:keyword_accuracy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:keyword_accuracy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:structural_match",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:structural_match",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:latency_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:latency_stats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "function:shared/eval/stress.py:run_stress_test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "function:shared/eval/stress.py:run_stress_test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/logging/__init__.py",
+      "target": "file:shared/logging/logger.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/logging/__init__.py",
+      "target": "file:shared/logging/otel.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_otel_trace_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_otel_trace_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_build_formatter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_build_formatter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_configure_root_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_configure_root_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:new_request_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:new_request_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:set_log_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:set_log_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:reset_log_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:reset_log_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:log_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:log_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:get_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:get_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_ContextFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_ContextFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_JSONFormatter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_JSONFormatter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:LatencyTimer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:LatencyTimer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

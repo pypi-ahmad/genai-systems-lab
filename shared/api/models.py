@@ -20,8 +20,8 @@ class User(Base):
     password_hash: Mapped[str] = mapped_column(String(512))
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 
-    sessions: Mapped[list["RunSession"]] = relationship(back_populates="user", cascade="all, delete-orphan")
-    runs: Mapped[list["Run"]] = relationship(back_populates="user", cascade="all, delete-orphan")
+    sessions: Mapped[list[RunSession]] = relationship(back_populates="user", cascade="all, delete-orphan")
+    runs: Mapped[list[Run]] = relationship(back_populates="user", cascade="all, delete-orphan")
 
 
 class RunSession(Base):
@@ -40,7 +40,7 @@ class RunSession(Base):
     )
 
     user: Mapped[User] = relationship(back_populates="sessions")
-    runs: Mapped[list["Run"]] = relationship(back_populates="session")
+    runs: Mapped[list[Run]] = relationship(back_populates="session")
 
 
 class Run(Base):
@@ -100,3 +100,21 @@ class OperationalMetric(Base):
         # /metrics/time filters on (project, timestamp >= cutoff).
         Index("ix_ops_metrics_project_timestamp", "project", "timestamp"),
     )
+
+
+class Job(Base):
+    """Durable state for an asynchronous project execution."""
+
+    __tablename__ = "jobs"
+
+    id: Mapped[str] = mapped_column(String(36), primary_key=True)
+    user_id: Mapped[int | None] = mapped_column(ForeignKey("users.id"), nullable=True, index=True)
+    project: Mapped[str] = mapped_column(String(120), index=True)
+    input_text: Mapped[str] = mapped_column("input", Text)
+    status: Mapped[str] = mapped_column(String(20), default="queued", index=True)
+    output_text: Mapped[str | None] = mapped_column("output", Text, nullable=True)
+    error_text: Mapped[str | None] = mapped_column("error", Text, nullable=True)
+    usage_text: Mapped[str | None] = mapped_column("usage", Text, nullable=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now(), index=True)
+    started_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)
+    finished_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True), nullable=True)

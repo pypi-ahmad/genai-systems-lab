@@ -1,0 +1,1990 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 16,
+  "filesSkipped": [
+    "genai-doc-intelligence/data/.gitkeep",
+    "genai-doc-intelligence/tests/.gitkeep",
+    "genai-financial-analyst/data/.gitkeep",
+    "genai-financial-analyst/data/fintech_saas_financials.csv",
+    "genai-financial-analyst/tests/.gitkeep",
+    "genai-interviewer/tests/.gitkeep",
+    "genai-knowledge-os/data/.gitkeep",
+    "genai-knowledge-os/tests/.gitkeep",
+    "genai-ui-builder/app/templates/.gitkeep"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 16,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 16,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "genai-code-copilot/app/indexer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 386,
+      "nonEmptyLines": 281,
+      "functions": [
+        {
+          "name": "_load_local_symbol",
+          "startLine": 58,
+          "endLine": 73,
+          "params": [
+            "module_name",
+            "symbol_name"
+          ]
+        },
+        {
+          "name": "_load_scan_directory",
+          "startLine": 76,
+          "endLine": 77,
+          "params": []
+        },
+        {
+          "name": "_load_generate_embeddings_batch",
+          "startLine": 80,
+          "endLine": 81,
+          "params": []
+        },
+        {
+          "name": "_make_chunk",
+          "startLine": 84,
+          "endLine": 89,
+          "params": [
+            "text",
+            "file_path",
+            "chunk_index"
+          ]
+        },
+        {
+          "name": "_slice_lines",
+          "startLine": 92,
+          "endLine": 95,
+          "params": [
+            "lines",
+            "start_line",
+            "end_line"
+          ]
+        },
+        {
+          "name": "_expand_python_context_start",
+          "startLine": 98,
+          "endLine": 111,
+          "params": [
+            "lines",
+            "start_line",
+            "max_lines"
+          ]
+        },
+        {
+          "name": "_python_node_start_line",
+          "startLine": 114,
+          "endLine": 122,
+          "params": [
+            "node"
+          ]
+        },
+        {
+          "name": "_collect_python_chunk_nodes",
+          "startLine": 125,
+          "endLine": 159,
+          "params": [
+            "module"
+          ]
+        },
+        {
+          "name": "_chunk_python",
+          "startLine": 162,
+          "endLine": 184,
+          "params": [
+            "file_content",
+            "file_path"
+          ]
+        },
+        {
+          "name": "_find_script_block_starts",
+          "startLine": 187,
+          "endLine": 194,
+          "params": [
+            "lines"
+          ]
+        },
+        {
+          "name": "_chunk_script",
+          "startLine": 197,
+          "endLine": 215,
+          "params": [
+            "file_content",
+            "file_path"
+          ]
+        },
+        {
+          "name": "_fallback_chunks",
+          "startLine": 218,
+          "endLine": 238,
+          "params": [
+            "file_content",
+            "file_path"
+          ]
+        },
+        {
+          "name": "chunk_code",
+          "startLine": 241,
+          "endLine": 254,
+          "params": [
+            "file_content",
+            "file_path"
+          ]
+        },
+        {
+          "name": "chunk_files",
+          "startLine": 257,
+          "endLine": 268,
+          "params": [
+            "files"
+          ]
+        },
+        {
+          "name": "_build_document_metadata",
+          "startLine": 271,
+          "endLine": 275,
+          "params": [
+            "chunk"
+          ]
+        },
+        {
+          "name": "_cosine_similarity",
+          "startLine": 278,
+          "endLine": 285,
+          "params": [
+            "query_vector",
+            "document_vector"
+          ]
+        },
+        {
+          "name": "add_documents",
+          "startLine": 288,
+          "endLine": 310,
+          "params": [
+            "chunks"
+          ]
+        },
+        {
+          "name": "index_codebase",
+          "startLine": 313,
+          "endLine": 340,
+          "params": [
+            "path"
+          ]
+        },
+        {
+          "name": "search",
+          "startLine": 343,
+          "endLine": 366,
+          "params": [
+            "query_embedding",
+            "top_k"
+          ]
+        },
+        {
+          "name": "index_directory",
+          "startLine": 369,
+          "endLine": 371,
+          "params": [
+            "directory"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "CodeChunk",
+          "startLine": 24,
+          "endLine": 27,
+          "methods": [],
+          "properties": [
+            "text",
+            "path",
+            "chunk_index"
+          ]
+        },
+        {
+          "name": "DocumentMetadata",
+          "startLine": 30,
+          "endLine": 32,
+          "methods": [],
+          "properties": [
+            "path",
+            "chunk_index"
+          ]
+        },
+        {
+          "name": "VectorDocument",
+          "startLine": 35,
+          "endLine": 38,
+          "methods": [],
+          "properties": [
+            "text",
+            "embedding",
+            "metadata"
+          ]
+        },
+        {
+          "name": "SearchResult",
+          "startLine": 41,
+          "endLine": 44,
+          "methods": [],
+          "properties": [
+            "text",
+            "metadata",
+            "score"
+          ]
+        },
+        {
+          "name": "ParsedFile",
+          "startLine": 53,
+          "endLine": 55,
+          "methods": [],
+          "properties": [
+            "path",
+            "content"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CodeChunk",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "DocumentMetadata",
+          "line": 30,
+          "isDefault": false
+        },
+        {
+          "name": "VectorDocument",
+          "line": 35,
+          "isDefault": false
+        },
+        {
+          "name": "SearchResult",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "ParsedFile",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "_load_local_symbol",
+          "line": 58,
+          "isDefault": false
+        },
+        {
+          "name": "_load_scan_directory",
+          "line": 76,
+          "isDefault": false
+        },
+        {
+          "name": "_load_generate_embeddings_batch",
+          "line": 80,
+          "isDefault": false
+        },
+        {
+          "name": "_make_chunk",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "_slice_lines",
+          "line": 92,
+          "isDefault": false
+        },
+        {
+          "name": "_expand_python_context_start",
+          "line": 98,
+          "isDefault": false
+        },
+        {
+          "name": "_python_node_start_line",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "_collect_python_chunk_nodes",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "_chunk_python",
+          "line": 162,
+          "isDefault": false
+        },
+        {
+          "name": "_find_script_block_starts",
+          "line": 187,
+          "isDefault": false
+        },
+        {
+          "name": "_chunk_script",
+          "line": 197,
+          "isDefault": false
+        },
+        {
+          "name": "_fallback_chunks",
+          "line": 218,
+          "isDefault": false
+        },
+        {
+          "name": "chunk_code",
+          "line": 241,
+          "isDefault": false
+        },
+        {
+          "name": "chunk_files",
+          "line": 257,
+          "isDefault": false
+        },
+        {
+          "name": "_build_document_metadata",
+          "line": 271,
+          "isDefault": false
+        },
+        {
+          "name": "_cosine_similarity",
+          "line": 278,
+          "isDefault": false
+        },
+        {
+          "name": "add_documents",
+          "line": 288,
+          "isDefault": false
+        },
+        {
+          "name": "index_codebase",
+          "line": 313,
+          "isDefault": false
+        },
+        {
+          "name": "search",
+          "line": 343,
+          "isDefault": false
+        },
+        {
+          "name": "index_directory",
+          "line": 369,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_load_local_symbol",
+          "callee": "__import__",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "getattr",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "Path(__file__).with_name",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "Path",
+          "lineNumber": 63
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "importlib.util.spec_from_file_location",
+          "lineNumber": 64
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "RuntimeError",
+          "lineNumber": 69
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "importlib.util.module_from_spec",
+          "lineNumber": 71
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "spec.loader.exec_module",
+          "lineNumber": 72
+        },
+        {
+          "caller": "_load_local_symbol",
+          "callee": "getattr",
+          "lineNumber": 73
+        },
+        {
+          "caller": "_load_scan_directory",
+          "callee": "_load_local_symbol",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_load_generate_embeddings_batch",
+          "callee": "_load_local_symbol",
+          "lineNumber": 81
+        },
+        {
+          "caller": "_make_chunk",
+          "callee": "text.strip",
+          "lineNumber": 86
+        },
+        {
+          "caller": "_slice_lines",
+          "callee": "max",
+          "lineNumber": 93
+        },
+        {
+          "caller": "_slice_lines",
+          "callee": "min",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_slice_lines",
+          "callee": "len",
+          "lineNumber": 94
+        },
+        {
+          "caller": "_slice_lines",
+          "callee": "\"\\n\".join(lines[start_index:end_index]).strip",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_slice_lines",
+          "callee": "\"\\n\".join",
+          "lineNumber": 95
+        },
+        {
+          "caller": "_expand_python_context_start",
+          "callee": "lines[expanded_start - 2].strip",
+          "lineNumber": 103
+        },
+        {
+          "caller": "_expand_python_context_start",
+          "callee": "previous_line.startswith",
+          "lineNumber": 104
+        },
+        {
+          "caller": "_expand_python_context_start",
+          "callee": "previous_line.startswith",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_expand_python_context_start",
+          "callee": "previous_line.startswith",
+          "lineNumber": 105
+        },
+        {
+          "caller": "_python_node_start_line",
+          "callee": "getattr",
+          "lineNumber": 117
+        },
+        {
+          "caller": "_python_node_start_line",
+          "callee": "hasattr",
+          "lineNumber": 118
+        },
+        {
+          "caller": "_python_node_start_line",
+          "callee": "min",
+          "lineNumber": 121
+        },
+        {
+          "caller": "_python_node_start_line",
+          "callee": "getattr",
+          "lineNumber": 122
+        },
+        {
+          "caller": "visit_ClassDef",
+          "callee": "collected_nodes.append",
+          "lineNumber": 133
+        },
+        {
+          "caller": "visit_ClassDef",
+          "callee": "self.generic_visit",
+          "lineNumber": 135
+        },
+        {
+          "caller": "visit_FunctionDef",
+          "callee": "collected_nodes.append",
+          "lineNumber": 139
+        },
+        {
+          "caller": "visit_FunctionDef",
+          "callee": "self.generic_visit",
+          "lineNumber": 141
+        },
+        {
+          "caller": "visit_AsyncFunctionDef",
+          "callee": "collected_nodes.append",
+          "lineNumber": 145
+        },
+        {
+          "caller": "visit_AsyncFunctionDef",
+          "callee": "self.generic_visit",
+          "lineNumber": 147
+        },
+        {
+          "caller": "_collect_python_chunk_nodes",
+          "callee": "PythonChunkCollector",
+          "lineNumber": 150
+        },
+        {
+          "caller": "_collect_python_chunk_nodes",
+          "callee": "collector.visit",
+          "lineNumber": 151
+        },
+        {
+          "caller": "_collect_python_chunk_nodes",
+          "callee": "collected_nodes.sort",
+          "lineNumber": 153
+        },
+        {
+          "caller": "_collect_python_chunk_nodes",
+          "callee": "_python_node_start_line",
+          "lineNumber": 155
+        },
+        {
+          "caller": "_collect_python_chunk_nodes",
+          "callee": "getattr",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_collect_python_chunk_nodes",
+          "callee": "getattr",
+          "lineNumber": 156
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "ast.parse",
+          "lineNumber": 164
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "file_content.splitlines",
+          "lineNumber": 168
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "_collect_python_chunk_nodes",
+          "lineNumber": 171
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "_expand_python_context_start",
+          "lineNumber": 172
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "_python_node_start_line",
+          "lineNumber": 174
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "getattr",
+          "lineNumber": 177
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "min",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "len",
+          "lineNumber": 178
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "_slice_lines",
+          "lineNumber": 179
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "chunks.append",
+          "lineNumber": 182
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "_make_chunk",
+          "lineNumber": 182
+        },
+        {
+          "caller": "_chunk_python",
+          "callee": "len",
+          "lineNumber": 182
+        },
+        {
+          "caller": "_find_script_block_starts",
+          "callee": "enumerate",
+          "lineNumber": 190
+        },
+        {
+          "caller": "_find_script_block_starts",
+          "callee": "SCRIPT_BLOCK_PATTERN.match",
+          "lineNumber": 191
+        },
+        {
+          "caller": "_find_script_block_starts",
+          "callee": "line.strip",
+          "lineNumber": 191
+        },
+        {
+          "caller": "_find_script_block_starts",
+          "callee": "starts.append",
+          "lineNumber": 192
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "file_content.splitlines",
+          "lineNumber": 198
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "_find_script_block_starts",
+          "lineNumber": 199
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "enumerate",
+          "lineNumber": 206
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "len",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "len",
+          "lineNumber": 207
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "max",
+          "lineNumber": 208
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "min",
+          "lineNumber": 209
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "len",
+          "lineNumber": 209
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "_slice_lines",
+          "lineNumber": 210
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "chunks.append",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "_make_chunk",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_chunk_script",
+          "callee": "len",
+          "lineNumber": 213
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "file_content.splitlines",
+          "lineNumber": 219
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "len",
+          "lineNumber": 226
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "min",
+          "lineNumber": 227
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "len",
+          "lineNumber": 227
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "\"\\n\".join(lines[start:end]).strip",
+          "lineNumber": 228
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "\"\\n\".join",
+          "lineNumber": 228
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "chunks.append",
+          "lineNumber": 231
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "_make_chunk",
+          "lineNumber": 231
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "len",
+          "lineNumber": 231
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "len",
+          "lineNumber": 233
+        },
+        {
+          "caller": "_fallback_chunks",
+          "callee": "max",
+          "lineNumber": 236
+        },
+        {
+          "caller": "chunk_code",
+          "callee": "Path(file_path).suffix.lower",
+          "lineNumber": 242
+        },
+        {
+          "caller": "chunk_code",
+          "callee": "Path",
+          "lineNumber": 242
+        },
+        {
+          "caller": "chunk_code",
+          "callee": "_chunk_python",
+          "lineNumber": 245
+        },
+        {
+          "caller": "chunk_code",
+          "callee": "_chunk_script",
+          "lineNumber": 250
+        },
+        {
+          "caller": "chunk_code",
+          "callee": "_fallback_chunks",
+          "lineNumber": 254
+        },
+        {
+          "caller": "chunk_files",
+          "callee": "chunks.extend",
+          "lineNumber": 261
+        },
+        {
+          "caller": "chunk_files",
+          "callee": "chunk_code",
+          "lineNumber": 262
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "np.linalg.norm",
+          "lineNumber": 279
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "np.linalg.norm",
+          "lineNumber": 280
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "float",
+          "lineNumber": 285
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "np.dot",
+          "lineNumber": 285
+        },
+        {
+          "caller": "add_documents",
+          "callee": "str(chunk.get(\"text\", \"\")).strip",
+          "lineNumber": 290
+        },
+        {
+          "caller": "add_documents",
+          "callee": "str",
+          "lineNumber": 290
+        },
+        {
+          "caller": "add_documents",
+          "callee": "chunk.get",
+          "lineNumber": 290
+        },
+        {
+          "caller": "add_documents",
+          "callee": "chunk.get",
+          "lineNumber": 291
+        },
+        {
+          "caller": "add_documents",
+          "callee": "isinstance",
+          "lineNumber": 295
+        },
+        {
+          "caller": "add_documents",
+          "callee": "ValueError",
+          "lineNumber": 296
+        },
+        {
+          "caller": "add_documents",
+          "callee": "str",
+          "lineNumber": 298
+        },
+        {
+          "caller": "add_documents",
+          "callee": "chunk.get",
+          "lineNumber": 298
+        },
+        {
+          "caller": "add_documents",
+          "callee": "int",
+          "lineNumber": 299
+        },
+        {
+          "caller": "add_documents",
+          "callee": "chunk.get",
+          "lineNumber": 299
+        },
+        {
+          "caller": "add_documents",
+          "callee": "VECTOR_STORE.append",
+          "lineNumber": 301
+        },
+        {
+          "caller": "add_documents",
+          "callee": "float",
+          "lineNumber": 304
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "_load_scan_directory",
+          "lineNumber": 314
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "_load_generate_embeddings_batch",
+          "lineNumber": 315
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "scan_directory",
+          "lineNumber": 317
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "chunk_files",
+          "lineNumber": 318
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "VECTOR_STORE.clear",
+          "lineNumber": 321
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "generate_embeddings_batch",
+          "lineNumber": 325
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "len",
+          "lineNumber": 326
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "len",
+          "lineNumber": 326
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "RuntimeError",
+          "lineNumber": 327
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "zip",
+          "lineNumber": 336
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "add_documents",
+          "lineNumber": 339
+        },
+        {
+          "caller": "index_codebase",
+          "callee": "list",
+          "lineNumber": 340
+        },
+        {
+          "caller": "search",
+          "callee": "ValueError",
+          "lineNumber": 345
+        },
+        {
+          "caller": "search",
+          "callee": "np.asarray",
+          "lineNumber": 351
+        },
+        {
+          "caller": "search",
+          "callee": "np.asarray",
+          "lineNumber": 355
+        },
+        {
+          "caller": "search",
+          "callee": "_cosine_similarity",
+          "lineNumber": 356
+        },
+        {
+          "caller": "search",
+          "callee": "results.append",
+          "lineNumber": 357
+        },
+        {
+          "caller": "search",
+          "callee": "results.sort",
+          "lineNumber": 365
+        },
+        {
+          "caller": "index_directory",
+          "callee": "_load_scan_directory",
+          "lineNumber": 370
+        },
+        {
+          "caller": "index_directory",
+          "callee": "chunk_files",
+          "lineNumber": 371
+        },
+        {
+          "caller": "index_directory",
+          "callee": "scan_directory",
+          "lineNumber": 371
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 25,
+        "functionCount": 20,
+        "classCount": 5
+      }
+    },
+    {
+      "path": "genai-code-copilot/app/qa_agent.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 48,
+      "functions": [
+        {
+          "name": "_load_symbol",
+          "startLine": 10,
+          "endLine": 25,
+          "params": [
+            "module_name",
+            "symbol_name"
+          ]
+        },
+        {
+          "name": "_build_qa_prompt",
+          "startLine": 31,
+          "endLine": 50,
+          "params": [
+            "query",
+            "context"
+          ]
+        },
+        {
+          "name": "answer_question",
+          "startLine": 53,
+          "endLine": 65,
+          "params": [
+            "query",
+            "context"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_load_symbol",
+          "line": 10,
+          "isDefault": false
+        },
+        {
+          "name": "_build_qa_prompt",
+          "line": 31,
+          "isDefault": false
+        },
+        {
+          "name": "answer_question",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_load_symbol",
+          "callee": "__import__",
+          "lineNumber": 12
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 13
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path(__file__).resolve",
+          "lineNumber": 15
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path",
+          "lineNumber": 15
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.spec_from_file_location",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "RuntimeError",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.module_from_spec",
+          "lineNumber": 23
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "spec.loader.exec_module",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_build_qa_prompt",
+          "callee": "f\"\"\"\r\nYou are a codebase question-answering assistant.\r\n\r\nAnswer the developer's question using only the supplied code context.\r\n\r\nDeveloper question:\r\n{query}\r\n\r\nCode context:\r\n{context}\r\n\r\nRules:\r\n- Stay grounded in the provided code context.\r\n- Do not invent functions, files, behavior, or architecture that are not shown.\r\n- If the context is insufficient, say so clearly.\r\n- Give a clear explanation in plain language.\r\n- Reference file paths when they are relevant to the answer.\r\n- Prefer precise statements over broad guesses.\r\n\"\"\".strip",
+          "lineNumber": 32
+        },
+        {
+          "caller": "answer_question",
+          "callee": "query.strip",
+          "lineNumber": 54
+        },
+        {
+          "caller": "answer_question",
+          "callee": "ValueError",
+          "lineNumber": 56
+        },
+        {
+          "caller": "answer_question",
+          "callee": "context.strip",
+          "lineNumber": 58
+        },
+        {
+          "caller": "answer_question",
+          "callee": "generate_text",
+          "lineNumber": 62
+        },
+        {
+          "caller": "answer_question",
+          "callee": "_build_qa_prompt",
+          "lineNumber": 63
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-code-copilot/app/retriever.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "_load_symbol",
+          "startLine": 16,
+          "endLine": 31,
+          "params": [
+            "module_name",
+            "symbol_name"
+          ]
+        },
+        {
+          "name": "retrieve",
+          "startLine": 38,
+          "endLine": 52,
+          "params": [
+            "query"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "RetrievedChunk",
+          "startLine": 11,
+          "endLine": 13,
+          "methods": [],
+          "properties": [
+            "text",
+            "path"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RetrievedChunk",
+          "line": 11,
+          "isDefault": false
+        },
+        {
+          "name": "_load_symbol",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "retrieve",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_load_symbol",
+          "callee": "__import__",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path(__file__).with_name",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "Path",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.spec_from_file_location",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "RuntimeError",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "importlib.util.module_from_spec",
+          "lineNumber": 29
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "spec.loader.exec_module",
+          "lineNumber": 30
+        },
+        {
+          "caller": "_load_symbol",
+          "callee": "getattr",
+          "lineNumber": 31
+        },
+        {
+          "caller": "retrieve",
+          "callee": "query.strip",
+          "lineNumber": 39
+        },
+        {
+          "caller": "retrieve",
+          "callee": "ValueError",
+          "lineNumber": 41
+        },
+        {
+          "caller": "retrieve",
+          "callee": "generate_embedding",
+          "lineNumber": 43
+        },
+        {
+          "caller": "retrieve",
+          "callee": "search",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "genai-doc-intelligence/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-financial-analyst/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-interviewer/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-nl2sql-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-nl2sql-agent/app/executor.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "_load_get_connection",
+          "startLine": 13,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "execute_sql",
+          "startLine": 33,
+          "endLine": 38,
+          "params": [
+            "sql"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_load_get_connection",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "execute_sql",
+          "line": 33,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_load_get_connection",
+          "callee": "Path(__file__).with_name",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_load_get_connection",
+          "callee": "Path",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_load_get_connection",
+          "callee": "importlib.util.spec_from_file_location",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_load_get_connection",
+          "callee": "RuntimeError",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_load_get_connection",
+          "callee": "importlib.util.module_from_spec",
+          "lineNumber": 24
+        },
+        {
+          "caller": "_load_get_connection",
+          "callee": "spec.loader.exec_module",
+          "lineNumber": 25
+        },
+        {
+          "caller": "execute_sql",
+          "callee": "get_connection().execute(sql).fetchdf",
+          "lineNumber": 35
+        },
+        {
+          "caller": "execute_sql",
+          "callee": "get_connection().execute",
+          "lineNumber": 35
+        },
+        {
+          "caller": "execute_sql",
+          "callee": "get_connection",
+          "lineNumber": 35
+        },
+        {
+          "caller": "execute_sql",
+          "callee": "LOGGER.warning",
+          "lineNumber": 37
+        },
+        {
+          "caller": "execute_sql",
+          "callee": "RuntimeError",
+          "lineNumber": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-nl2sql-agent/app/schema.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 118,
+      "nonEmptyLines": 95,
+      "functions": [
+        {
+          "name": "_create_tables",
+          "startLine": 33,
+          "endLine": 53,
+          "params": [
+            "connection"
+          ]
+        },
+        {
+          "name": "_seed_data",
+          "startLine": 56,
+          "endLine": 64,
+          "params": [
+            "connection"
+          ]
+        },
+        {
+          "name": "_initialize_database",
+          "startLine": 67,
+          "endLine": 70,
+          "params": [
+            "connection"
+          ]
+        },
+        {
+          "name": "get_connection",
+          "startLine": 74,
+          "endLine": 75,
+          "params": []
+        },
+        {
+          "name": "get_schema_description",
+          "startLine": 78,
+          "endLine": 115,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_create_tables",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "_seed_data",
+          "line": 56,
+          "isDefault": false
+        },
+        {
+          "name": "_initialize_database",
+          "line": 67,
+          "isDefault": false
+        },
+        {
+          "name": "get_connection",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "get_schema_description",
+          "line": 78,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_create_tables",
+          "callee": "connection.execute",
+          "lineNumber": 34
+        },
+        {
+          "caller": "_create_tables",
+          "callee": "connection.execute",
+          "lineNumber": 43
+        },
+        {
+          "caller": "_seed_data",
+          "callee": "connection.executemany",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_seed_data",
+          "callee": "connection.executemany",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_initialize_database",
+          "callee": "_create_tables",
+          "lineNumber": 68
+        },
+        {
+          "caller": "_initialize_database",
+          "callee": "_seed_data",
+          "lineNumber": 69
+        },
+        {
+          "caller": "get_connection",
+          "callee": "_initialize_database",
+          "lineNumber": 75
+        },
+        {
+          "caller": "get_connection",
+          "callee": "duckdb.connect",
+          "lineNumber": 75
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "get_connection",
+          "lineNumber": 79
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "connection.execute(\r\n\t\t\"\"\"\r\n\t\tSELECT table_name, column_name, data_type\r\n\t\tFROM information_schema.columns\r\n\t\tWHERE table_schema = 'main'\r\n\t\tORDER BY table_name, ordinal_position\r\n\t\t\"\"\"\r\n\t).fetchall",
+          "lineNumber": 80
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "connection.execute",
+          "lineNumber": 80
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "tables.setdefault(table_name, []).append",
+          "lineNumber": 91
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "tables.setdefault",
+          "lineNumber": 91
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "tables.items",
+          "lineNumber": 99
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "lines.append",
+          "lineNumber": 100
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "lines.extend",
+          "lineNumber": 101
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "lines.append",
+          "lineNumber": 102
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "lines.extend",
+          "lineNumber": 104
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "\"\\n\".join(lines).strip",
+          "lineNumber": 115
+        },
+        {
+          "caller": "get_schema_description",
+          "callee": "\"\\n\".join",
+          "lineNumber": 115
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 5,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-nl2sql-agent/app/validator.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 36,
+      "nonEmptyLines": 23,
+      "functions": [
+        {
+          "name": "validate_sql",
+          "startLine": 17,
+          "endLine": 33,
+          "params": [
+            "sql"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "validate_sql",
+          "line": 17,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "validate_sql",
+          "callee": "sql.strip",
+          "lineNumber": 18
+        },
+        {
+          "caller": "validate_sql",
+          "callee": "re.match",
+          "lineNumber": 26
+        },
+        {
+          "caller": "validate_sql",
+          "callee": "re.search",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-research-system/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-research-system/app/nodes/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-research-system/app/tools.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 1,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-ui-builder/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-ui-builder/app/preview.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 133,
+      "nonEmptyLines": 108,
+      "functions": [
+        {
+          "name": "_strip_imports",
+          "startLine": 49,
+          "endLine": 61,
+          "params": [
+            "code"
+          ]
+        },
+        {
+          "name": "_css_to_style_block",
+          "startLine": 64,
+          "endLine": 66,
+          "params": [
+            "css"
+          ]
+        },
+        {
+          "name": "build_preview_html",
+          "startLine": 69,
+          "endLine": 100,
+          "params": [
+            "files",
+            "title"
+          ]
+        },
+        {
+          "name": "start_preview",
+          "startLine": 119,
+          "endLine": 133,
+          "params": [
+            "files",
+            "port",
+            "title"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "_PreviewHandler",
+          "startLine": 103,
+          "endLine": 116,
+          "methods": [
+            "do_GET",
+            "log_message"
+          ],
+          "properties": [
+            "html"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_strip_imports",
+          "line": 49,
+          "isDefault": false
+        },
+        {
+          "name": "_css_to_style_block",
+          "line": 64,
+          "isDefault": false
+        },
+        {
+          "name": "build_preview_html",
+          "line": 69,
+          "isDefault": false
+        },
+        {
+          "name": "_PreviewHandler",
+          "line": 103,
+          "isDefault": false
+        },
+        {
+          "name": "start_preview",
+          "line": 119,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_strip_imports",
+          "callee": "code.splitlines",
+          "lineNumber": 51
+        },
+        {
+          "caller": "_strip_imports",
+          "callee": "line.strip",
+          "lineNumber": 54
+        },
+        {
+          "caller": "_strip_imports",
+          "callee": "stripped.startswith",
+          "lineNumber": 55
+        },
+        {
+          "caller": "_strip_imports",
+          "callee": "stripped.startswith",
+          "lineNumber": 57
+        },
+        {
+          "caller": "_strip_imports",
+          "callee": "out.append",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_strip_imports",
+          "callee": "line.replace",
+          "lineNumber": 58
+        },
+        {
+          "caller": "_strip_imports",
+          "callee": "out.append",
+          "lineNumber": 60
+        },
+        {
+          "caller": "_strip_imports",
+          "callee": "\"\\n\".join",
+          "lineNumber": 61
+        },
+        {
+          "caller": "_css_to_style_block",
+          "callee": "\"\\n\".join",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_css_to_style_block",
+          "callee": "css.splitlines",
+          "lineNumber": 66
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "sorted",
+          "lineNumber": 73
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "files.items",
+          "lineNumber": 73
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "filename.startswith",
+          "lineNumber": 74
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "filename.endswith",
+          "lineNumber": 74
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "component_blocks.append",
+          "lineNumber": 75
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "component_blocks.append",
+          "lineNumber": 76
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "_strip_imports",
+          "lineNumber": 76
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "files.get",
+          "lineNumber": 79
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "_strip_imports",
+          "lineNumber": 81
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "re.sub",
+          "lineNumber": 83
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "files.get",
+          "lineNumber": 92
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "_css_to_style_block",
+          "lineNumber": 93
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "HTML_TEMPLATE.format",
+          "lineNumber": 95
+        },
+        {
+          "caller": "build_preview_html",
+          "callee": "\"\\n\".join",
+          "lineNumber": 98
+        },
+        {
+          "caller": "do_GET",
+          "callee": "self.send_response",
+          "lineNumber": 109
+        },
+        {
+          "caller": "do_GET",
+          "callee": "self.send_header",
+          "lineNumber": 110
+        },
+        {
+          "caller": "do_GET",
+          "callee": "self.end_headers",
+          "lineNumber": 111
+        },
+        {
+          "caller": "do_GET",
+          "callee": "self.wfile.write",
+          "lineNumber": 112
+        },
+        {
+          "caller": "do_GET",
+          "callee": "self.html.encode",
+          "lineNumber": 112
+        },
+        {
+          "caller": "log_message",
+          "callee": "print",
+          "lineNumber": 116
+        },
+        {
+          "caller": "log_message",
+          "callee": "self.address_string",
+          "lineNumber": 116
+        },
+        {
+          "caller": "start_preview",
+          "callee": "build_preview_html",
+          "lineNumber": 121
+        },
+        {
+          "caller": "start_preview",
+          "callee": "type",
+          "lineNumber": 123
+        },
+        {
+          "caller": "start_preview",
+          "callee": "HTTPServer",
+          "lineNumber": 124
+        },
+        {
+          "caller": "start_preview",
+          "callee": "print",
+          "lineNumber": 126
+        },
+        {
+          "caller": "start_preview",
+          "callee": "print",
+          "lineNumber": 127
+        },
+        {
+          "caller": "start_preview",
+          "callee": "server.serve_forever",
+          "lineNumber": 129
+        },
+        {
+          "caller": "start_preview",
+          "callee": "print",
+          "lineNumber": 131
+        },
+        {
+          "caller": "start_preview",
+          "callee": "server.server_close",
+          "lineNumber": 133
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 5,
+        "functionCount": 4,
+        "classCount": 1
+      }
+    }
+  ]
+}

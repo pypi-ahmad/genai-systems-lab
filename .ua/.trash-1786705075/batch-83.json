@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "config:langgraph-data-analyst/.env.example",
+      "type": "config",
+      "name": ".env.example",
+      "filePath": "langgraph-data-analyst/.env.example",
+      "summary": ".env.example provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:langgraph-data-analyst/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "langgraph-data-analyst/README.md",
+      "summary": "README.md documents the langgraph-data-analyst component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:langgraph-data-analyst/requirements.txt",
+      "type": "document",
+      "name": "requirements.txt",
+      "filePath": "langgraph-data-analyst/requirements.txt",
+      "summary": "requirements.txt documents the langgraph-data-analyst component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

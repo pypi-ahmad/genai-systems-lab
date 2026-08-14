@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-investment-analyst/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-investment-analyst/README.md",
+      "summary": "Documents README.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-investment-analyst/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-investment-analyst/architecture.md",
+      "summary": "Documents architecture.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:crew-investment-analyst/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-investment-analyst/tasks.md",
+      "summary": "Documents tasks.md's project-facing guidance and reference material.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

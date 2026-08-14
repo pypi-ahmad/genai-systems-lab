@@ -1,0 +1,1402 @@
+{
+  "nodes": [
+    {
+      "id": "file:shared/api/dependencies.py",
+      "type": "file",
+      "name": "dependencies.py",
+      "filePath": "shared/api/dependencies.py",
+      "summary": "Implements dependencies functionality within the shared project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:get_settings_dep",
+      "type": "function",
+      "name": "get_settings_dep",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        14,
+        16
+      ],
+      "summary": "Executes the get_settings_dep operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:get_llm_client_dep",
+      "type": "function",
+      "name": "get_llm_client_dep",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        19,
+        21
+      ],
+      "summary": "Executes the get_llm_client_dep operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:_logger",
+      "type": "function",
+      "name": "_logger",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        25,
+        26
+      ],
+      "summary": "Executes the _logger operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/dependencies.py:get_logger_dep",
+      "type": "function",
+      "name": "get_logger_dep",
+      "filePath": "shared/api/dependencies.py",
+      "lineRange": [
+        29,
+        31
+      ],
+      "summary": "Executes the get_logger_dep operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/eval_runner.py",
+      "type": "file",
+      "name": "eval_runner.py",
+      "filePath": "shared/api/eval_runner.py",
+      "summary": "Implements eval runner functionality within the shared project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/eval_runner.py:run_project_evaluation",
+      "type": "function",
+      "name": "run_project_evaluation",
+      "filePath": "shared/api/eval_runner.py",
+      "lineRange": [
+        19,
+        107
+      ],
+      "summary": "Executes the run_project_evaluation operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:shared/api/jobs.py",
+      "type": "file",
+      "name": "jobs.py",
+      "filePath": "shared/api/jobs.py",
+      "summary": "Implements jobs functionality within the shared project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/jobs.py:redis_connection",
+      "type": "function",
+      "name": "redis_connection",
+      "filePath": "shared/api/jobs.py",
+      "lineRange": [
+        32,
+        36
+      ],
+      "summary": "Executes the redis_connection operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/jobs.py:_fernet",
+      "type": "function",
+      "name": "_fernet",
+      "filePath": "shared/api/jobs.py",
+      "lineRange": [
+        39,
+        43
+      ],
+      "summary": "Executes the _fernet operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/jobs.py:store_api_key",
+      "type": "function",
+      "name": "store_api_key",
+      "filePath": "shared/api/jobs.py",
+      "lineRange": [
+        46,
+        47
+      ],
+      "summary": "Executes the store_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/jobs.py:consume_api_key",
+      "type": "function",
+      "name": "consume_api_key",
+      "filePath": "shared/api/jobs.py",
+      "lineRange": [
+        50,
+        58
+      ],
+      "summary": "Executes the consume_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/jobs.py:enqueue_job",
+      "type": "function",
+      "name": "enqueue_job",
+      "filePath": "shared/api/jobs.py",
+      "lineRange": [
+        61,
+        65
+      ],
+      "summary": "Executes the enqueue_job operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/jobs.py:execute_job",
+      "type": "function",
+      "name": "execute_job",
+      "filePath": "shared/api/jobs.py",
+      "lineRange": [
+        68,
+        95
+      ],
+      "summary": "Executes the execute_job operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/jobs.py:cancel_job",
+      "type": "function",
+      "name": "cancel_job",
+      "filePath": "shared/api/jobs.py",
+      "lineRange": [
+        98,
+        105
+      ],
+      "summary": "Executes the cancel_job operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/models.py",
+      "type": "file",
+      "name": "models.py",
+      "filePath": "shared/api/models.py",
+      "summary": "Implements models functionality within the shared project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:shared/api/models.py:User",
+      "type": "class",
+      "name": "User",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        13,
+        24
+      ],
+      "summary": "Encapsulates User behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/models.py:RunSession",
+      "type": "class",
+      "name": "RunSession",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        27,
+        43
+      ],
+      "summary": "Encapsulates RunSession behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/models.py:Run",
+      "type": "class",
+      "name": "Run",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        46,
+        84
+      ],
+      "summary": "Encapsulates Run behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/models.py:OperationalMetric",
+      "type": "class",
+      "name": "OperationalMetric",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        87,
+        102
+      ],
+      "summary": "Encapsulates OperationalMetric behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/models.py:Job",
+      "type": "class",
+      "name": "Job",
+      "filePath": "shared/api/models.py",
+      "lineRange": [
+        105,
+        120
+      ],
+      "summary": "Encapsulates Job behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/run_explainer.py",
+      "type": "file",
+      "name": "run_explainer.py",
+      "filePath": "shared/api/run_explainer.py",
+      "summary": "Implements run explainer functionality within the shared project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_strip_tag_markers",
+      "type": "function",
+      "name": "_strip_tag_markers",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        69,
+        76
+      ],
+      "summary": "Executes the _strip_tag_markers operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_truncate",
+      "type": "function",
+      "name": "_truncate",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        79,
+        83
+      ],
+      "summary": "Executes the _truncate operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_input",
+      "type": "function",
+      "name": "_format_input",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        86,
+        87
+      ],
+      "summary": "Executes the _format_input operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_output",
+      "type": "function",
+      "name": "_format_output",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        90,
+        100
+      ],
+      "summary": "Executes the _format_output operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_memory",
+      "type": "function",
+      "name": "_format_memory",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        103,
+        117
+      ],
+      "summary": "Executes the _format_memory operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:_format_timeline",
+      "type": "function",
+      "name": "_format_timeline",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        120,
+        135
+      ],
+      "summary": "Executes the _format_timeline operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/run_explainer.py:build_run_explanation",
+      "type": "function",
+      "name": "build_run_explanation",
+      "filePath": "shared/api/run_explainer.py",
+      "lineRange": [
+        138,
+        172
+      ],
+      "summary": "Executes the build_run_explanation operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/api/runner.py",
+      "type": "file",
+      "name": "runner.py",
+      "filePath": "shared/api/runner.py",
+      "summary": "Implements runner functionality within the shared project.",
+      "tags": [
+        "api-handler",
+        "service",
+        "backend"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/api/runner.py:_is_dev_mode",
+      "type": "function",
+      "name": "_is_dev_mode",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        39,
+        40
+      ],
+      "summary": "Executes the _is_dev_mode operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:_unsafe_projects_enabled",
+      "type": "function",
+      "name": "_unsafe_projects_enabled",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        46,
+        55
+      ],
+      "summary": "Executes the _unsafe_projects_enabled operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:_project_aliases",
+      "type": "function",
+      "name": "_project_aliases",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        71,
+        83
+      ],
+      "summary": "Executes the _project_aliases operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:_optional_dependency_error",
+      "type": "function",
+      "name": "_optional_dependency_error",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        97,
+        102
+      ],
+      "summary": "Executes the _optional_dependency_error operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:_clear_project_imports",
+      "type": "function",
+      "name": "_clear_project_imports",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        115,
+        126
+      ],
+      "summary": "Executes the _clear_project_imports operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:_ensure_import_paths",
+      "type": "function",
+      "name": "_ensure_import_paths",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        129,
+        134
+      ],
+      "summary": "Executes the _ensure_import_paths operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:_load_main",
+      "type": "function",
+      "name": "_load_main",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        137,
+        177
+      ],
+      "summary": "Executes the _load_main operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:list_available",
+      "type": "function",
+      "name": "list_available",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        180,
+        189
+      ],
+      "summary": "Executes the list_available operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:resolve_project_name",
+      "type": "function",
+      "name": "resolve_project_name",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        192,
+        207
+      ],
+      "summary": "Executes the resolve_project_name operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:run_project",
+      "type": "function",
+      "name": "run_project",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        210,
+        317
+      ],
+      "summary": "Executes the run_project operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/api/runner.py:_fire_and_forget_langfuse_flush",
+      "type": "function",
+      "name": "_fire_and_forget_langfuse_flush",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        320,
+        332
+      ],
+      "summary": "Executes the _fire_and_forget_langfuse_flush operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/api/runner.py:_langfuse_flush_worker",
+      "type": "function",
+      "name": "_langfuse_flush_worker",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        335,
+        341
+      ],
+      "summary": "Executes the _langfuse_flush_worker operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/runner.py:ProjectUnavailableError",
+      "type": "class",
+      "name": "ProjectUnavailableError",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        93,
+        94
+      ],
+      "summary": "Encapsulates ProjectUnavailableError behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/api/runner.py:RunResult",
+      "type": "class",
+      "name": "RunResult",
+      "filePath": "shared/api/runner.py",
+      "lineRange": [
+        106,
+        112
+      ],
+      "summary": "Encapsulates RunResult behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_settings_dep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_settings_dep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_llm_client_dep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_llm_client_dep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_logger_dep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "function:shared/api/dependencies.py:get_logger_dep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/dependencies.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "function:shared/api/eval_runner.py:run_project_evaluation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "function:shared/api/eval_runner.py:run_project_evaluation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/eval/benchmarks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/eval_runner.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:redis_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:redis_connection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:_fernet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:_fernet",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:store_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:store_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:consume_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:consume_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:enqueue_job",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:enqueue_job",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:execute_job",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:execute_job",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:cancel_job",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "function:shared/api/jobs.py:cancel_job",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "file:shared/api/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "file:shared/api/models.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "file:shared/api/runner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/jobs.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:User",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:User",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:RunSession",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:RunSession",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:Run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:Run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:OperationalMetric",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:OperationalMetric",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:Job",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "class:shared/api/models.py:Job",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/models.py",
+      "target": "file:shared/api/db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_strip_tag_markers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_strip_tag_markers",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_truncate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_truncate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_input",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_memory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_memory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_timeline",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:_format_timeline",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:build_run_explanation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "function:shared/api/run_explainer.py:build_run_explanation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/run_explainer.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_is_dev_mode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_is_dev_mode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_unsafe_projects_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_unsafe_projects_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_project_aliases",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_project_aliases",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_optional_dependency_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_optional_dependency_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_clear_project_imports",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_clear_project_imports",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_ensure_import_paths",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_ensure_import_paths",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_load_main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_load_main",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:list_available",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:list_available",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:resolve_project_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:resolve_project_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:run_project",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:run_project",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_fire_and_forget_langfuse_flush",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_fire_and_forget_langfuse_flush",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_langfuse_flush_worker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "function:shared/api/runner.py:_langfuse_flush_worker",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "class:shared/api/runner.py:ProjectUnavailableError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "class:shared/api/runner.py:ProjectUnavailableError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "class:shared/api/runner.py:RunResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "class:shared/api/runner.py:RunResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "file:shared/llm/telemetry.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "file:shared/llm/token_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "file:shared/observability/langfuse.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/api/runner.py",
+      "target": "file:shared/project_catalog.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

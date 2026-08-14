@@ -1,0 +1,1109 @@
+{
+  "nodes": [
+    {
+      "id": "file:lg-workflow-agent/app/graph.py",
+      "type": "file",
+      "name": "graph.py",
+      "filePath": "lg-workflow-agent/app/graph.py",
+      "summary": "Builds the application workflow graph and connects its processing nodes.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/graph.py:_route_after_checkpoint",
+      "type": "function",
+      "name": "_route_after_checkpoint",
+      "filePath": "lg-workflow-agent/app/graph.py",
+      "lineRange": [
+        14,
+        17
+      ],
+      "summary": "Implements the _route_after_checkpoint operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/graph.py:build_graph",
+      "type": "function",
+      "name": "build_graph",
+      "filePath": "lg-workflow-agent/app/graph.py",
+      "lineRange": [
+        20,
+        41
+      ],
+      "summary": "Builds the _graph structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "lg-workflow-agent/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "lg-workflow-agent/app/main.py",
+      "lineRange": [
+        8,
+        24
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/nodes/checkpoint.py",
+      "type": "file",
+      "name": "checkpoint.py",
+      "filePath": "lg-workflow-agent/app/nodes/checkpoint.py",
+      "summary": "Implements the checkpoint workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/checkpoint.py:load_checkpoint",
+      "type": "function",
+      "name": "load_checkpoint",
+      "filePath": "lg-workflow-agent/app/nodes/checkpoint.py",
+      "lineRange": [
+        14,
+        28
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/checkpoint.py:checkpoint_node",
+      "type": "function",
+      "name": "checkpoint_node",
+      "filePath": "lg-workflow-agent/app/nodes/checkpoint.py",
+      "lineRange": [
+        31,
+        62
+      ],
+      "summary": "Implements the checkpoint_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/nodes/executor.py",
+      "type": "file",
+      "name": "executor.py",
+      "filePath": "lg-workflow-agent/app/nodes/executor.py",
+      "summary": "Implements the executor workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/executor.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-workflow-agent/app/nodes/executor.py",
+      "lineRange": [
+        14,
+        31
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/executor.py:executor_node",
+      "type": "function",
+      "name": "executor_node",
+      "filePath": "lg-workflow-agent/app/nodes/executor.py",
+      "lineRange": [
+        34,
+        51
+      ],
+      "summary": "Implements the executor_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "type": "file",
+      "name": "finalizer.py",
+      "filePath": "lg-workflow-agent/app/nodes/finalizer.py",
+      "summary": "Implements the finalizer workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/finalizer.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-workflow-agent/app/nodes/finalizer.py",
+      "lineRange": [
+        7,
+        22
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/finalizer.py:finalizer_node",
+      "type": "function",
+      "name": "finalizer_node",
+      "filePath": "lg-workflow-agent/app/nodes/finalizer.py",
+      "lineRange": [
+        25,
+        40
+      ],
+      "summary": "Implements the finalizer_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/nodes/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "lg-workflow-agent/app/nodes/planner.py",
+      "summary": "Implements the planner workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/planner.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-workflow-agent/app/nodes/planner.py",
+      "lineRange": [
+        23,
+        33
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/planner.py:planner_node",
+      "type": "function",
+      "name": "planner_node",
+      "filePath": "lg-workflow-agent/app/nodes/planner.py",
+      "lineRange": [
+        36,
+        52
+      ],
+      "summary": "Implements the planner_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/nodes/validator.py",
+      "type": "file",
+      "name": "validator.py",
+      "filePath": "lg-workflow-agent/app/nodes/validator.py",
+      "summary": "Implements the validator workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/validator.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-workflow-agent/app/nodes/validator.py",
+      "lineRange": [
+        25,
+        42
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/nodes/validator.py:validator_node",
+      "type": "function",
+      "name": "validator_node",
+      "filePath": "lg-workflow-agent/app/nodes/validator.py",
+      "lineRange": [
+        45,
+        80
+      ],
+      "summary": "Implements the validator_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "lg-workflow-agent/app/state.py",
+      "summary": "Defines shared workflow state and typed data exchanged between nodes.",
+      "tags": [
+        "state-management",
+        "type-definition",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/state.py:initial_state",
+      "type": "function",
+      "name": "initial_state",
+      "filePath": "lg-workflow-agent/app/state.py",
+      "lineRange": [
+        20,
+        28
+      ],
+      "summary": "Implements the initial_state operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lg-workflow-agent/app/state.py:WorkflowState",
+      "type": "class",
+      "name": "WorkflowState",
+      "filePath": "lg-workflow-agent/app/state.py",
+      "lineRange": [
+        11,
+        17
+      ],
+      "summary": "Represents the WorkflowState abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/tools/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "lg-workflow-agent/app/tools/__init__.py",
+      "summary": "Implements __init__.py as part of the lg-workflow-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "type": "file",
+      "name": "analysis_tool.py",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "summary": "Implements analysis_tool.py as part of the lg-workflow-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        14,
+        28
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:_parse_csv",
+      "type": "function",
+      "name": "_parse_csv",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        31,
+        41
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:_numeric_values",
+      "type": "function",
+      "name": "_numeric_values",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        44,
+        52
+      ],
+      "summary": "Implements the _numeric_values operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:_summarize",
+      "type": "function",
+      "name": "_summarize",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        55,
+        69
+      ],
+      "summary": "Implements the _summarize operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:_average",
+      "type": "function",
+      "name": "_average",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        72,
+        84
+      ],
+      "summary": "Implements the _average operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:_trends",
+      "type": "function",
+      "name": "_trends",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        87,
+        109
+      ],
+      "summary": "Implements the _trends operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:_group_by",
+      "type": "function",
+      "name": "_group_by",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        112,
+        137
+      ],
+      "summary": "Implements the _group_by operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/analysis_tool.py:_min_max",
+      "type": "function",
+      "name": "_min_max",
+      "filePath": "lg-workflow-agent/app/tools/analysis_tool.py",
+      "lineRange": [
+        140,
+        151
+      ],
+      "summary": "Implements the _min_max operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "type": "file",
+      "name": "file_tool.py",
+      "filePath": "lg-workflow-agent/app/tools/file_tool.py",
+      "summary": "Implements file_tool.py as part of the lg-workflow-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/file_tool.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "lg-workflow-agent/app/tools/file_tool.py",
+      "lineRange": [
+        25,
+        57
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/file_tool.py:_read_csv",
+      "type": "function",
+      "name": "_read_csv",
+      "filePath": "lg-workflow-agent/app/tools/file_tool.py",
+      "lineRange": [
+        60,
+        66
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-workflow-agent/app/tools/file_tool.py:_format_rows",
+      "type": "function",
+      "name": "_format_rows",
+      "filePath": "lg-workflow-agent/app/tools/file_tool.py",
+      "lineRange": [
+        69,
+        77
+      ],
+      "summary": "Implements the _format_rows operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "function:lg-workflow-agent/app/graph.py:_route_after_checkpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "function:lg-workflow-agent/app/graph.py:_route_after_checkpoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "function:lg-workflow-agent/app/graph.py:build_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "function:lg-workflow-agent/app/graph.py:build_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "file:lg-workflow-agent/app/nodes/checkpoint.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "file:lg-workflow-agent/app/nodes/executor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "file:lg-workflow-agent/app/nodes/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "file:lg-workflow-agent/app/nodes/validator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "file:lg-workflow-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/graph.py",
+      "target": "file:shared/api/langgraph_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/main.py",
+      "target": "function:lg-workflow-agent/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/main.py",
+      "target": "function:lg-workflow-agent/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/main.py",
+      "target": "file:lg-workflow-agent/app/graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/main.py",
+      "target": "file:lg-workflow-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/checkpoint.py",
+      "target": "function:lg-workflow-agent/app/nodes/checkpoint.py:load_checkpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/checkpoint.py",
+      "target": "function:lg-workflow-agent/app/nodes/checkpoint.py:load_checkpoint",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/checkpoint.py",
+      "target": "function:lg-workflow-agent/app/nodes/checkpoint.py:checkpoint_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/checkpoint.py",
+      "target": "function:lg-workflow-agent/app/nodes/checkpoint.py:checkpoint_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/checkpoint.py",
+      "target": "file:lg-workflow-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "function:lg-workflow-agent/app/nodes/executor.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "function:lg-workflow-agent/app/nodes/executor.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "function:lg-workflow-agent/app/nodes/executor.py:executor_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "function:lg-workflow-agent/app/nodes/executor.py:executor_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "file:lg-workflow-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "file:lg-workflow-agent/app/tools/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/executor.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "target": "function:lg-workflow-agent/app/nodes/finalizer.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "target": "function:lg-workflow-agent/app/nodes/finalizer.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "target": "function:lg-workflow-agent/app/nodes/finalizer.py:finalizer_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "target": "function:lg-workflow-agent/app/nodes/finalizer.py:finalizer_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "target": "file:lg-workflow-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/finalizer.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/planner.py",
+      "target": "function:lg-workflow-agent/app/nodes/planner.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/planner.py",
+      "target": "function:lg-workflow-agent/app/nodes/planner.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/planner.py",
+      "target": "function:lg-workflow-agent/app/nodes/planner.py:planner_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/planner.py",
+      "target": "function:lg-workflow-agent/app/nodes/planner.py:planner_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/planner.py",
+      "target": "file:lg-workflow-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/planner.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/validator.py",
+      "target": "function:lg-workflow-agent/app/nodes/validator.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/validator.py",
+      "target": "function:lg-workflow-agent/app/nodes/validator.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/validator.py",
+      "target": "function:lg-workflow-agent/app/nodes/validator.py:validator_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/validator.py",
+      "target": "function:lg-workflow-agent/app/nodes/validator.py:validator_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/validator.py",
+      "target": "file:lg-workflow-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/nodes/validator.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-workflow-agent/app/state.py",
+      "target": "function:lg-workflow-agent/app/state.py:initial_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/state.py",
+      "target": "function:lg-workflow-agent/app/state.py:initial_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/state.py",
+      "target": "class:lg-workflow-agent/app/state.py:WorkflowState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/state.py",
+      "target": "class:lg-workflow-agent/app/state.py:WorkflowState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_parse_csv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_parse_csv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_numeric_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_numeric_values",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_summarize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_summarize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_average",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_average",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_trends",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_trends",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_group_by",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_group_by",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_min_max",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/analysis_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/analysis_tool.py:_min_max",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/file_tool.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/file_tool.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/file_tool.py:_read_csv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/file_tool.py:_read_csv",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/file_tool.py:_format_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-workflow-agent/app/tools/file_tool.py",
+      "target": "function:lg-workflow-agent/app/tools/file_tool.py:_format_rows",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

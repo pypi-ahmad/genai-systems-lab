@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-doc-intelligence/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-doc-intelligence/architecture.md",
+      "language": "markdown",
+      "sizeLines": 0,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-doc-intelligence/tasks.md",
+      "language": "markdown",
+      "sizeLines": 74,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "genai-doc-intelligence/README.md": [],
+    "genai-doc-intelligence/architecture.md": [],
+    "genai-doc-intelligence/tasks.md": []
+  }
+}

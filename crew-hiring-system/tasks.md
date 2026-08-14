@@ -5,7 +5,7 @@
 File: `app/agents.py`
 
 - [ ] Import `Agent` from `crewai`.
-- [ ] Define `EVALUATION_MODEL = "gemini/gemini-3.1-pro-preview"` and `EXTRACTION_MODEL = "gemini/gemini-3-flash-preview"` constants.
+- [ ] Define `EVALUATION_MODEL = "gemini/gemini-3.7-flash"` and `EXTRACTION_MODEL = "gemini/gemini-3.5-flash-lite"` constants.
 - [ ] Create `build_resume_screener() -> Agent` with role `"Senior Resume Analyst"`, goal to extract key qualifications, experience timeline, skill matches, and red flags from the candidate's resume relative to the job description, and backstory as an experienced talent acquisition specialist with 10+ years screening technical resumes. Use `EXTRACTION_MODEL`.
 - [ ] Create `build_technical_interviewer() -> Agent` with role `"Senior Technical Interviewer"`, goal to evaluate the candidate's technical competence, skill depth, and seniority calibration based on the resume screening report, and backstory as a staff engineer with experience conducting 500+ technical interviews. Use `EVALUATION_MODEL`.
 - [ ] Create `build_behavioral_interviewer() -> Agent` with role `"Senior Behavioral Interviewer"`, goal to assess teamwork, communication, leadership potential, and culture alignment from resume signals and prior evaluation context, and backstory as an organizational psychologist turned hiring specialist. Use `EVALUATION_MODEL`.

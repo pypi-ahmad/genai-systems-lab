@@ -7,10 +7,12 @@ from collections import deque
 from contextlib import asynccontextmanager
 from datetime import UTC, datetime, timedelta
 import json
+import inspect
 import os
 import re
 import threading
 import time
+import uuid
 from typing import Any, Literal
 
 from fastapi import Depends, FastAPI, HTTPException, Query, Request, Response, status
@@ -31,7 +33,8 @@ from .auth import AUTH_COOKIE_NAME, JWT_TTL_SECONDS, authenticate_user, create_a
 from .confidence import compute_run_confidence
 from .db import get_db_session, init_db
 from .eval_runner import run_project_evaluation
-from .models import OperationalMetric, Run, RunSession, User
+from .models import Job, OperationalMetric, Run, RunSession, User
+from .jobs import cancel_job, enqueue_job
 from .run_explainer import build_run_explanation
 from .runner import ProjectUnavailableError, list_available, resolve_project_name, run_project
 from .session_memory import (
@@ -41,14 +44,14 @@ from .session_memory import (
     serialize_session_memory_entries,
     update_session_memory_entries,
 )
-from shared.config import get_effective_api_key, get_request_model, get_request_provider, reset_byok_api_key, reset_request_model, reset_request_provider, set_byok_api_key, set_request_model, set_request_provider
+from shared.config import get_effective_api_key, get_request_effort, get_request_model, get_request_provider, reset_byok_api_key, reset_request_effort, reset_request_model, reset_request_provider, set_byok_api_key, set_request_effort, set_request_model, set_request_provider
 from shared.llm import GeminiGenerationError, GeminiTimeoutError
-from shared.llm.catalog import build_provider_catalog, get_model_spec, infer_provider, provider_requires_api_key
+from shared.llm.catalog import build_provider_catalog, get_model_spec, infer_provider, provider_requires_api_key, validate_model_effort
 from shared.logging import get_logger, new_request_id, reset_log_context, set_log_context, setup_otel, shutdown_otel
 from shared.logging.otel import span as otel_span
 from shared.observability.langfuse import score_trace as score_langfuse_trace
 from shared.project_catalog import build_pipeline_nodes_index, list_project_manifest_entries
-from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, LLMCatalogResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
+from shared.schemas import AuthConfigResponse, AuthRequest, AuthResponse, AuthUserResponse, BaseRequest, BaseResponse, HistoryResponse, HistoryRunResponse, JobResponse, LLMCatalogResponse, MetricsResponse, RunExplanationResponse, SessionResponse, ShareRunRequest, ShareRunResponse, SharedRunResponse, StatusResponse, TimeSeriesMetricPointResponse
 
 logger = get_logger(__name__)
 
@@ -66,7 +69,7 @@ _DEFAULT_ALLOWED_ORIGINS = (
     "http://127.0.0.1:3001",
 )
 _CORS_ALLOWED_METHODS = ["DELETE", "GET", "OPTIONS", "PATCH", "POST", "PUT"]
-_CORS_ALLOWED_HEADERS = ["Authorization", "Content-Type", "X-API-Key", "X-LLM-Model", "X-LLM-Provider", "X-Requested-With"]
+_CORS_ALLOWED_HEADERS = ["Authorization", "Content-Type", "X-API-Key", "X-LLM-Effort", "X-LLM-Model", "X-LLM-Provider", "X-Requested-With"]
 
 # Only trust X-Forwarded-For when the immediate peer is a known reverse proxy.
 # Leave empty in local dev; set in production via the env var.
@@ -928,6 +931,7 @@ _BYOK_EXEMPT_PREFIXES = (
     "/auth/",
     "/metrics",
     "/history",
+    "/jobs/",      # job routes authenticate first; POST enforces BYOK in the handler
     "/session/",
     "/shared/",
     "/run/",       # share / unshare — no LLM call
@@ -938,7 +942,7 @@ _BYOK_EXEMPT_PREFIXES = (
 
 
 class BYOKMiddleware:
-    """Pure ASGI middleware that binds a per-request BYOK Google API key.
+    """Pure ASGI middleware that binds a per-request provider API key.
 
     Reads the key from the ``x-api-key`` request header.  Routes that invoke
     an LLM receive a **400** response when the header is missing.
@@ -966,6 +970,7 @@ class BYOKMiddleware:
         api_key: str | None = None
         requested_model: str | None = None
         requested_provider: str | None = None
+        requested_effort: str | None = None
         for header_name, header_value in scope.get("headers", []):
             if header_name == b"x-api-key":
                 api_key = header_value.decode("latin-1").strip()
@@ -973,11 +978,28 @@ class BYOKMiddleware:
                 requested_model = header_value.decode("latin-1").strip()
             elif header_name == b"x-llm-provider":
                 requested_provider = header_value.decode("latin-1").strip().lower()
+            elif header_name == b"x-llm-effort":
+                requested_effort = header_value.decode("latin-1").strip().lower()
 
         requested_spec = get_model_spec(requested_model)
         resolved_provider = requested_provider or requested_spec["provider"]
         if requested_provider and requested_spec["provider"] != "ollama" and requested_provider != requested_spec["provider"]:
             body = json.dumps({"detail": "Selected provider does not match the selected model."}).encode()
+            await send({
+                "type": "http.response.start",
+                "status": 400,
+                "headers": [
+                    [b"content-type", b"application/json"],
+                    [b"content-length", str(len(body)).encode()],
+                ],
+            })
+            await send({"type": "http.response.body", "body": body})
+            return
+
+        try:
+            resolved_effort = validate_model_effort(requested_spec["id"], requested_effort)
+        except ValueError as exc:
+            body = json.dumps({"detail": str(exc)}).encode()
             await send({
                 "type": "http.response.start",
                 "status": 400,
@@ -1023,6 +1045,7 @@ class BYOKMiddleware:
 
         provider_token = set_request_provider(resolved_provider)
         model_token = set_request_model(requested_model)
+        effort_token = set_request_effort(resolved_effort)
 
         if api_key:
             token = set_byok_api_key(api_key)
@@ -1030,12 +1053,14 @@ class BYOKMiddleware:
                 await self.app(scope, receive, send)
             finally:
                 reset_byok_api_key(token)
+                reset_request_effort(effort_token)
                 reset_request_model(model_token)
                 reset_request_provider(provider_token)
         else:
             try:
                 await self.app(scope, receive, send)
             finally:
+                reset_request_effort(effort_token)
                 reset_request_model(model_token)
                 reset_request_provider(provider_token)
 
@@ -1045,7 +1070,7 @@ class BYOKMiddleware:
 def create_app(
     *,
     title: str = "GenAI Systems Lab",
-    version: str = "1.0.0",
+    version: str = "1.1.0",
     description: str = "",
     allowed_origins: list[str] | None = None,
 ) -> FastAPI:
@@ -1195,6 +1220,87 @@ def create_app(
     async def auth_me(current_user: User = Depends(get_current_user)) -> AuthUserResponse:
         return AuthUserResponse(id=current_user.id, email=current_user.email)
 
+    def serialize_job(job: Job) -> JobResponse:
+        usage = json.loads(job.usage_text) if job.usage_text else None
+        return JobResponse(
+            id=job.id, project=job.project, status=job.status,
+            output=job.output_text, error=job.error_text, usage=usage,
+            created_at=job.created_at.isoformat() if job.created_at else None,
+            started_at=job.started_at.isoformat() if job.started_at else None,
+            finished_at=job.finished_at.isoformat() if job.finished_at else None,
+        )
+
+    def get_owned_job(session: Session, job_id: str, user_id: int) -> Job:
+        job = session.scalar(select(Job).where(Job.id == job_id, Job.user_id == user_id))
+        if job is None:
+            raise HTTPException(status_code=404, detail="Job not found.")
+        return job
+
+    @app.post("/jobs/{project_name}", response_model=JobResponse, status_code=status.HTTP_202_ACCEPTED)
+    async def create_job(
+        project_name: str,
+        body: BaseRequest,
+        current_user: User = Depends(get_current_user),
+        session: Session = Depends(get_db_session),
+    ) -> JobResponse:
+        resolved_project = resolve_project_name(project_name)
+        provider = _current_request_provider()
+        try:
+            api_key = get_effective_api_key(required=provider_requires_api_key(provider))
+        except RuntimeError as exc:
+            raise HTTPException(status_code=400, detail="Missing x-api-key header.") from exc
+        job = Job(
+            id=str(uuid.uuid4()), user_id=current_user.id,
+            project=resolved_project, input_text=body.input, status="queued",
+        )
+        session.add(job)
+        session.commit()
+        try:
+            enqueue_job(
+                job.id,
+                project=resolved_project,
+                model=get_request_model() or "",
+                provider=provider,
+                effort=get_request_effort(),
+                api_key=api_key,
+            )
+        except Exception as exc:
+            job.status, job.error_text = "failed", "Queue unavailable."
+            job.finished_at = datetime.now(UTC)
+            session.commit()
+            logger.warning("job enqueue failed", extra={"job_id": job.id, "error": str(exc)})
+            raise HTTPException(status_code=503, detail="Job queue is unavailable.") from exc
+        session.refresh(job)
+        return serialize_job(job)
+
+    @app.get("/jobs/{job_id}", response_model=JobResponse)
+    async def get_job(
+        job_id: str,
+        current_user: User = Depends(get_current_user),
+        session: Session = Depends(get_db_session),
+    ) -> JobResponse:
+        job = get_owned_job(session, job_id, current_user.id)
+        return serialize_job(job)
+
+    @app.delete("/jobs/{job_id}", response_model=JobResponse)
+    async def stop_job(
+        job_id: str,
+        current_user: User = Depends(get_current_user),
+        session: Session = Depends(get_db_session),
+    ) -> JobResponse:
+        job = get_owned_job(session, job_id, current_user.id)
+        if job.status not in {"queued", "running"}:
+            return serialize_job(job)
+        try:
+            cancel_job(job_id)
+        except Exception as exc:
+            logger.warning("job cancellation failed", extra={"job_id": job_id, "error": str(exc)})
+            raise HTTPException(status_code=503, detail="Could not cancel the job.") from exc
+        job.status, job.finished_at = "cancelled", datetime.now(UTC)
+        session.commit()
+        session.refresh(job)
+        return serialize_job(job)
+
     @app.post("/{project_name}/run", response_model=BaseResponse)
     async def run(
         project_name: str,
@@ -1305,6 +1411,11 @@ def create_app(
                 latency_ms=result.elapsed_ms,
                 confidence_score=confidence,
                 success=success,
+                prompt_tokens=(result.usage or {}).get("input_tokens"),
+                completion_tokens=(result.usage or {}).get("output_tokens"),
+                total_tokens=(result.usage or {}).get("total_tokens"),
+                cost_usd=(result.usage or {}).get("estimated_cost_usd"),
+                model_used=", ".join((result.usage or {}).get("models_used", [])) or None,
             )
 
         return BaseResponse(
@@ -1317,6 +1428,7 @@ def create_app(
             success=result.exit_code == 0,
             memory=memory_entries,
             timeline=timeline_entries,
+            usage=result.usage,
         )
 
     @app.get("/metrics", response_model=MetricsResponse)
@@ -1499,13 +1611,18 @@ def create_app(
                 def step_emitter(step: str, status: str) -> None:
                     loop.call_soon_threadsafe(step_queue.put_nowait, {"step": step, "status": status})
 
+                def token_emitter(token: str) -> None:
+                    loop.call_soon_threadsafe(step_queue.put_nowait, {"token": token})
+
                 api_key = get_effective_api_key(required=provider_requires_api_key(_current_request_provider()))
-                run_task = asyncio.create_task(
-                    asyncio.to_thread(run_project, project_name, prepared_input, api_key=api_key, step_emitter=step_emitter)
-                )
+                runner_kwargs: dict[str, Any] = {"api_key": api_key, "step_emitter": step_emitter}
+                if "token_emitter" in inspect.signature(run_project).parameters:
+                    runner_kwargs["token_emitter"] = token_emitter
+                run_task = asyncio.create_task(asyncio.to_thread(run_project, project_name, prepared_input, **runner_kwargs))
                 nodes = _get_pipeline_nodes(project_name)
                 seen_steps: list[tuple[str, str]] = []
                 running_steps: list[str] = []
+                streamed_tokens = False
 
                 while True:
                     if run_task.done() and step_queue.empty():
@@ -1515,6 +1632,10 @@ def create_app(
                     except asyncio.TimeoutError:
                         continue
                     if step_event is None:
+                        continue
+                    if isinstance(step_event.get("token"), str):
+                        streamed_tokens = True
+                        yield f"event: token\ndata: {json.dumps({'token': step_event['token']})}\n\n"
                         continue
                     step_name = step_event["step"]
                     step_status = step_event["status"]
@@ -1645,26 +1766,22 @@ def create_app(
                         latency_ms=result.elapsed_ms,
                         confidence_score=confidence,
                         success=success,
+                        prompt_tokens=(result.usage or {}).get("input_tokens"),
+                        completion_tokens=(result.usage or {}).get("output_tokens"),
+                        total_tokens=(result.usage or {}).get("total_tokens"),
+                        cost_usd=(result.usage or {}).get("estimated_cost_usd"),
+                        model_used=", ".join((result.usage or {}).get("models_used", [])) or None,
                     )
 
                 # Honest output emission (C-3 / HI-1 in the audit).
                 #
-                # ``result.output`` is already a *completed* string by the
-                # time we get here — the project ran to completion inside
-                # ``asyncio.to_thread(run_project, ...)`` above.  Earlier
-                # revisions sliced that completed string into 80-char pieces
-                # and emitted them as ``{"token": "..."}`` SSE frames to
-                # mimic token-level streaming.  That was theatre, not
-                # streaming: no provider token boundaries, no pacing tied to
-                # real generation, and every "token" was already sitting in
-                # memory.  We now emit the full completed output as a single
-                # frame so the UI can render it as soon as it arrives, and
-                # document the field as the full output rather than a
-                # provider token.  Real provider-native token streaming
-                # requires threading the streaming SDK API through each
-                # project pipeline and is tracked separately.
-                output_payload = json.dumps({"output": result.output})
-                yield f"event: output\ndata: {output_payload}\n\n"
+                # The research flagships emit native provider deltas while
+                # their final writer runs. Every other pipeline gets one
+                # honest completed-output frame here; completed strings are
+                # never sliced into fake token events.
+                if not streamed_tokens:
+                    output_payload = json.dumps({"output": result.output})
+                    yield f"event: output\ndata: {output_payload}\n\n"
 
                 # Final summary event
                 done_payload = json.dumps({
@@ -1677,6 +1794,7 @@ def create_app(
                     "success": result.exit_code == 0,
                     "memory": memory_entries,
                     "timeline": timeline_entries,
+                    "usage": result.usage,
                 })
                 yield f"event: done\ndata: {done_payload}\n\n"
 

@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-hiring-system/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-hiring-system/README.md",
+      "summary": "Documents README.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-hiring-system/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-hiring-system/architecture.md",
+      "summary": "Documents architecture.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:crew-hiring-system/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-hiring-system/tasks.md",
+      "summary": "Documents tasks.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

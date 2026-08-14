@@ -42,7 +42,7 @@ Diagnoses the root cause of the bug by examining the code and error message.
 
 - **Reads:** `input_code`, `error_message`, `test_result` (on retry iterations, to incorporate new failure context)
 - **Writes:** `analysis`
-- **Model:** `gemini-3.1-pro-preview` — root-cause analysis requires strong reasoning to trace execution flow, identify faulty logic, and distinguish symptoms from causes.
+- **Model:** `gemini-3.7-flash` — root-cause analysis requires strong reasoning to trace execution flow, identify faulty logic, and distinguish symptoms from causes.
 - **Output:** A structured diagnosis containing: error classification (syntax, runtime, logic, type), the specific faulty code region, an explanation of why the code fails, and a recommended fix strategy.
 
 ### fixer
@@ -51,7 +51,7 @@ Generates a corrected version of the code based on the analysis.
 
 - **Reads:** `input_code`, `error_message`, `analysis`, `test_result` (on retries), `iteration`
 - **Writes:** `fixed_code`
-- **Model:** `gemini-3.1-pro-preview` — code generation with correctness constraints demands strong reasoning; the model must respect the original intent while addressing the diagnosed issue.
+- **Model:** `gemini-3.7-flash` — code generation with correctness constraints demands strong reasoning; the model must respect the original intent while addressing the diagnosed issue.
 - **Behavior on first pass:** Applies the fix strategy from `analysis` to produce a corrected version of `input_code`.
 - **Behavior on retry pass:** Reads the previous `test_result` to understand why the last fix failed, then generates an improved patch. The prompt includes all prior context to avoid repeating the same mistake.
 
@@ -75,7 +75,7 @@ Decides whether the fix is successful or another iteration is needed.
 
 - **Reads:** `input_code`, `error_message`, `fixed_code`, `test_result`, `iteration`
 - **Writes:** `is_resolved`, `iteration`, `analysis` (appends failure context on retry)
-- **Model:** `gemini-3.1-pro-preview` — judging fix correctness requires reasoning about whether the output matches expected behavior and whether new errors were introduced.
+- **Model:** `gemini-3.7-flash` — judging fix correctness requires reasoning about whether the output matches expected behavior and whether new errors were introduced.
 - **Logic:**
   1. If `test_result` shows exit code 0 and no errors in stderr, set `is_resolved = True`.
   2. If the test failed but `iteration < MAX_ITERATIONS`, set `is_resolved = False`, increment `iteration`, and append diagnostic context to `analysis` explaining what went wrong with the current fix.
@@ -125,8 +125,8 @@ graph.add_conditional_edges("evaluator", route_after_evaluator, {
 
 | Model | Nodes | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | analyzer, fixer, evaluator | Diagnosis, code generation, and correctness evaluation all require strong reasoning |
-| `gemini-3-flash-preview` | (optional) post-run explanation | If the caller requests a human-readable summary of the debugging session, use the faster model to generate it from the final state |
+| `gemini-3.7-flash` | analyzer, fixer, evaluator | Diagnosis, code generation, and correctness evaluation all require strong reasoning |
+| `gemini-3.5-flash-lite` | (optional) post-run explanation | If the caller requests a human-readable summary of the debugging session, use the faster model to generate it from the final state |
 
 ### Cost and latency considerations
 
@@ -208,8 +208,8 @@ Key parameters should be externalized:
 | Parameter | Default | Purpose |
 |---|---|---|
 | `MAX_ITERATIONS` | 3 | Cap on fixer → tester → evaluator retry cycles |
-| `REASONING_MODEL` | `gemini-3.1-pro-preview` | Model for analyzer, fixer, evaluator |
-| `EXPLANATION_MODEL` | `gemini-3-flash-preview` | Model for optional post-run explanation |
+| `REASONING_MODEL` | `gemini-3.7-flash` | Model for analyzer, fixer, evaluator |
+| `EXPLANATION_MODEL` | `gemini-3.5-flash-lite` | Model for optional post-run explanation |
 | `EXEC_TIMEOUT` | 10 | Seconds before sandboxed execution is killed |
 | `EXEC_MEMORY_LIMIT` | 256 | MB memory cap for sandboxed execution |
 

@@ -1,0 +1,226 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "crew-product-launch/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "Product Launch Crew",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "crew-product-launch/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 146,
+      "nonEmptyLines": 100,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Crew Configuration",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Why sequential",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "Why layered strategy building",
+          "level": 3,
+          "line": 33
+        },
+        {
+          "heading": "Agents",
+          "level": 2,
+          "line": 41
+        },
+        {
+          "heading": "Market Researcher",
+          "level": 3,
+          "line": 45
+        },
+        {
+          "heading": "Customer Analyst",
+          "level": 3,
+          "line": 55
+        },
+        {
+          "heading": "Product Strategist",
+          "level": 3,
+          "line": 65
+        },
+        {
+          "heading": "Marketing Strategist",
+          "level": 3,
+          "line": 75
+        },
+        {
+          "heading": "Tasks",
+          "level": 2,
+          "line": 85
+        },
+        {
+          "heading": "market_task",
+          "level": 3,
+          "line": 89
+        },
+        {
+          "heading": "customer_task",
+          "level": 3,
+          "line": 96
+        },
+        {
+          "heading": "positioning_task",
+          "level": 3,
+          "line": 103
+        },
+        {
+          "heading": "gtm_task",
+          "level": 3,
+          "line": 110
+        },
+        {
+          "heading": "Structured Outputs",
+          "level": 2,
+          "line": 117
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 134
+        },
+        {
+          "heading": "Error Handling",
+          "level": 2,
+          "line": 141
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 19
+      }
+    },
+    {
+      "path": "crew-product-launch/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 36,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define Agents",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Define Tasks",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "3 — Build Crew",
+          "level": 2,
+          "line": 29
+        },
+        {
+          "heading": "4 — Execute Workflow",
+          "level": 2,
+          "line": 41
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

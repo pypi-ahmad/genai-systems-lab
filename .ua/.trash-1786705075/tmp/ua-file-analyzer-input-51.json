@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-code-copilot/README.md",
+      "language": "markdown",
+      "sizeLines": 50,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-code-copilot/architecture.md",
+      "language": "markdown",
+      "sizeLines": 284,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "genai-code-copilot/tasks.md",
+      "language": "markdown",
+      "sizeLines": 87,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "genai-code-copilot/README.md": [],
+    "genai-code-copilot/architecture.md": [],
+    "genai-code-copilot/tasks.md": []
+  }
+}

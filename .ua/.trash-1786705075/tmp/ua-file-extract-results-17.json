@@ -1,0 +1,773 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 4,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "crew-hiring-system/app/agents.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 129,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "build_resume_screener",
+          "startLine": 9,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "build_technical_interviewer",
+          "startLine": 29,
+          "endLine": 47,
+          "params": []
+        },
+        {
+          "name": "build_behavioral_interviewer",
+          "startLine": 50,
+          "endLine": 67,
+          "params": []
+        },
+        {
+          "name": "build_hiring_manager",
+          "startLine": 70,
+          "endLine": 86,
+          "params": []
+        },
+        {
+          "name": "build_bias_auditor",
+          "startLine": 89,
+          "endLine": 109,
+          "params": []
+        },
+        {
+          "name": "build_comparative_analyst",
+          "startLine": 112,
+          "endLine": 129,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_resume_screener",
+          "line": 9,
+          "isDefault": false
+        },
+        {
+          "name": "build_technical_interviewer",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "build_behavioral_interviewer",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "build_hiring_manager",
+          "line": 70,
+          "isDefault": false
+        },
+        {
+          "name": "build_bias_auditor",
+          "line": 89,
+          "isDefault": false
+        },
+        {
+          "name": "build_comparative_analyst",
+          "line": 112,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_resume_screener",
+          "callee": "Agent",
+          "lineNumber": 10
+        },
+        {
+          "caller": "build_technical_interviewer",
+          "callee": "Agent",
+          "lineNumber": 30
+        },
+        {
+          "caller": "build_behavioral_interviewer",
+          "callee": "Agent",
+          "lineNumber": 51
+        },
+        {
+          "caller": "build_hiring_manager",
+          "callee": "Agent",
+          "lineNumber": 71
+        },
+        {
+          "caller": "build_bias_auditor",
+          "callee": "Agent",
+          "lineNumber": 90
+        },
+        {
+          "caller": "build_comparative_analyst",
+          "callee": "Agent",
+          "lineNumber": 113
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-hiring-system/app/crew.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 136,
+      "nonEmptyLines": 115,
+      "functions": [
+        {
+          "name": "build_crew",
+          "startLine": 26,
+          "endLine": 57,
+          "params": [
+            "resume",
+            "job_description",
+            "verbose"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 60,
+          "endLine": 66,
+          "params": [
+            "resume",
+            "job_description",
+            "verbose"
+          ]
+        },
+        {
+          "name": "_parse_json",
+          "startLine": 73,
+          "endLine": 82,
+          "params": [
+            "raw"
+          ]
+        },
+        {
+          "name": "run_comparison",
+          "startLine": 85,
+          "endLine": 136,
+          "params": [
+            "resumes",
+            "job_description",
+            "verbose"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "build_crew",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 60,
+          "isDefault": false
+        },
+        {
+          "name": "_parse_json",
+          "line": 73,
+          "isDefault": false
+        },
+        {
+          "name": "run_comparison",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "build_crew",
+          "callee": "resolve_role_criteria",
+          "lineNumber": 29
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_resume_screener",
+          "lineNumber": 31
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_technical_interviewer",
+          "lineNumber": 32
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_behavioral_interviewer",
+          "lineNumber": 33
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_hiring_manager",
+          "lineNumber": 34
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_bias_auditor",
+          "lineNumber": 35
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_screening_task",
+          "lineNumber": 37
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_technical_task",
+          "lineNumber": 38
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_behavioral_task",
+          "lineNumber": 39
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_decision_task",
+          "lineNumber": 42
+        },
+        {
+          "caller": "build_crew",
+          "callee": "build_bias_audit_task",
+          "lineNumber": 45
+        },
+        {
+          "caller": "build_crew",
+          "callee": "Crew",
+          "lineNumber": 49
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 61
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 63
+        },
+        {
+          "caller": "run",
+          "callee": "RuntimeError",
+          "lineNumber": 65
+        },
+        {
+          "caller": "run",
+          "callee": "str",
+          "lineNumber": 66
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "raw.strip",
+          "lineNumber": 74
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.startswith",
+          "lineNumber": 75
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.splitlines",
+          "lineNumber": 76
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip().startswith",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip",
+          "lineNumber": 77
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join(lines).strip",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join",
+          "lineNumber": 78
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "json.loads",
+          "lineNumber": 80
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "build_crew",
+          "lineNumber": 103
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "crew.kickoff",
+          "lineNumber": 104
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "hasattr",
+          "lineNumber": 105
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "all_outputs.append",
+          "lineNumber": 106
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "len",
+          "lineNumber": 109
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "len",
+          "lineNumber": 110
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "candidate_summaries.append",
+          "lineNumber": 111
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "_parse_json",
+          "lineNumber": 113
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "_parse_json",
+          "lineNumber": 114
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "len",
+          "lineNumber": 118
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "build_comparative_analyst",
+          "lineNumber": 119
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "build_comparison_task",
+          "lineNumber": 120
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "Crew",
+          "lineNumber": 121
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "comparison_crew.kickoff",
+          "lineNumber": 127
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "hasattr",
+          "lineNumber": 130
+        },
+        {
+          "caller": "run_comparison",
+          "callee": "_parse_json",
+          "lineNumber": 134
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-hiring-system/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 44,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "_parse_json",
+          "startLine": 17,
+          "endLine": 26,
+          "params": [
+            "raw"
+          ]
+        },
+        {
+          "name": "run",
+          "startLine": 29,
+          "endLine": 44,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_parse_json",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "run",
+          "line": 29,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_parse_json",
+          "callee": "raw.strip",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.startswith",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "text.splitlines",
+          "lineNumber": 20
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip().startswith",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "l.strip",
+          "lineNumber": 21
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join(lines).strip",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "\"\\n\".join",
+          "lineNumber": 22
+        },
+        {
+          "caller": "_parse_json",
+          "callee": "json.loads",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 31
+        },
+        {
+          "caller": "run",
+          "callee": "build_crew",
+          "lineNumber": 33
+        },
+        {
+          "caller": "run",
+          "callee": "crew.kickoff",
+          "lineNumber": 34
+        },
+        {
+          "caller": "run",
+          "callee": "hasattr",
+          "lineNumber": 35
+        },
+        {
+          "caller": "run",
+          "callee": "enumerate",
+          "lineNumber": 37
+        },
+        {
+          "caller": "run",
+          "callee": "len",
+          "lineNumber": 38
+        },
+        {
+          "caller": "run",
+          "callee": "_parse_json",
+          "lineNumber": 39
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "crew-hiring-system/app/tasks.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 447,
+      "nonEmptyLines": 419,
+      "functions": [
+        {
+          "name": "resolve_role_criteria",
+          "startLine": 164,
+          "endLine": 173,
+          "params": [
+            "job_description"
+          ]
+        },
+        {
+          "name": "build_screening_task",
+          "startLine": 254,
+          "endLine": 276,
+          "params": [
+            "agent",
+            "resume",
+            "job_description",
+            "criteria"
+          ]
+        },
+        {
+          "name": "build_technical_task",
+          "startLine": 279,
+          "endLine": 302,
+          "params": [
+            "agent",
+            "screening_task",
+            "criteria"
+          ]
+        },
+        {
+          "name": "build_behavioral_task",
+          "startLine": 305,
+          "endLine": 329,
+          "params": [
+            "agent",
+            "screening_task",
+            "technical_task",
+            "criteria"
+          ]
+        },
+        {
+          "name": "build_decision_task",
+          "startLine": 332,
+          "endLine": 368,
+          "params": [
+            "agent",
+            "screening_task",
+            "technical_task",
+            "behavioral_task",
+            "criteria"
+          ]
+        },
+        {
+          "name": "build_bias_audit_task",
+          "startLine": 371,
+          "endLine": 415,
+          "params": [
+            "agent",
+            "screening_task",
+            "technical_task",
+            "behavioral_task",
+            "decision_task"
+          ]
+        },
+        {
+          "name": "build_comparison_task",
+          "startLine": 418,
+          "endLine": 447,
+          "params": [
+            "agent",
+            "candidate_summaries"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "resolve_role_criteria",
+          "line": 164,
+          "isDefault": false
+        },
+        {
+          "name": "build_screening_task",
+          "line": 254,
+          "isDefault": false
+        },
+        {
+          "name": "build_technical_task",
+          "line": 279,
+          "isDefault": false
+        },
+        {
+          "name": "build_behavioral_task",
+          "line": 305,
+          "isDefault": false
+        },
+        {
+          "name": "build_decision_task",
+          "line": 332,
+          "isDefault": false
+        },
+        {
+          "name": "build_bias_audit_task",
+          "line": 371,
+          "isDefault": false
+        },
+        {
+          "name": "build_comparison_task",
+          "line": 418,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resolve_role_criteria",
+          "callee": "job_description.lower",
+          "lineNumber": 168
+        },
+        {
+          "caller": "resolve_role_criteria",
+          "callee": "ROLE_CRITERIA.values",
+          "lineNumber": 169
+        },
+        {
+          "caller": "resolve_role_criteria",
+          "callee": "re.search",
+          "lineNumber": 171
+        },
+        {
+          "caller": "resolve_role_criteria",
+          "callee": "re.escape",
+          "lineNumber": 171
+        },
+        {
+          "caller": "build_screening_task",
+          "callee": "Task",
+          "lineNumber": 258
+        },
+        {
+          "caller": "build_screening_task",
+          "callee": "json.dumps",
+          "lineNumber": 271
+        },
+        {
+          "caller": "build_technical_task",
+          "callee": "Task",
+          "lineNumber": 283
+        },
+        {
+          "caller": "build_technical_task",
+          "callee": "json.dumps",
+          "lineNumber": 296
+        },
+        {
+          "caller": "build_behavioral_task",
+          "callee": "Task",
+          "lineNumber": 310
+        },
+        {
+          "caller": "build_behavioral_task",
+          "callee": "json.dumps",
+          "lineNumber": 323
+        },
+        {
+          "caller": "build_decision_task",
+          "callee": "\", \".join",
+          "lineNumber": 341
+        },
+        {
+          "caller": "build_decision_task",
+          "callee": "k.replace('_', ' ').title",
+          "lineNumber": 342
+        },
+        {
+          "caller": "build_decision_task",
+          "callee": "k.replace",
+          "lineNumber": 342
+        },
+        {
+          "caller": "build_decision_task",
+          "callee": "int",
+          "lineNumber": 342
+        },
+        {
+          "caller": "build_decision_task",
+          "callee": "weights.items",
+          "lineNumber": 343
+        },
+        {
+          "caller": "build_decision_task",
+          "callee": "Task",
+          "lineNumber": 345
+        },
+        {
+          "caller": "build_decision_task",
+          "callee": "json.dumps",
+          "lineNumber": 362
+        },
+        {
+          "caller": "build_bias_audit_task",
+          "callee": "Task",
+          "lineNumber": 378
+        },
+        {
+          "caller": "build_bias_audit_task",
+          "callee": "json.dumps",
+          "lineNumber": 409
+        },
+        {
+          "caller": "build_comparison_task",
+          "callee": "json.dumps",
+          "lineNumber": 428
+        },
+        {
+          "caller": "build_comparison_task",
+          "callee": "Task",
+          "lineNumber": 429
+        },
+        {
+          "caller": "build_comparison_task",
+          "callee": "json.dumps",
+          "lineNumber": 442
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 7,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    }
+  ]
+}

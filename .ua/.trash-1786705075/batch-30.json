@@ -1,0 +1,187 @@
+{
+  "nodes": [
+    {
+      "id": "config:.ua/.trash-1786690380/batch-71.json",
+      "type": "config",
+      "name": "batch-71.json",
+      "filePath": ".ua/.trash-1786690380/batch-71.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-71.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-72-part-1.json",
+      "type": "config",
+      "name": "batch-72-part-1.json",
+      "filePath": ".ua/.trash-1786690380/batch-72-part-1.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-72-part-1.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-72-part-2.json",
+      "type": "config",
+      "name": "batch-72-part-2.json",
+      "filePath": ".ua/.trash-1786690380/batch-72-part-2.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-72-part-2.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-73.json",
+      "type": "config",
+      "name": "batch-73.json",
+      "filePath": ".ua/.trash-1786690380/batch-73.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-73.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-74.json",
+      "type": "config",
+      "name": "batch-74.json",
+      "filePath": ".ua/.trash-1786690380/batch-74.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-74.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-8-part-1.json",
+      "type": "config",
+      "name": "batch-8-part-1.json",
+      "filePath": ".ua/.trash-1786690380/batch-8-part-1.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-8-part-1.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-8-part-2.json",
+      "type": "config",
+      "name": "batch-8-part-2.json",
+      "filePath": ".ua/.trash-1786690380/batch-8-part-2.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-8-part-2.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-8-part-3.json",
+      "type": "config",
+      "name": "batch-8-part-3.json",
+      "filePath": ".ua/.trash-1786690380/batch-8-part-3.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-8-part-3.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-9.json",
+      "type": "config",
+      "name": "batch-9.json",
+      "filePath": ".ua/.trash-1786690380/batch-9.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batch-9.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batches.json",
+      "type": "config",
+      "name": "batches.json",
+      "filePath": ".ua/.trash-1786690380/batches.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/batches.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/fingerprint-input.json",
+      "type": "config",
+      "name": "fingerprint-input.json",
+      "filePath": ".ua/.trash-1786690380/fingerprint-input.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/fingerprint-input.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/layers.json",
+      "type": "config",
+      "name": "layers.json",
+      "filePath": ".ua/.trash-1786690380/layers.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/layers.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/review.json",
+      "type": "config",
+      "name": "review.json",
+      "filePath": ".ua/.trash-1786690380/review.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/review.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/tour.json",
+      "type": "config",
+      "name": "tour.json",
+      "filePath": ".ua/.trash-1786690380/tour.json",
+      "summary": "Stores structured configuration or project metadata in .ua/.trash-1786690380/tour.json.",
+      "tags": [
+        "configuration",
+        "structured-data",
+        "project-metadata"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

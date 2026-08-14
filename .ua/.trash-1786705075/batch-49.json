@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-browser-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-browser-agent/README.md",
+      "summary": "Documents README for the genai-browser-agent project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-browser-agent/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-browser-agent/architecture.md",
+      "summary": "Documents architecture for the genai-browser-agent project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-browser-agent/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-browser-agent/tasks.md",
+      "summary": "Documents tasks for the genai-browser-agent project.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

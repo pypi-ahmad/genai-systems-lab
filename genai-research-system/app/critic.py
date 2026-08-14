@@ -7,7 +7,7 @@ from google.genai import types
 from shared.llm.gemini import _get_client
 
 
-CRITIC_MODEL = "gemini-3.1-pro-preview"
+CRITIC_MODEL = "gemini-3.7-flash"
 
 
 def critique(task: str, research_output: str) -> str:

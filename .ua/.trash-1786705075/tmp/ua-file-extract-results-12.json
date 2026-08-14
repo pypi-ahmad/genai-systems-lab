@@ -1,0 +1,1165 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 9,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 9,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 9,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "genai-knowledge-os/app/chunker.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 28,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "chunk_text",
+          "startLine": 1,
+          "endLine": 28,
+          "params": [
+            "text",
+            "max_words",
+            "min_words"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "chunk_text",
+          "line": 1,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "chunk_text",
+          "callee": "p.strip",
+          "lineNumber": 2
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "text.split",
+          "lineNumber": 2
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "p.strip",
+          "lineNumber": 2
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 11
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "para.split",
+          "lineNumber": 11
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "chunks.append",
+          "lineNumber": 13
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "\"\\n\\n\".join",
+          "lineNumber": 13
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "current.append",
+          "lineNumber": 17
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "\"\\n\\n\".join",
+          "lineNumber": 22
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "chunks.append",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/embedder.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 39,
+      "functions": [
+        {
+          "name": "_should_retry",
+          "startLine": 15,
+          "endLine": 20,
+          "params": [
+            "exc"
+          ]
+        },
+        {
+          "name": "_embed_batch",
+          "startLine": 23,
+          "endLine": 38,
+          "params": [
+            "texts"
+          ]
+        },
+        {
+          "name": "generate_embedding",
+          "startLine": 41,
+          "endLine": 42,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "batch_embeddings",
+          "startLine": 45,
+          "endLine": 51,
+          "params": [
+            "texts"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "_should_retry",
+          "line": 15,
+          "isDefault": false
+        },
+        {
+          "name": "_embed_batch",
+          "line": 23,
+          "isDefault": false
+        },
+        {
+          "name": "generate_embedding",
+          "line": 41,
+          "isDefault": false
+        },
+        {
+          "name": "batch_embeddings",
+          "line": 45,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_should_retry",
+          "callee": "isinstance",
+          "lineNumber": 16
+        },
+        {
+          "caller": "_should_retry",
+          "callee": "isinstance",
+          "lineNumber": 18
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "range",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "_get_client().models.embed_content",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "_get_client",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "types.EmbedContentConfig",
+          "lineNumber": 30
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "list",
+          "lineNumber": 32
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "_should_retry",
+          "lineNumber": 35
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "time.sleep",
+          "lineNumber": 37
+        },
+        {
+          "caller": "_embed_batch",
+          "callee": "RuntimeError",
+          "lineNumber": 38
+        },
+        {
+          "caller": "generate_embedding",
+          "callee": "_embed_batch",
+          "lineNumber": 42
+        },
+        {
+          "caller": "batch_embeddings",
+          "callee": "range",
+          "lineNumber": 49
+        },
+        {
+          "caller": "batch_embeddings",
+          "callee": "len",
+          "lineNumber": 49
+        },
+        {
+          "caller": "batch_embeddings",
+          "callee": "results.extend",
+          "lineNumber": 50
+        },
+        {
+          "caller": "batch_embeddings",
+          "callee": "_embed_batch",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/ingest.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 23,
+      "nonEmptyLines": 19,
+      "functions": [
+        {
+          "name": "load_documents",
+          "startLine": 7,
+          "endLine": 23,
+          "params": [
+            "folder_path"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "load_documents",
+          "line": 7,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "load_documents",
+          "callee": "os.walk",
+          "lineNumber": 9
+        },
+        {
+          "caller": "load_documents",
+          "callee": "sorted",
+          "lineNumber": 10
+        },
+        {
+          "caller": "load_documents",
+          "callee": "os.path.splitext(filename)[1].lower",
+          "lineNumber": 11
+        },
+        {
+          "caller": "load_documents",
+          "callee": "os.path.splitext",
+          "lineNumber": 11
+        },
+        {
+          "caller": "load_documents",
+          "callee": "os.path.join",
+          "lineNumber": 14
+        },
+        {
+          "caller": "load_documents",
+          "callee": "open",
+          "lineNumber": 15
+        },
+        {
+          "caller": "load_documents",
+          "callee": "f.read",
+          "lineNumber": 16
+        },
+        {
+          "caller": "load_documents",
+          "callee": "text.strip",
+          "lineNumber": 17
+        },
+        {
+          "caller": "load_documents",
+          "callee": "documents.append",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/insight_engine.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 30,
+      "nonEmptyLines": 21,
+      "functions": [
+        {
+          "name": "generate_insights",
+          "startLine": 22,
+          "endLine": 30,
+          "params": [
+            "chunks"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "generate_insights",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "generate_insights",
+          "callee": "c.strip",
+          "lineNumber": 23
+        },
+        {
+          "caller": "generate_insights",
+          "callee": "c.strip",
+          "lineNumber": 23
+        },
+        {
+          "caller": "generate_insights",
+          "callee": "\"\\n\\n\".join",
+          "lineNumber": 26
+        },
+        {
+          "caller": "generate_insights",
+          "callee": "enumerate",
+          "lineNumber": 27
+        },
+        {
+          "caller": "generate_insights",
+          "callee": "PROMPT_TEMPLATE.format",
+          "lineNumber": 29
+        },
+        {
+          "caller": "generate_insights",
+          "callee": "generate_text",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/main.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 91,
+      "nonEmptyLines": 73,
+      "functions": [
+        {
+          "name": "run",
+          "startLine": 20,
+          "endLine": 31,
+          "params": [
+            "input",
+            "api_key"
+          ]
+        },
+        {
+          "name": "ingest",
+          "startLine": 34,
+          "endLine": 63,
+          "params": [
+            "folder_path",
+            "store"
+          ]
+        },
+        {
+          "name": "query",
+          "startLine": 66,
+          "endLine": 91,
+          "params": [
+            "question",
+            "memory"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "run",
+          "line": 20,
+          "isDefault": false
+        },
+        {
+          "name": "ingest",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "query",
+          "line": 66,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "run",
+          "callee": "set_byok_api_key",
+          "lineNumber": 22
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 24
+        },
+        {
+          "caller": "run",
+          "callee": "VectorStore",
+          "lineNumber": 25
+        },
+        {
+          "caller": "run",
+          "callee": "init_store",
+          "lineNumber": 26
+        },
+        {
+          "caller": "run",
+          "callee": "KnowledgeMemory",
+          "lineNumber": 27
+        },
+        {
+          "caller": "run",
+          "callee": "emit_step",
+          "lineNumber": 28
+        },
+        {
+          "caller": "run",
+          "callee": "query",
+          "lineNumber": 29
+        },
+        {
+          "caller": "run",
+          "callee": "reset_byok_api_key",
+          "lineNumber": 31
+        },
+        {
+          "caller": "ingest",
+          "callee": "load_documents",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ingest",
+          "callee": "print",
+          "lineNumber": 37
+        },
+        {
+          "caller": "ingest",
+          "callee": "chunk_text",
+          "lineNumber": 42
+        },
+        {
+          "caller": "ingest",
+          "callee": "enumerate",
+          "lineNumber": 43
+        },
+        {
+          "caller": "ingest",
+          "callee": "all_chunks.append",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ingest",
+          "callee": "batch_embeddings",
+          "lineNumber": 50
+        },
+        {
+          "caller": "ingest",
+          "callee": "zip",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ingest",
+          "callee": "docs_to_store.append",
+          "lineNumber": 54
+        },
+        {
+          "caller": "ingest",
+          "callee": "store.add_documents",
+          "lineNumber": 60
+        },
+        {
+          "caller": "ingest",
+          "callee": "store.save",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ingest",
+          "callee": "print",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ingest",
+          "callee": "len",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ingest",
+          "callee": "len",
+          "lineNumber": 62
+        },
+        {
+          "caller": "ingest",
+          "callee": "len",
+          "lineNumber": 63
+        },
+        {
+          "caller": "query",
+          "callee": "emit_step",
+          "lineNumber": 67
+        },
+        {
+          "caller": "query",
+          "callee": "retrieve",
+          "lineNumber": 68
+        },
+        {
+          "caller": "query",
+          "callee": "emit_step",
+          "lineNumber": 69
+        },
+        {
+          "caller": "query",
+          "callee": "\"\\n\\n\".join",
+          "lineNumber": 74
+        },
+        {
+          "caller": "query",
+          "callee": "emit_step",
+          "lineNumber": 76
+        },
+        {
+          "caller": "query",
+          "callee": "summarize",
+          "lineNumber": 77
+        },
+        {
+          "caller": "query",
+          "callee": "emit_step",
+          "lineNumber": 78
+        },
+        {
+          "caller": "query",
+          "callee": "list",
+          "lineNumber": 80
+        },
+        {
+          "caller": "query",
+          "callee": "r[\"metadata\"].get",
+          "lineNumber": 80
+        },
+        {
+          "caller": "query",
+          "callee": "r[\"metadata\"].get",
+          "lineNumber": 80
+        },
+        {
+          "caller": "query",
+          "callee": "len",
+          "lineNumber": 83
+        },
+        {
+          "caller": "query",
+          "callee": "emit_step",
+          "lineNumber": 84
+        },
+        {
+          "caller": "query",
+          "callee": "generate_insights",
+          "lineNumber": 85
+        },
+        {
+          "caller": "query",
+          "callee": "memory.add_memory",
+          "lineNumber": 87
+        },
+        {
+          "caller": "query",
+          "callee": "memory.save",
+          "lineNumber": 88
+        },
+        {
+          "caller": "query",
+          "callee": "emit_step",
+          "lineNumber": 89
+        }
+      ],
+      "metrics": {
+        "importCount": 10,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/memory.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 68,
+      "nonEmptyLines": 60,
+      "classes": [
+        {
+          "name": "KnowledgeMemory",
+          "startLine": 9,
+          "endLine": 68,
+          "methods": [
+            "__init__",
+            "add_memory",
+            "retrieve_memory",
+            "list_memories",
+            "save",
+            "load"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "KnowledgeMemory",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "__init__",
+          "callee": "VectorStore",
+          "lineNumber": 11
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.path.exists",
+          "lineNumber": 14
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.load",
+          "lineNumber": 15
+        },
+        {
+          "caller": "add_memory",
+          "callee": "text.strip",
+          "lineNumber": 18
+        },
+        {
+          "caller": "add_memory",
+          "callee": "generate_embedding",
+          "lineNumber": 21
+        },
+        {
+          "caller": "add_memory",
+          "callee": "datetime.now(timezone.utc).isoformat",
+          "lineNumber": 25
+        },
+        {
+          "caller": "add_memory",
+          "callee": "datetime.now",
+          "lineNumber": 25
+        },
+        {
+          "caller": "add_memory",
+          "callee": "self._entries.append",
+          "lineNumber": 27
+        },
+        {
+          "caller": "add_memory",
+          "callee": "self._store.add_documents",
+          "lineNumber": 28
+        },
+        {
+          "caller": "add_memory",
+          "callee": "len",
+          "lineNumber": 31
+        },
+        {
+          "caller": "retrieve_memory",
+          "callee": "generate_embedding",
+          "lineNumber": 37
+        },
+        {
+          "caller": "retrieve_memory",
+          "callee": "self._store.search",
+          "lineNumber": 38
+        },
+        {
+          "caller": "retrieve_memory",
+          "callee": "r[\"metadata\"].get",
+          "lineNumber": 43
+        },
+        {
+          "caller": "list_memories",
+          "callee": "list",
+          "lineNumber": 49
+        },
+        {
+          "caller": "save",
+          "callee": "os.makedirs",
+          "lineNumber": 54
+        },
+        {
+          "caller": "save",
+          "callee": "os.path.dirname",
+          "lineNumber": 54
+        },
+        {
+          "caller": "save",
+          "callee": "open",
+          "lineNumber": 59
+        },
+        {
+          "caller": "save",
+          "callee": "json.dump",
+          "lineNumber": 60
+        },
+        {
+          "caller": "load",
+          "callee": "os.path.exists",
+          "lineNumber": 63
+        },
+        {
+          "caller": "load",
+          "callee": "open",
+          "lineNumber": 65
+        },
+        {
+          "caller": "load",
+          "callee": "json.load",
+          "lineNumber": 66
+        },
+        {
+          "caller": "load",
+          "callee": "data.get",
+          "lineNumber": 67
+        },
+        {
+          "caller": "load",
+          "callee": "data.get",
+          "lineNumber": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 0,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/retriever.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 51,
+      "nonEmptyLines": 36,
+      "functions": [
+        {
+          "name": "init_store",
+          "startLine": 13,
+          "endLine": 15,
+          "params": [
+            "store"
+          ]
+        },
+        {
+          "name": "_tokenize",
+          "startLine": 18,
+          "endLine": 19,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "_keyword_score",
+          "startLine": 22,
+          "endLine": 27,
+          "params": [
+            "query_tokens",
+            "text"
+          ]
+        },
+        {
+          "name": "retrieve",
+          "startLine": 30,
+          "endLine": 51,
+          "params": [
+            "query",
+            "top_k"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "init_store",
+          "line": 13,
+          "isDefault": false
+        },
+        {
+          "name": "_tokenize",
+          "line": 18,
+          "isDefault": false
+        },
+        {
+          "name": "_keyword_score",
+          "line": 22,
+          "isDefault": false
+        },
+        {
+          "name": "retrieve",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_tokenize",
+          "callee": "set",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_tokenize",
+          "callee": "re.findall",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_tokenize",
+          "callee": "text.lower",
+          "lineNumber": 19
+        },
+        {
+          "caller": "_keyword_score",
+          "callee": "_tokenize",
+          "lineNumber": 25
+        },
+        {
+          "caller": "_keyword_score",
+          "callee": "len",
+          "lineNumber": 27
+        },
+        {
+          "caller": "_keyword_score",
+          "callee": "len",
+          "lineNumber": 27
+        },
+        {
+          "caller": "retrieve",
+          "callee": "RuntimeError",
+          "lineNumber": 32
+        },
+        {
+          "caller": "retrieve",
+          "callee": "generate_embedding",
+          "lineNumber": 33
+        },
+        {
+          "caller": "retrieve",
+          "callee": "_store.search",
+          "lineNumber": 34
+        },
+        {
+          "caller": "retrieve",
+          "callee": "_tokenize",
+          "lineNumber": 36
+        },
+        {
+          "caller": "retrieve",
+          "callee": "_keyword_score",
+          "lineNumber": 40
+        },
+        {
+          "caller": "retrieve",
+          "callee": "scored.append",
+          "lineNumber": 42
+        },
+        {
+          "caller": "retrieve",
+          "callee": "scored.sort",
+          "lineNumber": 50
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 4,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/summarizer.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 19,
+      "nonEmptyLines": 12,
+      "functions": [
+        {
+          "name": "summarize",
+          "startLine": 14,
+          "endLine": 19,
+          "params": [
+            "text"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "summarize",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "summarize",
+          "callee": "text.strip",
+          "lineNumber": 15
+        },
+        {
+          "caller": "summarize",
+          "callee": "PROMPT_TEMPLATE.format",
+          "lineNumber": 18
+        },
+        {
+          "caller": "summarize",
+          "callee": "generate_text",
+          "lineNumber": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "genai-knowledge-os/app/vector_store.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 64,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "_cosine_similarity",
+          "startLine": 7,
+          "endLine": 12,
+          "params": [
+            "a",
+            "b"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "VectorStore",
+          "startLine": 15,
+          "endLine": 64,
+          "methods": [
+            "__init__",
+            "add_documents",
+            "search",
+            "save",
+            "load",
+            "__len__"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "_cosine_similarity",
+          "line": 7,
+          "isDefault": false
+        },
+        {
+          "name": "VectorStore",
+          "line": 15,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "_cosine_similarity",
+          "callee": "np.linalg.norm",
+          "lineNumber": 8
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "np.linalg.norm",
+          "lineNumber": 9
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "float",
+          "lineNumber": 12
+        },
+        {
+          "caller": "_cosine_similarity",
+          "callee": "np.dot",
+          "lineNumber": 12
+        },
+        {
+          "caller": "__init__",
+          "callee": "os.path.exists",
+          "lineNumber": 19
+        },
+        {
+          "caller": "__init__",
+          "callee": "self.load",
+          "lineNumber": 20
+        },
+        {
+          "caller": "add_documents",
+          "callee": "str(doc.get(\"text\", \"\")).strip",
+          "lineNumber": 24
+        },
+        {
+          "caller": "add_documents",
+          "callee": "str",
+          "lineNumber": 24
+        },
+        {
+          "caller": "add_documents",
+          "callee": "doc.get",
+          "lineNumber": 24
+        },
+        {
+          "caller": "add_documents",
+          "callee": "doc.get",
+          "lineNumber": 25
+        },
+        {
+          "caller": "add_documents",
+          "callee": "isinstance",
+          "lineNumber": 26
+        },
+        {
+          "caller": "add_documents",
+          "callee": "self._documents.append",
+          "lineNumber": 28
+        },
+        {
+          "caller": "add_documents",
+          "callee": "float",
+          "lineNumber": 30
+        },
+        {
+          "caller": "add_documents",
+          "callee": "doc.get",
+          "lineNumber": 31
+        },
+        {
+          "caller": "search",
+          "callee": "np.asarray",
+          "lineNumber": 37
+        },
+        {
+          "caller": "search",
+          "callee": "np.asarray",
+          "lineNumber": 40
+        },
+        {
+          "caller": "search",
+          "callee": "_cosine_similarity",
+          "lineNumber": 41
+        },
+        {
+          "caller": "search",
+          "callee": "scored.append",
+          "lineNumber": 42
+        },
+        {
+          "caller": "search",
+          "callee": "scored.sort",
+          "lineNumber": 47
+        },
+        {
+          "caller": "save",
+          "callee": "os.makedirs",
+          "lineNumber": 53
+        },
+        {
+          "caller": "save",
+          "callee": "os.path.dirname",
+          "lineNumber": 53
+        },
+        {
+          "caller": "save",
+          "callee": "open",
+          "lineNumber": 54
+        },
+        {
+          "caller": "save",
+          "callee": "json.dump",
+          "lineNumber": 55
+        },
+        {
+          "caller": "load",
+          "callee": "os.path.exists",
+          "lineNumber": 58
+        },
+        {
+          "caller": "load",
+          "callee": "open",
+          "lineNumber": 60
+        },
+        {
+          "caller": "load",
+          "callee": "json.load",
+          "lineNumber": 61
+        },
+        {
+          "caller": "__len__",
+          "callee": "len",
+          "lineNumber": 64
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 1
+      }
+    }
+  ]
+}

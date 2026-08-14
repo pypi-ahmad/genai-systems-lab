@@ -2,8 +2,8 @@
 
 from crewai import Agent
 
-REASONING_MODEL = "gemini/gemini-3.1-pro-preview"
-SUMMARY_MODEL = "gemini/gemini-3-flash-preview"
+REASONING_MODEL = "gemini/gemini-3.7-flash"
+SUMMARY_MODEL = "gemini/gemini-3.5-flash-lite"
 
 
 def build_market_researcher() -> Agent:

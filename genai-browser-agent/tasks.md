@@ -37,7 +37,7 @@
 
 - Create the planner in `app/planner.py`.
 - Build a prompt that includes the current page observation, step history, and task description.
-- Call `gemini-3.1-pro-preview` with the prompt and parse the response into a structured action dict.
+- Call `gemini-3.7-flash` with the prompt and parse the response into a structured action dict.
 - If the LLM returns an unrecognized action, default to a `wait` action instead of crashing.
 - Add a `done` detection path: if the planner decides the task is complete, return a `done` action.
 

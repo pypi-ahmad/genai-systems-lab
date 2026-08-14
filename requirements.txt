@@ -25,3 +25,8 @@ langfuse>=2.0.0
 # explicit algorithm allowlisting and required-claim enforcement (audit
 # item: custom-JWT replacement).
 PyJWT==2.12.1
+alembic==1.18.5
+cryptography==50.0.0
+psycopg[binary]==3.3.4
+redis==8.1.0
+rq==2.10.0

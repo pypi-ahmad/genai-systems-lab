@@ -1,0 +1,12 @@
+{
+  "fixedSectionOk": true,
+  "nodesRecovered": 0,
+  "edgesRestored": 1,
+  "crossBatchEdgesAdded": 0,
+  "typesRemapped": 0,
+  "complexityRemapped": 0,
+  "notes": [
+    "The merge report had no Fixed entries to review; its single dropped imports edge was restored to the existing config:portfolio/src/data/project-catalog.json node.",
+    "All 1126 import-map relationships are represented after resolving targets by filePath; no malformed node IDs, unknown types, or unknown complexity values remain."
+  ]
+}

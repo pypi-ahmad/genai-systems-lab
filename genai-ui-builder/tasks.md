@@ -13,7 +13,7 @@
 - Create the spec generation interface in `app/spec_generator.py`.
 - Build a system prompt that instructs the model to output strict JSON matching the schema.
 - Accept a user prompt and return a parsed JSON UI spec.
-- Use `gemini-3.1-pro-preview` for spec generation.
+- Use `gemini-3.7-flash` for spec generation.
 - Extract raw JSON from the model response, handling markdown fences if present.
 
 ## Validate Spec
@@ -36,7 +36,7 @@
 
 - Create the fixer loop interface in `app/fixer.py`.
 - Accept a spec or code string along with a list of validation errors.
-- Send the current output and errors to `gemini-3-flash-preview` for correction.
+- Send the current output and errors to `gemini-3.5-flash-lite` for correction.
 - Re-validate after each fix attempt and loop until valid or iteration limit is reached.
 - Set a configurable maximum iteration count with a default of 3.
 - Return the fixed output and a summary of iterations and remaining issues.

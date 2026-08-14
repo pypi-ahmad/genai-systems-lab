@@ -9,7 +9,7 @@ from google.genai import types
 from shared.llm.gemini import _get_client
 
 
-WRITER_MODEL = "gemini-3-flash-preview"
+WRITER_MODEL = "gemini-3.5-flash-lite"
 
 
 def write_report(query: str, findings: dict[str, str]) -> str:

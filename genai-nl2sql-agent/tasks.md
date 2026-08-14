@@ -37,11 +37,10 @@
 
 ## 6. Implement SQL Validation
 
-- Add a validator that rejects empty or malformed SQL.
-- Block non-read-only statements such as `DROP`, `DELETE`, and `UPDATE`.
-- Reject multi-statement SQL.
-- Verify that referenced tables and columns exist in the extracted schema.
-- Add a DuckDB-compatibility validation step before execution.
+- Parse generated SQL through DuckDB and reject empty, malformed, or multi-statement input.
+- Apply a deny-by-default AST allowlist for the known tables, expressions, and functions.
+- Reject file/network readers, table functions, nested queries, external catalogs, and extension operations.
+- Revalidate at the executor and keep DuckDB external access and extension loading disabled.
 
 ## 7. Implement Retry Mechanism
 
@@ -61,7 +60,7 @@
 ## 9. Summarize Results
 
 - Define the summarization prompt using the original question and query results.
-- Call `gemini-3-flash-preview` for result summarization.
+- Call `gemini-3.5-flash-lite` for result summarization.
 - Ensure summaries remain grounded in the returned dataset.
 - Return both raw results and the generated natural language summary.
 

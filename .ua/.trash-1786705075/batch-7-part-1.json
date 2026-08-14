@@ -1,0 +1,733 @@
+{
+  "nodes": [
+    {
+      "id": "file:shared/eval/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/eval/__init__.py",
+      "summary": "Implements __init__.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/eval/benchmarks.py",
+      "type": "file",
+      "name": "benchmarks.py",
+      "filePath": "shared/eval/benchmarks.py",
+      "summary": "Implements benchmarks.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_contains_any",
+      "type": "function",
+      "name": "_contains_any",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        109,
+        112
+      ],
+      "summary": "Implements the _contains_any routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_contains_all",
+      "type": "function",
+      "name": "_contains_all",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        115,
+        118
+      ],
+      "summary": "Implements the _contains_all routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_matches",
+      "type": "function",
+      "name": "_matches",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        121,
+        123
+      ],
+      "summary": "Implements the _matches routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_min_length",
+      "type": "function",
+      "name": "_min_length",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        126,
+        128
+      ],
+      "summary": "Implements the _min_length routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_is_valid_json",
+      "type": "function",
+      "name": "_is_valid_json",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        131,
+        138
+      ],
+      "summary": "Implements the _is_valid_json routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:_no_error",
+      "type": "function",
+      "name": "_no_error",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        141,
+        146
+      ],
+      "summary": "Implements the _no_error routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:get_dataset",
+      "type": "function",
+      "name": "get_dataset",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        517,
+        522
+      ],
+      "summary": "Implements the get_dataset routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/benchmarks.py:list_projects",
+      "type": "function",
+      "name": "list_projects",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        525,
+        527
+      ],
+      "summary": "Implements the list_projects routine in benchmarks.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/benchmarks.py:BenchmarkCase",
+      "type": "class",
+      "name": "BenchmarkCase",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        33,
+        40
+      ],
+      "summary": "Defines the BenchmarkCase class used by benchmarks.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/benchmarks.py:BenchmarkResult",
+      "type": "class",
+      "name": "BenchmarkResult",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        44,
+        51
+      ],
+      "summary": "Defines the BenchmarkResult class used by benchmarks.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/benchmarks.py:BenchmarkSuite",
+      "type": "class",
+      "name": "BenchmarkSuite",
+      "filePath": "shared/eval/benchmarks.py",
+      "lineRange": [
+        54,
+        102
+      ],
+      "summary": "Defines the BenchmarkSuite class used by benchmarks.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/eval/evaluator.py",
+      "type": "file",
+      "name": "evaluator.py",
+      "filePath": "shared/eval/evaluator.py",
+      "summary": "Implements evaluator.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/eval/evaluator.py:run_evaluation",
+      "type": "function",
+      "name": "run_evaluation",
+      "filePath": "shared/eval/evaluator.py",
+      "lineRange": [
+        10,
+        62
+      ],
+      "summary": "Implements the run_evaluation routine in evaluator.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/eval/evaluator.py:_prepare_case",
+      "type": "function",
+      "name": "_prepare_case",
+      "filePath": "shared/eval/evaluator.py",
+      "lineRange": [
+        65,
+        85
+      ],
+      "summary": "Implements the _prepare_case routine in evaluator.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/evaluator.py:_run_case",
+      "type": "function",
+      "name": "_run_case",
+      "filePath": "shared/eval/evaluator.py",
+      "lineRange": [
+        88,
+        123
+      ],
+      "summary": "Implements the _run_case routine in evaluator.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/eval/metrics.py",
+      "type": "file",
+      "name": "metrics.py",
+      "filePath": "shared/eval/metrics.py",
+      "summary": "Implements metrics.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/metrics.py:keyword_accuracy",
+      "type": "function",
+      "name": "keyword_accuracy",
+      "filePath": "shared/eval/metrics.py",
+      "lineRange": [
+        9,
+        26
+      ],
+      "summary": "Implements the keyword_accuracy routine in metrics.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/metrics.py:structural_match",
+      "type": "function",
+      "name": "structural_match",
+      "filePath": "shared/eval/metrics.py",
+      "lineRange": [
+        29,
+        38
+      ],
+      "summary": "Implements the structural_match routine in metrics.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/eval/metrics.py:latency_stats",
+      "type": "function",
+      "name": "latency_stats",
+      "filePath": "shared/eval/metrics.py",
+      "lineRange": [
+        41,
+        52
+      ],
+      "summary": "Implements the latency_stats routine in metrics.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/eval/stress.py",
+      "type": "file",
+      "name": "stress.py",
+      "filePath": "shared/eval/stress.py",
+      "summary": "Implements stress.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/eval/stress.py:run_stress_test",
+      "type": "function",
+      "name": "run_stress_test",
+      "filePath": "shared/eval/stress.py",
+      "lineRange": [
+        37,
+        105
+      ],
+      "summary": "Implements the run_stress_test routine in stress.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:shared/eval/stress.py:StressResult",
+      "type": "class",
+      "name": "StressResult",
+      "filePath": "shared/eval/stress.py",
+      "lineRange": [
+        19,
+        30
+      ],
+      "summary": "Defines the StressResult class used by stress.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/eval/stress.py:StressRunner",
+      "type": "class",
+      "name": "StressRunner",
+      "filePath": "shared/eval/stress.py",
+      "lineRange": [
+        112,
+        146
+      ],
+      "summary": "Defines the StressRunner class used by stress.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_any",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_any",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_contains_all",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_matches",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_matches",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_min_length",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_min_length",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_is_valid_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_is_valid_json",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_no_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:_no_error",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:get_dataset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:get_dataset",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:list_projects",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "function:shared/eval/benchmarks.py:list_projects",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkCase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkCase",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkSuite",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "class:shared/eval/benchmarks.py:BenchmarkSuite",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:run_evaluation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:run_evaluation",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_prepare_case",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_prepare_case",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_run_case",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/evaluator.py",
+      "target": "function:shared/eval/evaluator.py:_run_case",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:keyword_accuracy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:keyword_accuracy",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:structural_match",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:structural_match",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:latency_stats",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/metrics.py",
+      "target": "function:shared/eval/metrics.py:latency_stats",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "function:shared/eval/stress.py:run_stress_test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "function:shared/eval/stress.py:run_stress_test",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressRunner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "class:shared/eval/stress.py:StressRunner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/eval/__init__.py",
+      "target": "file:shared/eval/benchmarks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/eval/__init__.py",
+      "target": "file:shared/eval/evaluator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/eval/__init__.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/eval/__init__.py",
+      "target": "file:shared/eval/stress.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/eval/benchmarks.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/eval/stress.py",
+      "target": "file:shared/eval/metrics.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

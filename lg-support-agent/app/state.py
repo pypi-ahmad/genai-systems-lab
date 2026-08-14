@@ -5,8 +5,8 @@ from typing import TypedDict
 CONFIDENCE_THRESHOLD = 0.7
 RETRIEVAL_TOP_K = 5
 RELEVANCE_THRESHOLD = 0.3
-CLASSIFICATION_MODEL = "gemini-3.1-pro-preview"
-RESPONSE_MODEL = "gemini-3-flash-preview"
+CLASSIFICATION_MODEL = "gemini-3.7-flash"
+RESPONSE_MODEL = "gemini-3.5-flash-lite"
 INTENT_LABELS = ["billing", "technical", "account", "returns", "general", "unknown"]
 
 

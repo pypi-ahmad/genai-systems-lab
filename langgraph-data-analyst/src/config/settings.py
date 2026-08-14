@@ -16,8 +16,8 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 load_dotenv()
 
 # ── Model constants ──────────────────────────────────────────────────────
-MODEL_FAST = "gemini-3-flash-preview"
-MODEL_PRO = "gemini-3.1-pro-preview"
+MODEL_FAST = "gemini-3.5-flash-lite"
+MODEL_PRO = "gemini-3.7-flash"
 
 
 class Settings(BaseSettings):

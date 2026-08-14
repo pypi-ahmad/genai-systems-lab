@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-browser-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-browser-agent/README.md",
+      "summary": "Introduces the LLM-driven browser automation system that observes pages, plans actions, executes interactions, and stops at completion or a step limit.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-browser-agent/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-browser-agent/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the LLM-driven browser automation system that observes pages, plans actions, executes interactions, and stops at completion or a step limit.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-browser-agent/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-browser-agent/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the LLM-driven browser automation system that observes pages, plans actions, executes interactions, and stops at completion or a step limit.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

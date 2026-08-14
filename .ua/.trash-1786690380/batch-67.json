@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:lg-research-agent/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "lg-research-agent/README.md",
+      "summary": "Documents the project material contained in lg-research-agent/README.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:lg-research-agent/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "lg-research-agent/architecture.md",
+      "summary": "Documents the project material contained in lg-research-agent/architecture.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:lg-research-agent/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "lg-research-agent/tasks.md",
+      "summary": "Documents the project material contained in lg-research-agent/tasks.md.",
+      "tags": [
+        "documentation",
+        "project-reference",
+        "guidance"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

@@ -1,0 +1,265 @@
+{
+  "nodes": [
+    {
+      "id": "config:.ua/.trash-1786690380/batch-22.json",
+      "type": "config",
+      "name": "batch-22.json",
+      "filePath": ".ua/.trash-1786690380/batch-22.json",
+      "summary": "batch-22.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-23.json",
+      "type": "config",
+      "name": "batch-23.json",
+      "filePath": ".ua/.trash-1786690380/batch-23.json",
+      "summary": "batch-23.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-24.json",
+      "type": "config",
+      "name": "batch-24.json",
+      "filePath": ".ua/.trash-1786690380/batch-24.json",
+      "summary": "batch-24.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-25.json",
+      "type": "config",
+      "name": "batch-25.json",
+      "filePath": ".ua/.trash-1786690380/batch-25.json",
+      "summary": "batch-25.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-26.json",
+      "type": "config",
+      "name": "batch-26.json",
+      "filePath": ".ua/.trash-1786690380/batch-26.json",
+      "summary": "batch-26.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-27.json",
+      "type": "config",
+      "name": "batch-27.json",
+      "filePath": ".ua/.trash-1786690380/batch-27.json",
+      "summary": "batch-27.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-28.json",
+      "type": "config",
+      "name": "batch-28.json",
+      "filePath": ".ua/.trash-1786690380/batch-28.json",
+      "summary": "batch-28.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-29.json",
+      "type": "config",
+      "name": "batch-29.json",
+      "filePath": ".ua/.trash-1786690380/batch-29.json",
+      "summary": "batch-29.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-3-part-1.json",
+      "type": "config",
+      "name": "batch-3-part-1.json",
+      "filePath": ".ua/.trash-1786690380/batch-3-part-1.json",
+      "summary": "batch-3-part-1.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-3-part-2.json",
+      "type": "config",
+      "name": "batch-3-part-2.json",
+      "filePath": ".ua/.trash-1786690380/batch-3-part-2.json",
+      "summary": "batch-3-part-2.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-30.json",
+      "type": "config",
+      "name": "batch-30.json",
+      "filePath": ".ua/.trash-1786690380/batch-30.json",
+      "summary": "batch-30.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-31.json",
+      "type": "config",
+      "name": "batch-31.json",
+      "filePath": ".ua/.trash-1786690380/batch-31.json",
+      "summary": "batch-31.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-32.json",
+      "type": "config",
+      "name": "batch-32.json",
+      "filePath": ".ua/.trash-1786690380/batch-32.json",
+      "summary": "batch-32.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-33.json",
+      "type": "config",
+      "name": "batch-33.json",
+      "filePath": ".ua/.trash-1786690380/batch-33.json",
+      "summary": "batch-33.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-34.json",
+      "type": "config",
+      "name": "batch-34.json",
+      "filePath": ".ua/.trash-1786690380/batch-34.json",
+      "summary": "batch-34.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-35.json",
+      "type": "config",
+      "name": "batch-35.json",
+      "filePath": ".ua/.trash-1786690380/batch-35.json",
+      "summary": "batch-35.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-36.json",
+      "type": "config",
+      "name": "batch-36.json",
+      "filePath": ".ua/.trash-1786690380/batch-36.json",
+      "summary": "batch-36.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-37.json",
+      "type": "config",
+      "name": "batch-37.json",
+      "filePath": ".ua/.trash-1786690380/batch-37.json",
+      "summary": "batch-37.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-38.json",
+      "type": "config",
+      "name": "batch-38.json",
+      "filePath": ".ua/.trash-1786690380/batch-38.json",
+      "summary": "batch-38.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:.ua/.trash-1786690380/batch-39.json",
+      "type": "config",
+      "name": "batch-39.json",
+      "filePath": ".ua/.trash-1786690380/batch-39.json",
+      "summary": "batch-39.json provides repository configuration and settings for the associated tooling or runtime.",
+      "tags": [
+        "configuration",
+        "project-settings",
+        "build-system"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

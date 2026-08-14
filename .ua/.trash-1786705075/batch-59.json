@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-research-system/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-research-system/README.md",
+      "summary": "README.md documents the genai-research-system component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-research-system/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-research-system/architecture.md",
+      "summary": "architecture.md documents the genai-research-system component and its usage or design.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-research-system/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-research-system/tasks.md",
+      "summary": "tasks.md documents the genai-research-system component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

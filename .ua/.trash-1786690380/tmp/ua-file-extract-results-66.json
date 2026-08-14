@@ -1,0 +1,261 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "lg-debugging-agent/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Debugging Agent",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "lg-debugging-agent/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 226,
+      "nonEmptyLines": 164,
+      "sections": [
+        {
+          "heading": "Autonomous Debugging Agent — Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Graph State",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "State design rules",
+          "level": 3,
+          "line": 28
+        },
+        {
+          "heading": "Nodes",
+          "level": 2,
+          "line": 35
+        },
+        {
+          "heading": "analyzer",
+          "level": 3,
+          "line": 39
+        },
+        {
+          "heading": "fixer",
+          "level": 3,
+          "line": 48
+        },
+        {
+          "heading": "tester",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "evaluator",
+          "level": 3,
+          "line": 72
+        },
+        {
+          "heading": "Graph Transitions",
+          "level": 2,
+          "line": 84
+        },
+        {
+          "heading": "Edge map",
+          "level": 3,
+          "line": 86
+        },
+        {
+          "heading": "Conditional edge after evaluator",
+          "level": 3,
+          "line": 97
+        },
+        {
+          "heading": "Why this topology works",
+          "level": 3,
+          "line": 117
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 124
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 131
+        },
+        {
+          "heading": "Graph Construction",
+          "level": 2,
+          "line": 138
+        },
+        {
+          "heading": "Production Design Notes",
+          "level": 2,
+          "line": 179
+        },
+        {
+          "heading": "Safe Code Execution",
+          "level": 3,
+          "line": 181
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 191
+        },
+        {
+          "heading": "Error Handling",
+          "level": 3,
+          "line": 198
+        },
+        {
+          "heading": "Configuration",
+          "level": 3,
+          "line": 204
+        },
+        {
+          "heading": "Testing",
+          "level": 3,
+          "line": 216
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 224
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 23
+      }
+    },
+    {
+      "path": "lg-debugging-agent/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 80,
+      "nonEmptyLines": 58,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define State Schema",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Implement Analyzer Node",
+          "level": 2,
+          "line": 12
+        },
+        {
+          "heading": "3 — Implement Fixer Node",
+          "level": 2,
+          "line": 22
+        },
+        {
+          "heading": "4 — Implement Tester Node",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "5 — Implement Evaluator Node",
+          "level": 2,
+          "line": 48
+        },
+        {
+          "heading": "6 — Build Graph Transitions",
+          "level": 2,
+          "line": 59
+        },
+        {
+          "heading": "7 — Add Retry Loop",
+          "level": 2,
+          "line": 71
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

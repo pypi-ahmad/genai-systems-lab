@@ -2,8 +2,9 @@
 
 import { useState, type RefObject } from "react";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
+import { UsageCostSummary } from "@/components/llm-cost";
 import type { ProjectDetail } from "@/data/projects";
-import { splitErrorDetail } from "@/lib/api";
+import { splitErrorDetail, type RunUsage } from "@/lib/api";
 import {
   assistantCardTone,
   assistantStateTitle,
@@ -22,6 +23,7 @@ interface PlaygroundConversationPanelProps {
   inputPreview: string;
   keyMetrics: Array<{ label: string; value: string }>;
   latency: number | null;
+  usage: RunUsage | null;
   output: string | null;
   selected: ProjectDetail;
   status: RunStatus;
@@ -69,6 +71,7 @@ export function PlaygroundConversationPanel({
   inputPreview,
   keyMetrics,
   latency,
+  usage,
   output,
   selected,
   status,
@@ -112,6 +115,11 @@ export function PlaygroundConversationPanel({
             </span>
           )}
           {confidence !== null && <ConfidenceIndicator confidence={confidence} compact />}
+          {usage && (
+            <span className="surface-pill rounded-full px-3 py-1 text-[11px] font-semibold text-[var(--muted)]">
+              <UsageCostSummary usage={usage} compact />
+            </span>
+          )}
         </div>
       </div>
 
@@ -124,6 +132,12 @@ export function PlaygroundConversationPanel({
       {confidence !== null && (
         <div className="border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--surface-soft)_78%,transparent)] px-5 py-4">
           <ConfidenceIndicator confidence={confidence} />
+        </div>
+      )}
+
+      {usage && (
+        <div className="border-b border-[var(--line)] bg-[color-mix(in_srgb,var(--surface-soft)_78%,transparent)] px-5 py-4">
+          <UsageCostSummary usage={usage} />
         </div>
       )}
 

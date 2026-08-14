@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:crew-content-pipeline/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "crew-content-pipeline/README.md",
+      "summary": "Introduces the CrewAI content-production workflow that moves a topic through research, drafting, editing, and SEO optimization.",
+      "tags": [
+        "documentation",
+        "entry-point",
+        "overview"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:crew-content-pipeline/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "crew-content-pipeline/architecture.md",
+      "summary": "Documents the architecture, components, data flow, and operational design of the CrewAI content-production workflow that moves a topic through research, drafting, editing, and SEO optimization.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "system-design"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:crew-content-pipeline/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "crew-content-pipeline/tasks.md",
+      "summary": "Lists the implementation tasks and proposed module responsibilities for the CrewAI content-production workflow that moves a topic through research, drafting, editing, and SEO optimization.",
+      "tags": [
+        "documentation",
+        "implementation-plan",
+        "development"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

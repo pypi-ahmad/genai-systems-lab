@@ -1,0 +1,28 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "langgraph-data-analyst/.env.example",
+      "language": "config",
+      "sizeLines": 22,
+      "fileCategory": "config"
+    },
+    {
+      "path": "langgraph-data-analyst/README.md",
+      "language": "markdown",
+      "sizeLines": 54,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "langgraph-data-analyst/requirements.txt",
+      "language": "txt",
+      "sizeLines": 17,
+      "fileCategory": "docs"
+    }
+  ],
+  "batchImportData": {
+    "langgraph-data-analyst/.env.example": [],
+    "langgraph-data-analyst/README.md": [],
+    "langgraph-data-analyst/requirements.txt": []
+  }
+}

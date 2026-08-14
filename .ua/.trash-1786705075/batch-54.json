@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-financial-analyst/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-financial-analyst/README.md",
+      "summary": "README.md documents the genai-financial-analyst component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-financial-analyst/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-financial-analyst/architecture.md",
+      "summary": "architecture.md documents the genai-financial-analyst component and its usage or design.",
+      "tags": [
+        "documentation",
+        "architecture",
+        "reference"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "document:genai-financial-analyst/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-financial-analyst/tasks.md",
+      "summary": "tasks.md documents the genai-financial-analyst component and its usage or design.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

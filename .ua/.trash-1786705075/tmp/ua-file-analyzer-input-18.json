@@ -1,0 +1,41 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "crew-investment-analyst/app/agents.py",
+      "language": "python",
+      "sizeLines": 80,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-investment-analyst/app/crew.py",
+      "language": "python",
+      "sizeLines": 49,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-investment-analyst/app/main.py",
+      "language": "python",
+      "sizeLines": 44,
+      "fileCategory": "code"
+    },
+    {
+      "path": "crew-investment-analyst/app/tasks.py",
+      "language": "python",
+      "sizeLines": 203,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "crew-investment-analyst/app/agents.py": [],
+    "crew-investment-analyst/app/crew.py": [
+      "crew-investment-analyst/app/agents.py",
+      "crew-investment-analyst/app/tasks.py"
+    ],
+    "crew-investment-analyst/app/main.py": [
+      "crew-investment-analyst/app/crew.py",
+      "shared/config.py"
+    ],
+    "crew-investment-analyst/app/tasks.py": []
+  }
+}

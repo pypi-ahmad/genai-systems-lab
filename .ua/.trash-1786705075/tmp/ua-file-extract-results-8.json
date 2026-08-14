@@ -1,0 +1,3371 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 19,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 19,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 19,
+      "failed": 0,
+      "skipped": 0
+    }
+  },
+  "results": [
+    {
+      "path": "portfolio/src/app/sitemap.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 8,
+      "nonEmptyLines": 7,
+      "functions": [
+        {
+          "name": "sitemap",
+          "startLine": 4,
+          "endLine": 8,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "sitemap",
+          "line": 4,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "sitemap",
+          "callee": "process.env.NEXT_PUBLIC_SITE_URL?.replace",
+          "lineNumber": 5
+        },
+        {
+          "caller": "sitemap",
+          "callee": "[\"\", \"/projects\", \"/playground\", \"/compare\", \"/model-compare\", \"/metrics\", ...projectDetails.map(({ slug }) => `/projects/${slug}`)]\n    .map",
+          "lineNumber": 6
+        },
+        {
+          "caller": "sitemap",
+          "callee": "projectDetails.map",
+          "lineNumber": 6
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/RunExplanation.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 145,
+      "nonEmptyLines": 139,
+      "functions": [
+        {
+          "name": "RunExplanationPanel",
+          "startLine": 14,
+          "endLine": 145,
+          "params": [
+            "{\r\n  explanation,\r\n  isLoading = false,\r\n  error = null,\r\n  title = \"How It Worked\",\r\n  description = \"Structured explanation generated from the saved run, its memory trace, and its replay timeline.\",\r\n  sourceLabel,\r\n  onClose,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "RunExplanationPanel",
+          "line": 14,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "RunExplanationPanel",
+          "callee": "explanation.steps_taken.map",
+          "lineNumber": 91
+        },
+        {
+          "caller": "RunExplanationPanel",
+          "callee": "explanation.key_decisions.map",
+          "lineNumber": 117
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/TimelineReplay.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 327,
+      "nonEmptyLines": 293,
+      "functions": [
+        {
+          "name": "joinClasses",
+          "startLine": 38,
+          "endLine": 40,
+          "params": [
+            "...classes"
+          ]
+        },
+        {
+          "name": "formatEventLabel",
+          "startLine": 42,
+          "endLine": 49,
+          "params": [
+            "event"
+          ]
+        },
+        {
+          "name": "formatReplayTime",
+          "startLine": 51,
+          "endLine": 57,
+          "params": [
+            "timestamp"
+          ]
+        },
+        {
+          "name": "progressValue",
+          "startLine": 59,
+          "endLine": 69,
+          "params": [
+            "currentIndex",
+            "total"
+          ]
+        },
+        {
+          "name": "playbackDelay",
+          "startLine": 71,
+          "endLine": 78,
+          "params": [
+            "current",
+            "next",
+            "speed"
+          ]
+        },
+        {
+          "name": "TimelineReplayInner",
+          "startLine": 80,
+          "endLine": 313,
+          "params": [
+            "{\r\n  entries,\r\n  title = \"Timeline Replay\",\r\n  description = \"Play back saved execution events in sequence.\",\r\n  emptyState = \"Replay data will appear here after a run with timeline capture is saved.\",\r\n  sourceLabel,\r\n  formatStepLabel,\r\n  onFrameChange,\r\n  onClose,\r\n}"
+          ]
+        },
+        {
+          "name": "TimelineReplay",
+          "startLine": 315,
+          "endLine": 327,
+          "params": [
+            "props"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "TimelineReplay",
+          "line": 315,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "joinClasses",
+          "callee": "classes.filter(Boolean).join",
+          "lineNumber": 39
+        },
+        {
+          "caller": "joinClasses",
+          "callee": "classes.filter",
+          "lineNumber": 39
+        },
+        {
+          "caller": "formatEventLabel",
+          "callee": "event.replace(/[_-]+/g, \" \").replace",
+          "lineNumber": 48
+        },
+        {
+          "caller": "formatEventLabel",
+          "callee": "event.replace",
+          "lineNumber": 48
+        },
+        {
+          "caller": "formatEventLabel",
+          "callee": "character.toUpperCase",
+          "lineNumber": 48
+        },
+        {
+          "caller": "formatReplayTime",
+          "callee": "Number.isFinite",
+          "lineNumber": 52
+        },
+        {
+          "caller": "formatReplayTime",
+          "callee": "timestamp.toFixed",
+          "lineNumber": 56
+        },
+        {
+          "caller": "playbackDelay",
+          "callee": "Number.isFinite",
+          "lineNumber": 73
+        },
+        {
+          "caller": "playbackDelay",
+          "callee": "Math.max",
+          "lineNumber": 77
+        },
+        {
+          "caller": "playbackDelay",
+          "callee": "Math.min",
+          "lineNumber": 77
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "useState",
+          "lineNumber": 90
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "useState",
+          "lineNumber": 91
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "useState",
+          "lineNumber": 92
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "useRef",
+          "lineNumber": 93
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "entries.slice",
+          "lineNumber": 97
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "progressValue",
+          "lineNumber": 98
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "stepLabels.some",
+          "lineNumber": 102
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "stepLabels.push",
+          "lineNumber": 103
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "resolvedFormatStepLabel",
+          "lineNumber": 103
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "useEffect",
+          "lineNumber": 107
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "window.clearTimeout",
+          "lineNumber": 110
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "useEffect",
+          "lineNumber": 115
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "onFrameChange",
+          "lineNumber": 116
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "entries.slice",
+          "lineNumber": 119
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "useEffect",
+          "lineNumber": 126
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "playbackDelay",
+          "lineNumber": 131
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "window.setTimeout",
+          "lineNumber": 132
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Math.min",
+          "lineNumber": 133
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setCurrentIndex",
+          "lineNumber": 134
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setIsPlaying",
+          "lineNumber": 136
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "window.clearTimeout",
+          "lineNumber": 142
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setIsPlaying",
+          "lineNumber": 193
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setCurrentIndex",
+          "lineNumber": 198
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setIsPlaying",
+          "lineNumber": 200
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setIsPlaying",
+          "lineNumber": 209
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setCurrentIndex",
+          "lineNumber": 210
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Math.max",
+          "lineNumber": 210
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setIsPlaying",
+          "lineNumber": 220
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setCurrentIndex",
+          "lineNumber": 221
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Math.min",
+          "lineNumber": 221
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Math.max",
+          "lineNumber": 221
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setSpeed",
+          "lineNumber": 235
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Number",
+          "lineNumber": 235
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "SPEED_OPTIONS.map",
+          "lineNumber": 238
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Math.max",
+          "lineNumber": 246
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Math.max",
+          "lineNumber": 255
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setIsPlaying",
+          "lineNumber": 258
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "setCurrentIndex",
+          "lineNumber": 259
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "Number",
+          "lineNumber": 259
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "formatReplayTime",
+          "lineNumber": 265
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "formatReplayTime",
+          "lineNumber": 266
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "formatReplayTime",
+          "lineNumber": 273
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "formatEventLabel",
+          "lineNumber": 276
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "resolvedFormatStepLabel",
+          "lineNumber": 280
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "stepLabels.map",
+          "lineNumber": 288
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "playedEntries.some",
+          "lineNumber": 290
+        },
+        {
+          "caller": "TimelineReplayInner",
+          "callee": "joinClasses",
+          "lineNumber": 295
+        },
+        {
+          "caller": "TimelineReplay",
+          "callee": "[\r\n    String(autoplayKey ?? \"default\"),\r\n    String(entries.length),\r\n    entries[0]?.timestamp ?? \"start\",\r\n    entries[0]?.step ?? \"start-step\",\r\n    entries[entries.length - 1]?.timestamp ?? \"end\",\r\n    entries[entries.length - 1]?.step ?? \"end-step\",\r\n  ].join",
+          "lineNumber": 317
+        },
+        {
+          "caller": "TimelineReplay",
+          "callee": "String",
+          "lineNumber": 318
+        },
+        {
+          "caller": "TimelineReplay",
+          "callee": "String",
+          "lineNumber": 319
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/agent-graph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 300,
+      "nonEmptyLines": 273,
+      "functions": [
+        {
+          "name": "getNodeVisualState",
+          "startLine": 85,
+          "endLine": 99,
+          "params": [
+            "step",
+            "activeStep",
+            "completedSteps"
+          ]
+        },
+        {
+          "name": "getEdgeVisualState",
+          "startLine": 101,
+          "endLine": 116,
+          "params": [
+            "from",
+            "to",
+            "activeStep",
+            "completedSteps"
+          ]
+        },
+        {
+          "name": "AgentGraph",
+          "startLine": 118,
+          "endLine": 300,
+          "params": [
+            "{\r\n  activeStep = null,\r\n  completedSteps = [],\r\n  className = \"\",\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "agentGraphSteps",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "AgentGraph",
+          "line": 118,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getNodeVisualState",
+          "callee": "completedSteps.has",
+          "lineNumber": 94
+        },
+        {
+          "caller": "getEdgeVisualState",
+          "callee": "completedSteps.has",
+          "lineNumber": 107
+        },
+        {
+          "caller": "getEdgeVisualState",
+          "callee": "completedSteps.has",
+          "lineNumber": 111
+        },
+        {
+          "caller": "getEdgeVisualState",
+          "callee": "completedSteps.has",
+          "lineNumber": 111
+        },
+        {
+          "caller": "AgentGraph",
+          "callee": "useId().replace",
+          "lineNumber": 123
+        },
+        {
+          "caller": "AgentGraph",
+          "callee": "useId",
+          "lineNumber": 123
+        },
+        {
+          "caller": "AgentGraph",
+          "callee": "`surface-panel-strong rounded-[1.25rem] p-4 sm:p-6 ${className}`.trim",
+          "lineNumber": 127
+        },
+        {
+          "caller": "AgentGraph",
+          "callee": "EDGES.map",
+          "lineNumber": 169
+        },
+        {
+          "caller": "AgentGraph",
+          "callee": "getEdgeVisualState",
+          "lineNumber": 172
+        },
+        {
+          "caller": "AgentGraph",
+          "callee": "agentGraphSteps.map",
+          "lineNumber": 204
+        },
+        {
+          "caller": "AgentGraph",
+          "callee": "getNodeVisualState",
+          "lineNumber": 206
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 2,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/animated-graph.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 542,
+      "nonEmptyLines": 489,
+      "functions": [
+        {
+          "name": "topoSort",
+          "startLine": 19,
+          "endLine": 47,
+          "params": [
+            "nodes",
+            "edges"
+          ]
+        },
+        {
+          "name": "layoutNodes",
+          "startLine": 49,
+          "endLine": 58,
+          "params": [
+            "nodes",
+            "edges"
+          ]
+        },
+        {
+          "name": "nodeCenter",
+          "startLine": 60,
+          "endLine": 62,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "edgeAnchor",
+          "startLine": 64,
+          "endLine": 72,
+          "params": [
+            "node",
+            "target"
+          ]
+        },
+        {
+          "name": "StatusIcon",
+          "startLine": 124,
+          "endLine": 139,
+          "params": [
+            "{ status }"
+          ]
+        },
+        {
+          "name": "statusLabel",
+          "startLine": 141,
+          "endLine": 146,
+          "params": [
+            "status"
+          ]
+        },
+        {
+          "name": "AnimatedGraph",
+          "startLine": 165,
+          "endLine": 542,
+          "params": [
+            "{\r\n  nodes,\r\n  edges,\r\n  accentColor = \"blue\",\r\n  speed = 1200,\r\n  liveStatuses,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "AnimatedGraph",
+          "line": 165,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "topoSort",
+          "callee": "adj[e.from]?.push",
+          "lineNumber": 27
+        },
+        {
+          "caller": "topoSort",
+          "callee": "nodes.filter((n) => inDeg[n.id] === 0).map",
+          "lineNumber": 31
+        },
+        {
+          "caller": "topoSort",
+          "callee": "nodes.filter",
+          "lineNumber": 31
+        },
+        {
+          "caller": "topoSort",
+          "callee": "queue.shift",
+          "lineNumber": 34
+        },
+        {
+          "caller": "topoSort",
+          "callee": "visited.has",
+          "lineNumber": 35
+        },
+        {
+          "caller": "topoSort",
+          "callee": "visited.add",
+          "lineNumber": 36
+        },
+        {
+          "caller": "topoSort",
+          "callee": "order.push",
+          "lineNumber": 37
+        },
+        {
+          "caller": "topoSort",
+          "callee": "queue.push",
+          "lineNumber": 40
+        },
+        {
+          "caller": "topoSort",
+          "callee": "visited.has",
+          "lineNumber": 44
+        },
+        {
+          "caller": "topoSort",
+          "callee": "order.push",
+          "lineNumber": 44
+        },
+        {
+          "caller": "layoutNodes",
+          "callee": "topoSort",
+          "lineNumber": 50
+        },
+        {
+          "caller": "layoutNodes",
+          "callee": "Math.min",
+          "lineNumber": 51
+        },
+        {
+          "caller": "layoutNodes",
+          "callee": "Object.fromEntries",
+          "lineNumber": 52
+        },
+        {
+          "caller": "layoutNodes",
+          "callee": "nodes.map",
+          "lineNumber": 52
+        },
+        {
+          "caller": "layoutNodes",
+          "callee": "order.map",
+          "lineNumber": 53
+        },
+        {
+          "caller": "layoutNodes",
+          "callee": "Math.floor",
+          "lineNumber": 56
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "nodeCenter",
+          "lineNumber": 65
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "Math.abs",
+          "lineNumber": 68
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "Math.abs",
+          "lineNumber": 69
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "Math.min",
+          "lineNumber": 70
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "layoutNodes",
+          "lineNumber": 173
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.fromEntries",
+          "lineNumber": 174
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "positioned.map",
+          "lineNumber": 174
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "topoSort",
+          "lineNumber": 176
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useRef",
+          "lineNumber": 177
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Math.max",
+          "lineNumber": 180
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "positioned.map",
+          "lineNumber": 180
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Math.max",
+          "lineNumber": 183
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "positioned.map",
+          "lineNumber": 183
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useCallback",
+          "lineNumber": 188
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.fromEntries",
+          "lineNumber": 189
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "nodes.map",
+          "lineNumber": 189
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useState",
+          "lineNumber": 196
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useEffect",
+          "lineNumber": 199
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "setState",
+          "lineNumber": 200
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "buildInitialState",
+          "lineNumber": 200
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useEffect",
+          "lineNumber": 204
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "clearTimeout",
+          "lineNumber": 206
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useCallback",
+          "lineNumber": 210
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "edges.find",
+          "lineNumber": 230
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useCallback",
+          "lineNumber": 241
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "setState",
+          "lineNumber": 242
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "buildInitialState",
+          "lineNumber": 245
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useEffect",
+          "lineNumber": 252
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "setTimeout",
+          "lineNumber": 255
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "setState",
+          "lineNumber": 256
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "advanceStep",
+          "lineNumber": 257
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "clearTimeout",
+          "lineNumber": 269
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useCallback",
+          "lineNumber": 273
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "setState",
+          "lineNumber": 274
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useCallback",
+          "lineNumber": 277
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "clearTimeout",
+          "lineNumber": 278
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "setState",
+          "lineNumber": 279
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "buildInitialState",
+          "lineNumber": 279
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "useCallback",
+          "lineNumber": 282
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "setState",
+          "lineNumber": 283
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "advanceStep",
+          "lineNumber": 290
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "edges.find",
+          "lineNumber": 299
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.values(effectiveStatuses).filter",
+          "lineNumber": 302
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.values",
+          "lineNumber": 302
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.values(effectiveStatuses).filter",
+          "lineNumber": 303
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.values",
+          "lineNumber": 303
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.values(effectiveStatuses).filter",
+          "lineNumber": 304
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Object.values",
+          "lineNumber": 304
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "Math.max",
+          "lineNumber": 360
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "edges.map",
+          "lineNumber": 427
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "nodeCenter",
+          "lineNumber": 431
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "nodeCenter",
+          "lineNumber": 432
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "edgeAnchor",
+          "lineNumber": 433
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "edgeAnchor",
+          "lineNumber": 434
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "positioned.map",
+          "lineNumber": 473
+        },
+        {
+          "caller": "AnimatedGraph",
+          "callee": "statusLabel",
+          "lineNumber": 524
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 7,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/confidence-indicator.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 86,
+      "nonEmptyLines": 78,
+      "functions": [
+        {
+          "name": "clampConfidence",
+          "startLine": 7,
+          "endLine": 9,
+          "params": [
+            "value"
+          ]
+        },
+        {
+          "name": "confidenceTone",
+          "startLine": 11,
+          "endLine": 36,
+          "params": [
+            "confidence"
+          ]
+        },
+        {
+          "name": "ConfidenceIndicator",
+          "startLine": 38,
+          "endLine": 86,
+          "params": [
+            "{ confidence, compact = false, className = \"\" }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ConfidenceIndicator",
+          "line": 38,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "clampConfidence",
+          "callee": "Math.max",
+          "lineNumber": 8
+        },
+        {
+          "caller": "clampConfidence",
+          "callee": "Math.min",
+          "lineNumber": 8
+        },
+        {
+          "caller": "ConfidenceIndicator",
+          "callee": "Number.isNaN",
+          "lineNumber": 39
+        },
+        {
+          "caller": "ConfidenceIndicator",
+          "callee": "clampConfidence",
+          "lineNumber": 43
+        },
+        {
+          "caller": "ConfidenceIndicator",
+          "callee": "Math.round",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ConfidenceIndicator",
+          "callee": "confidenceTone",
+          "lineNumber": 45
+        },
+        {
+          "caller": "ConfidenceIndicator",
+          "callee": "`surface-pill inline-flex items-center gap-2 rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] ${tone.border} ${tone.text} ${className}`.trim",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ConfidenceIndicator",
+          "callee": "`surface-panel rounded-[1rem] border px-4 py-3 ${tone.border} ${className}`.trim",
+          "lineNumber": 62
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/copy-button.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 33,
+      "nonEmptyLines": 28,
+      "functions": [
+        {
+          "name": "CopyButton",
+          "startLine": 5,
+          "endLine": 33,
+          "params": [
+            "{ text, className = \"\" }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "CopyButton",
+          "line": 5,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "CopyButton",
+          "callee": "useState",
+          "lineNumber": 6
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "useEffect",
+          "lineNumber": 8
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "setTimeout",
+          "lineNumber": 10
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "setCopied",
+          "lineNumber": 10
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "clearTimeout",
+          "lineNumber": 11
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "useCallback",
+          "lineNumber": 14
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "navigator.clipboard.writeText",
+          "lineNumber": 16
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "setCopied",
+          "lineNumber": 17
+        },
+        {
+          "caller": "CopyButton",
+          "callee": "copy",
+          "lineNumber": 26
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/dismissible-tip.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 41,
+      "nonEmptyLines": 37,
+      "functions": [
+        {
+          "name": "DismissibleTip",
+          "startLine": 9,
+          "endLine": 41,
+          "params": [
+            "{\r\n  storageKey,\r\n  text,\r\n  className = \"\",\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "DismissibleTip",
+          "line": 9,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "DismissibleTip",
+          "callee": "useState",
+          "lineNumber": 18
+        },
+        {
+          "caller": "DismissibleTip",
+          "callee": "localStorage.getItem",
+          "lineNumber": 20
+        },
+        {
+          "caller": "DismissibleTip",
+          "callee": "localStorage.setItem",
+          "lineNumber": 31
+        },
+        {
+          "caller": "DismissibleTip",
+          "callee": "setVisible",
+          "lineNumber": 32
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/flow-diagram.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 293,
+      "nonEmptyLines": 267,
+      "functions": [
+        {
+          "name": "layout",
+          "startLine": 23,
+          "endLine": 72,
+          "params": [
+            "nodes",
+            "edges"
+          ]
+        },
+        {
+          "name": "center",
+          "startLine": 76,
+          "endLine": 78,
+          "params": [
+            "n"
+          ]
+        },
+        {
+          "name": "edgeAnchor",
+          "startLine": 80,
+          "endLine": 93,
+          "params": [
+            "node",
+            "target"
+          ]
+        },
+        {
+          "name": "FlowDiagram",
+          "startLine": 109,
+          "endLine": 293,
+          "params": [
+            "{\r\n  nodes,\r\n  edges,\r\n  accentColor = \"blue\",\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "FlowDiagram",
+          "line": 109,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "layout",
+          "callee": "adj[e.to]?.some",
+          "lineNumber": 33
+        },
+        {
+          "caller": "layout",
+          "callee": "adj[e.from]?.push",
+          "lineNumber": 34
+        },
+        {
+          "caller": "layout",
+          "callee": "nodes.filter((n) => inDeg[n.id] === 0).map",
+          "lineNumber": 40
+        },
+        {
+          "caller": "layout",
+          "callee": "nodes.filter",
+          "lineNumber": 40
+        },
+        {
+          "caller": "layout",
+          "callee": "queue.shift",
+          "lineNumber": 43
+        },
+        {
+          "caller": "layout",
+          "callee": "visited.has",
+          "lineNumber": 44
+        },
+        {
+          "caller": "layout",
+          "callee": "visited.add",
+          "lineNumber": 45
+        },
+        {
+          "caller": "layout",
+          "callee": "order.push",
+          "lineNumber": 46
+        },
+        {
+          "caller": "layout",
+          "callee": "queue.push",
+          "lineNumber": 49
+        },
+        {
+          "caller": "layout",
+          "callee": "visited.has",
+          "lineNumber": 54
+        },
+        {
+          "caller": "layout",
+          "callee": "order.push",
+          "lineNumber": 54
+        },
+        {
+          "caller": "layout",
+          "callee": "Math.min",
+          "lineNumber": 58
+        },
+        {
+          "caller": "layout",
+          "callee": "Object.fromEntries",
+          "lineNumber": 60
+        },
+        {
+          "caller": "layout",
+          "callee": "nodes.map",
+          "lineNumber": 60
+        },
+        {
+          "caller": "layout",
+          "callee": "Math.floor",
+          "lineNumber": 64
+        },
+        {
+          "caller": "layout",
+          "callee": "positioned.push",
+          "lineNumber": 65
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "center",
+          "lineNumber": 84
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "Math.abs",
+          "lineNumber": 89
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "Math.abs",
+          "lineNumber": 90
+        },
+        {
+          "caller": "edgeAnchor",
+          "callee": "Math.min",
+          "lineNumber": 91
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "useState",
+          "lineNumber": 114
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "useState",
+          "lineNumber": 115
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "useRef",
+          "lineNumber": 118
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "useRef",
+          "lineNumber": 119
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "useCallback",
+          "lineNumber": 121
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "el.setPointerCapture",
+          "lineNumber": 125
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "useCallback",
+          "lineNumber": 129
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "useCallback",
+          "lineNumber": 138
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "el.releasePointerCapture",
+          "lineNumber": 142
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "layout",
+          "lineNumber": 147
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "Object.fromEntries",
+          "lineNumber": 148
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "positioned.map",
+          "lineNumber": 148
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "Math.max",
+          "lineNumber": 152
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "positioned.map",
+          "lineNumber": 152
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "Math.max",
+          "lineNumber": 153
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "positioned.map",
+          "lineNumber": 153
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "connected.add",
+          "lineNumber": 158
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "connected.add",
+          "lineNumber": 160
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "connected.add",
+          "lineNumber": 161
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "setZoom",
+          "lineNumber": 175
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "Math.min",
+          "lineNumber": 175
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "setZoom",
+          "lineNumber": 176
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "Math.round",
+          "lineNumber": 176
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "setZoom",
+          "lineNumber": 177
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "Math.max",
+          "lineNumber": 177
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "edges.map",
+          "lineNumber": 213
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "center",
+          "lineNumber": 217
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "center",
+          "lineNumber": 218
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "edgeAnchor",
+          "lineNumber": 219
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "edgeAnchor",
+          "lineNumber": 220
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "connected.has",
+          "lineNumber": 222
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "connected.has",
+          "lineNumber": 222
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "positioned.map",
+          "lineNumber": 256
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "connected.has",
+          "lineNumber": 257
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 261
+        },
+        {
+          "caller": "FlowDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 262
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 4,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/memory-panel.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 204,
+      "nonEmptyLines": 181,
+      "functions": [
+        {
+          "name": "joinClasses",
+          "startLine": 25,
+          "endLine": 27,
+          "params": [
+            "...classes"
+          ]
+        },
+        {
+          "name": "entryTypeLabel",
+          "startLine": 29,
+          "endLine": 33,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "entryBadgeTone",
+          "startLine": 35,
+          "endLine": 45,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "entryIconTone",
+          "startLine": 47,
+          "endLine": 57,
+          "params": [
+            "type"
+          ]
+        },
+        {
+          "name": "EntryIcon",
+          "startLine": 59,
+          "endLine": 83,
+          "params": [
+            "{ type }"
+          ]
+        },
+        {
+          "name": "MemoryPanel",
+          "startLine": 85,
+          "endLine": 204,
+          "params": [
+            "{\r\n  entries,\r\n  title = \"Agent Memory\",\r\n  description = \"Timeline of the agent's thoughts, actions, and observations.\",\r\n  emptyState = \"Memory entries will appear here as the run progresses.\",\r\n  className,\r\n}"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "MemoryPanel",
+          "line": 85,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "joinClasses",
+          "callee": "classes.filter(Boolean).join",
+          "lineNumber": 26
+        },
+        {
+          "caller": "joinClasses",
+          "callee": "classes.filter",
+          "lineNumber": 26
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "useState",
+          "lineNumber": 92
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "joinClasses",
+          "lineNumber": 96
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "entries.map",
+          "lineNumber": 126
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "joinClasses",
+          "lineNumber": 132
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "entryIconTone",
+          "lineNumber": 134
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "setExpandedEntries",
+          "lineNumber": 144
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "joinClasses",
+          "lineNumber": 158
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "entryBadgeTone",
+          "lineNumber": 160
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "entryTypeLabel",
+          "lineNumber": 163
+        },
+        {
+          "caller": "MemoryPanel",
+          "callee": "joinClasses",
+          "lineNumber": 185
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/project-card-preview.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 52,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "ProjectCardPreview",
+          "startLine": 13,
+          "endLine": 52,
+          "params": [
+            "{ slug, name, description, children }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProjectCardPreview",
+          "line": 13,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ProjectCardPreview",
+          "callee": "useState",
+          "lineNumber": 14
+        },
+        {
+          "caller": "ProjectCardPreview",
+          "callee": "useRef",
+          "lineNumber": 15
+        },
+        {
+          "caller": "handleEnter",
+          "callee": "clearTimeout",
+          "lineNumber": 18
+        },
+        {
+          "caller": "handleEnter",
+          "callee": "setTimeout",
+          "lineNumber": 19
+        },
+        {
+          "caller": "handleEnter",
+          "callee": "setShow",
+          "lineNumber": 19
+        },
+        {
+          "caller": "handleLeave",
+          "callee": "clearTimeout",
+          "lineNumber": 23
+        },
+        {
+          "caller": "handleLeave",
+          "callee": "setShow",
+          "lineNumber": 24
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/components/project-run-badge.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 42,
+      "nonEmptyLines": 34,
+      "functions": [
+        {
+          "name": "loadMetrics",
+          "startLine": 9,
+          "endLine": 20,
+          "params": []
+        },
+        {
+          "name": "ProjectRunBadge",
+          "startLine": 22,
+          "endLine": 42,
+          "params": [
+            "{ slug }"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ProjectRunBadge",
+          "line": 22,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "loadMetrics",
+          "callee": "Promise.resolve",
+          "lineNumber": 10
+        },
+        {
+          "caller": "loadMetrics",
+          "callee": "fetchMetrics()\r\n    .then((res) => {\r\n      metricsCache = new Map(res.projects.map((p) => [p.name, p]));\r\n    })\r\n    .catch",
+          "lineNumber": 12
+        },
+        {
+          "caller": "loadMetrics",
+          "callee": "fetchMetrics()\r\n    .then",
+          "lineNumber": 12
+        },
+        {
+          "caller": "loadMetrics",
+          "callee": "fetchMetrics",
+          "lineNumber": 12
+        },
+        {
+          "caller": "loadMetrics",
+          "callee": "res.projects.map",
+          "lineNumber": 14
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "useState",
+          "lineNumber": 23
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "useState",
+          "lineNumber": 24
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "useEffect",
+          "lineNumber": 26
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "loadMetrics().then",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "loadMetrics",
+          "lineNumber": 27
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "setMetrics",
+          "lineNumber": 28
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "metricsCache?.get",
+          "lineNumber": 28
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "setLoaded",
+          "lineNumber": 29
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "Math.round",
+          "lineNumber": 35
+        },
+        {
+          "caller": "ProjectRunBadge",
+          "callee": "metrics.latency.toFixed",
+          "lineNumber": 39
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/data/projects.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 55,
+      "nonEmptyLines": 46,
+      "functions": [
+        {
+          "name": "getProject",
+          "startLine": 53,
+          "endLine": 55,
+          "params": [
+            "slug"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "projectDetails",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "projects",
+          "line": 44,
+          "isDefault": false
+        },
+        {
+          "name": "getProject",
+          "line": 53,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getProject",
+          "callee": "projectDetails.find",
+          "lineNumber": 54
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 3,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/lib/api.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 840,
+      "nonEmptyLines": 706,
+      "functions": [
+        {
+          "name": "normalizeApiBase",
+          "startLine": 8,
+          "endLine": 14,
+          "params": [
+            "rawValue"
+          ]
+        },
+        {
+          "name": "isLocalHostname",
+          "startLine": 27,
+          "endLine": 29,
+          "params": [
+            "hostname"
+          ]
+        },
+        {
+          "name": "formatApiReachabilityError",
+          "startLine": 31,
+          "endLine": 47,
+          "params": [
+            "candidates",
+            "lastError"
+          ]
+        },
+        {
+          "name": "buildApiUrl",
+          "startLine": 49,
+          "endLine": 51,
+          "params": [
+            "base",
+            "path"
+          ]
+        },
+        {
+          "name": "apiBaseCandidates",
+          "startLine": 53,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "apiFetch",
+          "startLine": 57,
+          "endLine": 75,
+          "params": [
+            "path",
+            "init"
+          ]
+        },
+        {
+          "name": "authHeaders",
+          "startLine": 83,
+          "endLine": 105,
+          "params": [
+            "token",
+            "llm"
+          ]
+        },
+        {
+          "name": "parseErrorMessage",
+          "startLine": 107,
+          "endLine": 125,
+          "params": [
+            "raw",
+            "fallback"
+          ]
+        },
+        {
+          "name": "humanizeError",
+          "startLine": 128,
+          "endLine": 154,
+          "params": [
+            "status",
+            "rawMessage"
+          ]
+        },
+        {
+          "name": "formatRunError",
+          "startLine": 159,
+          "endLine": 168,
+          "params": [
+            "status",
+            "statusText",
+            "raw"
+          ]
+        },
+        {
+          "name": "splitErrorDetail",
+          "startLine": 174,
+          "endLine": 178,
+          "params": [
+            "msg"
+          ]
+        },
+        {
+          "name": "runProject",
+          "startLine": 343,
+          "endLine": 365,
+          "params": [
+            "projectName",
+            "input",
+            "token",
+            "llm"
+          ]
+        },
+        {
+          "name": "fetchMetrics",
+          "startLine": 367,
+          "endLine": 373,
+          "params": []
+        },
+        {
+          "name": "fetchMetricsTime",
+          "startLine": 375,
+          "endLine": 397,
+          "params": [
+            "options"
+          ]
+        },
+        {
+          "name": "signup",
+          "startLine": 399,
+          "endLine": 412,
+          "params": [
+            "email",
+            "password"
+          ]
+        },
+        {
+          "name": "login",
+          "startLine": 414,
+          "endLine": 427,
+          "params": [
+            "email",
+            "password"
+          ]
+        },
+        {
+          "name": "logout",
+          "startLine": 429,
+          "endLine": 438,
+          "params": []
+        },
+        {
+          "name": "fetchCurrentUser",
+          "startLine": 440,
+          "endLine": 455,
+          "params": []
+        },
+        {
+          "name": "fetchAuthConfig",
+          "startLine": 457,
+          "endLine": 468,
+          "params": []
+        },
+        {
+          "name": "fetchLLMCatalog",
+          "startLine": 470,
+          "endLine": 481,
+          "params": []
+        },
+        {
+          "name": "fetchHistory",
+          "startLine": 483,
+          "endLine": 495,
+          "params": [
+            "token"
+          ]
+        },
+        {
+          "name": "fetchRunSession",
+          "startLine": 497,
+          "endLine": 509,
+          "params": [
+            "sessionId",
+            "token"
+          ]
+        },
+        {
+          "name": "clearRunSession",
+          "startLine": 511,
+          "endLine": 524,
+          "params": [
+            "sessionId",
+            "token"
+          ]
+        },
+        {
+          "name": "explainRun",
+          "startLine": 526,
+          "endLine": 539,
+          "params": [
+            "runId",
+            "token",
+            "llm"
+          ]
+        },
+        {
+          "name": "shareRun",
+          "startLine": 561,
+          "endLine": 583,
+          "params": [
+            "runId",
+            "token",
+            "expiresInHours"
+          ]
+        },
+        {
+          "name": "unshareRun",
+          "startLine": 585,
+          "endLine": 595,
+          "params": [
+            "runId",
+            "token"
+          ]
+        },
+        {
+          "name": "fetchSharedRun",
+          "startLine": 597,
+          "endLine": 608,
+          "params": [
+            "shareToken"
+          ]
+        },
+        {
+          "name": "dispatchStreamEvent",
+          "startLine": 635,
+          "endLine": 729,
+          "params": [
+            "rawEvent",
+            "callbacks"
+          ]
+        },
+        {
+          "name": "streamProject",
+          "startLine": 735,
+          "endLine": 840,
+          "params": [
+            "projectName",
+            "input",
+            "callbacks",
+            "token",
+            "llm",
+            "sessionId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "splitErrorDetail",
+          "line": 174,
+          "isDefault": false
+        },
+        {
+          "name": "runProject",
+          "line": 343,
+          "isDefault": false
+        },
+        {
+          "name": "fetchMetrics",
+          "line": 367,
+          "isDefault": false
+        },
+        {
+          "name": "fetchMetricsTime",
+          "line": 375,
+          "isDefault": false
+        },
+        {
+          "name": "signup",
+          "line": 399,
+          "isDefault": false
+        },
+        {
+          "name": "login",
+          "line": 414,
+          "isDefault": false
+        },
+        {
+          "name": "logout",
+          "line": 429,
+          "isDefault": false
+        },
+        {
+          "name": "fetchCurrentUser",
+          "line": 440,
+          "isDefault": false
+        },
+        {
+          "name": "fetchAuthConfig",
+          "line": 457,
+          "isDefault": false
+        },
+        {
+          "name": "fetchLLMCatalog",
+          "line": 470,
+          "isDefault": false
+        },
+        {
+          "name": "fetchHistory",
+          "line": 483,
+          "isDefault": false
+        },
+        {
+          "name": "fetchRunSession",
+          "line": 497,
+          "isDefault": false
+        },
+        {
+          "name": "clearRunSession",
+          "line": 511,
+          "isDefault": false
+        },
+        {
+          "name": "explainRun",
+          "line": 526,
+          "isDefault": false
+        },
+        {
+          "name": "shareRun",
+          "line": 561,
+          "isDefault": false
+        },
+        {
+          "name": "unshareRun",
+          "line": 585,
+          "isDefault": false
+        },
+        {
+          "name": "fetchSharedRun",
+          "line": 597,
+          "isDefault": false
+        },
+        {
+          "name": "streamProject",
+          "line": 735,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "normalizeApiBase",
+          "callee": "rawValue?.trim",
+          "lineNumber": 9
+        },
+        {
+          "caller": "normalizeApiBase",
+          "callee": "value.replace",
+          "lineNumber": 13
+        },
+        {
+          "caller": "formatApiReachabilityError",
+          "callee": "process.env.NEXT_PUBLIC_API_BASE_URL?.trim",
+          "lineNumber": 32
+        },
+        {
+          "caller": "formatApiReachabilityError",
+          "callee": "isLocalHostname",
+          "lineNumber": 38
+        },
+        {
+          "caller": "buildApiUrl",
+          "callee": "path.startsWith",
+          "lineNumber": 50
+        },
+        {
+          "caller": "apiBaseCandidates",
+          "callee": "API_BASES.filter",
+          "lineNumber": 54
+        },
+        {
+          "caller": "apiFetch",
+          "callee": "apiBaseCandidates",
+          "lineNumber": 59
+        },
+        {
+          "caller": "apiFetch",
+          "callee": "fetch",
+          "lineNumber": 63
+        },
+        {
+          "caller": "apiFetch",
+          "callee": "buildApiUrl",
+          "lineNumber": 63
+        },
+        {
+          "caller": "apiFetch",
+          "callee": "formatApiReachabilityError",
+          "lineNumber": 74
+        },
+        {
+          "caller": "parseErrorMessage",
+          "callee": "JSON.parse",
+          "lineNumber": 113
+        },
+        {
+          "caller": "humanizeError",
+          "callee": "/api.key|api key|x-api-key|missing x-api-key/i.test",
+          "lineNumber": 143
+        },
+        {
+          "caller": "humanizeError",
+          "callee": "/rate.limit/i.test",
+          "lineNumber": 146
+        },
+        {
+          "caller": "humanizeError",
+          "callee": "/model.*not found|model.*not available/i.test",
+          "lineNumber": 149
+        },
+        {
+          "caller": "formatRunError",
+          "callee": "parseErrorMessage",
+          "lineNumber": 160
+        },
+        {
+          "caller": "formatRunError",
+          "callee": "humanizeError",
+          "lineNumber": 161
+        },
+        {
+          "caller": "splitErrorDetail",
+          "callee": "msg.indexOf",
+          "lineNumber": 175
+        },
+        {
+          "caller": "splitErrorDetail",
+          "callee": "msg.slice",
+          "lineNumber": 177
+        },
+        {
+          "caller": "splitErrorDetail",
+          "callee": "msg.slice",
+          "lineNumber": 177
+        },
+        {
+          "caller": "runProject",
+          "callee": "apiFetch",
+          "lineNumber": 349
+        },
+        {
+          "caller": "runProject",
+          "callee": "authHeaders",
+          "lineNumber": 351
+        },
+        {
+          "caller": "runProject",
+          "callee": "JSON.stringify",
+          "lineNumber": 352
+        },
+        {
+          "caller": "runProject",
+          "callee": "res.text().catch",
+          "lineNumber": 356
+        },
+        {
+          "caller": "runProject",
+          "callee": "res.text",
+          "lineNumber": 356
+        },
+        {
+          "caller": "runProject",
+          "callee": "formatRunError",
+          "lineNumber": 359
+        },
+        {
+          "caller": "runProject",
+          "callee": "res.json",
+          "lineNumber": 363
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "apiFetch",
+          "lineNumber": 368
+        },
+        {
+          "caller": "fetchMetrics",
+          "callee": "res.json",
+          "lineNumber": 372
+        },
+        {
+          "caller": "fetchMetricsTime",
+          "callee": "params.set",
+          "lineNumber": 382
+        },
+        {
+          "caller": "fetchMetricsTime",
+          "callee": "params.set",
+          "lineNumber": 385
+        },
+        {
+          "caller": "fetchMetricsTime",
+          "callee": "params.toString",
+          "lineNumber": 387
+        },
+        {
+          "caller": "fetchMetricsTime",
+          "callee": "apiFetch",
+          "lineNumber": 388
+        },
+        {
+          "caller": "fetchMetricsTime",
+          "callee": "res.json",
+          "lineNumber": 396
+        },
+        {
+          "caller": "signup",
+          "callee": "apiFetch",
+          "lineNumber": 400
+        },
+        {
+          "caller": "signup",
+          "callee": "JSON.stringify",
+          "lineNumber": 403
+        },
+        {
+          "caller": "signup",
+          "callee": "res.text().catch",
+          "lineNumber": 407
+        },
+        {
+          "caller": "signup",
+          "callee": "res.text",
+          "lineNumber": 407
+        },
+        {
+          "caller": "signup",
+          "callee": "res.json",
+          "lineNumber": 411
+        },
+        {
+          "caller": "login",
+          "callee": "apiFetch",
+          "lineNumber": 415
+        },
+        {
+          "caller": "login",
+          "callee": "JSON.stringify",
+          "lineNumber": 418
+        },
+        {
+          "caller": "login",
+          "callee": "res.text().catch",
+          "lineNumber": 422
+        },
+        {
+          "caller": "login",
+          "callee": "res.text",
+          "lineNumber": 422
+        },
+        {
+          "caller": "login",
+          "callee": "res.json",
+          "lineNumber": 426
+        },
+        {
+          "caller": "logout",
+          "callee": "apiFetch",
+          "lineNumber": 430
+        },
+        {
+          "caller": "logout",
+          "callee": "res.text().catch",
+          "lineNumber": 435
+        },
+        {
+          "caller": "logout",
+          "callee": "res.text",
+          "lineNumber": 435
+        },
+        {
+          "caller": "fetchCurrentUser",
+          "callee": "apiFetch",
+          "lineNumber": 441
+        },
+        {
+          "caller": "fetchCurrentUser",
+          "callee": "res.text().catch",
+          "lineNumber": 450
+        },
+        {
+          "caller": "fetchCurrentUser",
+          "callee": "res.text",
+          "lineNumber": 450
+        },
+        {
+          "caller": "fetchCurrentUser",
+          "callee": "res.json",
+          "lineNumber": 454
+        },
+        {
+          "caller": "fetchAuthConfig",
+          "callee": "apiFetch",
+          "lineNumber": 458
+        },
+        {
+          "caller": "fetchAuthConfig",
+          "callee": "res.text().catch",
+          "lineNumber": 463
+        },
+        {
+          "caller": "fetchAuthConfig",
+          "callee": "res.text",
+          "lineNumber": 463
+        },
+        {
+          "caller": "fetchAuthConfig",
+          "callee": "res.json",
+          "lineNumber": 467
+        },
+        {
+          "caller": "fetchLLMCatalog",
+          "callee": "apiFetch",
+          "lineNumber": 471
+        },
+        {
+          "caller": "fetchLLMCatalog",
+          "callee": "res.text().catch",
+          "lineNumber": 476
+        },
+        {
+          "caller": "fetchLLMCatalog",
+          "callee": "res.text",
+          "lineNumber": 476
+        },
+        {
+          "caller": "fetchLLMCatalog",
+          "callee": "res.json",
+          "lineNumber": 480
+        },
+        {
+          "caller": "fetchHistory",
+          "callee": "apiFetch",
+          "lineNumber": 484
+        },
+        {
+          "caller": "fetchHistory",
+          "callee": "authHeaders",
+          "lineNumber": 485
+        },
+        {
+          "caller": "fetchHistory",
+          "callee": "res.text().catch",
+          "lineNumber": 490
+        },
+        {
+          "caller": "fetchHistory",
+          "callee": "res.text",
+          "lineNumber": 490
+        },
+        {
+          "caller": "fetchHistory",
+          "callee": "res.json",
+          "lineNumber": 494
+        },
+        {
+          "caller": "fetchRunSession",
+          "callee": "apiFetch",
+          "lineNumber": 498
+        },
+        {
+          "caller": "fetchRunSession",
+          "callee": "authHeaders",
+          "lineNumber": 499
+        },
+        {
+          "caller": "fetchRunSession",
+          "callee": "res.text().catch",
+          "lineNumber": 504
+        },
+        {
+          "caller": "fetchRunSession",
+          "callee": "res.text",
+          "lineNumber": 504
+        },
+        {
+          "caller": "fetchRunSession",
+          "callee": "res.json",
+          "lineNumber": 508
+        },
+        {
+          "caller": "clearRunSession",
+          "callee": "apiFetch",
+          "lineNumber": 512
+        },
+        {
+          "caller": "clearRunSession",
+          "callee": "authHeaders",
+          "lineNumber": 514
+        },
+        {
+          "caller": "clearRunSession",
+          "callee": "res.text().catch",
+          "lineNumber": 519
+        },
+        {
+          "caller": "clearRunSession",
+          "callee": "res.text",
+          "lineNumber": 519
+        },
+        {
+          "caller": "clearRunSession",
+          "callee": "res.json",
+          "lineNumber": 523
+        },
+        {
+          "caller": "explainRun",
+          "callee": "apiFetch",
+          "lineNumber": 527
+        },
+        {
+          "caller": "explainRun",
+          "callee": "authHeaders",
+          "lineNumber": 529
+        },
+        {
+          "caller": "explainRun",
+          "callee": "res.text().catch",
+          "lineNumber": 534
+        },
+        {
+          "caller": "explainRun",
+          "callee": "res.text",
+          "lineNumber": 534
+        },
+        {
+          "caller": "explainRun",
+          "callee": "res.json",
+          "lineNumber": 538
+        },
+        {
+          "caller": "shareRun",
+          "callee": "apiFetch",
+          "lineNumber": 571
+        },
+        {
+          "caller": "shareRun",
+          "callee": "authHeaders",
+          "lineNumber": 573
+        },
+        {
+          "caller": "shareRun",
+          "callee": "JSON.stringify",
+          "lineNumber": 574
+        },
+        {
+          "caller": "shareRun",
+          "callee": "res.text().catch",
+          "lineNumber": 578
+        },
+        {
+          "caller": "shareRun",
+          "callee": "res.text",
+          "lineNumber": 578
+        },
+        {
+          "caller": "shareRun",
+          "callee": "res.json",
+          "lineNumber": 582
+        },
+        {
+          "caller": "unshareRun",
+          "callee": "apiFetch",
+          "lineNumber": 586
+        },
+        {
+          "caller": "unshareRun",
+          "callee": "authHeaders",
+          "lineNumber": 588
+        },
+        {
+          "caller": "unshareRun",
+          "callee": "res.text().catch",
+          "lineNumber": 592
+        },
+        {
+          "caller": "unshareRun",
+          "callee": "res.text",
+          "lineNumber": 592
+        },
+        {
+          "caller": "fetchSharedRun",
+          "callee": "apiFetch",
+          "lineNumber": 598
+        },
+        {
+          "caller": "fetchSharedRun",
+          "callee": "encodeURIComponent",
+          "lineNumber": 598
+        },
+        {
+          "caller": "fetchSharedRun",
+          "callee": "res.text().catch",
+          "lineNumber": 603
+        },
+        {
+          "caller": "fetchSharedRun",
+          "callee": "res.text",
+          "lineNumber": 603
+        },
+        {
+          "caller": "fetchSharedRun",
+          "callee": "res.json",
+          "lineNumber": 607
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "rawEvent.split",
+          "lineNumber": 639
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "line.startsWith",
+          "lineNumber": 640
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "line.slice(\"event:\".length).trim",
+          "lineNumber": 641
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "line.slice",
+          "lineNumber": 641
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "line.startsWith",
+          "lineNumber": 645
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "dataLines.push",
+          "lineNumber": 646
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "line.slice(\"data:\".length).trimStart",
+          "lineNumber": 646
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "line.slice",
+          "lineNumber": 646
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "dataLines.join",
+          "lineNumber": 650
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "JSON.parse",
+          "lineNumber": 657
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "callbacks.onStep",
+          "lineNumber": 658
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "JSON.parse",
+          "lineNumber": 671
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "callbacks.onDone",
+          "lineNumber": 672
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "Array.isArray",
+          "lineNumber": 677
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "data.session_memory.filter",
+          "lineNumber": 678
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "callbacks.onDone",
+          "lineNumber": 684
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "callbacks.onError",
+          "lineNumber": 698
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "parseErrorMessage",
+          "lineNumber": 698
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "JSON.parse",
+          "lineNumber": 709
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "callbacks.onToken",
+          "lineNumber": 711
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "JSON.parse",
+          "lineNumber": 720
+        },
+        {
+          "caller": "dispatchStreamEvent",
+          "callee": "callbacks.onToken",
+          "lineNumber": 722
+        },
+        {
+          "caller": "streamProject",
+          "callee": "params.set",
+          "lineNumber": 745
+        },
+        {
+          "caller": "streamProject",
+          "callee": "String",
+          "lineNumber": 745
+        },
+        {
+          "caller": "streamProject",
+          "callee": "encodeURIComponent",
+          "lineNumber": 747
+        },
+        {
+          "caller": "streamProject",
+          "callee": "(async () => {\r\n    try {\r\n      const headers: Record<string, string> = {\r\n        Accept: \"text/event-stream\",\r\n      };\r\n      if (token && token !== AUTH_SESSION_MARKER) {\r\n        headers.Authorization = `Bearer ${token}`;\r\n      }\r\n      if (llm?.apiKey) {\r\n        headers[\"X-API-Key\"] = llm.apiKey;\r\n      }\r\n      if (llm?.provider) {\r\n        headers[\"X-LLM-Provider\"] = llm.provider;\r\n      }\r\n      if (llm?.model) {\r\n        headers[\"X-LLM-Model\"] = llm.model;\r\n      }\r\n\r\n      const res = await apiFetch(path, {\r\n        method: \"GET\",\r\n        headers,\r\n        cache: \"no-store\",\r\n        signal: controller.signal,\r\n      });\r\n\r\n      if (!res.ok) {\r\n        const text = await res.text().catch(() => \"\");\r\n        callbacks.onError(formatRunError(res.status, res.statusText, text));\r\n        terminated = true;\r\n        return;\r\n      }\r\n\r\n      if (!res.body) {\r\n        callbacks.onError(\"Empty stream response.\");\r\n        terminated = true;\r\n        return;\r\n      }\r\n\r\n      callbacks.onOpen?.();\r\n\r\n      const reader = res.body.getReader();\r\n      const decoder = new TextDecoder();\r\n      let buffer = \"\";\r\n\r\n      while (!terminated) {\r\n        const { value, done } = await reader.read();\r\n        if (done) {\r\n          break;\r\n        }\r\n\r\n        buffer += decoder.decode(value, { stream: true });\r\n\r\n        let boundary = buffer.indexOf(\"\\n\\n\");\r\n        while (boundary !== -1) {\r\n          const rawEvent = buffer.slice(0, boundary);\r\n          buffer = buffer.slice(boundary + 2);\r\n\r\n          const result = dispatchStreamEvent(rawEvent, callbacks);\r\n          if (result !== \"continue\") {\r\n            terminated = true;\r\n            break;\r\n          }\r\n\r\n          boundary = buffer.indexOf(\"\\n\\n\");\r\n        }\r\n      }\r\n\r\n      if (!terminated) {\r\n        buffer += decoder.decode();\r\n        if (buffer.trim()) {\r\n          dispatchStreamEvent(buffer, callbacks);\r\n        }\r\n      }\r\n    } catch (error) {\r\n      if (terminated) {\r\n        return;\r\n      }\r\n      if (error instanceof DOMException && error.name === \"AbortError\") {\r\n        return;\r\n      }\r\n      callbacks.onError(error instanceof Error ? error.message : \"Stream disconnected\");\r\n    }\r\n  })",
+          "lineNumber": 752
+        },
+        {
+          "caller": "streamProject",
+          "callee": "apiFetch",
+          "lineNumber": 770
+        },
+        {
+          "caller": "streamProject",
+          "callee": "res.text().catch",
+          "lineNumber": 778
+        },
+        {
+          "caller": "streamProject",
+          "callee": "res.text",
+          "lineNumber": 778
+        },
+        {
+          "caller": "streamProject",
+          "callee": "callbacks.onError",
+          "lineNumber": 779
+        },
+        {
+          "caller": "streamProject",
+          "callee": "formatRunError",
+          "lineNumber": 779
+        },
+        {
+          "caller": "streamProject",
+          "callee": "callbacks.onError",
+          "lineNumber": 785
+        },
+        {
+          "caller": "streamProject",
+          "callee": "callbacks.onOpen",
+          "lineNumber": 790
+        },
+        {
+          "caller": "streamProject",
+          "callee": "res.body.getReader",
+          "lineNumber": 792
+        },
+        {
+          "caller": "streamProject",
+          "callee": "reader.read",
+          "lineNumber": 797
+        },
+        {
+          "caller": "streamProject",
+          "callee": "decoder.decode",
+          "lineNumber": 802
+        },
+        {
+          "caller": "streamProject",
+          "callee": "buffer.indexOf",
+          "lineNumber": 804
+        },
+        {
+          "caller": "streamProject",
+          "callee": "buffer.slice",
+          "lineNumber": 806
+        },
+        {
+          "caller": "streamProject",
+          "callee": "buffer.slice",
+          "lineNumber": 807
+        },
+        {
+          "caller": "streamProject",
+          "callee": "dispatchStreamEvent",
+          "lineNumber": 809
+        },
+        {
+          "caller": "streamProject",
+          "callee": "buffer.indexOf",
+          "lineNumber": 815
+        },
+        {
+          "caller": "streamProject",
+          "callee": "decoder.decode",
+          "lineNumber": 820
+        },
+        {
+          "caller": "streamProject",
+          "callee": "buffer.trim",
+          "lineNumber": 821
+        },
+        {
+          "caller": "streamProject",
+          "callee": "dispatchStreamEvent",
+          "lineNumber": 822
+        },
+        {
+          "caller": "streamProject",
+          "callee": "callbacks.onError",
+          "lineNumber": 832
+        },
+        {
+          "caller": "streamProject",
+          "callee": "controller.abort",
+          "lineNumber": 838
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 18,
+        "functionCount": 29,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/lib/apikey.test.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 117,
+      "nonEmptyLines": 99,
+      "functions": [
+        {
+          "name": "resetAll",
+          "startLine": 14,
+          "endLine": 16,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "resetAll",
+          "callee": "clearStoredApiKeys",
+          "lineNumber": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/lib/apikey.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 66,
+      "nonEmptyLines": 54,
+      "functions": [
+        {
+          "name": "getStoredApiKeys",
+          "startLine": 33,
+          "endLine": 35,
+          "params": []
+        },
+        {
+          "name": "setStoredApiKey",
+          "startLine": 37,
+          "endLine": 44,
+          "params": [
+            "providerOrKey",
+            "key"
+          ]
+        },
+        {
+          "name": "clearStoredApiKey",
+          "startLine": 46,
+          "endLine": 48,
+          "params": [
+            "provider"
+          ]
+        },
+        {
+          "name": "clearStoredApiKeys",
+          "startLine": 50,
+          "endLine": 55,
+          "params": []
+        },
+        {
+          "name": "getStoredLLMSelection",
+          "startLine": 57,
+          "endLine": 59,
+          "params": []
+        },
+        {
+          "name": "setStoredLLMSelection",
+          "startLine": 61,
+          "endLine": 66,
+          "params": [
+            "selection"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "getStoredApiKeys",
+          "line": 33,
+          "isDefault": false
+        },
+        {
+          "name": "setStoredApiKey",
+          "line": 37,
+          "isDefault": false
+        },
+        {
+          "name": "clearStoredApiKey",
+          "line": 46,
+          "isDefault": false
+        },
+        {
+          "name": "clearStoredApiKeys",
+          "line": 50,
+          "isDefault": false
+        },
+        {
+          "name": "getStoredLLMSelection",
+          "line": 57,
+          "isDefault": false
+        },
+        {
+          "name": "setStoredLLMSelection",
+          "line": 61,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "setStoredApiKey",
+          "callee": "String(providerOrKey).trim",
+          "lineNumber": 39
+        },
+        {
+          "caller": "setStoredApiKey",
+          "callee": "String",
+          "lineNumber": 39
+        },
+        {
+          "caller": "setStoredApiKey",
+          "callee": "key.trim",
+          "lineNumber": 43
+        },
+        {
+          "caller": "clearStoredApiKeys",
+          "callee": "(Object.keys(activeApiKeys) as LLMProviderId[]).forEach",
+          "lineNumber": 51
+        },
+        {
+          "caller": "clearStoredApiKeys",
+          "callee": "Object.keys",
+          "lineNumber": 51
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/lib/auth.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 37,
+      "nonEmptyLines": 30,
+      "functions": [
+        {
+          "name": "getStoredAuthSession",
+          "startLine": 6,
+          "endLine": 14,
+          "params": []
+        },
+        {
+          "name": "storeAuthSession",
+          "startLine": 16,
+          "endLine": 22,
+          "params": []
+        },
+        {
+          "name": "clearAuthSession",
+          "startLine": 30,
+          "endLine": 37,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "AUTH_SESSION_MARKER",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "getStoredAuthSession",
+          "line": 6,
+          "isDefault": false
+        },
+        {
+          "name": "storeAuthSession",
+          "line": 16,
+          "isDefault": false
+        },
+        {
+          "name": "clearAuthSession",
+          "line": 30,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getStoredAuthSession",
+          "callee": "window.sessionStorage.getItem",
+          "lineNumber": 11
+        },
+        {
+          "caller": "storeAuthSession",
+          "callee": "window.sessionStorage.setItem",
+          "lineNumber": 21
+        },
+        {
+          "caller": "clearAuthSession",
+          "callee": "window.sessionStorage.removeItem",
+          "lineNumber": 35
+        },
+        {
+          "caller": "clearAuthSession",
+          "callee": "clearStoredApiKeys",
+          "lineNumber": 36
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 4,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/lib/llm-catalog.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 21,
+      "nonEmptyLines": 16,
+      "functions": [
+        {
+          "name": "findProviderForModel",
+          "startLine": 5,
+          "endLine": 13,
+          "params": [
+            "catalog",
+            "model"
+          ]
+        },
+        {
+          "name": "findProviderInfo",
+          "startLine": 16,
+          "endLine": 21,
+          "params": [
+            "catalog",
+            "providerId"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "findProviderForModel",
+          "line": 5,
+          "isDefault": false
+        },
+        {
+          "name": "findProviderInfo",
+          "line": 16,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "findProviderForModel",
+          "callee": "provider.models.some",
+          "lineNumber": 7
+        },
+        {
+          "caller": "findProviderInfo",
+          "callee": "catalog?.providers.find",
+          "lineNumber": 20
+        }
+      ],
+      "metrics": {
+        "importCount": 2,
+        "exportCount": 2,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/lib/session.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 31,
+      "nonEmptyLines": 24,
+      "functions": [
+        {
+          "name": "getStoredSessionId",
+          "startLine": 3,
+          "endLine": 15,
+          "params": []
+        },
+        {
+          "name": "storeSessionId",
+          "startLine": 17,
+          "endLine": 23,
+          "params": [
+            "sessionId"
+          ]
+        },
+        {
+          "name": "clearStoredSessionId",
+          "startLine": 25,
+          "endLine": 31,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "getStoredSessionId",
+          "line": 3,
+          "isDefault": false
+        },
+        {
+          "name": "storeSessionId",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "clearStoredSessionId",
+          "line": 25,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "getStoredSessionId",
+          "callee": "window.localStorage.getItem",
+          "lineNumber": 8
+        },
+        {
+          "caller": "getStoredSessionId",
+          "callee": "Number.parseInt",
+          "lineNumber": 13
+        },
+        {
+          "caller": "getStoredSessionId",
+          "callee": "Number.isFinite",
+          "lineNumber": 14
+        },
+        {
+          "caller": "storeSessionId",
+          "callee": "window.localStorage.setItem",
+          "lineNumber": 22
+        },
+        {
+          "caller": "storeSessionId",
+          "callee": "String",
+          "lineNumber": 22
+        },
+        {
+          "caller": "clearStoredSessionId",
+          "callee": "window.localStorage.removeItem",
+          "lineNumber": 30
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 3,
+        "classCount": 0
+      }
+    }
+  ]
+}

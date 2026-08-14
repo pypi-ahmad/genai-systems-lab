@@ -1,0 +1,1153 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-clinical-assistant/app/extractor.py",
+      "type": "file",
+      "name": "extractor.py",
+      "filePath": "genai-clinical-assistant/app/extractor.py",
+      "summary": "Implements extractor.py as part of the genai-clinical-assistant application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/extractor.py:extract_patient_info",
+      "type": "function",
+      "name": "extract_patient_info",
+      "filePath": "genai-clinical-assistant/app/extractor.py",
+      "lineRange": [
+        47,
+        62
+      ],
+      "summary": "Implements the extract_patient_info operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/app/formatter.py",
+      "type": "file",
+      "name": "formatter.py",
+      "filePath": "genai-clinical-assistant/app/formatter.py",
+      "summary": "Implements formatter.py as part of the genai-clinical-assistant application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/formatter.py:_format_condition_block",
+      "type": "function",
+      "name": "_format_condition_block",
+      "filePath": "genai-clinical-assistant/app/formatter.py",
+      "lineRange": [
+        30,
+        39
+      ],
+      "summary": "Implements the _format_condition_block operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/formatter.py:format_output",
+      "type": "function",
+      "name": "format_output",
+      "filePath": "genai-clinical-assistant/app/formatter.py",
+      "lineRange": [
+        42,
+        47
+      ],
+      "summary": "Implements the format_output operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/app/knowledge_base.py",
+      "type": "file",
+      "name": "knowledge_base.py",
+      "filePath": "genai-clinical-assistant/app/knowledge_base.py",
+      "summary": "Implements knowledge_base.py as part of the genai-clinical-assistant application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/knowledge_base.py:get_all_conditions",
+      "type": "function",
+      "name": "get_all_conditions",
+      "filePath": "genai-clinical-assistant/app/knowledge_base.py",
+      "lineRange": [
+        35,
+        37
+      ],
+      "summary": "Implements the get_all_conditions operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-clinical-assistant/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/main.py:_merge_reasoning_and_confidence",
+      "type": "function",
+      "name": "_merge_reasoning_and_confidence",
+      "filePath": "genai-clinical-assistant/app/main.py",
+      "lineRange": [
+        14,
+        28
+      ],
+      "summary": "Implements the _merge_reasoning_and_confidence operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-clinical-assistant/app/main.py",
+      "lineRange": [
+        31,
+        56
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/app/reasoner.py",
+      "type": "file",
+      "name": "reasoner.py",
+      "filePath": "genai-clinical-assistant/app/reasoner.py",
+      "summary": "Implements reasoner.py as part of the genai-clinical-assistant application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/reasoner.py:_format_patient",
+      "type": "function",
+      "name": "_format_patient",
+      "filePath": "genai-clinical-assistant/app/reasoner.py",
+      "lineRange": [
+        50,
+        60
+      ],
+      "summary": "Implements the _format_patient operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/reasoner.py:_format_conditions",
+      "type": "function",
+      "name": "_format_conditions",
+      "filePath": "genai-clinical-assistant/app/reasoner.py",
+      "lineRange": [
+        63,
+        68
+      ],
+      "summary": "Implements the _format_conditions operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/reasoner.py:analyze_conditions",
+      "type": "function",
+      "name": "analyze_conditions",
+      "filePath": "genai-clinical-assistant/app/reasoner.py",
+      "lineRange": [
+        71,
+        79
+      ],
+      "summary": "Implements the analyze_conditions operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/app/retriever.py",
+      "type": "file",
+      "name": "retriever.py",
+      "filePath": "genai-clinical-assistant/app/retriever.py",
+      "summary": "Implements retriever.py as part of the genai-clinical-assistant application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/retriever.py:_embed_texts",
+      "type": "function",
+      "name": "_embed_texts",
+      "filePath": "genai-clinical-assistant/app/retriever.py",
+      "lineRange": [
+        16,
+        23
+      ],
+      "summary": "Implements the _embed_texts operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/retriever.py:_cosine_similarity",
+      "type": "function",
+      "name": "_cosine_similarity",
+      "filePath": "genai-clinical-assistant/app/retriever.py",
+      "lineRange": [
+        26,
+        32
+      ],
+      "summary": "Implements the _cosine_similarity operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/retriever.py:_build_embedding_index",
+      "type": "function",
+      "name": "_build_embedding_index",
+      "filePath": "genai-clinical-assistant/app/retriever.py",
+      "lineRange": [
+        35,
+        53
+      ],
+      "summary": "Builds the _build_embedding_index structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/retriever.py:_semantic_score",
+      "type": "function",
+      "name": "_semantic_score",
+      "filePath": "genai-clinical-assistant/app/retriever.py",
+      "lineRange": [
+        56,
+        69
+      ],
+      "summary": "Implements the _semantic_score operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/retriever.py:retrieve_conditions",
+      "type": "function",
+      "name": "retrieve_conditions",
+      "filePath": "genai-clinical-assistant/app/retriever.py",
+      "lineRange": [
+        72,
+        109
+      ],
+      "summary": "Implements the retrieve_conditions operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "type": "file",
+      "name": "risk_evaluator.py",
+      "filePath": "genai-clinical-assistant/app/risk_evaluator.py",
+      "summary": "Implements risk_evaluator.py as part of the genai-clinical-assistant application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/risk_evaluator.py:_compute_confidence",
+      "type": "function",
+      "name": "_compute_confidence",
+      "filePath": "genai-clinical-assistant/app/risk_evaluator.py",
+      "lineRange": [
+        7,
+        11
+      ],
+      "summary": "Implements the _compute_confidence operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/risk_evaluator.py:_label_from_confidence",
+      "type": "function",
+      "name": "_label_from_confidence",
+      "filePath": "genai-clinical-assistant/app/risk_evaluator.py",
+      "lineRange": [
+        14,
+        19
+      ],
+      "summary": "Implements the _label_from_confidence operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-clinical-assistant/app/risk_evaluator.py:assign_confidence",
+      "type": "function",
+      "name": "assign_confidence",
+      "filePath": "genai-clinical-assistant/app/risk_evaluator.py",
+      "lineRange": [
+        22,
+        39
+      ],
+      "summary": "Implements the assign_confidence operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-code-copilot/app/embedder.py",
+      "type": "file",
+      "name": "embedder.py",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "summary": "Implements embedder.py as part of the genai-code-copilot application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-code-copilot/app/embedder.py:_should_retry",
+      "type": "function",
+      "name": "_should_retry",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        22,
+        29
+      ],
+      "summary": "Implements the _should_retry operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/embedder.py:_sleep_for_attempt",
+      "type": "function",
+      "name": "_sleep_for_attempt",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        32,
+        33
+      ],
+      "summary": "Implements the _sleep_for_attempt operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/embedder.py:_normalize_text",
+      "type": "function",
+      "name": "_normalize_text",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        36,
+        40
+      ],
+      "summary": "Implements the _normalize_text operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/embedder.py:_extract_embedding_values",
+      "type": "function",
+      "name": "_extract_embedding_values",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        43,
+        50
+      ],
+      "summary": "Implements the _extract_embedding_values operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/embedder.py:_embed_batch",
+      "type": "function",
+      "name": "_embed_batch",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        53,
+        75
+      ],
+      "summary": "Implements the _embed_batch operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/embedder.py:generate_embedding",
+      "type": "function",
+      "name": "generate_embedding",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        78,
+        80
+      ],
+      "summary": "Implements the generate_embedding operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-code-copilot/app/embedder.py:generate_embeddings_batch",
+      "type": "function",
+      "name": "generate_embeddings_batch",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        83,
+        93
+      ],
+      "summary": "Implements the generate_embeddings_batch operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-code-copilot/app/embedder.py:EmbeddingGenerationError",
+      "type": "class",
+      "name": "EmbeddingGenerationError",
+      "filePath": "genai-code-copilot/app/embedder.py",
+      "lineRange": [
+        18,
+        19
+      ],
+      "summary": "Represents the EmbeddingGenerationError abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/app/difficulty_manager.py",
+      "type": "file",
+      "name": "difficulty_manager.py",
+      "filePath": "genai-interviewer/app/difficulty_manager.py",
+      "summary": "Implements difficulty_manager.py as part of the genai-interviewer application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/difficulty_manager.py:adjust_difficulty",
+      "type": "function",
+      "name": "adjust_difficulty",
+      "filePath": "genai-interviewer/app/difficulty_manager.py",
+      "lineRange": [
+        13,
+        24
+      ],
+      "summary": "Implements the adjust_difficulty operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/app/evaluator.py",
+      "type": "file",
+      "name": "evaluator.py",
+      "filePath": "genai-interviewer/app/evaluator.py",
+      "summary": "Implements evaluator.py as part of the genai-interviewer application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-interviewer/app/evaluator.py:_get_rubric",
+      "type": "function",
+      "name": "_get_rubric",
+      "filePath": "genai-interviewer/app/evaluator.py",
+      "lineRange": [
+        64,
+        69
+      ],
+      "summary": "Implements the _get_rubric operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/evaluator.py:evaluate_answer",
+      "type": "function",
+      "name": "evaluate_answer",
+      "filePath": "genai-interviewer/app/evaluator.py",
+      "lineRange": [
+        122,
+        134
+      ],
+      "summary": "Implements the evaluate_answer operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-interviewer/app/feedback.py",
+      "type": "file",
+      "name": "feedback.py",
+      "filePath": "genai-interviewer/app/feedback.py",
+      "summary": "Implements feedback.py as part of the genai-interviewer application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-interviewer/app/feedback.py:generate_feedback",
+      "type": "function",
+      "name": "generate_feedback",
+      "filePath": "genai-interviewer/app/feedback.py",
+      "lineRange": [
+        33,
+        43
+      ],
+      "summary": "Implements the generate_feedback operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-clinical-assistant/app/extractor.py",
+      "target": "function:genai-clinical-assistant/app/extractor.py:extract_patient_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/extractor.py",
+      "target": "function:genai-clinical-assistant/app/extractor.py:extract_patient_info",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/extractor.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/formatter.py",
+      "target": "function:genai-clinical-assistant/app/formatter.py:_format_condition_block",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/formatter.py",
+      "target": "function:genai-clinical-assistant/app/formatter.py:_format_condition_block",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/formatter.py",
+      "target": "function:genai-clinical-assistant/app/formatter.py:format_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/formatter.py",
+      "target": "function:genai-clinical-assistant/app/formatter.py:format_output",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/formatter.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/knowledge_base.py",
+      "target": "function:genai-clinical-assistant/app/knowledge_base.py:get_all_conditions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/knowledge_base.py",
+      "target": "function:genai-clinical-assistant/app/knowledge_base.py:get_all_conditions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "function:genai-clinical-assistant/app/main.py:_merge_reasoning_and_confidence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "function:genai-clinical-assistant/app/main.py:_merge_reasoning_and_confidence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "function:genai-clinical-assistant/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "function:genai-clinical-assistant/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "file:genai-clinical-assistant/app/extractor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "file:genai-clinical-assistant/app/formatter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "file:genai-clinical-assistant/app/reasoner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "file:genai-clinical-assistant/app/retriever.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/reasoner.py",
+      "target": "function:genai-clinical-assistant/app/reasoner.py:_format_patient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/reasoner.py",
+      "target": "function:genai-clinical-assistant/app/reasoner.py:_format_patient",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/reasoner.py",
+      "target": "function:genai-clinical-assistant/app/reasoner.py:_format_conditions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/reasoner.py",
+      "target": "function:genai-clinical-assistant/app/reasoner.py:_format_conditions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/reasoner.py",
+      "target": "function:genai-clinical-assistant/app/reasoner.py:analyze_conditions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/reasoner.py",
+      "target": "function:genai-clinical-assistant/app/reasoner.py:analyze_conditions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/reasoner.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_embed_texts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_embed_texts",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_cosine_similarity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_cosine_similarity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_build_embedding_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_build_embedding_index",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_semantic_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:_semantic_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:retrieve_conditions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "function:genai-clinical-assistant/app/retriever.py:retrieve_conditions",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "file:genai-clinical-assistant/app/knowledge_base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/retriever.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "target": "function:genai-clinical-assistant/app/risk_evaluator.py:_compute_confidence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "target": "function:genai-clinical-assistant/app/risk_evaluator.py:_compute_confidence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "target": "function:genai-clinical-assistant/app/risk_evaluator.py:_label_from_confidence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "target": "function:genai-clinical-assistant/app/risk_evaluator.py:_label_from_confidence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "target": "function:genai-clinical-assistant/app/risk_evaluator.py:assign_confidence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-clinical-assistant/app/risk_evaluator.py",
+      "target": "function:genai-clinical-assistant/app/risk_evaluator.py:assign_confidence",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_should_retry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_should_retry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_sleep_for_attempt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_sleep_for_attempt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_normalize_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_normalize_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_extract_embedding_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_extract_embedding_values",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_embed_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:_embed_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:generate_embedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:generate_embedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:generate_embeddings_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "function:genai-code-copilot/app/embedder.py:generate_embeddings_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "class:genai-code-copilot/app/embedder.py:EmbeddingGenerationError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "class:genai-code-copilot/app/embedder.py:EmbeddingGenerationError",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-code-copilot/app/embedder.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/difficulty_manager.py",
+      "target": "function:genai-interviewer/app/difficulty_manager.py:adjust_difficulty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/difficulty_manager.py",
+      "target": "function:genai-interviewer/app/difficulty_manager.py:adjust_difficulty",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/evaluator.py",
+      "target": "function:genai-interviewer/app/evaluator.py:_get_rubric",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/evaluator.py",
+      "target": "function:genai-interviewer/app/evaluator.py:_get_rubric",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/evaluator.py",
+      "target": "function:genai-interviewer/app/evaluator.py:evaluate_answer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/evaluator.py",
+      "target": "function:genai-interviewer/app/evaluator.py:evaluate_answer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/evaluator.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-interviewer/app/feedback.py",
+      "target": "function:genai-interviewer/app/feedback.py:generate_feedback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:genai-interviewer/app/feedback.py",
+      "target": "function:genai-interviewer/app/feedback.py:generate_feedback",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-interviewer/app/feedback.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

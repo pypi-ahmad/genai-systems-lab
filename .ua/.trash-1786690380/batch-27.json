@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "config:benchmarks/promptfoo/tests/code_tests.yaml",
+      "type": "config",
+      "name": "code_tests.yaml",
+      "filePath": "benchmarks/promptfoo/tests/code_tests.yaml",
+      "summary": "Provides Promptfoo test cases and assertions for the code-generation prompt.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/tests/research_tests.yaml",
+      "type": "config",
+      "name": "research_tests.yaml",
+      "filePath": "benchmarks/promptfoo/tests/research_tests.yaml",
+      "summary": "Provides Promptfoo test cases and assertions for research-report generation.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "config:benchmarks/promptfoo/tests/summarization_tests.yaml",
+      "type": "config",
+      "name": "summarization_tests.yaml",
+      "filePath": "benchmarks/promptfoo/tests/summarization_tests.yaml",
+      "summary": "Provides Promptfoo test cases and assertions for summarization behavior.",
+      "tags": [
+        "configuration",
+        "prompt-evaluation",
+        "testing"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": []
+}

@@ -6,8 +6,8 @@ MAX_REVISIONS = 3
 MAX_PLAN_TASKS = 7
 MAX_ORIGINALITY_REWRITES = 2
 MAX_EDITOR_REVISIONS = 2
-REASONING_MODEL = "gemini-3.1-pro-preview"
-WRITING_MODEL = "gemini-3-flash-preview"
+REASONING_MODEL = "gemini-3.7-flash"
+WRITING_MODEL = "gemini-3.5-flash-lite"
 VALID_TONES = ("formal", "casual", "technical")
 DEFAULT_TONE = "formal"
 

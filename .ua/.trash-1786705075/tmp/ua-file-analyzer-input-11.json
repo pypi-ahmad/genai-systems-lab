@@ -1,0 +1,91 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-doc-intelligence/app/chunker.py",
+      "language": "python",
+      "sizeLines": 102,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/citation.py",
+      "language": "python",
+      "sizeLines": 38,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/embedder.py",
+      "language": "python",
+      "sizeLines": 51,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/extractor.py",
+      "language": "python",
+      "sizeLines": 46,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/ingest.py",
+      "language": "python",
+      "sizeLines": 21,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/main.py",
+      "language": "python",
+      "sizeLines": 84,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/qa_engine.py",
+      "language": "python",
+      "sizeLines": 33,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/retriever.py",
+      "language": "python",
+      "sizeLines": 92,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/vector_store.py",
+      "language": "python",
+      "sizeLines": 64,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "genai-doc-intelligence/app/chunker.py": [],
+    "genai-doc-intelligence/app/citation.py": [],
+    "genai-doc-intelligence/app/embedder.py": [
+      "shared/llm/gemini.py"
+    ],
+    "genai-doc-intelligence/app/extractor.py": [
+      "shared/llm/gemini.py"
+    ],
+    "genai-doc-intelligence/app/ingest.py": [],
+    "genai-doc-intelligence/app/main.py": [
+      "genai-doc-intelligence/app/chunker.py",
+      "genai-doc-intelligence/app/citation.py",
+      "genai-doc-intelligence/app/embedder.py",
+      "genai-doc-intelligence/app/extractor.py",
+      "genai-doc-intelligence/app/ingest.py",
+      "genai-doc-intelligence/app/qa_engine.py",
+      "genai-doc-intelligence/app/retriever.py",
+      "genai-doc-intelligence/app/vector_store.py",
+      "shared/api/step_events.py",
+      "shared/config.py"
+    ],
+    "genai-doc-intelligence/app/qa_engine.py": [
+      "shared/llm/gemini.py"
+    ],
+    "genai-doc-intelligence/app/retriever.py": [
+      "genai-doc-intelligence/app/embedder.py",
+      "genai-doc-intelligence/app/vector_store.py",
+      "shared/llm/gemini.py"
+    ],
+    "genai-doc-intelligence/app/vector_store.py": []
+  }
+}

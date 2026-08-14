@@ -7,7 +7,7 @@ File: `app/state.py`
 - [ ] Define `ResearchState` as a `TypedDict` with fields: `query` (str), `plan` (list[str]), `findings` (list[str]), `critiques` (list[str]), `revision_count` (int), `approved` (bool), `final_output` (str).
 - [ ] Set default factory values: `plan=[]`, `findings=[]`, `critiques=[]`, `revision_count=0`, `approved=False`, `final_output=""`.
 - [ ] Add module-level constants: `MAX_REVISIONS = 3`, `MAX_PLAN_TASKS = 7`.
-- [ ] Add `REASONING_MODEL = "gemini-3.1-pro-preview"` and `WRITING_MODEL = "gemini-3-flash-preview"` constants.
+- [ ] Add `REASONING_MODEL = "gemini-3.7-flash"` and `WRITING_MODEL = "gemini-3.5-flash-lite"` constants.
 
 ## 2 — Implement Planner Node
 
@@ -47,7 +47,7 @@ File: `app/nodes/writer.py`
 - [ ] Define `writer_node(state: ResearchState) -> dict` that reads `query`, `plan`, `findings`, and `critiques`.
 - [ ] Build a prompt requesting a Markdown report with: title, executive summary, one section per sub-task, and a conclusion.
 - [ ] If there are unresolved critiques (hit revision limit), instruct the LLM to note limitations.
-- [ ] Call `generate_text()` with `WRITING_MODEL`.
+- [x] Call the provider-native streaming text dispatcher with `WRITING_MODEL` for the final report only.
 - [ ] Return `{"final_output": report_text}`.
 
 ## 6 — Build Graph Transitions

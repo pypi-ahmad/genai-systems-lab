@@ -1,0 +1,1739 @@
+{
+  "nodes": [
+    {
+      "id": "file:crew-startup-simulator/app/agents.py",
+      "type": "file",
+      "name": "agents.py",
+      "filePath": "crew-startup-simulator/app/agents.py",
+      "summary": "Creates the specialized AI agents used by this application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/agents.py:build_ceo",
+      "type": "function",
+      "name": "build_ceo",
+      "filePath": "crew-startup-simulator/app/agents.py",
+      "lineRange": [
+        9,
+        24
+      ],
+      "summary": "Builds the _ceo structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/agents.py:build_product_manager",
+      "type": "function",
+      "name": "build_product_manager",
+      "filePath": "crew-startup-simulator/app/agents.py",
+      "lineRange": [
+        27,
+        42
+      ],
+      "summary": "Builds the _product_manager structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/agents.py:build_cto",
+      "type": "function",
+      "name": "build_cto",
+      "filePath": "crew-startup-simulator/app/agents.py",
+      "lineRange": [
+        45,
+        61
+      ],
+      "summary": "Builds the _cto structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/agents.py:build_engineer",
+      "type": "function",
+      "name": "build_engineer",
+      "filePath": "crew-startup-simulator/app/agents.py",
+      "lineRange": [
+        64,
+        79
+      ],
+      "summary": "Builds the _engineer structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/app/crew.py",
+      "type": "file",
+      "name": "crew.py",
+      "filePath": "crew-startup-simulator/app/crew.py",
+      "summary": "Composes agents and tasks into the application crew workflow.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/crew.py:build_crew",
+      "type": "function",
+      "name": "build_crew",
+      "filePath": "crew-startup-simulator/app/crew.py",
+      "lineRange": [
+        17,
+        61
+      ],
+      "summary": "Builds the _crew structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/crew.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "crew-startup-simulator/app/crew.py",
+      "lineRange": [
+        64,
+        70
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "crew-startup-simulator/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/main.py:_parse_json",
+      "type": "function",
+      "name": "_parse_json",
+      "filePath": "crew-startup-simulator/app/main.py",
+      "lineRange": [
+        23,
+        34
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "crew-startup-simulator/app/main.py",
+      "lineRange": [
+        37,
+        52
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/app/tasks.py",
+      "type": "file",
+      "name": "tasks.py",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "summary": "Defines task prompts and task objects coordinated by the application crew.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/tasks.py:build_vision_task",
+      "type": "function",
+      "name": "build_vision_task",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "lineRange": [
+        69,
+        83
+      ],
+      "summary": "Builds the _vision_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/tasks.py:build_product_task",
+      "type": "function",
+      "name": "build_product_task",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "lineRange": [
+        86,
+        101
+      ],
+      "summary": "Builds the _product_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/tasks.py:build_architecture_task",
+      "type": "function",
+      "name": "build_architecture_task",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "lineRange": [
+        104,
+        120
+      ],
+      "summary": "Builds the _architecture_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/tasks.py:build_execution_task",
+      "type": "function",
+      "name": "build_execution_task",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "lineRange": [
+        123,
+        140
+      ],
+      "summary": "Builds the _execution_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/tasks.py:build_proposal_task",
+      "type": "function",
+      "name": "build_proposal_task",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "lineRange": [
+        143,
+        158
+      ],
+      "summary": "Builds the _proposal_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/tasks.py:build_selection_task",
+      "type": "function",
+      "name": "build_selection_task",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "lineRange": [
+        161,
+        182
+      ],
+      "summary": "Builds the _selection_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/app/tasks.py:build_review_task",
+      "type": "function",
+      "name": "build_review_task",
+      "filePath": "crew-startup-simulator/app/tasks.py",
+      "lineRange": [
+        185,
+        206
+      ],
+      "summary": "Builds the _review_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:crew-startup-simulator/tests/test_all.py",
+      "type": "file",
+      "name": "test_all.py",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "summary": "Tests behavior exposed by the corresponding application modules.",
+      "tags": [
+        "test",
+        "verification",
+        "automation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_ceo",
+      "type": "function",
+      "name": "test_build_ceo",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        90,
+        94
+      ],
+      "summary": "Builds the test_build_ceo structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_product_manager",
+      "type": "function",
+      "name": "test_build_product_manager",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        97,
+        100
+      ],
+      "summary": "Builds the test_build_product_manager structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_cto",
+      "type": "function",
+      "name": "test_build_cto",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        103,
+        106
+      ],
+      "summary": "Builds the test_build_cto structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_engineer",
+      "type": "function",
+      "name": "test_build_engineer",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        109,
+        112
+      ],
+      "summary": "Builds the test_build_engineer structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_proposal_schema_keys",
+      "type": "function",
+      "name": "test_proposal_schema_keys",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        117,
+        119
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_selection_schema_keys",
+      "type": "function",
+      "name": "test_selection_schema_keys",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        122,
+        128
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_product_schema_keys",
+      "type": "function",
+      "name": "test_product_schema_keys",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        131,
+        133
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_review_schema_keys",
+      "type": "function",
+      "name": "test_review_schema_keys",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        136,
+        138
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_proposal_task",
+      "type": "function",
+      "name": "test_build_proposal_task",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        143,
+        149
+      ],
+      "summary": "Builds the test_build_proposal_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_proposal_task_embeds_schema",
+      "type": "function",
+      "name": "test_build_proposal_task_embeds_schema",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        152,
+        156
+      ],
+      "summary": "Builds the test_build_proposal_task_embeds_schema structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_selection_task",
+      "type": "function",
+      "name": "test_build_selection_task",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        159,
+        169
+      ],
+      "summary": "Builds the test_build_selection_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_vision_task",
+      "type": "function",
+      "name": "test_build_vision_task",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        172,
+        176
+      ],
+      "summary": "Builds the test_build_vision_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_product_task_has_context",
+      "type": "function",
+      "name": "test_build_product_task_has_context",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        179,
+        184
+      ],
+      "summary": "Builds the test_build_product_task_has_context structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_architecture_task_has_context",
+      "type": "function",
+      "name": "test_build_architecture_task_has_context",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        187,
+        193
+      ],
+      "summary": "Builds the test_build_architecture_task_has_context structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_execution_task_has_context",
+      "type": "function",
+      "name": "test_build_execution_task_has_context",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        196,
+        202
+      ],
+      "summary": "Builds the test_build_execution_task_has_context structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_review_task",
+      "type": "function",
+      "name": "test_build_review_task",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        205,
+        212
+      ],
+      "summary": "Builds the test_build_review_task structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_returns_crew",
+      "type": "function",
+      "name": "test_build_crew_returns_crew",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        217,
+        219
+      ],
+      "summary": "Builds the test_build_crew_returns_crew structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_has_four_agents",
+      "type": "function",
+      "name": "test_build_crew_has_four_agents",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        222,
+        224
+      ],
+      "summary": "Builds the test_build_crew_has_four_agents structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_has_eleven_tasks",
+      "type": "function",
+      "name": "test_build_crew_has_eleven_tasks",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        227,
+        229
+      ],
+      "summary": "Builds the test_build_crew_has_eleven_tasks structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_task_order",
+      "type": "function",
+      "name": "test_build_crew_task_order",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        232,
+        250
+      ],
+      "summary": "Builds the test_build_crew_task_order structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_sequential_process",
+      "type": "function",
+      "name": "test_build_crew_sequential_process",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        253,
+        255
+      ],
+      "summary": "Builds the test_build_crew_sequential_process structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_proposal_agents",
+      "type": "function",
+      "name": "test_build_crew_proposal_agents",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        258,
+        263
+      ],
+      "summary": "Builds the test_build_crew_proposal_agents structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_selection_agent_is_ceo",
+      "type": "function",
+      "name": "test_build_crew_selection_agent_is_ceo",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        266,
+        268
+      ],
+      "summary": "Builds the test_build_crew_selection_agent_is_ceo structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_count",
+      "type": "function",
+      "name": "test_step_labels_count",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        273,
+        274
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_has_proposals",
+      "type": "function",
+      "name": "test_step_labels_has_proposals",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        277,
+        280
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_has_selection",
+      "type": "function",
+      "name": "test_step_labels_has_selection",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        283,
+        284
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_order",
+      "type": "function",
+      "name": "test_step_labels_order",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        287,
+        291
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_valid",
+      "type": "function",
+      "name": "test_parse_json_valid",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        294,
+        296
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_markdown_fences",
+      "type": "function",
+      "name": "test_parse_json_markdown_fences",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        299,
+        301
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_invalid",
+      "type": "function",
+      "name": "test_parse_json_invalid",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        304,
+        305
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:crew-startup-simulator/tests/test_all.py:test_run_returns_structured_steps",
+      "type": "function",
+      "name": "test_run_returns_structured_steps",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        308,
+        312
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:crew-startup-simulator/tests/test_all.py:FakeAgent",
+      "type": "class",
+      "name": "FakeAgent",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        9,
+        15
+      ],
+      "summary": "Represents the FakeAgent abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:crew-startup-simulator/tests/test_all.py:FakeTask",
+      "type": "class",
+      "name": "FakeTask",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        18,
+        23
+      ],
+      "summary": "Represents the FakeTask abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:crew-startup-simulator/tests/test_all.py:FakeProcess",
+      "type": "class",
+      "name": "FakeProcess",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        26,
+        27
+      ],
+      "summary": "Represents the FakeProcess abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:crew-startup-simulator/tests/test_all.py:FakeTaskOutput",
+      "type": "class",
+      "name": "FakeTaskOutput",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        30,
+        32
+      ],
+      "summary": "Represents the FakeTaskOutput abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:crew-startup-simulator/tests/test_all.py:FakeResult",
+      "type": "class",
+      "name": "FakeResult",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        35,
+        39
+      ],
+      "summary": "Represents the FakeResult abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:crew-startup-simulator/tests/test_all.py:FakeCrew",
+      "type": "class",
+      "name": "FakeCrew",
+      "filePath": "crew-startup-simulator/tests/test_all.py",
+      "lineRange": [
+        42,
+        50
+      ],
+      "summary": "Represents the FakeCrew abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_ceo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_ceo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_product_manager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_product_manager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_cto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_cto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_engineer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/agents.py",
+      "target": "function:crew-startup-simulator/app/agents.py:build_engineer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/crew.py",
+      "target": "function:crew-startup-simulator/app/crew.py:build_crew",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/crew.py",
+      "target": "function:crew-startup-simulator/app/crew.py:build_crew",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/crew.py",
+      "target": "function:crew-startup-simulator/app/crew.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/crew.py",
+      "target": "function:crew-startup-simulator/app/crew.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/crew.py",
+      "target": "file:crew-startup-simulator/app/agents.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-startup-simulator/app/crew.py",
+      "target": "file:crew-startup-simulator/app/tasks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-startup-simulator/app/main.py",
+      "target": "function:crew-startup-simulator/app/main.py:_parse_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/main.py",
+      "target": "function:crew-startup-simulator/app/main.py:_parse_json",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/main.py",
+      "target": "function:crew-startup-simulator/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/main.py",
+      "target": "function:crew-startup-simulator/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/main.py",
+      "target": "file:crew-startup-simulator/app/crew.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-startup-simulator/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_vision_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_vision_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_product_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_product_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_architecture_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_architecture_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_execution_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_execution_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_proposal_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_proposal_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_selection_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_selection_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_review_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/app/tasks.py",
+      "target": "function:crew-startup-simulator/app/tasks.py:build_review_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_ceo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_ceo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_product_manager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_product_manager",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_cto",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_cto",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_engineer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_engineer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_proposal_schema_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_proposal_schema_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_selection_schema_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_selection_schema_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_product_schema_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_product_schema_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_review_schema_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_review_schema_keys",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_proposal_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_proposal_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_proposal_task_embeds_schema",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_proposal_task_embeds_schema",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_selection_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_selection_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_vision_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_vision_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_product_task_has_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_product_task_has_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_architecture_task_has_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_architecture_task_has_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_execution_task_has_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_execution_task_has_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_review_task",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_review_task",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_returns_crew",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_returns_crew",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_has_four_agents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_has_four_agents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_has_eleven_tasks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_has_eleven_tasks",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_task_order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_task_order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_sequential_process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_sequential_process",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_proposal_agents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_proposal_agents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_selection_agent_is_ceo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_build_crew_selection_agent_is_ceo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_count",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_has_proposals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_has_proposals",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_has_selection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_has_selection",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_step_labels_order",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_valid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_valid",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_markdown_fences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_markdown_fences",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_invalid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_parse_json_invalid",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_run_returns_structured_steps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "function:crew-startup-simulator/tests/test_all.py:test_run_returns_structured_steps",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeAgent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeAgent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeTask",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeTask",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeProcess",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeProcess",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeTaskOutput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeTaskOutput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeResult",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeResult",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeCrew",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "class:crew-startup-simulator/tests/test_all.py:FakeCrew",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "file:crew-startup-simulator/app/agents.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "file:crew-startup-simulator/app/crew.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "file:crew-startup-simulator/app/main.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:crew-startup-simulator/tests/test_all.py",
+      "target": "file:crew-startup-simulator/app/tasks.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

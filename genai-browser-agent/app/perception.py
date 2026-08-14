@@ -9,7 +9,7 @@ from shared.llm.gemini import generate_text_from_image
 logger = logging.getLogger(__name__)
 
 MAX_CHARS = 4000
-VISION_MODEL = "gemini-3-flash-preview"
+VISION_MODEL = "gemini-3.5-flash-lite"
 
 VISION_PROMPT = (
     "Describe this browser screenshot concisely for an autonomous web agent. "

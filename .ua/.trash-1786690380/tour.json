@@ -1,0 +1,56 @@
+[
+  {
+    "order": 1,
+    "title": "Project Overview",
+    "description": "Start with the repository guide to understand GenAI Systems Lab as a shared platform for multiple AI-system patterns. It establishes the systems, operational surfaces, and setup vocabulary used throughout the remaining tour.",
+    "nodeIds": ["document:README.md"]
+  },
+  {
+    "order": 2,
+    "title": "Runtime Configuration",
+    "description": "The Python project metadata and shared configuration establish the common runtime assumptions for the application collection. Reading them next clarifies how independent examples inherit a consistent environment instead of each inventing its own settings.",
+    "nodeIds": ["config:pyproject.toml", "file:shared/config.py"]
+  },
+  {
+    "order": 3,
+    "title": "Shared Execution API",
+    "description": "The shared API application is the broadest runtime integration point, while the runner coordinates execution work behind that surface. Together they show how the repository exposes different systems through one operational interface.",
+    "nodeIds": ["file:shared/api/app.py", "file:shared/api/runner.py"]
+  },
+  {
+    "order": 4,
+    "title": "LLM Integration Layer",
+    "description": "The model adapter and dispatch module form the shared LLM boundary used across many applications. Their high reuse makes them the right place to learn how application-specific workflows reach provider-facing capabilities without duplicating integration logic.",
+    "nodeIds": ["file:shared/llm/gemini.py", "file:shared/llm/dispatch.py"]
+  },
+  {
+    "order": 5,
+    "title": "LangGraph Research Flow",
+    "description": "This representative LangGraph application starts from a runnable entry point and assembles a workflow graph from specialized nodes. It demonstrates the state-machine style described in the overview and connects the shared runtime to a concrete agent system.",
+    "nodeIds": ["file:lg-research-agent/app/main.py", "file:lg-research-agent/app/graph.py"]
+  },
+  {
+    "order": 6,
+    "title": "Graph State and Planning",
+    "description": "The workflow state defines the typed information that moves between LangGraph nodes, and the planner is one such focused step. Study these after the graph to see how the orchestration structure becomes a sequence of explicit, stateful decisions.",
+    "nodeIds": ["file:lg-research-agent/app/state.py", "file:lg-research-agent/app/nodes/planner.py"]
+  },
+  {
+    "order": 7,
+    "title": "CrewAI Content Pipeline",
+    "description": "The content-pipeline example provides a contrasting multi-agent pattern: a main program starts a crew composed from specialized agents and tasks. Comparing these files with the LangGraph tour stops makes the repository's multiple orchestration styles concrete.",
+    "nodeIds": ["file:crew-content-pipeline/app/main.py", "file:crew-content-pipeline/app/crew.py", "file:crew-content-pipeline/app/agents.py", "file:crew-content-pipeline/app/tasks.py"]
+  },
+  {
+    "order": 8,
+    "title": "Portfolio Playground",
+    "description": "The portfolio client is a representative frontend integration, and its API module is the connection back to shared runtime capabilities. This step shows how the system collection is presented and exercised through a user-facing experience.",
+    "nodeIds": ["config:portfolio/package.json", "file:portfolio/src/app/playground/playground-client.tsx", "file:portfolio/src/lib/api.ts"]
+  },
+  {
+    "order": 9,
+    "title": "Continuous Integration",
+    "description": "The CI workflow closes the tour by showing how the project validates quality, tests, security, and builds across its varied components. It is the operational guardrail that keeps the shared platform and representative applications reliable as they evolve.",
+    "nodeIds": ["pipeline:.github/workflows/ci.yml"]
+  }
+]

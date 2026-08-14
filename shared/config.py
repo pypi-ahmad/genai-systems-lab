@@ -15,10 +15,11 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_valida
 _BYOK_API_KEY: ContextVar[str | None] = ContextVar("byok_api_key", default=None)
 _REQUEST_MODEL: ContextVar[str | None] = ContextVar("request_model", default=None)
 _REQUEST_PROVIDER: ContextVar[str | None] = ContextVar("request_provider", default=None)
+_REQUEST_EFFORT: ContextVar[str | None] = ContextVar("request_effort", default=None)
 
 
 def set_byok_api_key(key: str | None) -> Token[str | None]:
-    """Bind a per-request Google API key for the current execution context."""
+    """Bind a provider API key for the current request context."""
     return _BYOK_API_KEY.set(key)
 
 
@@ -57,6 +58,21 @@ def get_request_provider() -> str | None:
     return _REQUEST_PROVIDER.get()
 
 
+def set_request_effort(effort: str | None) -> Token[str | None]:
+    """Bind a validated request-scoped reasoning effort override."""
+    return _REQUEST_EFFORT.set((effort or "").strip().lower() or None)
+
+
+def reset_request_effort(token: Token[str | None]) -> None:
+    """Restore the previous request-effort binding."""
+    _REQUEST_EFFORT.reset(token)
+
+
+def get_request_effort() -> str | None:
+    """Return the request-scoped reasoning effort override, if present."""
+    return _REQUEST_EFFORT.get()
+
+
 def get_effective_api_key(*, required: bool = True) -> str:
     """Return the per-request BYOK key from the ``x-api-key`` header.
 
@@ -87,8 +103,8 @@ ROOT_ENV_FILE = Path(__file__).resolve().parents[1] / ".env"
 load_dotenv(dotenv_path=ROOT_ENV_FILE)
 
 
-DEFAULT_DEV_MODEL = "gemini-3-flash-preview"
-DEFAULT_PROD_MODEL = "gemini-3.1-pro-preview"
+DEFAULT_DEV_MODEL = "gemini-3.7-flash"
+DEFAULT_PROD_MODEL = "gemini-3.7-flash"
 
 
 class Settings(BaseModel):
@@ -119,10 +135,7 @@ class Settings(BaseModel):
     def parse_project_models(cls, value: object) -> dict[str, str]:
         if value in (None, ""):
             return {}
-        if isinstance(value, str):
-            parsed = json.loads(value)
-        else:
-            parsed = value
+        parsed = json.loads(value) if isinstance(value, str) else value
 
         if not isinstance(parsed, dict):
             raise ValueError("PROJECT_MODELS_JSON must decode to an object mapping project names to models.")

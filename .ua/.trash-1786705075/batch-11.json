@@ -1,0 +1,1041 @@
+{
+  "nodes": [
+    {
+      "id": "file:genai-doc-intelligence/app/chunker.py",
+      "type": "file",
+      "name": "chunker.py",
+      "filePath": "genai-doc-intelligence/app/chunker.py",
+      "summary": "Implements chunker functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/chunker.py:_split_sentences",
+      "type": "function",
+      "name": "_split_sentences",
+      "filePath": "genai-doc-intelligence/app/chunker.py",
+      "lineRange": [
+        9,
+        10
+      ],
+      "summary": "Executes the _split_sentences operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/chunker.py:_is_heading",
+      "type": "function",
+      "name": "_is_heading",
+      "filePath": "genai-doc-intelligence/app/chunker.py",
+      "lineRange": [
+        13,
+        14
+      ],
+      "summary": "Executes the _is_heading operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/chunker.py:_split_sections",
+      "type": "function",
+      "name": "_split_sections",
+      "filePath": "genai-doc-intelligence/app/chunker.py",
+      "lineRange": [
+        17,
+        38
+      ],
+      "summary": "Executes the _split_sections operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/chunker.py:_chunk_sentences",
+      "type": "function",
+      "name": "_chunk_sentences",
+      "filePath": "genai-doc-intelligence/app/chunker.py",
+      "lineRange": [
+        41,
+        64
+      ],
+      "summary": "Executes the _chunk_sentences operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/chunker.py:chunk_document",
+      "type": "function",
+      "name": "chunk_document",
+      "filePath": "genai-doc-intelligence/app/chunker.py",
+      "lineRange": [
+        67,
+        102
+      ],
+      "summary": "Executes the chunk_document operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/citation.py",
+      "type": "file",
+      "name": "citation.py",
+      "filePath": "genai-doc-intelligence/app/citation.py",
+      "summary": "Implements citation functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/citation.py:attach_citations",
+      "type": "function",
+      "name": "attach_citations",
+      "filePath": "genai-doc-intelligence/app/citation.py",
+      "lineRange": [
+        4,
+        38
+      ],
+      "summary": "Executes the attach_citations operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/embedder.py",
+      "type": "file",
+      "name": "embedder.py",
+      "filePath": "genai-doc-intelligence/app/embedder.py",
+      "summary": "Implements embedder functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/embedder.py:_should_retry",
+      "type": "function",
+      "name": "_should_retry",
+      "filePath": "genai-doc-intelligence/app/embedder.py",
+      "lineRange": [
+        15,
+        20
+      ],
+      "summary": "Executes the _should_retry operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/embedder.py:_embed_batch",
+      "type": "function",
+      "name": "_embed_batch",
+      "filePath": "genai-doc-intelligence/app/embedder.py",
+      "lineRange": [
+        23,
+        38
+      ],
+      "summary": "Executes the _embed_batch operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/embedder.py:generate_embedding",
+      "type": "function",
+      "name": "generate_embedding",
+      "filePath": "genai-doc-intelligence/app/embedder.py",
+      "lineRange": [
+        41,
+        42
+      ],
+      "summary": "Executes the generate_embedding operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/embedder.py:batch_embeddings",
+      "type": "function",
+      "name": "batch_embeddings",
+      "filePath": "genai-doc-intelligence/app/embedder.py",
+      "lineRange": [
+        45,
+        51
+      ],
+      "summary": "Executes the batch_embeddings operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/extractor.py",
+      "type": "file",
+      "name": "extractor.py",
+      "filePath": "genai-doc-intelligence/app/extractor.py",
+      "summary": "Implements extractor functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/extractor.py:extract_key_information",
+      "type": "function",
+      "name": "extract_key_information",
+      "filePath": "genai-doc-intelligence/app/extractor.py",
+      "lineRange": [
+        42,
+        46
+      ],
+      "summary": "Executes the extract_key_information operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/ingest.py",
+      "type": "file",
+      "name": "ingest.py",
+      "filePath": "genai-doc-intelligence/app/ingest.py",
+      "summary": "Implements ingest functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/ingest.py:load_documents",
+      "type": "function",
+      "name": "load_documents",
+      "filePath": "genai-doc-intelligence/app/ingest.py",
+      "lineRange": [
+        6,
+        21
+      ],
+      "summary": "Executes the load_documents operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "genai-doc-intelligence/app/main.py",
+      "summary": "Implements main functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "genai-doc-intelligence/app/main.py",
+      "lineRange": [
+        19,
+        27
+      ],
+      "summary": "Executes the run operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/main.py:ingest",
+      "type": "function",
+      "name": "ingest",
+      "filePath": "genai-doc-intelligence/app/main.py",
+      "lineRange": [
+        30,
+        59
+      ],
+      "summary": "Executes the ingest operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/main.py:query",
+      "type": "function",
+      "name": "query",
+      "filePath": "genai-doc-intelligence/app/main.py",
+      "lineRange": [
+        62,
+        78
+      ],
+      "summary": "Executes the query operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/main.py:extract",
+      "type": "function",
+      "name": "extract",
+      "filePath": "genai-doc-intelligence/app/main.py",
+      "lineRange": [
+        81,
+        84
+      ],
+      "summary": "Executes the extract operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/qa_engine.py",
+      "type": "file",
+      "name": "qa_engine.py",
+      "filePath": "genai-doc-intelligence/app/qa_engine.py",
+      "summary": "Implements qa engine functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/qa_engine.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "genai-doc-intelligence/app/qa_engine.py",
+      "lineRange": [
+        6,
+        26
+      ],
+      "summary": "Executes the _build_prompt operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/qa_engine.py:answer_query",
+      "type": "function",
+      "name": "answer_query",
+      "filePath": "genai-doc-intelligence/app/qa_engine.py",
+      "lineRange": [
+        29,
+        33
+      ],
+      "summary": "Executes the answer_query operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/retriever.py",
+      "type": "file",
+      "name": "retriever.py",
+      "filePath": "genai-doc-intelligence/app/retriever.py",
+      "summary": "Implements retriever functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/retriever.py:init_store",
+      "type": "function",
+      "name": "init_store",
+      "filePath": "genai-doc-intelligence/app/retriever.py",
+      "lineRange": [
+        24,
+        26
+      ],
+      "summary": "Executes the init_store operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/retriever.py:_tokenize",
+      "type": "function",
+      "name": "_tokenize",
+      "filePath": "genai-doc-intelligence/app/retriever.py",
+      "lineRange": [
+        29,
+        30
+      ],
+      "summary": "Executes the _tokenize operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/retriever.py:_keyword_score",
+      "type": "function",
+      "name": "_keyword_score",
+      "filePath": "genai-doc-intelligence/app/retriever.py",
+      "lineRange": [
+        33,
+        38
+      ],
+      "summary": "Executes the _keyword_score operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/retriever.py:_parse_rerank_score",
+      "type": "function",
+      "name": "_parse_rerank_score",
+      "filePath": "genai-doc-intelligence/app/retriever.py",
+      "lineRange": [
+        41,
+        45
+      ],
+      "summary": "Executes the _parse_rerank_score operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/retriever.py:_rerank_score",
+      "type": "function",
+      "name": "_rerank_score",
+      "filePath": "genai-doc-intelligence/app/retriever.py",
+      "lineRange": [
+        48,
+        54
+      ],
+      "summary": "Executes the _rerank_score operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/retriever.py:retrieve",
+      "type": "function",
+      "name": "retrieve",
+      "filePath": "genai-doc-intelligence/app/retriever.py",
+      "lineRange": [
+        57,
+        92
+      ],
+      "summary": "Executes the retrieve operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:genai-doc-intelligence/app/vector_store.py",
+      "type": "file",
+      "name": "vector_store.py",
+      "filePath": "genai-doc-intelligence/app/vector_store.py",
+      "summary": "Implements vector store functionality within the genai-doc-intelligence project.",
+      "tags": [
+        "service",
+        "implementation",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:genai-doc-intelligence/app/vector_store.py:_cosine_similarity",
+      "type": "function",
+      "name": "_cosine_similarity",
+      "filePath": "genai-doc-intelligence/app/vector_store.py",
+      "lineRange": [
+        7,
+        12
+      ],
+      "summary": "Executes the _cosine_similarity operation for this module.",
+      "tags": [
+        "function",
+        "application-logic",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:genai-doc-intelligence/app/vector_store.py:VectorStore",
+      "type": "class",
+      "name": "VectorStore",
+      "filePath": "genai-doc-intelligence/app/vector_store.py",
+      "lineRange": [
+        15,
+        64
+      ],
+      "summary": "Encapsulates VectorStore behavior and data for this module.",
+      "tags": [
+        "class",
+        "data-model",
+        "application-logic"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_split_sentences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_split_sentences",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_is_heading",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_is_heading",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_split_sections",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_split_sections",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_chunk_sentences",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:_chunk_sentences",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:chunk_document",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/chunker.py",
+      "target": "function:genai-doc-intelligence/app/chunker.py:chunk_document",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/citation.py",
+      "target": "function:genai-doc-intelligence/app/citation.py:attach_citations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/citation.py",
+      "target": "function:genai-doc-intelligence/app/citation.py:attach_citations",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:_should_retry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:_should_retry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:_embed_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:_embed_batch",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:generate_embedding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:generate_embedding",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:batch_embeddings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "function:genai-doc-intelligence/app/embedder.py:batch_embeddings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/embedder.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/extractor.py",
+      "target": "function:genai-doc-intelligence/app/extractor.py:extract_key_information",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/extractor.py",
+      "target": "function:genai-doc-intelligence/app/extractor.py:extract_key_information",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/extractor.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/ingest.py",
+      "target": "function:genai-doc-intelligence/app/ingest.py:load_documents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/ingest.py",
+      "target": "function:genai-doc-intelligence/app/ingest.py:load_documents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:ingest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:ingest",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:query",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:extract",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "function:genai-doc-intelligence/app/main.py:extract",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/chunker.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/citation.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/embedder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/extractor.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/ingest.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/qa_engine.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/retriever.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:genai-doc-intelligence/app/vector_store.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:shared/api/step_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/qa_engine.py",
+      "target": "function:genai-doc-intelligence/app/qa_engine.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/qa_engine.py",
+      "target": "function:genai-doc-intelligence/app/qa_engine.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/qa_engine.py",
+      "target": "function:genai-doc-intelligence/app/qa_engine.py:answer_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/qa_engine.py",
+      "target": "function:genai-doc-intelligence/app/qa_engine.py:answer_query",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/qa_engine.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:init_store",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:init_store",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_tokenize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_tokenize",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_keyword_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_keyword_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_parse_rerank_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_parse_rerank_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_rerank_score",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:_rerank_score",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:retrieve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "function:genai-doc-intelligence/app/retriever.py:retrieve",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "file:genai-doc-intelligence/app/embedder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "file:genai-doc-intelligence/app/vector_store.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/retriever.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/vector_store.py",
+      "target": "function:genai-doc-intelligence/app/vector_store.py:_cosine_similarity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/vector_store.py",
+      "target": "function:genai-doc-intelligence/app/vector_store.py:_cosine_similarity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/vector_store.py",
+      "target": "class:genai-doc-intelligence/app/vector_store.py:VectorStore",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:genai-doc-intelligence/app/vector_store.py",
+      "target": "class:genai-doc-intelligence/app/vector_store.py:VectorStore",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

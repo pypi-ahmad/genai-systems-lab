@@ -1,0 +1,1327 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 15,
+  "filesSkipped": [
+    "lg-support-agent/tests/.gitkeep",
+    "lg-workflow-agent/tests/.gitkeep",
+    "portfolio/src/app/globals.css"
+  ],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 15,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 14,
+      "failed": 0,
+      "skipped": 1
+    }
+  },
+  "results": [
+    {
+      "path": "lg-workflow-agent/app/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "lg-workflow-agent/app/nodes/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/eslint.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 18,
+      "nonEmptyLines": 16,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/next.config.ts",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 83,
+      "nonEmptyLines": 77,
+      "functions": [
+        {
+          "name": "buildCsp",
+          "startLine": 25,
+          "endLine": 44,
+          "params": []
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "buildCsp",
+          "callee": "[\"'self'\", apiBaseForCsp].filter(Boolean).join",
+          "lineNumber": 26
+        },
+        {
+          "caller": "buildCsp",
+          "callee": "[\"'self'\", apiBaseForCsp].filter",
+          "lineNumber": 26
+        },
+        {
+          "caller": "buildCsp",
+          "callee": "[\r\n    \"default-src 'self'\",\r\n    \"base-uri 'self'\",\r\n    \"frame-ancestors 'none'\",\r\n    \"form-action 'self'\",\r\n    // Tailwind v4 + Next.js still need inline styles during hydration.\r\n    \"style-src 'self' 'unsafe-inline'\",\r\n    \"img-src 'self' data: blob:\",\r\n    \"font-src 'self' data:\",\r\n    // ``'unsafe-inline'`` is required for Next's bootstrap scripts in prod;\r\n    // tighten to nonces if you adopt a custom server.\r\n    `script-src 'self'${isProd ? \" 'unsafe-inline'\" : \" 'unsafe-inline' 'unsafe-eval'\"}`,\r\n    `connect-src ${connectSrc}`,\r\n    \"object-src 'none'\",\r\n    \"manifest-src 'self'\",\r\n    \"worker-src 'self' blob:\",\r\n  ].join",
+          "lineNumber": 27
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/postcss.config.mjs",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 7,
+      "nonEmptyLines": 6,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/architecture/diagram.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 166,
+      "nonEmptyLines": 154,
+      "functions": [
+        {
+          "name": "stepIndex",
+          "startLine": 43,
+          "endLine": 45,
+          "params": [
+            "id"
+          ]
+        },
+        {
+          "name": "ArchitectureDiagram",
+          "startLine": 47,
+          "endLine": 166,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "ArchitectureDiagram",
+          "line": 47,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "stepIndex",
+          "callee": "STEPS.findIndex",
+          "lineNumber": 44
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "useState",
+          "lineNumber": 48
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "useState",
+          "lineNumber": 49
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "stepIndex",
+          "lineNumber": 52
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.find",
+          "lineNumber": 53
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.map",
+          "lineNumber": 59
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "Math.abs",
+          "lineNumber": 61
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 67
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 68
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 69
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setHoveredId",
+          "lineNumber": 70
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "setSelectedId",
+          "lineNumber": 71
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                    \"rounded-[1.5rem] border p-5 text-left transition-all duration-200\",\r\n                    \"bg-[var(--card-strong)] shadow-[var(--card-hover-shadow)]\",\r\n                    isActive\r\n                      ? \"border-[var(--accent-border-soft)] bg-[var(--accent-soft-strong)]\"\r\n                      : isConnected\r\n                        ? \"border-[var(--accent-border-soft)] bg-[var(--surface-soft)]\"\r\n                        : \"border-[var(--line)]\",\r\n                  ].join",
+          "lineNumber": 72
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "String(index + 1).padStart",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "String",
+          "lineNumber": 83
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                          \"h-px w-10 transition-colors duration-200\",\r\n                          activeIndex !== -1 && index >= activeIndex - 1 && index <= activeIndex\r\n                            ? \"bg-[var(--accent-solid)]\"\r\n                            : \"bg-[var(--line)]\",\r\n                        ].join",
+          "lineNumber": 97
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                          \"text-sm transition-colors duration-200\",\r\n                          activeIndex !== -1 && index >= activeIndex - 1 && index <= activeIndex\r\n                            ? \"text-[var(--accent-solid)]\"\r\n                            : \"text-[var(--muted)]\",\r\n                        ].join",
+          "lineNumber": 105
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "[\r\n                          \"h-px w-10 transition-colors duration-200\",\r\n                          activeIndex !== -1 && index >= activeIndex - 1 && index <= activeIndex\r\n                            ? \"bg-[var(--accent-solid)]\"\r\n                            : \"bg-[var(--border)]\",\r\n                        ].join",
+          "lineNumber": 115
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.slice(0, -1).map",
+          "lineNumber": 131
+        },
+        {
+          "caller": "ArchitectureDiagram",
+          "callee": "STEPS.slice",
+          "lineNumber": 131
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 1,
+        "functionCount": 2,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/app/architecture/page.tsx",
+      "language": "typescript",
+      "fileCategory": "code",
+      "totalLines": 54,
+      "nonEmptyLines": 49,
+      "functions": [
+        {
+          "name": "ArchitecturePage",
+          "startLine": 9,
+          "endLine": 54,
+          "params": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "metadata",
+          "line": 4,
+          "isDefault": false
+        },
+        {
+          "name": "ArchitecturePage",
+          "line": 9,
+          "isDefault": true
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ArchitecturePage",
+          "callee": "[\r\n              \"Hover a box to highlight its immediate neighborhood in the flow.\",\r\n              \"Click a box to pin its description in the detail panel.\",\r\n              \"The diagram stays intentionally small: boxes, arrows, and no heavy rendering layer.\",\r\n            ].map",
+          "lineNumber": 28
+        }
+      ],
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 2,
+        "functionCount": 1,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "portfolio/src/data/project-catalog.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 1407,
+      "nonEmptyLines": 1407,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 0
+      }
+    },
+    {
+      "path": "portfolio/tailwind.config.js",
+      "language": "javascript",
+      "fileCategory": "code",
+      "totalLines": 3,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "shared/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 1,
+      "nonEmptyLines": 0,
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "shared/utils/__init__.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 5,
+      "nonEmptyLines": 3,
+      "metrics": {
+        "importCount": 1,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "shared/utils/helpers.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 88,
+      "nonEmptyLines": 67,
+      "functions": [
+        {
+          "name": "chunk_text",
+          "startLine": 12,
+          "endLine": 33,
+          "params": [
+            "text",
+            "max_chars",
+            "overlap"
+          ]
+        },
+        {
+          "name": "retry",
+          "startLine": 36,
+          "endLine": 66,
+          "params": [
+            "attempts",
+            "delay",
+            "backoff",
+            "exceptions"
+          ]
+        }
+      ],
+      "classes": [
+        {
+          "name": "Timer",
+          "startLine": 69,
+          "endLine": 88,
+          "methods": [
+            "__init__",
+            "__enter__",
+            "__exit__"
+          ],
+          "properties": []
+        }
+      ],
+      "exports": [
+        {
+          "name": "chunk_text",
+          "line": 12,
+          "isDefault": false
+        },
+        {
+          "name": "retry",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "Timer",
+          "line": 69,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 17
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 22
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 24
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "text.rfind",
+          "lineNumber": 27
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 29
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "chunks.append",
+          "lineNumber": 31
+        },
+        {
+          "caller": "chunk_text",
+          "callee": "len",
+          "lineNumber": 32
+        },
+        {
+          "caller": "decorator",
+          "callee": "functools.wraps",
+          "lineNumber": 52
+        },
+        {
+          "caller": "wrapper",
+          "callee": "range",
+          "lineNumber": 55
+        },
+        {
+          "caller": "wrapper",
+          "callee": "fn",
+          "lineNumber": 57
+        },
+        {
+          "caller": "wrapper",
+          "callee": "time.sleep",
+          "lineNumber": 61
+        },
+        {
+          "caller": "__enter__",
+          "callee": "time.perf_counter",
+          "lineNumber": 84
+        },
+        {
+          "caller": "__exit__",
+          "callee": "time.perf_counter",
+          "lineNumber": 88
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 3,
+        "functionCount": 2,
+        "classCount": 1
+      }
+    },
+    {
+      "path": "tests/test_auth_hardening.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 69,
+      "nonEmptyLines": 42,
+      "functions": [
+        {
+          "name": "test_short_jwt_secret_is_rejected",
+          "startLine": 8,
+          "endLine": 14,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_minimum_length_jwt_secret_is_accepted",
+          "startLine": 17,
+          "endLine": 23,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_missing_secret_in_prod_raises",
+          "startLine": 26,
+          "endLine": 33,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_missing_secret_in_dev_returns_ephemeral",
+          "startLine": 36,
+          "endLine": 44,
+          "params": [
+            "monkeypatch"
+          ]
+        },
+        {
+          "name": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "startLine": 47,
+          "endLine": 60,
+          "params": [
+            "monkeypatch",
+            "caplog"
+          ]
+        },
+        {
+          "name": "test_whitespace_only_secret_treated_as_missing",
+          "startLine": 63,
+          "endLine": 69,
+          "params": [
+            "monkeypatch"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "test_short_jwt_secret_is_rejected",
+          "line": 8,
+          "isDefault": false
+        },
+        {
+          "name": "test_minimum_length_jwt_secret_is_accepted",
+          "line": 17,
+          "isDefault": false
+        },
+        {
+          "name": "test_missing_secret_in_prod_raises",
+          "line": 26,
+          "isDefault": false
+        },
+        {
+          "name": "test_missing_secret_in_dev_returns_ephemeral",
+          "line": 36,
+          "isDefault": false
+        },
+        {
+          "name": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "test_whitespace_only_secret_treated_as_missing",
+          "line": 63,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "test_short_jwt_secret_is_rejected",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 9
+        },
+        {
+          "caller": "test_short_jwt_secret_is_rejected",
+          "callee": "pytest.raises",
+          "lineNumber": 13
+        },
+        {
+          "caller": "test_short_jwt_secret_is_rejected",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 14
+        },
+        {
+          "caller": "test_minimum_length_jwt_secret_is_accepted",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 19
+        },
+        {
+          "caller": "test_minimum_length_jwt_secret_is_accepted",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 23
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "monkeypatch.delenv",
+          "lineNumber": 27
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 28
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "pytest.raises",
+          "lineNumber": 32
+        },
+        {
+          "caller": "test_missing_secret_in_prod_raises",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 33
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "monkeypatch.delenv",
+          "lineNumber": 37
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 38
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 42
+        },
+        {
+          "caller": "test_missing_secret_in_dev_returns_ephemeral",
+          "callee": "len",
+          "lineNumber": 44
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "monkeypatch.delenv",
+          "lineNumber": 51
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 52
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "caplog.at_level",
+          "lineNumber": 56
+        },
+        {
+          "caller": "test_missing_secret_in_dev_logs_ephemeral_warning",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 57
+        },
+        {
+          "caller": "test_whitespace_only_secret_treated_as_missing",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 64
+        },
+        {
+          "caller": "test_whitespace_only_secret_treated_as_missing",
+          "callee": "monkeypatch.setenv",
+          "lineNumber": 65
+        },
+        {
+          "caller": "test_whitespace_only_secret_treated_as_missing",
+          "callee": "_load_jwt_secret",
+          "lineNumber": 69
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 6,
+        "functionCount": 6,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_ci_security_contract.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 140,
+      "nonEmptyLines": 100,
+      "functions": [
+        {
+          "name": "ci_text",
+          "startLine": 28,
+          "endLine": 29,
+          "params": []
+        },
+        {
+          "name": "dependabot_cfg",
+          "startLine": 33,
+          "endLine": 36,
+          "params": []
+        },
+        {
+          "name": "test_ci_has_pip_audit_strict",
+          "startLine": 42,
+          "endLine": 44,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_bandit_static_analysis",
+          "startLine": 47,
+          "endLine": 48,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_gitleaks_secret_scanner",
+          "startLine": 51,
+          "endLine": 52,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_npm_audit_for_portfolio",
+          "startLine": 55,
+          "endLine": 56,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_has_trivy_image_scan",
+          "startLine": 59,
+          "endLine": 63,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_blocks_on_pip_audit_findings",
+          "startLine": 66,
+          "endLine": 81,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_ci_blocks_on_trivy_findings",
+          "startLine": 84,
+          "endLine": 91,
+          "params": [
+            "ci_text"
+          ]
+        },
+        {
+          "name": "test_gitleaks_config_file_exists_where_ci_expects_it",
+          "startLine": 97,
+          "endLine": 101,
+          "params": []
+        },
+        {
+          "name": "test_gitleaks_config_extends_default_ruleset",
+          "startLine": 104,
+          "endLine": 108,
+          "params": []
+        },
+        {
+          "name": "test_dependabot_covers_all_first_class_ecosystems",
+          "startLine": 114,
+          "endLine": 122,
+          "params": [
+            "dependabot_cfg"
+          ]
+        },
+        {
+          "name": "test_dependabot_covers_standalone_analyst",
+          "startLine": 125,
+          "endLine": 133,
+          "params": [
+            "dependabot_cfg"
+          ]
+        },
+        {
+          "name": "test_dependabot_weekly_cadence_is_sane",
+          "startLine": 136,
+          "endLine": 140,
+          "params": [
+            "dependabot_cfg"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "ci_text",
+          "line": 27,
+          "isDefault": false
+        },
+        {
+          "name": "dependabot_cfg",
+          "line": 32,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_pip_audit_strict",
+          "line": 42,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_bandit_static_analysis",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_gitleaks_secret_scanner",
+          "line": 51,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_npm_audit_for_portfolio",
+          "line": 55,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_has_trivy_image_scan",
+          "line": 59,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_blocks_on_pip_audit_findings",
+          "line": 66,
+          "isDefault": false
+        },
+        {
+          "name": "test_ci_blocks_on_trivy_findings",
+          "line": 84,
+          "isDefault": false
+        },
+        {
+          "name": "test_gitleaks_config_file_exists_where_ci_expects_it",
+          "line": 97,
+          "isDefault": false
+        },
+        {
+          "name": "test_gitleaks_config_extends_default_ruleset",
+          "line": 104,
+          "isDefault": false
+        },
+        {
+          "name": "test_dependabot_covers_all_first_class_ecosystems",
+          "line": 114,
+          "isDefault": false
+        },
+        {
+          "name": "test_dependabot_covers_standalone_analyst",
+          "line": 125,
+          "isDefault": false
+        },
+        {
+          "name": "test_dependabot_weekly_cadence_is_sane",
+          "line": 136,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "ci_text",
+          "callee": "CI_YAML.read_text",
+          "lineNumber": 29
+        },
+        {
+          "caller": "dependabot_cfg",
+          "callee": "pytest.skip",
+          "lineNumber": 35
+        },
+        {
+          "caller": "dependabot_cfg",
+          "callee": "yaml.safe_load",
+          "lineNumber": 36
+        },
+        {
+          "caller": "dependabot_cfg",
+          "callee": "DEPENDABOT_YAML.read_text",
+          "lineNumber": 36
+        },
+        {
+          "caller": "test_ci_has_bandit_static_analysis",
+          "callee": "ci_text.lower",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "ci_text.splitlines",
+          "lineNumber": 68
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "enumerate",
+          "lineNumber": 69
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "follow.lstrip().startswith",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "follow.lstrip",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "step_lines.append",
+          "lineNumber": 77
+        },
+        {
+          "caller": "test_ci_blocks_on_pip_audit_findings",
+          "callee": "\"\\n\".join",
+          "lineNumber": 78
+        },
+        {
+          "caller": "test_ci_blocks_on_trivy_findings",
+          "callee": "ci_text.find",
+          "lineNumber": 88
+        },
+        {
+          "caller": "test_gitleaks_config_file_exists_where_ci_expects_it",
+          "callee": "GITLEAKS_CONFIG.is_file",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_gitleaks_config_extends_default_ruleset",
+          "callee": "GITLEAKS_CONFIG.read_text",
+          "lineNumber": 105
+        },
+        {
+          "caller": "test_dependabot_covers_all_first_class_ecosystems",
+          "callee": "dependabot_cfg.get",
+          "lineNumber": 117
+        },
+        {
+          "caller": "test_dependabot_covers_standalone_analyst",
+          "callee": "entry.get",
+          "lineNumber": 129
+        },
+        {
+          "caller": "test_dependabot_covers_standalone_analyst",
+          "callee": "dependabot_cfg.get",
+          "lineNumber": 130
+        },
+        {
+          "caller": "test_dependabot_covers_standalone_analyst",
+          "callee": "entry.get",
+          "lineNumber": 131
+        },
+        {
+          "caller": "test_dependabot_weekly_cadence_is_sane",
+          "callee": "dependabot_cfg.get",
+          "lineNumber": 137
+        },
+        {
+          "caller": "test_dependabot_weekly_cadence_is_sane",
+          "callee": "entry.get",
+          "lineNumber": 138
+        },
+        {
+          "caller": "test_dependabot_weekly_cadence_is_sane",
+          "callee": "schedule.get",
+          "lineNumber": 140
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 14,
+        "functionCount": 14,
+        "classCount": 0
+      }
+    },
+    {
+      "path": "tests/test_dockerfile_contract.py",
+      "language": "python",
+      "fileCategory": "code",
+      "totalLines": 141,
+      "nonEmptyLines": 109,
+      "functions": [
+        {
+          "name": "dockerfile_text",
+          "startLine": 25,
+          "endLine": 26,
+          "params": []
+        },
+        {
+          "name": "dockerignore_text",
+          "startLine": 30,
+          "endLine": 31,
+          "params": []
+        },
+        {
+          "name": "_active_lines",
+          "startLine": 34,
+          "endLine": 41,
+          "params": [
+            "text"
+          ]
+        },
+        {
+          "name": "test_dockerignore_excludes_env_files",
+          "startLine": 47,
+          "endLine": 50,
+          "params": [
+            "dockerignore_text"
+          ]
+        },
+        {
+          "name": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "startLine": 53,
+          "endLine": 59,
+          "params": [
+            "dockerignore_text"
+          ]
+        },
+        {
+          "name": "test_dockerignore_excludes_git_and_venvs",
+          "startLine": 62,
+          "endLine": 66,
+          "params": [
+            "dockerignore_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_does_not_copy_env_files",
+          "startLine": 72,
+          "endLine": 83,
+          "params": [
+            "dockerfile_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "startLine": 86,
+          "endLine": 102,
+          "params": [
+            "dockerfile_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "startLine": 105,
+          "endLine": 126,
+          "params": [
+            "dockerfile_text"
+          ]
+        },
+        {
+          "name": "test_dockerfile_runs_as_non_root",
+          "startLine": 129,
+          "endLine": 141,
+          "params": [
+            "dockerfile_text"
+          ]
+        }
+      ],
+      "exports": [
+        {
+          "name": "dockerfile_text",
+          "line": 24,
+          "isDefault": false
+        },
+        {
+          "name": "dockerignore_text",
+          "line": 29,
+          "isDefault": false
+        },
+        {
+          "name": "_active_lines",
+          "line": 34,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerignore_excludes_env_files",
+          "line": 47,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "line": 53,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerignore_excludes_git_and_venvs",
+          "line": 62,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_does_not_copy_env_files",
+          "line": 72,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "line": 86,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "line": 105,
+          "isDefault": false
+        },
+        {
+          "name": "test_dockerfile_runs_as_non_root",
+          "line": 129,
+          "isDefault": false
+        }
+      ],
+      "callGraph": [
+        {
+          "caller": "dockerfile_text",
+          "callee": "DOCKERFILE.read_text",
+          "lineNumber": 26
+        },
+        {
+          "caller": "dockerignore_text",
+          "callee": "DOCKERIGNORE.read_text",
+          "lineNumber": 31
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "text.splitlines",
+          "lineNumber": 37
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "raw.split(\"#\", 1)[0].strip",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "raw.split",
+          "lineNumber": 38
+        },
+        {
+          "caller": "_active_lines",
+          "callee": "out.append",
+          "lineNumber": 40
+        },
+        {
+          "caller": "test_dockerignore_excludes_env_files",
+          "callee": "set",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_dockerignore_excludes_env_files",
+          "callee": "_active_lines",
+          "lineNumber": 48
+        },
+        {
+          "caller": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "callee": "set",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_dockerignore_excludes_sqlite_and_data_dir",
+          "callee": "_active_lines",
+          "lineNumber": 54
+        },
+        {
+          "caller": "test_dockerignore_excludes_git_and_venvs",
+          "callee": "set",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_dockerignore_excludes_git_and_venvs",
+          "callee": "_active_lines",
+          "lineNumber": 63
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 73
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "raw.split(\"#\", 1)[0].strip",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "raw.split",
+          "lineNumber": 74
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "line.upper().startswith",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "line.upper",
+          "lineNumber": 75
+        },
+        {
+          "caller": "test_dockerfile_does_not_copy_env_files",
+          "callee": "line.lower",
+          "lineNumber": 81
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "re.compile",
+          "lineNumber": 93
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 98
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "raw.split",
+          "lineNumber": 99
+        },
+        {
+          "caller": "test_dockerfile_does_not_flatten_projects_via_globs",
+          "callee": "offending.match",
+          "lineNumber": 100
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "sorted",
+          "lineNumber": 107
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "REPO_ROOT.iterdir",
+          "lineNumber": 109
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "child.is_dir",
+          "lineNumber": 110
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "child.name.startswith",
+          "lineNumber": 111
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "(child / \"app\" / \"main.py\").is_file",
+          "lineNumber": 112
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "len",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "len",
+          "lineNumber": 116
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "re.compile",
+          "lineNumber": 120
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "re.escape",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "re.escape",
+          "lineNumber": 121
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "any",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "pattern.match",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_dockerfile_copies_each_project_into_its_own_subdir",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 124
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.split(\"#\", 1)[0].strip",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.split",
+          "lineNumber": 134
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "dockerfile_text.splitlines",
+          "lineNumber": 135
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.strip().upper().startswith",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.strip().upper",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "line.strip",
+          "lineNumber": 136
+        },
+        {
+          "caller": "test_dockerfile_runs_as_non_root",
+          "callee": "user_lines[-1].split",
+          "lineNumber": 139
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 10,
+        "functionCount": 10,
+        "classCount": 0
+      }
+    }
+  ]
+}

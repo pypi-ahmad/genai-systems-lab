@@ -24,7 +24,7 @@
 - Create `analyze(metrics)` in `app/analyzer.py` that sends metrics to the LLM for interpretation.
 - Build a prompt that includes all metric values with their labels.
 - Instruct the LLM to identify key trends, anomalies, risks, and opportunities.
-- Use `gemini-3.1-pro-preview` for the analysis call.
+- Use `gemini-3.7-flash` for the analysis call.
 - Return the LLM response as a structured findings string.
 
 ## Generate Report
@@ -32,7 +32,7 @@
 - Create `generate_report(findings, metrics)` in `app/reporter.py` that produces a formatted financial report.
 - Build a prompt that includes the analytical findings and raw metric values.
 - Instruct the LLM to organize output into sections: executive summary, key metrics, trend analysis, and recommendations.
-- Use `gemini-3-flash-preview` for the report generation call.
+- Use `gemini-3.5-flash-lite` for the report generation call.
 - Return the report as a plain text string.
 
 ## Add Forecasting

@@ -1,0 +1,1160 @@
+{
+  "nodes": [
+    {
+      "id": "file:shared/logging/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/logging/__init__.py",
+      "summary": "Implements __init__.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/logging/logger.py",
+      "type": "file",
+      "name": "logger.py",
+      "filePath": "shared/logging/logger.py",
+      "summary": "Implements logger.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/logging/logger.py:_otel_trace_context",
+      "type": "function",
+      "name": "_otel_trace_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        52,
+        70
+      ],
+      "summary": "Implements the _otel_trace_context routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:_build_formatter",
+      "type": "function",
+      "name": "_build_formatter",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        101,
+        106
+      ],
+      "summary": "Implements the _build_formatter routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:_configure_root_logger",
+      "type": "function",
+      "name": "_configure_root_logger",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        137,
+        171
+      ],
+      "summary": "Implements the _configure_root_logger routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:new_request_id",
+      "type": "function",
+      "name": "new_request_id",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        177,
+        178
+      ],
+      "summary": "Implements the new_request_id routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:set_log_context",
+      "type": "function",
+      "name": "set_log_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        181,
+        194
+      ],
+      "summary": "Implements the set_log_context routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:reset_log_context",
+      "type": "function",
+      "name": "reset_log_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        197,
+        205
+      ],
+      "summary": "Implements the reset_log_context routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:log_context",
+      "type": "function",
+      "name": "log_context",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        209,
+        223
+      ],
+      "summary": "Implements the log_context routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/logger.py:get_logger",
+      "type": "function",
+      "name": "get_logger",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        245,
+        268
+      ],
+      "summary": "Implements the get_logger routine in logger.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/logger.py:_ContextFilter",
+      "type": "class",
+      "name": "_ContextFilter",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        76,
+        95
+      ],
+      "summary": "Defines the _ContextFilter class used by logger.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/logger.py:_JSONFormatter",
+      "type": "class",
+      "name": "_JSONFormatter",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        109,
+        131
+      ],
+      "summary": "Defines the _JSONFormatter class used by logger.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/logger.py:LatencyTimer",
+      "type": "class",
+      "name": "LatencyTimer",
+      "filePath": "shared/logging/logger.py",
+      "lineRange": [
+        226,
+        242
+      ],
+      "summary": "Defines the LatencyTimer class used by logger.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/logging/otel.py",
+      "type": "file",
+      "name": "otel.py",
+      "filePath": "shared/logging/otel.py",
+      "summary": "Implements otel.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/logging/otel.py:_try_import",
+      "type": "function",
+      "name": "_try_import",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        35,
+        47
+      ],
+      "summary": "Implements the _try_import routine in otel.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:_try_import_otlp",
+      "type": "function",
+      "name": "_try_import_otlp",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        50,
+        58
+      ],
+      "summary": "Implements the _try_import_otlp routine in otel.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:setup_otel",
+      "type": "function",
+      "name": "setup_otel",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        64,
+        104
+      ],
+      "summary": "Implements the setup_otel routine in otel.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:get_tracer",
+      "type": "function",
+      "name": "get_tracer",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        107,
+        114
+      ],
+      "summary": "Implements the get_tracer routine in otel.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:span",
+      "type": "function",
+      "name": "span",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        118,
+        136
+      ],
+      "summary": "Implements the span routine in otel.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/logging/otel.py:shutdown",
+      "type": "function",
+      "name": "shutdown",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        139,
+        142
+      ],
+      "summary": "Implements the shutdown routine in otel.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/otel.py:_NoopSpan",
+      "type": "class",
+      "name": "_NoopSpan",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        148,
+        158
+      ],
+      "summary": "Defines the _NoopSpan class used by otel.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/logging/otel.py:_NoopTracer",
+      "type": "class",
+      "name": "_NoopTracer",
+      "filePath": "shared/logging/otel.py",
+      "lineRange": [
+        161,
+        164
+      ],
+      "summary": "Defines the _NoopTracer class used by otel.py.",
+      "tags": [
+        "class",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/observability/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "shared/observability/__init__.py",
+      "summary": "Implements __init__.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/observability/langfuse.py",
+      "type": "file",
+      "name": "langfuse.py",
+      "filePath": "shared/observability/langfuse.py",
+      "summary": "Implements langfuse.py functionality within the project.",
+      "tags": [
+        "implementation",
+        "python",
+        "source-code"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_is_enabled",
+      "type": "function",
+      "name": "_is_enabled",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        23,
+        24
+      ],
+      "summary": "Implements the _is_enabled routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_credentials_present",
+      "type": "function",
+      "name": "_credentials_present",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        27,
+        28
+      ],
+      "summary": "Implements the _credentials_present routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_base_url",
+      "type": "function",
+      "name": "_base_url",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        31,
+        36
+      ],
+      "summary": "Implements the _base_url routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_merge_metadata",
+      "type": "function",
+      "name": "_merge_metadata",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        39,
+        44
+      ],
+      "summary": "Implements the _merge_metadata routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_string_metadata",
+      "type": "function",
+      "name": "_string_metadata",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        47,
+        56
+      ],
+      "summary": "Implements the _string_metadata routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:_ensure_client",
+      "type": "function",
+      "name": "_ensure_client",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        59,
+        86
+      ],
+      "summary": "Implements the _ensure_client routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:get_client",
+      "type": "function",
+      "name": "get_client",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        89,
+        90
+      ],
+      "summary": "Implements the get_client routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:flush",
+      "type": "function",
+      "name": "flush",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        93,
+        100
+      ],
+      "summary": "Implements the flush routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:shutdown",
+      "type": "function",
+      "name": "shutdown",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        103,
+        112
+      ],
+      "summary": "Implements the shutdown routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:create_trace",
+      "type": "function",
+      "name": "create_trace",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        115,
+        146
+      ],
+      "summary": "Implements the create_trace routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:trace_llm_call",
+      "type": "function",
+      "name": "trace_llm_call",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        149,
+        214
+      ],
+      "summary": "Implements the trace_llm_call routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:trace_span",
+      "type": "function",
+      "name": "trace_span",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        217,
+        250
+      ],
+      "summary": "Implements the trace_span routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:score_trace",
+      "type": "function",
+      "name": "score_trace",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        253,
+        282
+      ],
+      "summary": "Implements the score_trace routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:observe",
+      "type": "function",
+      "name": "observe",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        285,
+        315
+      ],
+      "summary": "Implements the observe routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/observability/langfuse.py:trace_context",
+      "type": "function",
+      "name": "trace_context",
+      "filePath": "shared/observability/langfuse.py",
+      "lineRange": [
+        319,
+        376
+      ],
+      "summary": "Implements the trace_context routine in langfuse.py.",
+      "tags": [
+        "function",
+        "python",
+        "implementation"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_otel_trace_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_otel_trace_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_build_formatter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_build_formatter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_configure_root_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:_configure_root_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:new_request_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:new_request_id",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:set_log_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:set_log_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:reset_log_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:reset_log_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:log_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:log_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:get_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "function:shared/logging/logger.py:get_logger",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_ContextFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_ContextFilter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_JSONFormatter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:_JSONFormatter",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:LatencyTimer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "class:shared/logging/logger.py:LatencyTimer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import_otlp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:_try_import_otlp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:setup_otel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:setup_otel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:get_tracer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:get_tracer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:span",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:span",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:shutdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "function:shared/logging/otel.py:shutdown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopSpan",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopSpan",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopTracer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/logging/otel.py",
+      "target": "class:shared/logging/otel.py:_NoopTracer",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_is_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_is_enabled",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_credentials_present",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_credentials_present",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_base_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_base_url",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_merge_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_merge_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_string_metadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_string_metadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_ensure_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:_ensure_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:get_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:get_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:flush",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:flush",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:shutdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:shutdown",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:create_trace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:create_trace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_llm_call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_llm_call",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_span",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_span",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:score_trace",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:score_trace",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:observe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:observe",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_context",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "function:shared/observability/langfuse.py:trace_context",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/logging/__init__.py",
+      "target": "file:shared/logging/logger.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/logging/__init__.py",
+      "target": "file:shared/logging/otel.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/logging/logger.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/observability/__init__.py",
+      "target": "file:shared/observability/langfuse.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/observability/langfuse.py",
+      "target": "file:shared/logging/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

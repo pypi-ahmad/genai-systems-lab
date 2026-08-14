@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "id": "document:portfolio/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "portfolio/README.md",
+      "summary": "Documents README.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:portfolio/USAGE.md",
+      "type": "document",
+      "name": "USAGE.md",
+      "filePath": "portfolio/USAGE.md",
+      "summary": "Documents USAGE.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "config:portfolio/package.json",
+      "type": "config",
+      "name": "package.json",
+      "filePath": "portfolio/package.json",
+      "summary": "Defines configuration data in package.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "config:portfolio/tsconfig.json",
+      "type": "config",
+      "name": "tsconfig.json",
+      "filePath": "portfolio/tsconfig.json",
+      "summary": "Defines configuration data in tsconfig.json for project tooling or runtime behavior.",
+      "tags": [
+        "configuration",
+        "json",
+        "project-metadata"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

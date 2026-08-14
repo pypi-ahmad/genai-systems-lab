@@ -1,0 +1,226 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "crew-investment-analyst/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 49,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "Investment Analyst Crew",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 35
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 43
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "crew-investment-analyst/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 180,
+      "nonEmptyLines": 137,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Crew Configuration",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "Why sequential",
+          "level": 3,
+          "line": 26
+        },
+        {
+          "heading": "Agents",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "Market Analyst",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "Financial Analyst",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "Risk Analyst",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Strategist",
+          "level": 3,
+          "line": 67
+        },
+        {
+          "heading": "Tasks",
+          "level": 2,
+          "line": 77
+        },
+        {
+          "heading": "market_task",
+          "level": 3,
+          "line": 81
+        },
+        {
+          "heading": "financial_task",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "risk_task",
+          "level": 3,
+          "line": 95
+        },
+        {
+          "heading": "strategy_task",
+          "level": 3,
+          "line": 102
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 109
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 116
+        },
+        {
+          "heading": "Data Flow",
+          "level": 2,
+          "line": 124
+        },
+        {
+          "heading": "Error Handling",
+          "level": 2,
+          "line": 169
+        },
+        {
+          "heading": "Extension Points",
+          "level": 2,
+          "line": 175
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 19
+      }
+    },
+    {
+      "path": "crew-investment-analyst/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 46,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define Agents",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Define Tasks",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "3 — Build Crew",
+          "level": 2,
+          "line": 26
+        },
+        {
+          "heading": "4 — Execute Workflow",
+          "level": 2,
+          "line": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    }
+  ]
+}

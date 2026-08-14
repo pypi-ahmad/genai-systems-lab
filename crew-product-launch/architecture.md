@@ -49,7 +49,7 @@ Analyzes the competitive landscape, market size, trends, and dynamics surroundin
 - **Role:** Senior Market Researcher
 - **Goal:** Produce a structured market analysis covering industry landscape, competitor mapping, market sizing, growth trends, and key opportunities/threats for the product launch.
 - **Backstory:** Market intelligence professional with 12 years in product-led companies. Specializes in competitive analysis, TAM/SAM/SOM estimation, and identifying market timing windows. Evaluates markets through both quantitative data and qualitative trend analysis.
-- **Model:** `gemini-3.1-pro-preview` — market analysis requires multi-step reasoning across competitive dynamics, trend extrapolation, and market sizing.
+- **Model:** `gemini-3.7-flash` — market analysis requires multi-step reasoning across competitive dynamics, trend extrapolation, and market sizing.
 - **Output:** Structured JSON — market report covering industry overview, competitor analysis (direct/indirect), market size estimates, growth drivers, barriers to entry, timing assessment, and key opportunities.
 
 ### Customer Analyst
@@ -59,7 +59,7 @@ Defines target customer segments and builds detailed personas grounded in the ma
 - **Role:** Senior Customer Analyst
 - **Goal:** Define target customer segments with detailed personas, pain points, buying behavior, and decision criteria based on market research findings.
 - **Backstory:** Customer research specialist with experience across B2B and B2C launches. Builds personas from behavioral data rather than demographics alone. Focuses on jobs-to-be-done, switching costs, and purchase triggers that drive actual adoption.
-- **Model:** `gemini-3.1-pro-preview` — persona development requires reasoning about behavioral patterns, segment prioritization, and alignment with market gaps.
+- **Model:** `gemini-3.7-flash` — persona development requires reasoning about behavioral patterns, segment prioritization, and alignment with market gaps.
 - **Output:** Structured JSON — customer analysis covering primary/secondary segments, persona profiles (demographics, psychographics, jobs-to-be-done, pain points), buying journey stages, decision criteria, and adoption barriers per segment.
 
 ### Product Strategist
@@ -69,7 +69,7 @@ Defines product positioning, messaging framework, and competitive differentiatio
 - **Role:** Head of Product Strategy
 - **Goal:** Define clear product positioning, core messaging, value propositions per segment, and competitive differentiation based on market analysis and customer personas.
 - **Backstory:** Product strategist who has launched products from zero-to-one across SaaS, consumer, and platform businesses. Thinks in terms of positioning narratives — the intersection of what customers need, what competitors miss, and what the product uniquely delivers.
-- **Model:** `gemini-3.1-pro-preview` — positioning requires synthesizing market gaps, customer needs, and competitive dynamics into a coherent strategic narrative.
+- **Model:** `gemini-3.7-flash` — positioning requires synthesizing market gaps, customer needs, and competitive dynamics into a coherent strategic narrative.
 - **Output:** Structured JSON — positioning strategy covering positioning statement, category definition, messaging framework (per segment), value propositions, competitive differentiators, and proof points.
 
 ### Marketing Strategist
@@ -79,7 +79,7 @@ Produces the go-to-market execution plan with channels, tactics, timeline, and b
 - **Role:** VP of Marketing
 - **Goal:** Produce a detailed go-to-market plan with channel strategy, campaign tactics, launch timeline, budget allocation, and success metrics based on the full strategic context.
 - **Backstory:** Growth marketing leader who has executed product launches from startup to enterprise scale. Balances brand-building with performance marketing. Plans backward from revenue targets and works in terms of funnel economics, channel ROI, and launch sequencing.
-- **Model:** `gemini-3.1-pro-preview` — GTM planning requires reasoning across channels, budgets, timing dependencies, and metric projections while incorporating all prior strategic context.
+- **Model:** `gemini-3.7-flash` — GTM planning requires reasoning across channels, budgets, timing dependencies, and metric projections while incorporating all prior strategic context.
 - **Output:** Structured JSON — GTM plan covering channel strategy (organic/paid/partnerships), campaign concepts per segment, launch phases with timeline, budget allocation by channel, KPIs per phase, and risk contingencies.
 
 ## Tasks
@@ -128,8 +128,8 @@ Schemas are defined as Python dicts in `tasks.py` and serialized into each task'
 
 | Model | Agents | Rationale |
 |---|---|---|
-| `gemini-3.1-pro-preview` | Market Researcher, Customer Analyst, Product Strategist, Marketing Strategist | All four tasks require analytical reasoning — market analysis, persona development, positioning synthesis, and GTM planning are high-stakes cognitive tasks |
-| `gemini-3-flash-preview` | (available for summaries within agents) | Quick condensation of lengthy upstream context before passing to downstream tasks; used when context windows grow large in later pipeline stages |
+| `gemini-3.7-flash` | Market Researcher, Customer Analyst, Product Strategist, Marketing Strategist | All four tasks require analytical reasoning — market analysis, persona development, positioning synthesis, and GTM planning are high-stakes cognitive tasks |
+| `gemini-3.5-flash-lite` | (available for summaries within agents) | Quick condensation of lengthy upstream context before passing to downstream tasks; used when context windows grow large in later pipeline stages |
 
 ### Cost and latency considerations
 

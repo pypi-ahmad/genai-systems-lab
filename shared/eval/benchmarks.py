@@ -58,7 +58,7 @@ class BenchmarkSuite:
 
         suite = BenchmarkSuite("llm-calls")
         suite.add(BenchmarkCase("generate", fn=generate_text,
-                                args=("prompt",), kwargs={"model": "gemini-3-flash-preview"}))
+                                args=("prompt",), kwargs={"model": "gemini-3.7-flash"}))
         results = suite.run()
     """
 

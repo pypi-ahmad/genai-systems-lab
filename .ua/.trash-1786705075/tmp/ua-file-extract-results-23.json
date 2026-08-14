@@ -1,0 +1,238 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 5
+    }
+  },
+  "results": [
+    {
+      "path": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/customize-brief.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 157,
+      "nonEmptyLines": 157,
+      "sections": [
+        {
+          "heading": "provider",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "assetAuthority",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "decision",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "risks",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "ownerLimit",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "evidence",
+          "level": 1,
+          "line": 15
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/evidence-bundle.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 5115,
+      "nonEmptyLines": 5115,
+      "sections": [
+        {
+          "heading": "kind",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "schemaVersion",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "status",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "context",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "lanes",
+          "level": 1,
+          "line": 69
+        },
+        {
+          "heading": "lead",
+          "level": 1,
+          "line": 4704
+        },
+        {
+          "heading": "diagnostics",
+          "level": 1,
+          "line": 4692
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 7
+      }
+    },
+    {
+      "path": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/lead-brief.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 344,
+      "nonEmptyLines": 344,
+      "sections": [
+        {
+          "heading": "kind",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "schemaVersion",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "evidence",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "summaryFacts",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "sessionBinding",
+          "level": 1,
+          "line": 306
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/project-brief.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 4291,
+      "nonEmptyLines": 4291,
+      "sections": [
+        {
+          "heading": "target",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "historyBoundary",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "decision",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "risks",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "ownerLimit",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "evidence",
+          "level": 1,
+          "line": 10
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": ".codex/better-harness-evidence-scratch/2026-08-14T0625-normal/session-brief.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 218,
+      "nonEmptyLines": 218,
+      "sections": [
+        {
+          "heading": "provider",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "scope",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "facts",
+          "level": 1,
+          "line": 14
+        },
+        {
+          "heading": "assetCounts",
+          "level": 1,
+          "line": 215
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    }
+  ]
+}

@@ -12,14 +12,14 @@ from sqlalchemy.pool import StaticPool
 import shared.api.app as lab_api
 from shared.api.db import Base, get_db_session
 from shared.api.runner import ProjectUnavailableError, RunResult
-
+from shared.config import get_request_effort
 
 TEST_PROVIDER_CREDENTIAL = "local-test-credential"
 TEST_ACCOUNT_PASSWORD = "example-password"
 
 
 @pytest.fixture()
-def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient, None, None]:
+def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient]:
     engine = create_engine(
         "sqlite://",
         connect_args={"check_same_thread": False},
@@ -28,7 +28,7 @@ def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient, None, None]
     TestingSessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False, expire_on_commit=False)
     Base.metadata.create_all(bind=engine)
 
-    def override_db_session() -> Generator[Session, None, None]:
+    def override_db_session() -> Generator[Session]:
         session = TestingSessionLocal()
         try:
             yield session
@@ -84,6 +84,8 @@ def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient, None, None]
     monkeypatch.setattr(lab_api, "run_project", fake_run_project)
     monkeypatch.setattr(lab_api, "build_run_explanation", fake_build_run_explanation)
     monkeypatch.setattr(lab_api, "metrics_store", lab_api._MetricsStore())
+    monkeypatch.setattr(lab_api, "enqueue_job", lambda *args, **kwargs: None)
+    monkeypatch.setattr(lab_api, "cancel_job", lambda job_id: None)
 
     app = lab_api.create_app()
     app.dependency_overrides[get_db_session] = override_db_session
@@ -94,10 +96,15 @@ def client(monkeypatch: pytest.MonkeyPatch) -> Generator[TestClient, None, None]
     app.dependency_overrides.clear()
 
 
-def _signup_and_headers(client: TestClient, *, include_api_key: bool = True) -> dict[str, str]:
+def _signup_and_headers(
+    client: TestClient,
+    *,
+    include_api_key: bool = True,
+    email: str = "audit@example.com",
+) -> dict[str, str]:
     response = client.post(
         "/auth/signup",
-        json={"email": "audit@example.com", "password": TEST_ACCOUNT_PASSWORD},
+        json={"email": email, "password": TEST_ACCOUNT_PASSWORD},
     )
     assert response.status_code == 201
     token = response.json()["token"]
@@ -121,6 +128,117 @@ def test_run_requires_x_api_key(client: TestClient) -> None:
 
     assert response.status_code == 400
     assert response.json()["detail"] == "Missing x-api-key header."
+
+
+def test_model_effort_is_validated_and_bound_to_run_context(
+    client: TestClient,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    headers = _signup_and_headers(client)
+    headers.update({
+        "X-LLM-Provider": "openai",
+        "X-LLM-Model": "gpt-5.6-luna",
+        "X-LLM-Effort": "max",
+    })
+    observed: list[str | None] = []
+
+    def fake_run(project: str, user_input: str, *, api_key: str, step_emitter=None) -> RunResult:
+        observed.append(get_request_effort())
+        return RunResult(project=project, output='{"ok":true}', exit_code=0, elapsed_ms=1.0)
+
+    monkeypatch.setattr(lab_api, "run_project", fake_run)
+    response = client.post("/nl2sql-agent/run", headers=headers, json={"input": "test"})
+    assert response.status_code == 200, response.text
+    assert observed == ["max"]
+
+    invalid_headers = {
+        **headers,
+        "X-LLM-Provider": "gemini",
+        "X-LLM-Model": "gemini-3.7-flash",
+        "X-LLM-Effort": "minimal",
+    }
+    invalid = client.post("/nl2sql-agent/run", headers=invalid_headers, json={"input": "test"})
+    assert invalid.status_code == 400
+    assert "Unsupported effort" in invalid.json()["detail"]
+
+
+def test_queued_job_receives_selected_effort(client: TestClient, monkeypatch: pytest.MonkeyPatch) -> None:
+    headers = _signup_and_headers(client, email="effort-job@example.com")
+    headers.update({
+        "X-LLM-Provider": "anthropic",
+        "X-LLM-Model": "claude-sonnet-5",
+        "X-LLM-Effort": "xhigh",
+    })
+    captured: dict[str, object] = {}
+    monkeypatch.setattr(lab_api, "enqueue_job", lambda *args, **kwargs: captured.update(kwargs))
+
+    response = client.post("/jobs/nl2sql-agent", headers=headers, json={"input": "test"})
+    assert response.status_code == 202, response.text
+    assert captured["provider"] == "anthropic"
+    assert captured["model"] == "claude-sonnet-5"
+    assert captured["effort"] == "xhigh"
+
+
+def test_jobs_require_authentication_before_provider_credentials(client: TestClient) -> None:
+    client.cookies.clear()
+
+    response = client.post(
+        "/jobs/nl2sql-agent",
+        headers={"X-API-Key": TEST_PROVIDER_CREDENTIAL},
+        json={"input": "top customers"},
+    )
+
+    assert response.status_code == 401
+
+
+def test_jobs_require_provider_credentials_after_authentication(client: TestClient) -> None:
+    headers = _signup_and_headers(client, include_api_key=False)
+
+    response = client.post(
+        "/jobs/nl2sql-agent",
+        headers=headers,
+        json={"input": "top customers"},
+    )
+
+    assert response.status_code == 400
+    assert response.json()["detail"] == "Missing x-api-key header."
+
+
+def test_job_status_and_cancellation_are_owner_scoped(
+    client: TestClient,
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    owner_headers = _signup_and_headers(client, email="job-owner@example.com")
+    created = client.post(
+        "/jobs/nl2sql-agent",
+        headers=owner_headers,
+        json={"input": "top customers"},
+    )
+    assert created.status_code == 202, created.text
+    job_id = created.json()["id"]
+
+    other_headers = _signup_and_headers(
+        client,
+        include_api_key=False,
+        email="other-user@example.com",
+    )
+    assert client.get(f"/jobs/{job_id}", headers=other_headers).status_code == 404
+    assert client.delete(f"/jobs/{job_id}", headers=other_headers).status_code == 404
+
+    owner_read_headers = {"Authorization": owner_headers["Authorization"]}
+    owner_read = client.get(f"/jobs/{job_id}", headers=owner_read_headers)
+    assert owner_read.status_code == 200
+    assert owner_read.json()["id"] == job_id
+
+    cancelled: list[str] = []
+    monkeypatch.setattr(lab_api, "cancel_job", cancelled.append)
+    owner_cancel = client.delete(f"/jobs/{job_id}", headers=owner_read_headers)
+    assert owner_cancel.status_code == 200
+    assert owner_cancel.json()["status"] == "cancelled"
+    assert cancelled == [job_id]
+
+    client.cookies.clear()
+    assert client.get(f"/jobs/{job_id}").status_code == 401
 
 
 def test_root_is_public_and_returns_service_metadata(client: TestClient) -> None:

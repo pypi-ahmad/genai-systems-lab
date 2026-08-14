@@ -92,7 +92,7 @@ Key insights, confirmed facts, or user-flagged information are persisted to the 
 
 ## Model Usage
 
-### `gemini-3.1-pro-preview`
+### `gemini-3.7-flash`
 
 Use for reasoning-heavy tasks that require deep comprehension and cross-document analysis.
 
@@ -101,7 +101,7 @@ Recommended responsibilities:
 - Insight Engine (connecting ideas, identifying patterns)
 - Complex query answering when simple retrieval is insufficient
 
-### `gemini-3-flash-preview`
+### `gemini-3.5-flash-lite`
 
 Use for high-throughput, lower-latency tasks where speed matters more than deep reasoning.
 

@@ -1,0 +1,217 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "GenAI Systems Lab",
+    "subtitle": "Secured interactive runs, durable queued execution, and multi-provider AI workflows",
+    "output": "docs/genai-systems-lab-architecture.html",
+    "animation": "none",
+    "visual_preset": "blueprint",
+    "quality_profile": "showcase",
+    "repository": {
+      "url": "https://github.com/pypi-ahmad/genai-systems-lab.git",
+      "revision": "b3f6268546cea5a3851f8f23ee144c51e43e9545"
+    }
+  },
+  "layout": {
+    "mode": "grid",
+    "origin": [48, 82],
+    "cols": 7,
+    "gapX": 130,
+    "gapY": 112,
+    "cellW": 168,
+    "cellH": 72
+  },
+  "components": [
+    {
+      "id": "browser",
+      "type": "external",
+      "label": "User Browser",
+      "sublabel": "interactive client",
+      "row": 1,
+      "col": 0
+    },
+    {
+      "id": "portfolio",
+      "type": "frontend",
+      "label": "Next.js Portfolio",
+      "sublabel": "playground + metrics",
+      "tag": "Next.js 16",
+      "sources": [
+        { "path": "portfolio/src/lib/api.ts", "label": "API client" },
+        { "path": "portfolio/src/app/playground/playground-client.tsx", "label": "playground" }
+      ],
+      "row": 1,
+      "col": 1
+    },
+    {
+      "id": "api",
+      "type": "security",
+      "label": "FastAPI Boundary",
+      "sublabel": "auth + BYOK + routes",
+      "tag": "shared API",
+      "sources": [
+        { "path": "shared/api/app.py", "label": "route factory" },
+        { "path": "shared/api/auth.py", "label": "authentication" }
+      ],
+      "row": 1,
+      "col": 2
+    },
+    {
+      "id": "runner",
+      "type": "backend",
+      "label": "Shared Runner",
+      "sublabel": "discovery + execution",
+      "tag": "run_project()",
+      "sources": [
+        { "path": "shared/api/runner.py", "label": "execution runtime" }
+      ],
+      "row": 1,
+      "col": 3
+    },
+    {
+      "id": "workflows",
+      "type": "backend",
+      "label": "Project Workflows",
+      "sublabel": "CrewAI + LangGraph + custom",
+      "tag": "20 projects",
+      "sources": [
+        { "path": "genai-research-system/app/graph.py", "label": "research graph" },
+        { "path": "lg-research-agent/app/graph.py", "label": "LangGraph agent" },
+        { "path": "crew-startup-simulator/app/main.py", "label": "CrewAI project" }
+      ],
+      "row": 1,
+      "col": 4
+    },
+    {
+      "id": "dispatch",
+      "type": "cloud",
+      "label": "LLM Dispatch",
+      "sublabel": "model routing + usage",
+      "tag": "shared layer",
+      "sources": [
+        { "path": "shared/llm/dispatch.py", "label": "provider router" },
+        { "path": "shared/llm/telemetry.py", "label": "usage aggregation" }
+      ],
+      "row": 1,
+      "col": 5
+    },
+    {
+      "id": "providers",
+      "type": "external",
+      "label": "Model Providers",
+      "sublabel": "cloud + local",
+      "sources": [
+        { "path": "shared/llm/providers.py", "label": "HTTP providers" },
+        { "path": "shared/llm/gemini_provider.py", "label": "Gemini adapter" }
+      ],
+      "row": 1,
+      "col": 6
+    },
+    {
+      "id": "redis",
+      "type": "messagebus",
+      "label": "Redis Queue",
+      "sublabel": "encrypted BYOK handoff",
+      "tag": "RQ projects",
+      "sources": [
+        { "path": "docker-compose.yml", "label": "Redis service" },
+        { "path": "shared/api/app.py", "label": "job routes" }
+      ],
+      "row": 0,
+      "col": 2
+    },
+    {
+      "id": "worker",
+      "type": "backend",
+      "label": "RQ Worker",
+      "sublabel": "durable async execution",
+      "sources": [
+        { "path": "docker-compose.yml", "label": "worker service" },
+        { "path": "shared/api/runner.py", "label": "execution target" }
+      ],
+      "row": 0,
+      "col": 3
+    },
+    {
+      "id": "postgres",
+      "type": "database",
+      "label": "PostgreSQL / SQLite",
+      "sublabel": "runs + jobs + sessions",
+      "sources": [
+        { "path": "shared/api/db.py", "label": "persistence" },
+        { "path": "shared/api/models.py", "label": "persistence models" },
+        { "path": "docker-compose.yml", "label": "PostgreSQL service" }
+      ],
+      "row": 2,
+      "col": 2
+    },
+    {
+      "id": "observability",
+      "type": "external",
+      "label": "Observability",
+      "sublabel": "Langfuse + OpenTelemetry",
+      "sources": [
+        { "path": "shared/observability/langfuse.py", "label": "LLM traces" },
+        { "path": ".env.example", "label": "OTLP configuration" }
+      ],
+      "row": 2,
+      "col": 3
+    }
+  ],
+  "boundaries": [
+    {
+      "kind": "region",
+      "label": "GenAI Systems Lab runtime",
+      "wraps": ["portfolio", "api", "runner", "workflows", "dispatch", "redis", "worker", "postgres"]
+    },
+    {
+      "kind": "security-group",
+      "label": "authenticated execution boundary",
+      "wraps": ["api", "runner"],
+      "pad": 18
+    }
+  ],
+  "connections": [
+    { "id": "browserToPortfolio", "from": "browser", "to": "portfolio", "label": "HTTPS", "variant": "emphasis" },
+    { "id": "portfolioToApi", "from": "portfolio", "to": "api", "label": "REST + SSE", "variant": "security" },
+    { "id": "apiToRunner", "from": "api", "to": "runner", "label": "authenticated run", "variant": "emphasis" },
+    { "id": "runnerToWorkflows", "from": "runner", "to": "workflows", "label": "run(input)", "variant": "emphasis" },
+    { "id": "workflowsToDispatch", "from": "workflows", "to": "dispatch", "label": "prompts", "variant": "emphasis" },
+    { "id": "dispatchToProviders", "from": "dispatch", "to": "providers", "label": "provider API", "variant": "security" },
+    { "id": "apiToRedis", "from": "api", "to": "redis", "label": "enqueue", "variant": "dashed" },
+    { "id": "redisToWorker", "from": "redis", "to": "worker", "label": "RQ job", "variant": "dashed" },
+    { "id": "workerToRunner", "from": "worker", "to": "runner", "label": "execute_job()", "variant": "dashed", "labelAt": [1002, 156] },
+    { "id": "apiToPostgres", "from": "api", "to": "postgres", "label": "SQL", "variant": "default", "labelAt": [704, 340] },
+    { "id": "runnerToObservability", "from": "runner", "to": "observability", "label": "traces + metrics", "variant": "dashed", "labelAt": [1002, 340] }
+  ],
+  "cards": [
+    {
+      "dot": "cyan",
+      "title": "Interactive Path",
+      "items": [
+        "The portfolio calls the secured FastAPI surface over REST and SSE",
+        "The shared runner resolves one project and invokes its run() contract",
+        "Project workflows share provider routing, usage, and cost telemetry"
+      ]
+    },
+    {
+      "dot": "violet",
+      "title": "Durable Queue Path",
+      "items": [
+        "Authenticated job creation enqueues JSON-serialized work in Redis",
+        "An RQ worker consumes the encrypted, expiring BYOK handoff",
+        "Job state and outputs remain owner-scoped in relational storage"
+      ]
+    },
+    {
+      "dot": "emerald",
+      "title": "Operational Boundaries",
+      "items": [
+        "BYOK credentials stay request-scoped or use the bounded queue handoff",
+        "PostgreSQL is the production store; SQLite keeps local setup zero-config",
+        "Langfuse and OpenTelemetry are opt-in and fail open as no-ops"
+      ]
+    }
+  ]
+}

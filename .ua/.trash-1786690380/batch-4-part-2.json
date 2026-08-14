@@ -1,0 +1,1234 @@
+{
+  "nodes": [
+    {
+      "id": "file:lg-support-agent/app/graph.py",
+      "type": "file",
+      "name": "graph.py",
+      "filePath": "lg-support-agent/app/graph.py",
+      "summary": "Builds the application workflow graph and connects its processing nodes.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/graph.py:_route_after_evaluator",
+      "type": "function",
+      "name": "_route_after_evaluator",
+      "filePath": "lg-support-agent/app/graph.py",
+      "lineRange": [
+        14,
+        17
+      ],
+      "summary": "Implements the _route_after_evaluator operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/graph.py:build_graph",
+      "type": "function",
+      "name": "build_graph",
+      "filePath": "lg-support-agent/app/graph.py",
+      "lineRange": [
+        20,
+        36
+      ],
+      "summary": "Builds the _graph structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/knowledge_base.py",
+      "type": "file",
+      "name": "knowledge_base.py",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "summary": "Implements knowledge_base.py as part of the lg-support-agent application.",
+      "tags": [
+        "agent",
+        "llm",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-support-agent/app/knowledge_base.py:_get_embed_fn",
+      "type": "function",
+      "name": "_get_embed_fn",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "lineRange": [
+        52,
+        71
+      ],
+      "summary": "Implements the _get_embed_fn operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/knowledge_base.py:set_embed_fn",
+      "type": "function",
+      "name": "set_embed_fn",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "lineRange": [
+        74,
+        77
+      ],
+      "summary": "Implements the set_embed_fn operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/knowledge_base.py:_cosine_similarity",
+      "type": "function",
+      "name": "_cosine_similarity",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "lineRange": [
+        80,
+        86
+      ],
+      "summary": "Implements the _cosine_similarity operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/knowledge_base.py:_build_index",
+      "type": "function",
+      "name": "_build_index",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "lineRange": [
+        96,
+        108
+      ],
+      "summary": "Builds the _build_index structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/knowledge_base.py:_get_index",
+      "type": "function",
+      "name": "_get_index",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "lineRange": [
+        111,
+        115
+      ],
+      "summary": "Implements the _get_index operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/knowledge_base.py:reset_index",
+      "type": "function",
+      "name": "reset_index",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "lineRange": [
+        118,
+        121
+      ],
+      "summary": "Implements the reset_index operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/knowledge_base.py:search",
+      "type": "function",
+      "name": "search",
+      "filePath": "lg-support-agent/app/knowledge_base.py",
+      "lineRange": [
+        129,
+        166
+      ],
+      "summary": "Implements the search operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/main.py",
+      "type": "file",
+      "name": "main.py",
+      "filePath": "lg-support-agent/app/main.py",
+      "summary": "Provides the runnable entry point for this example application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/main.py:run",
+      "type": "function",
+      "name": "run",
+      "filePath": "lg-support-agent/app/main.py",
+      "lineRange": [
+        8,
+        24
+      ],
+      "summary": "Runs the application workflow and returns its result.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/nodes/classifier.py",
+      "type": "file",
+      "name": "classifier.py",
+      "filePath": "lg-support-agent/app/nodes/classifier.py",
+      "summary": "Implements the classifier workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/classifier.py:_format_history",
+      "type": "function",
+      "name": "_format_history",
+      "filePath": "lg-support-agent/app/nodes/classifier.py",
+      "lineRange": [
+        18,
+        29
+      ],
+      "summary": "Implements the _format_history operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/classifier.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-support-agent/app/nodes/classifier.py",
+      "lineRange": [
+        32,
+        46
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/classifier.py:classifier_node",
+      "type": "function",
+      "name": "classifier_node",
+      "filePath": "lg-support-agent/app/nodes/classifier.py",
+      "lineRange": [
+        49,
+        66
+      ],
+      "summary": "Implements the classifier_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/nodes/escalation.py",
+      "type": "file",
+      "name": "escalation.py",
+      "filePath": "lg-support-agent/app/nodes/escalation.py",
+      "summary": "Implements the escalation workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/escalation.py:_format_history",
+      "type": "function",
+      "name": "_format_history",
+      "filePath": "lg-support-agent/app/nodes/escalation.py",
+      "lineRange": [
+        36,
+        43
+      ],
+      "summary": "Implements the _format_history operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/escalation.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-support-agent/app/nodes/escalation.py",
+      "lineRange": [
+        46,
+        68
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/escalation.py:escalation_node",
+      "type": "function",
+      "name": "escalation_node",
+      "filePath": "lg-support-agent/app/nodes/escalation.py",
+      "lineRange": [
+        71,
+        95
+      ],
+      "summary": "Implements the escalation_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/nodes/evaluator.py",
+      "type": "file",
+      "name": "evaluator.py",
+      "filePath": "lg-support-agent/app/nodes/evaluator.py",
+      "summary": "Implements the evaluator workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/evaluator.py:_format_history",
+      "type": "function",
+      "name": "_format_history",
+      "filePath": "lg-support-agent/app/nodes/evaluator.py",
+      "lineRange": [
+        24,
+        35
+      ],
+      "summary": "Implements the _format_history operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/evaluator.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-support-agent/app/nodes/evaluator.py",
+      "lineRange": [
+        38,
+        51
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/evaluator.py:_clamp",
+      "type": "function",
+      "name": "_clamp",
+      "filePath": "lg-support-agent/app/nodes/evaluator.py",
+      "lineRange": [
+        54,
+        55
+      ],
+      "summary": "Implements the _clamp operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "function",
+      "name": "evaluator_node",
+      "filePath": "lg-support-agent/app/nodes/evaluator.py",
+      "lineRange": [
+        58,
+        81
+      ],
+      "summary": "Implements the evaluator_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/nodes/responder.py",
+      "type": "file",
+      "name": "responder.py",
+      "filePath": "lg-support-agent/app/nodes/responder.py",
+      "summary": "Implements the responder workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/responder.py:_format_history",
+      "type": "function",
+      "name": "_format_history",
+      "filePath": "lg-support-agent/app/nodes/responder.py",
+      "lineRange": [
+        12,
+        23
+      ],
+      "summary": "Implements the _format_history operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/responder.py:_build_prompt",
+      "type": "function",
+      "name": "_build_prompt",
+      "filePath": "lg-support-agent/app/nodes/responder.py",
+      "lineRange": [
+        26,
+        41
+      ],
+      "summary": "Builds the _build_prompt structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/responder.py:responder_node",
+      "type": "function",
+      "name": "responder_node",
+      "filePath": "lg-support-agent/app/nodes/responder.py",
+      "lineRange": [
+        44,
+        57
+      ],
+      "summary": "Implements the responder_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/nodes/retriever.py",
+      "type": "file",
+      "name": "retriever.py",
+      "filePath": "lg-support-agent/app/nodes/retriever.py",
+      "summary": "Implements the retriever workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/nodes/retriever.py:retriever_node",
+      "type": "function",
+      "name": "retriever_node",
+      "filePath": "lg-support-agent/app/nodes/retriever.py",
+      "lineRange": [
+        7,
+        11
+      ],
+      "summary": "Implements the retriever_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-support-agent/app/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "lg-support-agent/app/state.py",
+      "summary": "Defines shared workflow state and typed data exchanged between nodes.",
+      "tags": [
+        "state-management",
+        "type-definition",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-support-agent/app/state.py:initial_state",
+      "type": "function",
+      "name": "initial_state",
+      "filePath": "lg-support-agent/app/state.py",
+      "lineRange": [
+        24,
+        34
+      ],
+      "summary": "Implements the initial_state operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lg-support-agent/app/state.py:SupportState",
+      "type": "class",
+      "name": "SupportState",
+      "filePath": "lg-support-agent/app/state.py",
+      "lineRange": [
+        13,
+        21
+      ],
+      "summary": "Represents the SupportState abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/llm/gemini.py",
+      "type": "file",
+      "name": "gemini.py",
+      "filePath": "shared/llm/gemini.py",
+      "summary": "Implements gemini.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/gemini.py:_get_client",
+      "type": "function",
+      "name": "_get_client",
+      "filePath": "shared/llm/gemini.py",
+      "lineRange": [
+        12,
+        13
+      ],
+      "summary": "Implements the _get_client operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/gemini.py:generate_text",
+      "type": "function",
+      "name": "generate_text",
+      "filePath": "shared/llm/gemini.py",
+      "lineRange": [
+        16,
+        17
+      ],
+      "summary": "Implements the generate_text operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/gemini.py:generate_structured",
+      "type": "function",
+      "name": "generate_structured",
+      "filePath": "shared/llm/gemini.py",
+      "lineRange": [
+        20,
+        21
+      ],
+      "summary": "Implements the generate_structured operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/llm/gemini.py:generate_text_from_image",
+      "type": "function",
+      "name": "generate_text_from_image",
+      "filePath": "shared/llm/gemini.py",
+      "lineRange": [
+        24,
+        25
+      ],
+      "summary": "Implements the generate_text_from_image operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "function:lg-support-agent/app/graph.py:_route_after_evaluator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "function:lg-support-agent/app/graph.py:_route_after_evaluator",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "function:lg-support-agent/app/graph.py:build_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "function:lg-support-agent/app/graph.py:build_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "file:lg-support-agent/app/nodes/classifier.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "file:lg-support-agent/app/nodes/escalation.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "file:lg-support-agent/app/nodes/evaluator.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "file:lg-support-agent/app/nodes/responder.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "file:lg-support-agent/app/nodes/retriever.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/graph.py",
+      "target": "file:shared/api/langgraph_events.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_get_embed_fn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_get_embed_fn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:set_embed_fn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:set_embed_fn",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_cosine_similarity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_cosine_similarity",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_build_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_build_index",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_get_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:_get_index",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:reset_index",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:reset_index",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:search",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "function:lg-support-agent/app/knowledge_base.py:search",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/knowledge_base.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/main.py",
+      "target": "function:lg-support-agent/app/main.py:run",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/main.py",
+      "target": "function:lg-support-agent/app/main.py:run",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/main.py",
+      "target": "file:lg-support-agent/app/graph.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/main.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/main.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "function:lg-support-agent/app/nodes/classifier.py:_format_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "function:lg-support-agent/app/nodes/classifier.py:_format_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "function:lg-support-agent/app/nodes/classifier.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "function:lg-support-agent/app/nodes/classifier.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "function:lg-support-agent/app/nodes/classifier.py:classifier_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "function:lg-support-agent/app/nodes/classifier.py:classifier_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/classifier.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "function:lg-support-agent/app/nodes/escalation.py:_format_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "function:lg-support-agent/app/nodes/escalation.py:_format_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "function:lg-support-agent/app/nodes/escalation.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "function:lg-support-agent/app/nodes/escalation.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "function:lg-support-agent/app/nodes/escalation.py:escalation_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "function:lg-support-agent/app/nodes/escalation.py:escalation_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/escalation.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:_format_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:_format_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:_clamp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:_clamp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "function:lg-support-agent/app/nodes/evaluator.py:evaluator_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/evaluator.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "function:lg-support-agent/app/nodes/responder.py:_format_history",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "function:lg-support-agent/app/nodes/responder.py:_format_history",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "function:lg-support-agent/app/nodes/responder.py:_build_prompt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "function:lg-support-agent/app/nodes/responder.py:_build_prompt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "function:lg-support-agent/app/nodes/responder.py:responder_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "function:lg-support-agent/app/nodes/responder.py:responder_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/responder.py",
+      "target": "file:shared/llm/gemini.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/retriever.py",
+      "target": "function:lg-support-agent/app/nodes/retriever.py:retriever_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/retriever.py",
+      "target": "function:lg-support-agent/app/nodes/retriever.py:retriever_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/retriever.py",
+      "target": "file:lg-support-agent/app/knowledge_base.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/nodes/retriever.py",
+      "target": "file:lg-support-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-support-agent/app/state.py",
+      "target": "function:lg-support-agent/app/state.py:initial_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/state.py",
+      "target": "function:lg-support-agent/app/state.py:initial_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-support-agent/app/state.py",
+      "target": "class:lg-support-agent/app/state.py:SupportState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-support-agent/app/state.py",
+      "target": "class:lg-support-agent/app/state.py:SupportState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:_get_client",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:_get_client",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:generate_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:generate_text",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:generate_structured",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:generate_structured",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:generate_text_from_image",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "function:shared/llm/gemini.py:generate_text_from_image",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "file:shared/llm/dispatch.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/llm/gemini.py",
+      "target": "file:shared/llm/exceptions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

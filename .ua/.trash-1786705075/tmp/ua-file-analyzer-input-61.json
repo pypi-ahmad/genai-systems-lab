@@ -1,0 +1,56 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "graphify-out/.graphify_health.json",
+      "language": "json",
+      "sizeLines": 203,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/.graphify_labels.json",
+      "language": "json",
+      "sizeLines": 0,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/GRAPH_REPORT.md",
+      "language": "markdown",
+      "sizeLines": 758,
+      "fileCategory": "docs"
+    },
+    {
+      "path": "graphify-out/cost.json",
+      "language": "json",
+      "sizeLines": 23,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/graph.html",
+      "language": "html",
+      "sizeLines": 319,
+      "fileCategory": "markup"
+    },
+    {
+      "path": "graphify-out/graph.json",
+      "language": "json",
+      "sizeLines": 93709,
+      "fileCategory": "config"
+    },
+    {
+      "path": "graphify-out/manifest.json",
+      "language": "json",
+      "sizeLines": 3446,
+      "fileCategory": "config"
+    }
+  ],
+  "batchImportData": {
+    "graphify-out/.graphify_health.json": [],
+    "graphify-out/.graphify_labels.json": [],
+    "graphify-out/GRAPH_REPORT.md": [],
+    "graphify-out/cost.json": [],
+    "graphify-out/graph.html": [],
+    "graphify-out/graph.json": [],
+    "graphify-out/manifest.json": []
+  }
+}

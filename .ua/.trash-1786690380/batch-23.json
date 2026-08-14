@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "config:.codex/better-harness/2026-08-14T0625-normal/findings.json",
+      "type": "config",
+      "name": "findings.json",
+      "filePath": ".codex/better-harness/2026-08-14T0625-normal/findings.json",
+      "summary": "Stores structured findings from a Better Harness analysis run for this repository.",
+      "tags": [
+        "configuration",
+        "project-metadata",
+        "tooling"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:.codex/better-harness/2026-08-14T0625-normal/report.html",
+      "type": "file",
+      "name": "report.html",
+      "filePath": ".codex/better-harness/2026-08-14T0625-normal/report.html",
+      "summary": "Renders the Better Harness task-loop analysis report as a standalone HTML document.",
+      "tags": [
+        "analysis-artifact",
+        "tooling",
+        "documentation"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "document:.codex/better-harness/2026-08-14T0625-normal/report.md",
+      "type": "document",
+      "name": "report.md",
+      "filePath": ".codex/better-harness/2026-08-14T0625-normal/report.md",
+      "summary": "Summarizes Better Harness task-loop findings, effectiveness scores, and recommended improvements.",
+      "tags": [
+        "analysis-artifact",
+        "tooling",
+        "documentation"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

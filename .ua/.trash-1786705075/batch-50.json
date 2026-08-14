@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "id": "document:genai-clinical-assistant/README.md",
+      "type": "document",
+      "name": "README.md",
+      "filePath": "genai-clinical-assistant/README.md",
+      "summary": "Documents README.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-clinical-assistant/architecture.md",
+      "type": "document",
+      "name": "architecture.md",
+      "filePath": "genai-clinical-assistant/architecture.md",
+      "summary": "Documents architecture.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "document:genai-clinical-assistant/tasks.md",
+      "type": "document",
+      "name": "tasks.md",
+      "filePath": "genai-clinical-assistant/tasks.md",
+      "summary": "Documents tasks.md and its related project guidance.",
+      "tags": [
+        "documentation",
+        "project-guide",
+        "reference"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": []
+}

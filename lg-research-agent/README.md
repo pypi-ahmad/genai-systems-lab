@@ -1,5 +1,7 @@
 # Research Graph
 
+The final writer streams native Gemini, OpenAI, Anthropic, or Ollama text deltas through the shared SSE runtime. Planner, researcher, and critic state remains private.
+
 ## Overview
 
 A LangGraph-based research workflow that decomposes a question into a short plan, generates focused findings, critiques their quality, and writes a concise research brief.

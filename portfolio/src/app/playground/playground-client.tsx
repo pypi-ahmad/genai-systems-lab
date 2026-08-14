@@ -7,7 +7,7 @@ import type { LLMCatalogResponse, LLMRequestOptions } from "@/lib/api";
 import { RunExplanationPanel } from "@/components/RunExplanation";
 import { getStoredApiKeys, getStoredLLMSelection, setStoredApiKey, setStoredLLMSelection } from "@/lib/apikey";
 import type { LLMProviderId } from "@/lib/apikey";
-import { findProviderForModel, findProviderInfo } from "@/lib/llm-catalog";
+import { findModelInfo, findProviderForModel, findProviderInfo, normalizeModelEffort } from "@/lib/llm-catalog";
 import { clearAuthSession } from "@/lib/auth";
 import { PlaygroundSidebar } from "./playground-sidebar";
 import { PlaygroundConversationPanel } from "./playground-conversation-panel";
@@ -70,6 +70,7 @@ export default function PlaygroundClient() {
     errorMsg,
     latency,
     confidence,
+    usage,
     usedSessionContext,
     logLines,
     memoryEntries,
@@ -97,8 +98,9 @@ export default function PlaygroundClient() {
   const [llmCatalogError, setLlMCatalogError] = useState<string | null>(null);
   const [llmCatalogLoading, setLlMCatalogLoading] = useState(true);
   const [apiKeys, setApiKeys] = useState(() => getStoredApiKeys());
-  const [selectedModel, setSelectedModel] = useState(() => getStoredLLMSelection()?.model ?? "gemini-3-flash-preview");
+  const [selectedModel, setSelectedModel] = useState(() => getStoredLLMSelection()?.model ?? "gemini-3.7-flash");
   const [selectedProvider, setSelectedProvider] = useState<LLMProviderId>(() => getStoredLLMSelection()?.provider ?? "gemini");
+  const [selectedEffort, setSelectedEffort] = useState(() => getStoredLLMSelection()?.effort ?? "");
   const [keyFocused, setKeyFocused] = useState(false);
 
   useEffect(() => {
@@ -114,15 +116,17 @@ export default function PlaygroundClient() {
           catalog.providers.flatMap((provider) => provider.models.map((model) => model.id)),
         );
         const storedSelection = getStoredLLMSelection();
-        const preferredModel = storedSelection?.model ?? "gemini-3-flash-preview";
+        const preferredModel = storedSelection?.model ?? "gemini-3.7-flash";
         const nextModel = knownModels.has(preferredModel) ? preferredModel : catalog.default_model;
         const nextProvider = findProviderForModel(catalog, nextModel);
+        const nextEffort = normalizeModelEffort(findModelInfo(catalog, nextModel), storedSelection?.effort);
 
         setLlMCatalog(catalog);
         setLlMCatalogError(null);
         setSelectedModel(nextModel);
         setSelectedProvider(nextProvider);
-        setStoredLLMSelection({ provider: nextProvider, model: nextModel });
+        setSelectedEffort(nextEffort);
+        setStoredLLMSelection({ provider: nextProvider, model: nextModel, effort: nextEffort || undefined });
       })
       .catch((error) => {
         if (cancelled) {
@@ -150,6 +154,7 @@ export default function PlaygroundClient() {
     provider: selectedProvider,
     model: selectedModel,
     apiKey: selectedProviderRequiresApiKey ? selectedApiKey.trim() || undefined : undefined,
+    effort: selectedEffort || undefined,
   };
   const canRun = selectedProviderAvailable && (!selectedProviderRequiresApiKey || Boolean(selectedApiKey.trim()));
 
@@ -157,8 +162,18 @@ export default function PlaygroundClient() {
     const nextProvider = findProviderForModel(llmCatalog, nextModel);
     setSelectedModel(nextModel);
     setSelectedProvider(nextProvider);
+    setSelectedEffort("");
     setStoredLLMSelection({ provider: nextProvider, model: nextModel });
     setKeyFocused(false);
+  }
+
+  function handleEffortChange(nextEffort: string) {
+    setSelectedEffort(nextEffort);
+    setStoredLLMSelection({
+      provider: selectedProvider,
+      model: selectedModel,
+      effort: nextEffort || undefined,
+    });
   }
 
   function handleApiKeyChange(value: string) {
@@ -354,6 +369,7 @@ export default function PlaygroundClient() {
           onKeyFocusedChange={setKeyFocused}
           onLogout={handleLogout}
           onModelChange={handleModelChange}
+          onEffortChange={handleEffortChange}
           onProjectChange={handleProjectChange}
           onRun={handleRun}
           onShare={(run) => void handleShare(run)}
@@ -364,6 +380,7 @@ export default function PlaygroundClient() {
           providerUnavailableReason={selectedProviderReason}
           selectedApiKey={selectedApiKey}
           selectedModel={selectedModel}
+          selectedEffort={selectedEffort}
           selectedProvider={selectedProvider}
           selectedProviderInfo={selectedProviderInfo}
           runExplanations={runExplanations}
@@ -385,6 +402,7 @@ export default function PlaygroundClient() {
             inputPreview={inputPreview}
             keyMetrics={keyMetrics}
             latency={latency}
+            usage={usage}
             output={output}
             selected={selected}
             status={status}

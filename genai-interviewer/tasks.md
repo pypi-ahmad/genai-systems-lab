@@ -23,7 +23,7 @@
 - Write an `evaluate_answer` function that takes the question object and the candidate's answer, then calls the LLM to produce a structured evaluation.
 - Build the evaluation prompt: include the question text, expected criteria, and candidate answer. Instruct the model to rate each dimension as strong/partial/weak with explicit reasoning. Require that gaps reference specific missing items from the criteria.
 - Parse the LLM response into the evaluation format. Reject any evaluation where a rating has no reasoning.
-- Use `gemini-3.1-pro-preview` for this call.
+- Use `gemini-3.7-flash` for this call.
 
 ## Difficulty Adjustment
 
@@ -39,7 +39,7 @@
 - Write a `generate_feedback` function that takes the evaluation object and the candidate's answer, then calls the LLM to produce structured feedback.
 - Build the feedback prompt: instruct the model to reference specifics from the answer (not generic statements), list concrete strengths, list concrete weaknesses with what was expected, and give one actionable improvement suggestion.
 - Parse the LLM response into the feedback format. Use JSON output mode.
-- Use `gemini-3-flash-preview` for this call.
+- Use `gemini-3.5-flash-lite` for this call.
 
 ## Interview Loop
 

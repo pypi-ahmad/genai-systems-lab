@@ -1,0 +1,567 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 4,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 4,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 4
+    }
+  },
+  "results": [
+    {
+      "path": "portfolio/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 334,
+      "nonEmptyLines": 260,
+      "sections": [
+        {
+          "heading": "GenAI Systems Lab — Portfolio",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 23
+        },
+        {
+          "heading": "Interactive Playground",
+          "level": 3,
+          "line": 25
+        },
+        {
+          "heading": "Project Catalog",
+          "level": 3,
+          "line": 34
+        },
+        {
+          "heading": "Performance Metrics",
+          "level": 3,
+          "line": 40
+        },
+        {
+          "heading": "LangGraph vs CrewAI Comparison",
+          "level": 3,
+          "line": 46
+        },
+        {
+          "heading": "Authentication & Sessions",
+          "level": 3,
+          "line": 51
+        },
+        {
+          "heading": "Design System",
+          "level": 3,
+          "line": 57
+        },
+        {
+          "heading": "Tech Stack",
+          "level": 2,
+          "line": 67
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 82
+        },
+        {
+          "heading": "Project Structure",
+          "level": 2,
+          "line": 127
+        },
+        {
+          "heading": "Setup & Installation",
+          "level": 2,
+          "line": 197
+        },
+        {
+          "heading": "Prerequisites",
+          "level": 3,
+          "line": 199
+        },
+        {
+          "heading": "Install",
+          "level": 3,
+          "line": 205
+        },
+        {
+          "heading": "Development",
+          "level": 3,
+          "line": 212
+        },
+        {
+          "heading": "Production Build",
+          "level": 3,
+          "line": 220
+        },
+        {
+          "heading": "Lint",
+          "level": 3,
+          "line": 227
+        },
+        {
+          "heading": "Environment",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "Usage",
+          "level": 2,
+          "line": 239
+        },
+        {
+          "heading": "Quick Start",
+          "level": 3,
+          "line": 243
+        },
+        {
+          "heading": "Viewing Project Details",
+          "level": 3,
+          "line": 251
+        },
+        {
+          "heading": "Sharing a Run",
+          "level": 3,
+          "line": 255
+        },
+        {
+          "heading": "Metrics Dashboard",
+          "level": 3,
+          "line": 259
+        },
+        {
+          "heading": "Full Usage Guide",
+          "level": 3,
+          "line": 263
+        },
+        {
+          "heading": "The 20 Systems",
+          "level": 2,
+          "line": 283
+        },
+        {
+          "heading": "GenAI Pipelines (10)",
+          "level": 3,
+          "line": 285
+        },
+        {
+          "heading": "LangGraph State Machines (5)",
+          "level": 3,
+          "line": 300
+        },
+        {
+          "heading": "CrewAI Teams (5)",
+          "level": 3,
+          "line": 310
+        },
+        {
+          "heading": "Limitations & Future Work",
+          "level": 2,
+          "line": 322
+        },
+        {
+          "heading": "Planned",
+          "level": 3,
+          "line": 329
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 31
+      }
+    },
+    {
+      "path": "portfolio/USAGE.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 646,
+      "nonEmptyLines": 440,
+      "sections": [
+        {
+          "heading": "GenAI Systems Lab — Usage Guide",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Table of Contents",
+          "level": 2,
+          "line": 8
+        },
+        {
+          "heading": "What This App Is",
+          "level": 2,
+          "line": 46
+        },
+        {
+          "heading": "Who This Is For",
+          "level": 2,
+          "line": 56
+        },
+        {
+          "heading": "Before You Start",
+          "level": 2,
+          "line": 64
+        },
+        {
+          "heading": "Setup & Local Development",
+          "level": 2,
+          "line": 76
+        },
+        {
+          "heading": "1. Start the backend",
+          "level": 3,
+          "line": 78
+        },
+        {
+          "heading": "2. Start the frontend",
+          "level": 3,
+          "line": 88
+        },
+        {
+          "heading": "Available npm scripts",
+          "level": 3,
+          "line": 98
+        },
+        {
+          "heading": "Navigation",
+          "level": 2,
+          "line": 110
+        },
+        {
+          "heading": "Home Page",
+          "level": 2,
+          "line": 141
+        },
+        {
+          "heading": "About Page",
+          "level": 2,
+          "line": 156
+        },
+        {
+          "heading": "Browsing Projects",
+          "level": 2,
+          "line": 168
+        },
+        {
+          "heading": "Features on this page",
+          "level": 3,
+          "line": 180
+        },
+        {
+          "heading": "Project Detail Page",
+          "level": 2,
+          "line": 187
+        },
+        {
+          "heading": "Playground — Running a Project",
+          "level": 2,
+          "line": 209
+        },
+        {
+          "heading": "Onboarding & Quick-Start Guide",
+          "level": 3,
+          "line": 219
+        },
+        {
+          "heading": "Selecting a Project",
+          "level": 3,
+          "line": 227
+        },
+        {
+          "heading": "API Key & Model Selection",
+          "level": 3,
+          "line": 233
+        },
+        {
+          "heading": "Writing Input",
+          "level": 3,
+          "line": 242
+        },
+        {
+          "heading": "Streaming vs Standard Execution",
+          "level": 3,
+          "line": 251
+        },
+        {
+          "heading": "SSE event protocol",
+          "level": 4,
+          "line": 264
+        },
+        {
+          "heading": "Execution Output",
+          "level": 3,
+          "line": 273
+        },
+        {
+          "heading": "Memory Trace Panel",
+          "level": 3,
+          "line": 285
+        },
+        {
+          "heading": "Execution Graph",
+          "level": 3,
+          "line": 299
+        },
+        {
+          "heading": "Timeline Replay",
+          "level": 2,
+          "line": 314
+        },
+        {
+          "heading": "Controls",
+          "level": 3,
+          "line": 318
+        },
+        {
+          "heading": "Run Explanation",
+          "level": 2,
+          "line": 333
+        },
+        {
+          "heading": "Run History",
+          "level": 2,
+          "line": 352
+        },
+        {
+          "heading": "Sharing a Run",
+          "level": 2,
+          "line": 373
+        },
+        {
+          "heading": "Multi-Turn Sessions",
+          "level": 2,
+          "line": 392
+        },
+        {
+          "heading": "Metrics Dashboard",
+          "level": 2,
+          "line": 406
+        },
+        {
+          "heading": "Stat Cards (top)",
+          "level": 3,
+          "line": 412
+        },
+        {
+          "heading": "Charts",
+          "level": 3,
+          "line": 421
+        },
+        {
+          "heading": "Filters",
+          "level": 3,
+          "line": 429
+        },
+        {
+          "heading": "Trend Summary",
+          "level": 3,
+          "line": 440
+        },
+        {
+          "heading": "Export",
+          "level": 3,
+          "line": 448
+        },
+        {
+          "heading": "Framework Comparison",
+          "level": 2,
+          "line": 457
+        },
+        {
+          "heading": "Architecture Diagram",
+          "level": 2,
+          "line": 472
+        },
+        {
+          "heading": "Authentication",
+          "level": 2,
+          "line": 491
+        },
+        {
+          "heading": "How It Works",
+          "level": 3,
+          "line": 501
+        },
+        {
+          "heading": "Theme Toggle",
+          "level": 2,
+          "line": 516
+        },
+        {
+          "heading": "Accessibility & Keyboard Navigation",
+          "level": 2,
+          "line": 527
+        },
+        {
+          "heading": "Environment Variables",
+          "level": 2,
+          "line": 539
+        },
+        {
+          "heading": "Docker Deployment",
+          "level": 2,
+          "line": 549
+        },
+        {
+          "heading": "Dockerfile",
+          "level": 3,
+          "line": 553
+        },
+        {
+          "heading": "docker-compose.yml",
+          "level": 3,
+          "line": 569
+        },
+        {
+          "heading": "Troubleshooting",
+          "level": 2,
+          "line": 592
+        },
+        {
+          "heading": "\"API unreachable\" or connection errors",
+          "level": 3,
+          "line": 594
+        },
+        {
+          "heading": "No output after clicking Run",
+          "level": 3,
+          "line": 600
+        },
+        {
+          "heading": "Streaming seems stuck",
+          "level": 3,
+          "line": 607
+        },
+        {
+          "heading": "Rate limit errors",
+          "level": 3,
+          "line": 612
+        },
+        {
+          "heading": "Shared link not loading",
+          "level": 3,
+          "line": 617
+        },
+        {
+          "heading": "Theme not applying",
+          "level": 3,
+          "line": 623
+        },
+        {
+          "heading": "Login not working",
+          "level": 3,
+          "line": 627
+        },
+        {
+          "heading": "Dismissed tips or modals not resetting",
+          "level": 3,
+          "line": 633
+        },
+        {
+          "heading": "Limitations & Important Notes",
+          "level": 2,
+          "line": 639
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 57
+      }
+    },
+    {
+      "path": "portfolio/package.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 30,
+      "nonEmptyLines": 30,
+      "sections": [
+        {
+          "heading": "name",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "version",
+          "level": 1,
+          "line": 3
+        },
+        {
+          "heading": "private",
+          "level": 1,
+          "line": 4
+        },
+        {
+          "heading": "scripts",
+          "level": 1,
+          "line": 5
+        },
+        {
+          "heading": "dependencies",
+          "level": 1,
+          "line": 12
+        },
+        {
+          "heading": "devDependencies",
+          "level": 1,
+          "line": 19
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 6
+      }
+    },
+    {
+      "path": "portfolio/tsconfig.json",
+      "language": "json",
+      "fileCategory": "config",
+      "totalLines": 35,
+      "nonEmptyLines": 35,
+      "sections": [
+        {
+          "heading": "compilerOptions",
+          "level": 1,
+          "line": 2
+        },
+        {
+          "heading": "include",
+          "level": 1,
+          "line": 26
+        },
+        {
+          "heading": "exclude",
+          "level": 1,
+          "line": 34
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,256 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 3,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 3,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 3
+    }
+  },
+  "results": [
+    {
+      "path": "lg-support-agent/README.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 50,
+      "nonEmptyLines": 34,
+      "sections": [
+        {
+          "heading": "Support Agent",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "System Flow",
+          "level": 2,
+          "line": 7
+        },
+        {
+          "heading": "Architecture",
+          "level": 2,
+          "line": 15
+        },
+        {
+          "heading": "Features",
+          "level": 2,
+          "line": 27
+        },
+        {
+          "heading": "Example Usage",
+          "level": 2,
+          "line": 34
+        },
+        {
+          "heading": "Shared API",
+          "level": 3,
+          "line": 36
+        },
+        {
+          "heading": "Evaluation",
+          "level": 2,
+          "line": 44
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    },
+    {
+      "path": "lg-support-agent/architecture.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 205,
+      "nonEmptyLines": 148,
+      "sections": [
+        {
+          "heading": "Architecture",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "Overview",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "Graph State",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "State design rules",
+          "level": 3,
+          "line": 27
+        },
+        {
+          "heading": "Nodes",
+          "level": 2,
+          "line": 33
+        },
+        {
+          "heading": "classifier",
+          "level": 3,
+          "line": 37
+        },
+        {
+          "heading": "retriever",
+          "level": 3,
+          "line": 47
+        },
+        {
+          "heading": "responder",
+          "level": 3,
+          "line": 58
+        },
+        {
+          "heading": "evaluator",
+          "level": 3,
+          "line": 68
+        },
+        {
+          "heading": "Graph Transitions",
+          "level": 2,
+          "line": 81
+        },
+        {
+          "heading": "Edge map",
+          "level": 3,
+          "line": 83
+        },
+        {
+          "heading": "Conditional logic after evaluator",
+          "level": 3,
+          "line": 93
+        },
+        {
+          "heading": "Why this topology works",
+          "level": 3,
+          "line": 113
+        },
+        {
+          "heading": "Model Usage",
+          "level": 2,
+          "line": 120
+        },
+        {
+          "heading": "Cost and latency considerations",
+          "level": 3,
+          "line": 128
+        },
+        {
+          "heading": "Graph Construction",
+          "level": 2,
+          "line": 134
+        },
+        {
+          "heading": "Production Design Notes",
+          "level": 2,
+          "line": 168
+        },
+        {
+          "heading": "Observability",
+          "level": 3,
+          "line": 170
+        },
+        {
+          "heading": "Error handling",
+          "level": 3,
+          "line": 177
+        },
+        {
+          "heading": "Configuration",
+          "level": 3,
+          "line": 184
+        },
+        {
+          "heading": "Testing",
+          "level": 3,
+          "line": 196
+        },
+        {
+          "heading": "Summary",
+          "level": 2,
+          "line": 203
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 22
+      }
+    },
+    {
+      "path": "lg-support-agent/tasks.md",
+      "language": "markdown",
+      "fileCategory": "docs",
+      "totalLines": 82,
+      "nonEmptyLines": 60,
+      "sections": [
+        {
+          "heading": "Tasks",
+          "level": 1,
+          "line": 1
+        },
+        {
+          "heading": "1 — Define State Schema",
+          "level": 2,
+          "line": 3
+        },
+        {
+          "heading": "2 — Create Knowledge Base",
+          "level": 2,
+          "line": 13
+        },
+        {
+          "heading": "3 — Implement Classifier Node",
+          "level": 2,
+          "line": 25
+        },
+        {
+          "heading": "4 — Implement Retriever Node",
+          "level": 2,
+          "line": 36
+        },
+        {
+          "heading": "5 — Implement Responder Node",
+          "level": 2,
+          "line": 47
+        },
+        {
+          "heading": "6 — Implement Evaluator Node",
+          "level": 2,
+          "line": 58
+        },
+        {
+          "heading": "7 — Build Graph Transitions",
+          "level": 2,
+          "line": 70
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 8
+      }
+    }
+  ]
+}

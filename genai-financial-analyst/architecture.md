@@ -72,7 +72,7 @@ The Reporter takes the analytical findings and generates a formatted financial r
 
 ## Model Usage
 
-### `gemini-3.1-pro-preview`
+### `gemini-3.7-flash`
 
 Use for reasoning-heavy interpretation of financial data.
 
@@ -81,7 +81,7 @@ Recommended responsibilities:
 - Analyzer: interpreting metrics, identifying trends and anomalies, assessing risk
 - Forecaster: LLM-assisted projection reasoning (if applicable)
 
-### `gemini-3-flash-preview`
+### `gemini-3.5-flash-lite`
 
 Use for structured text generation and formatting.
 

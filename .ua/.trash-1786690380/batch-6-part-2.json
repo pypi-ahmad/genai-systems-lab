@@ -1,0 +1,1811 @@
+{
+  "nodes": [
+    {
+      "id": "file:portfolio/src/app/playground/playground-utils.ts",
+      "type": "file",
+      "name": "playground-utils.ts",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "summary": "Implements playground-utils.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:projectApiName",
+      "type": "function",
+      "name": "projectApiName",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        12,
+        14
+      ],
+      "summary": "Implements the projectApiName operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:maskApiKey",
+      "type": "function",
+      "name": "maskApiKey",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        16,
+        27
+      ],
+      "summary": "Implements the maskApiKey operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:tryParse",
+      "type": "function",
+      "name": "tryParse",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        29,
+        36
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:extractSteps",
+      "type": "function",
+      "name": "extractSteps",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        38,
+        57
+      ],
+      "summary": "Implements the extractSteps operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:extractKeyMetrics",
+      "type": "function",
+      "name": "extractKeyMetrics",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        59,
+        97
+      ],
+      "summary": "Implements the extractKeyMetrics operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:extractTextOutput",
+      "type": "function",
+      "name": "extractTextOutput",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        99,
+        122
+      ],
+      "summary": "Implements the extractTextOutput operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:summarizeInputPayload",
+      "type": "function",
+      "name": "summarizeInputPayload",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        124,
+        141
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:formatRunTimestamp",
+      "type": "function",
+      "name": "formatRunTimestamp",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        143,
+        154
+      ],
+      "summary": "Implements the formatRunTimestamp operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:isRunMemoryEntry",
+      "type": "function",
+      "name": "isRunMemoryEntry",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        156,
+        165
+      ],
+      "summary": "Implements the isRunMemoryEntry operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:mapRunMemoryEntries",
+      "type": "function",
+      "name": "mapRunMemoryEntries",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        167,
+        175
+      ],
+      "summary": "Implements the mapRunMemoryEntries operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:isRunTimelineEntry",
+      "type": "function",
+      "name": "isRunTimelineEntry",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        177,
+        187
+      ],
+      "summary": "Implements the isRunTimelineEntry operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:formatMemoryStepName",
+      "type": "function",
+      "name": "formatMemoryStepName",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        193,
+        205
+      ],
+      "summary": "Implements the formatMemoryStepName operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:buildReplayNodeStatuses",
+      "type": "function",
+      "name": "buildReplayNodeStatuses",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        227,
+        256
+      ],
+      "summary": "Builds the Replay Node Statuses structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:buildReplayLogLines",
+      "type": "function",
+      "name": "buildReplayLogLines",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        258,
+        262
+      ],
+      "summary": "Builds the Replay Log Lines structure.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:replayRunStatus",
+      "type": "function",
+      "name": "replayRunStatus",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        264,
+        278
+      ],
+      "summary": "Implements the replayRunStatus operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:statusTone",
+      "type": "function",
+      "name": "statusTone",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        296,
+        307
+      ],
+      "summary": "Implements the statusTone operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:statusLabel",
+      "type": "function",
+      "name": "statusLabel",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        309,
+        314
+      ],
+      "summary": "Implements the statusLabel operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:formatLogTimestamp",
+      "type": "function",
+      "name": "formatLogTimestamp",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        316,
+        322
+      ],
+      "summary": "Implements the formatLogTimestamp operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:inferLifecycleStep",
+      "type": "function",
+      "name": "inferLifecycleStep",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        330,
+        374
+      ],
+      "summary": "Implements the inferLifecycleStep operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:lifecycleState",
+      "type": "function",
+      "name": "lifecycleState",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        376,
+        400
+      ],
+      "summary": "Implements the lifecycleState operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:realtimeLifecycleState",
+      "type": "function",
+      "name": "realtimeLifecycleState",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        402,
+        472
+      ],
+      "summary": "Implements the realtimeLifecycleState operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:lifecycleLabel",
+      "type": "function",
+      "name": "lifecycleLabel",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        474,
+        480
+      ],
+      "summary": "Implements the lifecycleLabel operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:workspaceStateLabel",
+      "type": "function",
+      "name": "workspaceStateLabel",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        486,
+        492
+      ],
+      "summary": "Implements the workspaceStateLabel operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:workspaceStateTone",
+      "type": "function",
+      "name": "workspaceStateTone",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        494,
+        508
+      ],
+      "summary": "Implements the workspaceStateTone operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:assistantCardTone",
+      "type": "function",
+      "name": "assistantCardTone",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        510,
+        524
+      ],
+      "summary": "Implements the assistantCardTone operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:assistantStateTitle",
+      "type": "function",
+      "name": "assistantStateTitle",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        526,
+        532
+      ],
+      "summary": "Implements the assistantStateTitle operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:inferMemoryEntryType",
+      "type": "function",
+      "name": "inferMemoryEntryType",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        536,
+        551
+      ],
+      "summary": "Implements the inferMemoryEntryType operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-utils.ts:memoryContentForStep",
+      "type": "function",
+      "name": "memoryContentForStep",
+      "filePath": "portfolio/src/app/playground/playground-utils.ts",
+      "lineRange": [
+        553,
+        580
+      ],
+      "summary": "Implements the memoryContentForStep operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "type": "file",
+      "name": "playground-widgets.tsx",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "summary": "Implements playground-widgets.tsx as part of the portfolio application.",
+      "tags": [
+        "component",
+        "react",
+        "interface"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:Spinner",
+      "type": "function",
+      "name": "Spinner",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        9,
+        16
+      ],
+      "summary": "Implements the Spinner operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:TypingDots",
+      "type": "function",
+      "name": "TypingDots",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        18,
+        30
+      ],
+      "summary": "Implements the TypingDots operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:PlaygroundMotionStyles",
+      "type": "function",
+      "name": "PlaygroundMotionStyles",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        32,
+        40
+      ],
+      "summary": "Implements the PlaygroundMotionStyles operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:ThinkingStateList",
+      "type": "function",
+      "name": "ThinkingStateList",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        44,
+        59
+      ],
+      "summary": "Implements the ThinkingStateList operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:DebugPanel",
+      "type": "function",
+      "name": "DebugPanel",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        63,
+        176
+      ],
+      "summary": "Implements the DebugPanel operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:StatCard",
+      "type": "function",
+      "name": "StatCard",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        180,
+        197
+      ],
+      "summary": "Implements the StatCard operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:WorkspaceStateBadge",
+      "type": "function",
+      "name": "WorkspaceStateBadge",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        201,
+        243
+      ],
+      "summary": "Implements the WorkspaceStateBadge operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/playground-widgets.tsx:ReplayStateBadge",
+      "type": "function",
+      "name": "ReplayStateBadge",
+      "filePath": "portfolio/src/app/playground/playground-widgets.tsx",
+      "lineRange": [
+        245,
+        266
+      ],
+      "summary": "Implements the ReplayStateBadge operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:portfolio/src/app/playground/use-playground-account.ts",
+      "type": "file",
+      "name": "use-playground-account.ts",
+      "filePath": "portfolio/src/app/playground/use-playground-account.ts",
+      "summary": "Implements use-playground-account.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/use-playground-account.ts:usePlaygroundAccount",
+      "type": "function",
+      "name": "usePlaygroundAccount",
+      "filePath": "portfolio/src/app/playground/use-playground-account.ts",
+      "lineRange": [
+        10,
+        152
+      ],
+      "summary": "Implements the usePlaygroundAccount operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/app/playground/use-playground-history.ts",
+      "type": "file",
+      "name": "use-playground-history.ts",
+      "filePath": "portfolio/src/app/playground/use-playground-history.ts",
+      "summary": "Implements use-playground-history.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/use-playground-history.ts:usePlaygroundHistory",
+      "type": "function",
+      "name": "usePlaygroundHistory",
+      "filePath": "portfolio/src/app/playground/use-playground-history.ts",
+      "lineRange": [
+        21,
+        167
+      ],
+      "summary": "Implements the usePlaygroundHistory operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "type": "file",
+      "name": "use-playground-run.ts",
+      "filePath": "portfolio/src/app/playground/use-playground-run.ts",
+      "summary": "Implements use-playground-run.ts as part of the portfolio application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/app/playground/use-playground-run.ts:usePlaygroundRun",
+      "type": "function",
+      "name": "usePlaygroundRun",
+      "filePath": "portfolio/src/app/playground/use-playground-run.ts",
+      "lineRange": [
+        53,
+        606
+      ],
+      "summary": "Implements the usePlaygroundRun operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "portfolio/src/app/projects/[slug]/page.tsx",
+      "summary": "Implements page.tsx as part of the portfolio application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/app/projects/[slug]/page.tsx:generateStaticParams",
+      "type": "function",
+      "name": "generateStaticParams",
+      "filePath": "portfolio/src/app/projects/[slug]/page.tsx",
+      "lineRange": [
+        13,
+        15
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/projects/[slug]/page.tsx:generateMetadata",
+      "type": "function",
+      "name": "generateMetadata",
+      "filePath": "portfolio/src/app/projects/[slug]/page.tsx",
+      "lineRange": [
+        17,
+        21
+      ],
+      "summary": "Implements the generateMetadata operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/projects/[slug]/page.tsx:ProjectDetailPage",
+      "type": "function",
+      "name": "ProjectDetailPage",
+      "filePath": "portfolio/src/app/projects/[slug]/page.tsx",
+      "lineRange": [
+        43,
+        270
+      ],
+      "summary": "Implements the ProjectDetailPage operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "type": "file",
+      "name": "project-demo.tsx",
+      "filePath": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "summary": "Implements project-demo.tsx as part of the portfolio application.",
+      "tags": [
+        "component",
+        "react",
+        "interface"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/app/projects/[slug]/project-demo.tsx:ProjectDemo",
+      "type": "function",
+      "name": "ProjectDemo",
+      "filePath": "portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "lineRange": [
+        30,
+        387
+      ],
+      "summary": "Implements the ProjectDemo operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:portfolio/src/app/projects/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "portfolio/src/app/projects/page.tsx",
+      "summary": "Implements page.tsx as part of the portfolio application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:portfolio/src/app/projects/page.tsx:ProjectsPage",
+      "type": "function",
+      "name": "ProjectsPage",
+      "filePath": "portfolio/src/app/projects/page.tsx",
+      "lineRange": [
+        17,
+        114
+      ],
+      "summary": "Implements the ProjectsPage operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:portfolio/src/app/run/[id]/page.tsx",
+      "type": "file",
+      "name": "page.tsx",
+      "filePath": "portfolio/src/app/run/[id]/page.tsx",
+      "summary": "Implements page.tsx as part of the portfolio application.",
+      "tags": [
+        "entry-point",
+        "application",
+        "interface"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:portfolio/src/app/run/[id]/page.tsx:MemoryItem",
+      "type": "function",
+      "name": "MemoryItem",
+      "filePath": "portfolio/src/app/run/[id]/page.tsx",
+      "lineRange": [
+        27,
+        45
+      ],
+      "summary": "Implements the MemoryItem operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/run/[id]/page.tsx:TimelineItem",
+      "type": "function",
+      "name": "TimelineItem",
+      "filePath": "portfolio/src/app/run/[id]/page.tsx",
+      "lineRange": [
+        47,
+        63
+      ],
+      "summary": "Implements the TimelineItem operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:portfolio/src/app/run/[id]/page.tsx:SharedRunPage",
+      "type": "function",
+      "name": "SharedRunPage",
+      "filePath": "portfolio/src/app/run/[id]/page.tsx",
+      "lineRange": [
+        65,
+        246
+      ],
+      "summary": "Implements the SharedRunPage operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:projectApiName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:projectApiName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:maskApiKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:maskApiKey",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:tryParse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:tryParse",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:extractSteps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:extractSteps",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:extractKeyMetrics",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:extractKeyMetrics",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:extractTextOutput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:extractTextOutput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:summarizeInputPayload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:summarizeInputPayload",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:formatRunTimestamp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:formatRunTimestamp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:isRunMemoryEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:isRunMemoryEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:mapRunMemoryEntries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:mapRunMemoryEntries",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:isRunTimelineEntry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:isRunTimelineEntry",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:formatMemoryStepName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:formatMemoryStepName",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:buildReplayNodeStatuses",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:buildReplayNodeStatuses",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:buildReplayLogLines",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:buildReplayLogLines",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:replayRunStatus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:replayRunStatus",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:statusTone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:statusTone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:statusLabel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:statusLabel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:formatLogTimestamp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:formatLogTimestamp",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:inferLifecycleStep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:inferLifecycleStep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:lifecycleState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:realtimeLifecycleState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:realtimeLifecycleState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:lifecycleLabel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:lifecycleLabel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:workspaceStateLabel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:workspaceStateLabel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:workspaceStateTone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:workspaceStateTone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:assistantCardTone",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:assistantCardTone",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:assistantStateTitle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:assistantStateTitle",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:inferMemoryEntryType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:inferMemoryEntryType",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:memoryContentForStep",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "function:portfolio/src/app/playground/playground-utils.ts:memoryContentForStep",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "file:portfolio/src/components/TimelineReplay.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "file:portfolio/src/components/agent-graph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "file:portfolio/src/components/animated-graph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "file:portfolio/src/components/memory-panel.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-utils.ts",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:Spinner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:Spinner",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:TypingDots",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:TypingDots",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:PlaygroundMotionStyles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:PlaygroundMotionStyles",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:ThinkingStateList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:ThinkingStateList",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:DebugPanel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:DebugPanel",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:StatCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:StatCard",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:WorkspaceStateBadge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:WorkspaceStateBadge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:ReplayStateBadge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "function:portfolio/src/app/playground/playground-widgets.tsx:ReplayStateBadge",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "file:portfolio/src/app/playground/playground-utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/playground-widgets.tsx",
+      "target": "file:portfolio/src/components/TimelineReplay.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-account.ts",
+      "target": "function:portfolio/src/app/playground/use-playground-account.ts:usePlaygroundAccount",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-account.ts",
+      "target": "function:portfolio/src/app/playground/use-playground-account.ts:usePlaygroundAccount",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-account.ts",
+      "target": "file:portfolio/src/app/playground/playground-utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-account.ts",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-account.ts",
+      "target": "file:portfolio/src/lib/auth.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-account.ts",
+      "target": "file:portfolio/src/lib/session.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-history.ts",
+      "target": "function:portfolio/src/app/playground/use-playground-history.ts:usePlaygroundHistory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-history.ts",
+      "target": "function:portfolio/src/app/playground/use-playground-history.ts:usePlaygroundHistory",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-history.ts",
+      "target": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-history.ts",
+      "target": "file:portfolio/src/components/TimelineReplay.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-history.ts",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "target": "function:portfolio/src/app/playground/use-playground-run.ts:usePlaygroundRun",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "target": "function:portfolio/src/app/playground/use-playground-run.ts:usePlaygroundRun",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "target": "file:portfolio/src/app/playground/playground-utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "target": "file:portfolio/src/components/animated-graph.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "target": "file:portfolio/src/components/memory-panel.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/playground/use-playground-run.ts",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/page.tsx:generateStaticParams",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/page.tsx:generateStaticParams",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/page.tsx:generateMetadata",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/page.tsx:generateMetadata",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/page.tsx:ProjectDetailPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/page.tsx:ProjectDetailPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "file:portfolio/src/components/copy-button.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "file:portfolio/src/components/flow-diagram.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/page.tsx",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/project-demo.tsx:ProjectDemo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "function:portfolio/src/app/projects/[slug]/project-demo.tsx:ProjectDemo",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "file:portfolio/src/app/playground/playground-utils.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "file:portfolio/src/components/dismissible-tip.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "file:portfolio/src/lib/apikey.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "file:portfolio/src/lib/auth.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/[slug]/project-demo.tsx",
+      "target": "file:portfolio/src/lib/llm-catalog.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/page.tsx",
+      "target": "function:portfolio/src/app/projects/page.tsx:ProjectsPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/projects/page.tsx",
+      "target": "function:portfolio/src/app/projects/page.tsx:ProjectsPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/projects/page.tsx",
+      "target": "file:portfolio/src/components/project-card-preview.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/page.tsx",
+      "target": "file:portfolio/src/components/project-run-badge.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/projects/page.tsx",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/run/[id]/page.tsx",
+      "target": "function:portfolio/src/app/run/[id]/page.tsx:MemoryItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/run/[id]/page.tsx",
+      "target": "function:portfolio/src/app/run/[id]/page.tsx:TimelineItem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/run/[id]/page.tsx",
+      "target": "function:portfolio/src/app/run/[id]/page.tsx:SharedRunPage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:portfolio/src/app/run/[id]/page.tsx",
+      "target": "function:portfolio/src/app/run/[id]/page.tsx:SharedRunPage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:portfolio/src/app/run/[id]/page.tsx",
+      "target": "file:portfolio/src/components/confidence-indicator.tsx",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/run/[id]/page.tsx",
+      "target": "file:portfolio/src/data/projects.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:portfolio/src/app/run/[id]/page.tsx",
+      "target": "file:portfolio/src/lib/api.ts",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

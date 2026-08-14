@@ -1,0 +1,218 @@
+{
+  "scriptCompleted": true,
+  "filesAnalyzed": 5,
+  "filesSkipped": [],
+  "analysisOutcomes": {
+    "structure": {
+      "succeeded": 5,
+      "failed": 0
+    },
+    "callGraph": {
+      "succeeded": 0,
+      "failed": 0,
+      "skipped": 5
+    }
+  },
+  "results": [
+    {
+      "path": "benchmarks/promptfoo/agent_eval.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 93,
+      "nonEmptyLines": 82,
+      "sections": [
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "providers",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "prompts",
+          "level": 1,
+          "line": 58
+        },
+        {
+          "heading": "defaultTest",
+          "level": 1,
+          "line": 61
+        },
+        {
+          "heading": "tests",
+          "level": 1,
+          "line": 68
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "benchmarks/promptfoo/promptfooconfig.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 38,
+      "nonEmptyLines": 33,
+      "sections": [
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "providers",
+          "level": 1,
+          "line": 10
+        },
+        {
+          "heading": "prompts",
+          "level": 1,
+          "line": 19
+        },
+        {
+          "heading": "defaultTest",
+          "level": 1,
+          "line": 25
+        },
+        {
+          "heading": "tests",
+          "level": 1,
+          "line": 35
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "benchmarks/promptfoo/rag_eval.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 75,
+      "nonEmptyLines": 66,
+      "sections": [
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "providers",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "prompts",
+          "level": 1,
+          "line": 31
+        },
+        {
+          "heading": "defaultTest",
+          "level": 1,
+          "line": 34
+        },
+        {
+          "heading": "tests",
+          "level": 1,
+          "line": 49
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "benchmarks/promptfoo/rag_retrieval_eval.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 48,
+      "nonEmptyLines": 41,
+      "sections": [
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 7
+        },
+        {
+          "heading": "providers",
+          "level": 1,
+          "line": 9
+        },
+        {
+          "heading": "prompts",
+          "level": 1,
+          "line": 15
+        },
+        {
+          "heading": "defaultTest",
+          "level": 1,
+          "line": 18
+        },
+        {
+          "heading": "tests",
+          "level": 1,
+          "line": 25
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 5
+      }
+    },
+    {
+      "path": "benchmarks/promptfoo/redteam.yaml",
+      "language": "yaml",
+      "fileCategory": "config",
+      "totalLines": 49,
+      "nonEmptyLines": 42,
+      "sections": [
+        {
+          "heading": "description",
+          "level": 1,
+          "line": 6
+        },
+        {
+          "heading": "targets",
+          "level": 1,
+          "line": 8
+        },
+        {
+          "heading": "purpose",
+          "level": 1,
+          "line": 33
+        },
+        {
+          "heading": "redteam",
+          "level": 1,
+          "line": 38
+        }
+      ],
+      "metrics": {
+        "importCount": 0,
+        "exportCount": 0,
+        "functionCount": 0,
+        "classCount": 0,
+        "sectionCount": 4
+      }
+    }
+  ]
+}

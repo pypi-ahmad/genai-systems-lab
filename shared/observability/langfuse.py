@@ -10,8 +10,9 @@ import functools
 import logging
 import os
 import time
+from collections.abc import Callable, Generator
 from contextlib import contextmanager, nullcontext
-from typing import Any, Callable, Generator
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
@@ -324,7 +325,11 @@ def trace_context(
     session_id: str | None = None,
     tags: list[str] | None = None,
     version: str | None = None,
-) -> Generator[Any | None, None, None]:
+) -> Generator[Any | None]:
+    """Create a trace without blocking the caller on telemetry delivery.
+
+    The execution runner flushes queued events at its lifecycle boundary.
+    """
     client = get_client()
     if client is None:
         yield None
@@ -332,8 +337,9 @@ def trace_context(
 
     from langfuse import propagate_attributes  # type: ignore[import-untyped]
 
-    propagation = (
-        propagate_attributes(
+    propagation = nullcontext()
+    if any((user_id, session_id, metadata, version, tags)):
+        propagation = propagate_attributes(
             user_id=user_id,
             session_id=session_id,
             metadata=_string_metadata(metadata),
@@ -341,36 +347,30 @@ def trace_context(
             tags=tags,
             trace_name=name,
         )
-        if any([user_id, session_id, metadata, version, tags])
-        else nullcontext()
-    )
 
-    try:
-        with client.start_as_current_observation(
-            name=name,
-            as_type="span",
-            input=input,
-            metadata=metadata,
-            version=version,
-        ) as trace:
-            start = time.perf_counter()
-            with propagation:
+    with client.start_as_current_observation(
+        name=name,
+        as_type="span",
+        input=input,
+        metadata=metadata,
+        version=version,
+    ) as trace:
+        start = time.perf_counter()
+        with propagation:
+            try:
+                yield trace
+            except Exception as exc:
+                elapsed_ms = (time.perf_counter() - start) * 1000
                 try:
-                    yield trace
-                except Exception as exc:
-                    elapsed_ms = (time.perf_counter() - start) * 1000
-                    try:
-                        trace.update(
-                            output=f"ERROR: {exc}",
-                            metadata=_merge_metadata(
-                                metadata,
-                                {"latency_ms": round(elapsed_ms, 2), "error": str(exc)},
-                            ),
-                            level="ERROR",
-                            status_message=str(exc),
-                        )
-                    except Exception:
-                        logger.debug("Failed to update Langfuse error observation", exc_info=True)
-                    raise
-    finally:
-        flush()
+                    trace.update(
+                        output=f"ERROR: {exc}",
+                        metadata=_merge_metadata(
+                            metadata,
+                            {"latency_ms": round(elapsed_ms, 2), "error": str(exc)},
+                        ),
+                        level="ERROR",
+                        status_message=str(exc),
+                    )
+                except Exception:
+                    logger.debug("Failed to update Langfuse error observation", exc_info=True)
+                raise

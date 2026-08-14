@@ -1,0 +1,1042 @@
+{
+  "nodes": [
+    {
+      "id": "file:lg-research-agent/app/nodes/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "lg-research-agent/app/nodes/__init__.py",
+      "summary": "Implements the __init__ workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/critic.py",
+      "type": "file",
+      "name": "critic.py",
+      "filePath": "lg-research-agent/app/nodes/critic.py",
+      "summary": "Implements the critic workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/critic.py:critic_node",
+      "type": "function",
+      "name": "critic_node",
+      "filePath": "lg-research-agent/app/nodes/critic.py",
+      "lineRange": [
+        22,
+        40
+      ],
+      "summary": "Implements the critic_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/planner.py",
+      "type": "file",
+      "name": "planner.py",
+      "filePath": "lg-research-agent/app/nodes/planner.py",
+      "summary": "Implements the planner workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/planner.py:planner_node",
+      "type": "function",
+      "name": "planner_node",
+      "filePath": "lg-research-agent/app/nodes/planner.py",
+      "lineRange": [
+        22,
+        35
+      ],
+      "summary": "Implements the planner_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/researcher.py",
+      "type": "file",
+      "name": "researcher.py",
+      "filePath": "lg-research-agent/app/nodes/researcher.py",
+      "summary": "Implements the researcher workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/researcher.py:researcher_node",
+      "type": "function",
+      "name": "researcher_node",
+      "filePath": "lg-research-agent/app/nodes/researcher.py",
+      "lineRange": [
+        29,
+        50
+      ],
+      "summary": "Implements the researcher_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/nodes/writer.py",
+      "type": "file",
+      "name": "writer.py",
+      "filePath": "lg-research-agent/app/nodes/writer.py",
+      "summary": "Implements the writer workflow node for its LangGraph-based agent.",
+      "tags": [
+        "langgraph",
+        "workflow-node",
+        "agent"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/nodes/writer.py:writer_node",
+      "type": "function",
+      "name": "writer_node",
+      "filePath": "lg-research-agent/app/nodes/writer.py",
+      "lineRange": [
+        8,
+        21
+      ],
+      "summary": "Implements the writer_node operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/app/state.py",
+      "type": "file",
+      "name": "state.py",
+      "filePath": "lg-research-agent/app/state.py",
+      "summary": "Defines shared workflow state and typed data exchanged between nodes.",
+      "tags": [
+        "state-management",
+        "type-definition",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/app/state.py:initial_state",
+      "type": "function",
+      "name": "initial_state",
+      "filePath": "lg-research-agent/app/state.py",
+      "lineRange": [
+        15,
+        23
+      ],
+      "summary": "Implements the initial_state operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:lg-research-agent/app/state.py:ResearchState",
+      "type": "class",
+      "name": "ResearchState",
+      "filePath": "lg-research-agent/app/state.py",
+      "lineRange": [
+        6,
+        12
+      ],
+      "summary": "Represents the ResearchState abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:lg-research-agent/tests/test_main.py",
+      "type": "file",
+      "name": "test_main.py",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "summary": "Tests behavior exposed by the corresponding application modules.",
+      "tags": [
+        "test",
+        "verification",
+        "automation"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/tests/test_main.py:test_run_executes_graph",
+      "type": "function",
+      "name": "test_run_executes_graph",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "lineRange": [
+        20,
+        37
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/tests/test_main.py:test_run_requires_query",
+      "type": "function",
+      "name": "test_run_requires_query",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "lineRange": [
+        40,
+        43
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:lg-research-agent/tests/test_main.py:test_run_returns_completed_status",
+      "type": "function",
+      "name": "test_run_returns_completed_status",
+      "filePath": "lg-research-agent/tests/test_main.py",
+      "lineRange": [
+        46,
+        60
+      ],
+      "summary": "Verifies the expected behavior of the related application component.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:shared/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "shared/config.py",
+      "summary": "Implements config.py as part of the shared application.",
+      "tags": [
+        "application",
+        "utility",
+        "service"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:shared/config.py:set_byok_api_key",
+      "type": "function",
+      "name": "set_byok_api_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        20,
+        22
+      ],
+      "summary": "Implements the set_byok_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:reset_byok_api_key",
+      "type": "function",
+      "name": "reset_byok_api_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        25,
+        27
+      ],
+      "summary": "Implements the reset_byok_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:set_request_model",
+      "type": "function",
+      "name": "set_request_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        30,
+        32
+      ],
+      "summary": "Implements the set_request_model operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:reset_request_model",
+      "type": "function",
+      "name": "reset_request_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        35,
+        37
+      ],
+      "summary": "Implements the reset_request_model operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_request_model",
+      "type": "function",
+      "name": "get_request_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        40,
+        42
+      ],
+      "summary": "Implements the get_request_model operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:set_request_provider",
+      "type": "function",
+      "name": "set_request_provider",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        45,
+        47
+      ],
+      "summary": "Implements the set_request_provider operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:reset_request_provider",
+      "type": "function",
+      "name": "reset_request_provider",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        50,
+        52
+      ],
+      "summary": "Implements the reset_request_provider operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_request_provider",
+      "type": "function",
+      "name": "get_request_provider",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        55,
+        57
+      ],
+      "summary": "Implements the get_request_provider operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_effective_api_key",
+      "type": "function",
+      "name": "get_effective_api_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        60,
+        73
+      ],
+      "summary": "Implements the get_effective_api_key operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_effective_model",
+      "type": "function",
+      "name": "get_effective_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        76,
+        81
+      ],
+      "summary": "Implements the get_effective_model operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:_normalize_project_name",
+      "type": "function",
+      "name": "_normalize_project_name",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        144,
+        148
+      ],
+      "summary": "Implements the _normalize_project_name operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:_project_env_key",
+      "type": "function",
+      "name": "_project_env_key",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        151,
+        159
+      ],
+      "summary": "Implements the _project_env_key operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:_read_project_model_override",
+      "type": "function",
+      "name": "_read_project_model_override",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        162,
+        172
+      ],
+      "summary": "Loads or parses input required by this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_settings",
+      "type": "function",
+      "name": "get_settings",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        176,
+        185
+      ],
+      "summary": "Implements the get_settings operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_environment",
+      "type": "function",
+      "name": "get_environment",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        188,
+        189
+      ],
+      "summary": "Implements the get_environment operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "function:shared/config.py:get_model",
+      "type": "function",
+      "name": "get_model",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        192,
+        209
+      ],
+      "summary": "Implements the get_model operation for this module.",
+      "tags": [
+        "function",
+        "application",
+        "workflow"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:shared/config.py:Settings",
+      "type": "class",
+      "name": "Settings",
+      "filePath": "shared/config.py",
+      "lineRange": [
+        94,
+        141
+      ],
+      "summary": "Represents the Settings abstraction used by this module.",
+      "tags": [
+        "class",
+        "application",
+        "service"
+      ],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "function:lg-research-agent/app/nodes/critic.py:critic_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "function:lg-research-agent/app/nodes/critic.py:critic_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/critic.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "function:lg-research-agent/app/nodes/planner.py:planner_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "function:lg-research-agent/app/nodes/planner.py:planner_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/planner.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "function:lg-research-agent/app/nodes/researcher.py:researcher_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "function:lg-research-agent/app/nodes/researcher.py:researcher_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/researcher.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "function:lg-research-agent/app/nodes/writer.py:writer_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "function:lg-research-agent/app/nodes/writer.py:writer_node",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "file:lg-research-agent/app/state.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "file:shared/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/nodes/writer.py",
+      "target": "file:shared/llm/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "function:lg-research-agent/app/state.py:initial_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "function:lg-research-agent/app/state.py:initial_state",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "class:lg-research-agent/app/state.py:ResearchState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/app/state.py",
+      "target": "class:lg-research-agent/app/state.py:ResearchState",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_executes_graph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_executes_graph",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_requires_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_requires_query",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_returns_completed_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "function:lg-research-agent/tests/test_main.py:test_run_returns_completed_status",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/critic.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/planner.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/researcher.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:lg-research-agent/tests/test_main.py",
+      "target": "file:lg-research-agent/app/nodes/writer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_byok_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_byok_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_byok_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_byok_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:set_request_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:reset_request_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_provider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_request_provider",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_api_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_api_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_effective_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_normalize_project_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_normalize_project_name",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_project_env_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_project_env_key",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_read_project_model_override",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:_read_project_model_override",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_settings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_environment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_environment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "function:shared/config.py:get_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "class:shared/config.py:Settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:shared/config.py",
+      "target": "class:shared/config.py:Settings",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

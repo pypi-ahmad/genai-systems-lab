@@ -3,10 +3,12 @@
 import { useCallback, useMemo, useState } from "react";
 import Link from "next/link";
 import { ConfidenceIndicator } from "@/components/confidence-indicator";
+import { formatUsd, ModelPricingSummary } from "@/components/llm-cost";
 import { projectDetails } from "@/data/projects";
 import type { ProjectDetail } from "@/data/projects";
 import type { HistoryRun, LLMCatalogResponse, LLMProviderInfo, RunExplanation } from "@/lib/api";
 import type { LLMProviderId } from "@/lib/apikey";
+import { findModelInfo } from "@/lib/llm-catalog";
 import { categoryBadgeTone, formatRunTimestamp, maskApiKey } from "./playground-utils";
 import { ChevronIcon } from "./playground-icons";
 
@@ -177,6 +179,7 @@ interface PlaygroundSidebarProps {
   onKeyFocusedChange: (value: boolean) => void;
   onLogout: () => void;
   onModelChange: (value: string) => void;
+  onEffortChange: (value: string) => void;
   onProjectChange: (slug: string) => void;
   onRun: () => void;
   onShare: (run: HistoryRun) => void;
@@ -189,6 +192,7 @@ interface PlaygroundSidebarProps {
   selected: ProjectDetail;
   selectedApiKey: string;
   selectedModel: string;
+  selectedEffort: string;
   selectedProvider: LLMProviderId;
   selectedProviderInfo: LLMProviderInfo | null;
   selectedSlug: string;
@@ -229,6 +233,7 @@ export function PlaygroundSidebar({
   onKeyFocusedChange,
   onLogout,
   onModelChange,
+  onEffortChange,
   onProjectChange,
   onRun,
   onShare,
@@ -241,6 +246,7 @@ export function PlaygroundSidebar({
   selected,
   selectedApiKey,
   selectedModel,
+  selectedEffort,
   selectedProvider,
   selectedProviderInfo,
   selectedSlug,
@@ -261,6 +267,7 @@ export function PlaygroundSidebar({
   const apiKeyLabel = selectedProviderInfo?.api_key_label ?? "API key";
   const apiKeyPlaceholder = selectedProviderInfo?.api_key_placeholder ?? "";
   const apiKeyHelpUrl = selectedProviderInfo?.api_key_help_url ?? null;
+  const selectedModelInfo = findModelInfo(llmCatalog, selectedModel);
 
   const jsonWarning = useMemo(() => {
     if (inputMode === "text") return null;
@@ -334,6 +341,25 @@ export function PlaygroundSidebar({
               <span className="text-[10px] opacity-70">See output as it generates</span>
             </span>
           </label>
+
+          <label className="block">
+            <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--muted)]">
+              Reasoning effort
+            </span>
+            <select
+              value={selectedEffort}
+              onChange={(event) => onEffortChange(event.target.value)}
+              disabled={isActive || !selectedModelInfo || selectedModelInfo.effort_options.length === 0}
+              className="input-shell mt-3 w-full rounded-[1rem] px-4 py-3 text-sm leading-6 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              <option value="">Provider default</option>
+              {selectedModelInfo?.effort_options.map((effort) => (
+                <option key={effort} value={effort}>{effort}</option>
+              ))}
+            </select>
+          </label>
+
+          <ModelPricingSummary model={selectedModelInfo} />
 
           {isActive ? (
             <button type="button" onClick={onStop} className="button-base button-secondary button-sm button-pill">
@@ -692,6 +718,11 @@ export function PlaygroundSidebar({
                           </div>
                         </div>
                         <p className="mt-2 line-clamp-2 font-mono text-xs leading-6 text-[var(--muted)]">{run.input}</p>
+                        {run.total_tokens !== null ? (
+                          <p className="mt-2 text-[11px] text-[var(--muted)]">
+                            {run.total_tokens.toLocaleString()} tokens · {run.cost_usd === null ? "cost unavailable" : formatUsd(run.cost_usd)}
+                          </p>
+                        ) : null}
                       </div>
                     );
                   })}

@@ -1,0 +1,182 @@
+{
+  "projectRoot": "D:\\AI\\Github\\genai-systems-lab",
+  "batchFiles": [
+    {
+      "path": "genai-clinical-assistant/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-clinical-assistant/data/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-clinical-assistant/tests/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-code-copilot/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-code-copilot/app/context_builder.py",
+      "language": "python",
+      "sizeLines": 71,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-code-copilot/app/file_parser.py",
+      "language": "python",
+      "sizeLines": 60,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-code-copilot/app/indexer.py",
+      "language": "python",
+      "sizeLines": 386,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-code-copilot/app/qa_agent.py",
+      "language": "python",
+      "sizeLines": 68,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-code-copilot/app/retriever.py",
+      "language": "python",
+      "sizeLines": 55,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/data/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-doc-intelligence/tests/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-financial-analyst/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-financial-analyst/data/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-financial-analyst/data/fintech_saas_financials.csv",
+      "language": "csv",
+      "sizeLines": 24,
+      "fileCategory": "data"
+    },
+    {
+      "path": "genai-financial-analyst/tests/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-interviewer/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-interviewer/tests/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-knowledge-os/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-knowledge-os/data/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-knowledge-os/tests/.gitkeep",
+      "language": "unknown",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-nl2sql-agent/app/__init__.py",
+      "language": "python",
+      "sizeLines": 0,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-nl2sql-agent/app/executor.py",
+      "language": "python",
+      "sizeLines": 48,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-nl2sql-agent/app/schema.py",
+      "language": "python",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    },
+    {
+      "path": "genai-nl2sql-agent/app/validator.py",
+      "language": "python",
+      "sizeLines": 126,
+      "fileCategory": "code"
+    }
+  ],
+  "batchImportData": {
+    "genai-clinical-assistant/app/__init__.py": [],
+    "genai-clinical-assistant/data/.gitkeep": [],
+    "genai-clinical-assistant/tests/.gitkeep": [],
+    "genai-code-copilot/app/__init__.py": [],
+    "genai-code-copilot/app/context_builder.py": [],
+    "genai-code-copilot/app/file_parser.py": [],
+    "genai-code-copilot/app/indexer.py": [],
+    "genai-code-copilot/app/qa_agent.py": [],
+    "genai-code-copilot/app/retriever.py": [],
+    "genai-doc-intelligence/app/__init__.py": [],
+    "genai-doc-intelligence/data/.gitkeep": [],
+    "genai-doc-intelligence/tests/.gitkeep": [],
+    "genai-financial-analyst/app/__init__.py": [],
+    "genai-financial-analyst/data/.gitkeep": [],
+    "genai-financial-analyst/data/fintech_saas_financials.csv": [],
+    "genai-financial-analyst/tests/.gitkeep": [],
+    "genai-interviewer/app/__init__.py": [],
+    "genai-interviewer/tests/.gitkeep": [],
+    "genai-knowledge-os/app/__init__.py": [],
+    "genai-knowledge-os/data/.gitkeep": [],
+    "genai-knowledge-os/tests/.gitkeep": [],
+    "genai-nl2sql-agent/app/__init__.py": [],
+    "genai-nl2sql-agent/app/executor.py": [],
+    "genai-nl2sql-agent/app/schema.py": [],
+    "genai-nl2sql-agent/app/validator.py": []
+  }
+}
