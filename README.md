@@ -931,3 +931,4 @@ If this evolves toward a reusable platform, the next priorities would be: Alembi
 
 Suggestions and bug reports are welcome — feel free to [open an issue](https://github.com/pypi-ahmad/genai-systems-lab/issues).
 
+<p align="center">Made with ❤️ by Ahmad Mujtaba</p>
