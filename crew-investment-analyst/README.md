@@ -35,7 +35,7 @@ The project uses a linear CrewAI process where each specialist adds a new layer 
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/investment-crew/run \
+curl -X POST http://127.0.0.1:8514/investment-crew/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Evaluate a Series B investment in an AI compliance automation startup"}'
 ```

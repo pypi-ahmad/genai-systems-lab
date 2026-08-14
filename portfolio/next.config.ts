@@ -11,7 +11,7 @@ if (isProd && !rawApiBase) {
     "NEXT_PUBLIC_API_BASE_URL must be set when building the portfolio for production.",
   );
 }
-const apiBaseForCsp = rawApiBase || "http://localhost:8000";
+const apiBaseForCsp = rawApiBase || "http://localhost:8514";
 
 /**
  * Content Security Policy.

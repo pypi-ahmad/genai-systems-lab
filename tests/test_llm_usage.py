@@ -56,6 +56,7 @@ def test_catalog_contains_only_approved_hosted_models(monkeypatch) -> None:
         "openai": ["gpt-5.6-luna", "gpt-5.6-terra"],
         "anthropic": ["claude-sonnet-5"],
         "xai": ["grok-4.6"],
+        "agnes": ["agnes-2.5-flash"],
     }
     assert infer_provider("grok-4.6") == "xai"
 

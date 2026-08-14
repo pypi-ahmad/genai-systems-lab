@@ -85,9 +85,9 @@ if not exist ".data\launcher.env" (
 set "API_CONTAINER="
 for /f "usebackq delims=" %%I in (`docker compose ps --status running -q api 2^>nul`) do set "API_CONTAINER=%%I"
 if not defined API_CONTAINER (
-  powershell -NoProfile -Command "if (Get-NetTCPConnection -State Listen -LocalPort 8000 -ErrorAction SilentlyContinue) { exit 42 }"
+  powershell -NoProfile -Command "if (Get-NetTCPConnection -State Listen -LocalPort 8514 -ErrorAction SilentlyContinue) { exit 42 }"
   if errorlevel 42 (
-    echo ERROR: Port 8000 is already occupied by a process outside this Docker Compose API.
+    echo ERROR: Port 8514 is already occupied by a process outside this Docker Compose API.
     echo Stop that process yourself or change its port, then rerun launch.cmd. Nothing was terminated.
     pause
     exit /b 1
@@ -95,9 +95,9 @@ if not defined API_CONTAINER (
 )
 
 set "FRONTEND_ALREADY_RUNNING="
-powershell -NoProfile -Command "if (Get-NetTCPConnection -State Listen -LocalPort 3000 -ErrorAction SilentlyContinue) { try { $page = Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:3000/' -TimeoutSec 5; if ($page.Content -match 'GenAI Systems Lab') { exit 10 } } catch {}; exit 42 }"
+powershell -NoProfile -Command "if (Get-NetTCPConnection -State Listen -LocalPort 8513 -ErrorAction SilentlyContinue) { try { $page = Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:8513/' -TimeoutSec 5; if ($page.Content -match 'GenAI Systems Lab') { exit 10 } } catch {}; exit 42 }"
 if errorlevel 42 (
-  echo ERROR: Port 3000 is occupied by another application.
+  echo ERROR: Port 8513 is occupied by another application.
   echo Stop that process yourself or change its port, then rerun launch.cmd. Nothing was terminated.
   pause
   exit /b 1
@@ -114,7 +114,7 @@ if errorlevel 1 (
 )
 
 echo Waiting for backend health...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$deadline = (Get-Date).AddMinutes(3); do { try { $response = Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:8000/health' -TimeoutSec 3; if ($response.StatusCode -eq 200) { exit 0 } } catch {}; Start-Sleep -Seconds 2 } while ((Get-Date) -lt $deadline); exit 1"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$deadline = (Get-Date).AddMinutes(3); do { try { $response = Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:8514/health' -TimeoutSec 3; if ($response.StatusCode -eq 200) { exit 0 } } catch {}; Start-Sleep -Seconds 2 } while ((Get-Date) -lt $deadline); exit 1"
 if errorlevel 1 (
   echo ERROR: The backend did not become healthy. Run: docker compose logs api worker
   pause
@@ -138,7 +138,7 @@ if not defined FRONTEND_ALREADY_RUNNING (
 )
 
 echo Waiting for frontend readiness...
-powershell -NoProfile -ExecutionPolicy Bypass -Command "$deadline = (Get-Date).AddMinutes(2); do { try { $response = Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:3000/' -TimeoutSec 3; if ($response.StatusCode -eq 200 -and $response.Content -match 'GenAI Systems Lab') { exit 0 } } catch {}; Start-Sleep -Seconds 2 } while ((Get-Date) -lt $deadline); exit 1"
+powershell -NoProfile -ExecutionPolicy Bypass -Command "$deadline = (Get-Date).AddMinutes(2); do { try { $response = Invoke-WebRequest -UseBasicParsing 'http://127.0.0.1:8513/' -TimeoutSec 3; if ($response.StatusCode -eq 200 -and $response.Content -match 'GenAI Systems Lab') { exit 0 } } catch {}; Start-Sleep -Seconds 2 } while ((Get-Date) -lt $deadline); exit 1"
 if errorlevel 1 (
   echo ERROR: The frontend did not become ready. Review .data\frontend.log.
   pause
@@ -146,8 +146,8 @@ if errorlevel 1 (
 )
 
 echo Opening GenAI Systems Lab...
-start "" "http://localhost:3000"
-echo Ready. Backend: http://localhost:8000  Frontend: http://localhost:3000
+start "" "http://localhost:8513"
+echo Ready. Backend: http://localhost:8514  Frontend: http://localhost:8513
 exit /b 0
 
 :install_failed

@@ -36,7 +36,7 @@ The graph keeps request classification, retrieval, response generation, and esca
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/support-agent/run \
+curl -X POST http://127.0.0.1:8514/support-agent/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Customer cannot access the billing dashboard after password reset"}'
 ```

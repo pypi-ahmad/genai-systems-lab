@@ -7,7 +7,7 @@ from urllib.parse import urlparse
 
 import httpx
 
-ProviderId = Literal["gemini", "openai", "anthropic", "xai", "ollama"]
+ProviderId = Literal["gemini", "openai", "anthropic", "xai", "agnes", "ollama"]
 
 
 class PricingSpec(TypedDict):
@@ -173,6 +173,28 @@ STATIC_PROVIDERS: tuple[ProviderSpec, ...] = (
             },
         ],
     },
+    {
+        "id": "agnes",
+        "label": "Agnes AI",
+        "requires_api_key": True,
+        "api_key_label": "Agnes API key",
+        "api_key_help_url": "https://www.agnes-ai.com/en/docs/overview",
+        "api_key_placeholder": "agnes-...",
+        "models": [
+            {
+                "id": "agnes-2.5-flash",
+                "label": "Agnes 2.5 Flash",
+                "provider": "agnes",
+                "effort_options": [],
+                "pricing": {
+                    "input_per_million_usd": 0.0,
+                    "output_per_million_usd": 0.0,
+                    "as_of": "2026-08-14",
+                    "details": "Free usage per current product configuration.",
+                },
+            },
+        ],
+    },
 )
 
 STATIC_MODEL_SPECS: dict[str, ModelSpec] = {
@@ -234,6 +256,8 @@ def infer_provider(model: str | None) -> ProviderId:
         return "anthropic"
     if lowered.startswith("grok"):
         return "xai"
+    if lowered.startswith("agnes"):
+        return "agnes"
     return "ollama"
 
 

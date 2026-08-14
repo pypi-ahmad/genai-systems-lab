@@ -28,6 +28,7 @@ from .telemetry import record_llm_call_metadata
 REQUEST_TIMEOUT_SECONDS = 120
 OPENAI_RESPONSES_URL = "https://api.openai.com/v1/responses"
 XAI_RESPONSES_URL = "https://api.x.ai/v1/responses"
+AGNES_CHAT_URL = "https://apihub.agnes-ai.com/v1/chat/completions"
 MAX_RETRY_ATTEMPTS = 3
 BASE_BACKOFF_SECONDS = 1.0
 # Max jittered backoff to avoid every client retrying in lock-step.
@@ -105,10 +106,14 @@ def _record_openai_usage(response: dict[str, Any]) -> None:
     usage_details: dict[str, int] = {}
 
     input_tokens = _coerce_int(usage_payload.get("input_tokens"))
+    if input_tokens is None:
+        input_tokens = _coerce_int(usage_payload.get("prompt_tokens"))
     if input_tokens is not None:
         usage_details["input"] = input_tokens
 
     output_tokens = _coerce_int(usage_payload.get("output_tokens"))
+    if output_tokens is None:
+        output_tokens = _coerce_int(usage_payload.get("completion_tokens"))
     if output_tokens is not None:
         usage_details["output"] = output_tokens
 
@@ -408,6 +413,91 @@ def xai_generate_text(prompt: str, model: str, *, temperature: float | None = No
         provider_label="xAI",
         temperature=temperature,
     )
+
+
+def _chat_headers() -> dict[str, str]:
+    return {"Authorization": f"Bearer {get_effective_api_key()}", "Content-Type": "application/json"}
+
+
+def _extract_chat_text(payload: dict[str, Any], provider_label: str = "Agnes") -> str:
+    choices = payload.get("choices")
+    if isinstance(choices, list) and choices and isinstance(choices[0], dict):
+        message = choices[0].get("message")
+        if isinstance(message, dict):
+            content = message.get("content")
+            if isinstance(content, str) and content.strip():
+                return content.strip()
+    raise LLMGenerationError(f"{provider_label} returned an empty text response.")
+
+
+def _chat_generate_text(prompt: str, model: str, *, temperature: float | None = None) -> str:
+    payload: dict[str, Any] = {"model": model, "messages": [{"role": "user", "content": prompt}]}
+    if temperature is not None:
+        payload["temperature"] = temperature
+    response = _request_json(url=AGNES_CHAT_URL, headers=_chat_headers(), payload=payload)
+    _record_openai_usage(response)
+    return _extract_chat_text(response)
+
+
+def agnes_generate_text(prompt: str, model: str, *, temperature: float | None = None) -> str:
+    return _chat_generate_text(prompt, model, temperature=temperature)
+
+
+def agnes_stream_text(prompt: str, model: str, emit: Any) -> str:
+    payload = {"model": model, "messages": [{"role": "user", "content": prompt}], "stream": True}
+    parts: list[str] = []
+    usage: dict[str, Any] | None = None
+    with _http_client().stream("POST", AGNES_CHAT_URL, headers=_chat_headers(), json=payload, timeout=REQUEST_TIMEOUT_SECONDS) as response:
+        response.raise_for_status()
+        for line in response.iter_lines():
+            if not line.startswith("data: ") or line == "data: [DONE]":
+                continue
+            event = json.loads(line[6:])
+            if isinstance(event.get("usage"), dict):
+                usage = event["usage"]
+            choices = event.get("choices")
+            if isinstance(choices, list) and choices and isinstance(choices[0], dict):
+                delta = choices[0].get("delta")
+                text = delta.get("content") if isinstance(delta, dict) else None
+                if isinstance(text, str):
+                    parts.append(text)
+                    emit(text)
+    if usage is not None:
+        _record_openai_usage({"usage": usage})
+    return "".join(parts).strip()
+
+
+def agnes_generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict[str, Any]:
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": prompt}],
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {"name": "structured_response", "strict": True, "schema": _normalize_schema(schema)},
+        },
+    }
+    response = _request_json(url=AGNES_CHAT_URL, headers=_chat_headers(), payload=payload)
+    _record_openai_usage(response)
+    try:
+        parsed = json.loads(_extract_chat_text(response))
+    except json.JSONDecodeError as exc:
+        raise LLMGenerationError("Agnes returned invalid structured JSON.") from exc
+    if not isinstance(parsed, dict):
+        raise LLMGenerationError("Agnes structured output must be a JSON object.")
+    return parsed
+
+
+def agnes_generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
+    payload = {
+        "model": model,
+        "messages": [{"role": "user", "content": [
+            {"type": "text", "text": prompt},
+            {"type": "image_url", "image_url": {"url": _data_url(image)}},
+        ]}],
+    }
+    response = _request_json(url=AGNES_CHAT_URL, headers=_chat_headers(), payload=payload)
+    _record_openai_usage(response)
+    return _extract_chat_text(response)
 
 
 def _responses_stream_text(prompt: str, model: str, emit: Any, *, url: str) -> str:

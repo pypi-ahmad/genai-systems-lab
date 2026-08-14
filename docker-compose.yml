@@ -25,7 +25,7 @@ services:
   api:
     build: .
     image: genai-systems-lab:latest
-    ports: ["8000:8000"]
+    ports: ["8514:8000"]
     environment:
       APP_ENV: ${APP_ENV:-dev}
       GENAI_SYSTEMS_LAB_DATABASE_URL: postgresql+psycopg://genai:${POSTGRES_PASSWORD:-local-dev-only}@postgres:5432/genai_systems_lab

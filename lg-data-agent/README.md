@@ -36,7 +36,7 @@ The project uses a LangGraph state machine with separate planning, execution, in
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/data-analysis-agent/run \
+curl -X POST http://127.0.0.1:8514/data-analysis-agent/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Analyze sales trends --data data/sales.csv"}'
 ```

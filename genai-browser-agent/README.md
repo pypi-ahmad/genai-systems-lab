@@ -36,7 +36,7 @@ The implementation separates page observation, action planning, browser control,
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/browser-agent/run \
+curl -X POST http://127.0.0.1:8514/browser-agent/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Search for recent AI papers on arxiv"}'
 ```

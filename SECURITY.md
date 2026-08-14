@@ -25,7 +25,7 @@ through issue updates and release/change notes when fixes are available.
 
 ## BYOK handling
 
-Synchronous keys are request-scoped and never persisted. Queued-job keys are Fernet-encrypted using `GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY`, expire from Redis after one hour, and are deleted when consumed or cancelled. Never commit this key, provider keys, JWT secrets, or production database credentials.
+Synchronous keys are request-scoped and never persisted. Queued-job keys are Fernet-encrypted using `GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY`, expire from Redis after one hour, and are deleted when consumed or cancelled. Agnes keys follow the same BYOK flow; `AGNES_API_KEY` is not a runtime fallback and must never be exposed to the frontend. Never commit this key, provider keys, JWT secrets, or production database credentials.
 
 Gitleaks v3 scans repository content in CI and loads `.github/gitleaks.toml` through its supported `GITLEAKS_CONFIG` environment variable. Its only generated-graph exception is Graphify's exact `cache/stat-index.json` path, which contains repository file-content hashes rather than credentials; other graph artifacts remain subject to the default secret rules.
 

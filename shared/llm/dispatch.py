@@ -16,6 +16,10 @@ from .providers import (
     anthropic_generate_text,
     anthropic_generate_text_from_image,
     anthropic_stream_text,
+    agnes_generate_structured,
+    agnes_generate_text,
+    agnes_generate_text_from_image,
+    agnes_stream_text,
     local_hash_embeddings,
     ollama_embed_texts,
     ollama_generate_structured,
@@ -187,6 +191,8 @@ def generate_text(prompt: str, model: str, *, temperature: float | None = None) 
         result = anthropic_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
     elif provider == "xai":
         result = xai_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
+    elif provider == "agnes":
+        result = agnes_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
     else:
         result = ollama_generate_text(prompt=prompt, model=resolved_model, temperature=temperature)
     _elapsed = (time.perf_counter() - _start) * 1000
@@ -219,6 +225,8 @@ def generate_text_streaming(prompt: str, model: str) -> str:
         result = anthropic_stream_text(prompt, resolved_model, emit_token)
     elif provider == "xai":
         result = xai_stream_text(prompt, resolved_model, emit_token)
+    elif provider == "agnes":
+        result = agnes_stream_text(prompt, resolved_model, emit_token)
     else:
         result = ollama_stream_text(prompt, resolved_model, emit_token)
     elapsed = (time.perf_counter() - start) * 1000
@@ -245,6 +253,8 @@ def generate_structured(prompt: str, model: str, schema: dict[str, Any]) -> dict
         result = anthropic_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     elif provider == "xai":
         result = xai_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
+    elif provider == "agnes":
+        result = agnes_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     else:
         result = ollama_generate_structured(prompt=prompt, model=resolved_model, schema=schema)
     _elapsed = (time.perf_counter() - _start) * 1000
@@ -276,6 +286,8 @@ def generate_text_from_image(prompt: str, image: bytes, model: str) -> str:
         result = anthropic_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     elif provider == "xai":
         result = xai_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
+    elif provider == "agnes":
+        result = agnes_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     else:
         result = ollama_generate_text_from_image(prompt=prompt, image=image, model=resolved_model)
     _elapsed = (time.perf_counter() - _start) * 1000
@@ -305,7 +317,7 @@ def generate_embeddings(texts: list[str], *, model: str | None = None) -> list[l
         return [list(item.values or []) for item in response.embeddings]
     if provider == "openai":
         return openai_embed_texts(texts)
-    if provider in {"anthropic", "xai"}:
+    if provider in {"anthropic", "xai", "agnes"}:
         return local_hash_embeddings(texts)
     try:
         return ollama_embed_texts(texts, selected_model=resolved_model)

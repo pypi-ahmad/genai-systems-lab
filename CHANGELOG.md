@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Added Agnes AI `agnes-2.5-flash` through the OpenAI-compatible Chat Completions API, including streaming, structured JSON, image understanding, BYOK key handling, and zero-cost usage estimates.
+- Changed the local Next.js frontend port to `8513` and the host-facing FastAPI port to `8514`; Docker continues to use port `8000` inside the API container.
+
 All notable changes to this project will be documented in this file.
 
 This project follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/)
@@ -48,7 +53,7 @@ and aims to follow [Semantic Versioning](https://semver.org/).
 - Added queue/database environment templates and included Alembic assets in the production image.
 - Expanded CI from two hand-picked project suites to automatic all-project test discovery.
 - Added a live side-by-side model comparison workspace with latency, usage, and cost reporting.
-- Added provider-native final-writer streaming for both research flagships across Gemini, OpenAI, Anthropic, xAI, and Ollama; CrewAI remains explicitly step-only.
+- Added provider-native final-writer streaming for both research flagships across Gemini, OpenAI, Anthropic, xAI, Agnes AI, and Ollama; CrewAI remains explicitly step-only.
 
 ## [2026-06-13]
 

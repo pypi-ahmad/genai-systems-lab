@@ -1,7 +1,7 @@
 import { AUTH_SESSION_MARKER } from "@/lib/auth";
 import type { LLMProviderId } from "@/lib/apikey";
 
-const DEFAULT_API_BASE = "http://localhost:8000";
+const DEFAULT_API_BASE = "http://localhost:8514";
 const LOCAL_FALLBACK_API_BASE = "http://127.0.0.1:8001";
 const IS_PROD = process.env.NODE_ENV === "production";
 

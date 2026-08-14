@@ -35,7 +35,7 @@ The implementation is organized around CrewAI agents and tasks, with a thin orch
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/content-pipeline/run \
+curl -X POST http://127.0.0.1:8514/content-pipeline/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Guide to building retrieval-augmented generation systems"}'
 ```

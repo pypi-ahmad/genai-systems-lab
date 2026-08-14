@@ -36,7 +36,7 @@ The project separates document ingestion, vector search, answer generation, cita
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/document-intelligence/run \
+curl -X POST http://127.0.0.1:8514/document-intelligence/run \
   -H "Content-Type: application/json" \
   -d '{"input": "What risks are mentioned in the documents?"}'
 ```

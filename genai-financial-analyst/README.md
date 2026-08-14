@@ -36,7 +36,7 @@ The implementation keeps numeric computation, forecasting, interpretation, and r
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/financial-analyst-agent/run \
+curl -X POST http://127.0.0.1:8514/financial-analyst-agent/run \
   -H "Content-Type: application/json" \
   -d '{"input": "data/fintech_saas_financials.csv --forecast 3"}'
 ```

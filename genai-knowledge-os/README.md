@@ -36,7 +36,7 @@ The implementation separates ingestion, retrieval, summarization, insight genera
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/knowledge-os/run \
+curl -X POST http://127.0.0.1:8514/knowledge-os/run \
   -H "Content-Type: application/json" \
   -d '{"input": "Summarize my research on AI agents"}'
 ```

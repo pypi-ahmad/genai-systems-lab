@@ -36,7 +36,7 @@ The implementation is split into ingestion, embedding, retrieval, and answer gen
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/codebase-copilot/run \
+curl -X POST http://127.0.0.1:8514/codebase-copilot/run \
   -H "Content-Type: application/json" \
   -d '{"input": "./my-project\nHow does the authentication middleware work?"}'
 ```

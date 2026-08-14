@@ -43,6 +43,36 @@ def test_openai_effort_is_sent_in_responses_payload(monkeypatch) -> None:
     assert "temperature" not in captured["payload"]
 
 
+def test_agnes_chat_completions_text_structured_and_vision(monkeypatch) -> None:
+    requests: list[dict] = []
+
+    def fake_request_json(**kwargs):
+        requests.append(kwargs)
+        payload = kwargs["payload"]
+        if "response_format" in payload:
+            content = '{"answer":"ok"}'
+        else:
+            content = "ok"
+        return {"choices": [{"message": {"content": content}}], "usage": {"prompt_tokens": 2, "completion_tokens": 1}}
+
+    monkeypatch.setattr(providers, "_request_json", fake_request_json)
+    tokens = _bind_request()
+    try:
+        assert providers.agnes_generate_text("prompt", "agnes-2.5-flash") == "ok"
+        assert providers.agnes_generate_structured(
+            "prompt", "agnes-2.5-flash", {"type": "object", "properties": {"answer": {"type": "string"}}}
+        ) == {"answer": "ok"}
+        assert providers.agnes_generate_text_from_image("prompt", b"image", "agnes-2.5-flash") == "ok"
+    finally:
+        _reset_request(tokens)
+
+    assert len(requests) == 3
+    assert all(request["url"] == providers.AGNES_CHAT_URL for request in requests)
+    assert requests[0]["headers"]["Authorization"] == "Bearer provider-test-credential"
+    assert requests[1]["payload"]["response_format"]["type"] == "json_schema"
+    assert requests[2]["payload"]["messages"][0]["content"][1]["type"] == "image_url"
+
+
 def test_xai_text_structured_and_vision_use_xai_responses(monkeypatch) -> None:
     requests: list[dict] = []
 

@@ -36,7 +36,7 @@ The codebase separates extraction, retrieval, reasoning, scoring, and presentati
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/clinical-decision-support/run \
+curl -X POST http://127.0.0.1:8514/clinical-decision-support/run \
   -H "Content-Type: application/json" \
   -d '{"input": "45-year-old male presenting with chest pain and shortness of breath"}'
 ```

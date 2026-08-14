@@ -36,7 +36,7 @@ The codebase separates spec generation, validation, code generation, repair, and
 ### Shared API
 
 ```bash
-curl -X POST http://127.0.0.1:8000/generative-ui-builder/run \
+curl -X POST http://127.0.0.1:8514/generative-ui-builder/run \
   -H "Content-Type: application/json" \
   -d '{"input": "A dashboard with a sidebar, header, and data table"}'
 ```
