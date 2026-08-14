@@ -834,7 +834,7 @@ GitHub Actions (`.github/workflows/ci.yml`) runs on pushes to `main` and on pull
 | **backend-standalone-analyst** | Installs `langgraph-data-analyst/requirements.txt` in its own isolated environment and runs that standalone project suite separately to avoid dependency conflicts with the shared platform runtime |
 | **frontend** | `npm run lint`, `npm run test` (playground utility + API-key storage tests), `npm run build` (Next.js production build) |
 | **docker** | Builds the backend Docker image and runs a Trivy vulnerability scan (CRITICAL/HIGH, blocking) on the resulting image |
-| **security** | Blocking `pip-audit --strict` checks for the shared and standalone Python environments, Bandit static analysis, Gitleaks secret scanning with `.github/gitleaks.toml`, and `npm audit` for the portfolio |
+| **security** | Blocking `pip-audit --strict` checks for the shared and standalone Python environments, Bandit static analysis, Gitleaks v3 secret scanning with `.github/gitleaks.toml`, and `npm audit` for the portfolio |
 
 ```text
 push / PR → ┬─ backend-platform          ─── install root env → compile → tests → eval

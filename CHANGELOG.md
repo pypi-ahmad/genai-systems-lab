@@ -24,6 +24,7 @@ and aims to follow [Semantic Versioning](https://semver.org/).
 ### Fixed
 
 - Included the shared project catalog in the Docker image so the API can start successfully.
+- Wired the Gitleaks GitHub Action to its repository configuration through the supported environment variable, so Graphify content hashes are not misclassified as credentials.
 
 ## [1.1.0] - 2026-08-14
 
