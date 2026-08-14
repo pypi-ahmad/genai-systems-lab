@@ -241,14 +241,8 @@ jobs:
             lines.append(line)
           dst.write_text("\n".join(lines) + "\n", encoding="utf-8")
           PY
-          # GHSA-pjjw-68hj-v9mw currently comes via crewai->uv~=0.9.x.
-          # We cannot raise uv without breaking crewai's solver constraint,
-          # so ignore this one advisory until crewai relaxes the pin.
-          pip-audit --requirement requirements.audit.txt --strict --desc \
-            --ignore-vuln GHSA-pjjw-68hj-v9mw \
-            --ignore-vuln GHSA-4gg8-gxpx-9rph \
-            --ignore-vuln PYSEC-2026-3481 \
-            --ignore-vuln PYSEC-2026-3483
+          pip-audit --requirement requirements.audit.txt --strict --desc
+          pip-audit --requirement langgraph-data-analyst/requirements.txt --strict --desc
 
       - name: Bandit — Python static analysis
         run: bandit -r shared/ -ll -q

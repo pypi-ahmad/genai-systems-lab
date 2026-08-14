@@ -139,3 +139,10 @@ def test_dockerfile_runs_as_non_root(dockerfile_text: str) -> None:
     assert user_lines[-1].split()[1] == "app", (
         f"final USER must be 'app', got {user_lines[-1]!r}"
     )
+
+
+def test_dockerfile_copies_shared_project_catalog(dockerfile_text: str) -> None:
+    assert (
+        "portfolio/src/data/project-catalog.json "
+        "./portfolio/src/data/project-catalog.json"
+    ) in dockerfile_text
