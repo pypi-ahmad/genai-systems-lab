@@ -2,41 +2,77 @@
 
 ## Supported Versions
 
-Security fixes are applied to the default branch and recent actively maintained updates.
+| Version | Supported |
+|---|---|
+| 1.2.x (current) | ✅ Yes |
+| 1.1.x and earlier | ❌ No |
+
+Security fixes are applied to the current default branch and released as patch versions as severity warrants.
 
 ## Reporting a Vulnerability
 
-Please report potential vulnerabilities through GitHub Issues in this repository.
+Please report potential vulnerabilities through **GitHub Security Advisories**:
+
+> **<https://github.com/pypi-ahmad/genai-systems-lab/security/advisories/new>**
+
+Do **not** post vulnerability details, exploit code, screenshots of sensitive output, or credentials in a public GitHub Issue or discussion.
 
 When reporting, include:
 
-- A clear description of the issue
-- Impact assessment
-- Reproduction steps or proof of concept
-- Suggested remediation, if available
+- A clear description of the issue and its impact.
+- The affected version, component, or endpoint.
+- Reproduction steps or a proof of concept using non-sensitive dummy data.
+- Relevant logs with secrets and personal information removed.
+- Any suggested remediation or disclosure constraints.
 
-Avoid posting exploit details that could put users at risk. Maintainers may request
-additional details privately through GitHub as needed.
+Reports about upstream provider services (Google, OpenAI, Anthropic, xAI, Agnes AI) should go to that provider unless the issue is caused by this repository's integration.
 
 ## Response Process
 
-Maintainers will triage reports, assess severity, and communicate remediation status
-through issue updates and release/change notes when fixes are available.
+The maintainer will acknowledge the report as capacity allows, validate scope and severity, develop a fix on a private branch, and coordinate disclosure timing. Confirmed issues are disclosed through release notes, `CHANGELOG.md`, or a GitHub security advisory once a patch is ready. No fixed response or remediation deadline is promised. There is no paid bug bounty.
 
-## BYOK handling
+## BYOK Handling
 
-Synchronous keys are request-scoped and never persisted. Queued-job keys are Fernet-encrypted using `GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY`, expire from Redis after one hour, and are deleted when consumed or cancelled. Agnes keys follow the same BYOK flow; `AGNES_API_KEY` is not a runtime fallback and must never be exposed to the frontend. Never commit this key, provider keys, JWT secrets, or production database credentials.
+GenAI Systems Lab follows a strict **Bring Your Own Key (BYOK)** model:
 
-Gitleaks v3 scans repository content in CI and loads `.github/gitleaks.toml` through its supported `GITLEAKS_CONFIG` environment variable. Its only generated-graph exception is Graphify's exact `cache/stat-index.json` path, which contains repository file-content hashes rather than credentials; other graph artifacts remain subject to the default secret rules.
+- **Synchronous keys** are request-scoped via `BYOKMiddleware` and are never written to disk or any database row.
+- **Queued-job keys** are Fernet-encrypted using `GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY`, stored in Redis for at most one hour, and deleted when a worker consumes or cancels the job.
+- `AGNES_API_KEY` is not a runtime fallback and must never be exposed to the frontend.
+- Never commit API keys, JWT secrets (`GENAI_SYSTEMS_LAB_JWT_SECRET`), Fernet encryption keys, or production database credentials to version control.
 
-Python dependency audits are blocking and cover both the shared platform and the standalone data analyst. The production image installs only the shared runtime and removes build-only pip/setuptools tooling; optional CrewAI and browser runtimes must be installed explicitly for their corresponding local projects. CI does not suppress Python or container advisories.
+Gitleaks v3 scans repository content in CI and loads `.github/gitleaks.toml` for project-specific exceptions (only the Graphify `cache/stat-index.json` path is excepted — it contains file-content hashes, not credentials).
 
-Every queued-job route requires authentication. Job creation records the authenticated owner, and status/cancellation queries match both the random job UUID and that owner. Cross-user lookups return the same `404` as missing jobs. Provider credentials are required only when creating work, not when reading or cancelling owned jobs.
+Python dependency audits are blocking in CI and cover both the shared platform and the standalone data analyst. The production image installs only the shared runtime and removes build-only tooling; optional `crew` and `browser` extras are not included by default.
 
-## Generated-code execution
+## Authentication Controls
 
-`lg-debugging-agent` executes generated Python and is therefore a trusted-local experiment, not a sandbox. The shared runner, API, evaluation, streaming, and queued-job surfaces exclude it by default. It can only be enabled when `APP_ENV` is not `prod` and `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS=true`; never enable it for untrusted users.
+- **JWT**: PyJWT-issued HS256 tokens with an explicit `algorithms=["HS256"]` decode allowlist (blocks `alg: none` and algorithm confusion attacks). 7-day TTL. `GENAI_SYSTEMS_LAB_JWT_SECRET` is required in production and must be at least 16 characters.
+- **Browser sessions**: HttpOnly cookie set by `/auth/signup` and `/auth/login` so raw JWTs are never stored in browser storage.
+- **Password hashing**: PBKDF2-HMAC-SHA256 with 310,000 iterations and a 16-byte random salt. Verification uses `hmac.compare_digest()`.
+- **Query-string JWTs**: Not accepted on any route, including the SSE stream.
 
-## Model-generated SQL
+## Generated Code Execution
 
-NL2SQL output is untrusted. Before execution, DuckDB parses it into an AST that is checked with a deny-by-default policy: one `SELECT`, only the `customers` and `orders` demo tables, and only approved expressions and functions. The executor repeats validation at the sink, caps returned rows, disables external file/network access, and disables extension auto-install and autoload.
+`lg-debugging-agent` executes Python code generated by a language model. It is excluded from all shared execution surfaces by default and can only be enabled when `APP_ENV` is not `prod` and `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS=true`. Never enable it for untrusted users.
+
+## Model-Generated SQL
+
+NL2SQL output is untrusted. Before execution, DuckDB parses the SQL into an AST checked by a deny-by-default policy: one `SELECT` only, only the `customers` and `orders` demo tables, only approved expressions and functions. The executor repeats validation at the sink, caps returned rows, and disables external file/network access and extension auto-install.
+
+## Origin and Input Controls
+
+- **CORS**: Defaults to explicit local frontend origins instead of `*`. Set `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` for deployed frontends.
+- **Rate limiting**: Applied to signup/login and expensive endpoints (`/eval/*`, `/stream/*`, `/explain/*`).
+- **Input validation**: `InputValidationMiddleware` rejects empty inputs, inputs over 10,000 characters, and payloads matching XSS, SQL injection, JS protocol, and null-byte patterns before any route handler runs.
+
+## Data Responsibility
+
+GenAI Systems Lab runs entirely on your machine. The maintainer has no access to your data, your API keys, your credentials, or your run history. You are fully responsible for any data you process with this software and for compliance with applicable regulations. See [DISCLAIMER.md](DISCLAIMER.md) for the full statement.
+
+## Research and Disclosure Expectations
+
+- Test only systems and accounts you own or are authorized to assess.
+- Minimize access to data and stop once the issue is demonstrated.
+- Do not disrupt services, retain private data, or attempt social engineering.
+- Allow time to validate and remediate before public disclosure.
+- Coordinate publication timing and credit with the maintainer.
