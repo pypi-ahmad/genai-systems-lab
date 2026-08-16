@@ -19,7 +19,7 @@
 [![SQLite](https://img.shields.io/badge/SQLite-003B57.svg?logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![Docker](https://img.shields.io/badge/Docker-2496ed.svg?logo=docker&logoColor=white)](https://www.docker.com/)
 
-[Overview](#overview) · [Features](#core-features) · [Architecture](#architecture) · [Projects](#project-catalog) · [Setup](#setup-and-installation) · [Usage](#usage) · [API](#api-reference) · [Limitations](#limitations-and-future-improvements)
+[Overview](#overview) · [Features](#core-features) · [Architecture](#architecture) · [Projects](#project-catalog) · [Setup](#setup-and-installation) · [Usage](#usage) · [API](#api-reference) · [Community](#community) · [Index](#document-index)
 
 </div>
 
@@ -920,6 +920,44 @@ If this evolves toward a reusable platform, the next priorities would be: Alembi
 
 ---
 
+## Community
+
+GenAI Systems Lab is free, open-source, and community-driven. Cloning, running, testing, and contributing are all welcome.
+
+> [!NOTE]
+> **No donations needed.** This project is free and will stay free. There is no financial support, sponsorship, bounty, or paid-support program — and none is wanted. The best way to support the project is to file a bug report, suggest a feature, or open a pull request.
+
+> [!IMPORTANT]
+> **Self-hosted, your keys, your data.** Everything runs on your own machine using your own API keys. The maintainer has no access to your prompts, outputs, session history, or credentials. You are fully responsible for any data you process. See [DISCLAIMER.md](DISCLAIMER.md) for the full statement.
+
+| Contribution type | Where |
+|---|---|
+| Bug report | [Open a bug report](.github/ISSUE_TEMPLATE/bug_report.md) |
+| Feature suggestion | [Open a feature request](.github/ISSUE_TEMPLATE/feature_request.md) |
+| Pull request | Follow [CONTRIBUTING.md](CONTRIBUTING.md) |
+| Security vulnerability | [SECURITY.md](SECURITY.md) — not a public issue |
+| Usage question | [Open an issue](https://github.com/pypi-ahmad/genai-systems-lab/issues) with the `question` label |
+
+---
+
+## Document Index
+
+| Document | What it covers |
+|---|---|
+| [README.md](README.md) | This file — platform overview, features, API reference, env vars |
+| [portfolio/USAGE.md](portfolio/USAGE.md) | Step-by-step frontend usage guide |
+| [ARCHITECTURE.md](ARCHITECTURE.md) | Platform design, module layout, philosophy |
+| [docs/comparison.md](docs/comparison.md) | LangGraph vs. CrewAI framework comparison |
+| [portfolio/README.md](portfolio/README.md) | Frontend-specific documentation |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | Dev setup, test commands, PR rules |
+| [SECURITY.md](SECURITY.md) | Security model, BYOK handling, vulnerability reporting |
+| [SUPPORT.md](SUPPORT.md) | How to get help; what's out of scope |
+| [DISCLAIMER.md](DISCLAIMER.md) | Data responsibility, no-warranty, no-financial-support |
+| [CHANGELOG.md](CHANGELOG.md) | Release history |
+| [LICENSE](LICENSE) | MIT license text |
+
+---
+
 ## Further Reading
 
 - [portfolio/USAGE.md](portfolio/USAGE.md) — Step-by-step usage guide for all frontend features: playground, metrics, sharing, sessions, auth, and accessibility.
@@ -929,6 +967,6 @@ If this evolves toward a reusable platform, the next priorities would be: Alembi
 
 ---
 
-Suggestions and bug reports are welcome — feel free to [open an issue](https://github.com/pypi-ahmad/genai-systems-lab/issues).
+<p align="center">Made with ❤️ by Ahmad Mujtaba</p>
 
 <p align="center">Made with ❤️ by Ahmad Mujtaba</p>
