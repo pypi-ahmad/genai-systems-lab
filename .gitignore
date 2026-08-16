@@ -14,3 +14,9 @@ portfolio/node_modules/
 .mypy_cache/
 # Local IDE-agent state (Claude Code, etc.) — never commit per-user permissions.
 .claude/
+
+# Code intelligence tool artifacts
+.codebase-memory/
+.codegraph/
+.code-review-graph/
+graphify-out/
