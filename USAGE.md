@@ -40,12 +40,16 @@ How-to guide for launching the platform, using the HTTP API, and operating key f
 launch.cmd
 ```
 
-Or double-click `launch.cmd` in Explorer. The launcher:
-- Installs Docker Desktop and Node.js LTS via winget if missing
+Or double-click `launch.cmd` in Explorer. The launcher (default mode — no Docker required):
+- Installs `uv` if missing (via pip or winget)
+- Creates `.venv` in the project root with `uv venv` and installs all deps via `uv sync --all-extras`
 - Generates a persistent Fernet encryption key in `.data/launcher.env`
-- Starts PostgreSQL + Redis + FastAPI (port 8514) + RQ worker
-- Installs frontend deps and starts Next.js (port 8513)
-- Waits for health checks and opens `http://localhost:8513`
+- Copies `.env.example` → `.env` if not present
+- Starts FastAPI on port 8514 and waits for the health check
+- Installs Node deps and starts Next.js on port 8513
+- Opens `http://localhost:8513`
+
+Pass `--docker` to use Docker Compose instead (`launch.cmd --docker`), which also auto-installs Docker Desktop and Node.js via winget if missing.
 
 ### Linux (one-click)
 
@@ -369,16 +373,23 @@ curl -X POST -b cookies.txt http://localhost:8514/session/42/clear
 
 ## Run History
 
+History uses **cursor-based pagination** via `limit` and `before_id` — not page numbers.
+
 ```bash
-# Paginated history (default page_size=50)
-curl -b cookies.txt "http://localhost:8514/history?page=1&page_size=20"
+# First page (most recent 20 runs)
+curl -b cookies.txt "http://localhost:8514/history?limit=20"
+
+# Next page — pass the smallest id from the previous response as before_id
+curl -b cookies.txt "http://localhost:8514/history?limit=20&before_id=85"
 
 # Filter by project
-curl -b cookies.txt "http://localhost:8514/history?project=genai-research-system"
+curl -b cookies.txt "http://localhost:8514/history?limit=50&project=genai-research-system"
 
 # Single run
 curl -b cookies.txt http://localhost:8514/run/101
 ```
+
+Response shape: `{"count": <int>, "runs": [...]}`
 
 ---
 
@@ -417,7 +428,7 @@ curl -X POST \
   -d '{}'
 ```
 
-Response includes `steps_taken`, `key_decisions`, `final_reasoning`, and `final_outcome`. The model is prohibited from inventing reasoning not present in the stored artifacts. Rate-limited to 5 req/min.
+Response includes `steps_taken`, `key_decisions`, `final_reasoning`, and `final_outcome`. The model is prohibited from inventing reasoning not present in the stored artifacts. Rate-limited to 20 req/min.
 
 Override the explanation model with `X-LLM-Model`:
 
@@ -441,7 +452,7 @@ curl -X POST \
   http://localhost:8514/eval/genai-research-system
 ```
 
-Returns per-case pass/fail, overall accuracy, and latency percentiles (mean, p50, p95, p99). Rate-limited to 5 req/min.
+Returns per-case pass/fail, overall accuracy, and latency percentiles (mean, p50, p95, p99). Rate-limited to 6 requests per 5 minutes.
 
 > [!NOTE]
 > Provider-backed evaluations require the corresponding API key. Ollama evaluations run with no key.
@@ -454,9 +465,9 @@ Returns per-case pass/fail, overall accuracy, and latency percentiles (mean, p50
 # Aggregate (in-memory + persisted; survives process restarts)
 curl http://localhost:8514/metrics
 
-# Time-series (window: hour | day | week)
-curl "http://localhost:8514/metrics/time?window=day"
-curl "http://localhost:8514/metrics/time?window=hour&project=genai-research-system"
+# Time-series (range: hour | day | week)
+curl "http://localhost:8514/metrics/time?range=day"
+curl "http://localhost:8514/metrics/time?range=hour&project=genai-research-system"
 ```
 
 ---
@@ -556,8 +567,8 @@ docker compose up --build
 ```
 
 Services:
-- `postgres` — PostgreSQL 16
-- `redis` — Redis 7
+- `postgres` — PostgreSQL 17 (`postgres:17-alpine`)
+- `redis` — Redis 8 (`redis:8-alpine`)
 - `api` — FastAPI on port 8514 (applies migrations on startup)
 - `worker` — RQ worker for queued jobs
 
@@ -587,7 +598,7 @@ Or deploy `portfolio/` as a Vercel project with `NEXT_PUBLIC_API_BASE_URL` set.
 | `422 Unprocessable Entity` | Invalid request body | Check field names; `input` is the main field; `session_id` is optional int |
 | `404 Not Found` on `/project/run` | Project name wrong or not discovered | Run `GET /projects`; ensure `app/main.py` exists in directory |
 | `503 Service Unavailable` | Project unavailable | Check `GENAI_SYSTEMS_LAB_ENABLE_UNSAFE_AGENTS`; confirm project in `/projects` |
-| `429 Too Many Requests` | Rate limit exceeded | Wait and retry; eval/explain/stream = 5/min; login = 10/min |
+| `429 Too Many Requests` | Rate limit exceeded | Wait and retry; login = 10/min; signup = 5/min; stream = 30/min; explain = 20/min; eval = 6 per 5 min |
 | SSE stream disconnects immediately | Missing or invalid API key | Confirm `X-API-Key` header is set and valid for the provider |
 | Job stays `queued` forever | Worker not running | Start a worker: `uv run rq worker --url $GENAI_SYSTEMS_LAB_REDIS_URL` |
 | Job `failed` with encryption error | Missing Fernet key | Set `GENAI_SYSTEMS_LAB_BYOK_ENCRYPTION_KEY`; generate with `python -c "from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())"` |

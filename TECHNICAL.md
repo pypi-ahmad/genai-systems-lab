@@ -35,7 +35,7 @@ The platform is a single FastAPI process that auto-discovers 20 AI project modul
 
 | Path | Responsibility |
 |---|---|
-| `shared/api/app.py` | FastAPI factory, all 26 routes, full middleware stack |
+| `shared/api/app.py` | FastAPI factory, all 25 routes, full middleware stack |
 | `shared/api/models.py` | SQLAlchemy ORM: `User`, `RunSession`, `Run`, `OperationalMetric`, `Job` |
 | `shared/api/auth.py` | JWT lifecycle, PBKDF2 hashing, cookie management |
 | `shared/api/runner.py` | Project auto-discovery, 29-alias resolution, dynamic import, `run()` dispatch |
@@ -102,16 +102,16 @@ Backend default: `http://localhost:8514`. All routes return JSON. OpenAPI docs a
 | `GET` | `/jobs/{job_id}` | JWT/cookie | Job status + output; cross-user UUIDs return 404 |
 | `DELETE` | `/jobs/{job_id}` | JWT/cookie | Cancel queued/running job; returns 409 if terminal |
 | `GET` | `/metrics` | — | Aggregate request count, latency, success rate (in-memory + persisted) |
-| `GET` | `/metrics/time` | — | Time-series bucketed metrics (`?window=hour\|day\|week&project=...`) |
-| `GET` | `/history` | JWT/cookie | Paginated run history (`?page=1&page_size=50&project=...`) |
+| `GET` | `/metrics/time` | — | Time-series bucketed metrics (`?range=hour\|day\|week&project=...`) |
+| `GET` | `/history` | JWT/cookie | Cursor-paginated run history (`?limit=50&before_id=<int>&project=...`) |
 | `GET` | `/run/{run_id}` | JWT/cookie | Single saved run detail |
 | `GET` | `/session/{session_id}` | JWT/cookie | Session memory state (last 5 entries) |
 | `POST` | `/session/{session_id}/clear` | JWT/cookie | Wipe session memory |
-| `POST` | `/explain/{run_id}` | JWT/cookie + `X-API-Key` | Structured LLM explanation from stored artifacts; rate-limited 5/min |
+| `POST` | `/explain/{run_id}` | JWT/cookie + `X-API-Key` | Structured LLM explanation from stored artifacts; rate-limited 20/min |
 | `POST` | `/run/{run_id}/share` | JWT/cookie | Create public share link; TTL 7 days default, max 30 days |
 | `DELETE` | `/run/{run_id}/share` | JWT/cookie | Revoke public share |
 | `GET` | `/shared/{share_token}` | — | View public shared run (no auth) |
-| `POST` | `/eval/{project}` | `X-API-Key` | Run benchmark suite; rate-limited 5/min |
+| `POST` | `/eval/{project}` | `X-API-Key` | Run benchmark suite; rate-limited 6 requests per 5 minutes |
 
 > [!NOTE]
 > `Authorization: Bearer <token>` and the HttpOnly `genai_session` cookie are both accepted on all authenticated routes. Query-string JWTs (`?token=...`) are **never** accepted on any route, including the SSE stream.
@@ -156,21 +156,21 @@ All schemas are defined in `shared/schemas/common.py`.
 
 | Schema | Fields |
 |---|---|
-| `UsageResponse` | `input_tokens: int`, `output_tokens: int`, `total_tokens: int`, `estimated_cost_usd: float`, `models_used: list[str]`, `cost_breakdown: list[UsageCostBreakdownResponse]` |
-| `UsageCostBreakdownResponse` | `model: str`, `input_tokens: int`, `output_tokens: int`, `cost_usd: float` |
+| `UsageResponse` | `input_tokens: int`, `output_tokens: int`, `total_tokens: int`, `estimated_cost_usd: float \| None`, `models_used: list[str]`, `cost_breakdown: list[UsageCostBreakdownResponse]` |
+| `UsageCostBreakdownResponse` | `model: str`, `pricing_tier: "standard"\|"long_context"`, `input_tokens: int`, `cached_input_tokens: int`, `output_tokens: int`, `input_rate_per_million_usd: float`, `cached_input_rate_per_million_usd: float \| None`, `output_rate_per_million_usd: float`, `input_cost_usd: float`, `output_cost_usd: float`, `estimated_cost_usd: float` |
 
 ### History
 
 | Schema | Fields |
 |---|---|
-| `HistoryRunResponse` | `id: int`, `project: str`, `input: str`, `output: str`, `latency: float`, `confidence: float`, `success: bool`, `timestamp: str`, `session_id: int \| None`, `memory: list`, `timeline: list`, `usage: UsageResponse \| None`, `is_public: bool`, `share_token: str \| None` |
-| `HistoryResponse` | `runs: list[HistoryRunResponse]`, `total: int`, `page: int`, `page_size: int` |
+| `HistoryRunResponse` | `id: int`, `user_id: int`, `session_id: int \| None`, `project: str`, `input: str`, `output: str`, `memory: list[RunMemoryEntryResponse]`, `timeline: list[RunTimelineEntryResponse]`, `latency: float`, `confidence: float`, `success: bool`, `timestamp: str \| None`, `share_token: str \| None`, `is_public: bool`, `expires_at: str \| None`, `prompt_tokens: int \| None`, `completion_tokens: int \| None`, `total_tokens: int \| None`, `cost_usd: float \| None`, `model_used: str \| None` |
+| `HistoryResponse` | `count: int`, `runs: list[HistoryRunResponse]` |
 
 ### Session
 
 | Schema | Fields |
 |---|---|
-| `SessionResponse` | `session_id: int`, `memory: list[str]`, `entry_count: int` |
+| `SessionResponse` | `id: int`, `user_id: int`, `memory: list[str]`, `entry_count: int`, `updated_at: str \| None` |
 
 ### Jobs
 
@@ -182,33 +182,33 @@ All schemas are defined in `shared/schemas/common.py`.
 
 | Schema | Fields |
 |---|---|
-| `ShareRunRequest` | `expires_in_hours: int = 168` (default 7 days, max 720) |
-| `ShareRunResponse` | `share_token: str`, `is_public: bool`, `expires_at: str` |
+| `ShareRunRequest` | `expires_in_hours: int \| None = None` (max 720 hours / 30 days; omit for no expiry) |
+| `ShareRunResponse` | `share_token: str`, `is_public: bool`, `expires_at: str \| None` |
 | `SharedRunResponse` | Full run data without `user_id`; publicly accessible |
 
 ### Explain
 
 | Schema | Fields |
 |---|---|
-| `RunExplanationResponse` | `run_id: int`, `steps_taken: list[RunExplanationStepResponse]`, `key_decisions: list[RunExplanationDecisionResponse]`, `final_reasoning: str`, `final_outcome: str` |
-| `RunExplanationStepResponse` | `step: str`, `action: str`, `result: str` |
-| `RunExplanationDecisionResponse` | `decision: str`, `rationale: str` |
+| `RunExplanationResponse` | `steps_taken: list[RunExplanationStepResponse]`, `key_decisions: list[RunExplanationDecisionResponse]`, `final_reasoning: str`, `final_outcome: str` |
+| `RunExplanationStepResponse` | `step: str`, `what_happened: str`, `why_it_mattered: str` |
+| `RunExplanationDecisionResponse` | `decision: str`, `reason: str` |
 
 ### Metrics
 
 | Schema | Fields |
 |---|---|
-| `MetricsResponse` | `total_requests: int`, `total_success: int`, `avg_latency_ms: float`, `projects: dict[str, ProjectMetricsResponse]` |
-| `ProjectMetricsResponse` | `requests: int`, `success: int`, `avg_latency_ms: float` |
-| `TimeSeriesMetricPointResponse` | `timestamp: str`, `project: str`, `avg_latency_ms: float`, `confidence: float`, `success_rate: float`, `request_count: int` |
+| `MetricsResponse` | `total_requests: int`, `avg_latency: float`, `success_rate: float`, `projects: list[ProjectMetricsResponse]` |
+| `ProjectMetricsResponse` | `name: str`, `latency: float`, `success_rate: float` |
+| `TimeSeriesMetricPointResponse` | `timestamp: str`, `latency: float`, `confidence: float`, `success: bool` |
 
 ### LLM Catalog
 
 | Schema | Fields |
 |---|---|
-| `LLMCatalogResponse` | `providers: list[LLMProviderResponse]` |
-| `LLMProviderResponse` | `id: str`, `name: str`, `available: bool`, `models: list[LLMModelOptionResponse]` |
-| `LLMModelOptionResponse` | `id: str`, `name: str`, `input_price_per_1m: float`, `output_price_per_1m: float`, `effort_options: list[str]` |
+| `LLMCatalogResponse` | `default_model: str`, `providers: list[LLMProviderResponse]` |
+| `LLMProviderResponse` | `id: str`, `label: str`, `requires_api_key: bool`, `api_key_label: str`, `api_key_help_url: str \| None`, `api_key_placeholder: str`, `available: bool`, `unavailable_reason: str \| None`, `models: list[LLMModelOptionResponse]` |
+| `LLMModelOptionResponse` | `id: str`, `label: str`, `provider: Literal[gemini\|openai\|anthropic\|xai\|agnes\|ollama]`, `effort_options: list[str]`, `pricing: dict[str, float\|int\|str] \| None` |
 
 ---
 
@@ -341,10 +341,10 @@ Applied outermost → innermost in `shared/api/app.py`:
 |---|---|
 | `GZipMiddleware` | Compress responses ≥ 1 KB; skips SSE streams |
 | `CORSMiddleware` | Explicit `GENAI_SYSTEMS_LAB_ALLOWED_ORIGINS` allowlist; `allow_credentials=True` |
-| `RequestRateLimitMiddleware` | Per-IP sliding window: 10 req/min for login/signup, 5 req/min for eval/explain/stream |
+| `RequestRateLimitMiddleware` | Per-IP sliding window: signup 5/60s, login 10/60s, eval 6/300s, stream 30/60s, explain 20/60s, default 120/60s |
 | `BYOKMiddleware` | Binds `X-API-Key`, `X-LLM-Provider`, `X-LLM-Model`, `X-LLM-Effort` headers to `ContextVar` for request duration |
 | `InputValidationMiddleware` | POST/PUT/PATCH: rejects empty `input`, inputs > 10,000 chars, and payloads matching XSS/SQL-injection/JS-protocol/null-byte patterns; HTML-escapes remaining strings |
-| `SecurityHeadersMiddleware` | Adds `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `X-XSS-Protection` |
+| `SecurityHeadersMiddleware` | Adds `X-Content-Type-Options`, `X-Frame-Options`, `Referrer-Policy`, `Permissions-Policy`, `Cross-Origin-Opener-Policy`, `Cross-Origin-Resource-Policy` |
 | `RequestLoggingMiddleware` | Assigns `request_id`; structured request/response logs with project name |
 | `RequestTimingMiddleware` | Adds `X-Process-Time-Ms` response header; opens OTel span when enabled |
 | `ErrorHandlingMiddleware` | Catches unhandled exceptions; returns scrubbed JSON `{"detail": "..."}` — internal stack traces never reach the client |
@@ -496,7 +496,7 @@ Requires Redis (`GENAI_SYSTEMS_LAB_REDIS_URL`) and `GENAI_SYSTEMS_LAB_BYOK_ENCRY
 
 ## Evaluation
 
-`POST /eval/{project}` — rate-limited to 5 req/min.
+`POST /eval/{project}` — rate-limited to 6 requests per 5 minutes.
 
 | Field | Description |
 |---|---|
