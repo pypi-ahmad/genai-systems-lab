@@ -945,6 +945,8 @@ GenAI Systems Lab is free, open-source, and community-driven. Cloning, running, 
 | Document | What it covers |
 |---|---|
 | [README.md](README.md) | This file — platform overview, features, API reference, env vars |
+| [TECHNICAL.md](TECHNICAL.md) | Full API reference: all routes, schemas, env vars, data models, middleware |
+| [USAGE.md](USAGE.md) | HTTP API how-to guide: auth, running projects, streaming, jobs, sessions |
 | [portfolio/USAGE.md](portfolio/USAGE.md) | Step-by-step frontend usage guide |
 | [ARCHITECTURE.md](ARCHITECTURE.md) | Platform design, module layout, philosophy |
 | [docs/comparison.md](docs/comparison.md) | LangGraph vs. CrewAI framework comparison |
@@ -966,7 +968,5 @@ GenAI Systems Lab is free, open-source, and community-driven. Cloning, running, 
 - [portfolio/README.md](portfolio/README.md) — Frontend-specific documentation.
 
 ---
-
-<p align="center">Made with ❤️ by Ahmad Mujtaba</p>
 
 <p align="center">Made with ❤️ by Ahmad Mujtaba</p>
