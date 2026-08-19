@@ -4,7 +4,20 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from packaging.version import Version
+
 REPO_ROOT = Path(__file__).resolve().parent.parent
+
+# Known-patched floors for direct dependencies that previously shipped with
+# disclosed vulnerabilities. These are *minimum* versions, not pins: any
+# resolved version at or above the floor keeps the vulnerable release out of
+# the dependency tree, so routine upgrades (e.g. via Dependabot) must keep
+# passing these checks rather than requiring an exact-match bump every time.
+STARLETTE_PATCHED_FLOOR = Version("1.3.1")
+PYJWT_PATCHED_FLOOR = Version("2.13.0")
+PYTHON_DOTENV_PATCHED_FLOOR = Version("1.2.2")
+LANGCHAIN_PATCHED_FLOOR = Version("1.3.14")
+LANGCHAIN_CORE_PATCHED_FLOOR = Version("1.5.0")
 
 
 def _active_requirements(path: Path) -> set[str]:
@@ -15,12 +28,29 @@ def _active_requirements(path: Path) -> set[str]:
     }
 
 
+def _resolved_version(requirements: set[str], package: str) -> Version:
+    """Return the pinned ``==`` version for ``package`` in ``requirements``.
+
+    Raises ``AssertionError`` (via the final call) if the package is not
+    pinned with ``==``, so a dependency that becomes unpinned or is removed
+    fails loudly instead of silently skipping the security check.
+    """
+    prefix = f"{package.lower()}=="
+    for line in requirements:
+        if line.startswith(prefix):
+            return Version(line[len(prefix) :])
+    raise AssertionError(f"{package!r} is not pinned with '==' in requirements")
+
+
 def test_production_requirements_use_patched_direct_dependencies() -> None:
     requirements = _active_requirements(REPO_ROOT / "requirements.txt")
 
-    assert "starlette==1.3.1" in requirements
-    assert "pyjwt==2.13.0" in requirements
-    assert "python-dotenv==1.2.2" in requirements
+    assert _resolved_version(requirements, "starlette") >= STARLETTE_PATCHED_FLOOR
+    assert _resolved_version(requirements, "pyjwt") >= PYJWT_PATCHED_FLOOR
+    assert (
+        _resolved_version(requirements, "python-dotenv")
+        >= PYTHON_DOTENV_PATCHED_FLOOR
+    )
     assert not any(line.startswith("crewai") for line in requirements)
 
 
@@ -29,9 +59,12 @@ def test_standalone_api_uses_patched_starlette() -> None:
         REPO_ROOT / "langgraph-data-analyst" / "requirements.txt"
     )
 
-    assert "starlette==1.3.1" in requirements
-    assert "langchain==1.3.14" in requirements
-    assert "langchain-core==1.5.0" in requirements
+    assert _resolved_version(requirements, "starlette") >= STARLETTE_PATCHED_FLOOR
+    assert _resolved_version(requirements, "langchain") >= LANGCHAIN_PATCHED_FLOOR
+    assert (
+        _resolved_version(requirements, "langchain-core")
+        >= LANGCHAIN_CORE_PATCHED_FLOOR
+    )
 
 
 def test_security_scans_do_not_suppress_dependency_advisories() -> None:
