@@ -20,7 +20,7 @@ uvicorn==0.42.0
 # OpenAI/Anthropic/Ollama HTTP traffic reuses a keepalive pool instead of
 # re-handshaking TLS on every request (P-4 in the audit).
 httpx==0.28.1
-langfuse>=2.0.0
+langfuse>=4.14.4
 # PyJWT replaces the hand-rolled HS256 encode/decode in shared/api/auth.py
 # so token validation goes through a maintained, battle-tested library with
 # explicit algorithm allowlisting and required-claim enforcement (audit
