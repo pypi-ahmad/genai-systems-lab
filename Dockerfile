@@ -20,8 +20,11 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONPATH=/app \
     PORT=8000
 
-# Install a tiny curl purely for the HEALTHCHECK; drop apt caches afterwards.
+# Pull in security patches for the base image's own OS packages (e.g.
+# util-linux/bsdutils CVEs), then install a tiny curl purely for the
+# HEALTHCHECK; drop apt caches afterwards.
 RUN apt-get update \
+    && apt-get upgrade -y \
     && apt-get install -y --no-install-recommends curl \
     && rm -rf /var/lib/apt/lists/* \
     && useradd --system --uid 10001 --home-dir /app --shell /usr/sbin/nologin app \
