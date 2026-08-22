@@ -1,21 +1,21 @@
-fastapi==0.135.2
-starlette==1.3.1
+fastapi==0.141.1
+starlette==1.6.0
 google-genai==1.69.0
-langgraph==1.1.3
+langgraph==1.2.11
 # playwright is optional: only required by genai-browser-agent.  The runner
 # loader (``shared/api/runner.py``) returns a friendly ProjectUnavailableError
 # when the module is missing, so omitting it keeps the default image slim.
 # Install via ``uv sync --extra browser`` to enable.
-python-dotenv==1.2.2
-pydantic==2.11.10
+python-dotenv==1.2.3
+pydantic==2.13.4
 # CrewAI is optional because its dependency tree is not needed by the shared
 # API image. Install it with ``uv sync --extra crew`` for the crew-* projects.
-duckdb==1.5.1
-sqlalchemy==2.0.48
-pandas==3.0.1
+duckdb==1.5.5
+sqlalchemy==2.0.52
+pandas==3.0.5
 rich==14.3.3
-numpy==2.3.3
-uvicorn==0.42.0
+numpy==2.5.2
+uvicorn==0.52.4
 # httpx replaces urllib-based provider calls in shared/llm/providers.py so
 # OpenAI/Anthropic/Ollama HTTP traffic reuses a keepalive pool instead of
 # re-handshaking TLS on every request (P-4 in the audit).
@@ -26,8 +26,8 @@ langfuse>=2.0.0
 # explicit algorithm allowlisting and required-claim enforcement (audit
 # item: custom-JWT replacement).
 PyJWT==2.13.0
-alembic==1.18.5
+alembic==1.19.1
 cryptography==50.0.0
 psycopg[binary]==3.3.4
 redis==8.1.0
-rq==2.10.0
+rq==2.11.0
